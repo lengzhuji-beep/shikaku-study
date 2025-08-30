@@ -172,7 +172,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="quizData_300.js"></script>
 </head>
 <body>
   <div class="container">
@@ -376,17 +375,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <button onclick="confirmQuit(true)">はい</button>
     <button onclick="confirmQuit(false)">いいえ</button>
   </div>
-  
+  <script src="quizData_300.js"></script>
   <script>
     const quizData = {
       vocabulary: {
-        300: [
-          { q: "I ____ a book.", choices: ["reads", "read", "reading", "to read"], answer: "read", explanation: "主語が'I'の場合、動詞の基本形を使います。" },
-          { q: "She ____ happy.", choices: ["is", "are", "am", "be"], answer: "is", explanation: "主語が'She'の場合、be動詞は'is'を使います。" },
-          { q: "They ____ soccer.", choices: ["play", "plays", "playing", "played"], answer: "play", explanation: "主語が'They'の場合、動詞の基本形を使います。" },
-          { q: "This is my ____.", choices: ["pen", "pens", "pencil", "eraser"], answer: "pen", explanation: "'This is my...'の後には単数形の名詞が来ます。" },
-          { q: "We ____ to school.", choices: ["go", "goes", "going", "went"], answer: "go", explanation: "主語が'We'の場合、動詞の基本形を使います。" },
-        ],
         400: [
           { q: "He ____ to school yesterday.", choices: ["go", "goes", "went", "going"], answer: "went", explanation: "'yesterday'は過去を示すので、動詞の過去形を使います。" },
           { q: "We ____ lunch now.", choices: ["eat", "eats", "eating", "are eating"], answer: "are eating", explanation: "'now'は現在進行形を示すので、'are eating'を使います。" },
