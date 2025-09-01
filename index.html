@@ -920,7 +920,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const bookmarkIndex = bookmarks[category].findIndex(b => b.q === question);
       
       if (bookmarkIndex === -1) {
-        bookmarks[category].push({ ...questionData, level: level, category: category });
+        bookmarks[category].push({ ...currentQ, level: level, category: category });
         showPopup("ブックマークに登録されました");
       } else {
         bookmarks[category].splice(bookmarkIndex, 1);
