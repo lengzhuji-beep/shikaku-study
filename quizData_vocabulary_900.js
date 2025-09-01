@@ -1,6 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.vocabulary) quizData.vocabulary = {};
-
 quizData.vocabulary[900] = [
   { "q": "implement", "choices": ["評価する", "計画する", "実行する", "中断する"], "answer": "実行する", "explanation": "'implement' は『実行する』や『実施する』を意味します。" },
   { "q": "comprehensive", "choices": ["包括的な", "限定的な", "表面的な", "複雑な"], "answer": "包括的な", "explanation": "'comprehensive' は『包括的な』や『総合的な』を意味します。" },
