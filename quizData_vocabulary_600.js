@@ -1,6 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.vocabulary) quizData.vocabulary = {};
-
 quizData.vocabulary[600] = [
   { "q": "available", "choices": ["高価な", "利用できる", "無料の", "予約済みの"], "answer": "利用できる", "explanation": "'available' は『利用できる』や『入手できる』を意味します。" },
   { "q": "conference", "choices": ["旅行", "会議", "報告書", "契約"], "answer": "会議", "explanation": "'conference' は『会議』、特に大規模なものを指します。" },
