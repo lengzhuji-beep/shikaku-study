@@ -1,6 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.vocabulary) quizData.vocabulary = {};
-
 quizData.vocabulary[400] = [
   { "q": "visit", "choices": ["予約する", "訪れる", "案内する", "出発する"], "answer": "訪れる", "explanation": "'visit' は『訪れる』を意味します。" },
   { "q": "speak", "choices": ["聞く", "書く", "読む", "話す"], "answer": "話す", "explanation": "'speak' は『話す』を意味します。" },
