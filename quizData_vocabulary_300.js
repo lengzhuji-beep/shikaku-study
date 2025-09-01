@@ -1,5 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.vocabulary) quizData.vocabulary = {};
 
 quizData.vocabulary[300] = [
   { "q": "computers", "choices": ["前に", "買う", "コンピュータ（複数）", "電車"], "answer": "コンピュータ（複数）", "explanation": "'computers' は『コンピュータ（複数）』を意味します。" },
