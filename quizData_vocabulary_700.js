@@ -1,6 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.vocabulary) quizData.vocabulary = {};
-
 quizData.vocabulary[700] = [
   { "q": "increase", "choices": ["減少する", "改善する", "維持する", "増加する"], "answer": "増加する", "explanation": "'increase' は『増加する』または『増加』を意味します。" },
   { "q": "provide", "choices": ["消費する", "提供する", "購入する", "要求する"], "answer": "提供する", "explanation": "'provide' は『提供する』を意味します。" },
