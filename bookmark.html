@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEIC 対策ツール - ブックマーク</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* Paste the CSS from your original index.html here */
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
+    .container { max-width: 800px; margin: auto; padding: 20px; }
+    h1, h2 { text-align: center; }
+    .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #357ABD; }
+    .hidden { display: none; }
+    .bookmarked-question { position: relative; padding: 20px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; }
+    .delete-bookmark { position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 20px; color: #ff4d4d; }
+    .tab-container { margin-bottom: 20px; }
+    .tab-buttons { display: flex; border-bottom: 1px solid #dee2e6; margin-bottom: 20px; }
+    .tab-button { flex: 1; padding: 12px; border: none; background: #e9ecef; color: #495057; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s; }
+    .tab-button.active { background: #4a90e2; color: white; border-bottom-color: #357ABD; font-weight: bold; }
+    .level-button { margin: 5px; padding: 5px 10px; background-color: #4a90e2; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .level-button.active { background-color: #3536bd; font-weight: bold; }
+    .popup { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 20px; border-radius: 5px; opacity: 0; transition: opacity 0.3s; }
+    .popup.show { opacity: 1; }
+    .confirmation-dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; }
+    .confirmation-dialog button { margin: 0 10px; }
+    .back-button { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="bookmarks-list" class="card">
+      <h2><i class="fas fa-bookmark"></i> ブックマークした問題</h2>
+      <div class="tab-container">
+        <div class="tab-buttons">
+          <button class="tab-button active" onclick="showBookmarkTab('vocabulary')">単語</button>
+          <button class="tab-button" onclick="showBookmarkTab('writing')">ライティング</button>
+          <button class="tab-button" onclick="showBookmarkTab('listening')">リスニング</button>
+        </div>
+        <div id="bookmarked-questions"></div>
+      </div>
+      <a href="/shikaku-study/" class="back-button"><button>メインメニューに戻る</button></a>
+    </div>
+  </div>
+  
+  <div id="popup" class="popup"></div>
+  <div id="confirmation-dialog" class="confirmation-dialog hidden">
+    <p>この問題をブックマークから削除しますか？</p>
+    <button onclick="confirmDeleteBookmark(true)">はい</button>
+    <button onclick="confirmDeleteBookmark(false)">いいえ</button>
+  </div>
+
+  <script>
+    // Paste the necessary JS functions from your original index.html here
+    // Specifically: initializeBookmarks, showBookmarkTab, showBookmarksForLevel, getCategoryName, deleteBookmark, confirmDeleteBookmark, showPopup
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
+    let bookmarkToDelete = null;
+
+    function getCategoryName(category) {
+      const names = { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' };
+      return names[category] || category;
+    }
+    
+    function showBookmarkTab(category) {
+      document.querySelectorAll('#bookmarks-list .tab-button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.includes(getCategoryName(category))) btn.classList.add('active');
+      });
+      const bookmarksListDiv = document.getElementById("bookmarked-questions");
+      const categoryBookmarks = bookmarks[category] || [];
+      if (categoryBookmarks.length === 0) {
+        bookmarksListDiv.innerHTML = `<p>このカテゴリのブックマークはありません。</p>`;
+        return;
+      }
+      const levels = [...new Set(categoryBookmarks.map(b => b.level))].sort((a, b) => a - b);
+      let html = '<div id="level-buttons-container"></div><div id="bookmarksContent"></div>';
+      bookmarksListDiv.innerHTML = html;
+      const buttonContainer = document.getElementById('level-buttons-container');
+      levels.forEach(level => {
+        const button = document.createElement('button');
+        button.textContent = `レベル ${level}`;
+        button.className = 'level-button';
+        button.onclick = () => showBookmarksForLevel(category, level);
+        buttonContainer.appendChild(button);
+      });
+      showBookmarksForLevel(category, levels[0]);
+    }
+
+    function showBookmarksForLevel(category, level) {
+      const bookmarksContent = document.getElementById('bookmarksContent');
+      document.querySelectorAll('.level-button').forEach(btn => btn.classList.toggle('active', btn.textContent === `レベル ${level}`));
+      const levelBookmarks = bookmarks[category].filter(b => b.level === level);
+      bookmarksContent.innerHTML = levelBookmarks.map((q, index) => {
+        const originalIndex = bookmarks[category].findIndex(bookmark => bookmark.q === q.q && bookmark.level === q.level);
+        return `
+          <div class="bookmarked-question">
+            <span class="delete-bookmark" onclick="deleteBookmark('${category}', ${originalIndex})">×</span>
+            <p><strong>問題:</strong> ${q.q}</p>
+            <p><strong>正解:</strong> ${q.answer}</p>
+            <p><strong>解説:</strong> ${q.explanation}</p>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function deleteBookmark(category, index) {
+      bookmarkToDelete = { category, index };
+      document.getElementById("confirmation-dialog").classList.remove("hidden");
+    }
+
+    function confirmDeleteBookmark(confirmed) {
+      if (confirmed && bookmarkToDelete !== null) {
+        bookmarks[bookmarkToDelete.category].splice(bookmarkToDelete.index, 1);
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        showBookmarkTab(bookmarkToDelete.category);
+        showPopup("ブックマークから削除しました");
+      }
+      document.getElementById("confirmation-dialog").classList.add("hidden");
+      bookmarkToDelete = null;
+    }
+    
+    function showPopup(message) {
+      const popup = document.getElementById("popup");
+      popup.textContent = message;
+      popup.classList.add("show");
+      setTimeout(() => popup.classList.remove("show"), 2000);
+    }
+
+    // Initial load
+    window.onload = () => {
+      showBookmarkTab('vocabulary');
+    };
+  </script>
+</body>
+</html>
