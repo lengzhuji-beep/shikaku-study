@@ -3,122 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOEIC 対策ツール - ブックマーク</title>
+  <title>TOEIC 対策ツール - 学習統計</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    /* Paste the CSS from your original index.html here */
     body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
     .container { max-width: 800px; margin: auto; padding: 20px; }
-    h1, h2 { text-align: center; }
+    h1, h2, h3, h4 { text-align: center; }
     .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
     button:hover { background: #357ABD; }
-    .hidden { display: none; }
-    .bookmarked-question { position: relative; padding: 20px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; }
-    .delete-bookmark { position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 20px; color: #ff4d4d; }
     .tab-container { margin-bottom: 20px; }
     .tab-buttons { display: flex; border-bottom: 1px solid #dee2e6; margin-bottom: 20px; }
     .tab-button { flex: 1; padding: 12px; border: none; background: #e9ecef; color: #495057; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s; }
     .tab-button.active { background: #4a90e2; color: white; border-bottom-color: #357ABD; font-weight: bold; }
+    .mistake-card { background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 0.25rem; padding: 1rem; margin-bottom: 1rem; text-align: left;}
+    .mistake-item { position: relative; padding-right: 30px; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px; }
+    .mistake-item:last-child { border-bottom: none; }
+    .back-button { margin-top: 20px; }
     .level-button { margin: 5px; padding: 5px 10px; background-color: #4a90e2; color: white; border: none; border-radius: 5px; cursor: pointer; }
     .level-button.active { background-color: #3536bd; font-weight: bold; }
-    .popup { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 20px; border-radius: 5px; opacity: 0; transition: opacity 0.3s; }
+    .bookmark-icon { position: absolute; top: 5px; right: 5px; cursor: pointer; font-size: 24px; color: #ccc; }
+    .bookmark-icon.bookmarked { color: #ffd700; }
+    .popup { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1001; opacity: 0; transition: opacity 0.3s; }
     .popup.show { opacity: 1; }
-    .confirmation-dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; }
-    .confirmation-dialog button { margin: 0 10px; }
-    .back-button { margin-top: 20px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <div id="bookmarks-list" class="card">
-      <h2><i class="fas fa-bookmark"></i> ブックマークした問題</h2>
+    <div id="statistics" class="card">
+      <h2><i class="fas fa-chart-bar"></i> 学習統計</h2>
       <div class="tab-container">
         <div class="tab-buttons">
-          <button class="tab-button active" onclick="showBookmarkTab('vocabulary')">単語</button>
-          <button class="tab-button" onclick="showBookmarkTab('writing')">ライティング</button>
-          <button class="tab-button" onclick="showBookmarkTab('listening')">リスニング</button>
+          <button class="tab-button active" onclick="showStatisticsTab('vocabulary')">単語</button>
+          <button class="tab-button" onclick="showStatisticsTab('writing')">ライティング</button>
+          <button class="tab-button" onclick="showStatisticsTab('listening')">リスニング</button>
         </div>
-        <div id="bookmarked-questions"></div>
+        <canvas id="combinedChart"></canvas>
+        <div id="mistakesList" style="margin-top: 30px;"></div>
       </div>
       <a href="/shikaku-study/" class="back-button"><button>メインメニューに戻る</button></a>
     </div>
   </div>
-  
   <div id="popup" class="popup"></div>
-  <div id="confirmation-dialog" class="confirmation-dialog hidden">
-    <p>この問題をブックマークから削除しますか？</p>
-    <button onclick="confirmDeleteBookmark(true)">はい</button>
-    <button onclick="confirmDeleteBookmark(false)">いいえ</button>
-  </div>
 
   <script>
-    // Paste the necessary JS functions from your original index.html here
-    // Specifically: initializeBookmarks, showBookmarkTab, showBookmarksForLevel, getCategoryName, deleteBookmark, confirmDeleteBookmark, showPopup
+    const quizData = {
+      vocabulary: {}, 
+      writing: {
+        300: [
+          { q: "次の文を完成させてください: 'I am ____ a report.'", choices: ["write", "writes", "writing", "wrote"], answer: "writing", explanation: "現在進行形では'be動詞 + 動詞のing形'を使います。" },
+          { q: "正しい語順を選んでください: 'yesterday / I / a letter / wrote'", choices: ["I wrote a letter yesterday", "Yesterday wrote I a letter", "A letter I wrote yesterday", "Wrote I yesterday a letter"], answer: "I wrote a letter yesterday", explanation: "英語の基本語順は'主語 + 動詞 + 目的語 + 時を表す副詞'です。" }
+        ],
+        400: [
+          { q: "間接疑問文を完成させてください: 'I don't know ____.'", choices: ["where is he", "where he is", "where does he", "where he does"], answer: "where he is", explanation: "間接疑問文では疑問詞の後は平叙文の語順になります。" },
+          { q: "受動態に変えてください: 'Tom wrote this letter.'", choices: ["This letter was written by Tom", "This letter wrote by Tom", "This letter is written by Tom", "Tom was written this letter"], answer: "This letter was written by Tom", explanation: "受動態は'be動詞 + 過去分詞 + by + 行為者'の形になります。" }
+        ]
+      }, 
+      listening: {
+         300: [ { q: "音声：'Where is the library?' この質問に対する適切な答えは？", choices: ["It's next to the bank", "It's 3 o'clock", "It's very big", "It's my book"], answer: "It's next to the bank", explanation: "'Where'で場所を聞いているので、場所を答える必要があります。" }],
+         400: [ { q: "音声：'I'm looking for a restaurant. Where should I go?' この状況で最も適切な返答は？", choices: ["There's a good one on Main Street", "I don't like restaurants", "It's expensive", "You should eat at home"], answer: "There's a good one on Main Street", explanation: "レストランを探している人に対して、具体的な場所を教えるのが適切です。" }]
+      }
+    };
+  </script>
+  <script src="/shikaku-study/quizData_vocabulary_300.js"></script>
+  <script src="/shikaku-study/quizData_vocabulary_400.js"></script>
+  <script src="/shikaku-study/quizData_vocabulary_500.js"></script>
+  <script src="/shikaku-study/quizData_vocabulary_600.js"></script>
+  <script src="/shikaku-study/quizData_vocabulary_700.js"></script>
+  <script src="/shikaku-study/quizData_vocabulary_800.js"></script>
+  <script src="/shikaku-study/quizData_vocabulary_900.js"></script>
+  
+  <script>
+    let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
+    let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
-    let bookmarkToDelete = null;
 
     function getCategoryName(category) {
       const names = { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' };
       return names[category] || category;
     }
-    
-    function showBookmarkTab(category) {
-      document.querySelectorAll('#bookmarks-list .tab-button').forEach(btn => {
+
+    function showStatisticsTab(category) {
+      // Tab button styling
+      document.querySelectorAll('#statistics .tab-button').forEach(btn => {
         btn.classList.remove('active');
         if (btn.textContent.includes(getCategoryName(category))) btn.classList.add('active');
       });
-      const bookmarksListDiv = document.getElementById("bookmarked-questions");
-      const categoryBookmarks = bookmarks[category] || [];
-      if (categoryBookmarks.length === 0) {
-        bookmarksListDiv.innerHTML = `<p>このカテゴリのブックマークはありません。</p>`;
-        return;
+
+      // Chart generation
+      const categoryStats = Object.values(statistics).filter(stat => stat.category === category);
+      const ctx = document.getElementById('combinedChart').getContext('2d');
+      if (window.combinedChartInstance) window.combinedChartInstance.destroy();
+      
+      if (categoryStats.length > 0) {
+        categoryStats.sort((a, b) => a.level - b.level);
+        window.combinedChartInstance = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: categoryStats.map(s => `${s.level}点`),
+            datasets: [{
+              label: '正答率 (%)', data: categoryStats.map(s => (s.correct / s.total * 100).toFixed(2)),
+              borderColor: 'rgba(255, 99, 132, 1)', backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              type: 'line', yAxisID: 'y-axis-2'
+            }, {
+              label: '解答数', data: categoryStats.map(s => s.total),
+              backgroundColor: 'rgba(75, 192, 192, 0.6)', yAxisID: 'y-axis-1'
+            }]
+          },
+          options: {
+            scales: {
+              'y-axis-1': { type: 'linear', position: 'left', beginAtZero: true, title: { display: true, text: '解答数' } },
+              'y-axis-2': { type: 'linear', position: 'right', beginAtZero: true, max: 100, title: { display: true, text: '正答率 (%)' } }
+            }
+          }
+        });
+      } else {
+         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       }
-      const levels = [...new Set(categoryBookmarks.map(b => b.level))].sort((a, b) => a - b);
-      let html = '<div id="level-buttons-container"></div><div id="bookmarksContent"></div>';
-      bookmarksListDiv.innerHTML = html;
-      const buttonContainer = document.getElementById('level-buttons-container');
-      levels.forEach(level => {
-        const button = document.createElement('button');
-        button.textContent = `レベル ${level}`;
-        button.className = 'level-button';
-        button.onclick = () => showBookmarksForLevel(category, level);
-        buttonContainer.appendChild(button);
+      
+      showTopMistakesButtons(category);
+    }
+
+    function showTopMistakesButtons(category) {
+      const mistakesListDiv = document.getElementById('mistakesList');
+      mistakesListDiv.innerHTML = `<h3>${getCategoryName(category)}で間違えた問題トップ3</h3>`;
+      
+      const categoryMistakeKeys = Object.keys(mistakes).filter(key => key.startsWith(category + '_'));
+      
+      if (categoryMistakeKeys.length > 0) {
+        const levels = [...new Set(categoryMistakeKeys.map(key => key.split('_')[1]))].sort((a,b) => a-b);
+        const buttonContainer = document.createElement('div');
+        levels.forEach(level => {
+          const button = document.createElement('button');
+          button.textContent = `レベル ${level}`;
+          button.className = 'level-button';
+          button.onclick = () => showTopMistakesForLevel(category, level);
+          buttonContainer.appendChild(button);
+        });
+        mistakesListDiv.appendChild(buttonContainer);
+        mistakesListDiv.appendChild(document.createElement('div')).id = 'mistakesContent';
+        
+        showTopMistakesForLevel(category, levels[0]);
+      } else {
+        mistakesListDiv.innerHTML += `<p>${getCategoryName(category)}にはまだ間違えた問題がありません。</p>`;
+      }
+    }
+
+    function showTopMistakesForLevel(category, level) {
+      document.querySelectorAll('#mistakesList .level-button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === `レベル ${level}`);
       });
-      showBookmarksForLevel(category, levels[0]);
-    }
 
-    function showBookmarksForLevel(category, level) {
-      const bookmarksContent = document.getElementById('bookmarksContent');
-      document.querySelectorAll('.level-button').forEach(btn => btn.classList.toggle('active', btn.textContent === `レベル ${level}`));
-      const levelBookmarks = bookmarks[category].filter(b => b.level === level);
-      bookmarksContent.innerHTML = levelBookmarks.map((q, index) => {
-        const originalIndex = bookmarks[category].findIndex(bookmark => bookmark.q === q.q && bookmark.level === q.level);
-        return `
-          <div class="bookmarked-question">
-            <span class="delete-bookmark" onclick="deleteBookmark('${category}', ${originalIndex})">×</span>
-            <p><strong>問題:</strong> ${q.q}</p>
-            <p><strong>正解:</strong> ${q.answer}</p>
-            <p><strong>解説:</strong> ${q.explanation}</p>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function deleteBookmark(category, index) {
-      bookmarkToDelete = { category, index };
-      document.getElementById("confirmation-dialog").classList.remove("hidden");
-    }
-
-    function confirmDeleteBookmark(confirmed) {
-      if (confirmed && bookmarkToDelete !== null) {
-        bookmarks[bookmarkToDelete.category].splice(bookmarkToDelete.index, 1);
-        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-        showBookmarkTab(bookmarkToDelete.category);
-        showPopup("ブックマークから削除しました");
+      const mistakesContentDiv = document.getElementById('mistakesContent');
+      const mistakeKey = `${category}_${level}`;
+      const levelMistakes = mistakes[mistakeKey] ? Object.entries(mistakes[mistakeKey]).sort((a, b) => b[1] - a[1]).slice(0, 3) : [];
+      
+      if (levelMistakes.length > 0) {
+        mistakesContentDiv.innerHTML = `
+          <div class="mistake-card">
+            <h4>${getCategoryName(category)} - レベル ${level}</h4>
+            ${levelMistakes.map(([question, count]) => {
+              const questionData = (quizData[category][level] || []).find(q => q.q === question);
+              const isBookmarked = bookmarks[category].some(b => b.q === question);
+              if (!questionData) return ''; // データが見つからない場合は表示しない
+              return `
+                <div class="mistake-item">
+                  <span class="bookmark-icon ${isBookmarked ? 'bookmarked' : ''}" onclick="toggleBookmarkFromMistakes('${category}', '${level}', \`${question}\`)">★</span>
+                  <p><strong>問題:</strong> ${question}</p>
+                  <p><strong>間違えた回数:</strong> ${count}</p>
+                  <p><strong>正解:</strong> ${questionData.answer}</p>
+                  <p><strong>解説:</strong> ${questionData.explanation}</p>
+                </div>`;
+            }).join('')}
+          </div>`;
+      } else {
+        mistakesContentDiv.innerHTML = `<p style="text-align: center; margin-top: 20px;">このレベルにはまだ間違えた問題がありません。</p>`;
       }
-      document.getElementById("confirmation-dialog").classList.add("hidden");
-      bookmarkToDelete = null;
+    }
+
+    function toggleBookmarkFromMistakes(category, level, question) {
+        const questionData = (quizData[category][level] || []).find(q => q.q === question);
+        if (!questionData) return;
+        const bookmarkIndex = bookmarks[category].findIndex(b => b.q === question);
+      
+        if (bookmarkIndex === -1) {
+            bookmarks[category].push({ ...questionData, level: level, category: category });
+            showPopup("ブックマークに登録されました");
+        } else {
+            bookmarks[category].splice(bookmarkIndex, 1);
+            showPopup("ブックマークから削除しました");
+        }
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        showTopMistakesForLevel(category, level); // Re-render to update star icon
     }
     
     function showPopup(message) {
@@ -128,9 +205,8 @@
       setTimeout(() => popup.classList.remove("show"), 2000);
     }
 
-    // Initial load
     window.onload = () => {
-      showBookmarkTab('vocabulary');
+      showStatisticsTab('vocabulary');
     };
   </script>
 </body>
