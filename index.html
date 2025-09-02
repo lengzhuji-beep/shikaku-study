@@ -11,70 +11,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta name="google-site-verification" content="ihZO0_pyF9Mtgyf8d_0OfhTH0Uw763UeUwsPvXCWPGk" />
 
-  <title>TOEIC　対策ツール - メインメニュー</title>
+  <title>TOEIC対策ツール - トップ</title>
   <meta name="description" content="TOEIC学習をサポートする便利なツールになります。目標スコアに合わせて、単語やライティング、リスニングの問題に挑戦できます！">
 
   <style>
     body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
+    .header { background-color: #333; padding: 10px 0; }
+    .header-nav { max-width: 800px; margin: auto; display: flex; justify-content: space-around; }
+    .header-nav a { color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s; }
+    .header-nav a:hover { background-color: #555; }
+    .header-nav a.active { background-color: #4a90e2; }
     .container { max-width: 800px; margin: auto; padding: 20px; }
     h1, h2 { text-align: center; }
     .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    
-    a.button-link {
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-    }
-
-    .icon-button { 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      justify-content: center; 
-      width: 120px; 
-      height: 120px; 
-      margin: 10px; 
-      border: none; 
-      background: #E6F3FF; 
-      border-radius: 12px; 
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-      cursor: pointer; 
-      transition: 0.3s; 
-      color: black; 
-    }
-    .icon-button:hover { 
-      background: #4a90e2; 
-      color: white; 
-      transform: translateY(-5px); 
-    }
+    a.button-link { text-decoration: none; display: inline-block; text-align: center; }
+    .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
+    .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
     .icon-button i { font-size: 48px; margin-bottom: 10px; }
     .icon-container { display: flex; justify-content: center; flex-wrap: wrap; }
-
     .category-menu { display: flex; flex-direction: column; gap: 20px; }
     .category-card { background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4a90e2; }
     .category-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #333; }
-    
     .mode-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
-    .mode-button {
-      flex: 1;
-      min-width: 120px;
-      padding: 8px 16px;
-      background: #e9ecef;
-      color: #495057;
-      border: 1px solid #ced4da;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .mode-button:hover {
-      background: #4a90e2;
-      color: white;
-      border-color: #4a90e2;
-    }
+    .mode-button { flex: 1; min-width: 120px; padding: 8px 16px; background: #e9ecef; color: #495057; border: 1px solid #ced4da; border-radius: 6px; cursor: pointer; transition: all 0.3s; }
+    .mode-button:hover { background: #4a90e2; color: white; border-color: #4a90e2; }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+
+  <header class="header">
+    <nav class="header-nav">
+      <a href="/shikaku-study/index.html" class="active">トップ</a>
+      <a href="/shikaku-study/toeic-overview.html">TOEIC資格概要</a>
+      <a href="/shikaku-study/column.html">コラム</a>
+      <a href="/shikaku-study/other-exams.html">他資格対策</a>
+    </nav>
+  </header>
+
   <div class="container">
     <h1>TOEIC 練習問題</h1>
     
