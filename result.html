@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEIC 対策ツール - 学習統計</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Paste the CSS from your original index.html here */
+     body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
+    .container { max-width: 800px; margin: auto; padding: 20px; }
+    h1, h2 { text-align: center; }
+    .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #357ABD; }
+    .tab-container { margin-bottom: 20px; }
+    .tab-buttons { display: flex; border-bottom: 1px solid #dee2e6; margin-bottom: 20px; }
+    .tab-button { flex: 1; padding: 12px; border: none; background: #e9ecef; color: #495057; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s; }
+    .tab-button.active { background: #4a90e2; color: white; border-bottom-color: #357ABD; font-weight: bold; }
+    .mistake-card { background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 0.25rem; padding: 1rem; margin-bottom: 1rem; }
+    .mistake-card h4 { margin-top: 0; }
+    .mistake-item { position: relative; padding-right: 30px; }
+    .back-button { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="statistics" class="card">
+      <h2><i class="fas fa-chart-bar"></i> 学習統計</h2>
+      <div class="tab-container">
+        <div class="tab-buttons">
+          <button class="tab-button active" onclick="showStatisticsTab('vocabulary')">単語</button>
+          <button class="tab-button" onclick="showStatisticsTab('writing')">ライティング</button>
+          <button class="tab-button" onclick="showStatisticsTab('listening')">リスニング</button>
+        </div>
+        <canvas id="combinedChart"></canvas>
+        <div id="mistakesList"></div>
+      </div>
+      <a href="/shikaku-study/" class="back-button"><button>メインメニューに戻る</button></a>
+    </div>
+  </div>
+
+  <script>
+    // Paste the necessary JS functions from your original index.html here
+    // Specifically: showStatisticsTab, getCategoryName, etc.
+    let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
+    let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
+    
+    function getCategoryName(category) {
+      const names = { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' };
+      return names[category] || category;
+    }
+
+    function showStatisticsTab(category) {
+      document.querySelectorAll('#statistics .tab-button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.includes(getCategoryName(category))) btn.classList.add('active');
+      });
+      const categoryStats = Object.values(statistics).filter(stat => stat.category === category);
+      const ctx = document.getElementById('combinedChart').getContext('2d');
+      if (window.combinedChartInstance) window.combinedChartInstance.destroy();
+      
+      if (categoryStats.length > 0) {
+        categoryStats.sort((a,b) => a.level - b.level);
+        window.combinedChartInstance = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: categoryStats.map(s => `${s.level}点`),
+            datasets: [{
+              label: '正答率 (%)',
+              data: categoryStats.map(s => (s.correct / s.total * 100).toFixed(2)),
+              borderColor: 'rgba(255, 99, 132, 1)',
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              type: 'line',
+              yAxisID: 'y-axis-2'
+            }, {
+              label: '解答数',
+              data: categoryStats.map(s => s.total),
+              backgroundColor: 'rgba(75, 192, 192, 0.6)',
+              yAxisID: 'y-axis-1'
+            }]
+          },
+          options: {
+            scales: {
+              'y-axis-1': { position: 'left', beginAtZero: true, title: { display: true, text: '解答数' } },
+              'y-axis-2': { position: 'right', beginAtZero: true, max: 100, title: { display: true, text: '正答率 (%)' } }
+            }
+          }
+        });
+      } else {
+         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      }
+      // Display mistakes (simplified version)
+      const mistakesListDiv = document.getElementById('mistakesList');
+      mistakesListDiv.innerHTML = `<h3>主な間違い</h3>`;
+      const allMistakes = [];
+      Object.keys(mistakes).filter(key => key.startsWith(category)).forEach(key => {
+        Object.entries(mistakes[key]).forEach(([q, count]) => {
+          allMistakes.push({q, count});
+        });
+      });
+      if (allMistakes.length > 0) {
+        mistakesListDiv.innerHTML += allMistakes.sort((a,b) => b.count - a.count).slice(0,5).map(m => `<div class="mistake-item"><p>${m.q} (${m.count}回)</p></div>`).join('');
+      } else {
+        mistakesListDiv.innerHTML += `<p>記録されている間違いはありません。</p>`;
+      }
+    }
+
+    window.onload = () => {
+      showStatisticsTab('vocabulary');
+    };
+  </script>
+</body>
+</html>
