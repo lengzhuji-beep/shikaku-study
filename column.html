@@ -3,17 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>コラム</title>
+  <title>コラム - TOEIC対策ツール</title>
   <style>
     body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
     .header { background-color: #333; padding: 10px 0; }
-    .header-nav { max-width: 800px; margin: auto; display: flex; justify-content: space-around; }
+    .header-nav { max-width: 960px; margin: auto; display: flex; justify-content: space-around; }
     .header-nav a { color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s; }
     .header-nav a:hover { background-color: #555; }
     .header-nav a.active { background-color: #4a90e2; }
-    .container { max-width: 800px; margin: auto; padding: 20px; }
+    .container { max-width: 960px; margin: auto; padding: 20px; }
     .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     h1 { text-align: center; }
+
+    /* Article Grid Styles */
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .article-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .article-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .article-card-content {
+      padding: 15px;
+      flex-grow: 1;
+    }
+
+    .article-card-content h3 {
+      margin-top: 0;
+      font-size: 1.1em;
+    }
+
+    .article-card-content p {
+      font-size: 0.9em; /* 少し小さな文字 */
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Responsive layout for smaller screens */
+    @media (max-width: 768px) {
+      .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -26,10 +85,79 @@
     </nav>
   </header>
   <div class="container">
-    <div class="card">
-      <h1>コラム</h1>
-      <p>このページは準備中です。</p>
-    </div>
+    <h1>コラム</h1>
+    <div id="article-grid" class="article-grid">
+      </div>
   </div>
+
+  <script>
+    // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+    // 記事を追加・編集するには、以下の 'articles' 配列を修正してください
+    // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+    const articles = [
+      {
+        imageUrl: 'https://assets.st-note.com/production/uploads/images/33390003/rectangle_large_type_2_d1618641979ea7a71e227a81b7e32a6c.jpeg',
+        title: '【TOEIC】900点越えが教える効果的な勉強法',
+        snippet: 'TOEICで高得点を目指す皆さんへ。私が実践した、本当に効果があった勉強法を具体的にお伝えします。リスニングとリーディングのコツとは…',
+        noteUrl: 'https://note.com/gogaku_master/n/n2b2d0752538b'
+      },
+      {
+        imageUrl: 'https://assets.st-note.com/production/uploads/images/20709088/rectangle_large_type_2_4d6189914b19326e0b7b134d173c004c.png',
+        title: 'TOEICリスニング満点を50回以上取った僕が実践した勉強法',
+        snippet: 'リスニングセクションで満点を取ることは、多くの学習者が目指す目標です。ここでは、私が繰り返し満点を取るために実践してきたトレーニング方法を公開します。',
+        noteUrl: 'https://note.com/jet_eigo/n/n445b412c140b'
+      },
+      {
+        imageUrl: 'https://assets.st-note.com/production/uploads/images/113829871/rectangle_large_type_2_470f1a60395a6f23f858908f0a0c71a3.png',
+        title: '英語が苦手な社会人が3ヶ月でTOEIC800点を達成した話',
+        snippet: '学生時代から英語が全くダメだった私が、多忙な社会人生活の中でどのように学習時間を確保し、わずか3ヶ月で目標を達成したのか。その全記録です。',
+        noteUrl: 'https://note.com/eigogenjin/n/n1f173b22b07a'
+      },
+      {
+        imageUrl: 'https://assets.st-note.com/production/uploads/images/42550186/rectangle_large_type_2_44a69493f0b06b9b1836a3948e77c5c0.jpeg',
+        title: 'TOEIC Part5は文法知識がなくても秒で解ける',
+        snippet: 'Part5の文法問題、苦手意識を持っていませんか？実は、全ての文法を完璧に理解していなくても、問題のパターンを見抜くことで素早く正解にたどり着けます。',
+        noteUrl: 'https://note.com/toeic900_eigo/n/nc31d59e3ddc6'
+      },
+      {
+        imageUrl: 'https://assets.st-note.com/production/uploads/images/23886562/rectangle_large_type_2_550257329486307a01c0b395632d43e5.jpeg',
+        title: '凡人でもTOEIC900点を取る方法',
+        snippet: '特別な才能や海外経験がなくても、正しい努力を継続すればTOEIC900点は誰でも達成可能です。凡人だった私が辿り着いた、最も再現性の高い学習ルートを紹介します。',
+        noteUrl: 'https://note.com/ryoto_eigolog/n/n1125210946d4'
+      },
+      {
+        imageUrl: 'https://assets.st-note.com/production/uploads/images/81804153/rectangle_large_type_2_0df72605f87b8f0474075f921e25e9e0.jpeg',
+        title: 'TOEIC初心者がまずやるべき３つのこと',
+        snippet: '何から手をつければ良いか分からないTOEIC初心者の方へ。遠回りせずにスコアアップの土台を作るために、学習開始時に必ずやるべき3つのことを解説します。',
+        noteUrl: 'https://note.com/eigo_guky/n/n4d852083c27e'
+      }
+      // 他の記事を追加する場合は、この形式で下に追加してください
+      // { imageUrl: '画像のURL', title: 'タイトル', snippet: '冒頭文', noteUrl: 'note記事のURL' },
+    ];
+
+    // 記事をHTMLに描画する関数
+    function renderArticles() {
+      const grid = document.getElementById('article-grid');
+      if (!grid) return;
+
+      let articlesHtml = '';
+      articles.forEach(article => {
+        articlesHtml += `
+          <a href="${article.noteUrl}" target="_blank" rel="noopener noreferrer" class="article-card">
+            <img src="${article.imageUrl}" alt="${article.title}">
+            <div class="article-card-content">
+              <h3>${article.title}</h3>
+              <p>${article.snippet}</p>
+            </div>
+          </a>
+        `;
+      });
+
+      grid.innerHTML = articlesHtml;
+    }
+
+    // ページが読み込まれたら記事を描画
+    window.onload = renderArticles;
+  </script>
 </body>
 </html>
