@@ -70,6 +70,7 @@
     </div>
 
     <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
+    
     <script src="/shikaku-study/quizData_vocabulary_300.js"></script>
     <script src="/shikaku-study/quizData_vocabulary_400.js"></script>
     <script src="/shikaku-study/quizData_vocabulary_500.js"></script>
@@ -77,6 +78,15 @@
     <script src="/shikaku-study/quizData_vocabulary_700.js"></script>
     <script src="/shikaku-study/quizData_vocabulary_800.js"></script>
     <script src="/shikaku-study/quizData_vocabulary_900.js"></script>
+    
+    <script src="/shikaku-study/quizData_writing_300.js"></script>
+    <script src="/shikaku-study/quizData_writing_400.js"></script>
+    <script src="/shikaku-study/quizData_writing_500.js"></script>
+    <script src="/shikaku-study/quizData_writing_600.js"></script>
+    <script src="/shikaku-study/quizData_writing_700.js"></script>
+    <script src="/shikaku-study/quizData_writing_800.js"></script>
+    <script src="/shikaku-study/quizData_writing_900.js"></script>
+
     <script>
         const currentCategory = 'writing';
         const currentMode = 'training';
@@ -102,6 +112,12 @@
         }
 
         function startQuiz(questionCount) {
+            // エラーチェックを追加
+            if (!quizData[currentCategory] || !quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
+                alert(`レベル${currentLevel}点のライティング問題データが読み込まれていません。`);
+                showLevelSelect();
+                return;
+            }
             currentQuestion = 0;
             score = 0;
             const allQuestions = [...quizData[currentCategory][currentLevel]];
@@ -149,7 +165,7 @@
             updateStatistics(currentCategory, currentLevel, isCorrect, qData.q);
 
             const feedbackDiv = document.getElementById("feedback");
-            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br>${qData.explanation}`;
+            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><b>和訳:</b> ${qData.translation}<br><b>解説:</b> ${qData.explanation}`;
             feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
             feedbackDiv.classList.remove("hidden");
             
