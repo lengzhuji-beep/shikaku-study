@@ -1,6 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.writing) quizData.writing = {};
-
 quizData.writing[600] = [
   {
     q: "This report needs to be ____ by the manager.",
