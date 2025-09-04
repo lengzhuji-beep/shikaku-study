@@ -36,7 +36,7 @@
             <button onclick="selectLevel(700)">700点</button>
             <button onclick="selectLevel(800)">800点</button>
             <button onclick="selectLevel(900)">900点以上</button>
-            <a href="/shikaku-study/index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
+            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
         
         <div id="question-count-select" class="card hidden">
@@ -64,22 +64,13 @@
 
     <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
     
-    <script src="/shikaku-study/quizData_vocabulary_300.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_400.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_500.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_600.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_700.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_800.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_900.js"></script>
-    
-    <script src="/shikaku-study/quizData_writing_300.js"></script>
-    <script src="/shikaku-study/quizData_writing_400.js"></script>
-    <script src="/shikaku-study/quizData_writing_500.js"></script>
-    <script src="/shikaku-study/quizData_writing_600.js"></script>
-    <script src="/shikaku-study/quizData_writing_700.js"></script>
-    <script src="/shikaku-study/quizData_writing_800.js"></script>
-    <script src="/shikaku-study/quizData_writing_900.js"></script>
-    
+    <script src="quizData_writing_300.js"></script>
+    <script src="quizData_writing_400.js"></script>
+    <script src="quizData_writing_500.js"></script>
+    <script src="quizData_writing_600.js"></script>
+    <script src="quizData_writing_700.js"></script>
+    <script src="quizData_writing_800.js"></script>
+    <script src="quizData_writing_900.js"></script>
     
     <script>
         const currentCategory = 'writing';
@@ -100,18 +91,16 @@
 
         function selectLevel(level) {
             currentLevel = level;
+            if (!quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
+                alert(`レベル${currentLevel}点のライティング問題データが見つかりません。\nJSファイルが正しく作成・配置されているか、またファイルの中身が正しいか確認してください。`);
+                return;
+            }
             hideAllSections();
             document.getElementById("question-count-select").classList.remove("hidden");
             document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - 目標スコア: ${level}点`;
         }
 
         function startQuiz(questionCount) {
-            // エラーチェックを追加
-            if (!quizData[currentCategory] || !quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
-                alert(`レベル${currentLevel}点のライティング問題データが読み込まれていません。`);
-                showLevelSelect();
-                return;
-            }
             currentQuestion = 0;
             score = 0;
             const allQuestions = [...quizData[currentCategory][currentLevel]];
@@ -190,7 +179,7 @@
                           <p>${correctCount} / ${currentQuestions.length} 正解 (${percentage}%)</p>` + resultHTML;
             
             resultHTML += `<button onclick="showLevelSelect()">もう一度挑戦</button>
-                           <a href="/shikaku-study/index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>`;
+                           <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>`;
             resultDiv.innerHTML = resultHTML;
         }
 
