@@ -1,6 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.writing) quizData.writing = {};
-
 quizData.writing[900] = [
   {
     q: "The new CEO's ____ approach to management significantly improved employee morale.",
