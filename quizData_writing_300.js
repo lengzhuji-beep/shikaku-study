@@ -348,5 +348,349 @@ quizData.writing[300] = [
     answer: "in",
     translation: "私は1990年に生まれました。",
     explanation: "年号の前には前置詞 'in' を使います。"
+  },
+  // New 50 questions
+  {
+    q: "____ are my books.",
+    choices: ["This", "That", "These", "It"],
+    answer: "These",
+    translation: "これらは私の本です。",
+    explanation: "近くにある複数のもの（books）を指すので 'These' を使います。"
+  },
+  {
+    q: "They ____ happy to see you last week.",
+    choices: ["is", "are", "was", "were"],
+    answer: "were",
+    translation: "彼らは先週あなたに会えて嬉しそうでした。",
+    explanation: "'last week'（先週）とあるのでbe動詞の過去形を使います。主語が複数 'They' なので 'were' が正解です。"
+  },
+  {
+    q: "____ he like baseball?",
+    choices: ["Do", "Does", "Is", "Are"],
+    answer: "Does",
+    translation: "彼は野球が好きですか？",
+    explanation: "主語が三人称単数（He）の一般動詞の疑問文は 'Does' で始めます。"
+  },
+  {
+    q: "Please give the apple to ____.",
+    choices: ["he", "his", "him", "he's"],
+    answer: "him",
+    translation: "そのりんごを彼にあげてください。",
+    explanation: "動詞や前置詞の後ろに来る目的語としての「彼に」は 'him' を使います。"
+  },
+  {
+    q: "We ____ to the museum every year.",
+    choices: ["go", "goes", "went", "going"],
+    answer: "go",
+    translation: "私たちは毎年その博物館へ行きます。",
+    explanation: "現在の習慣を表す文で、主語が 'We' なので動詞は原形 'go' を使います。"
+  },
+  {
+    q: "Her birthday is ____ March 10th.",
+    choices: ["at", "on", "in", "from"],
+    answer: "on",
+    translation: "彼女の誕生日は3月10日です。",
+    explanation: "特定の日付の前には、前置詞 'on' を使います。"
+  },
+  {
+    q: "I ____ in this city five years ago.",
+    choices: ["live", "lives", "lived", "living"],
+    answer: "lived",
+    translation: "私は5年前にこの街に住んでいました。",
+    explanation: "'five years ago'（5年前）と過去を表しているので、動詞は過去形 'lived' を使います。"
+  },
+  {
+    q: "____ is that woman in the red dress?",
+    choices: ["What", "Where", "Who", "When"],
+    answer: "Who",
+    translation: "あの赤いドレスの女性は誰ですか？",
+    explanation: "人を尋ねる疑問詞は 'Who' を使います。"
+  },
+  {
+    q: "There ____ many stars in the sky.",
+    choices: ["is", "are", "am", "be"],
+    answer: "are",
+    translation: "空にはたくさんの星があります。",
+    explanation: "'many stars'（たくさんの星）は複数なので 'There are' を使います。"
+  },
+  {
+    q: "Do you want milk ____ sugar in your tea?",
+    choices: ["and", "but", "or", "so"],
+    answer: "or",
+    translation: "紅茶にミルクか砂糖は入れますか？",
+    explanation: "選択肢を尋ねる「〜か、または〜」と言う場合は接続詞 'or' を使います。"
+  },
+  {
+    q: "That blue bicycle is ____.",
+    choices: ["she", "her", "hers", "she's"],
+    answer: "hers",
+    translation: "あの青い自転車は彼女のものです。",
+    explanation: "「彼女のもの」という意味の所有代名詞は 'hers' です。"
+  },
+  {
+    q: "Kyoto is a ____ city.",
+    choices: ["beauty", "beautiful", "beautifully", "beauties"],
+    answer: "beautiful",
+    translation: "京都は美しい都市です。",
+    explanation: "名詞 'city' を修飾するのは形容詞の 'beautiful' です。"
+  },
+  {
+    q: "Please look ____ the picture on the wall.",
+    choices: ["in", "on", "at", "to"],
+    answer: "at",
+    translation: "壁の絵を見てください。",
+    explanation: "一点を指して「〜を見る」と言う場合は 'look at' を使います。"
+  },
+  {
+    q: "What ____ you usually do on weekends?",
+    choices: ["do", "does", "are", "is"],
+    answer: "do",
+    translation: "あなたは週末、普段何をしますか？",
+    explanation: "主語が 'you' の一般動詞の疑問文なので、助動詞 'do' を使います。"
+  },
+  {
+    q: "My father ____ a doctor.",
+    choices: ["am", "is", "are", "be"],
+    answer: "is",
+    translation: "私の父は医者です。",
+    explanation: "主語が三人称単数（My father）なので、be動詞は 'is' を使います。"
+  },
+  {
+    q: "I have three ____.",
+    choices: ["child", "childs", "children", "childrens"],
+    answer: "children",
+    translation: "私には子供が3人います。",
+    explanation: "'child' の複数形は 'children' という不規則な形になります。"
+  },
+  {
+    q: "The dog is sleeping ____ the tree.",
+    choices: ["in", "on", "under", "with"],
+    answer: "under",
+    translation: "その犬は木の下で眠っています。",
+    explanation: "「〜の下に」という意味の前置詞は 'under' です。"
+  },
+  {
+    q: "____ is the weather like today?",
+    choices: ["What", "How", "Which", "Who"],
+    answer: "What",
+    translation: "今日の天気はどうですか？",
+    explanation: "天気を尋ねる決まった表現は 'What is the weather like?' です。'How is the weather?' も使えます。"
+  },
+  {
+    q: "She ____ play the piano very well.",
+    choices: ["is", "do", "can", "has"],
+    answer: "can",
+    translation: "彼女はとても上手にピアノを弾くことができます。",
+    explanation: "能力「〜できる」を表す助動詞は 'can' です。"
+  },
+  {
+    q: "I need to buy ____ milk at the store.",
+    choices: ["a", "an", "some", "any"],
+    answer: "some",
+    translation: "私は店で牛乳をいくらか買う必要があります。",
+    explanation: "肯定文で数えられない名詞の「いくらかの」を表すには 'some' を使います。"
+  },
+  {
+    q: "____ old are you?",
+    choices: ["What", "When", "How", "Who"],
+    answer: "How",
+    translation: "あなたは何歳ですか？",
+    explanation: "年齢を尋ねる場合は 'How old ...?' を使います。"
+  },
+  {
+    q: "He ____ not like carrots.",
+    choices: ["is", "do", "does", "are"],
+    answer: "does",
+    translation: "彼はニンジンが好きではありません。",
+    explanation: "主語が三人称単数（He）の一般動詞の否定文は 'does not' (doesn't) を使います。"
+  },
+  {
+    q: "This park is famous ____ its cherry blossoms.",
+    choices: ["by", "with", "for", "at"],
+    answer: "for",
+    translation: "この公園は桜で有名です。",
+    explanation: "'be famous for ...' で「〜で有名である」という決まった言い方です。"
+  },
+  {
+    q: "That is ____ house.",
+    choices: ["they", "their", "them", "theirs"],
+    answer: "their",
+    translation: "あれは彼らの家です。",
+    explanation: "名詞 'house' の前で「彼らの〜」という所有を表すには 'their' を使います。"
+  },
+  {
+    q: "I ____ a shower every morning.",
+    choices: ["take", "takes", "took", "taking"],
+    answer: "take",
+    translation: "私は毎朝シャワーを浴びます。",
+    explanation: "現在の習慣を表す文で、主語が 'I' なので動詞は原形 'take' を使います。"
+  },
+  {
+    q: "The train arrives ____ platform 5.",
+    choices: ["in", "on", "at", "to"],
+    answer: "at",
+    translation: "その電車は5番線に到着します。",
+    explanation: "比較的狭い地点（駅のホームなど）を示す場合は前置詞 'at' を使います。"
+  },
+  {
+    q: "____ you have a pen?",
+    choices: ["Do", "Does", "Are", "Is"],
+    answer: "Do",
+    translation: "ペンを持っていますか？",
+    explanation: "主語が 'you' の一般動詞の疑問文は 'Do' で始めます。"
+  },
+  {
+    q: "She ____ a letter now.",
+    choices: ["write", "writes", "wrote", "is writing"],
+    answer: "is writing",
+    translation: "彼女は今、手紙を書いています。",
+    explanation: "'now'（今）とあるので、現在進行形 'is writing' を使います。"
+  },
+  {
+    q: "I like listening ____ music.",
+    choices: ["at", "of", "to", "for"],
+    answer: "to",
+    translation: "私は音楽を聴くのが好きです。",
+    explanation: "「音楽を聴く」は 'listen to music' という決まった言い方をします。"
+  },
+  {
+    q: "We ____ tired after the long walk.",
+    choices: ["was", "were", "is", "am"],
+    answer: "were",
+    translation: "長い散歩の後、私たちは疲れていました。",
+    explanation: "主語が複数 'We' の過去の状態を表すので、be動詞の過去形 'were' を使います。"
+  },
+  {
+    q: "____ is your birthday?",
+    choices: ["What", "When", "Where", "Who"],
+    answer: "When",
+    translation: "あなたの誕生日はいつですか？",
+    explanation: "時を尋ねる疑問詞は 'When' を使います。"
+  },
+  {
+    q: "The book is on ____ desk.",
+    choices: ["a", "an", "the", "it"],
+    answer: "the",
+    translation: "その本は（その）机の上にあります。",
+    explanation: "聞き手もどの机か分かっている特定のものを指す場合、定冠詞 'the' を使います。"
+  },
+  {
+    q: "Let's ____ for a walk.",
+    choices: ["go", "goes", "went", "going"],
+    answer: "go",
+    translation: "散歩に行きましょう。",
+    explanation: "'Let's' の後には、動詞の原形が続きます。"
+  },
+  {
+    q: "He is good ____ playing soccer.",
+    choices: ["in", "on", "at", "for"],
+    answer: "at",
+    translation: "彼はサッカーをするのが上手です。",
+    explanation: "'be good at ...' で「〜が上手である」という決まった言い方です。"
+  },
+  {
+    q: "I didn't ____ him at the party.",
+    choices: ["see", "sees", "saw", "seen"],
+    answer: "see",
+    translation: "私はパーティーで彼に会いませんでした。",
+    explanation: "過去形の否定文 'didn't' の後には、動詞の原形が続きます。"
+  },
+  {
+    q: "This flower is more ____ than that one.",
+    choices: ["beauty", "beautiful", "beautifully", "beauties"],
+    answer: "beautiful",
+    translation: "この花はあの花よりも美しいです。",
+    explanation: "長い形容詞の比較級は、前に 'more' を付けます。'beautiful' が形容詞です。"
+  },
+  {
+    q: "What do you do ____ your free time?",
+    choices: ["at", "on", "in", "by"],
+    answer: "in",
+    translation: "あなたは暇な時に何をしますか？",
+    explanation: "'in one's free time' で「暇な時に」という決まった言い方をします。"
+  },
+  {
+    q: "I have a brother. ____ name is Ken.",
+    choices: ["He", "His", "Him", "He's"],
+    answer: "His",
+    translation: "私には兄が一人います。彼の名前はケンです。",
+    explanation: "名詞 'name' の前で「彼の〜」という所有を表すには 'His' を使います。"
+  },
+  {
+    q: "The bank is ____ to the post office.",
+    choices: ["next", "near", "front", "on"],
+    answer: "next",
+    translation: "その銀行は郵便局の隣にあります。",
+    explanation: "'next to ...' で「〜の隣に」という位置関係を表します。"
+  },
+  {
+    q: "Please ____ quiet in the library.",
+    choices: ["is", "are", "am", "be"],
+    answer: "be",
+    translation: "図書館では静かにしてください。",
+    explanation: "命令文で形容詞 'quiet' を使う場合、be動詞の原形 'be' を前に置きます。"
+  },
+  {
+    q: "I usually go to bed ____ 11 p.m.",
+    choices: ["on", "in", "at", "by"],
+    answer: "at",
+    translation: "私はたいてい午後11時に寝ます。",
+    explanation: "具体的な時刻の前には前置詞 'at' を使います。"
+  },
+  {
+    q: "They ____ to America last year.",
+    choices: ["travel", "travels", "traveled", "traveling"],
+    answer: "traveled",
+    translation: "彼らは去年アメリカに旅行しました。",
+    explanation: "'last year'（去年）と過去を表しているので、動詞は過去形 'traveled' を使います。"
+  },
+  {
+    q: "Can I have ____ water, please?",
+    choices: ["a", "an", "some", "any"],
+    answer: "some",
+    translation: "お水をいただけますか？",
+    explanation: "相手に何かを勧める、または肯定的な返事を期待して尋ねる疑問文では 'some' を使うことがあります。"
+  },
+  {
+    q: "Is ____ your bag?",
+    choices: ["this", "these", "it's", "they"],
+    answer: "this",
+    translation: "これはあなたのカバンですか？",
+    explanation: "近くにある一つのもの（bag）を指して尋ねる疑問文なので 'this' を使います。"
+  },
+  {
+    q: "He is reading a book ____ the sofa.",
+    choices: ["in", "on", "at", "under"],
+    answer: "on",
+    translation: "彼はソファの上で本を読んでいます。",
+    explanation: "「〜の上に」接して乗っている状態を表す前置詞は 'on' です。"
+  },
+  {
+    q: "I ____ want to go out tonight.",
+    choices: ["am not", "don't", "isn't", "aren't"],
+    answer: "don't",
+    translation: "私は今夜、外出したくありません。",
+    explanation: "一般動詞 'want' を否定する場合、主語が 'I' なので 'do not' (don't) を使います。"
+  },
+  {
+    q: "How ____ brothers do you have?",
+    choices: ["much", "many", "old", "long"],
+    answer: "many",
+    translation: "あなたは何人兄弟がいますか？",
+    explanation: "数えられる名詞の数を尋ねる場合は 'How many ...?' を使います。"
+  },
+  {
+    q: "The movie ____ very interesting.",
+    choices: ["is", "am", "are", "be"],
+    answer: "is",
+    translation: "その映画はとても面白いです。",
+    explanation: "主語が三人称単数（The movie）なので、be動詞は 'is' を使います。"
+  },
+  {
+    q: "Let's meet ____ the station at 3 o'clock.",
+    choices: ["in", "on", "at", "to"],
+    answer: "at",
+    translation: "3時に駅で会いましょう。",
+    explanation: "待ち合わせ場所などの具体的な地点を表す場合、前置詞 'at' を使います。"
   }
 ];
