@@ -54,4 +54,149 @@
             <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
             <div id="question"></div>
-            <div id="choices" class
+            <div id="choices" class="choices"></div>
+        </div>
+        <div id="result" class="result hidden"></div>
+    </div>
+
+    <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
+    
+    <script src="quizData_writing_300.js"></script>
+    <script src="quizData_writing_400.js"></script>
+    <script src="quizData_writing_500.js"></script>
+    <script src="quizData_writing_600.js"></script>
+    <script src="quizData_writing_700.js"></script>
+    <script src="quizData_writing_800.js"></script>
+    <script src="quizData_writing_900.js"></script>
+    
+    <script>
+        const currentCategory = 'writing';
+        const currentMode = 'test';
+        let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
+        // ... (The rest of the JS is the same as vocabulary-test.html, but with an updated alert message) ...
+        function initializeApp() {
+            bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
+            statistics = JSON.parse(localStorage.getItem('statistics')) || {};
+            showLevelSelect();
+        }
+        function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
+        function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
+        function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
+        function showLevelSelect() { hideAllSections(); document.getElementById("level-select").classList.remove("hidden"); }
+        function selectLevel(level) {
+            currentLevel = level;
+            if (!quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
+                alert(`レベル${currentLevel}点のライティング問題データが見つかりません。\nJSファイルが正しく作成・配置されているか確認してください。`);
+                return;
+            }
+            hideAllSections();
+            document.getElementById("question-count-select").classList.remove("hidden");
+            document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - 目標スコア: ${level}点`;
+        }
+        function startQuiz(questionCount) {
+            currentQuestion = 0;
+            score = 0;
+            const allQuestions = [...quizData[currentCategory][currentLevel]];
+            currentQuestions = shuffleArray(allQuestions).slice(0, questionCount);
+            hideAllSections();
+            document.getElementById("quiz").classList.remove("hidden");
+            showQuestion();
+        }
+        function startQuizAll() { startQuiz(quizData[currentCategory][currentLevel].length); }
+        function shuffleArray(array) {
+            let shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+        function showQuestion() {
+            const qData = currentQuestions[currentQuestion];
+            document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
+            document.getElementById("question").textContent = qData.q;
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+            shuffleArray(qData.choices).forEach(choice => {
+                const btn = document.createElement("button");
+                btn.textContent = choice;
+                btn.onclick = () => checkAnswer(choice);
+                choicesDiv.appendChild(btn);
+            });
+            updateBookmarkStatus();
+        }
+        function checkAnswer(choice) {
+            const qData = currentQuestions[currentQuestion];
+            qData.userAnswer = choice;
+            updateStatistics(currentCategory, currentLevel, choice === qData.answer, qData.q);
+            nextQuestion();
+        }
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < currentQuestions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+        function showResult() {
+            hideAllSections();
+            const resultDiv = document.getElementById("result");
+            resultDiv.classList.remove("hidden");
+            let correctCount = 0;
+            let resultHTML = `<h2>結果 - ${getCategoryName(currentCategory)} テスト</h2>`;
+            currentQuestions.forEach((q, index) => {
+                const isCorrect = q.userAnswer === q.answer;
+                if (isCorrect) correctCount++;
+                resultHTML += `
+                    <div class="${isCorrect ? 'correct' : 'incorrect'}">
+                      <p><strong>問題 ${index + 1}:</strong> ${q.q}</p>
+                      <p>あなたの回答: ${q.userAnswer} ${isCorrect ? '✔' : '✖'}</p>
+                      ${!isCorrect ? `<p>正解: ${q.answer}</p>` : ''}
+                      <p>解説: ${q.explanation}</p>
+                      <p>和訳: ${q.translation}</p>
+                    </div>`;
+            });
+            const percentage = Math.round((correctCount / currentQuestions.length) * 100);
+            resultHTML = `<h2>結果 - ${getCategoryName(currentCategory)} テスト</h2>
+                          <p>${correctCount} / ${currentQuestions.length} 正解 (${percentage}%)</p>` + resultHTML;
+            resultHTML += `<button onclick="showLevelSelect()">もう一度挑戦</button>
+                           <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>`;
+            resultDiv.innerHTML = resultHTML;
+        }
+        function updateBookmarkStatus() {
+            const qData = currentQuestions[currentQuestion];
+            const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
+            document.getElementById("bookmark").textContent = isBookmarked ? "★" : "☆";
+            document.getElementById("bookmark").className = isBookmarked ? "bookmark bookmarked" : "bookmark";
+        }
+        function toggleBookmark() {
+            const qData = currentQuestions[currentQuestion];
+            const bookmarkIndex = bookmarks[currentCategory].findIndex(b => b.q === qData.q);
+            if (bookmarkIndex === -1) {
+                bookmarks[currentCategory].push({ ...qData, level: currentLevel, category: currentCategory });
+            } else {
+                bookmarks[currentCategory].splice(bookmarkIndex, 1);
+            }
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            updateBookmarkStatus();
+        }
+        function updateStatistics(category, level, isCorrect, question) {
+            let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
+            let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
+            const key = `${category}_${level}`;
+            if (!statistics[key]) statistics[key] = { total: 0, correct: 0, category, level };
+            statistics[key].total++;
+            if (isCorrect) {
+                statistics[key].correct++;
+            } else {
+                if (!mistakes[key]) mistakes[key] = {};
+                mistakes[key][question] = (mistakes[key][question] || 0) + 1;
+            }
+            localStorage.setItem('statistics', JSON.stringify(statistics));
+            localStorage.setItem('mistakes', JSON.stringify(mistakes));
+        }
+        window.onload = initializeApp;
+    </script>
+</body>
+</html>
