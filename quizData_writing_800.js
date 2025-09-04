@@ -1,6 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.writing) quizData.writing = {};
-
 quizData.writing[800] = [
   {
     q: "The new regulations will be ____ from the beginning of next year.",
