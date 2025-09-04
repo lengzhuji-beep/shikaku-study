@@ -63,6 +63,7 @@
     </div>
 
     <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
+    
     <script src="/shikaku-study/quizData_vocabulary_300.js"></script>
     <script src="/shikaku-study/quizData_vocabulary_400.js"></script>
     <script src="/shikaku-study/quizData_vocabulary_500.js"></script>
@@ -70,6 +71,15 @@
     <script src="/shikaku-study/quizData_vocabulary_700.js"></script>
     <script src="/shikaku-study/quizData_vocabulary_800.js"></script>
     <script src="/shikaku-study/quizData_vocabulary_900.js"></script>
+    
+    <script src="/shikaku-study/quizData_writing_300.js"></script>
+    <script src="/shikaku-study/quizData_writing_400.js"></script>
+    <script src="/shikaku-study/quizData_writing_500.js"></script>
+    <script src="/shikaku-study/quizData_writing_600.js"></script>
+    <script src="/shikaku-study/quizData_writing_700.js"></script>
+    <script src="/shikaku-study/quizData_writing_800.js"></script>
+    <script src="/shikaku-study/quizData_writing_900.js"></script>
+    
     <script>
         const currentCategory = 'writing';
         const currentMode = 'test';
@@ -95,6 +105,12 @@
         }
 
         function startQuiz(questionCount) {
+            // エラーチェックを追加
+            if (!quizData[currentCategory] || !quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
+                alert(`レベル${currentLevel}点のライティング問題データが読み込まれていません。`);
+                showLevelSelect();
+                return;
+            }
             currentQuestion = 0;
             score = 0;
             const allQuestions = [...quizData[currentCategory][currentLevel]];
@@ -164,6 +180,7 @@
                       <p>あなたの回答: ${q.userAnswer} ${isCorrect ? '✔' : '✖'}</p>
                       ${!isCorrect ? `<p>正解: ${q.answer}</p>` : ''}
                       <p>解説: ${q.explanation}</p>
+                      <p>和訳: ${q.translation}</p>
                     </div>`;
             });
             
