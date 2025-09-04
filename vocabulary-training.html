@@ -185,4 +185,14 @@
             statistics[key].total++;
             if (isCorrect) {
                 statistics[key].correct++;
+            } else {
+                if (!mistakes[key]) mistakes[key] = {};
+                mistakes[key][question] = (mistakes[key][question] || 0) + 1;
             }
+            localStorage.setItem('statistics', JSON.stringify(statistics));
+            localStorage.setItem('mistakes', JSON.stringify(mistakes));
+        }
+        window.onload = initializeApp;
+    </script>
+</body>
+</html>
