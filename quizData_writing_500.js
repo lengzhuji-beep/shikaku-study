@@ -1,6 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.writing) quizData.writing = {};
-
 quizData.writing[500] = [
   {
     q: "Please ____ the attached document.",
