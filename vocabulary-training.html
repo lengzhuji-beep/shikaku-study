@@ -36,9 +36,8 @@
             <button onclick="selectLevel(700)">700点</button>
             <button onclick="selectLevel(800)">800点</button>
             <button onclick="selectLevel(900)">900点以上</button>
-            <a href="/shikaku-study/index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
+            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
-        
         <div id="question-count-select" class="card hidden">
              <h2>出題数を選択してください</h2>
             <p id="selected-info"></p>
@@ -51,7 +50,6 @@
             </div>
              <button onclick="showLevelSelect()">レベル選択に戻る</button>
         </div>
-
         <div id="quiz" class="card hidden">
             <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
@@ -60,51 +58,48 @@
             <div id="feedback" class="feedback hidden"></div>
             <button id="next-btn" onclick="nextQuestion()" class="hidden">次の問題へ</button>
         </div>
-        
         <div id="result" class="card hidden" style="text-align:center;">
              <h2>トレーニング完了！</h2>
              <p id="result-text"></p>
              <button onclick="showLevelSelect()">別のレベルに挑戦</button>
-             <a href="/shikaku-study/index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
+             <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
     </div>
 
     <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
-    <script src="/shikaku-study/quizData_vocabulary_300.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_400.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_500.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_600.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_700.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_800.js"></script>
-    <script src="/shikaku-study/quizData_vocabulary_900.js"></script>
+
+    <script src="quizData_vocabulary_300.js"></script>
+    <script src="quizData_vocabulary_400.js"></script>
+    <script src="quizData_vocabulary_500.js"></script>
+    <script src="quizData_vocabulary_600.js"></script>
+    <script src="quizData_vocabulary_700.js"></script>
+    <script src="quizData_vocabulary_800.js"></script>
+    <script src="quizData_vocabulary_900.js"></script>
+    
     <script>
         const currentCategory = 'vocabulary';
         const currentMode = 'training';
-        
-        // This page shares most of its JS with the test mode.
-        // You can copy the JS from vocabulary-test.html and make one change:
-        // In the checkAnswer function, instead of just calling nextQuestion(),
-        // show the feedback and the "next" button.
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
-
+        // ... (initializeApp, getCategoryName, etc. are the same as test mode) ...
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             statistics = JSON.parse(localStorage.getItem('statistics')) || {};
             showLevelSelect();
         }
-
         function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
         function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
         function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
         function showLevelSelect() { hideAllSections(); document.getElementById("level-select").classList.remove("hidden"); }
-
         function selectLevel(level) {
             currentLevel = level;
+            if (!quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
+                alert(`レベル${currentLevel}点の単語問題データが見つかりません。\nJSファイルが正しく作成・配置されているか確認してください。`);
+                return;
+            }
             hideAllSections();
             document.getElementById("question-count-select").classList.remove("hidden");
             document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - 目標スコア: ${level}点`;
         }
-
         function startQuiz(questionCount) {
             currentQuestion = 0;
             score = 0;
@@ -114,11 +109,7 @@
             document.getElementById("quiz").classList.remove("hidden");
             showQuestion();
         }
-
-        function startQuizAll() {
-            startQuiz(quizData[currentCategory][currentLevel].length);
-        }
-
+        function startQuizAll() { startQuiz(quizData[currentCategory][currentLevel].length); }
         function shuffleArray(array) {
             let shuffled = [...array];
             for (let i = shuffled.length - 1; i > 0; i--) {
@@ -127,7 +118,6 @@
             }
             return shuffled;
         }
-
         function showQuestion() {
             document.getElementById("feedback").classList.add("hidden");
             document.getElementById("next-btn").classList.add("hidden");
@@ -144,23 +134,18 @@
             });
             updateBookmarkStatus();
         }
-        
         function checkAnswer(choice) {
             const qData = currentQuestions[currentQuestion];
             const isCorrect = choice === qData.answer;
             if(isCorrect) score++;
-            
             updateStatistics(currentCategory, currentLevel, isCorrect, qData.q);
-
             const feedbackDiv = document.getElementById("feedback");
-            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br>${qData.explanation}`;
+            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>${qData.explanation}`;
             feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
             feedbackDiv.classList.remove("hidden");
-            
             document.querySelectorAll('#choices button').forEach(button => button.disabled = true);
             document.getElementById("next-btn").classList.remove("hidden");
         }
-
         function nextQuestion() {
             currentQuestion++;
             if (currentQuestion < currentQuestions.length) {
@@ -169,21 +154,18 @@
                 showResult();
             }
         }
-
         function showResult() {
             hideAllSections();
             const resultDiv = document.getElementById("result");
             resultDiv.classList.remove("hidden");
             document.getElementById("result-text").textContent = `${currentQuestions.length}問中、${score}問正解しました。`;
         }
-
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
             document.getElementById("bookmark").textContent = isBookmarked ? "★" : "☆";
             document.getElementById("bookmark").className = isBookmarked ? "bookmark bookmarked" : "bookmark";
         }
-
         function toggleBookmark() {
             const qData = currentQuestions[currentQuestion];
             const bookmarkIndex = bookmarks[currentCategory].findIndex(b => b.q === qData.q);
@@ -195,7 +177,6 @@
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
             updateBookmarkStatus();
         }
-
         function updateStatistics(category, level, isCorrect, question) {
             let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
             let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
@@ -204,15 +185,4 @@
             statistics[key].total++;
             if (isCorrect) {
                 statistics[key].correct++;
-            } else {
-                if (!mistakes[key]) mistakes[key] = {};
-                mistakes[key][question] = (mistakes[key][question] || 0) + 1;
             }
-            localStorage.setItem('statistics', JSON.stringify(statistics));
-            localStorage.setItem('mistakes', JSON.stringify(mistakes));
-        }
-
-        window.onload = initializeApp;
-    </script>
-</body>
-</html>
