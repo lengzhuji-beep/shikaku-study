@@ -1,6 +1,3 @@
-if (!quizData) var quizData = {};
-if (!quizData.writing) quizData.writing = {};
-
 quizData.writing[700] = [
   {
     q: "The company plans to ____ a new branch in Europe.",
