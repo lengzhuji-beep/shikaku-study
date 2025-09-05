@@ -238,5 +238,247 @@ quizData.listening[700] = [
     choices: ["好影響を及ぼした (It had a positive effect)", "影響はなかった (It had no effect)", "悪影響を及ぼした (It adversely affected it)", "わずかな改善をもたらした (It led to a slight improvement)"],
     answer: "悪影響を及ぼした (It adversely affected it)",
     explanation: "'adversely affected' が「悪影響を及ぼした」を意味します。"
+  },
+  // Start of newly added questions (31-100)
+  {
+    sentence: "To enhance collaboration among departments, the company will implement a new internal communication platform.",
+    translation: "部門間の連携を強化するため、その会社は新しい社内コミュニケーションプラットフォームを導入します。",
+    q: "会社が新しいプラットフォームを導入する目的は何ですか？",
+    choices: ["顧客との関係を改善するため (To improve customer relations)", "部門間の連携を強化するため (To enhance collaboration among departments)", "サイバーセキュリティを強化するため (To strengthen cybersecurity)", "リモートワークを促進するため (To facilitate remote work)"],
+    answer: "部門間の連携を強化するため (To enhance collaboration among departments)",
+    explanation: "'To enhance collaboration among departments' が導入の目的として述べられています。"
+  },
+  {
+    sentence: "The preliminary budget proposal for the next fiscal year has been submitted for review.",
+    translation: "来年度の暫定予算案が、レビューのために提出されました。",
+    q: "来年度の予算案の現在の状況はどうですか？",
+    choices: ["最終承認された (It has been finalized and approved)", "レビューのために提出された (It has been submitted for review)", "まだ作成中である (It is still being drafted)", "却下された (It has been rejected)"],
+    answer: "レビューのために提出された (It has been submitted for review)",
+    explanation: "'has been submitted for review' と現在のステータスが述べられています。"
+  },
+  {
+    sentence: "The architecture firm is renowned for its sustainable and eco-friendly building designs.",
+    translation: "その建築事務所は、持続可能で環境に優しい建築デザインで有名です。",
+    q: "その建築事務所は何で有名ですか？",
+    choices: ["高層ビルの建設 (Constructing skyscrapers)", "歴史的建造物の修復 (Restoring historic buildings)", "持続可能で環境に優しいデザイン (Sustainable and eco-friendly designs)", "低コストの住宅プロジェクト (Low-cost housing projects)"],
+    answer: "持続可能で環境に優しいデザイン (Sustainable and eco-friendly designs)",
+    explanation: "'renowned for its sustainable and eco-friendly building designs' と述べられています。"
+  },
+  {
+    sentence: "The company's stock value fluctuated throughout the day but closed with a marginal gain.",
+    translation: "その会社の株価は一日を通して変動しましたが、わずかな上昇で取引を終えました。",
+    q: "その日の取引終了時、株価はどうなりましたか？",
+    choices: ["大幅に上昇した (It increased significantly)", "大幅に下落した (It decreased significantly)", "わずかな上昇で終えた (It closed with a marginal gain)", "変動はなかった (It remained unchanged)"],
+    answer: "わずかな上昇で終えた (It closed with a marginal gain)",
+    explanation: "'closed with a marginal gain' が「わずかな上昇で終えた」という意味です。"
+  },
+  {
+    sentence: "The revised itinerary includes a visit to the newly opened art gallery.",
+    translation: "改訂された旅程には、新しくオープンしたアートギャラリーへの訪問が含まれています。",
+    q: "改訂された旅程には何が含まれていますか？",
+    choices: ["工場見学 (A factory tour)", "ビジネスミーティング (A business meeting)", "新しくオープンしたアートギャラリーへの訪問 (A visit to a newly opened art gallery)", "自由時間 (Free time)"],
+    answer: "新しくオープンしたアートギャラリーへの訪問 (A visit to a newly opened art gallery)",
+    explanation: "'includes a visit to the newly opened art gallery' と述べられています。"
+  },
+  {
+    sentence: "The new manufacturing technique is projected to reduce production costs by fifteen percent.",
+    translation: "新しい製造技術は、生産コストを15パーセント削減すると予測されています。",
+    q: "新しい製造技術に期待される効果は何ですか？",
+    choices: ["生産時間を50%短縮する (To shorten production time by 50%)", "製品の品質を向上させる (To improve product quality)", "生産コストを15%削減する (To reduce production costs by 15%)", "従業員の数を増やす (To increase the number of employees)"],
+    answer: "生産コストを15%削減する (To reduce production costs by 15%)",
+    explanation: "'projected to reduce production costs by fifteen percent' と予測されています。"
+  },
+  {
+    sentence: "The company is recruiting candidates with a proven track record in international sales.",
+    translation: "その会社は、国際営業で実績のある候補者を募集しています。",
+    q: "その会社はどのような経験を持つ候補者を求めていますか？",
+    choices: ["製品開発 (Product development)", "人事管理 (Human resource management)", "国際営業での実績 (A proven track record in international sales)", "会計 (Accounting)"],
+    answer: "国際営業での実績 (A proven track record in international sales)",
+    explanation: "'candidates with a proven track record in international sales' と述べられています。"
+  },
+  {
+    sentence: "The spokesperson for the organization declined to comment on the ongoing investigation.",
+    translation: "その組織の広報担当者は、進行中の調査についてコメントすることを控えました。",
+    q: "広報担当者は調査についてどうしましたか？",
+    choices: ["詳細を説明した (He explained the details)", "コメントを控えた (He declined to comment)", "報告書を発表した (He released a report)", "記者会見を開いた (He held a press conference)"],
+    answer: "コメントを控えた (He declined to comment)",
+    explanation: "'declined to comment' が「コメントを控えた」という意味です。"
+  },
+  {
+    sentence: "The utility company will be conducting routine maintenance on the power lines tomorrow.",
+    translation: "電力会社は明日、送電線の定期メンテナンスを行います。",
+    q: "電力会社は明日何をしますか？",
+    choices: ["新しいメーターを設置する (Install new meters)", "料金を請求する (Send out bills)", "送電線の定期メンテナンスを行う (Conduct routine maintenance on power lines)", "顧客調査を行う (Conduct a customer survey)"],
+    answer: "送電線の定期メンテナンスを行う (Conduct routine maintenance on power lines)",
+    explanation: "'conducting routine maintenance on the power lines' と述べられています。"
+  },
+  {
+    sentence: "The consensus among the committee members was that the proposal required further revision.",
+    translation: "委員会のメンバー間でのコンセンサスは、その提案にはさらなる修正が必要であるというものでした。",
+    q: "提案に関する委員会のコンセンサスは何でしたか？",
+    choices: ["すぐに承認すべきだ (It should be approved immediately)", "完全に却下すべきだ (It should be rejected outright)", "さらなる修正が必要だ (It required further revision)", "外部の専門家に意見を求めるべきだ (An external expert should be consulted)"],
+    answer: "さらなる修正が必要だ (It required further revision)",
+    explanation: "'the consensus ... was that the proposal required further revision' と述べられています。"
+  },
+  {
+    sentence: "The agricultural sector has been adversely affected by the prolonged drought.",
+    translation: "農業部門は、長期にわたる干ばつによって悪影響を受けています。",
+    q: "農業部門が悪影響を受けている原因は何ですか？",
+    choices: ["政府の政策 (Government policies)", "害虫の発生 (An insect infestation)", "長期にわたる干ばつ (A prolonged drought)", "輸入品との競争 (Competition from imported goods)"],
+    answer: "長期にわたる干ばつ (A prolonged drought)",
+    explanation: "'adversely affected by the prolonged drought' と述べられています。"
+  },
+  {
+    sentence: "The philanthropic foundation has donated a substantial sum to medical research.",
+    translation: "その慈善財団は、医学研究に多額の寄付をしました。",
+    q: "その慈善財団は何に多額の寄付をしましたか？",
+    choices: ["芸術と文化 (Arts and culture)", "教育機関 (Educational institutions)", "医学研究 (Medical research)", "環境保護 (Environmental protection)"],
+    answer: "医学研究 (Medical research)",
+    explanation: "'donated a substantial sum to medical research' と述べられています。"
+  },
+  {
+    sentence: "The two authors collaborated on a comprehensive biography of the famous inventor.",
+    translation: "その二人の著者は、その有名な発明家の包括的な伝記を共同で執筆しました。",
+    q: "その二人の著者は何を共同で執筆しましたか？",
+    choices: ["フィクション小説 (A fictional novel)", "詩集 (A collection of poems)", "有名な発明家の包括的な伝記 (A comprehensive biography of a famous inventor)", "旅行ガイドブック (A travel guidebook)"],
+    answer: "有名な発明家の包括的な伝記 (A comprehensive biography of a famous inventor)",
+    explanation: "'collaborated on a comprehensive biography of the famous inventor' と述べられています。"
+  },
+  {
+    sentence: "The city's zoning regulations prohibit industrial development in residential areas.",
+    translation: "その市の用途指定規制は、住宅地域での工業開発を禁止しています。",
+    q: "市の用途指定規制は何を禁止していますか？",
+    choices: ["商業ビルの建設 (The construction of commercial buildings)", "公園の設置 (The creation of public parks)", "住宅地域での工業開発 (Industrial development in residential areas)", "高層アパートの建設 (The building of high-rise apartments)"],
+    answer: "住宅地域での工業開発 (Industrial development in residential areas)",
+    explanation: "'prohibit industrial development in residential areas' と述べられています。"
+  },
+  {
+    sentence: "The new medication has shown remarkable efficacy in clinical trials.",
+    translation: "その新薬は、臨床試験で驚くべき有効性を示しました。",
+    q: "新薬は臨床試験で何を示しましたか？",
+    choices: ["深刻な副作用 (Serious side effects)", "限定的な効果 (Limited effectiveness)", "驚くべき有効性 (Remarkable efficacy)", "他の薬との相互作用 (Interactions with other drugs)"],
+    answer: "驚くべき有効性 (Remarkable efficacy)",
+    explanation: "'shown remarkable efficacy' が「驚くべき有効性を示した」という意味です。"
+  },
+  {
+    sentence: "The company's meticulous attention to detail is reflected in the superior quality of its products.",
+    translation: "その会社の細部への細心の注意は、その製品の優れた品質に反映されています。",
+    q: "製品の優れた品質に反映されているものは何ですか？",
+    choices: ["大規模な生産能力 (Large-scale production capacity)", "革新的なマーケティング (Innovative marketing)", "細部への細心の注意 (Meticulous attention to detail)", "効率的な配送システム (An efficient delivery system)"],
+    answer: "細部への細心の注意 (Meticulous attention to detail)",
+    explanation: "'meticulous attention to detail is reflected in the superior quality' と述べられています。"
+  },
+  {
+    sentence: "The keynote speaker delivered a thought-provoking presentation on the future of artificial intelligence.",
+    translation: "基調講演者は、人工知能の未来について示唆に富むプレゼンテーションを行いました。",
+    q: "基調講演者のプレゼンテーションは何についてでしたか？",
+    choices: ["再生可能エネルギー (Renewable energy)", "宇宙探査 (Space exploration)", "人工知能の未来 (The future of artificial intelligence)", "世界経済 (The global economy)"],
+    answer: "人工知能の未来 (The future of artificial intelligence)",
+    explanation: "'on the future of artificial intelligence' とテーマが述べられています。"
+  },
+  {
+    sentence: "The new public library features a state-of-the-art multimedia center and a vast collection of e-books.",
+    translation: "新しい公立図書館は、最新鋭のマルチメディアセンターと膨大な電子書籍のコレクションを特徴としています。",
+    q: "新しい公立図書館の特徴は何ですか？",
+    choices: ["カフェとレストラン (A cafe and a restaurant)", "子供向けの遊び場 (A children's play area)", "最新鋭のマルチメディアセンターと膨大な電子書籍 (A state-of-the-art multimedia center and a vast collection of e-books)", "屋上庭園 (A rooftop garden)"],
+    answer: "最新鋭のマルチメディアセンターと膨大な電子書籍 (A state-of-the-art multimedia center and a vast collection of e-books)",
+    explanation: "'features a state-of-the-art multimedia center and a vast collection of e-books' と述べられています。"
+  },
+  {
+    sentence: "The veteran journalist has a reputation for impartial and objective reporting.",
+    translation: "そのベテランジャーナリストは、公平で客観的な報道をすることで定評があります。",
+    q: "そのジャーナリストはどのような評判ですか？",
+    choices: ["扇情的な記事を書く (For writing sensational stories)", "偏った見方をする (For having a biased perspective)", "公平で客観的な報道をする (For impartial and objective reporting)", "特定の政党を支持する (For supporting a particular political party)"],
+    answer: "公平で客観的な報道をする (For impartial and objective reporting)",
+    explanation: "'a reputation for impartial and objective reporting' と述べられています。"
+  },
+  {
+    sentence: "The company's code of conduct explicitly prohibits any form of discrimination or harassment.",
+    translation: "その会社の行動規範は、いかなる形態の差別やハラスメントも明確に禁止しています。",
+    q: "会社の行動規範が明確に禁止していることは何ですか？",
+    choices: ["残業 (Working overtime)", "個人的な電話の使用 (Using personal phones)", "いかなる形態の差別やハラスメント (Any form of discrimination or harassment)", "ソーシャルメディアの利用 (Using social media)"],
+    answer: "いかなる形態の差別やハラスメント (Any form of discrimination or harassment)",
+    explanation: "'explicitly prohibits any form of discrimination or harassment' と述べられています。"
+  },
+  {
+    sentence: "The ongoing negotiations between management and the union have reached a stalemate.",
+    translation: "経営陣と労働組合との間で進行中の交渉は、行き詰まりに達しました。",
+    q: "経営陣と労働組合との交渉はどうなっていますか？",
+    choices: ["合意に達した (They have reached an agreement)", "中断された (They have been suspended)", "行き詰まりに達した (They have reached a stalemate)", "来週再開される (They will resume next week)"],
+    answer: "行き詰まりに達した (They have reached a stalemate)",
+    explanation: "'reached a stalemate' が「行き詰まりに達した」という意味です。"
+  },
+  {
+    sentence: "The university's endowment has grown substantially thanks to generous alumni donations.",
+    translation: "その大学の寄付基金は、寛大な卒業生の寄付のおかげで大幅に増加しました。",
+    q: "大学の寄付基金が増加した理由は何ですか？",
+    choices: ["賢明な投資 (Wise investments)", "授業料の値上げ (An increase in tuition fees)", "寛大な卒業生の寄付 (Generous alumni donations)", "政府からの資金援助 (Government funding)"],
+    answer: "寛大な卒業生の寄付 (Generous alumni donations)",
+    explanation: "'thanks to generous alumni donations' と理由が述べられています。"
+  },
+  {
+    sentence: "The company implemented a rigorous screening process to select the most qualified candidates.",
+    translation: "その会社は、最も適格な候補者を選抜するために、厳格な選考プロセスを導入しました。",
+    q: "会社が厳格な選考プロセスを導入した目的は何ですか？",
+    choices: ["採用プロセスを迅速化するため (To speed up the hiring process)", "最も適格な候補者を選抜するため (To select the most qualified candidates)", "採用コストを削減するため (To reduce recruitment costs)", "多様性を促進するため (To promote diversity)"],
+    answer: "最も適格な候補者を選抜するため (To select the most qualified candidates)",
+    explanation: "'to select the most qualified candidates' が目的です。"
+  },
+  {
+    sentence: "The government spokesperson reiterated the administration's commitment to fiscal responsibility.",
+    translation: "政府の報道官は、政権の財政的責任へのコミットメントを改めて表明しました。",
+    q: "政府の報道官は何を改めて表明しましたか？",
+    choices: ["減税の計画 (A plan for tax cuts)", "財政的責任へのコミットメント (The commitment to fiscal responsibility)", "新しい貿易協定 (A new trade agreement)", "インフラへの投資 (Investment in infrastructure)"],
+    answer: "財政的責任へのコミットメント (The commitment to fiscal responsibility)",
+    explanation: "'reiterated the administration's commitment to fiscal responsibility' と述べられています。"
+  },
+  {
+    sentence: "The new software allows for seamless integration with existing platforms.",
+    translation: "新しいソフトウェアは、既存のプラットフォームとのシームレスな統合を可能にします。",
+    q: "新しいソフトウェアの利点は何ですか？",
+    choices: ["オフラインで動作する (It works offline)", "無料である (It is free of charge)", "既存のプラットフォームとシームレスに統合できる (It allows for seamless integration with existing platforms)", "習得が容易である (It is easy to learn)"],
+    answer: "既存のプラットフォームとシームレスに統合できる (It allows for seamless integration with existing platforms)",
+    explanation: "'allows for seamless integration with existing platforms' が利点です。"
+  },
+  {
+    sentence: "The art critic lauded the painter's masterful use of color and light.",
+    translation: "その美術評論家は、その画家の色と光の巧みな使い方を称賛しました。",
+    q: "美術評論家が称賛したことは何ですか？",
+    choices: ["画家の主題の選択 (The painter's choice of subject matter)", "画家の筆遣い (The painter's brushwork)", "画家の色と光の巧みな使い方 (The painter's masterful use of color and light)", "画家の額縁の選択 (The painter's selection of frames)"],
+    answer: "画家の色と光の巧みな使い方 (The painter's masterful use of color and light)",
+    explanation: "'lauded the painter's masterful use of color and light' と述べられています。"
+  },
+  {
+    sentence: "The city's antiquated sewage system is in urgent need of an upgrade.",
+    translation: "その市の時代遅れの下水システムは、緊急のアップグレードが必要です。",
+    q: "市の下水システムについて何が述べられていますか？",
+    choices: ["最近近代化された (It was recently modernized)", "効率的に機能している (It is functioning efficiently)", "緊急のアップグレードが必要である (It is in urgent need of an upgrade)", "市全体をカバーしていない (It does not cover the entire city)"],
+    answer: "緊急のアップグレードが必要である (It is in urgent need of an upgrade)",
+    explanation: "'in urgent need of an upgrade' と述べられています。"
+  },
+  {
+    sentence: "The new memoir provides an unvarnished account of the politician's life.",
+    translation: "その新しい回顧録は、その政治家の人生のありのままの記述を提供しています。",
+    q: "その回顧録はどのような記述を提供していますか？",
+    choices: ["美化された記述 (A glorified account)", "フィクションの記述 (A fictional account)", "ありのままの記述 (An unvarnished account)", "偏った記述 (A biased account)"],
+    answer: "ありのままの記述 (An unvarnished account)",
+    explanation: "'unvarnished account' が「ありのままの記述」を意味します。"
+  },
+  {
+    sentence: "The company's formidable reputation in the industry is well-deserved.",
+    translation: "その会社の業界における恐るべき評判は、十分に値するものです。",
+    q: "その会社の業界での評判はどうですか？",
+    choices: ["芳しくない (It is poor)", "誇張されている (It is exaggerated)", "恐るべきもので、十分に値する (It is formidable and well-deserved)", "最近低下している (It has been declining recently)"],
+    answer: "恐るべきもので、十分に値する (It is formidable and well-deserved)",
+    explanation: "'formidable reputation ... is well-deserved' と述べられています。"
+  },
+  {
+    sentence: "The historian's meticulous research shed new light on the historical event.",
+    translation: "その歴史家の細心な研究は、その歴史的出来事に新たな光を当てました。",
+    q: "その歴史家の研究はどのような影響を与えましたか？",
+    choices: ["既存の理論を覆した (It overturned existing theories)", "物議を醸した (It was controversial)", "その歴史的出来事に新たな光を当てた (It shed new light on the historical event)", "ほとんど注目されなかった (It received little attention)"],
+    answer: "その歴史的出来事に新たな光を当てた (It shed new light on the historical event)",
+    explanation: "'shed new light on the historical event' が影響として述べられています。"
   }
 ];
+
