@@ -23,10 +23,14 @@
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
         .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
         .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
-        .question-header { display: flex; justify-content: center; align-items: center; margin-bottom: 20px; }
+        .question-header { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; }
         #speak-btn { font-size: 48px; cursor: pointer; color: #4a90e2; background: none; border: none; padding: 0 20px; }
         #speak-btn:hover { color: #357ABD; }
-        #sentence-container { background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 8px; margin-top: 15px; }
+        .q-section { margin-top: 25px; }
+        .q-label { font-weight: bold; color: #555; margin-bottom: 8px; font-size: 0.9em; }
+        #question { font-weight: bold; font-size: 1.2em; margin-top: 5px; }
+        #sentence-container { background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 8px; margin-top: 10px; }
+        #toggle-sentence-btn { background-color: #6c757d; font-size: 14px; padding: 8px 15px; margin: 0; }
     </style>
 </head>
 <body>
@@ -43,7 +47,6 @@
             <button onclick="selectLevel(900)">900点以上</button>
             <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
-
         <div id="question-count-select" class="card hidden">
              <h2>出題数を選択してください</h2>
             <p id="selected-info"></p>
@@ -56,17 +59,12 @@
             </div>
              <button onclick="showLevelSelect()">レベル選択に戻る</button>
         </div>
-
         <div id="quiz" class="card hidden">
             <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
-            
             <div class="question-header">
                 <button id="speak-btn"><i class="fas fa-volume-up"></i></button>
             </div>
-            
-            <div id="question" style="font-weight: bold; font-size: 1.2em;"></div>
-            
             <div class="q-section">
                 <p class="q-label">【文章】</p>
                 <button id="toggle-sentence-btn" onclick="toggleSentence()">英文を表示</button>
@@ -74,7 +72,6 @@
                     <p id="sentence-text"></p>
                 </div>
             </div>
-
             <div class="q-section">
                 <p class="q-label">【質問】</p>
                 <div id="question"></div>
@@ -83,7 +80,6 @@
             <div id="feedback" class="feedback hidden"></div>
             <button id="next-btn" onclick="nextQuestion()" class="hidden">次の問題へ</button>
         </div>
-
         <div id="result" class="card hidden" style="text-align:center;">
              <h2>トレーニング完了！</h2>
              <p id="result-text"></p>
@@ -91,11 +87,8 @@
              <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
     </div>
-
-    <!-- 問題データを読み込む -->
     <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
     <script src="quizData_listening_400.js"></script>
-
     <script>
         const currentCategory = 'listening';
         const currentMode = 'training';
@@ -113,7 +106,6 @@
         function showLevelSelect() { 
             hideAllSections(); 
             document.getElementById("level-select").classList.remove("hidden"); 
-            // 音声再生中なら停止
             window.speechSynthesis.cancel();
         }
 
@@ -150,10 +142,10 @@
         }
 
         function speakText(text) {
-            window.speechSynthesis.cancel(); // 既存の読み上げをキャンセル
+            window.speechSynthesis.cancel(); 
             const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'en-US'; // 言語を英語に設定
-            utterance.rate = 0.9; // 少しゆっくりめに設定
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9; 
             window.speechSynthesis.speak(utterance);
         }
 
@@ -161,17 +153,12 @@
             const sentenceContainer = document.getElementById('sentence-container');
             const toggleBtn = document.getElementById('toggle-sentence-btn');
             sentenceContainer.classList.toggle('hidden');
-            if (sentenceContainer.classList.contains('hidden')) {
-                toggleBtn.textContent = '英文を表示';
-            } else {
-                toggleBtn.textContent = '英文を非表示';
-            }
+            toggleBtn.textContent = sentenceContainer.classList.contains('hidden') ? '英文を表示' : '英文を非表示';
         }
 
         function showQuestion() {
             document.getElementById("feedback").classList.add("hidden");
             document.getElementById("next-btn").classList.add("hidden");
-            // 英文表示をリセット
             document.getElementById('sentence-container').classList.add('hidden');
             document.getElementById('toggle-sentence-btn').textContent = '英文を表示';
             
@@ -180,8 +167,6 @@
             document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
             document.getElementById("question").textContent = qData.q;
             document.getElementById("sentence-text").textContent = qData.sentence;
-
-            // スピーカーボタンのイベントを設定
             document.getElementById('speak-btn').onclick = () => speakText(qData.sentence);
             
             const choicesDiv = document.getElementById("choices");
@@ -196,7 +181,7 @@
         }
 
         function checkAnswer(choice) {
-            window.speechSynthesis.cancel(); // 回答時に音声を停止
+            window.speechSynthesis.cancel();
             const qData = currentQuestions[currentQuestion];
             const isCorrect = choice === qData.answer;
             if(isCorrect) score++;
@@ -227,7 +212,6 @@
             document.getElementById("result-text").textContent = `${currentQuestions.length}問中、${score}問正解しました。`;
         }
         
-        // --- ブックマークと統計機能 (変更なし) ---
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
