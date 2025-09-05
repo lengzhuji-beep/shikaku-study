@@ -83,11 +83,17 @@
         <div id="result" class="result card hidden"></div>
     </div>
     <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
+    <script src="quizData_listening_300.js"></script>
     <script src="quizData_listening_400.js"></script>
+    <script src="quizData_listening_500.js"></script>
+    <script src="quizData_listening_600.js"></script>
+    <script src="quizData_listening_700.js"></script>
+    <script src="quizData_listening_800.js"></script>
+    <script src="quizData_listening_900.js"></script>
     <script>
         const currentCategory = 'listening';
         const currentMode = 'test';
-        let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
+        let currentLevel, currentQuestions, currentQuestion, bookmarks;
 
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
@@ -117,7 +123,6 @@
         
         function startQuiz(questionCount) {
             currentQuestion = 0;
-            score = 0;
             const allQuestions = [...quizData[currentCategory][currentLevel]];
             currentQuestions = shuffleArray(allQuestions).slice(0, questionCount);
             hideAllSections();
