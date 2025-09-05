@@ -23,9 +23,10 @@
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
         .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
         .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
-        .question-header { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; }
+        .question-header { text-align: center; margin-bottom: 10px; }
         #speak-btn { font-size: 48px; cursor: pointer; color: #4a90e2; background: none; border: none; padding: 0 20px; }
         #speak-btn:hover { color: #357ABD; }
+        .speak-note { font-size: 0.8em; color: #6c757d; margin: 0; }
         .q-section { margin-top: 25px; }
         .q-label { font-weight: bold; color: #555; margin-bottom: 8px; font-size: 0.9em; }
         #question { font-weight: bold; font-size: 1.2em; margin-top: 5px; }
@@ -64,6 +65,7 @@
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
             <div class="question-header">
                 <button id="speak-btn"><i class="fas fa-volume-up"></i></button>
+                <p class="speak-note">アイコンをクリックすると音声が流れます</p>
             </div>
             <div class="q-section">
                 <p class="q-label">【文章】</p>
@@ -205,6 +207,7 @@
                       <p><strong>英文:</strong> ${q.sentence}</p>
                       <p>あなたの回答: ${q.userAnswer} ${isCorrect ? '✔' : '✖'}</p>
                       ${!isCorrect ? `<p>正解: ${q.answer}</p>` : ''}
+                      <p><strong>和訳:</strong> ${q.translation}</p>
                       <p><strong>解説:</strong> ${q.explanation}</p>
                     </div>`;
             });
@@ -251,3 +254,4 @@
     </script>
 </body>
 </html>
+
