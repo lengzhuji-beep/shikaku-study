@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOEIC資格概要</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; line-height: 1.6; }
     .header { background-color: #333; padding: 10px 0; }
     .header-nav { max-width: 800px; margin: auto; display: flex; justify-content: space-around; }
     .header-nav a { color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s; }
@@ -13,8 +13,22 @@
     .header-nav a.active { background-color: #4a90e2; }
     .container { max-width: 800px; margin: auto; padding: 20px; }
     .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    h1 { text-align: center; }
+    h1, h2, h3 { color: #333; }
+    h1 { text-align: center; border-bottom: 2px solid #4a90e2; padding-bottom: 10px; }
+    h2 { border-left: 5px solid #4a90e2; padding-left: 10px; font-size: 1.5em; margin-top: 30px; }
+    h3 { font-size: 1.2em; color: #4a90e2; margin-top: 25px; }
+    p { color: #555; }
+    .highlight { background-color: #e6f3ff; padding: 15px; border-radius: 8px; margin: 15px 0; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+    th { background-color: #4a90e2; color: white; }
+    td { background-color: #f9f9f9; }
+    .benefits-list { list-style: none; padding: 0; }
+    .benefits-list li { background: #f8f9fa; margin-bottom: 10px; padding: 15px; border-radius: 8px; display: flex; align-items: center; }
+    .benefits-list i { color: #4a90e2; font-size: 24px; margin-right: 15px; }
+    .icon { margin-right: 8px; }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
   <header class="header">
@@ -27,8 +41,116 @@
   </header>
   <div class="container">
     <div class="card">
-      <h1>TOEIC資格概要</h1>
-      <p>このページは準備中です。</p>
+      <h1><i class="fas fa-info-circle icon"></i>TOEIC資格概要</h1>
+      
+      <h2><i class="fas fa-question-circle icon"></i>TOEICとは？</h2>
+      <p>TOEIC (Test of English for International Communication) は、日常生活やグローバルビジネスにおける、英語によるコミュニケーション能力を測定するための世界共通のテストです。Listening（聞く）、Reading（読む）能力を測る<strong>TOEIC Listening & Reading Test</strong>が最も一般的ですが、その他にもSpeaking（話す）、Writing（書く）能力を測るテストも存在します。</p>
+      <div class="highlight">
+        <p><strong>ポイント：</strong>合否ではなく、スコアで英語力が評価されるため、現在の実力を客観的に把握し、学習目標を立てやすいのが特徴です。</p>
+      </div>
+      
+      <h2><i class="fas fa-clipboard-list icon"></i>テストの種類</h2>
+      <p>TOEICプログラムは、個々のスキルに合わせて複数のテスト形式を提供しています。</p>
+      <ul>
+        <li><strong>TOEIC Listening & Reading Test:</strong> 最も受験者が多く、リスニングとリーディングの能力を測定します。</li>
+        <li><strong>TOEIC Speaking & Writing Tests:</strong> スピーキングとライティングの、発信能力を測定します。</li>
+        <li><strong>TOEIC Bridge Tests:</strong> 英語初級〜中級者向けで、基礎的なコミュニケーション能力を測定します。</li>
+      </ul>
+
+      <h2><i class="fas fa-book-open icon"></i>TOEIC L&R テストの構成</h2>
+      <p>一般的に「TOEIC」と言う場合、この「Listening & Reading Test」を指します。テストは合計約2時間で、200問の問題にマークシート形式で回答します。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>セクション</th>
+            <th>時間</th>
+            <th>問題数</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>リスニング</strong></td>
+            <td>約45分間</td>
+            <td>100問</td>
+            <td>会話やナレーションを聞き、設問に答える</td>
+          </tr>
+          <tr>
+            <td><strong>リーディング</strong></td>
+            <td>75分間</td>
+            <td>100問</td>
+            <td>印刷された問題を読み、設問に答える</td>
+          </tr>
+          <tr>
+            <td><strong>合計</strong></td>
+            <td><strong>約2時間</strong></td>
+            <td><strong>200問</strong></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2><i class="fas fa-star icon"></i>スコアの目安と評価</h2>
+      <p>TOEICのスコアは、リスニングとリーディングがそれぞれ5点〜495点、合計10点〜990点の範囲で評価されます。このスコアが、あなたの英語力を客観的に示す指標となります。</p>
+            <table>
+        <thead>
+          <tr>
+            <th>スコアレベル</th>
+            <th>コミュニケーション能力の目安</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>860点以上</strong></td>
+            <td>Non-Nativeとして十分なコミュニケーションができる。どんな状況でも適切な表現を使い、意思疎通がスムーズに行えるレベル。</td>
+          </tr>
+          <tr>
+            <td><strong>730点～855点</strong></td>
+            <td>どんな状況でも、ある程度のコミュニケーションができる。業務上の指示や要求への応答も的確に行えるレベル。</td>
+          </tr>
+          <tr>
+            <td><strong>470点～725点</strong></td>
+            <td>日常生活のニーズを満たし、限定された範囲内での業務コミュニケーションができる。挨拶や簡単な質問への応答などが可能なレベル。</td>
+          </tr>
+          <tr>
+            <td><strong>470点未満</strong></td>
+            <td>通常会話で最低限のコミュニケーションができる。ゆっくり話してもらえれば、簡単な会話が理解できるレベル。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2><i class="fas fa-trophy icon"></i>TOEICを受験するメリット</h2>
+      <p>TOEICでハイスコアを取得することは、あなたの可能性を大きく広げます。</p>
+      <ul class="benefits-list">
+        <li>
+          <i class="fas fa-briefcase"></i>
+          <div>
+            <h3>就職・転職に有利</h3>
+            <p>多くの企業が採用の際にTOEICスコアを参考にしており、英語力をアピールする強力な武器になります。</p>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-chart-line"></i>
+          <div>
+            <h3>昇進・昇格の条件</h3>
+            <p>社内での昇進や海外赴任の条件として、一定のTOEICスコアを定めている企業も少なくありません。</p>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-graduation-cap"></i>
+          <div>
+            <h3>大学の単位認定や入試</h3>
+            <p>大学の単位として認定されたり、入試でスコアが考慮されたりする場合があります。</p>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-bullseye"></i>
+          <div>
+            <h3>学習のモチベーション維持</h3>
+            <p>スコアという明確な目標があるため、英語学習のモチベーションを維持しやすくなります。</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </body>
