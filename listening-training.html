@@ -67,11 +67,18 @@
             
             <div id="question" style="font-weight: bold; font-size: 1.2em;"></div>
             
-            <button id="toggle-sentence-btn" onclick="toggleSentence()">英文を表示</button>
-            <div id="sentence-container" class="hidden">
-                <p id="sentence-text"></p>
+            <div class="q-section">
+                <p class="q-label">【文章】</p>
+                <button id="toggle-sentence-btn" onclick="toggleSentence()">英文を表示</button>
+                <div id="sentence-container" class="hidden">
+                    <p id="sentence-text"></p>
+                </div>
             </div>
 
+            <div class="q-section">
+                <p class="q-label">【質問】</p>
+                <div id="question"></div>
+            </div>
             <div id="choices" class="choices"></div>
             <div id="feedback" class="feedback hidden"></div>
             <button id="next-btn" onclick="nextQuestion()" class="hidden">次の問題へ</button>
