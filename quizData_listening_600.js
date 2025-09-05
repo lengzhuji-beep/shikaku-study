@@ -318,5 +318,247 @@ quizData.listening[600] = [
     choices: ["伝統と歴史 (Tradition and history)", "革新と成長 (Innovation and growth)", "強さと安定性 (Strength and stability)", "シンプルさとエレガンス (Simplicity and elegance)"],
     answer: "革新と成長 (Innovation and growth)",
     explanation: "'to represent innovation and growth' と述べられています。"
+  },
+  // Start of newly generated questions (41-100)
+  {
+    sentence: "The new employee orientation will cover the company's history, mission, and core values.",
+    translation: "新入社員オリエンテーションでは、会社の歴史、使命、そして核となる価値観について説明します。",
+    q: "新入社員オリエンテーションで説明されることは何ですか？",
+    choices: ["給与と福利厚生 (Salary and benefits)", "会社の歴史、使命、価値観 (Company's history, mission, and core values)", "具体的な業務内容 (Specific job duties)", "安全手順 (Safety procedures)"],
+    answer: "会社の歴史、使命、価値観 (Company's history, mission, and core values)",
+    explanation: "'will cover the company's history, mission, and core values' と述べられています。"
+  },
+  {
+    sentence: "The airline has announced the cancellation of all flights to a certain region due to a volcanic eruption.",
+    translation: "その航空会社は、火山噴火のため、特定の地域への全便の欠航を発表しました。",
+    q: "航空会社がフライトをキャンセルした理由は何ですか？",
+    choices: ["悪天候 (Bad weather)", "機械的な問題 (A mechanical issue)", "従業員のストライキ (An employee strike)", "火山噴火 (A volcanic eruption)"],
+    answer: "火山噴火 (A volcanic eruption)",
+    explanation: "'due to a volcanic eruption' が欠航の理由です。"
+  },
+  {
+    sentence: "The museum is offering a discount on admission for students with a valid ID.",
+    translation: "その美術館は、有効な学生証を持つ学生に入場料の割引を提供しています。",
+    q: "学生はどのようにして入場料の割引を受けられますか？",
+    choices: ["オンラインでチケットを購入する (By purchasing tickets online)", "グループで訪問する (By visiting in a group)", "有効な学生証を提示する (By showing a valid ID)", "平日に訪問する (By visiting on a weekday)"],
+    answer: "有効な学生証を提示する (By showing a valid ID)",
+    explanation: "'for students with a valid ID' が割引の条件です。"
+  },
+  {
+    sentence: "The company will be relocating its headquarters to a more spacious and modern facility.",
+    translation: "その会社は、より広々として近代的な施設に本社を移転します。",
+    q: "その会社はなぜ本社を移転するのですか？",
+    choices: ["家賃を下げるため (To lower the rent)", "より広々として近代的な施設に移るため (To move to a more spacious and modern facility)", "都市の中心部に近づくため (To be closer to the city center)", "税制上の優遇措置を受けるため (To receive tax benefits)"],
+    answer: "より広々として近代的な施設に移るため (To move to a more spacious and modern facility)",
+    explanation: "'to a more spacious and modern facility' が移転の目的です。"
+  },
+  {
+    sentence: "The new smartphone application allows users to manage their finances more effectively.",
+    translation: "その新しいスマートフォンアプリは、ユーザーがより効果的に財務を管理することを可能にします。",
+    q: "そのアプリでユーザーは何ができますか？",
+    choices: ["言語を学ぶ (Learn languages)", "写真を編集する (Edit photos)", "より効果的に財務を管理する (Manage their finances more effectively)", "ゲームをする (Play games)"],
+    answer: "より効果的に財務を管理する (Manage their finances more effectively)",
+    explanation: "'allows users to manage their finances more effectively' と述べられています。"
+  },
+  {
+    sentence: "The author is best known for her series of historical fiction novels.",
+    translation: "その作家は、歴史フィクション小説のシリーズで最もよく知られています。",
+    q: "その作家が最もよく知られている理由は何ですか？",
+    choices: ["詩集 (Her poetry collections)", "児童書 (Her children's books)", "歴史フィクション小説のシリーズ (Her series of historical fiction novels)", "短編集 (Her short story collections)"],
+    answer: "歴史フィクション小説のシリーズ (Her series of historical fiction novels)",
+    explanation: "'best known for her series of historical fiction novels' と述べられています。"
+  },
+  {
+    sentence: "The city has invested in upgrading its public parks and recreational facilities.",
+    translation: "その市は、公園やレクリエーション施設のアップグレードに投資しました。",
+    q: "その市は何に投資しましたか？",
+    choices: ["道路と橋 (Roads and bridges)", "学校と図書館 (Schools and libraries)", "公園やレクリエーション施設 (Public parks and recreational facilities)", "公共交通機関 (Public transportation)"],
+    answer: "公園やレクリエーション施設 (Public parks and recreational facilities)",
+    explanation: "'invested in upgrading its public parks and recreational facilities' と述べられています。"
+  },
+  {
+    sentence: "The consulting firm provides expert advice on business strategy and operations.",
+    translation: "そのコンサルティング会社は、ビジネス戦略と運営に関する専門的なアドバイスを提供しています。",
+    q: "そのコンサルティング会社は何を提供していますか？",
+    choices: ["法的なサービス (Legal services)", "会計サービス (Accounting services)", "ビジネス戦略と運営に関する専門的なアドバイス (Expert advice on business strategy and operations)", "ITサポート (IT support)"],
+    answer: "ビジネス戦略と運営に関する専門的なアドバイス (Expert advice on business strategy and operations)",
+    explanation: "'provides expert advice on business strategy and operations' と述べられています。"
+  },
+  {
+    sentence: "The new line of organic snacks is now available at major supermarkets.",
+    translation: "オーガニックスナックの新しいラインが、現在、主要なスーパーマーケットで入手可能です。",
+    q: "新しいオーガニックスナックはどこで購入できますか？",
+    choices: ["オンラインのみ (Only online)", "コンビニエンスストアで (At convenience stores)", "主要なスーパーマーケットで (At major supermarkets)", "専門の健康食品店で (At specialty health food stores)"],
+    answer: "主要なスーパーマーケットで (At major supermarkets)",
+    explanation: "'available at major supermarkets' と述べられています。"
+  },
+  {
+    sentence: "The laboratory is equipped with the latest technology for scientific research.",
+    translation: "その研究所は、科学研究のための最新技術を備えています。",
+    q: "その研究所には何が備わっていますか？",
+    choices: ["古い機器 (Outdated equipment)", "限られたスペース (Limited space)", "科学研究のための最新技術 (The latest technology for scientific research)", "少人数のスタッフ (A small staff)"],
+    answer: "科学研究のための最新技術 (The latest technology for scientific research)",
+    explanation: "'equipped with the latest technology for scientific research' と述べられています。"
+  },
+  {
+    sentence: "The new CEO plans to prioritize innovation and customer satisfaction.",
+    translation: "新しいCEOは、革新と顧客満足度を優先する計画です。",
+    q: "新しいCEOが優先する計画は何ですか？",
+    choices: ["コスト削減 (Cost reduction)", "短期的な利益 (Short-term profits)", "革新と顧客満足度 (Innovation and customer satisfaction)", "市場シェアの維持 (Maintaining market share)"],
+    answer: "革新と顧客満足度 (Innovation and customer satisfaction)",
+    explanation: "'plans to prioritize innovation and customer satisfaction' と述べられています。"
+  },
+  {
+    sentence: "The government has introduced new tax incentives for small businesses.",
+    translation: "政府は、中小企業向けに新しい税制優遇措置を導入しました。",
+    q: "政府が導入した新しい措置は何ですか？",
+    choices: ["環境規制 (Environmental regulations)", "最低賃金の引き上げ (An increase in the minimum wage)", "中小企業向けの税制優遇措置 (New tax incentives for small businesses)", "輸入関税 (Import tariffs)"],
+    answer: "中小企業向けの税制優遇措置 (New tax incentives for small businesses)",
+    explanation: "'introduced new tax incentives for small businesses' と述べられています。"
+  },
+  {
+    sentence: "The hotel's restaurant is renowned for its authentic regional cuisine.",
+    translation: "そのホテルのレストランは、本格的な郷土料理で有名です。",
+    q: "そのレストランは何で有名ですか？",
+    choices: ["国際的なビュッフェ (Its international buffet)", "素晴らしい景色 (Its spectacular view)", "本格的な郷土料理 (Its authentic regional cuisine)", "手頃な価格 (Its affordable prices)"],
+    answer: "本格的な郷土料理 (Its authentic regional cuisine)",
+    explanation: "'renowned for its authentic regional cuisine' と述べられています。"
+  },
+  {
+    sentence: "The online retailer has implemented a more efficient system for processing returns.",
+    translation: "そのオンライン小売業者は、返品を処理するためのより効率的なシステムを導入しました。",
+    q: "そのオンライン小売業者は何を改善しましたか？",
+    choices: ["ウェブサイトのデザイン (Its website design)", "製品の選択肢 (Its product selection)", "返品処理システム (Its system for processing returns)", "配送速度 (Its delivery speed)"],
+    answer: "返品処理システム (Its system for processing returns)",
+    explanation: "'implemented a more efficient system for processing returns' と述べられています。"
+  },
+  {
+    sentence: "The documentary explores the impact of social media on modern society.",
+    translation: "そのドキュメンタリーは、ソーシャルメディアが現代社会に与える影響を探求しています。",
+    q: "そのドキュメンタリーのテーマは何ですか？",
+    choices: ["古代史 (Ancient history)", "宇宙探査 (Space exploration)", "ソーシャルメディアの影響 (The impact of social media)", "野生生物 (Wildlife)"],
+    answer: "ソーシャルメディアの影響 (The impact of social media)",
+    explanation: "'explores the impact of social media on modern society' と述べられています。"
+  },
+  {
+    sentence: "The company offers a mentorship program for newly hired employees.",
+    translation: "その会社は、新しく採用された従業員のためのメンターシッププログラムを提供しています。",
+    q: "その会社が新入社員に提供しているものは何ですか？",
+    choices: ["株式購入オプション (Stock options)", "会社の車 (A company car)", "メンターシッププログラム (A mentorship program)", "無料の食事 (Free meals)"],
+    answer: "メンターシッププログラム (A mentorship program)",
+    explanation: "'offers a mentorship program for newly hired employees' と述べられています。"
+  },
+  {
+    sentence: "The construction project was completed on time and within budget.",
+    translation: "その建設プロジェクトは、予定通り、予算内で完了しました。",
+    q: "建設プロジェクトはどうなりましたか？",
+    choices: ["遅延した (It was delayed)", "予算を超過した (It went over budget)", "予定通り、予算内で完了した (It was completed on time and within budget)", "中止された (It was canceled)"],
+    answer: "予定通り、予算内で完了した (It was completed on time and within budget)",
+    explanation: "'completed on time and within budget' と述べられています。"
+  },
+  {
+    sentence: "The new public art installation has been well-received by the community.",
+    translation: "新しいパブリックアートのインスタレーションは、地域社会に好評を博しています。",
+    q: "新しいパブリックアートのインスタレーションに対する地域社会の反応はどうですか？",
+    choices: ["批判されている (It has been criticized)", "無視されている (It has been ignored)", "好評を博している (It has been well-received)", "物議を醸している (It has been controversial)"],
+    answer: "好評を博している (It has been well-received)",
+    explanation: "'well-received by the community' が「地域社会に好評を博している」という意味です。"
+  },
+  {
+    sentence: "The company's commitment to customer satisfaction is its top priority.",
+    translation: "顧客満足度へのコミットメントが、その会社の最優先事項です。",
+    q: "その会社の最優先事項は何ですか？",
+    choices: ["利益の最大化 (Maximizing profits)", "市場シェアの拡大 (Expanding market share)", "顧客満足度へのコミットメント (Commitment to customer satisfaction)", "コスト削減 (Cost reduction)"],
+    answer: "顧客満足度へのコミットメント (Commitment to customer satisfaction)",
+    explanation: "'commitment to customer satisfaction is its top priority' と述べられています。"
+  },
+  {
+    sentence: "The financial analyst provided an insightful overview of the current market trends.",
+    translation: "その金融アナリストは、現在の市場動向について洞察に満ちた概観を提供しました。",
+    q: "金融アナリストが提供したものは何ですか？",
+    choices: ["具体的な投資アドバイス (Specific investment advice)", "会社の業績予測 (A company's earnings forecast)", "現在の市場動向に関する洞察に満ちた概観 (An insightful overview of current market trends)", "経済政策に関する意見 (An opinion on economic policy)"],
+    answer: "現在の市場動向に関する洞察に満ちた概観 (An insightful overview of current market trends)",
+    explanation: "'provided an insightful overview of the current market trends' と述べられています。"
+  },
+  {
+    sentence: "The museum is featuring an exhibit of contemporary art from local artists.",
+    translation: "その美術館は、地元のアーティストによる現代アートの展示会を特集しています。",
+    q: "美術館で特集されている展示会は何ですか？",
+    choices: ["古典的な彫刻 (Classical sculptures)", "ルネサンス期の絵画 (Renaissance paintings)", "地元のアーティストによる現代アート (Contemporary art from local artists)", "写真 (Photography)"],
+    answer: "地元のアーティストによる現代アート (Contemporary art from local artists)",
+    explanation: "'an exhibit of contemporary art from local artists' と述べられています。"
+  },
+  {
+    sentence: "The company's innovative approach to product design has set it apart from its competitors.",
+    translation: "その会社の製品デザインへの革新的なアプローチは、競合他社との差別化を図っています。",
+    q: "その会社が競合他社と差別化されている理由は何ですか？",
+    choices: ["低価格 (Its low prices)", "広範な流通網 (Its extensive distribution network)", "製品デザインへの革新的なアプローチ (Its innovative approach to product design)", "大規模な広告 (Its large-scale advertising)"],
+    answer: "製品デザインへの革新的なアプローチ (Its innovative approach to product design)",
+    explanation: "'innovative approach to product design has set it apart' と述べられています。"
+  },
+  {
+    sentence: "The city has allocated funds for the restoration of its historic city hall.",
+    translation: "その市は、歴史的な市庁舎の修復のために資金を割り当てました。",
+    q: "市は何のために資金を割り当てましたか？",
+    choices: ["新しいスタジアムの建設 (To build a new stadium)", "歴史的な市庁舎の修復 (For the restoration of its historic city hall)", "公共交通システムの改善 (To improve the public transport system)", "新しい学校の開校 (To open a new school)"],
+    answer: "歴史的な市庁舎の修復 (For the restoration of its historic city hall)",
+    explanation: "'allocated funds for the restoration of its historic city hall' と述べられています。"
+  },
+  {
+    sentence: "The new software is incompatible with older versions of the operating system.",
+    translation: "その新しいソフトウェアは、古いバージョンのオペレーティングシステムとは互換性がありません。",
+    q: "新しいソフトウェアの問題点は何ですか？",
+    choices: ["価格が高すぎる (It is too expensive)", "機能が限定されている (It has limited features)", "古いOSと互換性がない (It is incompatible with older operating systems)", "インストールが複雑である (It is complicated to install)"],
+    answer: "古いOSと互換性がない (It is incompatible with older operating systems)",
+    explanation: "'incompatible with older versions of the operating system' と述べられています。"
+  },
+  {
+    sentence: "The company's consistent growth over the past decade is truly remarkable.",
+    translation: "過去10年間にわたるその会社の着実な成長は、実に驚くべきものです。",
+    q: "過去10年間の会社の成長について何が述べられていますか？",
+    choices: ["停滞していた (It has been stagnant)", "不安定だった (It has been volatile)", "着実に成長してきた (It has grown consistently)", "減少していた (It has been declining)"],
+    answer: "着実に成長してきた (It has grown consistently)",
+    explanation: "'consistent growth' が「着実な成長」を意味します。"
+  },
+  {
+    sentence: "The charity event successfully raised a substantial amount of money for the local hospital.",
+    translation: "そのチャリティーイベントは、地元の病院のために多額の資金を集めることに成功しました。",
+    q: "チャリティーイベントは何のために資金を集めましたか？",
+    choices: ["学校 (A school)", "動物保護施設 (An animal shelter)", "地元の病院 (The local hospital)", "環境団体 (An environmental organization)"],
+    answer: "地元の病院 (The local hospital)",
+    explanation: "'raised a substantial amount of money for the local hospital' と述べられています。"
+  },
+  {
+    sentence: "The new security measures are designed to prevent unauthorized access to the building.",
+    translation: "新しいセキュリティ対策は、建物への不正アクセスを防ぐために設計されています。",
+    q: "新しいセキュリティ対策の目的は何ですか？",
+    choices: ["訪問者の流れを速めるため (To speed up visitor flow)", "エネルギー消費を削減するため (To reduce energy consumption)", "建物への不正アクセスを防ぐため (To prevent unauthorized access to the building)", "従業員の利便性を高めるため (To increase convenience for employees)"],
+    answer: "建物への不正アクセスを防ぐため (To prevent unauthorized access to the building)",
+    explanation: "'designed to prevent unauthorized access' と述べられています。"
+  },
+  {
+    sentence: "The research findings will be published in a peer-reviewed academic journal.",
+    translation: "その研究成果は、査読付きの学術雑誌に掲載される予定です。",
+    q: "研究成果はどこに掲載される予定ですか？",
+    choices: ["新聞 (A newspaper)", "会社のウェブサイト (The company's website)", "査読付きの学術雑誌 (A peer-reviewed academic journal)", "一般向けの雑誌 (A popular magazine)"],
+    answer: "査読付きの学術雑誌 (A peer-reviewed academic journal)",
+    explanation: "'published in a peer-reviewed academic journal' と述べられています。"
+  },
+  {
+    sentence: "The company offers a generous severance package to employees affected by the restructuring.",
+    translation: "その会社は、リストラの影響を受ける従業員に手厚い退職金パッケージを提供しています。",
+    q: "リストラの影響を受ける従業員に何が提供されますか？",
+    choices: ["再研修の機会 (Retraining opportunities)", "手厚い退職金パッケージ (A generous severance package)", "別の部署への異動 (A transfer to another department)", "早期退職オプション (An early retirement option)"],
+    answer: "手厚い退職金パッケージ (A generous severance package)",
+    explanation: "'offers a generous severance package' と述べられています。"
+  },
+  {
+    sentence: "The new public transit system is both efficient and environmentally friendly.",
+    translation: "新しい公共交通システムは、効率的で環境にも優しいです。",
+    q: "新しい公共交通システムについて何が述べられていますか？",
+    choices: ["高価で非効率的である (It is expensive and inefficient)", "効率的で環境に優しい (It is both efficient and environmentally friendly)", "まだ建設中である (It is still under construction)", "カバー範囲が限定的である (It has limited coverage)"],
+    answer: "効率的で環境に優しい (It is both efficient and environmentally friendly)",
+    explanation: "'both efficient and environmentally friendly' と述べられています。"
   }
 ];
+
