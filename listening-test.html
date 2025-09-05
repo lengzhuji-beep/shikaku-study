@@ -10,23 +10,27 @@
         .container { max-width: 800px; margin: auto; padding: 20px; }
         h1, h2 { text-align: center; }
         .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
         button:hover { background: #357ABD; }
         .hidden { display: none; }
-        .choices { margin: 10px 0; }
-        .result { background: #fff3cd; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center; }
-        .result .correct { background-color: #d4edda; padding: 10px; margin: 5px; border-radius: 5px; text-align: left;}
-        .result .incorrect { background-color: #f8d7da; padding: 10px; margin: 5px; border-radius: 5px; text-align: left;}
-        .feedback { margin-top: 10px; padding: 10px; border-radius: 5px; }
-        .bookmark { cursor: pointer; font-size: 24px; float: right; }
+        .choices { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
+        .result { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .result-item { padding: 15px; margin: 10px 0; border-radius: 8px; text-align: left; border-left: 5px solid; }
+        .result-item.correct { background-color: #d4edda; border-color: #28a745; }
+        .result-item.incorrect { background-color: #f8d7da; border-color: #dc3545; }
+        .bookmark { cursor: pointer; font-size: 24px; float: right; color: #ccc; }
         .bookmarked { color: gold; }
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
         .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
-        .icon-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
+        .question-header { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; }
+        #speak-btn { font-size: 48px; cursor: pointer; color: #4a90e2; background: none; border: none; padding: 0 20px; }
+        #speak-btn:hover { color: #357ABD; }
+        .q-section { margin-top: 25px; }
+        .q-label { font-weight: bold; color: #555; margin-bottom: 8px; font-size: 0.9em; }
+        #question { font-weight: bold; font-size: 1.2em; margin-top: 5px; }
+        #sentence-container { background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 8px; margin-top: 10px; }
+        #toggle-sentence-btn { background-color: #6c757d; font-size: 14px; padding: 8px 15px; margin: 0; }
     </style>
 </head>
 <body>
@@ -58,28 +62,46 @@
         <div id="quiz" class="card hidden">
             <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
-            <div id="question"></div>
+            <div class="question-header">
+                <button id="speak-btn"><i class="fas fa-volume-up"></i></button>
+            </div>
+            <div class="q-section">
+                <p class="q-label">【文章】</p>
+                <button id="toggle-sentence-btn" onclick="toggleSentence()">英文を表示</button>
+                <div id="sentence-container" class="hidden">
+                    <p id="sentence-text"></p>
+                </div>
+            </div>
+            <div class="q-section">
+                <p class="q-label">【質問】</p>
+                <div id="question"></div>
+            </div>
             <div id="choices" class="choices"></div>
         </div>
-        <div id="result" class="result hidden"></div>
+        <div id="result" class="result card hidden"></div>
     </div>
-
     <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
-    
+    <script src="quizData_listening_400.js"></script>
     <script>
         const currentCategory = 'listening';
         const currentMode = 'test';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
-        // ... (The rest of the JS is the same as vocabulary-test.html, but with an updated alert message) ...
+
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
-            statistics = JSON.parse(localStorage.getItem('statistics')) || {};
             showLevelSelect();
         }
+
         function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
         function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
         function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
-        function showLevelSelect() { hideAllSections(); document.getElementById("level-select").classList.remove("hidden"); }
+        
+        function showLevelSelect() { 
+            hideAllSections(); 
+            document.getElementById("level-select").classList.remove("hidden"); 
+            window.speechSynthesis.cancel();
+        }
+
         function selectLevel(level) {
             currentLevel = level;
             if (!quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
@@ -90,6 +112,7 @@
             document.getElementById("question-count-select").classList.remove("hidden");
             document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - 目標スコア: ${level}点`;
         }
+        
         function startQuiz(questionCount) {
             currentQuestion = 0;
             score = 0;
@@ -99,7 +122,9 @@
             document.getElementById("quiz").classList.remove("hidden");
             showQuestion();
         }
+        
         function startQuizAll() { startQuiz(quizData[currentCategory][currentLevel].length); }
+
         function shuffleArray(array) {
             let shuffled = [...array];
             for (let i = shuffled.length - 1; i > 0; i--) {
@@ -108,10 +133,33 @@
             }
             return shuffled;
         }
+        
+        function speakText(text) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function toggleSentence() {
+            const sentenceContainer = document.getElementById('sentence-container');
+            const toggleBtn = document.getElementById('toggle-sentence-btn');
+            sentenceContainer.classList.toggle('hidden');
+            toggleBtn.textContent = sentenceContainer.classList.contains('hidden') ? '英文を表示' : '英文を非表示';
+        }
+
         function showQuestion() {
+            document.getElementById('sentence-container').classList.add('hidden');
+            document.getElementById('toggle-sentence-btn').textContent = '英文を表示';
+
             const qData = currentQuestions[currentQuestion];
             document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
             document.getElementById("question").textContent = qData.q;
+            document.getElementById("sentence-text").textContent = qData.sentence;
+            
+            document.getElementById('speak-btn').onclick = () => speakText(qData.sentence);
+
             const choicesDiv = document.getElementById("choices");
             choicesDiv.innerHTML = "";
             shuffleArray(qData.choices).forEach(choice => {
@@ -122,12 +170,14 @@
             });
             updateBookmarkStatus();
         }
+
         function checkAnswer(choice) {
             const qData = currentQuestions[currentQuestion];
             qData.userAnswer = choice;
             updateStatistics(currentCategory, currentLevel, choice === qData.answer, qData.q);
             nextQuestion();
         }
+
         function nextQuestion() {
             currentQuestion++;
             if (currentQuestion < currentQuestions.length) {
@@ -136,30 +186,41 @@
                 showResult();
             }
         }
+
         function showResult() {
+            window.speechSynthesis.cancel();
             hideAllSections();
             const resultDiv = document.getElementById("result");
             resultDiv.classList.remove("hidden");
+            
             let correctCount = 0;
-            let resultHTML = `<h2>結果 - ${getCategoryName(currentCategory)} テスト</h2>`;
+            let resultHTML = '';
+            
             currentQuestions.forEach((q, index) => {
                 const isCorrect = q.userAnswer === q.answer;
                 if (isCorrect) correctCount++;
                 resultHTML += `
-                    <div class="${isCorrect ? 'correct' : 'incorrect'}">
+                    <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
                       <p><strong>問題 ${index + 1}:</strong> ${q.q}</p>
+                      <p><strong>英文:</strong> ${q.sentence}</p>
                       <p>あなたの回答: ${q.userAnswer} ${isCorrect ? '✔' : '✖'}</p>
                       ${!isCorrect ? `<p>正解: ${q.answer}</p>` : ''}
-                      <p>解説: ${q.explanation}</p>
+                      <p><strong>解説:</strong> ${q.explanation}</p>
                     </div>`;
             });
+            
             const percentage = Math.round((correctCount / currentQuestions.length) * 100);
-            resultHTML = `<h2>結果 - ${getCategoryName(currentCategory)} テスト</h2>
-                          <p>${correctCount} / ${currentQuestions.length} 正解 (${percentage}%)</p>` + resultHTML;
-            resultHTML += `<button onclick="showLevelSelect()">もう一度挑戦</button>
-                           <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>`;
+            resultHTML = `<h2>テスト結果</h2>
+                          <p style="font-size: 1.2em; font-weight: bold;">${correctCount} / ${currentQuestions.length} 正解 (${percentage}%)</p>` + resultHTML;
+            
+            resultHTML += `<div style="text-align: center; margin-top: 20px;">
+                            <button onclick="showLevelSelect()">別のレベルに挑戦</button>
+                            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
+                           </div>`;
+
             resultDiv.innerHTML = resultHTML;
         }
+        
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
@@ -179,19 +240,13 @@
         }
         function updateStatistics(category, level, isCorrect, question) {
             let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
-            let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
             const key = `${category}_${level}`;
             if (!statistics[key]) statistics[key] = { total: 0, correct: 0, category, level };
             statistics[key].total++;
-            if (isCorrect) {
-                statistics[key].correct++;
-            } else {
-                if (!mistakes[key]) mistakes[key] = {};
-                mistakes[key][question] = (mistakes[key][question] || 0) + 1;
-            }
+            if (isCorrect) statistics[key].correct++;
             localStorage.setItem('statistics', JSON.stringify(statistics));
-            localStorage.setItem('mistakes', JSON.stringify(mistakes));
         }
+
         window.onload = initializeApp;
     </script>
 </body>
