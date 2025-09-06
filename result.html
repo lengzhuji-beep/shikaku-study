@@ -48,24 +48,16 @@
   <div id="popup" class="popup"></div>
 
   <script>
+    // ▼▼▼ JavaScript変更点 ▼▼▼
+    // 全てのカテゴリを空のオブジェクトとして初期化し、外部ファイルからデータを読み込む
     const quizData = {
       vocabulary: {}, 
-      writing: {
-        300: [
-          { q: "次の文を完成させてください: 'I am ____ a report.'", choices: ["write", "writes", "writing", "wrote"], answer: "writing", explanation: "現在進行形では'be動詞 + 動詞のing形'を使います。" },
-          { q: "正しい語順を選んでください: 'yesterday / I / a letter / wrote'", choices: ["I wrote a letter yesterday", "Yesterday wrote I a letter", "A letter I wrote yesterday", "Wrote I yesterday a letter"], answer: "I wrote a letter yesterday", explanation: "英語の基本語順は'主語 + 動詞 + 目的語 + 時を表す副詞'です。" }
-        ],
-        400: [
-          { q: "間接疑問文を完成させてください: 'I don't know ____.'", choices: ["where is he", "where he is", "where does he", "where he does"], answer: "where he is", explanation: "間接疑問文では疑問詞の後は平叙文の語順になります。" },
-          { q: "受動態に変えてください: 'Tom wrote this letter.'", choices: ["This letter was written by Tom", "This letter wrote by Tom", "This letter is written by Tom", "Tom was written this letter"], answer: "This letter was written by Tom", explanation: "受動態は'be動詞 + 過去分詞 + by + 行為者'の形になります。" }
-        ]
-      }, 
-      listening: {
-         300: [ { q: "音声：'Where is the library?' この質問に対する適切な答えは？", choices: ["It's next to the bank", "It's 3 o'clock", "It's very big", "It's my book"], answer: "It's next to the bank", explanation: "'Where'で場所を聞いているので、場所を答える必要があります。" }],
-         400: [ { q: "音声：'I'm looking for a restaurant. Where should I go?' この状況で最も適切な返答は？", choices: ["There's a good one on Main Street", "I don't like restaurants", "It's expensive", "You should eat at home"], answer: "There's a good one on Main Street", explanation: "レストランを探している人に対して、具体的な場所を教えるのが適切です。" }]
-      }
+      writing: {}, 
+      listening: {}
     };
+    // ▲▲▲ JavaScript変更点 ▲▲▲
   </script>
+
   <script src="/shikaku-study/quizData_vocabulary_300.js"></script>
   <script src="/shikaku-study/quizData_vocabulary_400.js"></script>
   <script src="/shikaku-study/quizData_vocabulary_500.js"></script>
@@ -74,7 +66,23 @@
   <script src="/shikaku-study/quizData_vocabulary_800.js"></script>
   <script src="/shikaku-study/quizData_vocabulary_900.js"></script>
   
+  <script src="/shikaku-study/quizData_writing_300.js"></script>
+  <script src="/shikaku-study/quizData_writing_400.js"></script>
+  <script src="/shikaku-study/quizData_writing_500.js"></script>
+  <script src="/shikaku-study/quizData_writing_600.js"></script>
+  <script src="/shikaku-study/quizData_writing_700.js"></script>
+  <script src="/shikaku-study/quizData_writing_800.js"></script>
+  <script src="/shikaku-study/quizData_writing_900.js"></script>
+
+  <script src="/shikaku-study/quizData_listening_300.js"></script>
+  <script src="/shikaku-study/quizData_listening_400.js"></script>
+  <script src="/shikaku-study/quizData_listening_500.js"></script>
+  <script src="/shikaku-study/quizData_listening_600.js"></script>
+  <script src="/shikaku-study/quizData_listening_700.js"></script>
+  <script src="/shikaku-study/quizData_listening_800.js"></script>
+  <script src="/shikaku-study/quizData_listening_900.js"></script>
   <script>
+    // 以下のスクリプトは変更ありません
     let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
     let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
@@ -88,7 +96,11 @@
       // Tab button styling
       document.querySelectorAll('#statistics .tab-button').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.textContent.includes(getCategoryName(category))) btn.classList.add('active');
+        // カテゴリ名からボタンを特定
+        const btnCategory = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+        if (btnCategory === category) {
+          btn.classList.add('active');
+        }
       });
 
       // Chart generation
@@ -144,7 +156,11 @@
         mistakesListDiv.appendChild(buttonContainer);
         mistakesListDiv.appendChild(document.createElement('div')).id = 'mistakesContent';
         
-        showTopMistakesForLevel(category, levels[0]);
+        // 最初のレベルをデフォルトで表示
+        if (levels.length > 0) {
+            showTopMistakesForLevel(category, levels[0]);
+        }
+
       } else {
         mistakesListDiv.innerHTML += `<p>${getCategoryName(category)}にはまだ間違えた問題がありません。</p>`;
       }
@@ -165,8 +181,8 @@
             <h4>${getCategoryName(category)} - レベル ${level}</h4>
             ${levelMistakes.map(([question, count]) => {
               const questionData = (quizData[category][level] || []).find(q => q.q === question);
-              const isBookmarked = bookmarks[category].some(b => b.q === question);
               if (!questionData) return ''; // データが見つからない場合は表示しない
+              const isBookmarked = bookmarks[category].some(b => b.q === question);
               return `
                 <div class="mistake-item">
                   <span class="bookmark-icon ${isBookmarked ? 'bookmarked' : ''}" onclick="toggleBookmarkFromMistakes('${category}', '${level}', \`${question}\`)">★</span>
@@ -188,7 +204,7 @@
         const bookmarkIndex = bookmarks[category].findIndex(b => b.q === question);
       
         if (bookmarkIndex === -1) {
-            bookmarks[category].push({ ...questionData, level: level, category: category });
+            bookmarks[category].push({ ...questionData, level: parseInt(level), category: category }); // レベルを数値に変換して保存
             showPopup("ブックマークに登録されました");
         } else {
             bookmarks[category].splice(bookmarkIndex, 1);
