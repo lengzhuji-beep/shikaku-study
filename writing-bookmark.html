@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEIC 対策ツール - ライティング ブックマークモード</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+        h2 { text-align: center; }
+        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
+        button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
+        button:hover { background: #357ABD; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        .hidden { display: none; }
+        .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
+        .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
+        .feedback.incorrect { background-color: #f8d7da; border-color: #f5c6cb; }
+        .bookmark { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #ccc; z-index: 10; }
+        .bookmarked { color: gold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="level-select" class="card">
+            <h2>ライティング - ブックマークモード</h2>
+            <p>復習したい問題の目標スコアを選択してください</p>
+            <button onclick="startBookmarkQuiz(300)">300点</button>
+            <button onclick="startBookmarkQuiz(400)">400点</button>
+            <button onclick="startBookmarkQuiz(500)">500点</button>
+            <button onclick="startBookmarkQuiz(600)">600点</button>
+            <button onclick="startBookmarkQuiz(700)">700点</button>
+            <button onclick="startBookmarkQuiz(800)">800点</button>
+            <button onclick="startBookmarkQuiz(900)">900点以上</button>
+            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
+        </div>
+        <div id="quiz" class="card hidden">
+            <h2 id="quiz-title"></h2>
+            <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
+            <div id="question" style="margin: 20px 0;"></div>
+            <div id="choices" style="display: flex; flex-direction: column; gap: 10px;"></div>
+            <div id="feedback" class="feedback hidden"></div>
+            <button id="next-btn" onclick="nextQuestion()" class="hidden">次の問題へ</button>
+        </div>
+        <div id="result" class="card hidden" style="text-align:center;">
+             <h2>ブックマーク復習完了！</h2>
+             <p id="result-text"></p>
+             <button onclick="showLevelSelect()">別のレベルを復習</button>
+             <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
+        </div>
+    </div>
+    
+    <script>
+        const currentCategory = 'writing';
+        let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
+
+        // vocabulary-bookmark.html と同じJavaScriptロジック
+        function initializeApp() {
+            bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
+            showLevelSelect();
+        }
+        function hideAllSections() { ["level-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
+        function showLevelSelect() { hideAllSections(); document.getElementById("level-select").classList.remove("hidden"); }
+        function startBookmarkQuiz(level) {
+            currentLevel = level;
+            const allBookmarkedQuestions = bookmarks[currentCategory] || [];
+            currentQuestions = allBookmarkedQuestions.filter(q => q.level === currentLevel);
+            if (currentQuestions.length === 0) {
+                alert(`目標スコア${level}点でブックマークされたライティング問題はありません。`);
+                return;
+            }
+            currentQuestion = 0;
+            score = 0;
+            hideAllSections();
+            document.getElementById("quiz").classList.remove("hidden");
+            showQuestion();
+        }
+        function shuffleArray(array) {
+            let shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+        function showQuestion() {
+            document.getElementById("feedback").classList.add("hidden");
+            document.getElementById("next-btn").classList.add("hidden");
+            const qData = currentQuestions[currentQuestion];
+            document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
+            document.getElementById("question").textContent = qData.q;
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+            shuffleArray(qData.choices).forEach(choice => {
+                const btn = document.createElement("button");
+                btn.textContent = choice;
+                btn.onclick = () => checkAnswer(choice);
+                choicesDiv.appendChild(btn);
+            });
+            document.querySelectorAll('#choices button').forEach(button => button.disabled = false);
+            updateBookmarkStatus();
+        }
+        function checkAnswer(choice) {
+            const qData = currentQuestions[currentQuestion];
+            const isCorrect = choice === qData.answer;
+            if(isCorrect) score++;
+            const feedbackDiv = document.getElementById("feedback");
+            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}<br><br><strong>和訳：</strong>${qData.translation}`;
+            feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+            feedbackDiv.classList.remove("hidden");
+            document.querySelectorAll('#choices button').forEach(button => button.disabled = true);
+            document.getElementById("next-btn").classList.remove("hidden");
+        }
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < currentQuestions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+        function showResult() {
+            hideAllSections();
+            const resultDiv = document.getElementById("result");
+            resultDiv.classList.remove("hidden");
+            document.getElementById("result-text").textContent = `${currentQuestions.length}問中、${score}問正解しました。`;
+        }
+        function updateBookmarkStatus() {
+            const qData = currentQuestions[currentQuestion];
+            const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
+            const bookmarkEl = document.getElementById("bookmark");
+            bookmarkEl.textContent = isBookmarked ? "★" : "☆";
+            bookmarkEl.className = isBookmarked ? "bookmark bookmarked" : "bookmark";
+        }
+        function toggleBookmark() {
+            const qData = currentQuestions[currentQuestion];
+            const bookmarkIndex = bookmarks[currentCategory].findIndex(b => b.q === qData.q);
+            if (bookmarkIndex === -1) {
+                bookmarks[currentCategory].push({ ...qData, level: currentLevel, category: currentCategory });
+            } else {
+                bookmarks[currentCategory].splice(bookmarkIndex, 1);
+            }
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            updateBookmarkStatus();
+        }
+        window.onload = initializeApp;
+    </script>
+</body>
+</html>
