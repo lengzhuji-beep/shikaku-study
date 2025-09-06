@@ -27,7 +27,6 @@
     .popup { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1001; opacity: 0; transition: opacity 0.3s; }
     .popup.show { opacity: 1; }
 
-    /* ▼▼▼ CSS変更点 ▼▼▼ */
     .card-icon-button {
         position: absolute;
         top: 20px;
@@ -46,13 +45,22 @@
         cursor: pointer;
         transition: background-color 0.3s;
     }
+    
+    /* ▼▼▼ CSS変更点 ▼▼▼ */
     #back-to-top-btn {
         left: 20px;
         background: #6c757d; /* グレー */
+        width: auto; /* 横幅を自動調整 */
+        height: auto; /* 高さを自動調整 */
+        padding: 8px 15px; /* パディングを追加 */
+        border-radius: 8px; /* 角丸に変更 */
+        font-size: 14px;
     }
     #back-to-top-btn:hover {
         background: #5a6268;
     }
+    /* ▲▲▲ CSS変更点 ▲▲▲ */
+
     #delete-history-btn {
         right: 20px;
         background: #dc3545; /* 赤 */
@@ -60,13 +68,12 @@
     #delete-history-btn:hover {
         background: #c82333;
     }
-    /* ▲▲▲ CSS変更点 ▲▲▲ */
   </style>
 </head>
 <body>
   <div class="container">
     <div id="statistics" class="card">
-      <a href="/shikaku-study/index.html" id="back-to-top-btn" class="card-icon-button" title="トップに戻る"><i class="fas fa-arrow-left"></i></a>
+      <a href="/shikaku-study/index.html" id="back-to-top-btn" class="card-icon-button" title="トップに戻る">トップに戻る</a>
       <button id="delete-history-btn" class="card-icon-button" title="全履歴を削除"><i class="fas fa-trash-alt"></i></button>
       
       <h2><i class="fas fa-chart-bar"></i> 学習統計</h2>
@@ -109,7 +116,6 @@
   <script src="/shikaku-study/quizData_listening_900.js"></script>
   
   <script>
-    // JavaScript部分は変更ありません
     let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
     let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
