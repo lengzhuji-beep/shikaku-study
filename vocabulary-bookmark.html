@@ -53,59 +53,40 @@
     
     <script>
         const currentCategory = 'vocabulary';
+        const currentMode = 'bookmark'; // モードを設定
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
 
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
         }
-
         function updateLevelButtonsState() {
             const levels = [300, 400, 500, 600, 700, 800, 900];
             const categoryBookmarks = bookmarks[currentCategory] || [];
-
             levels.forEach(level => {
                 const hasBookmarksForLevel = categoryBookmarks.some(bookmark => bookmark.level === level);
-                // ▼▼▼ JavaScript変更点 ▼▼▼
                 const button = document.querySelector(`#level-select button[data-level="${level}"]`);
-                // ▲▲▲ JavaScript変更点 ▲▲▲
                 if (button) {
                     button.disabled = !hasBookmarksForLevel;
                 }
             });
         }
-
         function hideAllSections() { ["level-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
-        
         function showLevelSelect() { 
             hideAllSections(); 
-            document.getElementById("level-select").classList.remove("hidden");
-            updateLevelButtonsState(); // ボタンの状態を更新
+            document.getElementById("level-select").classList.remove("hidden"); 
+            updateLevelButtonsState();
         }
-
         function startBookmarkQuiz(level) {
             currentLevel = level;
             const allBookmarkedQuestions = bookmarks[currentCategory] || [];
             currentQuestions = allBookmarkedQuestions.filter(q => q.level === currentLevel);
-
-            // ▼▼▼ JavaScript変更点 ▼▼▼
-            // ボタンが無効化されているため、このチェックは不要に
-            /*
-            if (currentQuestions.length === 0) {
-                alert(`目標スコア${level}点でブックマークされた単語問題はありません。`);
-                return;
-            }
-            */
-            // ▲▲▲ JavaScript変更点 ▲▲▲
-
             currentQuestion = 0;
             score = 0;
             hideAllSections();
             document.getElementById("quiz").classList.remove("hidden");
             showQuestion();
         }
-
-        // ... 他のJS関数は変更なし ...
         function shuffleArray(array) {
             let shuffled = [...array];
             for (let i = shuffled.length - 1; i > 0; i--) {
@@ -135,6 +116,9 @@
             const qData = currentQuestions[currentQuestion];
             const isCorrect = choice === qData.answer;
             if(isCorrect) score++;
+            
+            // ブックマークモードでは統計を記録しない
+            
             const feedbackDiv = document.getElementById("feedback");
             feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}`;
             feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
@@ -174,7 +158,6 @@
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
             updateBookmarkStatus();
         }
-
         window.onload = initializeApp;
     </script>
 </body>
