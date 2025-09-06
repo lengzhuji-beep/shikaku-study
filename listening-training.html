@@ -118,7 +118,6 @@
     <script src="quizData_listening_800.js"></script>
     <script src="quizData_listening_900.js"></script>
     <script>
-        // ... 他のJS関数は変更ありません ...
         const currentCategory = 'listening';
         const currentMode = 'training';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
@@ -126,6 +125,7 @@
         let maleVoice = null;
         let femaleVoice = null;
         let selectedVoice = null;
+        // 他のJS関数は変更なし
         function loadVoices() {
             const voices = window.speechSynthesis.getVoices().filter(v => v.lang === 'en-US');
             if (voices.length === 0) return;
@@ -287,8 +287,13 @@
 
         // ▼▼▼ JavaScript変更点 ▼▼▼
         function updateStatistics(category, level, isCorrect, question) {
+            // トレーニングモードでは統計を記録しない
+            if (currentMode !== 'test') {
+                return;
+            }
+            
             let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
-            let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {}; // mistakesも読み込む
+            let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
             const key = `${category}_${level}`;
             
             if (!statistics[key]) statistics[key] = { total: 0, correct: 0, category, level };
@@ -297,12 +302,11 @@
             if (isCorrect) {
                 statistics[key].correct++;
             } else {
-                // 間違えた問題を記録する処理を追加
                 if (!mistakes[key]) mistakes[key] = {};
                 mistakes[key][question] = (mistakes[key][question] || 0) + 1;
             }
             localStorage.setItem('statistics', JSON.stringify(statistics));
-            localStorage.setItem('mistakes', JSON.stringify(mistakes)); // mistakesも保存
+            localStorage.setItem('mistakes', JSON.stringify(mistakes));
         }
         // ▲▲▲ JavaScript変更点 ▲▲▲
         
