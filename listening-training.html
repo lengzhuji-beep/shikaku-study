@@ -39,13 +39,20 @@
         .voice-controls button { width: 35px; height: 35px; border-radius: 50%; font-size: 16px; padding: 0; margin: 0; display: flex; justify-content: center; align-items: center; background: #e9ecef; color: #495057; border: 1px solid #dee2e6; }
         #voice-female.selected { background-color: #E91E63; color: white; border-color: #E91E63; }
         #voice-male.selected { background-color: #2196F3; color: white; border-color: #2196F3; }
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        .quit-quiz-btn {
+            position: absolute; top: 20px; left: 20px; background: #6c757d; color: white; padding: 8px 15px;
+            margin: 0; border-radius: 8px; text-decoration: none; font-size: 14px; z-index: 10;
+        }
+        .quit-quiz-btn:hover { background: #5a6268; color: white; }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
     </style>
 </head>
 <body>
     <div class="container">
         <div id="level-select" class="card">
             <h2>リスニング - トレーニングモード</h2>
-            <p>目標スコアを選択してください</p>
+            <p>レベルを選択してください</p>
             <button onclick="selectLevel(300)">300点</button>
             <button onclick="selectLevel(400)">400点</button>
             <button onclick="selectLevel(500)">500点</button>
@@ -65,9 +72,10 @@
                  <button class="icon-button" onclick="startQuiz(30)">30問</button>
                  <button class="icon-button" onclick="startQuizAll()">全問題</button>
             </div>
-             <button onclick="showLevelSelect()">レベル選択に戻る</button>
-        </div>
+             <button onclick="showLevelSelect()" style="background-color: #6c757d;">レベル選択に戻る</button>
+             </div>
         <div id="quiz" class="card hidden">
+            <a href="index.html" class="quit-quiz-btn">解答を中止する</a>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
             <h2 id="quiz-title"></h2>
             <div class="question-header">
@@ -125,7 +133,6 @@
         let maleVoice = null;
         let femaleVoice = null;
         let selectedVoice = null;
-        // 他のJS関数は変更なし
         function loadVoices() {
             const voices = window.speechSynthesis.getVoices().filter(v => v.lang === 'en-US');
             if (voices.length === 0) return;
@@ -182,7 +189,9 @@
             }
             hideAllSections();
             document.getElementById("question-count-select").classList.remove("hidden");
-            document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - 目標スコア: ${level}点`;
+            // ▼▼▼ 文言変更 ▼▼▼
+            document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - レベル: ${level}点`;
+            // ▲▲▲ 文言変更 ▲▲▲
         }
         function startQuiz(questionCount) {
             currentQuestion = 0;
@@ -284,21 +293,15 @@
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
             updateBookmarkStatus();
         }
-
-        // ▼▼▼ JavaScript変更点 ▼▼▼
         function updateStatistics(category, level, isCorrect, question) {
-            // トレーニングモードでは統計を記録しない
             if (currentMode !== 'test') {
                 return;
             }
-            
             let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
             let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
             const key = `${category}_${level}`;
-            
             if (!statistics[key]) statistics[key] = { total: 0, correct: 0, category, level };
             statistics[key].total++;
-            
             if (isCorrect) {
                 statistics[key].correct++;
             } else {
@@ -308,8 +311,6 @@
             localStorage.setItem('statistics', JSON.stringify(statistics));
             localStorage.setItem('mistakes', JSON.stringify(mistakes));
         }
-        // ▲▲▲ JavaScript変更点 ▲▲▲
-        
         window.onload = initializeApp;
     </script>
 </body>
