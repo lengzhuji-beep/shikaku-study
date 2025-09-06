@@ -12,9 +12,7 @@
         .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
         button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
         button:hover { background: #357ABD; }
-        /* ▼▼▼ CSS変更点 ▼▼▼ */
         button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
-        /* ▲▲▲ CSS変更点 ▲▲▲ */
         .hidden { display: none; }
         .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
         .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
@@ -28,13 +26,13 @@
         <div id="level-select" class="card">
             <h2>単語 - ブックマークモード</h2>
             <p>復習したい問題の目標スコアを選択してください</p>
-            <button onclick="startBookmarkQuiz(300)">300点</button>
-            <button onclick="startBookmarkQuiz(400)">400点</button>
-            <button onclick="startBookmarkQuiz(500)">500点</button>
-            <button onclick="startBookmarkQuiz(600)">600点</button>
-            <button onclick="startBookmarkQuiz(700)">700点</button>
-            <button onclick="startBookmarkQuiz(800)">800点</button>
-            <button onclick="startBookmarkQuiz(900)">900点以上</button>
+            <button data-level="300" onclick="startBookmarkQuiz(300)">300点</button>
+            <button data-level="400" onclick="startBookmarkQuiz(400)">400点</button>
+            <button data-level="500" onclick="startBookmarkQuiz(500)">500点</button>
+            <button data-level="600" onclick="startBookmarkQuiz(600)">600点</button>
+            <button data-level="700" onclick="startBookmarkQuiz(700)">700点</button>
+            <button data-level="800" onclick="startBookmarkQuiz(800)">800点</button>
+            <button data-level="900" onclick="startBookmarkQuiz(900)">900点以上</button>
             <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
         <div id="quiz" class="card hidden">
@@ -57,33 +55,32 @@
         const currentCategory = 'vocabulary';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
 
-        // ▼▼▼ JavaScript変更点 ▼▼▼
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
-            updateLevelButtonsState(); // ボタンの状態を更新する関数を呼び出し
         }
 
-        // ブックマークの有無に応じてレベル選択ボタンの有効/無効を切り替える関数
         function updateLevelButtonsState() {
             const levels = [300, 400, 500, 600, 700, 800, 900];
             const categoryBookmarks = bookmarks[currentCategory] || [];
 
             levels.forEach(level => {
                 const hasBookmarksForLevel = categoryBookmarks.some(bookmark => bookmark.level === level);
-                const button = document.querySelector(`#level-select button[onclick="startBookmarkQuiz(${level})"]`);
+                // ▼▼▼ JavaScript変更点 ▼▼▼
+                const button = document.querySelector(`#level-select button[data-level="${level}"]`);
+                // ▲▲▲ JavaScript変更点 ▲▲▲
                 if (button) {
                     button.disabled = !hasBookmarksForLevel;
                 }
             });
         }
-        // ▲▲▲ JavaScript変更点 ▲▲▲
 
         function hideAllSections() { ["level-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
         
         function showLevelSelect() { 
             hideAllSections(); 
-            document.getElementById("level-select").classList.remove("hidden"); 
+            document.getElementById("level-select").classList.remove("hidden");
+            updateLevelButtonsState(); // ボタンの状態を更新
         }
 
         function startBookmarkQuiz(level) {
@@ -91,10 +88,15 @@
             const allBookmarkedQuestions = bookmarks[currentCategory] || [];
             currentQuestions = allBookmarkedQuestions.filter(q => q.level === currentLevel);
 
+            // ▼▼▼ JavaScript変更点 ▼▼▼
+            // ボタンが無効化されているため、このチェックは不要に
+            /*
             if (currentQuestions.length === 0) {
                 alert(`目標スコア${level}点でブックマークされた単語問題はありません。`);
                 return;
             }
+            */
+            // ▲▲▲ JavaScript変更点 ▲▲▲
 
             currentQuestion = 0;
             score = 0;
@@ -103,6 +105,7 @@
             showQuestion();
         }
 
+        // ... 他のJS関数は変更なし ...
         function shuffleArray(array) {
             let shuffled = [...array];
             for (let i = shuffled.length - 1; i > 0; i--) {
@@ -111,16 +114,12 @@
             }
             return shuffled;
         }
-
         function showQuestion() {
             document.getElementById("feedback").classList.add("hidden");
             document.getElementById("next-btn").classList.add("hidden");
-            
             const qData = currentQuestions[currentQuestion];
-            
             document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
             document.getElementById("question").textContent = qData.q;
-            
             const choicesDiv = document.getElementById("choices");
             choicesDiv.innerHTML = "";
             shuffleArray(qData.choices).forEach(choice => {
@@ -132,21 +131,17 @@
             document.querySelectorAll('#choices button').forEach(button => button.disabled = false);
             updateBookmarkStatus();
         }
-
         function checkAnswer(choice) {
             const qData = currentQuestions[currentQuestion];
             const isCorrect = choice === qData.answer;
             if(isCorrect) score++;
-            
             const feedbackDiv = document.getElementById("feedback");
             feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}`;
             feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
             feedbackDiv.classList.remove("hidden");
-            
             document.querySelectorAll('#choices button').forEach(button => button.disabled = true);
             document.getElementById("next-btn").classList.remove("hidden");
         }
-
         function nextQuestion() {
             currentQuestion++;
             if (currentQuestion < currentQuestions.length) {
@@ -155,14 +150,12 @@
                 showResult();
             }
         }
-
         function showResult() {
             hideAllSections();
             const resultDiv = document.getElementById("result");
             resultDiv.classList.remove("hidden");
             document.getElementById("result-text").textContent = `${currentQuestions.length}問中、${score}問正解しました。`;
         }
-        
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
