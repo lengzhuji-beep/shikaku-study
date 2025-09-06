@@ -9,14 +9,7 @@
         body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
         h1, h2 { text-align: center; }
-        
-        /* ▼▼▼ CSS変更点 ▼▼▼ */
-        .card {
-            background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative; /* アイコンを絶対位置で配置するための基準 */
-        }
-        /* ▲▲▲ CSS変更点 ▲▲▲ */
-
+        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
         button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
         button:hover { background: #357ABD; }
         button:disabled { background-color: #ccc; cursor: not-allowed; }
@@ -25,19 +18,7 @@
         .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
         .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
         .feedback.incorrect { background-color: #f8d7da; border-color: #f5c6cb; }
-        
-        /* ▼▼▼ CSS変更点 ▼▼▼ */
-        .bookmark {
-            position: absolute; /* 配置方法を絶対位置に変更 */
-            top: 20px;          /* 親要素(.card)の上からの位置 */
-            right: 20px;         /* 親要素(.card)の右からの位置 */
-            cursor: pointer;
-            font-size: 24px;
-            color: #ccc;
-            z-index: 10;        /* 最前面に表示 */
-        }
-        /* ▲▲▲ CSS変更点 ▲▲▲ */
-        
+        .bookmark { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #ccc; z-index: 10; }
         .bookmarked { color: gold; }
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
         .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
@@ -137,6 +118,7 @@
     <script src="quizData_listening_800.js"></script>
     <script src="quizData_listening_900.js"></script>
     <script>
+        // ... 他のJS関数は変更ありません ...
         const currentCategory = 'listening';
         const currentMode = 'training';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
@@ -180,7 +162,7 @@
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
             if (speechSynthesis.onvoiceschanged !== undefined) {
-                speechSynthesis.onvoiceschanged = loadvoices;
+                speechSynthesis.onvoiceschanged = loadVoices;
             }
             loadVoices();
         }
@@ -302,14 +284,28 @@
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
             updateBookmarkStatus();
         }
+
+        // ▼▼▼ JavaScript変更点 ▼▼▼
         function updateStatistics(category, level, isCorrect, question) {
             let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
+            let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {}; // mistakesも読み込む
             const key = `${category}_${level}`;
+            
             if (!statistics[key]) statistics[key] = { total: 0, correct: 0, category, level };
             statistics[key].total++;
-            if (isCorrect) statistics[key].correct++;
+            
+            if (isCorrect) {
+                statistics[key].correct++;
+            } else {
+                // 間違えた問題を記録する処理を追加
+                if (!mistakes[key]) mistakes[key] = {};
+                mistakes[key][question] = (mistakes[key][question] || 0) + 1;
+            }
             localStorage.setItem('statistics', JSON.stringify(statistics));
+            localStorage.setItem('mistakes', JSON.stringify(mistakes)); // mistakesも保存
         }
+        // ▲▲▲ JavaScript変更点 ▲▲▲
+        
         window.onload = initializeApp;
     </script>
 </body>
