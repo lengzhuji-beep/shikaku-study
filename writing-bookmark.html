@@ -53,14 +53,14 @@
     
     <script>
         const currentCategory = 'writing';
+        const currentMode = 'bookmark'; // モードを設定
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
 
-        // ▼▼▼ JavaScript変更点 ▼▼▼
+        // ... 他のJS関数 ...
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
         }
-
         function updateLevelButtonsState() {
             const levels = [300, 400, 500, 600, 700, 800, 900];
             const categoryBookmarks = bookmarks[currentCategory] || [];
@@ -72,29 +72,22 @@
                 }
             });
         }
-        
         function showLevelSelect() { 
             hideAllSections(); 
             document.getElementById("level-select").classList.remove("hidden");
-            updateLevelButtonsState(); // ボタンの状態を更新
+            updateLevelButtonsState();
         }
-        
         function startBookmarkQuiz(level) {
             currentLevel = level;
             const allBookmarkedQuestions = bookmarks[currentCategory] || [];
             currentQuestions = allBookmarkedQuestions.filter(q => q.level === currentLevel);
-            // alertは不要に
             currentQuestion = 0;
             score = 0;
             hideAllSections();
             document.getElementById("quiz").classList.remove("hidden");
             showQuestion();
         }
-        // ▲▲▲ JavaScript変更点 ▲▲▲
-
         function hideAllSections() { ["level-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
-        
-        // ... 他のJS関数は変更なし ...
         function shuffleArray(array) {
             let shuffled = [...array];
             for (let i = shuffled.length - 1; i > 0; i--) {
@@ -124,6 +117,12 @@
             const qData = currentQuestions[currentQuestion];
             const isCorrect = choice === qData.answer;
             if(isCorrect) score++;
+            
+            // ▼▼▼ JavaScript変更点 ▼▼▼
+            // ブックマークモードでは統計を記録しないため、updateStatisticsの呼び出しを削除
+            // updateStatistics(currentCategory, currentLevel, isCorrect, qData.q);
+            // ▲▲▲ JavaScript変更点 ▲▲▲
+
             const feedbackDiv = document.getElementById("feedback");
             feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}<br><br><strong>和訳：</strong>${qData.translation}`;
             feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
