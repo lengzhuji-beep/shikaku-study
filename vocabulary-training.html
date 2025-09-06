@@ -10,7 +10,7 @@
         .container { max-width: 800px; margin: auto; padding: 20px; }
         h1, h2 { text-align: center; }
         .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
-        button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
         button:hover { background: #357ABD; }
         button:disabled { background-color: #ccc; cursor: not-allowed; }
         .hidden { display: none; }
@@ -23,13 +23,20 @@
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
         .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
         .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        .quit-quiz-btn {
+            position: absolute; top: 20px; left: 20px; background: #6c757d; color: white; padding: 8px 15px;
+            margin: 0; border-radius: 8px; text-decoration: none; font-size: 14px; z-index: 10;
+        }
+        .quit-quiz-btn:hover { background: #5a6268; color: white; }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
     </style>
 </head>
 <body>
     <div class="container">
         <div id="level-select" class="card">
             <h2>単語 - トレーニングモード</h2>
-            <p>目標スコアを選択してください</p>
+            <p>レベルを選択してください</p>
             <button onclick="selectLevel(300)">300点</button>
             <button onclick="selectLevel(400)">400点</button>
             <button onclick="selectLevel(500)">500点</button>
@@ -49,9 +56,10 @@
                  <button class="icon-button" onclick="startQuiz(30)">30問</button>
                  <button class="icon-button" onclick="startQuizAll()">全問題</button>
             </div>
-             <button onclick="showLevelSelect()">レベル選択に戻る</button>
-        </div>
+             <button onclick="showLevelSelect()" style="background-color: #6c757d;">レベル選択に戻る</button>
+             </div>
         <div id="quiz" class="card hidden">
+            <a href="index.html" class="quit-quiz-btn">解答を中止する</a>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
             <h2 id="quiz-title"></h2>
             <div id="question" style="font-size: 1.5em; text-align: center; margin: 20px 0;"></div>
@@ -97,7 +105,9 @@
             }
             hideAllSections();
             document.getElementById("question-count-select").classList.remove("hidden");
-            document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - 目標スコア: ${level}点`;
+            // ▼▼▼ 文言変更 ▼▼▼
+            document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - レベル: ${level}点`;
+            // ▲▲▲ 文言変更 ▲▲▲
         }
         function startQuiz(questionCount) {
             currentQuestion = 0;
@@ -178,14 +188,10 @@
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
             updateBookmarkStatus();
         }
-
-        // ▼▼▼ JavaScript変更点 ▼▼▼
         function updateStatistics(category, level, isCorrect, question) {
-            // テストモード以外では統計を記録しない
             if (currentMode !== 'test') {
                 return;
             }
-            
             let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
             let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
             const key = `${category}_${level}`;
@@ -200,8 +206,6 @@
             localStorage.setItem('statistics', JSON.stringify(statistics));
             localStorage.setItem('mistakes', JSON.stringify(mistakes));
         }
-        // ▲▲▲ JavaScript変更点 ▲▲▲
-
         window.onload = initializeApp;
     </script>
 </body>
