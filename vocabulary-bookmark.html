@@ -12,7 +12,9 @@
         .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
         button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
         button:hover { background: #357ABD; }
-        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
         .hidden { display: none; }
         .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
         .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
@@ -55,10 +57,27 @@
         const currentCategory = 'vocabulary';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
 
+        // ▼▼▼ JavaScript変更点 ▼▼▼
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
+            updateLevelButtonsState(); // ボタンの状態を更新する関数を呼び出し
         }
+
+        // ブックマークの有無に応じてレベル選択ボタンの有効/無効を切り替える関数
+        function updateLevelButtonsState() {
+            const levels = [300, 400, 500, 600, 700, 800, 900];
+            const categoryBookmarks = bookmarks[currentCategory] || [];
+
+            levels.forEach(level => {
+                const hasBookmarksForLevel = categoryBookmarks.some(bookmark => bookmark.level === level);
+                const button = document.querySelector(`#level-select button[onclick="startBookmarkQuiz(${level})"]`);
+                if (button) {
+                    button.disabled = !hasBookmarksForLevel;
+                }
+            });
+        }
+        // ▲▲▲ JavaScript変更点 ▲▲▲
 
         function hideAllSections() { ["level-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
         
