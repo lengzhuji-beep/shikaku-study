@@ -6,11 +6,12 @@
   <title>TOEIC 対策ツール - ブックマーク</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
-    /* Paste the CSS from your original index.html here */
     body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
     .container { max-width: 800px; margin: auto; padding: 20px; }
     h1, h2 { text-align: center; }
-    .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    /* ▼▼▼ CSS変更点 ▼▼▼ */
+    .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
+    /* ▲▲▲ CSS変更点 ▲▲▲ */
     button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
     button:hover { background: #357ABD; }
     .hidden { display: none; }
@@ -26,12 +27,30 @@
     .popup.show { opacity: 1; }
     .confirmation-dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; }
     .confirmation-dialog button { margin: 0 10px; }
-    .back-button { margin-top: 20px; }
+    
+    /* ▼▼▼ CSS変更点 ▼▼▼ */
+    #back-to-top-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: #6c757d;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 14px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+    #back-to-top-btn:hover {
+        background: #5a6268;
+    }
+    /* ▲▲▲ CSS変更点 ▲▲▲ */
   </style>
 </head>
 <body>
   <div class="container">
     <div id="bookmarks-list" class="card">
+      <a href="/shikaku-study/index.html" id="back-to-top-btn">トップに戻る</a>
       <h2><i class="fas fa-bookmark"></i> ブックマークした問題</h2>
       <div class="tab-container">
         <div class="tab-buttons">
@@ -41,8 +60,7 @@
         </div>
         <div id="bookmarked-questions"></div>
       </div>
-      <a href="/shikaku-study/index.html" class="back-button"><button>トップに戻る</button></a>
-    </div>
+      </div>
   </div>
   
   <div id="popup" class="popup"></div>
@@ -53,8 +71,6 @@
   </div>
 
   <script>
-    // Paste the necessary JS functions from your original index.html here
-    // Specifically: initializeBookmarks, showBookmarkTab, showBookmarksForLevel, getCategoryName, deleteBookmark, confirmDeleteBookmark, showPopup
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
     let bookmarkToDelete = null;
 
@@ -66,16 +82,20 @@
     function showBookmarkTab(category) {
       document.querySelectorAll('#bookmarks-list .tab-button').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.textContent.includes(getCategoryName(category))) btn.classList.add('active');
+        const btnText = btn.textContent;
+        const expectedText = getCategoryName(category);
+        if (btnText.includes(expectedText)) {
+            btn.classList.add('active');
+        }
       });
       const bookmarksListDiv = document.getElementById("bookmarked-questions");
       const categoryBookmarks = bookmarks[category] || [];
       if (categoryBookmarks.length === 0) {
-        bookmarksListDiv.innerHTML = `<p>このカテゴリのブックマークはありません。</p>`;
+        bookmarksListDiv.innerHTML = `<p style="text-align:center; padding: 20px 0;">このカテゴリのブックマークはありません。</p>`;
         return;
       }
       const levels = [...new Set(categoryBookmarks.map(b => b.level))].sort((a, b) => a - b);
-      let html = '<div id="level-buttons-container"></div><div id="bookmarksContent"></div>';
+      let html = '<div id="level-buttons-container" style="text-align:center;"></div><div id="bookmarksContent"></div>';
       bookmarksListDiv.innerHTML = html;
       const buttonContainer = document.getElementById('level-buttons-container');
       levels.forEach(level => {
@@ -98,7 +118,9 @@
           <div class="bookmarked-question">
             <span class="delete-bookmark" onclick="deleteBookmark('${category}', ${originalIndex})">×</span>
             <p><strong>問題:</strong> ${q.q}</p>
+            ${q.sentence ? `<p><strong>英文:</strong> ${q.sentence}</p>` : ''}
             <p><strong>正解:</strong> ${q.answer}</p>
+            ${q.translation ? `<p><strong>和訳:</strong> ${q.translation}</p>` : ''}
             <p><strong>解説:</strong> ${q.explanation}</p>
           </div>
         `;
@@ -128,7 +150,6 @@
       setTimeout(() => popup.classList.remove("show"), 2000);
     }
 
-    // Initial load
     window.onload = () => {
       showBookmarkTab('vocabulary');
     };
