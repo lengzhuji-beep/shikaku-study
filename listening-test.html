@@ -14,10 +14,6 @@
         button:hover { background: #357ABD; }
         .hidden { display: none; }
         .choices { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
-        .result { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px; }
-        .result-item { padding: 15px; margin: 10px 0; border-radius: 8px; text-align: left; border-left: 5px solid; }
-        .result-item.correct { background-color: #d4edda; border-color: #28a745; }
-        .result-item.incorrect { background-color: #f8d7da; border-color: #dc3545; }
         .bookmark { cursor: pointer; font-size: 24px; float: right; color: #ccc; }
         .bookmarked { color: gold; }
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
@@ -32,6 +28,12 @@
         #question { font-weight: bold; font-size: 1.2em; margin-top: 5px; }
         #sentence-container { background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 8px; margin-top: 10px; }
         #toggle-sentence-btn { background-color: #6c757d; font-size: 14px; padding: 8px 15px; margin: 0; }
+        
+        /* CSSは変更なし */
+        .result { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .result-item { padding: 15px; margin: 10px 0; border-radius: 8px; text-align: left; border-left: 5px solid; position: relative; /* ブックマーク配置のため */ }
+        .result-item.correct { background-color: #d4edda; border-color: #28a745; }
+        .result-item.incorrect { background-color: #f8d7da; border-color: #dc3545; }
     </style>
 </head>
 <body>
@@ -94,22 +96,19 @@
         const currentCategory = 'listening';
         const currentMode = 'test';
         let currentLevel, currentQuestions, currentQuestion, bookmarks;
-
+        // initializeApp, getCategoryName, getModeName, hideAllSections, showLevelSelect, selectLevel, startQuiz, startQuizAll, shuffleArray, speakText, toggleSentence, showQuestion, checkAnswer, nextQuestion は変更なし
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
         }
-
         function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
         function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
         function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
-        
         function showLevelSelect() { 
             hideAllSections(); 
             document.getElementById("level-select").classList.remove("hidden"); 
             window.speechSynthesis.cancel();
         }
-
         function selectLevel(level) {
             currentLevel = level;
             if (!quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
@@ -120,7 +119,6 @@
             document.getElementById("question-count-select").classList.remove("hidden");
             document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - 目標スコア: ${level}点`;
         }
-        
         function startQuiz(questionCount) {
             currentQuestion = 0;
             const allQuestions = [...quizData[currentCategory][currentLevel]];
@@ -129,9 +127,7 @@
             document.getElementById("quiz").classList.remove("hidden");
             showQuestion();
         }
-        
         function startQuizAll() { startQuiz(quizData[currentCategory][currentLevel].length); }
-
         function shuffleArray(array) {
             let shuffled = [...array];
             for (let i = shuffled.length - 1; i > 0; i--) {
@@ -140,7 +136,6 @@
             }
             return shuffled;
         }
-        
         function speakText(text) {
             window.speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
@@ -148,25 +143,20 @@
             utterance.rate = 0.9;
             window.speechSynthesis.speak(utterance);
         }
-
         function toggleSentence() {
             const sentenceContainer = document.getElementById('sentence-container');
             const toggleBtn = document.getElementById('toggle-sentence-btn');
             sentenceContainer.classList.toggle('hidden');
             toggleBtn.textContent = sentenceContainer.classList.contains('hidden') ? '英文を表示' : '英文を非表示';
         }
-
         function showQuestion() {
             document.getElementById('sentence-container').classList.add('hidden');
             document.getElementById('toggle-sentence-btn').textContent = '英文を表示';
-
             const qData = currentQuestions[currentQuestion];
             document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
             document.getElementById("question").textContent = qData.q;
             document.getElementById("sentence-text").textContent = qData.sentence;
-            
             document.getElementById('speak-btn').onclick = () => speakText(qData.sentence);
-
             const choicesDiv = document.getElementById("choices");
             choicesDiv.innerHTML = "";
             shuffleArray(qData.choices).forEach(choice => {
@@ -177,14 +167,12 @@
             });
             updateBookmarkStatus();
         }
-
         function checkAnswer(choice) {
             const qData = currentQuestions[currentQuestion];
             qData.userAnswer = choice;
             updateStatistics(currentCategory, currentLevel, choice === qData.answer, qData.q);
             nextQuestion();
         }
-
         function nextQuestion() {
             currentQuestion++;
             if (currentQuestion < currentQuestions.length) {
@@ -193,21 +181,22 @@
                 showResult();
             }
         }
-
+        
+        // ▼▼▼ JavaScript変更点 ▼▼▼
         function showResult() {
             window.speechSynthesis.cancel();
             hideAllSections();
             const resultDiv = document.getElementById("result");
             resultDiv.classList.remove("hidden");
-            
             let correctCount = 0;
             let resultHTML = '';
-            
             currentQuestions.forEach((q, index) => {
                 const isCorrect = q.userAnswer === q.answer;
                 if (isCorrect) correctCount++;
+                const isBookmarked = bookmarks[currentCategory].some(b => b.q === q.q);
                 resultHTML += `
                     <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                      <span class="bookmark ${isBookmarked ? 'bookmarked' : ''}" onclick="toggleBookmarkForResult(${index})">${isBookmarked ? '★' : '☆'}</span>
                       <p><strong>問題 ${index + 1}:</strong> ${q.q}</p>
                       <p><strong>英文:</strong> ${q.sentence}</p>
                       <p>あなたの回答: ${q.userAnswer} ${isCorrect ? '✔' : '✖'}</p>
@@ -216,19 +205,29 @@
                       <p><strong>解説:</strong> ${q.explanation}</p>
                     </div>`;
             });
-            
             const percentage = Math.round((correctCount / currentQuestions.length) * 100);
             resultHTML = `<h2>テスト結果</h2>
                           <p style="font-size: 1.2em; font-weight: bold;">${correctCount} / ${currentQuestions.length} 正解 (${percentage}%)</p>` + resultHTML;
-            
             resultHTML += `<div style="text-align: center; margin-top: 20px;">
                             <button onclick="showLevelSelect()">別のレベルに挑戦</button>
                             <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
                            </div>`;
-
             resultDiv.innerHTML = resultHTML;
         }
-        
+
+        function toggleBookmarkForResult(index) {
+            const qData = currentQuestions[index];
+            const bookmarkIndex = bookmarks[currentCategory].findIndex(b => b.q === qData.q);
+            if (bookmarkIndex === -1) {
+                bookmarks[currentCategory].push({ ...qData, level: currentLevel, category: currentCategory });
+            } else {
+                bookmarks[currentCategory].splice(bookmarkIndex, 1);
+            }
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            showResult(); // 結果を再描画して星の状態を更新
+        }
+        // ▲▲▲ JavaScript変更点 ▲▲▲
+
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
@@ -254,9 +253,7 @@
             if (isCorrect) statistics[key].correct++;
             localStorage.setItem('statistics', JSON.stringify(statistics));
         }
-
         window.onload = initializeApp;
     </script>
 </body>
 </html>
-
