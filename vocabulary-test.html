@@ -9,23 +9,30 @@
         body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
         h1, h2 { text-align: center; }
-        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
         button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
         button:hover { background: #357ABD; }
         .hidden { display: none; }
-        .choices { margin: 10px 0; }
-        .bookmark { cursor: pointer; font-size: 24px; float: right; color: #ccc; }
+
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        .choices { 
+            margin: 20px 0; 
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
+
+        .bookmark { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #ccc; z-index: 10; }
+        .result-item .bookmark { top: 15px; right: 15px; }
         .bookmarked { color: gold; }
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
         .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
         .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
-        
-        /* ▼▼▼ CSS変更点 ▼▼▼ */
         .result { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px; }
-        .result-item { padding: 15px; margin: 10px 0; border-radius: 8px; text-align: left; border-left: 5px solid; position: relative; /* ブックマーク配置のため */ }
+        .result-item { padding: 15px; margin: 10px 0; border-radius: 8px; text-align: left; border-left: 5px solid; position: relative; }
         .result-item.correct { background-color: #d4edda; border-color: #28a745; }
         .result-item.incorrect { background-color: #f8d7da; border-color: #dc3545; }
-        /* ▲▲▲ CSS変更点 ▲▲▲ */
     </style>
 </head>
 <body>
@@ -55,9 +62,9 @@
              <button onclick="showLevelSelect()">レベル選択に戻る</button>
         </div>
         <div id="quiz" class="card hidden">
-            <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
-            <div id="question"></div>
+            <h2 id="quiz-title"></h2>
+            <div id="question" style="font-size: 1.5em; text-align: center; margin: 20px 0;"></div>
             <div id="choices" class="choices"></div>
         </div>
         <div id="result" class="result card hidden"></div>
@@ -76,7 +83,6 @@
         const currentCategory = 'vocabulary';
         const currentMode = 'test';
         let currentLevel, currentQuestions, currentQuestion, bookmarks;
-        // initializeApp, getCategoryName, getModeName, hideAllSections, showLevelSelect, selectLevel, startQuiz, startQuizAll, shuffleArray, showQuestion, checkAnswer, nextQuestion は変更なし
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             statistics = JSON.parse(localStorage.getItem('statistics')) || {};
@@ -141,8 +147,6 @@
                 showResult();
             }
         }
-        
-        // ▼▼▼ JavaScript変更点 ▼▼▼
         function showResult() {
             hideAllSections();
             const resultDiv = document.getElementById("result");
@@ -171,7 +175,6 @@
                            </div>`;
             resultDiv.innerHTML = resultHTML;
         }
-
         function toggleBookmarkForResult(index) {
             const qData = currentQuestions[index];
             const bookmarkIndex = bookmarks[currentCategory].findIndex(b => b.q === qData.q);
@@ -181,15 +184,14 @@
                 bookmarks[currentCategory].splice(bookmarkIndex, 1);
             }
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-            showResult(); // 結果を再描画して星の状態を更新
+            showResult(); 
         }
-        // ▲▲▲ JavaScript変更点 ▲▲▲
-
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
-            document.getElementById("bookmark").textContent = isBookmarked ? "★" : "☆";
-            document.getElementById("bookmark").className = isBookmarked ? "bookmark bookmarked" : "bookmark";
+            const bookmarkEl = document.getElementById("bookmark");
+            bookmarkEl.textContent = isBookmarked ? "★" : "☆";
+            bookmarkEl.className = isBookmarked ? "bookmark bookmarked" : "bookmark";
         }
         function toggleBookmark() {
             const qData = currentQuestions[currentQuestion];
