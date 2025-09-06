@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOEIC 対策ツール - リスニング ブックマークモード</title>
+    <title>TOEIC 対策ツール - ライティング ブックマークモード</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
@@ -12,34 +12,21 @@
         .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
         button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
         button:hover { background: #357ABD; }
-        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
         .hidden { display: none; }
-        .choices { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
         .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
         .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
         .feedback.incorrect { background-color: #f8d7da; border-color: #f5c6cb; }
         .bookmark { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #ccc; z-index: 10; }
         .bookmarked { color: gold; }
-        .question-header { text-align: center; margin-bottom: 10px; position: relative; padding-top: 10px; }
-        #speak-btn { font-size: 48px; cursor: pointer; color: #4a90e2; background: none; border: none; padding: 0 20px; }
-        .speak-note { font-size: 0.8em; color: #6c757d; margin: 0; }
-        .q-section { margin-top: 25px; }
-        #question { font-weight: bold; font-size: 1.2em; margin-top: 5px; }
-        #sentence-container { background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 8px; margin-top: 10px; }
-        #toggle-sentence-btn { background-color: #6c757d; font-size: 14px; padding: 8px 15px; margin: 0; }
-        .speech-controls-container { position: absolute; top: 0; left: 0; display: flex; flex-direction: column; gap: 5px; z-index: 5; }
-        .rate-controls, .voice-controls { display: flex; gap: 5px; }
-        .rate-controls button { background: #e9ecef; color: #495057; border-radius: 20px; padding: 0; margin: 0; width: 40px; height: 25px; font-size: 12px; border: 1px solid #dee2e6; }
-        .rate-controls button.selected { background: #007bff; color: white; border-color: #007bff; }
-        .voice-controls button { width: 35px; height: 35px; border-radius: 50%; font-size: 16px; padding: 0; margin: 0; display: flex; justify-content: center; align-items: center; background: #e9ecef; color: #495057; border: 1px solid #dee2e6; }
-        #voice-female.selected { background-color: #E91E63; color: white; border-color: #E91E63; }
-        #voice-male.selected { background-color: #2196F3; color: white; border-color: #2196F3; }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="level-select" class="card">
-            <h2>リスニング - ブックマークモード</h2>
+            <h2>ライティング - ブックマークモード</h2>
             <p>復習したい問題の目標スコアを選択してください</p>
             <button onclick="startBookmarkQuiz(300)">300点</button>
             <button onclick="startBookmarkQuiz(400)">400点</button>
@@ -53,32 +40,8 @@
         <div id="quiz" class="card hidden">
             <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
-            <div class="question-header">
-                <div class="speech-controls-container">
-                    <div class="rate-controls">
-                        <button id="rate-0.5" onclick="setSpeechRate(0.5)">0.5x</button>
-                        <button id="rate-0.75" onclick="setSpeechRate(0.75)">0.75x</button>
-                        <button id="rate-1" class="selected" onclick="setSpeechRate(1)">1x</button>
-                        <button id="rate-1.25" onclick="setSpeechRate(1.25)">1.25x</button>
-                        <button id="rate-1.5" onclick="setSpeechRate(1.5)">1.5x</button>
-                    </div>
-                    <div class="voice-controls">
-                        <button id="voice-female" onclick="selectVoice('female')" disabled><i class="fas fa-female"></i></button>
-                        <button id="voice-male" onclick="selectVoice('male')" disabled><i class="fas fa-male"></i></button>
-                    </div>
-                </div>
-                <button id="speak-btn"><i class="fas fa-volume-up"></i></button>
-                <p class="speak-note">アイコンをクリックすると音声が流れます</p>
-            </div>
-            <div class="q-section">
-                <p class="q-label">【文章】</p>
-                <button id="toggle-sentence-btn" onclick="toggleSentence()">英文を表示</button>
-                <div id="sentence-container" class="hidden"><p id="sentence-text"></p></div>
-            </div>
-            <div class="q-section">
-                <p class="q-label">【質問】</p><div id="question"></div>
-            </div>
-            <div id="choices" class="choices"></div>
+            <div id="question" style="margin: 20px 0;"></div>
+            <div id="choices" style="display: flex; flex-direction: column; gap: 10px;"></div>
             <div id="feedback" class="feedback hidden"></div>
             <button id="next-btn" onclick="nextQuestion()" class="hidden">次の問題へ</button>
         </div>
@@ -89,47 +52,41 @@
              <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
     </div>
+    
     <script>
-        const currentCategory = 'listening';
+        const currentCategory = 'writing';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
-        let speechRate = 1;
-        let maleVoice, femaleVoice, selectedVoice;
-        
-        // vocabulary-bookmark.html と同じロジックに、音声コントロール機能を追加
+
+        // ▼▼▼ JavaScript変更点 ▼▼▼
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
-            if (speechSynthesis.onvoiceschanged !== undefined) {
-                speechSynthesis.onvoiceschanged = loadVoices;
-            }
-            loadVoices();
+            updateLevelButtonsState(); // ボタンの状態を更新する関数を呼び出し
         }
-        function loadVoices() {
-            const voices = window.speechSynthesis.getVoices().filter(v => v.lang === 'en-US');
-            if (voices.length === 0) return;
-            femaleVoice = voices.find(v => /female|zira|samantha|victoria/i.test(v.name)) || voices[0];
-            maleVoice = voices.find(v => /male|david|mark|alex/i.test(v.name)) || voices.find(v => v.name !== femaleVoice.name);
-            selectedVoice = femaleVoice;
-            if (femaleVoice) {
-                document.getElementById('voice-female').disabled = false;
-                document.getElementById('voice-female').classList.add('selected');
-            }
-            if (maleVoice && maleVoice !== femaleVoice) {
-                document.getElementById('voice-male').disabled = false;
-            }
+
+        // ブックマークの有無に応じてレベル選択ボタンの有効/無効を切り替える関数
+        function updateLevelButtonsState() {
+            const levels = [300, 400, 500, 600, 700, 800, 900];
+            const categoryBookmarks = bookmarks[currentCategory] || [];
+
+            levels.forEach(level => {
+                const hasBookmarksForLevel = categoryBookmarks.some(bookmark => bookmark.level === level);
+                const button = document.querySelector(`#level-select button[onclick="startBookmarkQuiz(${level})"]`);
+                if (button) {
+                    button.disabled = !hasBookmarksForLevel;
+                }
+            });
         }
+        // ▲▲▲ JavaScript変更点 ▲▲▲
+
         function hideAllSections() { ["level-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
-        function showLevelSelect() { 
-            hideAllSections(); 
-            document.getElementById("level-select").classList.remove("hidden"); 
-            window.speechSynthesis.cancel();
-        }
+        function showLevelSelect() { hideAllSections(); document.getElementById("level-select").classList.remove("hidden"); }
         function startBookmarkQuiz(level) {
             currentLevel = level;
             const allBookmarkedQuestions = bookmarks[currentCategory] || [];
             currentQuestions = allBookmarkedQuestions.filter(q => q.level === currentLevel);
             if (currentQuestions.length === 0) {
-                alert(`目標スコア${level}点でブックマークされたリスニング問題はありません。`);
+                alert(`目標スコア${level}点でブックマークされたライティング問題はありません。`);
                 return;
             }
             currentQuestion = 0;
@@ -146,48 +103,12 @@
             }
             return shuffled;
         }
-        function speakText(text) {
-            window.speechSynthesis.cancel(); 
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'en-US';
-            utterance.rate = speechRate;
-            if (selectedVoice) utterance.voice = selectedVoice;
-            window.speechSynthesis.speak(utterance);
-        }
-        function setSpeechRate(rate) {
-            speechRate = rate;
-            document.querySelectorAll('.rate-controls button').forEach(btn => btn.classList.remove('selected'));
-            document.getElementById(`rate-${rate}`).classList.add('selected');
-        }
-        function selectVoice(gender) {
-            const femaleBtn = document.getElementById('voice-female');
-            const maleBtn = document.getElementById('voice-male');
-            if (gender === 'female' && femaleVoice) {
-                selectedVoice = femaleVoice;
-                femaleBtn.classList.add('selected');
-                maleBtn.classList.remove('selected');
-            } else if (gender === 'male' && maleVoice) {
-                selectedVoice = maleVoice;
-                maleBtn.classList.add('selected');
-                femaleBtn.classList.remove('selected');
-            }
-        }
-        function toggleSentence() {
-            const sentenceContainer = document.getElementById('sentence-container');
-            const toggleBtn = document.getElementById('toggle-sentence-btn');
-            sentenceContainer.classList.toggle('hidden');
-            toggleBtn.textContent = sentenceContainer.classList.contains('hidden') ? '英文を表示' : '英文を非表示';
-        }
         function showQuestion() {
             document.getElementById("feedback").classList.add("hidden");
             document.getElementById("next-btn").classList.add("hidden");
-            document.getElementById('sentence-container').classList.add('hidden');
-            document.getElementById('toggle-sentence-btn').textContent = '英文を表示';
             const qData = currentQuestions[currentQuestion];
             document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
             document.getElementById("question").textContent = qData.q;
-            document.getElementById("sentence-text").textContent = qData.sentence;
-            document.getElementById('speak-btn').onclick = () => speakText(qData.sentence);
             const choicesDiv = document.getElementById("choices");
             choicesDiv.innerHTML = "";
             shuffleArray(qData.choices).forEach(choice => {
@@ -200,12 +121,11 @@
             updateBookmarkStatus();
         }
         function checkAnswer(choice) {
-            window.speechSynthesis.cancel();
             const qData = currentQuestions[currentQuestion];
             const isCorrect = choice === qData.answer;
             if(isCorrect) score++;
             const feedbackDiv = document.getElementById("feedback");
-            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>和訳：</strong>${qData.translation}<br><br><strong>解説：</strong>${qData.explanation}`;
+            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}<br><br><strong>和訳：</strong>${qData.translation}`;
             feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
             feedbackDiv.classList.remove("hidden");
             document.querySelectorAll('#choices button').forEach(button => button.disabled = true);
