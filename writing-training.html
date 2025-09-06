@@ -9,24 +9,20 @@
         body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
         h1, h2 { text-align: center; }
-        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
         button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
         button:hover { background: #357ABD; }
         button:disabled { background-color: #ccc; cursor: not-allowed; }
         .hidden { display: none; }
-        .choices { margin: 10px 0; }
-        .feedback { margin-top: 10px; padding: 10px; border-radius: 5px; }
-        .feedback.correct { background-color: #d4edda; }
-        .feedback.incorrect { background-color: #f8d7da; }
-        .bookmark { cursor: pointer; font-size: 24px; float: right; }
+        .choices { margin: 10px 0; display: flex; flex-direction: column; gap: 10px;}
+        .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
+        .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
+        .feedback.incorrect { background-color: #f8d7da; border-color: #f5c6cb; }
+        .bookmark { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #ccc; z-index: 10; }
         .bookmarked { color: gold; }
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
         .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
-        .icon-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
     </style>
 </head>
 <body>
@@ -56,9 +52,9 @@
              <button onclick="showLevelSelect()">レベル選択に戻る</button>
         </div>
         <div id="quiz" class="card hidden">
-            <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
-            <div id="question"></div>
+            <h2 id="quiz-title"></h2>
+            <div id="question" style="margin: 20px 0;"></div>
             <div id="choices" class="choices"></div>
             <div id="feedback" class="feedback hidden"></div>
             <button id="next-btn" onclick="nextQuestion()" class="hidden">次の問題へ</button>
@@ -72,7 +68,6 @@
     </div>
 
     <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
-
     <script src="quizData_writing_300.js"></script>
     <script src="quizData_writing_400.js"></script>
     <script src="quizData_writing_500.js"></script>
@@ -85,10 +80,9 @@
         const currentCategory = 'writing';
         const currentMode = 'training';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
-        // ... (The rest of the JS is the same as vocabulary-training.html, but with an updated alert message and feedback text) ...
+        
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
-            statistics = JSON.parse(localStorage.getItem('statistics')) || {};
             showLevelSelect();
         }
         function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
@@ -137,6 +131,7 @@
                 btn.onclick = () => checkAnswer(choice);
                 choicesDiv.appendChild(btn);
             });
+            document.querySelectorAll('#choices button').forEach(button => button.disabled = false);
             updateBookmarkStatus();
         }
         function checkAnswer(choice) {
@@ -145,7 +140,7 @@
             if(isCorrect) score++;
             updateStatistics(currentCategory, currentLevel, isCorrect, qData.q);
             const feedbackDiv = document.getElementById("feedback");
-            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><b>和訳:</b> ${qData.translation}<br><b>解説:</b> ${qData.explanation}`;
+            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}<br><br><strong>和訳：</strong>${qData.translation}`;
             feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
             feedbackDiv.classList.remove("hidden");
             document.querySelectorAll('#choices button').forEach(button => button.disabled = true);
@@ -168,8 +163,9 @@
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
-            document.getElementById("bookmark").textContent = isBookmarked ? "★" : "☆";
-            document.getElementById("bookmark").className = isBookmarked ? "bookmark bookmarked" : "bookmark";
+            const bookmarkEl = document.getElementById("bookmark");
+            bookmarkEl.textContent = isBookmarked ? "★" : "☆";
+            bookmarkEl.className = isBookmarked ? "bookmark bookmarked" : "bookmark";
         }
         function toggleBookmark() {
             const qData = currentQuestions[currentQuestion];
@@ -182,7 +178,14 @@
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
             updateBookmarkStatus();
         }
+
+        // ▼▼▼ JavaScript変更点 ▼▼▼
         function updateStatistics(category, level, isCorrect, question) {
+            // トレーニングモードでは統計を記録しない
+            if (currentMode !== 'test') {
+                return;
+            }
+
             let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
             let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
             const key = `${category}_${level}`;
@@ -197,6 +200,8 @@
             localStorage.setItem('statistics', JSON.stringify(statistics));
             localStorage.setItem('mistakes', JSON.stringify(mistakes));
         }
+        // ▲▲▲ JavaScript変更点 ▲▲▲
+
         window.onload = initializeApp;
     </script>
 </body>
