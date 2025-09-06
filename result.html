@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF--8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOEIC 対策ツール - 学習統計</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -10,7 +10,7 @@
     body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
     .container { max-width: 800px; margin: auto; padding: 20px; }
     h1, h2, h3, h4 { text-align: center; }
-    .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
     button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
     button:hover { background: #357ABD; }
     .tab-container { margin-bottom: 20px; }
@@ -20,18 +20,41 @@
     .mistake-card { background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 0.25rem; padding: 1rem; margin-bottom: 1rem; text-align: left;}
     .mistake-item { position: relative; padding-right: 30px; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px; }
     .mistake-item:last-child { border-bottom: none; }
-    .back-button { margin-top: 20px; }
+    .back-button { text-align: center; margin-top: 20px; } /* 中央揃えに変更 */
     .level-button { margin: 5px; padding: 5px 10px; background-color: #4a90e2; color: white; border: none; border-radius: 5px; cursor: pointer; }
     .level-button.active { background-color: #3536bd; font-weight: bold; }
     .bookmark-icon { position: absolute; top: 5px; right: 5px; cursor: pointer; font-size: 24px; color: #ccc; }
     .bookmark-icon.bookmarked { color: #ffd700; }
     .popup { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1001; opacity: 0; transition: opacity 0.3s; }
     .popup.show { opacity: 1; }
+
+    /* ▼▼▼ CSS変更点 ▼▼▼ */
+    #delete-history-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: #dc3545;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        margin: 0;
+        border-radius: 50%;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+    #delete-history-btn:hover {
+        background: #c82333;
+    }
+    /* ▲▲▲ CSS変更点 ▲▲▲ */
   </style>
 </head>
 <body>
   <div class="container">
     <div id="statistics" class="card">
+      <button id="delete-history-btn" title="全履歴を削除"><i class="fas fa-trash-alt"></i></button>
       <h2><i class="fas fa-chart-bar"></i> 学習統計</h2>
       <div class="tab-container">
         <div class="tab-buttons">
@@ -42,22 +65,16 @@
         <canvas id="combinedChart"></canvas>
         <div id="mistakesList" style="margin-top: 30px;"></div>
       </div>
-      <a href="/shikaku-study/index.html" class="back-button"><button>トップに戻る</button></a>
+      <div class="back-button">
+        <a href="/shikaku-study/index.html"><button>トップに戻る</button></a>
+      </div>
     </div>
   </div>
   <div id="popup" class="popup"></div>
 
   <script>
-    // ▼▼▼ JavaScript変更点 ▼▼▼
-    // 全てのカテゴリを空のオブジェクトとして初期化し、外部ファイルからデータを読み込む
-    const quizData = {
-      vocabulary: {}, 
-      writing: {}, 
-      listening: {}
-    };
-    // ▲▲▲ JavaScript変更点 ▲▲▲
+    const quizData = { vocabulary: {}, writing: {}, listening: {} };
   </script>
-
   <script src="/shikaku-study/quizData_vocabulary_300.js"></script>
   <script src="/shikaku-study/quizData_vocabulary_400.js"></script>
   <script src="/shikaku-study/quizData_vocabulary_500.js"></script>
@@ -65,7 +82,6 @@
   <script src="/shikaku-study/quizData_vocabulary_700.js"></script>
   <script src="/shikaku-study/quizData_vocabulary_800.js"></script>
   <script src="/shikaku-study/quizData_vocabulary_900.js"></script>
-  
   <script src="/shikaku-study/quizData_writing_300.js"></script>
   <script src="/shikaku-study/quizData_writing_400.js"></script>
   <script src="/shikaku-study/quizData_writing_500.js"></script>
@@ -73,7 +89,6 @@
   <script src="/shikaku-study/quizData_writing_700.js"></script>
   <script src="/shikaku-study/quizData_writing_800.js"></script>
   <script src="/shikaku-study/quizData_writing_900.js"></script>
-
   <script src="/shikaku-study/quizData_listening_300.js"></script>
   <script src="/shikaku-study/quizData_listening_400.js"></script>
   <script src="/shikaku-study/quizData_listening_500.js"></script>
@@ -81,16 +96,26 @@
   <script src="/shikaku-study/quizData_listening_700.js"></script>
   <script src="/shikaku-study/quizData_listening_800.js"></script>
   <script src="/shikaku-study/quizData_listening_900.js"></script>
+  
   <script>
     let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
     let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
 
+    // ▼▼▼ JavaScript変更点 ▼▼▼
+    function deleteAllHistory() {
+        if (confirm('全ての学習統計と間違えた問題の履歴を削除しますか？\n（ブックマークは削除されません）')) {
+            localStorage.removeItem('statistics');
+            localStorage.removeItem('mistakes');
+            location.reload(); // ページをリロードして変更を反映
+        }
+    }
+    // ▲▲▲ JavaScript変更点 ▲▲▲
+
     function getCategoryName(category) {
       const names = { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' };
       return names[category] || category;
     }
-
     function showStatisticsTab(category) {
       document.querySelectorAll('#statistics .tab-button').forEach(btn => {
         btn.classList.remove('active');
@@ -99,7 +124,6 @@
           btn.classList.add('active');
         }
       });
-
       const categoryStats = Object.values(statistics).filter(stat => stat.category === category);
       const ctx = document.getElementById('combinedChart').getContext('2d');
       if (window.combinedChartInstance) window.combinedChartInstance.destroy();
@@ -129,14 +153,11 @@
       } else {
          ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       }
-      
       showTopMistakesButtons(category);
     }
-
     function showTopMistakesButtons(category) {
       const mistakesListDiv = document.getElementById('mistakesList');
       mistakesListDiv.innerHTML = `<h3>${getCategoryName(category)}で間違えた問題トップ3</h3>`;
-      
       const categoryMistakeKeys = Object.keys(mistakes).filter(key => key.startsWith(category + '_'));
       
       if (categoryMistakeKeys.length > 0) {
@@ -151,21 +172,17 @@
         });
         mistakesListDiv.appendChild(buttonContainer);
         mistakesListDiv.appendChild(document.createElement('div')).id = 'mistakesContent';
-        
         if (levels.length > 0) {
             showTopMistakesForLevel(category, levels[0]);
         }
-
       } else {
         mistakesListDiv.innerHTML += `<p>${getCategoryName(category)}にはまだ間違えた問題がありません。</p>`;
       }
     }
-
     function showTopMistakesForLevel(category, level) {
       document.querySelectorAll('#mistakesList .level-button').forEach(btn => {
         btn.classList.toggle('active', btn.textContent === `レベル ${level}`);
       });
-
       const mistakesContentDiv = document.getElementById('mistakesContent');
       const mistakeKey = `${category}_${level}`;
       const levelMistakes = mistakes[mistakeKey] ? Object.entries(mistakes[mistakeKey]).sort((a, b) => b[1] - a[1]).slice(0, 3) : [];
@@ -192,12 +209,10 @@
         mistakesContentDiv.innerHTML = `<p style="text-align: center; margin-top: 20px;">このレベルにはまだ間違えた問題がありません。</p>`;
       }
     }
-
     function toggleBookmarkFromMistakes(category, level, question) {
         const questionData = (quizData[category][level] || []).find(q => q.q === question);
         if (!questionData) return;
         const bookmarkIndex = bookmarks[category].findIndex(b => b.q === question);
-      
         if (bookmarkIndex === -1) {
             bookmarks[category].push({ ...questionData, level: parseInt(level), category: category });
             showPopup("ブックマークに登録されました");
@@ -208,7 +223,6 @@
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
         showTopMistakesForLevel(category, level);
     }
-    
     function showPopup(message) {
       const popup = document.getElementById("popup");
       popup.textContent = message;
@@ -216,9 +230,13 @@
       setTimeout(() => popup.classList.remove("show"), 2000);
     }
 
+    // ▼▼▼ JavaScript変更点 ▼▼▼
     window.onload = () => {
       showStatisticsTab('vocabulary');
+      // 削除ボタンにイベントリスナーを追加
+      document.getElementById('delete-history-btn').addEventListener('click', deleteAllHistory);
     };
+    // ▲▲▲ JavaScript変更点 ▲▲▲
   </script>
 </body>
 </html>
