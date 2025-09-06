@@ -9,29 +9,32 @@
         body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
         h1, h2 { text-align: center; }
-        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        .card {
+            background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative; /* アイコンを絶対位置で配置するための基準 */
+        }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
+
         button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
         button:hover { background: #357ABD; }
         .hidden { display: none; }
         .choices { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
-        
+
         /* ▼▼▼ CSS変更点 ▼▼▼ */
-        /* クイズ中と結果画面で共通の基本スタイル */
         .bookmark {
+            position: absolute; /* 配置方法を絶対位置に変更 */
+            top: 20px;          /* 親要素(.card)の上からの位置 */
+            right: 20px;         /* 親要素(.card)の右からの位置 */
             cursor: pointer;
             font-size: 24px;
             color: #ccc;
+            z-index: 10;        /* 最前面に表示 */
         }
-        /* クイズ中の星アイコンは右寄せ */
-        #quiz .bookmark {
-            float: right;
-        }
-        /* 結果画面の星アイコンは絶対位置で指定 */
         .result-item .bookmark {
-            position: absolute;
-            top: 15px;
+            top: 15px; /* 結果画面では少し上に調整 */
             right: 15px;
-            z-index: 10;
         }
         /* ▲▲▲ CSS変更点 ▲▲▲ */
 
@@ -52,8 +55,7 @@
         .result-item { padding: 15px; margin: 10px 0; border-radius: 8px; text-align: left; border-left: 5px solid; position: relative; }
         .result-item.correct { background-color: #d4edda; border-color: #28a745; }
         .result-item.incorrect { background-color: #f8d7da; border-color: #dc3545; }
-
-        .speech-controls-container { position: absolute; top: 0; left: 0; display: flex; flex-direction: column; gap: 5px; }
+        .speech-controls-container { position: absolute; top: 0; left: 0; display: flex; flex-direction: column; gap: 5px; z-index: 5; }
         .rate-controls, .voice-controls { display: flex; gap: 5px; }
         .rate-controls button { background: #e9ecef; color: #495057; border-radius: 20px; padding: 0; margin: 0; width: 40px; height: 25px; font-size: 12px; border: 1px solid #dee2e6; }
         .rate-controls button.selected { background: #007bff; color: white; border-color: #007bff; }
@@ -89,8 +91,8 @@
              <button onclick="showLevelSelect()">レベル選択に戻る</button>
         </div>
         <div id="quiz" class="card hidden">
-            <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
+            <h2 id="quiz-title"></h2>
             <div class="question-header">
                 <div class="speech-controls-container">
                     <div class="rate-controls">
@@ -135,12 +137,10 @@
         const currentCategory = 'listening';
         const currentMode = 'test';
         let currentLevel, currentQuestions, currentQuestion, bookmarks;
-        
         let speechRate = 1;
         let maleVoice = null;
         let femaleVoice = null;
         let selectedVoice = null;
-
         function loadVoices() {
             const voices = window.speechSynthesis.getVoices().filter(v => v.lang === 'en-US');
             if (voices.length === 0) return;
@@ -155,13 +155,11 @@
                 document.getElementById('voice-male').disabled = false;
             }
         }
-        
         function setSpeechRate(rate) {
             speechRate = rate;
             document.querySelectorAll('.rate-controls button').forEach(btn => btn.classList.remove('selected'));
             document.getElementById(`rate-${rate}`).classList.add('selected');
         }
-
         function selectVoice(gender) {
             const femaleBtn = document.getElementById('voice-female');
             const maleBtn = document.getElementById('voice-male');
@@ -175,7 +173,6 @@
                 femaleBtn.classList.remove('selected');
             }
         }
-        
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
@@ -219,7 +216,6 @@
             }
             return shuffled;
         }
-        
         function speakText(text) {
             window.speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
@@ -230,7 +226,6 @@
             }
             window.speechSynthesis.speak(utterance);
         }
-        
         function toggleSentence() {
             const sentenceContainer = document.getElementById('sentence-container');
             const toggleBtn = document.getElementById('toggle-sentence-btn');
@@ -269,7 +264,6 @@
                 showResult();
             }
         }
-        
         function showResult() {
             window.speechSynthesis.cancel();
             hideAllSections();
@@ -301,7 +295,6 @@
                            </div>`;
             resultDiv.innerHTML = resultHTML;
         }
-
         function toggleBookmarkForResult(index) {
             const qData = currentQuestions[index];
             const bookmarkIndex = bookmarks[currentCategory].findIndex(b => b.q === qData.q);
@@ -313,7 +306,6 @@
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
             showResult(); 
         }
-
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
