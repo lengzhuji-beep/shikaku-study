@@ -9,7 +9,14 @@
         body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
         h1, h2 { text-align: center; }
-        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        .card {
+            background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative; /* アイコンを絶対位置で配置するための基準 */
+        }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
+
         button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
         button:hover { background: #357ABD; }
         button:disabled { background-color: #ccc; cursor: not-allowed; }
@@ -18,7 +25,19 @@
         .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
         .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
         .feedback.incorrect { background-color: #f8d7da; border-color: #f5c6cb; }
-        .bookmark { cursor: pointer; font-size: 24px; float: right; color: #ccc; }
+        
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        .bookmark {
+            position: absolute; /* 配置方法を絶対位置に変更 */
+            top: 20px;          /* 親要素(.card)の上からの位置 */
+            right: 20px;         /* 親要素(.card)の右からの位置 */
+            cursor: pointer;
+            font-size: 24px;
+            color: #ccc;
+            z-index: 10;        /* 最前面に表示 */
+        }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
+        
         .bookmarked { color: gold; }
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
         .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
@@ -32,16 +51,13 @@
         #question { font-weight: bold; font-size: 1.2em; margin-top: 5px; }
         #sentence-container { background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 8px; margin-top: 10px; }
         #toggle-sentence-btn { background-color: #6c757d; font-size: 14px; padding: 8px 15px; margin: 0; }
-        
-        /* ▼▼▼ CSS変更点 ▼▼▼ */
-        .speech-controls-container { position: absolute; top: 0; left: 0; display: flex; flex-direction: column; gap: 5px; }
+        .speech-controls-container { position: absolute; top: 0; left: 0; display: flex; flex-direction: column; gap: 5px; z-index: 5; }
         .rate-controls, .voice-controls { display: flex; gap: 5px; }
         .rate-controls button { background: #e9ecef; color: #495057; border-radius: 20px; padding: 0; margin: 0; width: 40px; height: 25px; font-size: 12px; border: 1px solid #dee2e6; }
         .rate-controls button.selected { background: #007bff; color: white; border-color: #007bff; }
         .voice-controls button { width: 35px; height: 35px; border-radius: 50%; font-size: 16px; padding: 0; margin: 0; display: flex; justify-content: center; align-items: center; background: #e9ecef; color: #495057; border: 1px solid #dee2e6; }
         #voice-female.selected { background-color: #E91E63; color: white; border-color: #E91E63; }
         #voice-male.selected { background-color: #2196F3; color: white; border-color: #2196F3; }
-        /* ▲▲▲ CSS変更点 ▲▲▲ */
     </style>
 </head>
 <body>
@@ -70,10 +86,9 @@
             </div>
              <button onclick="showLevelSelect()">レベル選択に戻る</button>
         </div>
-
         <div id="quiz" class="card hidden">
-            <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
+            <h2 id="quiz-title"></h2>
             <div class="question-header">
                 <div class="speech-controls-container">
                     <div class="rate-controls">
@@ -125,44 +140,32 @@
         const currentCategory = 'listening';
         const currentMode = 'training';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
-        
-        // ▼▼▼ JavaScript変更点 ▼▼▼
         let speechRate = 1;
         let maleVoice = null;
         let femaleVoice = null;
         let selectedVoice = null;
-
         function loadVoices() {
             const voices = window.speechSynthesis.getVoices().filter(v => v.lang === 'en-US');
             if (voices.length === 0) return;
-
-            // 女性の声を探す (より多くのキーワードで)
             femaleVoice = voices.find(v => /female|zira|samantha|victoria/i.test(v.name)) || voices[0];
-            // 男性または女性ではない別の声を探す
             maleVoice = voices.find(v => /male|david|mark|alex/i.test(v.name)) || voices.find(v => v.name !== femaleVoice.name);
-
             selectedVoice = femaleVoice;
-
             if (femaleVoice) {
                 document.getElementById('voice-female').disabled = false;
                 document.getElementById('voice-female').classList.add('selected');
             }
-            // 別の声が見つかった場合のみ男性ボタンを有効化
             if (maleVoice && maleVoice !== femaleVoice) {
                 document.getElementById('voice-male').disabled = false;
             }
         }
-        
         function setSpeechRate(rate) {
             speechRate = rate;
             document.querySelectorAll('.rate-controls button').forEach(btn => btn.classList.remove('selected'));
             document.getElementById(`rate-${rate}`).classList.add('selected');
         }
-
         function selectVoice(gender) {
             const femaleBtn = document.getElementById('voice-female');
             const maleBtn = document.getElementById('voice-male');
-
             if (gender === 'female' && femaleVoice) {
                 selectedVoice = femaleVoice;
                 femaleBtn.classList.add('selected');
@@ -173,20 +176,14 @@
                 femaleBtn.classList.remove('selected');
             }
         }
-        // ▲▲▲ JavaScript変更点 ▲▲▲
-
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
-            // ▼▼▼ JavaScript変更点 ▼▼▼
             if (speechSynthesis.onvoiceschanged !== undefined) {
-                speechSynthesis.onvoiceschanged = loadVoices;
+                speechSynthesis.onvoiceschanged = loadvoices;
             }
-            loadVoices(); // 即時実行も試みる
-            // ▲▲▲ JavaScript変更点 ▲▲▲
+            loadVoices();
         }
-
-        // ... 他のJS関数 (getCategoryName, hideAllSectionsなど) は変更ありません ...
         function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
         function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
         function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
@@ -223,8 +220,6 @@
             }
             return shuffled;
         }
-
-        // ▼▼▼ JavaScript変更点 ▼▼▼
         function speakText(text) {
             window.speechSynthesis.cancel(); 
             const utterance = new SpeechSynthesisUtterance(text);
@@ -235,8 +230,6 @@
             }
             window.speechSynthesis.speak(utterance);
         }
-        // ▲▲▲ JavaScript変更点 ▲▲▲
-
         function toggleSentence() {
             const sentenceContainer = document.getElementById('sentence-container');
             const toggleBtn = document.getElementById('toggle-sentence-btn');
@@ -294,8 +287,9 @@
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
-            document.getElementById("bookmark").textContent = isBookmarked ? "★" : "☆";
-            document.getElementById("bookmark").className = isBookmarked ? "bookmark bookmarked" : "bookmark";
+            const bookmarkEl = document.getElementById("bookmark");
+            bookmarkEl.textContent = isBookmarked ? "★" : "☆";
+            bookmarkEl.className = isBookmarked ? "bookmark bookmarked" : "bookmark";
         }
         function toggleBookmark() {
             const qData = currentQuestions[currentQuestion];
