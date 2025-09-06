@@ -14,7 +14,27 @@
         button:hover { background: #357ABD; }
         .hidden { display: none; }
         .choices { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
-        .bookmark { cursor: pointer; font-size: 24px; float: right; color: #ccc; }
+        
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        /* クイズ中と結果画面で共通の基本スタイル */
+        .bookmark {
+            cursor: pointer;
+            font-size: 24px;
+            color: #ccc;
+        }
+        /* クイズ中の星アイコンは右寄せ */
+        #quiz .bookmark {
+            float: right;
+        }
+        /* 結果画面の星アイコンは絶対位置で指定 */
+        .result-item .bookmark {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
+
         .bookmarked { color: gold; }
         .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
         .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
@@ -33,7 +53,6 @@
         .result-item.correct { background-color: #d4edda; border-color: #28a745; }
         .result-item.incorrect { background-color: #f8d7da; border-color: #dc3545; }
 
-        /* ▼▼▼ CSS変更点 ▼▼▼ */
         .speech-controls-container { position: absolute; top: 0; left: 0; display: flex; flex-direction: column; gap: 5px; }
         .rate-controls, .voice-controls { display: flex; gap: 5px; }
         .rate-controls button { background: #e9ecef; color: #495057; border-radius: 20px; padding: 0; margin: 0; width: 40px; height: 25px; font-size: 12px; border: 1px solid #dee2e6; }
@@ -41,7 +60,6 @@
         .voice-controls button { width: 35px; height: 35px; border-radius: 50%; font-size: 16px; padding: 0; margin: 0; display: flex; justify-content: center; align-items: center; background: #e9ecef; color: #495057; border: 1px solid #dee2e6; }
         #voice-female.selected { background-color: #E91E63; color: white; border-color: #E91E63; }
         #voice-male.selected { background-color: #2196F3; color: white; border-color: #2196F3; }
-        /* ▲▲▲ CSS変更点 ▲▲▲ */
     </style>
 </head>
 <body>
@@ -118,7 +136,6 @@
         const currentMode = 'test';
         let currentLevel, currentQuestions, currentQuestion, bookmarks;
         
-        // ▼▼▼ JavaScript変更点 ▼▼▼
         let speechRate = 1;
         let maleVoice = null;
         let femaleVoice = null;
@@ -127,12 +144,9 @@
         function loadVoices() {
             const voices = window.speechSynthesis.getVoices().filter(v => v.lang === 'en-US');
             if (voices.length === 0) return;
-
             femaleVoice = voices.find(v => /female|zira|samantha|victoria/i.test(v.name)) || voices[0];
             maleVoice = voices.find(v => /male|david|mark|alex/i.test(v.name)) || voices.find(v => v.name !== femaleVoice.name);
-
             selectedVoice = femaleVoice;
-
             if (femaleVoice) {
                 document.getElementById('voice-female').disabled = false;
                 document.getElementById('voice-female').classList.add('selected');
@@ -151,7 +165,6 @@
         function selectVoice(gender) {
             const femaleBtn = document.getElementById('voice-female');
             const maleBtn = document.getElementById('voice-male');
-            
             if (gender === 'female' && femaleVoice) {
                 selectedVoice = femaleVoice;
                 femaleBtn.classList.add('selected');
@@ -162,20 +175,15 @@
                 femaleBtn.classList.remove('selected');
             }
         }
-        // ▲▲▲ JavaScript変更点 ▲▲▲
-
+        
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
-            // ▼▼▼ JavaScript変更点 ▼▼▼
             if (speechSynthesis.onvoiceschanged !== undefined) {
                 speechSynthesis.onvoiceschanged = loadVoices;
             }
-            loadVoices(); // 即時実行も試みる
-            // ▲▲▲ JavaScript変更点 ▲▲▲
+            loadVoices();
         }
-
-        // ... 他のJS関数 (getCategoryName, hideAllSectionsなど) は変更ありません ...
         function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
         function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
         function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
@@ -211,8 +219,7 @@
             }
             return shuffled;
         }
-
-        // ▼▼▼ JavaScript変更点 ▼▼▼
+        
         function speakText(text) {
             window.speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
@@ -223,8 +230,7 @@
             }
             window.speechSynthesis.speak(utterance);
         }
-        // ▲▲▲ JavaScript変更点 ▲▲▲
-
+        
         function toggleSentence() {
             const sentenceContainer = document.getElementById('sentence-container');
             const toggleBtn = document.getElementById('toggle-sentence-btn');
@@ -263,6 +269,7 @@
                 showResult();
             }
         }
+        
         function showResult() {
             window.speechSynthesis.cancel();
             hideAllSections();
@@ -294,6 +301,7 @@
                            </div>`;
             resultDiv.innerHTML = resultHTML;
         }
+
         function toggleBookmarkForResult(index) {
             const qData = currentQuestions[index];
             const bookmarkIndex = bookmarks[currentCategory].findIndex(b => b.q === qData.q);
@@ -305,11 +313,13 @@
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
             showResult(); 
         }
+
         function updateBookmarkStatus() {
             const qData = currentQuestions[currentQuestion];
             const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
-            document.getElementById("bookmark").textContent = isBookmarked ? "★" : "☆";
-            document.getElementById("bookmark").className = isBookmarked ? "bookmark bookmarked" : "bookmark";
+            const bookmarkEl = document.getElementById("bookmark");
+            bookmarkEl.textContent = isBookmarked ? "★" : "☆";
+            bookmarkEl.className = isBookmarked ? "bookmark bookmarked" : "bookmark";
         }
         function toggleBookmark() {
             const qData = currentQuestions[currentQuestion];
