@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF--8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOEIC 対策ツール - 学習統計</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -82,7 +82,6 @@
   <script src="/shikaku-study/quizData_listening_800.js"></script>
   <script src="/shikaku-study/quizData_listening_900.js"></script>
   <script>
-    // 以下のスクリプトは変更ありません
     let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
     let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
@@ -93,17 +92,14 @@
     }
 
     function showStatisticsTab(category) {
-      // Tab button styling
       document.querySelectorAll('#statistics .tab-button').forEach(btn => {
         btn.classList.remove('active');
-        // カテゴリ名からボタンを特定
         const btnCategory = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
         if (btnCategory === category) {
           btn.classList.add('active');
         }
       });
 
-      // Chart generation
       const categoryStats = Object.values(statistics).filter(stat => stat.category === category);
       const ctx = document.getElementById('combinedChart').getContext('2d');
       if (window.combinedChartInstance) window.combinedChartInstance.destroy();
@@ -156,7 +152,6 @@
         mistakesListDiv.appendChild(buttonContainer);
         mistakesListDiv.appendChild(document.createElement('div')).id = 'mistakesContent';
         
-        // 最初のレベルをデフォルトで表示
         if (levels.length > 0) {
             showTopMistakesForLevel(category, levels[0]);
         }
@@ -181,7 +176,7 @@
             <h4>${getCategoryName(category)} - レベル ${level}</h4>
             ${levelMistakes.map(([question, count]) => {
               const questionData = (quizData[category][level] || []).find(q => q.q === question);
-              if (!questionData) return ''; // データが見つからない場合は表示しない
+              if (!questionData) return ''; 
               const isBookmarked = bookmarks[category].some(b => b.q === question);
               return `
                 <div class="mistake-item">
@@ -204,14 +199,14 @@
         const bookmarkIndex = bookmarks[category].findIndex(b => b.q === question);
       
         if (bookmarkIndex === -1) {
-            bookmarks[category].push({ ...questionData, level: parseInt(level), category: category }); // レベルを数値に変換して保存
+            bookmarks[category].push({ ...questionData, level: parseInt(level), category: category });
             showPopup("ブックマークに登録されました");
         } else {
             bookmarks[category].splice(bookmarkIndex, 1);
             showPopup("ブックマークから削除しました");
         }
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-        showTopMistakesForLevel(category, level); // Re-render to update star icon
+        showTopMistakesForLevel(category, level);
     }
     
     function showPopup(message) {
