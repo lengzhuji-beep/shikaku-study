@@ -19,13 +19,20 @@
         .feedback.incorrect { background-color: #f8d7da; border-color: #f5c6cb; }
         .bookmark { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #ccc; z-index: 10; }
         .bookmarked { color: gold; }
+        /* ▼▼▼ CSS変更点 ▼▼▼ */
+        .quit-quiz-btn {
+            position: absolute; top: 20px; left: 20px; background: #6c757d; color: white; padding: 8px 15px;
+            margin: 0; border-radius: 8px; text-decoration: none; font-size: 14px; z-index: 10;
+        }
+        .quit-quiz-btn:hover { background: #5a6268; color: white; }
+        /* ▲▲▲ CSS変更点 ▲▲▲ */
     </style>
 </head>
 <body>
     <div class="container">
         <div id="level-select" class="card">
             <h2>単語 - ブックマークモード</h2>
-            <p>復習したい問題の目標スコアを選択してください</p>
+            <p>復習したい問題のレベルを選択してください</p>
             <button data-level="300" onclick="startBookmarkQuiz(300)">300点</button>
             <button data-level="400" onclick="startBookmarkQuiz(400)">400点</button>
             <button data-level="500" onclick="startBookmarkQuiz(500)">500点</button>
@@ -36,6 +43,7 @@
             <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
         <div id="quiz" class="card hidden">
+            <a href="index.html" class="quit-quiz-btn">解答を中止する</a>
             <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
             <div id="question" style="font-size: 1.5em; text-align: center; margin: 20px 0;"></div>
@@ -46,16 +54,15 @@
         <div id="result" class="card hidden" style="text-align:center;">
              <h2>ブックマーク復習完了！</h2>
              <p id="result-text"></p>
-             <button onclick="showLevelSelect()">別のレベルを復習</button>
+             <button onclick="showLevelSelect()" style="background-color: #6c757d;">別のレベルを復習</button>
              <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
     </div>
     
     <script>
         const currentCategory = 'vocabulary';
-        const currentMode = 'bookmark'; // モードを設定
+        const currentMode = 'bookmark';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
-
         function initializeApp() {
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
@@ -116,9 +123,6 @@
             const qData = currentQuestions[currentQuestion];
             const isCorrect = choice === qData.answer;
             if(isCorrect) score++;
-            
-            // ブックマークモードでは統計を記録しない
-            
             const feedbackDiv = document.getElementById("feedback");
             feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}`;
             feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
