@@ -7,18 +7,54 @@
   <style>
     body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
     .header { background-color: #333; padding: 10px 0; }
-    .header-nav { max-width: 960px; margin: auto; display: flex; justify-content: space-around; }
+    .header-nav { max-width: 1200px; margin: auto; display: flex; justify-content: space-around; }
     .header-nav a { color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s; }
     .header-nav a:hover { background-color: #555; }
     .header-nav a.active { background-color: #4a90e2; }
-    .container { max-width: 960px; margin: auto; padding: 20px; }
+    .container { max-width: 1200px; margin: auto; padding: 20px; } /* コンテナ幅を広げました */
     .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     h1 { text-align: center; }
+
+    /* Tab Styles */
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 20px;
+    }
+    .tab-link {
+      background-color: #f1f1f1;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 20px;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 1em;
+      font-weight: 600;
+      border-radius: 8px 8px 0 0;
+      margin-right: 5px;
+      color: #333;
+    }
+    .tab-link:hover {
+      background-color: #e0e0e0;
+    }
+    .tab-link.active {
+      background-color: #4a90e2;
+      color: white;
+    }
+    .tab-content-item {
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
 
     /* Article Grid Styles */
     .article-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr); /* 4列表示に変更 */
       gap: 20px;
     }
 
@@ -62,15 +98,19 @@
     }
 
     /* Responsive layout for smaller screens */
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
       .article-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* 3列に */
       }
     }
-
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       .article-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr); /* 2列に */
+      }
+    }
+    @media (max-width: 520px) {
+      .article-grid {
+        grid-template-columns: 1fr; /* 1列に */
       }
     }
   </style>
@@ -86,8 +126,26 @@
   </header>
   <div class="container">
     <h1>コラム</h1>
-    <div id="article-grid" class="article-grid">
-      </div>
+
+    <div class="tabs">
+      <button class="tab-link active" onclick="openTab(event, 'strategy')">【勉強法・全体戦略】</button>
+      <button class="tab-link" onclick="openTab(event, 'part-specific')">【パート別対策】</button>
+      <button class="tab-link" onclick="openTab(event, 'skill-up')">【英語力底上げ】</button>
+    </div>
+
+    <div id="strategy" class="tab-content-item" style="display: block;">
+      <div id="article-grid-strategy" class="article-grid">
+        </div>
+    </div>
+
+    <div id="part-specific" class="tab-content-item">
+      <p>現在、このカテゴリの記事はありません。</p>
+    </div>
+
+    <div id="skill-up" class="tab-content-item">
+      <p>現在、このカテゴリの記事はありません。</p>
+    </div>
+
   </div>
 
   <script>
@@ -161,7 +219,7 @@
 
     // 記事をHTMLに描画する関数
     function renderArticles() {
-      const grid = document.getElementById('article-grid');
+      const grid = document.getElementById('article-grid-strategy');
       if (!grid) return;
 
       let articlesHtml = '';
@@ -178,6 +236,25 @@
       });
 
       grid.innerHTML = articlesHtml;
+    }
+
+    // タブ切り替えの関数
+    function openTab(evt, tabName) {
+      // すべてのタブコンテンツを非表示にする
+      const tabcontent = document.getElementsByClassName("tab-content-item");
+      for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // すべてのタブリンクから "active" クラスを削除する
+      const tablinks = document.getElementsByClassName("tab-link");
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // クリックされたタブに対応するコンテンツを表示し、そのタブをアクティブにする
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
     }
 
     // ページが読み込まれたら記事を描画
