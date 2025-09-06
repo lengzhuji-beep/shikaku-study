@@ -3,39 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOEIC資格概要</title>
+  <title>他資格対策 - TOEIC対策ツール</title>
   <style>
-    /* ▼▼▼ CSS変更点 ▼▼▼ */
-    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; line-height: 1.6; padding-top: 55px; /* ヘッダーの高さ分 */ }
+    /* スタイルは他のページと共通なので変更なし */
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; line-height: 1.6; padding-top: 55px; }
     .header { background-color: #333; padding: 10px 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
     .header-nav { max-width: 1200px; margin: auto; display: flex; justify-content: space-around; }
     .container { max-width: 1200px; margin: auto; padding: 20px; }
-    /* ▲▲▲ CSS変更点 ▲▲▲ */
     .header-nav a { color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s; }
     .header-nav a:hover { background-color: #555; }
     .header-nav a.active { background-color: #4a90e2; }
     .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    h1, h2, h3 { color: #333; }
+    h1, h2 { color: #333; }
     h1 { text-align: center; border-bottom: 2px solid #4a90e2; padding-bottom: 10px; }
     h2 { border-left: 5px solid #4a90e2; padding-left: 10px; font-size: 1.5em; margin-top: 40px; }
-    h3 { font-size: 1.2em; color: #4a90e2; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px;}
     p { color: #555; }
-    .highlight { background-color: #e6f3ff; padding: 15px; border-radius: 8px; margin: 15px 0; }
-    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-    th { background-color: #4a90e2; color: white; }
-    td { background-color: #f9f9f9; }
-    ul, ol { padding-left: 20px; }
-    .benefits-list { list-style: none; padding: 0; }
-    .benefits-list li { background: #f8f9fa; margin-bottom: 10px; padding: 15px; border-radius: 8px; display: flex; align-items: center; }
-    .benefits-list i { color: #4a90e2; font-size: 24px; margin-right: 15px; }
     .icon { margin-right: 8px; }
-    .toc { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-    .toc h2 { border: none; padding: 0; margin: 0 0 15px 0; text-align: center; }
-    .toc ul { list-style: none; padding: 0; column-count: 2; }
-    .toc ul li a { text-decoration: none; color: #0056b3; display: block; padding: 5px 0; transition: color 0.3s; }
-    .toc ul li a:hover { color: #4a90e2; }
-    .content-image { width: 100%; height: auto; border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -43,105 +26,18 @@
   <header class="header">
     <nav class="header-nav">
       <a href="/shikaku-study/index.html">トップ</a>
-      <a href="/shikaku-study/toeic-overview.html" class="active">TOEIC資格概要</a>
+      <a href="/shikaku-study/toeic-overview.html">TOEIC資格概要</a>
       <a href="/shikaku-study/column.html">コラム</a>
-      <a href="/shikaku-study/other-exams.html">他資格対策</a>
+      <a href="/shikaku-study/other-exams.html" class="active">他資格対策</a>
     </nav>
   </header>
   <div class="container">
     <div class="card">
-      <h1><i class="fas fa-info-circle icon"></i>TOEIC資格概要</h1>
+      <h1><i class="fas fa-graduation-cap icon"></i>他資格対策</h1>
       
-      <div class="toc">
-        <h2><i class="fas fa-list-ul icon"></i>ページ内メニュー</h2>
-        <ul>
-          <li><a href="#about-toeic">TOEICとは？</a></li>
-          <li><a href="#test-types">テストの種類</a></li>
-          <li><a href="#lr-structure">L&R テストの詳細な構成</a></li>
-          <li><a href="#score-guide">スコアの目安と評価</a></li>
-          <li><a href="#benefits">TOEICを受験するメリット</a></li>
-          <li><a href="#study-tips">スコアアップのための学習法</a></li>
-          <li><a href="#faq">よくある質問 (Q&A)</a></li>
-        </ul>
-      </div>
-
-      <h2 id="about-toeic"><i class="fas fa-question-circle icon"></i>TOEICとは？</h2>
-      <p>TOEIC (Test of English for International Communication) は、英語を母国語としない人々を対象とした、<strong>日常生活やグローバルビジネスにおける英語でのコミュニケーション能力を測定するための世界共通のテスト</strong>です。</p>
-      
-      <h2 id="test-types"><i class="fas fa-clipboard-list icon"></i>テストの種類</h2>
-      <p>TOEICプログラムは、測定したいスキルに応じて複数のテストブランドで構成されています。</p>
-      <ul>
-        <li><strong>TOEIC Listening & Reading Test:</strong> 最も受験者が多く、リスニングとリーディングの能力を測定します。</li>
-        <li><strong>TOEIC Speaking & Writing Tests:</strong> スピーキングとライティングのアウトプット能力を測定します。</li>
-        <li><strong>TOEIC Bridge Tests:</strong> 英語初級〜中級者を対象とした、基礎的な能力を測定するテストです。</li>
-      </ul>
-
-      <h2 id="lr-structure"><i class="fas fa-book-open icon"></i>TOEIC L&R テストの詳細な構成</h2>
-      <p>TOEIC L&Rテストは、リスニング（約45分・100問）とリーディング（75分・100問）の2部構成で、合計約2時間で200問に答えます。</p>
-
-      <h2 id="score-guide"><i class="fas fa-star icon"></i>スコアの目安と評価</h2>
-      <p>TOEIC L&Rテストのスコアは、合計10点〜990点の範囲で評価され、英語力を客観的に示す指標となります。</p>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>スコアレベル</th>
-            <th>コミュニケーション能力の目安</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>860点以上</strong></td>
-            <td>Non-Nativeとして十分なコミュニケーションが可能。</td>
-          </tr>
-          <tr>
-            <td><strong>730点～855点</strong></td>
-            <td>どんな状況でも、ある程度のコミュニケーションが可能。</td>
-          </tr>
-          <tr>
-            <td><strong>470点～725点</strong></td>
-            <td>日常生活のニーズを満し、限定された業務が可能。</td>
-          </tr>
-          <tr>
-            <td><strong>470点未満</strong></td>
-            <td>最低限のコミュニケーションが可能。</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2 id="benefits"><i class="fas fa-trophy icon"></i>TOEICを受験するメリット</h2>
-      <ul class="benefits-list">
-        <li>
-          <i class="fas fa-briefcase"></i>
-          <div>
-            <h3>就職・転職の可能性を広げる</h3>
-            <p>多くの企業が採用基準の一つとしており、キャリア選択の幅が格段に広がります。</p>
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-chart-line"></i>
-          <div>
-            <h3>昇進・昇格、キャリアアップに繋がる</h3>
-            <p>社内での昇進や海外部門への異動の条件としてスコアが用いられるケースは非常に多いです。
-          </div>
-        </li>
-      </ul>
-
-      <h2 id="study-tips"><i class="fas fa-lightbulb icon"></i>スコアアップのための学習法</h2>
-      <ul>
-        <li><strong>現状分析と目標設定：</strong>公式問題集で現在の実力と弱点を把握し、具体的な目標スコアを設定します。</li>
-        <li><strong>基礎力の強化（語彙・文法）：</strong>ビジネス関連の頻出単語や文法項目を繰り返し学習し、基礎を固めます。</li>
-        <li><strong>パート別対策：</strong>各パートの特徴を理解し、時間配分や解法のコツを身につけます。</li>
-        <li><strong>継続的な英語接触：</strong>日常生活の中に英語を取り入れ、「英語に慣れる」ことが長期的なスコアアップに繋がります。</li>
-      </ul>
-
-      <h2 id="faq"><i class="fas fa-comments icon"></i>よくある質問 (Q&A)</h2>
-      <dl>
-        <dt><strong>Q. スコアに有効期限はありますか？</strong></dt>
-        <dd>A. スコア自体に有効期限はありません。ただし、提出先の企業や学校が「2年以内に取得したもの」など独自の期限を設けている場合がほとんどです。</dd>
-        <dt><strong>Q. 何から勉強を始めたら良いですか？</strong></dt>
-        <dd>A. まずは公式問題集を解いてテスト形式に慣れ、ご自身の弱点を把握することから始めるのがおすすめです。</dd>
-      </dl>
+      <h2 id="coming-soon">コンテンツ準備中</h2>
+      <p>現在、「他資格対策」ページのコンテンツを準備しております。</p>
+      <p>TOEIC以外の英語資格（TOEFL、IELTS、英検など）や、その他の分野の資格試験に関する情報や学習ツールを今後追加していく予定です。ご期待ください。</p>
 
     </div>
   </div>
