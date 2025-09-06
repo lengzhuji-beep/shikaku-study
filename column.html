@@ -5,22 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>コラム - TOEIC対策ツール</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
-    .header { background-color: #333; padding: 10px 0; }
+    /* ▼▼▼ CSS変更点 ▼▼▼ */
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; padding-top: 55px; /* ヘッダーの高さ分 */ }
+    .header { background-color: #333; padding: 10px 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
+    /* ▲▲▲ CSS変更点 ▲▲▲ */
     .header-nav { max-width: 1200px; margin: auto; display: flex; justify-content: space-around; }
     .header-nav a { color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s; }
     .header-nav a:hover { background-color: #555; }
     .header-nav a.active { background-color: #4a90e2; }
-    .container { max-width: 1200px; margin: auto; padding: 20px; } /* コンテナ幅を広げました */
+    .container { max-width: 1200px; margin: auto; padding: 20px; }
     .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     h1 { text-align: center; }
 
     /* Tab Styles */
+    /* ▼▼▼ CSS変更点 ▼▼▼ */
     .tabs {
       display: flex;
+      justify-content: center; /* 中央揃えに変更 */
       border-bottom: 2px solid #ddd;
       margin-bottom: 20px;
     }
+    /* ▲▲▲ CSS変更点 ▲▲▲ */
     .tab-link {
       background-color: #f1f1f1;
       border: none;
@@ -54,7 +59,7 @@
     /* Article Grid Styles */
     .article-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4列表示に変更 */
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
@@ -92,7 +97,7 @@
     }
 
     .article-card-content p {
-      font-size: 0.9em; /* 少し小さな文字 */
+      font-size: 0.9em;
       color: #555;
       line-height: 1.6;
     }
@@ -100,17 +105,17 @@
     /* Responsive layout for smaller screens */
     @media (max-width: 1200px) {
       .article-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3列に */
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     @media (max-width: 768px) {
       .article-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2列に */
+        grid-template-columns: repeat(2, 1fr);
       }
     }
     @media (max-width: 520px) {
       .article-grid {
-        grid-template-columns: 1fr; /* 1列に */
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -149,9 +154,6 @@
   </div>
 
   <script>
-    // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
-    // 記事を追加・編集するには、以下の 'articles' 配列を修正してください
-    // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
     const articles = [
       {
         imageUrl: 'https://assets.st-note.com/production/uploads/images/212739511/rectangle_large_type_2_2cc44bfd9afa85783ea1dbb5879c0e03.png?width=4000&height=4000&fit=bounds&format=jpg&quality=90',
@@ -213,15 +215,11 @@
         snippet: '単語帳を何周もしているのに、いざ問題になると意味が出てこない…」 「参考書を読んで理解したはずなのに、テストでは全く歯が立たない…」もしあなたがこのように感じているなら、それは学習における「インプット」と「アウトプット」のバランスが、大きく崩れていることが原因かもしれません。',
         noteUrl: 'https://note.com/sinnmai_consul/n/nb39adf5c13a3'
       }
-      // 他の記事を追加する場合は、この形式で下に追加してください
-      // { imageUrl: '画像のURL', title: 'タイトル', snippet: '冒頭文', noteUrl: 'note記事のURL' },
     ];
 
-    // 記事をHTMLに描画する関数
     function renderArticles() {
       const grid = document.getElementById('article-grid-strategy');
       if (!grid) return;
-
       let articlesHtml = '';
       articles.forEach(article => {
         articlesHtml += `
@@ -234,30 +232,22 @@
           </a>
         `;
       });
-
       grid.innerHTML = articlesHtml;
     }
 
-    // タブ切り替えの関数
     function openTab(evt, tabName) {
-      // すべてのタブコンテンツを非表示にする
       const tabcontent = document.getElementsByClassName("tab-content-item");
       for (let i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
       }
-
-      // すべてのタブリンクから "active" クラスを削除する
       const tablinks = document.getElementsByClassName("tab-link");
       for (let i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
       }
-
-      // クリックされたタブに対応するコンテンツを表示し、そのタブをアクティブにする
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
     }
 
-    // ページが読み込まれたら記事を描画
     window.onload = renderArticles;
   </script>
 </body>
