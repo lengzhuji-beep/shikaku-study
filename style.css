@@ -22,7 +22,7 @@ body.with-header > .container {
 }
 
 .container {
-  max-width: 1300px; /* ▼▼▼ 変更点 ▼▼▼ */
+  max-width: 1400px;
   margin: auto;
   padding: 20px;
 }
@@ -38,10 +38,11 @@ p { color: #555; }
 
 /* --- ヘッダーナビゲーション --- */
 .header-nav {
-  max-width: 1300px; /* ▼▼▼ 変更点 ▼▼▼ */
+  max-width: 1400px;
   margin: auto;
   display: flex;
   justify-content: space-around;
+  align-items: center; /* 文字が大きくなるため中央揃えを追加 */
 }
 .header-nav a {
   color: white;
@@ -49,7 +50,7 @@ p { color: #555; }
   padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.3s;
-  font-size: 0.95em;
+  font-size: 1.8em; /* ▼▼▼ 変更点 ▼▼▼ */
 }
 .header-nav a:hover { background-color: #555; }
 .header-nav a.active { background-color: #4a90e2; }
