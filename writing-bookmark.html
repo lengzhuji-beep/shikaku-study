@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOEIC 対策ツール - ライティング ブックマークモード</title>
+    <title>TOEIC 対策ツール - 単語 ブックマークモード</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div id="level-select" class="card">
-            <h2>ライティング - ブックマークモード</h2>
+            <h2>単語 - ブックマークモード</h2>
             <p>復習したい問題のレベルを選択してください</p>
             <button data-level="300" onclick="startBookmarkQuiz(300)">300点</button>
+            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
             <button data-level="400" onclick="startBookmarkQuiz(400)">400点</button>
             <button data-level="500" onclick="startBookmarkQuiz(500)">500点</button>
             <button data-level="600" onclick="startBookmarkQuiz(600)">600点</button>
             <button data-level="700" onclick="startBookmarkQuiz(700)">700点</button>
             <button data-level="800" onclick="startBookmarkQuiz(800)">800点</button>
             <button data-level="900" onclick="startBookmarkQuiz(900)">900点以上</button>
-            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
-        </div>
+            </div>
         <div id="quiz" class="card hidden">
             <a href="index.html" class="quit-quiz-btn">解答を中止する</a>
             <h2 id="quiz-title"></h2>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
-            <div id="question" style="margin: 20px 0;"></div>
+            <div id="question" style="font-size: 1.5em; text-align: center; margin: 20px 0;"></div>
             <div id="choices" style="display: flex; flex-direction: column; gap: 10px;"></div>
             <div id="feedback" class="feedback hidden"></div>
             <button id="next-btn" onclick="nextQuestion()" class="hidden">次の問題へ</button>
@@ -39,7 +39,7 @@
     </div>
     
     <script>
-        const currentCategory = 'writing';
+        const currentCategory = 'vocabulary';
         const currentMode = 'bookmark';
         let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
         function initializeApp() {
@@ -60,7 +60,7 @@
         function hideAllSections() { ["level-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
         function showLevelSelect() { 
             hideAllSections(); 
-            document.getElementById("level-select").classList.remove("hidden");
+            document.getElementById("level-select").classList.remove("hidden"); 
             updateLevelButtonsState();
         }
         function startBookmarkQuiz(level) {
@@ -103,7 +103,7 @@
             const isCorrect = choice === qData.answer;
             if(isCorrect) score++;
             const feedbackDiv = document.getElementById("feedback");
-            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}<br><br><strong>和訳：</strong>${qData.translation}`;
+            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}`;
             feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
             feedbackDiv.classList.remove("hidden");
             document.querySelectorAll('#choices button').forEach(button => button.disabled = true);
