@@ -96,11 +96,24 @@
       font-size: 1.1em;
     }
 
+    /* ▼▼▼ ここからが修正箇所です ▼▼▼ */
     .article-card-content p {
       font-size: 0.9em;
       color: #555;
       line-height: 1.6;
+      
+      /* --- 3行で省略表示するための設定 --- */
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+
+      /* --- 末尾をぼかす（フェードアウトさせる）設定 --- */
+      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     }
+    /* ▲▲▲ ここまでが修正箇所です ▲▲▲ */
+
 
     /* Responsive layout for smaller screens */
     @media (max-width: 1200px) {
