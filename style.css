@@ -9,8 +9,6 @@ body {
   padding: 0;
   line-height: 1.7;
 }
-/* ▼▼▼ 修正点 ▼▼▼ */
-/* ヘッダー自体のスタイル（変更なし） */
 .header {
   background-color: #333;
   padding: 10px 0;
@@ -19,20 +17,22 @@ body {
   width: 100%;
   z-index: 1000;
 }
-/* ヘッダーを持つページのコンテナにだけ、ヘッダー分の余白を追加 */
 body.with-header > .container {
-  padding-top: 75px; /* 55px(ヘッダー) + 20px(元の余白) */
+  padding-top: 75px;
 }
-/* ▲▲▲ 修正点 ▲▲▲ */
 
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
 }
+
+/* ▼▼▼ このブロックを削除しました ▼▼▼
 body:not(.top-page) .container {
   max-width: 800px;
 }
+   ▲▲▲ このブロックを削除しました ▲▲▲ */
+
 h1, h2, h3, h4 {
   color: #333;
   text-align: center;
