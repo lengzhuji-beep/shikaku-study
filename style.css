@@ -190,14 +190,14 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
 .confirmation-dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; }
 .confirmation-dialog button { margin: 0 10px; }
 
-/* ▼▼▼ 追加したスタイル ▼▼▼ */
+/* ▼▼▼ 修正後のスタイル ▼▼▼ */
 /* --- レベル選択画面のボタン配置調整 --- */
-.level-select-group {
+.level-buttons-group {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
 }
-#level-select .card {
+.back-button-group {
     text-align: center;
 }
+/* ▲▲▲ 修正後のスタイル ▲▲▲ */
