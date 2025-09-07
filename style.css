@@ -22,16 +22,10 @@ body.with-header > .container {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1300px; /* ▼▼▼ 変更点 ▼▼▼ */
   margin: auto;
   padding: 20px;
 }
-
-/* ▼▼▼ このブロックを削除しました ▼▼▼
-body:not(.top-page) .container {
-  max-width: 800px;
-}
-   ▲▲▲ このブロックを削除しました ▲▲▲ */
 
 h1, h2, h3, h4 {
   color: #333;
@@ -44,7 +38,7 @@ p { color: #555; }
 
 /* --- ヘッダーナビゲーション --- */
 .header-nav {
-  max-width: 1200px;
+  max-width: 1300px; /* ▼▼▼ 変更点 ▼▼▼ */
   margin: auto;
   display: flex;
   justify-content: space-around;
