@@ -13,14 +13,14 @@
             <h2>単語 - テストモード</h2>
             <p>レベルを選択してください</p>
             <button onclick="selectLevel(300)">300点</button>
+            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
             <button onclick="selectLevel(400)">400点</button>
             <button onclick="selectLevel(500)">500点</button>
             <button onclick="selectLevel(600)">600点</button>
             <button onclick="selectLevel(700)">700点</button>
             <button onclick="selectLevel(800)">800点</button>
             <button onclick="selectLevel(900)">900点以上</button>
-            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
-        </div>
+            </div>
         <div id="question-count-select" class="card hidden">
             <h2>出題数を選択してください</h2>
             <p id="selected-info"></p>
@@ -73,9 +73,7 @@
             }
             hideAllSections();
             document.getElementById("question-count-select").classList.remove("hidden");
-            // ▼▼▼ 文言変更 ▼▼▼
             document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - レベル: ${level}点`;
-            // ▲▲▲ 文言変更 ▲▲▲
         }
         function startQuiz(questionCount) {
             currentQuestion = 0;
