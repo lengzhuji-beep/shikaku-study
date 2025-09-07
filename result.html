@@ -4,71 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOEIC 対策ツール - 学習統計</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
-    .container { max-width: 800px; margin: auto; padding: 20px; }
-    h1, h2, h3, h4 { text-align: center; }
-    .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
-    button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-    button:hover { background: #357ABD; }
-    .tab-container { margin-bottom: 20px; }
-    .tab-buttons { display: flex; border-bottom: 1px solid #dee2e6; margin-bottom: 20px; }
-    .tab-button { flex: 1; padding: 12px; border: none; background: #e9ecef; color: #495057; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s; }
-    .tab-button.active { background: #4a90e2; color: white; border-bottom-color: #357ABD; font-weight: bold; }
-    .mistake-card { background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 0.25rem; padding: 1rem; margin-bottom: 1rem; text-align: left;}
-    .mistake-item { position: relative; padding-right: 30px; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px; }
-    .mistake-item:last-child { border-bottom: none; }
-    .level-button { margin: 5px; padding: 5px 10px; background-color: #4a90e2; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    .level-button.active { background-color: #3536bd; font-weight: bold; }
-    .bookmark-icon { position: absolute; top: 5px; right: 5px; cursor: pointer; font-size: 24px; color: #ccc; }
-    .bookmark-icon.bookmarked { color: #ffd700; }
-    .popup { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1001; opacity: 0; transition: opacity 0.3s; }
-    .popup.show { opacity: 1; }
-
-    .card-icon-button {
-        position: absolute;
-        top: 20px;
-        color: white;
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        margin: 0;
-        border-radius: 50%;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        text-decoration: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    
-    /* ▼▼▼ CSS変更点 ▼▼▼ */
-    #back-to-top-btn {
-        left: 20px;
-        background: #6c757d; /* グレー */
-        width: auto; /* 横幅を自動調整 */
-        height: auto; /* 高さを自動調整 */
-        padding: 8px 15px; /* パディングを追加 */
-        border-radius: 8px; /* 角丸に変更 */
-        font-size: 14px;
-    }
-    #back-to-top-btn:hover {
-        background: #5a6268;
-    }
-    /* ▲▲▲ CSS変更点 ▲▲▲ */
-
-    #delete-history-btn {
-        right: 20px;
-        background: #dc3545; /* 赤 */
-    }
-    #delete-history-btn:hover {
-        background: #c82333;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
