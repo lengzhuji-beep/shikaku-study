@@ -357,3 +357,15 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
         grid-template-columns: 1fr;
     }
 }
+
+/* ========== toeic-overview.html パート別解説カード用 ========== */
+
+.part-card.listening {
+    border-top: 5px solid #5cb85c; /* 緑 */
+    padding-top: 15px; /* 上ボーダーとのバランス調整 */
+}
+
+.part-card.reading {
+    border-top: 5px solid #f0ad4e; /* オレンジ */
+    padding-top: 15px; /* 上ボーダーとのバランス調整 */
+}
