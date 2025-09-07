@@ -12,15 +12,17 @@
         <div id="level-select" class="card">
             <h2>リスニング - ブックマークモード</h2>
             <p>復習したい問題のレベルを選択してください</p>
-            <button data-level="300" onclick="startBookmarkQuiz(300)">300点</button>
-            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
-            <button data-level="400" onclick="startBookmarkQuiz(400)">400点</button>
-            <button data-level="500" onclick="startBookmarkQuiz(500)">500点</button>
-            <button data-level="600" onclick="startBookmarkQuiz(600)">600点</button>
-            <button data-level="700" onclick="startBookmarkQuiz(700)">700点</button>
-            <button data-level="800" onclick="startBookmarkQuiz(800)">800点</button>
-            <button data-level="900" onclick="startBookmarkQuiz(900)">900点以上</button>
+            <div class="icon-container">
+                <button class="icon-button" data-level="300" onclick="startBookmarkQuiz(300)">300点</button>
+                <button class="icon-button" data-level="400" onclick="startBookmarkQuiz(400)">400点</button>
+                <button class="icon-button" data-level="500" onclick="startBookmarkQuiz(500)">500点</button>
+                <button class="icon-button" data-level="600" onclick="startBookmarkQuiz(600)">600点</button>
+                <button class="icon-button" data-level="700" onclick="startBookmarkQuiz(700)">700点</button>
+                <button class="icon-button" data-level="800" onclick="startBookmarkQuiz(800)">800点</button>
+                <button class="icon-button" data-level="900" onclick="startBookmarkQuiz(900)">900点以上</button>
             </div>
+            <a href="index.html" class="back-to-level-select">トップに戻る</a>
+        </div>
         <div id="quiz" class="card hidden">
             <a href="index.html" class="quit-quiz-btn">解答を中止する</a>
             <h2 id="quiz-title"></h2>
