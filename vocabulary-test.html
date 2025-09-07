@@ -4,34 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOEIC 対策ツール - 単語テスト</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        h1, h2 { text-align: center; }
-        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
-        button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
-        button:hover { background: #357ABD; }
-        .hidden { display: none; }
-        .choices { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
-        .bookmark { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #ccc; z-index: 10; }
-        .result-item .bookmark { top: 15px; right: 15px; }
-        .bookmarked { color: gold; }
-        .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
-        .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
-        .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
-        .result { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px; }
-        .result-item { padding: 15px; margin: 10px 0; border-radius: 8px; text-align: left; border-left: 5px solid; position: relative; }
-        .result-item.correct { background-color: #d4edda; border-color: #28a745; }
-        .result-item.incorrect { background-color: #f8d7da; border-color: #dc3545; }
-        /* ▼▼▼ CSS変更点 ▼▼▼ */
-        .quit-quiz-btn {
-            position: absolute; top: 20px; left: 20px; background: #6c757d; color: white; padding: 8px 15px;
-            margin: 0; border-radius: 8px; text-decoration: none; font-size: 14px; z-index: 10;
-        }
-        .quit-quiz-btn:hover { background: #5a6268; color: white; }
-        /* ▲▲▲ CSS変更点 ▲▲▲ */
-    </style>
 </head>
 <body>
     <div class="container">
