@@ -10,7 +10,7 @@
 <body>
   <div class="container">
     <div id="bookmarks-list" class="card">
-      <a href="/shikaku-study/index.html" id="back-to-top-btn">トップに戻る</a>
+      <a href="/shikaku-study/index.html" id="back-to-top-btn" class="card-icon-button">トップに戻る</a>
       <h2><i class="fas fa-bookmark"></i> ブックマークした問題</h2>
       <div class="tab-container">
         <div class="tab-buttons">
@@ -65,7 +65,9 @@
         button.onclick = () => showBookmarksForLevel(category, level);
         buttonContainer.appendChild(button);
       });
-      showBookmarksForLevel(category, levels[0]);
+      if (levels.length > 0) {
+        showBookmarksForLevel(category, levels[0]);
+      }
     }
 
     function showBookmarksForLevel(category, level) {
