@@ -4,49 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOEIC 対策ツール - リスニングトレーニング</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        h1, h2 { text-align: center; }
-        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
-        button { background: #4a90e2; color: white; padding: 10px 20px; margin: 10px 5px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 16px; }
-        button:hover { background: #357ABD; }
-        button:disabled { background-color: #ccc; cursor: not-allowed; }
-        .hidden { display: none; }
-        .choices { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
-        .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
-        .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
-        .feedback.incorrect { background-color: #f8d7da; border-color: #f5c6cb; }
-        .bookmark { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #ccc; z-index: 10; }
-        .bookmarked { color: gold; }
-        .icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; }
-        .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
-        .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
-        .question-header { text-align: center; margin-bottom: 10px; position: relative; padding-top: 10px; }
-        #speak-btn { font-size: 48px; cursor: pointer; color: #4a90e2; background: none; border: none; padding: 0 20px; }
-        #speak-btn:hover { color: #357ABD; }
-        .speak-note { font-size: 0.8em; color: #6c757d; margin: 0; }
-        .q-section { margin-top: 25px; }
-        .q-label { font-weight: bold; color: #555; margin-bottom: 8px; font-size: 0.9em; }
-        #question { font-weight: bold; font-size: 1.2em; margin-top: 5px; }
-        #sentence-container { background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 8px; margin-top: 10px; }
-        #toggle-sentence-btn { background-color: #6c757d; font-size: 14px; padding: 8px 15px; margin: 0; }
-        .speech-controls-container { position: absolute; top: 0; left: 0; display: flex; flex-direction: column; gap: 5px; z-index: 5; }
-        .rate-controls, .voice-controls { display: flex; gap: 5px; }
-        .rate-controls button { background: #e9ecef; color: #495057; border-radius: 20px; padding: 0; margin: 0; width: 40px; height: 25px; font-size: 12px; border: 1px solid #dee2e6; }
-        .rate-controls button.selected { background: #007bff; color: white; border-color: #007bff; }
-        .voice-controls button { width: 35px; height: 35px; border-radius: 50%; font-size: 16px; padding: 0; margin: 0; display: flex; justify-content: center; align-items: center; background: #e9ecef; color: #495057; border: 1px solid #dee2e6; }
-        #voice-female.selected { background-color: #E91E63; color: white; border-color: #E91E63; }
-        #voice-male.selected { background-color: #2196F3; color: white; border-color: #2196F3; }
-        /* ▼▼▼ CSS変更点 ▼▼▼ */
-        .quit-quiz-btn {
-            position: absolute; top: 20px; left: 20px; background: #6c757d; color: white; padding: 8px 15px;
-            margin: 0; border-radius: 8px; text-decoration: none; font-size: 14px; z-index: 10;
-        }
-        .quit-quiz-btn:hover { background: #5a6268; color: white; }
-        /* ▲▲▲ CSS変更点 ▲▲▲ */
-    </style>
 </head>
 <body>
     <div class="container">
