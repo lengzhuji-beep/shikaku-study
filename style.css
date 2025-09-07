@@ -81,13 +81,12 @@ button:hover { background: #357ABD; }
 button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
 
 /* ========== index.html（トップページ）用 ========== */
-/* ▼▼▼ 変更点 ▼▼▼ */
 .icon-button { 
   display: flex; 
   flex-direction: column; 
   align-items: center; 
   justify-content: center; 
-  width: 140px; /* 120pxから変更 */
+  width: 140px;
   height: 120px; 
   margin: 10px; 
   border: none; 
@@ -98,9 +97,8 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
   transition: 0.3s; 
   color: black; 
   text-decoration: none; 
-  white-space: nowrap; /* 文字の改行を禁止 */
+  white-space: nowrap;
 }
-/* ▲▲▲ 変更点 ▲▲▲ */
 .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
 .icon-button i { font-size: 48px; margin-bottom: 10px; }
 .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
@@ -191,3 +189,26 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
 .delete-bookmark { position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 20px; color: #ff4d4d; }
 .confirmation-dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; }
 .confirmation-dialog button { margin: 0 10px; }
+
+/* ▼▼▼ 追加したスタイル ▼▼▼ */
+/* --- レベル選択画面のボタン配置調整 --- */
+#level-select .card > p {
+  flex-basis: 100%; /* pタグは常に全幅を使う */
+}
+#level-select .card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#level-select .card > button,
+#level-select .card > a {
+  margin: 5px;
+}
+/* 「300点」ボタンと「トップに戻る」ボタンを縦に並べる */
+#level-select .card button[onclick*="300"],
+#level-select .card button[data-level="300"],
+#level-select .card a[href="index.html"] {
+  flex-basis: 100%;
+  max-width: 280px;
+}
+/* ▲▲▲ 追加したスタイル ▲▲▲ */
