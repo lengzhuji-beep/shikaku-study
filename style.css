@@ -1,0 +1,296 @@
+/* ========== 共通スタイル ========== */
+
+/* --- 基本設定 --- */
+body {
+  font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-size: 16px; /* 基本の文字サイズを16pxに設定 */
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7; /* 行間を少し広げて読みやすく */
+  padding-top: 55px; /* ヘッダーの高さ分 */
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1, h2, h3, h4 {
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8em; /* h1のサイズ調整 */
+}
+
+h2 {
+  font-size: 1.5em; /* h2のサイズ調整 */
+}
+
+h3 {
+  font-size: 1.2em; /* h3のサイズ調整 */
+}
+
+p {
+  color: #555;
+}
+
+/* --- ヘッダー --- */
+.header {
+  background-color: #333;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-nav {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 0.95em; /* ヘッダー文字サイズ調整 */
+}
+
+.header-nav a:hover {
+  background-color: #555;
+}
+
+.header-nav a.active {
+  background-color: #4a90e2;
+}
+
+/* --- カード --- */
+.card {
+  background: white;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* ========== index.html用スタイル ========== */
+.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  border: none;
+  background: #E6F3FF;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+  color: black;
+  text-decoration: none;
+}
+
+.icon-button:hover {
+  background: #4a90e2;
+  color: white;
+  transform: translateY(-5px);
+}
+
+.icon-button i {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.category-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.category-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+}
+
+.category-title {
+  font-size: 1.1em; /* サイズ調整 */
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mode-button {
+  flex: 1;
+  min-width: 120px;
+  padding: 8px 16px;
+  background: #e9ecef;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.mode-button:hover {
+  background: #4a90e2;
+  color: white;
+  border-color: #4a90e2;
+}
+
+
+/* ========== toeic-overview.html / other-exams.html用スタイル ========== */
+h1.overview-title { /* ページタイトル専用 */
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 10px;
+}
+
+h2.section-title { /* セクションタイトル専用 */
+  border-left: 5px solid #4a90e2;
+  padding-left: 10px;
+  margin-top: 40px;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+/* ========== column.html用スタイル ========== */
+.tabs {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.tab-link {
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 8px 8px 0 0;
+  margin-right: 5px;
+  color: #333;
+}
+
+.tab-link:hover {
+  background-color: #e0e0e0;
+}
+
+.tab-link.active {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.tab-content-item {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.article-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.article-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.article-card-content {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.article-card-content h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+}
+
+.article-card-content p {
+  font-size: 1em; /* 0.9emから1emに変更 */
+  color: #555;
+  line-height: 1.6;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+/* --- レスポンシブ対応 --- */
+@media (max-width: 1200px) {
+  .article-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .article-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .article-grid {
+    grid-template-columns: 1fr;
+  }
+}
