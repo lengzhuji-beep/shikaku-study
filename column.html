@@ -102,15 +102,15 @@
       color: #555;
       line-height: 1.6;
       
-      /* --- 3行で省略表示するための設定 --- */
+      /* --- 6行で省略表示するための設定 --- */
       overflow: hidden;
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 6; /* 3から6に変更 */
 
       /* --- 末尾をぼかす（フェードアウトさせる）設定 --- */
-      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 85%, transparent 100%); /* 60%から85%に変更 */
+      -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%); /* 60%から85%に変更 */
     }
     /* ▲▲▲ ここまでが修正箇所です ▲▲▲ */
 
@@ -167,8 +167,6 @@
   </div>
 
   <script>
-    // ▼▼▼ 変更点2: JavaScriptの修正 ▼▼▼
-
     //【勉強法・全体戦略】の記事データ
     const articles = [
       {
@@ -233,7 +231,7 @@
       }
     ];
 
-    //【パート別対策】の記事データ (新規追加)
+    //【パート別対策】の記事データ
     const partSpecificArticles = [
       {
         imageUrl: 'https://assets.st-note.com/production/uploads/images/213540963/rectangle_large_type_2_b87444609f29e98322ffb12c26311460.png?width=1200',
@@ -334,7 +332,7 @@
       grid.innerHTML = articlesHtml;
     }
     
-    //【パート別対策】の記事を表示する関数 (新規追加)
+    //【パート別対策】の記事を表示する関数
     function renderPartSpecificArticles() {
       const grid = document.getElementById('article-grid-part-specific');
       if (!grid) return;
@@ -372,8 +370,6 @@
       renderStrategyArticles();
       renderPartSpecificArticles();
     };
-
-    // ▲▲▲ 変更点ここまで ▲▲▲
   </script>
 </body>
 </html>
