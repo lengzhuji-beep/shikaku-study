@@ -144,7 +144,7 @@
     </div>
 
     <div id="part-specific" class="tab-content-item">
-      <p>現在、このカテゴリの記事はありません。</p>
+      <div id="article-grid-part-specific" class="article-grid"></div>
     </div>
 
     <div id="skill-up" class="tab-content-item">
@@ -154,6 +154,9 @@
   </div>
 
   <script>
+    // ▼▼▼ 変更点2: JavaScriptの修正 ▼▼▼
+
+    //【勉強法・全体戦略】の記事データ
     const articles = [
       {
         imageUrl: 'https://assets.st-note.com/production/uploads/images/212739511/rectangle_large_type_2_2cc44bfd9afa85783ea1dbb5879c0e03.png?width=4000&height=4000&fit=bounds&format=jpg&quality=90',
@@ -212,12 +215,35 @@
       {
         imageUrl: 'https://assets.st-note.com/production/uploads/images/212854143/rectangle_large_type_2_0b76d75d8986786ff899280e83bcabbc.png?width=1200',
         title: '【勉強法・全体戦略】「インプット」と「アウトプット」の黄金比率で学習効果を最大化する🚀',
-        snippet: '単語帳を何周もしているのに、いざ問題になると意味が出てこない…」 「参考書を読んで理解したはずなのに、テストでは全く歯が立たない…」もしあなたがこのように感じているなら、それは学習における「インプット」と「アウトプット」のバランスが、大きく崩れていることが原因かもしれません。',
+        snippet: '単語帳を何周もしているのに、いざ問題になると意味が出てこない…」 「参考書を読んで理解したはずなのに、テストでは全く歯が立たない…」もしあなたがこのように感じているなら、それは学習における「インプUT」と「アウトプット」のバランスが、大きく崩れていることが原因かもしれません。',
         noteUrl: 'https://note.com/sinnmai_consul/n/nb39adf5c13a3'
       }
     ];
 
-    function renderArticles() {
+    //【パート別対策】の記事データ (新規追加)
+    const partSpecificArticles = [
+      {
+        imageUrl: 'https://assets.st-note.com/production/uploads/images/151758529/rectangle_large_type_2_a82b90ba32943a41103d15a1a16d8888.jpeg?width=1200',
+        title: '【パート別対策】Part 1 写真描写問題：意外と知らない頻出単語とひっかけパターン',
+        snippet: 'TOEICの最初の関門、Part 1。簡単なようで、実は失点しやすいポイントが隠されています。このパートを安定して満点取るための重要単語と、よくあるひっかけのパターンを徹底解説します。',
+        noteUrl: '#'
+      },
+      {
+        imageUrl: 'https://assets.st-note.com/production/uploads/images/151944889/rectangle_large_type_2_47d79fc53a81284d720c7467652c2354.jpeg?width=1200',
+        title: '【パート別対策】Part 5 短文穴埋め問題：品詞問題は「10秒」で見抜く！時短テクニック',
+        snippet: 'リーディングセクションの時間不足は、Part 5の攻略がカギ。特に時間をかけずに解けるべき品詞問題を瞬時に見抜くための「型」を伝授します。ここで時間を稼ぎ、Part 7に繋げましょう。',
+        noteUrl: '#'
+      },
+      {
+        imageUrl: 'https://assets.st-note.com/production/uploads/images/152342385/rectangle_large_type_2_6186938a16629707ea8215a7bf89d18e.jpeg?width=1200',
+        title: '【パート別対策】Part 7 読解問題：設問の「先読み」で、読むべき場所を特定する方法',
+        snippet: '長文を全部読んでから設問を解くのは非効率。スコアが伸び悩む人は、情報の海で溺れてしまっています。設問を先に読み、解答に必要な情報だけを効率的に探し出すテクニックを身につけましょう。',
+        noteUrl: '#'
+      }
+    ];
+
+    //【勉強法・全体戦略】の記事を表示する関数
+    function renderStrategyArticles() {
       const grid = document.getElementById('article-grid-strategy');
       if (!grid) return;
       let articlesHtml = '';
@@ -234,6 +260,26 @@
       });
       grid.innerHTML = articlesHtml;
     }
+    
+    //【パート別対策】の記事を表示する関数 (新規追加)
+    function renderPartSpecificArticles() {
+      const grid = document.getElementById('article-grid-part-specific');
+      if (!grid) return;
+      let articlesHtml = '';
+      partSpecificArticles.forEach(article => {
+        articlesHtml += `
+          <a href="${article.noteUrl}" target="_blank" rel="noopener noreferrer" class="article-card">
+            <img src="${article.imageUrl}" alt="${article.title}">
+            <div class="article-card-content">
+              <h3>${article.title}</h3>
+              <p>${article.snippet}</p>
+            </div>
+          </a>
+        `;
+      });
+      grid.innerHTML = articlesHtml;
+    }
+
 
     function openTab(evt, tabName) {
       const tabcontent = document.getElementsByClassName("tab-content-item");
@@ -248,7 +294,13 @@
       evt.currentTarget.className += " active";
     }
 
-    window.onload = renderArticles;
+    // ページ読み込み時に両方のカテゴリの記事を表示
+    window.onload = function() {
+      renderStrategyArticles();
+      renderPartSpecificArticles();
+    };
+
+    // ▲▲▲ 変更点ここまで ▲▲▲
   </script>
 </body>
 </html>
