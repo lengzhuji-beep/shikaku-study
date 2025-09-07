@@ -195,7 +195,22 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 20px; /* ボタンと「トップに戻る」ボタンの間に余白を追加 */
 }
-.back-button-group {
-    text-align: left; /* ▼▼▼ 変更点 ▼▼▼ */
+.back-to-level-select { /* 新しいスタイル */
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1em;
+    display: block; /* ブロック要素にして、margin: auto で中央寄せ、または text-align: left で左寄せにする */
+    margin-left: 0; /* 左寄せにするため */
+    margin-right: auto; /* 左寄せにするため */
+    text-align: left;
+}
+.back-to-level-select:hover {
+    background: #5a6268;
 }
