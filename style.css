@@ -42,7 +42,7 @@ p { color: #555; }
   margin: auto;
   display: flex;
   justify-content: space-around;
-  align-items: center; /* 文字が大きくなるため中央揃えを追加 */
+  align-items: center;
 }
 .header-nav a {
   color: white;
@@ -50,7 +50,7 @@ p { color: #555; }
   padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.3s;
-  font-size: 1.5em; /* ▼▼▼ 変更点 ▼▼▼ */
+  font-size: 1.8em;
 }
 .header-nav a:hover { background-color: #555; }
 .header-nav a.active { background-color: #4a90e2; }
@@ -81,7 +81,26 @@ button:hover { background: #357ABD; }
 button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
 
 /* ========== index.html（トップページ）用 ========== */
-.icon-button { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; margin: 10px; border: none; background: #E6F3FF; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; color: black; text-decoration: none; }
+/* ▼▼▼ 変更点 ▼▼▼ */
+.icon-button { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  width: 140px; /* 120pxから変更 */
+  height: 120px; 
+  margin: 10px; 
+  border: none; 
+  background: #E6F3FF; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  cursor: pointer; 
+  transition: 0.3s; 
+  color: black; 
+  text-decoration: none; 
+  white-space: nowrap; /* 文字の改行を禁止 */
+}
+/* ▲▲▲ 変更点 ▲▲▲ */
 .icon-button:hover { background: #4a90e2; color: white; transform: translateY(-5px); }
 .icon-button i { font-size: 48px; margin-bottom: 10px; }
 .icon-container { display: flex; flex-wrap: wrap; justify-content: center; }
