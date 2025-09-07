@@ -192,23 +192,12 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
 
 /* ▼▼▼ 追加したスタイル ▼▼▼ */
 /* --- レベル選択画面のボタン配置調整 --- */
-#level-select .card > p {
-  flex-basis: 100%; /* pタグは常に全幅を使う */
+.level-select-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 #level-select .card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    text-align: center;
 }
-#level-select .card > button,
-#level-select .card > a {
-  margin: 5px;
-}
-/* 「300点」ボタンと「トップに戻る」ボタンを縦に並べる */
-#level-select .card button[onclick*="300"],
-#level-select .card button[data-level="300"],
-#level-select .card a[href="index.html"] {
-  flex-basis: 100%;
-  max-width: 280px;
-}
-/* ▲▲▲ 追加したスタイル ▲▲▲ */
