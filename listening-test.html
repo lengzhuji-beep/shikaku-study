@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N3ZFKBQ3');</script>
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOEIC 対策ツール - リスニングテスト</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="container">
         <div id="level-select" class="card">
             <h2>リスニング - テストモード</h2>
             <p>レベルを選択してください</p>
@@ -22,7 +29,7 @@
                 <button class="icon-button" onclick="selectLevel(900)">900点以上</button>
             </div>
             <a href="index.html" class="back-to-level-select">トップに戻る</a>
-            </div>
+        </div>
         <div id="question-count-select" class="card hidden">
             <h2 id="selected-info"></h2>
             <p>出題数を選択してください</p>
@@ -237,7 +244,7 @@
                           <p style="font-size: 1.2em; font-weight: bold;">${correctCount} / ${currentQuestions.length} 正解 (${percentage}%)</p>` + resultHTML;
             resultHTML += `<div style="text-align: center; margin-top: 20px;">
                             <button onclick="showLevelSelect()">別のレベルに挑戦</button>
-                            <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
+                            <a href="index.html"><button class="back-to-level-select" style="display: inline-block;">トップに戻る</button></a>
                            </div>`;
             resultDiv.innerHTML = resultHTML;
         }
