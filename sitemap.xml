@@ -3,64 +3,84 @@
 
 <!--  created with free sitemap generation system www.sitemapxml.jp  --> 
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/</loc>
+  <loc>https://shikaku-taisaku.com/</loc>
   <priority>1.0</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/toeic-overview.html</loc>
+  <loc>https://shikaku-taisaku.com/index.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/column.html</loc>
+  <loc>https://shikaku-taisaku.com/toeic-overview.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/other-exams.html</loc>
+  <loc>https://shikaku-taisaku.com/column.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/bookmark.html</loc>
+  <loc>https://shikaku-taisaku.com/other-exams.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/result.html</loc>
+  <loc>https://shikaku-taisaku.com/bookmark.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/vocabulary-test.html</loc>
+  <loc>https://shikaku-taisaku.com/result.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/vocabulary-training.html</loc>
+  <loc>https://shikaku-taisaku.com/vocabulary-test.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/writing-test.html</loc>
+  <loc>https://shikaku-taisaku.com/vocabulary-training.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/writing-training.html</loc>
+  <loc>https://shikaku-taisaku.com/vocabulary-bookmark.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/listening-test.html</loc>
+  <loc>https://shikaku-taisaku.com/writing-test.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 <url>
-  <loc>https://lengzhuji-beep.github.io/shikaku-study/listening-training.html</loc>
+  <loc>https://shikaku-taisaku.com/writing-training.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-05T22:50:35+09:00</lastmod>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/writing-bookmark.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/listening-test.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/listening-training.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/listening-bookmark.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
 </url>
 
 </urlset>
