@@ -12,20 +12,20 @@
         <div id="level-select" class="card">
             <h2>ライティング - トレーニングモード</h2>
             <p>レベルを選択してください</p>
-            <div class="icon-container">
-                <button class="icon-button" onclick="selectLevel(300)">300点</button>
-                <button class="icon-button" onclick="selectLevel(400)">400点</button>
-                <button class="icon-button" onclick="selectLevel(500)">500点</button>
-                <button class="icon-button" onclick="selectLevel(600)">600点</button>
-                <button class="icon-button" onclick="selectLevel(700)">700点</button>
-                <button class="icon-button" onclick="selectLevel(800)">800点</button>
-                <button class="icon-button" onclick="selectLevel(900)">900点以上</button>
+            <div class="level-buttons-group">
+                <button onclick="selectLevel(300)">300点</button>
+                <button onclick="selectLevel(400)">400点</button>
+                <button onclick="selectLevel(500)">500点</button>
+                <button onclick="selectLevel(600)">600点</button>
+                <button onclick="selectLevel(700)">700点</button>
+                <button onclick="selectLevel(800)">800点</button>
+                <button onclick="selectLevel(900)">900点以上</button>
             </div>
             <a href="index.html" class="back-to-level-select">トップに戻る</a>
-        </div>
+            </div>
         <div id="question-count-select" class="card hidden">
-             <h2 id="selected-info"></h2>
-             <p>出題数を選択してください</p>
+             <h2>出題数を選択してください</h2>
+            <p id="selected-info"></p>
             <div class="icon-container">
                  <button class="icon-button" onclick="startQuiz(5)">5問</button>
                  <button class="icon-button" onclick="startQuiz(10)">10問</button>
@@ -33,7 +33,7 @@
                  <button class="icon-button" onclick="startQuiz(30)">30問</button>
                  <button class="icon-button" onclick="startQuizAll()">全問題</button>
             </div>
-             <button onclick="showLevelSelect()" style="background-color: #6c757d;">レベル選択に戻る</button>
+             <button onclick="showLevelSelect()" class="back-to-level-select">レベル選択に戻る</button>
              </div>
         <div id="quiz" class="card hidden">
             <a href="index.html" class="quit-quiz-btn">解答を中止する</a>
