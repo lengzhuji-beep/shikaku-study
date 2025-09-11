@@ -372,3 +372,78 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
     border-top: 5px solid #f0ad4e; /* オレンジ */
     padding-top: 15px; /* 上ボーダーとのバランス調整 */
 }
+
+/* ========== 説明アコーディオン用スタイル ========== */
+.description-accordion {
+    margin: 25px 0;
+}
+
+.description-accordion details {
+    border: 1px solid #d1d9e6; /* 少し柔らかい境界線 */
+    border-radius: 10px;
+    background: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+
+.description-accordion details[open] {
+    background: white;
+}
+
+.description-accordion summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    list-style: none; /* 標準の三角形マーカーを非表示 */
+    color: #333;
+}
+
+.description-accordion summary::-webkit-details-marker {
+    display: none; /* こちらもマーカー非表示用 */
+}
+
+.description-accordion .accordion-icon {
+    margin-left: auto; /* アイコンを右端に配置 */
+    transition: transform 0.3s ease;
+    color: #4a90e2; /* アイコンの色をテーマカラーに */
+}
+
+.description-accordion details[open] .accordion-icon {
+    transform: rotate(180deg); /* 開いたときにアイコンを回転 */
+}
+
+.description-content {
+    padding: 0px 25px 20px 25px;
+    text-align: left;
+    border-top: 1px solid #d1d9e6;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.description-content dl {
+    padding: 0;
+    margin: 0;
+}
+
+.description-content dt {
+    font-weight: bold;
+    margin-top: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.description-content dt:first-child {
+    margin-top: 1em;
+}
+
+.description-content dd {
+    margin-left: 0;
+    padding-top: 0.5em;
+    padding-left: 27px; /* アイコンの分だけインデント */
+    color: #555;
+}
