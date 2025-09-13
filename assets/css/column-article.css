@@ -16,7 +16,7 @@
 /* メイン画像 */
 .article-main-image {
     width: 100%;
-    height: 250px; /* 高さを固定 */
+    padding-bottom: 56.25%; /* 16:9 のアスペクト比を保つ */
     background-size: cover;
     background-position: center;
     border-radius: 8px; /* 画像も角丸に */
@@ -131,7 +131,7 @@
         font-size: 1.6em;
     }
     .article-main-image {
-        height: 180px;
+        padding-bottom: 56.25%; /* スマートフォンでもアスペクト比を維持 */
     }
     .article-content h2 {
         font-size: 1.4em;
