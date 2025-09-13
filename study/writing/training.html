@@ -9,7 +9,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOEIC 対策ツール - ライティングトレーニング</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
@@ -32,7 +32,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <button class="icon-button" onclick="selectLevel(800)">800点</button>
                 <button class="icon-button" onclick="selectLevel(900)">900点以上</button>
             </div>
-            <a href="index.html" class="back-to-level-select">トップに戻る</a>
+            <a href="../../index.html" class="back-to-level-select">トップに戻る</a>
         </div>
         <div id="question-count-select" class="card hidden">
              <h2 id="selected-info"></h2>
@@ -47,7 +47,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              <button onclick="showLevelSelect()" class="back-to-level-select">レベル選択に戻る</button>
              </div>
         <div id="quiz" class="card hidden">
-            <a href="index.html" class="quit-quiz-btn">解答を中止する</a>
+            <a href="../../index.html" class="quit-quiz-btn">解答を中止する</a>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
             <h2 id="quiz-title"></h2>
             <div id="question" style="margin: 20px 0;"></div>
@@ -59,18 +59,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              <h2>トレーニング完了！</h2>
              <p id="result-text"></p>
              <button onclick="showLevelSelect()">別のレベルに挑戦</button>
-             <a href="index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
+             <a href="../../index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
         </div>
     </div>
 
     <script> const quizData = { vocabulary: {}, writing: {}, listening: {} }; </script>
-    <script src="quizData_writing_300.js"></script>
-    <script src="quizData_writing_400.js"></script>
-    <script src="quizData_writing_500.js"></script>
-    <script src="quizData_writing_600.js"></script>
-    <script src="quizData_writing_700.js"></script>
-    <script src="quizData_writing_800.js"></script>
-    <script src="quizData_writing_900.js"></script>
+    <script src="../../assets/js/data/quizData_writing_300.js"></script>
+    <script src="../../assets/js/data/quizData_writing_400.js"></script>
+    <script src="../../assets/js/data/quizData_writing_500.js"></script>
+    <script src="../../assets/js/data/quizData_writing_600.js"></script>
+    <script src="../../assets/js/data/quizData_writing_700.js"></script>
+    <script src="../../assets/js/data/quizData_writing_800.js"></script>
+    <script src="../../assets/js/data/quizData_writing_900.js"></script>
     
     <script>
         const currentCategory = 'writing';
