@@ -9,7 +9,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOEIC 対策ツール - ブックマーク</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
@@ -108,8 +108,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (confirmed && bookmarkToDelete !== null) {
         bookmarks[bookmarkToDelete.category].splice(bookmarkToDelete.index, 1);
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-        showBookmarkTab(bookmarkToDelete.category);
         showPopup("ブックマークから削除しました");
+        // Re-render the current tab to reflect the deletion
+        const activeTabButton = document.querySelector('.tab-button.active');
+        const activeCategory = Object.keys({ vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }).find(key => getCategoryName(key) === activeTabButton.textContent);
+        showBookmarkTab(activeCategory || 'vocabulary');
       }
       document.getElementById("confirmation-dialog").classList.add("hidden");
       bookmarkToDelete = null;
