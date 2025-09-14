@@ -3,8 +3,8 @@
 /* キャラクターを表示するキャンバスのスタイル */
 #myCanvas {
     position: fixed; /* 画面に固定 */
-    bottom: 0;
-    right: 0;
+    bottom: -40px; /* 下に40pxずらして、体が少し切れるようにする */
+    right: -80px;  /* 右に80pxずらして、半分くらい隠す */
     width: 300px !important;  /* サイズをpxで指定 */
     height: 300px !important; /* サイズをpxで指定 */
     z-index: 999; /* 他の要素より手前に表示 */
@@ -14,8 +14,8 @@
 /* 吹き出しのスタイル */
 #chatBubble {
     position: fixed; /* 画面に固定 */
-    bottom: 220px; /* キャラクターの上に来るように調整 */
-    right: 50px;   /* キャラクターの上に来るように調整 */
+    bottom: 200px; /* キャラクターに合わせて少し下げる */
+    right: 50px;   /* キャラクターに合わせて少し右にずらす */
     background-color: white;
     padding: 15px 25px;
     border-radius: 25px;
