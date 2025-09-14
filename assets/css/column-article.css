@@ -16,16 +16,17 @@
 /* メイン画像 */
 .article-main-image {
     width: 100%;
-    /* 変更点: 高さを 16:9 (56.25%) から抑え、タイトルが見えるように調整 */
     padding-bottom: 35%;
-    background-size: cover; /* はみ出しを許容し、要素全体を覆う */
-    /* もし文字がどうしても見切れる場合、下の 'contain' を有効にしてください */
-    /* background-size: contain; */ /* こちらを有効にすると画像全体が表示されます */
-    /* background-repeat: no-repeat; */ /* 'contain' を使う場合はこちらも有効に */
+    /* 変更点1: 画像全体が収まるように 'contain' に変更 */
+    background-size: contain;
+    /* 変更点2: 'contain' を使うため、画像の繰り返し表示を無効化 */
+    background-repeat: no-repeat;
     background-position: center;
-    border-radius: 8px; /* 画像も角丸に */
+    border-radius: 8px;
     margin-bottom: 30px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    /* 任意: 左右の余白部分の背景色（コンテナの背景色と合わせる） */
+    background-color: #fff;
 }
 
 .article-header {
@@ -135,7 +136,6 @@
         font-size: 1.6em;
     }
     .article-main-image {
-        /* 変更点: スマートフォンでの高さも少し抑えるように調整 */
         padding-bottom: 45%;
     }
     .article-content h2 {
