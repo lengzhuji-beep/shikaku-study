@@ -473,3 +473,40 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
     padding-left: 27px; /* アイコンの分だけインデント */
     color: #555;
 }
+
+/* ========== column.html用に追加 ========== */
+.sub-tabs {
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.sub-tab-link {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9em;
+  /* ボタンタグのデフォルトスタイルをリセット */
+  margin: 0;
+  font-family: inherit;
+}
+.sub-tab-link:hover {
+  background-color: #e0e0e0;
+}
+.sub-tab-link.active {
+  background-color: #555;
+  color: white;
+  border-color: #555;
+}
+
+/* ========== toeic-overview.html用に追加 ========== */
+.part-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
