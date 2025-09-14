@@ -35,7 +35,7 @@ const loader = new GLTFLoader();
 let model; // モデルデータを格納する変数
 
 loader.load(
-    'assets/models/robot.glb', // 3Dモデルのファイルパス
+    'assets/models/RobotExpressive.glb', // 3Dモデルのファイルパス
     (gltf) => {
         model = gltf.scene;
         model.scale.set(1.5, 1.5, 1.5); // モデルのサイズを調整
