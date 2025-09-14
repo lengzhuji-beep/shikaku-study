@@ -4,7 +4,7 @@
 #myCanvas {
     position: fixed; /* 画面に固定 */
     /* ▼▼▼ 変更点 ▼▼▼ */
-    bottom: 0;     /* 下からの位置を0にして、下半身が見えるように調整 */
+    bottom: 5;     /* 下からの位置を5にして、下半身が見えるように調整 */
     right: -80px;
     width: 300px !important;
     height: 300px !important;
