@@ -8,15 +8,15 @@ const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true,
 });
-// 描画サイズをウィンドウ全体に合わせる（レイアウト崩れを防ぐため）
-renderer.setSize(window.innerWidth, window.innerHeight);
+// 描画サイズをCSSのサイズ(300x300)に固定
+renderer.setSize(300, 300);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.outputEncoding = THREE.sRGBEncoding;
 
 const scene = new THREE.Scene();
 
-// カメラのアスペクト比もウィンドウ全体に合わせる
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+// カメラのアスペクト比も固定
+const camera = new THREE.PerspectiveCamera(45, 300 / 300, 0.1, 1000);
 camera.position.set(0, 0.5, 4);
 
 // --- ライト設定 -------------------------------------------
@@ -93,9 +93,4 @@ function animate() {
 }
 animate();
 
-// --- ウィンドウリサイズ対応（必須） --------------------
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
+// ウィンドウリサイズ対応は不要なため削除
