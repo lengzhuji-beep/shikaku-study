@@ -2,21 +2,22 @@
 
 /* キャラクターを表示するキャンバスのスタイル */
 #myCanvas {
-    position: fixed; /* 画面に固定 */
-    /* ▼▼▼ 変更点 ▼▼▼ */
-    bottom: 5;     /* 下からの位置を5にして、下半身が見えるように調整 */
+    display: block; /* レイアウトへの影響を遮断 */
+    position: fixed;
+    bottom: 5px;    /* 単位(px)を追記 */
     right: -80px;
     width: 300px !important;
     height: 300px !important;
     z-index: 999;
     cursor: pointer;
+    border: none;   /* 意図しない線を削除 */
+    outline: none;  /* 意図しない線を削除 */
 }
 
 /* 吹き出しのスタイル */
 #chatBubble {
-    position: fixed; /* 画面に固定 */
-    /* ▼▼▼ 変更点 ▼▼▼ */
-    bottom: 160px; /* キャラクターに近づけるため、下からの位置を調整 */
+    position: fixed;
+    bottom: 160px;
     right: 50px;
     background-color: white;
     padding: 15px 25px;
@@ -31,7 +32,7 @@
 #chatBubble.hidden {
     opacity: 0;
     transform: translateY(10px);
-    pointer-events: none; /* 非表示中はクリックできないように */
+    pointer-events: none;
 }
 
 #chatBubble p {
