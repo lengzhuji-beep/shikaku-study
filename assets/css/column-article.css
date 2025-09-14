@@ -16,8 +16,12 @@
 /* メイン画像 */
 .article-main-image {
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 のアスペクト比を保つ */
-    background-size: cover;
+    /* 変更点: 高さを 16:9 (56.25%) から抑え、タイトルが見えるように調整 */
+    padding-bottom: 35%;
+    background-size: cover; /* はみ出しを許容し、要素全体を覆う */
+    /* もし文字がどうしても見切れる場合、下の 'contain' を有効にしてください */
+    /* background-size: contain; */ /* こちらを有効にすると画像全体が表示されます */
+    /* background-repeat: no-repeat; */ /* 'contain' を使う場合はこちらも有効に */
     background-position: center;
     border-radius: 8px; /* 画像も角丸に */
     margin-bottom: 30px;
@@ -131,7 +135,8 @@
         font-size: 1.6em;
     }
     .article-main-image {
-        padding-bottom: 56.25%; /* スマートフォンでもアスペクト比を維持 */
+        /* 変更点: スマートフォンでの高さも少し抑えるように調整 */
+        padding-bottom: 45%;
     }
     .article-content h2 {
         font-size: 1.4em;
