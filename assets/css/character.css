@@ -3,26 +3,28 @@
 /* キャラクターを表示するキャンバスのスタイル */
 #myCanvas {
     position: fixed; /* 画面に固定 */
-    bottom: -40px; /* 下に40pxずらして、体が少し切れるようにする */
-    right: -80px;  /* 右に80pxずらして、半分くらい隠す */
-    width: 300px !important;  /* サイズをpxで指定 */
-    height: 300px !important; /* サイズをpxで指定 */
-    z-index: 999; /* 他の要素より手前に表示 */
+    /* ▼▼▼ 変更点 ▼▼▼ */
+    bottom: 0;     /* 下からの位置を0にして、下半身が見えるように調整 */
+    right: -80px;
+    width: 300px !important;
+    height: 300px !important;
+    z-index: 999;
     cursor: pointer;
 }
 
 /* 吹き出しのスタイル */
 #chatBubble {
     position: fixed; /* 画面に固定 */
-    bottom: 200px; /* キャラクターに合わせて少し下げる */
-    right: 50px;   /* キャラクターに合わせて少し右にずらす */
+    /* ▼▼▼ 変更点 ▼▼▼ */
+    bottom: 160px; /* キャラクターに近づけるため、下からの位置を調整 */
+    right: 50px;
     background-color: white;
     padding: 15px 25px;
     border-radius: 25px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     transition: opacity 0.4s ease, transform 0.4s ease;
     opacity: 1;
-    z-index: 1000; /* キャンバスより更に手前 */
+    z-index: 1000;
     max-width: 250px;
 }
 
