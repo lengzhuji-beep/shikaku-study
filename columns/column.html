@@ -91,7 +91,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       { part: 5, imageUrl: 'https://assets.st-note.com/production/uploads/images/213675655/rectangle_large_type_2_7c6adaef35eb56834cbc1304635e861b.png?width=1200', title: '【TOEIC Part5】時間内に全問解く！文法・語彙力を高速化する3つの特訓法📚', snippet: 'この記事では、TOEIC Part5を時間内に解き切るために、あなたの文法・語彙の知識を「使える知識」から「瞬時に引き出せる知識」へと昇華させる、具体的な3つの特訓法を徹底解説します。', noteUrl: '20-part5-grammar-vocab-training.html' },
       { part: 6, imageUrl: 'https://assets.st-note.com/production/uploads/images/213677303/rectangle_large_type_2_41432f1b9418289a518d78e018841fc7.png?width=1200', title: '【TOEIC Part6】 Part5の応用編！文脈を意識する長文穴埋め問題の攻略法📄', snippet: 'Part6を攻略する鍵は、「木を見て森も見る」という視点を持つことです。つまり、空所の前後だけを見るミクロな視点と、文章全体のテーマや流れを捉えるマクロな視点を、柔軟に切り替える能力が求められるのです。', noteUrl: '21-part6-strategy.html' },
       { part: 6, imageUrl: 'https://assets.st-note.com/production/uploads/images/213678031/rectangle_large_type_2_5549d1f32ba9a26725a12cd498f9c7ac.png?width=1200', title: '【TOEIC Part6】文脈の「流れ」を掴む！ミスを激減させる接続詞・副詞の完全マップ🔗', snippet: 'この記事では、Part6でミスを激減させるために不可欠な接続詞・副詞を、その役割（機能）ごとに分類し、それらをヒントに問題を解くための超具体的な方法を3ステップで徹底解説します。', noteUrl: '22-part6-conjunctions-adverbs.html' },
-      { part: 7, imageUrl: 'https://assets.st-note.com/production/uploads/images/213679102/rectangle_large_type_2_8cf7580378a555b9126937609efb66c5.png?width=1200', title: '【TOEIC Part7】時間内に終わらない人必見！設問タイプ別・読解問題の最速攻略法📖', snippet: 'Part7で高得点を取る秘訣は、「全部を精読しない」こと。そして、「設問のタイプ」に応じて、文章の中から答えを効率的に探し出す技術を身につけることです。', noteUrl: '23-part7-time-management.html' }
+      { part: 7, imageUrl: 'https://assets.st-note.com/production/uploads/images/213679102/rectangle_large_type_2_8cf7580378a555b9126937609efb66c5.png?width=1200', title: '【TOEIC Part7】時間内に終わらない人必見！設問タイプ別・読解問題の最速攻略法📖', snippet: 'Part7で高得点を取る秘訣は、「全部を精読しない」こと。そして、「設問のタイプ」に応じて、文章の中から答えを効率的に探し出す技術を身につけることです。', noteUrl: '23-part7-time-management.html' },
+      // ▼▼▼ 新しい記事をここに追加 ▼▼▼
+      { part: 7, imageUrl: 'https://assets.st-note.com/production/uploads/images/213679102/rectangle_large_type_2_8cf7580378a555b9126937609efb66c5.png?width=1200', title: '【TOEIC Part7】「塗り絵」を卒業！ 時間切れを防ぐ鉄壁の時間配分術⏱️', snippet: 'TOEIC Part7で時間切れを確実に防ぐための超具体的な時間配分術を解説。リーディング全体の逆算計画から、緊急時のリカバリー戦略までを3ステップで紹介します。', noteUrl: '24-part7-time-strategy.html' }
     ];
 
     function renderArticles(articleData, gridId) {
@@ -139,20 +141,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const subTabLinks = document.querySelectorAll('.sub-tab-link');
       subTabLinks.forEach(link => link.classList.remove('active'));
       
+      let targetButton;
       if (evt && evt.currentTarget) {
-        evt.currentTarget.classList.add('active');
+        targetButton = evt.currentTarget;
       } else if (partId) {
-        // Direct link case
-        const targetButton = document.querySelector(`.sub-tab-link[data-part='${partId}']`);
-        if (targetButton) {
-            targetButton.classList.add('active');
-        }
+        targetButton = document.querySelector(`.sub-tab-link[data-part='${partId}']`);
+      }
+      if(targetButton) {
+          targetButton.classList.add('active');
       }
     }
 
     window.onload = function() {
       renderArticles(articles, 'article-grid-strategy');
-      filterPart(null, 'all');
+      renderArticles(partSpecificArticles, 'article-grid-part-specific'); // まず全件表示
 
       const params = new URLSearchParams(window.location.search);
       const tab = params.get('tab');
@@ -168,6 +170,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (tab === 'part-specific' && part) {
         const partAsInt = parseInt(part, 10);
         filterPart(null, isNaN(partAsInt) ? part : partAsInt);
+      } else {
+        // デフォルトは「すべて」を選択状態にする
+        filterPart(null, 'all');
       }
     };
   </script>
