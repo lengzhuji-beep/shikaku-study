@@ -38,8 +38,8 @@ loader.load(
     'assets/models/character-j.glb', // 3Dモデルのファイルパス
     (gltf) => {
         model = gltf.scene;
-        model.scale.set(1.5, 1.5, 1.5); // モデルのサイズを調整
-        model.position.y = -1; // モデルのY軸位置を調整
+        model.scale.set(0.8, 0.8, 0.8); // 全体を80%に縮小
+        model.position.y = -1.2;      // 少し下に配置
         scene.add(model); // シーンにモデルを追加
     },
 );
