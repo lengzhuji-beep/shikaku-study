@@ -1,0 +1,54 @@
+/* ========== 3Dキャラクター専用スタイル ========== */
+
+/* キャラクターを表示するキャンバスのスタイル */
+#myCanvas {
+    position: fixed; /* 画面に固定 */
+    bottom: 0;
+    right: 0;
+    width: 300px !important;  /* サイズをpxで指定 */
+    height: 300px !important; /* サイズをpxで指定 */
+    z-index: 999; /* 他の要素より手前に表示 */
+    cursor: pointer;
+}
+
+/* 吹き出しのスタイル */
+#chatBubble {
+    position: fixed; /* 画面に固定 */
+    bottom: 220px; /* キャラクターの上に来るように調整 */
+    right: 50px;   /* キャラクターの上に来るように調整 */
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 1;
+    z-index: 1000; /* キャンバスより更に手前 */
+    max-width: 250px;
+}
+
+#chatBubble.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none; /* 非表示中はクリックできないように */
+}
+
+#chatBubble p {
+    margin: 0;
+    font-family: sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+/* スマートフォン用の調整 */
+@media (max-width: 600px) {
+    #myCanvas {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    #chatBubble {
+        bottom: 150px;
+        right: 10px;
+        max-width: 200px;
+        padding: 10px 15px;
+    }
+}
