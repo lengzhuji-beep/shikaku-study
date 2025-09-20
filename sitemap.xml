@@ -5,82 +5,110 @@
 <url>
   <loc>https://shikaku-taisaku.com/</loc>
   <priority>1.0</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
   <loc>https://shikaku-taisaku.com/index.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
   <loc>https://shikaku-taisaku.com/toeic-overview.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/column.html</loc>
+  <loc>https://shikaku-taisaku.com/columns/column.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
   <loc>https://shikaku-taisaku.com/other-exams.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
   <loc>https://shikaku-taisaku.com/bookmark.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
   <loc>https://shikaku-taisaku.com/result.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/vocabulary-test.html</loc>
+  <loc>https://shikaku-taisaku.com/study/vocabulary/test.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/vocabulary-training.html</loc>
+  <loc>https://shikaku-taisaku.com/study/vocabulary/training.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/vocabulary-bookmark.html</loc>
+  <loc>https://shikaku-taisaku.com/study/vocabulary/bookmark.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/writing-test.html</loc>
+  <loc>https://shikaku-taisaku.com/study/writing/test.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/writing-training.html</loc>
+  <loc>https://shikaku-taisaku.com/study/writing/training.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/writing-bookmark.html</loc>
+  <loc>https://shikaku-taisaku.com/study/writing/bookmark.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/listening-test.html</loc>
+  <loc>https://shikaku-taisaku.com/study/listening/test.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/listening-training.html</loc>
+  <loc>https://shikaku-taisaku.com/study/listening/training.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
 </url>
 <url>
-  <loc>https://shikaku-taisaku.com/listening-bookmark.html</loc>
+  <loc>https://shikaku-taisaku.com/study/listening/bookmark.html</loc>
   <priority>0.8</priority>
-  <lastmod>2025-09-10T16:07:46+09:00</lastmod>
+  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/columns/column.html?tab=part-specific&amp;part=1</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/columns/column.html?tab=part-specific&amp;part=2</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/columns/column.html?tab=part-specific&amp;part=3</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/columns/column.html?tab=part-specific&amp;part=4</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/columns/column.html?tab=part-specific&amp;part=5</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/columns/column.html?tab=part-specific&amp;part=6</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shikaku-taisaku.com/columns/column.html?tab=part-specific&amp;part=7</loc>
+  <priority>0.7</priority>
 </url>
 
 </urlset>
