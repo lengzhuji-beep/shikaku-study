@@ -59,13 +59,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div id="skill-up" class="tab-content-item">
-      <p>現在、このカテゴリの記事はありません。</p>
+      <div id="article-grid-skill-up" class="article-grid"></div>
     </div>
 
   </div>
 
   <script>
-    // ▼▼▼ 全ての画像パスの拡張子を.pngに修正 ▼▼▼
     const articles = [
       { imageUrl: '../assets/images/columns/01.png', title: '【勉強法・全体戦略】🔰初心者必見！TOEIC初受験！何から始めるべきか完全ロードマップ', snippet: '「TOEICが必要だけど、何から手をつければ…？」 「とりあえず申し込んだけど、正直途方に暮れている…」そんなあなたのための「最初の地図」となる、TOEIC初受験の完全ロードマップです！', noteUrl: '01-first-toeic-roadmap.html' },
       { imageUrl: '../assets/images/columns/02.png', title: '【勉強法・全体戦略】社会人が3ヶ月でTOEICスコアを200点アップ⤴させた学習計画のすべて', snippet: '「仕事が忙しくて、勉強時間なんて取れない…」 「3ヶ月で200点アップなんて、本当に可能なの？」毎日仕事に追われる中で、そう感じてしまうのは当然です。しかし、正しい戦略と計画があれば、3ヶ月という期間は、あなたのTOEICスコアを劇的に変えるのに十分な時間です。', noteUrl: '02-3months-200up-plan.html' },
@@ -94,6 +93,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       { part: 6, imageUrl: '../assets/images/columns/22.png', title: '【TOEIC Part6】文脈の「流れ」を掴む！ミスを激減させる接続詞・副詞の完全マップ🔗', snippet: 'この記事では、Part6でミスを激減させるために不可欠な接続詞・副詞を、その役割（機能）ごとに分類し、それらをヒントに問題を解くための超具体的な方法を3ステップで徹底解説します。', noteUrl: '22-part6-conjunctions-adverbs.html' },
       { part: 7, imageUrl: '../assets/images/columns/23.png', title: '【TOEIC Part7】時間内に終わらない人必見！設問タイプ別・読解問題の最速攻略法📖', snippet: 'Part7で高得点を取る秘訣は、「全部を精読しない」こと。そして、「設問のタイプ」に応じて、文章の中から答えを効率的に探し出す技術を身につけることです。', noteUrl: '23-part7-time-management.html' },
       { part: 7, imageUrl: '../assets/images/columns/24.png', title: '【TOEIC Part7】「塗り絵」を卒業！ 時間切れを防ぐ鉄壁の時間配分術⏱️', snippet: 'TOEIC Part7で時間切れを確実に防ぐための超具体的な時間配分術を解説。リーディング全体の逆算計画から、緊急時のリカバリー戦略までを3ステップで紹介します。', noteUrl: '24-part7-time-strategy.html' }
+    ];
+
+    const skillUpArticles = [
+      { imageUrl: '../assets/images/columns/25.png', title: '【英語力底上げ】TOEICスコアアップに繋がる！洋楽で英語を学ぶ効果的な方法とおすすめ曲', snippet: '「勉強が続かない…」そんな悩みを持つあなたへ。好きな洋楽を使って、楽しみながらリスニング力と語彙力を自然に鍛える方法を伝授。具体的な学習ステップとレベル別おすすめ曲も紹介します。', noteUrl: '25-yougaku-learning-strategy.html' }
     ];
 
     function renderArticles(articleData, gridId) {
@@ -154,6 +157,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     window.onload = function() {
       renderArticles(articles, 'article-grid-strategy');
+      renderArticles(skillUpArticles, 'article-grid-skill-up');
       
       const params = new URLSearchParams(window.location.search);
       const tab = params.get('tab');
