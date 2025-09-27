@@ -95,52 +95,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const currentMode = 'test';
         let currentLevel, currentQuestions, currentQuestion, bookmarks;
         let speechRate = 1;
+        
+        // ▼▼▼ 修正点: 音声関連の変数をここに集約 ▼▼▼
         let maleVoice = null;
         let femaleVoice = null;
         let selectedVoice = null;
+
+        // ▼▼▼ 修正点: 音声リストを読み込み、男性・女性の声をより確実に探し出す関数 ▼▼▼
         function loadVoices() {
-            const voices = window.speechSynthesis.getVoices().filter(v => v.lang === 'en-US');
-            if (voices.length === 0) return;
-            femaleVoice = voices.find(v => /female|zira|samantha|victoria/i.test(v.name)) || voices[0];
-            maleVoice = voices.find(v => /male|david|mark|alex/i.test(v.name)) || voices.find(v => v.name !== femaleVoice.name);
-            selectedVoice = femaleVoice;
-            if (femaleVoice) {
-                document.getElementById('voice-female').disabled = false;
-                document.getElementById('voice-female').classList.add('selected');
+            // 'en-US' だけでなく 'en-GB' など英語全般を対象にする
+            const voices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'));
+            if (voices.length === 0) {
+                console.warn("利用可能な英語の音声が見つかりません。");
+                return;
             }
-            if (maleVoice && maleVoice !== femaleVoice) {
-                document.getElementById('voice-male').disabled = false;
+
+            // 一般的な女性の声の名前で検索し、見つからなければリストの最初の声を割り当てる
+            femaleVoice = voices.find(v => /female|zira|samantha|victoria/i.test(v.name)) || voices[0];
+            
+            // 一般的な男性の声の名前で検索
+            maleVoice = voices.find(v => /male|david|mark|alex/i.test(v.name));
+
+            // もし男性の声が見つからない、または女性の声と同じだった場合、
+            // 女性の声以外から別の声を探して割り当てる（fallback処理）
+            if (!maleVoice || maleVoice === femaleVoice) {
+                maleVoice = voices.find(v => v !== femaleVoice);
+            }
+
+            // 初期選択は女性の声に設定
+            selectedVoice = femaleVoice;
+            const femaleBtn = document.getElementById('voice-female');
+            const maleBtn = document.getElementById('voice-male');
+            
+            if (femaleVoice) {
+                femaleBtn.disabled = false;
+                femaleBtn.classList.add('selected');
+            }
+            // ちゃんと男性の声（女性とは別の声）が見つかった場合のみ、男性ボタンを有効化
+            if (maleVoice) {
+                maleBtn.disabled = false;
             }
         }
+        
+        // ▼▼▼ 修正点: 声を選択する際のロジックを明確化 ▼▼▼
+        function selectVoice(gender) {
+            const femaleBtn = document.getElementById('voice-female');
+            const maleBtn = document.getElementById('voice-male');
+
+            if (gender === 'female' && femaleVoice) {
+                selectedVoice = femaleVoice;
+                femaleBtn.classList.add('selected');
+                if (maleVoice) maleBtn.classList.remove('selected');
+            } else if (gender === 'male' && maleVoice) {
+                selectedVoice = maleVoice;
+                maleBtn.classList.add('selected');
+                if (femaleVoice) femaleBtn.classList.remove('selected');
+            }
+        }
+        
+        function initializeApp() {
+            bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
+            showLevelSelect();
+
+            // ▼▼▼ 修正点: voiceschangedイベントを使って、音声リストの読み込み完了を待つ ▼▼▼
+            if (speechSynthesis.onvoiceschanged !== undefined) {
+                speechSynthesis.onvoiceschanged = loadVoices;
+            }
+            // 既に読み込み済みの場合のために一度呼び出す
+            loadVoices();
+        }
+        
         function setSpeechRate(rate) {
             speechRate = rate;
             document.querySelectorAll('.rate-controls button').forEach(btn => btn.classList.remove('selected'));
             document.getElementById(`rate-${rate}`).classList.add('selected');
         }
-        function selectVoice(gender) {
-            const femaleBtn = document.getElementById('voice-female');
-            const maleBtn = document.getElementById('voice-male');
-            if (gender === 'female' && femaleVoice) {
-                selectedVoice = femaleVoice;
-                femaleBtn.classList.add('selected');
-                maleBtn.classList.remove('selected');
-            } else if (gender === 'male' && maleVoice) {
-                selectedVoice = maleVoice;
-                maleBtn.classList.add('selected');
-                femaleBtn.classList.remove('selected');
-            }
-        }
-        function initializeApp() {
-            bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
-            showLevelSelect();
-            if (speechSynthesis.onvoiceschanged !== undefined) {
-                speechSynthesis.onvoiceschanged = loadVoices;
-            }
-            loadVoices();
-        }
+        
         function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
         function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
-        function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
+        function hideAllSections() { 
+            ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); 
+            window.speechSynthesis.cancel();
+        }
         function showLevelSelect() { 
             hideAllSections(); 
             document.getElementById("level-select").classList.remove("hidden"); 
@@ -173,16 +209,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
             return shuffled;
         }
+        
+        // ▼▼▼ 修正点: speakText関数が、グローバル変数`selectedVoice`を正しく使うように確認 ▼▼▼
         function speakText(text) {
             window.speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'en-US';
             utterance.rate = speechRate;
+            
+            // 選択された声(selectedVoice)があれば、それを設定する
             if (selectedVoice) {
                 utterance.voice = selectedVoice;
+            } else {
+                console.warn("選択された音声がありません。デフォルトの音声で再生します。")
             }
             window.speechSynthesis.speak(utterance);
         }
+
         function toggleSentence() {
             const sentenceContainer = document.getElementById('sentence-container');
             const toggleBtn = document.getElementById('toggle-sentence-btn');
