@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>運営者プロフィール | 資格対策ドットコム</title>
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="favicon.png">
-<meta name="description" content="資格対策ドットコム運営者のプロフィールです。TOEIC990点満点講師が、自身の経験に基づいた効率的な学習法について発信しています。">
+<meta name="description" content="資格対策ドットコム運営者のプロフィールです。多様な資格を持つ運営者が、自身の経験に基づいた効率的な学習法について発信しています。">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -33,10 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 150px;
         height: 150px;
         border-radius: 50%;
-        /* ▼▼▼ 画像の表示方法を修正 ▼▼▼ */
-        object-fit: contain; /* 画像の比率を保ったまま枠内に収める */
-        background-color: #007bff; /* 画像の背景色と合わせることで隙間を埋める */
-        /* ▲▲▲ ここまで ▲▲▲ */
+        object-fit: cover;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .profile-intro h2 {
@@ -69,6 +66,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .skills-list {
         list-style: none;
         padding: 0;
+        column-count: 2; /* 2カラム表示 */
+        column-gap: 20px;
     }
     .skills-list li {
         display: flex;
@@ -76,9 +75,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         gap: 10px;
         margin-bottom: 10px;
         font-size: 1.1em;
+        break-inside: avoid; /* カラムの途中で改ページされるのを防ぐ */
     }
     .skills-list .fas {
         color: #4a90e2;
+    }
+    /* スマートフォン用のスタイル */
+    @media (max-width: 600px) {
+        .skills-list {
+            column-count: 1; /* 1カラムに戻す */
+        }
     }
 </style>
 </head>
@@ -106,7 +112,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <img src="assets/images/profile.png" alt="プロフィール写真" class="profile-image">
             <div class="profile-intro">
                 <h2>山田 賢治 (Kenji Yamada)</h2>
-                <p>TOEIC 990点満点講師 / 英語学習コンサルタント</p>
+                <p>資格学習コンサルタント / サイト運営者</p>
             </div>
         </div>
 
@@ -115,25 +121,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 ご訪問いただき、ありがとうございます。当サイト「資格対策ドットコム」を運営している山田賢治です。
             </p>
             <p>
-                学生時代に独学で英語学習を開始し、数々の失敗と試行錯誤を繰り返しながら、TOEIC L&Rテストで990点満点を取得しました。外資系企業での勤務を経て、現在は英語学習コンサルタントとして、延べ500名以上の学習者様をサポートしています。
+                私自身、社会人として働きながら、語学から金融、不動産まで、分野の異なる様々な資格取得に挑戦してきました。限られた時間の中で効率的に結果を出すために数々の失敗と試行錯誤を繰り返した経験と、以前運営していた個別指導塾での指導経験を活かし、実践的な学習ツールと情報を提供しています。
             </p>
             <p>
-                このサイトでは、「最短ルートで、楽しく、着実に」をモットーに、私自身が実践して効果があった学習法や、スコアアップに直結する知識を無料で発信しています。一人でも多くの方が、英語を通じて目標を達成し、世界を広げるお手伝いができれば幸いです。
+                このサイトでは、そうした実体験から得た「分野を問わず通用する効率的な学習法」や、各資格の合格に直結する知識を無料で発信しています。一人でも多くの方が、資格取得を通じてキャリアアップや自己実現を果たすお手伝いができれば幸いです。
             </p>
         </div>
 
-        <h2 class="profile-section-title"><i class="fas fa-award"></i> 実績・資格</h2>
+        <h2 class="profile-section-title"><i class="fas fa-award"></i> 保有資格・経歴</h2>
         <ul class="skills-list">
-            <li><i class="fas fa-check-circle"></i> TOEIC L&R Test 990点（満点）</li>
-            <li><i class="fas fa-check-circle"></i> 実用英語技能検定（英検）1級</li>
-            <li><i class="fas fa-check-circle"></i> 全国通訳案内士（国家資格）</li>
-            <li><i class="fas fa-check-circle"></i> オンライン指導実績 500名以上</li>
+            <li><i class="fas fa-check-circle"></i> ファイナンシャルプランナー１級</li>
+            <li><i class="fas fa-check-circle"></i> 宅地建物取引士</li>
+            <li><i class="fas fa-check-circle"></i> TOEIC L&R Test 970点</li>
+            <li><i class="fas fa-check-circle"></i> 日商簿記2級</li>
+            <li><i class="fas fa-check-circle"></i> 証券外務員1種</li>
+            <li><i class="fas fa-check-circle"></i> 色彩検定2級</li>
+            <li><i class="fas fa-check-circle"></i> 個別指導塾の運営経験</li>
         </ul>
         
         <h2 class="profile-section-title"><i class="fas fa-heart"></i> メッセージ</h2>
         <div class="profile-body">
             <p>
-                英語学習は、時に孤独で、険しい道のりに感じるかもしれません。しかし、正しい努力を続ければ、必ず結果はついてきます。このサイトが、あなたの学習の伴走者となれることを心から願っています。一緒に頑張りましょう！
+                資格学習は、時に孤独で、険しい道のりに感じるかもしれません。しかし、正しい学習戦略で努力を続ければ、必ず結果はついてきます。このサイトが、あなたの学習の伴走者となれることを心から願っています。一緒に頑張りましょう！
             </p>
         </div>
     </div>
