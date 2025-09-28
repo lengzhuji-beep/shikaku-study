@@ -33,7 +33,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 150px;
         height: 150px;
         border-radius: 50%;
-        object-fit: cover;
+        /* ▼▼▼ 画像の表示方法を修正 ▼▼▼ */
+        object-fit: contain; /* 画像の比率を保ったまま枠内に収める */
+        background-color: #007bff; /* 画像の背景色と合わせることで隙間を埋める */
+        /* ▲▲▲ ここまで ▲▲▲ */
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .profile-intro h2 {
