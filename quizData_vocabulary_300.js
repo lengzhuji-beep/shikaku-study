@@ -1,0 +1,22 @@
+quizData.vocabulary[300] = [
+  {"q": "schedule", "choices": ["支払い", "手伝う／助ける", "従業員", "予定（を組む）"], "answer": "予定（を組む）", "explanation": "'schedule' は『予定（を組む）』を意味します。"},
+  {"q": "meeting", "choices": ["確認する", "Eメール", "会議", "電話する／電話"], "answer": "会議", "explanation": "'meeting' は『会議』を意味します。"},
+  {"q": "office", "choices": ["支払い", "予定（を組む）", "オフィス／事務所", "時間"], "answer": "オフィス／事務所", "explanation": "'office' は『オフィス／事務所』を意味します。"},
+  {"q": "employee", "choices": ["従業員", "支払い", "利用できる／空いている", "報告書"], "answer": "従業員", "explanation": "'employee' は『従業員』を意味します。"},
+  {"q": "customer", "choices": ["配達する", "開く／営業している", "顧客", "確認する"], "answer": "顧客", "explanation": "'customer' は『顧客』を意味します。"},
+  {"q": "email", "choices": ["Eメール", "電話する／電話", "予定（を組む）", "配達する"], "answer": "Eメール", "explanation": "'email' は『Eメール』を意味します。"},
+  {"q": "call", "choices": ["電話する／電話", "配達する", "Eメール", "開く／営業している"], "answer": "電話する／電話", "explanation": "'call' は『電話する／電話』を意味します。"},
+  {"q": "price", "choices": ["オフィス／事務所", "時間", "Eメール", "価格"], "answer": "価格", "explanation": "'price' は『価格』を意味します。"},
+  {"q": "order", "choices": ["注文／注文する", "手伝う／助ける", "電話する／電話", "日付"], "answer": "注文／注文する", "explanation": "'order' は『注文／注文する』を意味します。"},
+  {"q": "deliver", "choices": ["配達する", "電話する／電話", "予定（を組む）", "手伝う／助ける"], "answer": "配達する", "explanation": "'deliver' は『配達する』を意味します。"},
+  {"q": "open", "choices": ["日付", "従業員", "開く／営業している", "時間"], "answer": "開く／営業している", "explanation": "'open' は『開く／営業している』を意味します。"},
+  {"q": "close", "choices": ["利用できる／空いている", "報告書", "閉める／終了する", "会議"], "answer": "閉める／終了する", "explanation": "'close' は『閉める／終了する』を意味します。"},
+  {"q": "help", "choices": ["利用できる／空いている", "オフィス／事務所", "手伝う／助ける", "会議"], "answer": "手伝う／助ける", "explanation": "'help' は『手伝う／助ける』を意味します。"},
+  {"q": "confirm", "choices": ["価格", "注文／注文する", "確認する", "Eメール"], "answer": "確認する", "explanation": "'confirm' は『確認する』を意味します。"},
+  {"q": "available", "choices": ["注文／注文する", "Eメール", "利用できる／空いている", "開く／営業している"], "answer": "利用できる／空いている", "explanation": "'available' は『利用できる／空いている』を意味します。"},
+  {"q": "location", "choices": ["従業員", "配達する", "閉める／終了する", "場所"], "answer": "場所", "explanation": "'location' は『場所』を意味します。"},
+  {"q": "time", "choices": ["時間", "確認する", "閉める／終了する", "Eメール"], "answer": "時間", "explanation": "'time' は『時間』を意味します。"},
+  {"q": "date", "choices": ["日付", "閉める／終了する", "顧客", "Eメール"], "answer": "日付", "explanation": "'date' は『日付』を意味します。"},
+  {"q": "report", "choices": ["注文／注文する", "報告書", "予定（を組む）", "利用できる／空いている"], "answer": "報告書", "explanation": "'report' は『報告書』を意味します。"},
+  {"q": "payment", "choices": ["日付", "会議", "従業員", "支払い"], "answer": "支払い", "explanation": "'payment' は『支払い』を意味します。"}
+];

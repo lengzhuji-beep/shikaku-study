@@ -1,0 +1,22 @@
+quizData.vocabulary[900] = [
+  {"q": "precedent", "choices": ["前例", "修正する", "統合する", "堅牢な"], "answer": "前例", "explanation": "'precedent' は『前例』を意味します。"},
+  {"q": "scrutinize", "choices": ["精査する", "監督する", "前例", "不一致"], "answer": "精査する", "explanation": "'scrutinize' は『精査する』を意味します。"},
+  {"q": "rectify", "choices": ["修正する", "ごくわずかな", "是正する", "支持する／承認する"], "answer": "是正する", "explanation": "'rectify' は『是正する』を意味します。"},
+  {"q": "mitigate", "choices": ["軽減する", "ごくわずかな", "実行可能な／成り立つ", "関連する"], "answer": "軽減する", "explanation": "'mitigate' は『軽減する』を意味します。"},
+  {"q": "obsolete", "choices": ["前提条件", "旧式の", "関連する", "ごくわずかな"], "answer": "旧式の", "explanation": "'obsolete' は『旧式の』を意味します。"},
+  {"q": "viable", "choices": ["是正する", "前例", "精査する", "実行可能な／成り立つ"], "answer": "実行可能な／成り立つ", "explanation": "'viable' は『実行可能な／成り立つ』を意味します。"},
+  {"q": "discrepancy", "choices": ["堅牢な", "監督する", "不一致", "免除する"], "answer": "不一致", "explanation": "'discrepancy' は『不一致』を意味します。"},
+  {"q": "consolidate", "choices": ["実行可能な／成り立つ", "関連する", "統合する", "仮の"], "answer": "統合する", "explanation": "'consolidate' は『統合する』を意味します。"},
+  {"q": "exempt", "choices": ["精査する", "前例", "仮の", "免除する"], "answer": "免除する", "explanation": "'exempt' は『免除する』を意味します。"},
+  {"q": "impartial", "choices": ["前例", "公平な", "軽減する", "統合する"], "answer": "公平な", "explanation": "'impartial' は『公平な』を意味します。"},
+  {"q": "prerequisite", "choices": ["堅牢な", "是正する", "前提条件", "修正する"], "answer": "前提条件", "explanation": "'prerequisite' は『前提条件』を意味します。"},
+  {"q": "subsequent", "choices": ["その後の", "修正する", "堅牢な", "関連する"], "answer": "その後の", "explanation": "'subsequent' は『その後の』を意味します。"},
+  {"q": "tentative", "choices": ["堅牢な", "統合する", "仮の", "ごくわずかな"], "answer": "仮の", "explanation": "'tentative' は『仮の』を意味します。"},
+  {"q": "negligible", "choices": ["実行可能な／成り立つ", "旧式の", "ごくわずかな", "施行する"], "answer": "ごくわずかな", "explanation": "'negligible' は『ごくわずかな』を意味します。"},
+  {"q": "robust", "choices": ["旧式の", "実行可能な／成り立つ", "堅牢な", "支持する／承認する"], "answer": "堅牢な", "explanation": "'robust' は『堅牢な』を意味します。"},
+  {"q": "endorse", "choices": ["統合する", "前例", "堅牢な", "支持する／承認する"], "answer": "支持する／承認する", "explanation": "'endorse' は『支持する／承認する』を意味します。"},
+  {"q": "amend", "choices": ["前例", "修正する", "ごくわずかな", "仮の"], "answer": "修正する", "explanation": "'amend' は『修正する』を意味します。"},
+  {"q": "enforce", "choices": ["前例", "監督する", "その後の", "施行する"], "answer": "施行する", "explanation": "'enforce' は『施行する』を意味します。"},
+  {"q": "oversee", "choices": ["関連する", "統合する", "監督する", "修正する"], "answer": "監督する", "explanation": "'oversee' は『監督する』を意味します。"},
+  {"q": "pertinent", "choices": ["前提条件", "堅牢な", "関連する", "軽減する"], "answer": "関連する", "explanation": "'pertinent' は『関連する』を意味します。"}
+];

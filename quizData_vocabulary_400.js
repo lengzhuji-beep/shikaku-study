@@ -1,0 +1,22 @@
+quizData.vocabulary[400] = [
+  {"q": "reservation", "choices": ["約束（面談）", "準備する", "予約", "更新／更新する"], "answer": "予約", "explanation": "'reservation' は『予約』を意味します。"},
+  {"q": "receipt", "choices": ["割引", "キャンセルする", "減少する／減少", "領収書"], "answer": "領収書", "explanation": "'receipt' は『領収書』を意味します。"},
+  {"q": "invoice", "choices": ["変更する", "準備する", "請求書", "予約"], "answer": "請求書", "explanation": "'invoice' は『請求書』を意味します。"},
+  {"q": "deadline", "choices": ["締め切り", "完了する", "割引", "キャンセルする"], "answer": "締め切り", "explanation": "'deadline' は『締め切り』を意味します。"},
+  {"q": "appointment", "choices": ["締め切り", "キャンセルする", "部署", "約束（面談）"], "answer": "約束（面談）", "explanation": "'appointment' は『約束（面談）』を意味します。"},
+  {"q": "request", "choices": ["送る", "管理職／マネージャー", "部署", "依頼／依頼する"], "answer": "依頼／依頼する", "explanation": "'request' は『依頼／依頼する』を意味します。"},
+  {"q": "cancel", "choices": ["キャンセルする", "解決策", "締め切り", "完了する"], "answer": "キャンセルする", "explanation": "'cancel' は『キャンセルする』を意味します。"},
+  {"q": "change", "choices": ["増加する／増加", "締め切り", "送る", "変更する"], "answer": "変更する", "explanation": "'change' は『変更する』を意味します。"},
+  {"q": "send", "choices": ["完了する", "領収書", "依頼／依頼する", "送る"], "answer": "送る", "explanation": "'send' は『送る』を意味します。"},
+  {"q": "receive", "choices": ["領収書", "約束（面談）", "依頼／依頼する", "受け取る"], "answer": "受け取る", "explanation": "'receive' は『受け取る』を意味します。"},
+  {"q": "department", "choices": ["問題", "準備する", "部署", "減少する／減少"], "answer": "部署", "explanation": "'department' は『部署』を意味します。"},
+  {"q": "manager", "choices": ["部署", "準備する", "管理職／マネージャー", "更新／更新する"], "answer": "管理職／マネージャー", "explanation": "'manager' は『管理職／マネージャー』を意味します。"},
+  {"q": "update", "choices": ["約束（面談）", "受け取る", "更新／更新する", "依頼／依頼する"], "answer": "更新／更新する", "explanation": "'update' は『更新／更新する』を意味します。"},
+  {"q": "problem", "choices": ["変更する", "送る", "問題", "請求書"], "answer": "問題", "explanation": "'problem' は『問題』を意味します。"},
+  {"q": "solution", "choices": ["請求書", "問題", "変更する", "解決策"], "answer": "解決策", "explanation": "'solution' は『解決策』を意味します。"},
+  {"q": "discount", "choices": ["割引", "部署", "領収書", "完了する"], "answer": "割引", "explanation": "'discount' は『割引』を意味します。"},
+  {"q": "increase", "choices": ["割引", "予約", "増加する／増加", "約束（面談）"], "answer": "増加する／増加", "explanation": "'increase' は『増加する／増加』を意味します。"},
+  {"q": "decrease", "choices": ["変更する", "管理職／マネージャー", "減少する／減少", "増加する／増加"], "answer": "減少する／減少", "explanation": "'decrease' は『減少する／減少』を意味します。"},
+  {"q": "prepare", "choices": ["更新／更新する", "請求書", "準備する", "受け取る"], "answer": "準備する", "explanation": "'prepare' は『準備する』を意味します。"},
+  {"q": "complete", "choices": ["変更する", "約束（面談）", "受け取る", "完了する"], "answer": "完了する", "explanation": "'complete' は『完了する』を意味します。"}
+];

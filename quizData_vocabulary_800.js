@@ -1,0 +1,22 @@
+quizData.vocabulary[800] = [
+  {"q": "feasible", "choices": ["利害関係者", "実現可能な", "再編する", "認証する"], "answer": "実現可能な", "explanation": "'feasible' は『実現可能な』を意味します。"},
+  {"q": "consecutive", "choices": ["実現可能な", "活用する", "連続した", "招集する"], "answer": "連続した", "explanation": "'consecutive' は『連続した』を意味します。"},
+  {"q": "substantial", "choices": ["仕様", "順守（名詞）", "責任（法的）", "かなりの"], "answer": "かなりの", "explanation": "'substantial' は『かなりの』を意味します。"},
+  {"q": "clarify", "choices": ["招集する", "認証する", "明確にする", "不測の事態"], "answer": "明確にする", "explanation": "'clarify' は『明確にする』を意味します。"},
+  {"q": "expedite", "choices": ["招集する", "迅速化する", "不測の事態", "調達"], "answer": "迅速化する", "explanation": "'expedite' は『迅速化する』を意味します。"},
+  {"q": "specification", "choices": ["不測の事態", "連続した", "仕様", "利害関係者"], "answer": "仕様", "explanation": "'specification' は『仕様』を意味します。"},
+  {"q": "authenticate", "choices": ["包括的な", "認証する", "最適化する", "活用する"], "answer": "認証する", "explanation": "'authenticate' は『認証する』を意味します。"},
+  {"q": "liability", "choices": ["認証する", "活用する", "調達", "責任（法的）"], "answer": "責任（法的）", "explanation": "'liability' は『責任（法的）』を意味します。"},
+  {"q": "compensation", "choices": ["利害関係者", "包括的な", "補償", "認証する"], "answer": "補償", "explanation": "'compensation' は『補償』を意味します。"},
+  {"q": "comprehensive", "choices": ["明確にする", "包括的な", "活用する", "再編する"], "answer": "包括的な", "explanation": "'comprehensive' は『包括的な』を意味します。"},
+  {"q": "stakeholder", "choices": ["利害関係者", "最適化する", "順守（名詞）", "包括的な"], "answer": "利害関係者", "explanation": "'stakeholder' は『利害関係者』を意味します。"},
+  {"q": "procurement", "choices": ["責任（法的）", "調達", "不測の事態", "順守（名詞）"], "answer": "調達", "explanation": "'procurement' は『調達』を意味します。"},
+  {"q": "contingency", "choices": ["不測の事態", "利害関係者", "順守（名詞）", "責任（法的）"], "answer": "不測の事態", "explanation": "'contingency' は『不測の事態』を意味します。"},
+  {"q": "optimize", "choices": ["仕様", "補償", "認証する", "最適化する"], "answer": "最適化する", "explanation": "'optimize' は『最適化する』を意味します。"},
+  {"q": "restructure", "choices": ["補助金", "不測の事態", "再編する", "連続した"], "answer": "再編する", "explanation": "'restructure' は『再編する』を意味します。"},
+  {"q": "retain", "choices": ["招集する", "調達", "保持する／引き留める", "認証する"], "answer": "保持する／引き留める", "explanation": "'retain' は『保持する／引き留める』を意味します。"},
+  {"q": "convene", "choices": ["招集する", "補助金", "かなりの", "認証する"], "answer": "招集する", "explanation": "'convene' は『招集する』を意味します。"},
+  {"q": "utilize", "choices": ["責任（法的）", "活用する", "調達", "迅速化する"], "answer": "活用する", "explanation": "'utilize' は『活用する』を意味します。"},
+  {"q": "subsidy", "choices": ["再編する", "不測の事態", "補償", "補助金"], "answer": "補助金", "explanation": "'subsidy' は『補助金』を意味します。"},
+  {"q": "compliance", "choices": ["保持する／引き留める", "明確にする", "順守（名詞）", "認証する"], "answer": "順守（名詞）", "explanation": "'compliance' は『順守（名詞）』を意味します。"}
+];
