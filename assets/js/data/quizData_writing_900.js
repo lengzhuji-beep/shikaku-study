@@ -1,72 +1,17 @@
 quizData.writing[900] = [
-  {
-    q: "The new CEO's ____ approach to management significantly improved employee morale.",
-    choices: ["benevolent", "malevolent", "insolent", "turbulent"],
-    answer: "benevolent",
-    translation: "新しいCEOの慈悲深い経営アプローチは、従業員の士気を著しく向上させました。",
-    explanation: "従業員の士気を向上させたことから、「慈悲深い」「情け深い」という意味の形容詞 'benevolent' が最も適切です。"
-  },
-  {
-    q: "____ the risk of a market downturn, the company decided to diversify its investments.",
-    choices: ["To mitigate", "To exacerbate", "To stipulate", "To consolidate"],
-    answer: "To mitigate",
-    translation: "市場後退のリスクを軽減するため、その会社は投資を多様化することに決めました。",
-    explanation: "リスクを「軽減する」「和らげる」という意味の動詞 'mitigate' が文脈に合います。'To' 不定詞で目的を表しています。"
-  },
-  {
-    q: "The lawyer was asked to ____ the witness's statement.",
-    choices: ["corroborate", "collaborate", "contemplate", "consecrate"],
-    answer: "corroborate",
-    translation: "その弁護士は、証人の証言を裏付けるよう求められました。",
-    explanation: "証拠などによって証言などを「裏付ける」「確証する」という意味の動詞 'corroborate' が正解です。"
-  },
-  {
-    q: "The data shows a ____ between employee satisfaction and productivity.",
-    choices: ["correlation", "culmination", "corporation", "coordination"],
-    answer: "correlation",
-    translation: "そのデータは、従業員満足度と生産性の間に相関関係があることを示しています。",
-    explanation: "「相関関係」という意味の名詞 'correlation' が文脈に最も適しています。"
-  },
-  {
-    q: "Not only ____ the deadline, but they also delivered a product of exceptional quality.",
-    choices: ["they did meet", "they met", "did they meet", "met they"],
-    answer: "did they meet",
-    translation: "彼らは締め切りに間に合わせただけでなく、並外れた品質の製品を納品しました。",
-    explanation: "文頭が 'Not only' で始まる場合、主語と助動詞の倒置が起こります。そのため 'did they meet' という語順になります。"
-  },
-  {
-    q: "The company's initial success was ____; it soon faced major financial difficulties.",
-    choices: ["ephemeral", "perpetual", "essential", "integral"],
-    answer: "ephemeral",
-    translation: "その会社の初期の成功はつかの間のもので、すぐに大きな財政難に直面しました。",
-    explanation: "後半の文脈から、成功が長続きしなかったことがわかるため、「つかの間の」「はかない」という意味の 'ephemeral' が適切です。"
-  },
-  {
-    q: "The consultant gave a ____ summary of the report, highlighting only the key findings.",
-    choices: ["succinct", "superfluous", "surreptitious", "stringent"],
-    answer: "succinct",
-    translation: "そのコンサルタントは、主要な調査結果のみを強調し、報告書の簡潔な要約をしました。",
-    explanation: "重要な点のみを強調したことから、「簡潔な」という意味の 'succinct' が最も適しています。"
-  },
-  {
-    q: "The politician's ____ speech failed to address the citizens' primary concerns.",
-    choices: ["equivocal", "unequivocal", "equitable", "equilibrium"],
-    answer: "equivocal",
-    translation: "その政治家の曖昧な演説は、市民の主要な懸念に応えることができませんでした。",
-    explanation: "懸念に応えられなかったことから、「曖昧な」「両義にとれる」という意味の 'equivocal' が文脈に合います。"
-  },
-  {
-    q: "The agreement was reached after long and ____ negotiations.",
-    choices: ["perfunctory", "arduous", "frivolous", "precarious"],
-    answer: "arduous",
-    translation: "その合意は、長く骨の折れる交渉の末に成立しました。",
-    explanation: "交渉が長かった(long)ことから、「骨の折れる」「困難な」という意味の 'arduous' が最も適切です。"
-  },
-  {
-    q: "The team had to ____ their strategy when their initial plan failed.",
-    choices: ["reiterate", "reimburse", "recalibrate", "remunerate"],
-    answer: "recalibrate",
-    translation: "最初の計画が失敗したとき、チームは戦略を再調整しなければなりませんでした。",
-    explanation: "計画が失敗した後の行動として、「再調整する」「修正する」という意味の 'recalibrate' が最も文脈に適しています。"
-  }
+  {"q": "The team will ____ the discrepancies in the report.", "choices": ["rectify", "recruit", "recover", "restrict"], "answer": "rectify", "translation": "", "explanation": "是正する rectify。"},
+  {"q": "We must ____ the risk of delays.", "choices": ["mitigate", "motivate", "memorize", "mediate"], "answer": "mitigate", "translation": "", "explanation": "軽減する mitigate。"},
+  {"q": "The manager will ____ the contract before signing.", "choices": ["scrutinize", "summarize", "synchronize", "sanitize"], "answer": "scrutinize", "translation": "", "explanation": "精査する scrutinize。"},
+  {"q": "The plan is ____ unless costs are reduced.", "choices": ["viable", "visible", "vivid", "vital"], "answer": "viable", "translation": "", "explanation": "成り立つ viable。"},
+  {"q": "The policy will be ____ next quarter.", "choices": ["amended", "amounted", "amazed", "aimed"], "answer": "amended", "translation": "", "explanation": "修正される amended。"},
+  {"q": "The new rule sets a ____ for future cases.", "choices": ["precedent", "president", "present", "preference"], "answer": "precedent", "translation": "", "explanation": "前例 precedent。"},
+  {"q": "Some employees are ____ from the requirement.", "choices": ["exempt", "excerpt", "except", "export"], "answer": "exempt", "translation": "", "explanation": "免除される exempt。"},
+  {"q": "The auditor found a significant ____.", "choices": ["discrepancy", "discretion", "description", "discovery"], "answer": "discrepancy", "translation": "", "explanation": "不一致 discrepancy。"},
+  {"q": "The company plans to ____ its regional offices.", "choices": ["consolidate", "consult", "consume", "conclude"], "answer": "consolidate", "translation": "", "explanation": "統合する consolidate。"},
+  {"q": "We need a ____ review process.", "choices": ["robust", "robot", "rubble", "rough"], "answer": "robust", "translation": "", "explanation": "堅牢な robust。"},
+  {"q": "The committee must remain ____.", "choices": ["impartial", "important", "impatient", "impolite"], "answer": "impartial", "translation": "", "explanation": "公平な impartial。"},
+  {"q": "This certification is a ____ for the role.", "choices": ["prerequisite", "preposition", "preference", "premise"], "answer": "prerequisite", "translation": "", "explanation": "前提条件 prerequisite。"},
+  {"q": "The subsequent report was ____ to the decision.", "choices": ["pertinent", "persistent", "personal", "portable"], "answer": "pertinent", "translation": "", "explanation": "関連する pertinent。"},
+  {"q": "The director will ____ the project.", "choices": ["oversee", "oversee", "oversea", "overuse"], "answer": "oversee", "translation": "", "explanation": "監督する oversee。"},
+  {"q": "The regulations will be strictly ____.", "choices": ["enforced", "endorsed", "engaged", "enlarged"], "answer": "enforced", "translation": "", "explanation": "施行される enforced。"}
 ];
