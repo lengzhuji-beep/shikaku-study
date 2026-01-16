@@ -120,6 +120,114 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
     display: block;
 }
 
+/* --- TOEIC概要ページの追加コンテンツ --- */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+.summary-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+}
+.summary-item .label {
+  display: block;
+  font-size: 0.9em;
+  color: #6c757d;
+}
+.summary-item .value {
+  display: block;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 2px;
+}
+
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 0.95em;
+}
+.mini-table th, .mini-table td {
+  border: 1px solid #e9ecef;
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.mini-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+.checklist li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px dashed #e9ecef;
+}
+.checklist input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+}
+.note-text {
+  font-size: 0.95em;
+  color: #6c757d;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.faq {
+  margin-top: 10px;
+}
+.faq-item {
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+  background: #fff;
+}
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: #f8f9fa;
+  color: #333;
+  padding: 12px 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-question:hover { background: #e9ecef; }
+.faq-answer {
+  display: none;
+  padding: 12px 14px;
+  color: #555;
+  text-align: left;
+}
+.faq-item.open .faq-answer { display: block; }
+.faq-icon { font-size: 0.9em; color: #6c757d; }
+
+@media (max-width: 768px) {
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .summary-grid { grid-template-columns: 1fr; }
+}
+
 
 /* ========== column.html用 ========== */
 .tabs { display: flex; justify-content: center; border-bottom: 2px solid #ddd; margin-bottom: 20px; }
