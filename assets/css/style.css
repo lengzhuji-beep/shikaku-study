@@ -822,46 +822,109 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
   .book-cover img { width: 150px; margin: 0 auto; }
 }
 
-/* ===== Mobile header polish (compact + horizontal scroll) ===== */
-@media (max-width: 768px) {
-  .header {
-    padding: 6px 0;
-  }
-  body.with-header > .container {
-    padding-top: 62px; /* header height on mobile */
-  }
-  .header-nav {
-    justify-content: flex-start;
-    gap: 8px;
-    padding: 0 10px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-  }
-  .header-nav::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
-  }
-  .header-nav a {
-    white-space: nowrap; /* prevent Japanese per-character wrapping */
-    font-size: 0.9em;
-    padding: 8px 10px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    border-radius: 999px;
-  }
-  .header-nav a i {
-    margin: 0;
-  }
+/* ========== モバイル：ハンバーガーメニュー ========== */
+/* 目的：スマホでヘッダーが縦に伸びないように、初期は折りたたみ（ドロワー）にする */
+
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
-@media (max-width: 420px) {
-  body.with-header > .container {
-    padding-top: 58px;
+.nav-toggle-label {
+  display: none; /* PCでは非表示 */
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.nav-overlay {
+  display: none; /* PCでは非表示 */
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 0;
   }
+
+  /* トグルボタンを表示 */
+  .nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .nav-toggle-label:hover {
+    background: rgba(255,255,255,0.14);
+  }
+
+  /* ナビをドロワー化 */
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: -320px; /* 初期は画面外 */
+    width: min(320px, 86vw);
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 74px 14px 16px;
+    gap: 6px;
+    background: #222;
+    box-shadow: -12px 0 24px rgba(0,0,0,0.25);
+    transition: right 0.22s ease;
+    overflow-y: auto;
+    max-width: none;
+    margin: 0;
+  }
+
   .header-nav a {
-    font-size: 0.85em;
-    padding: 7px 9px;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  /* 背景オーバーレイ */
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+  }
+
+  /* 開いた状態 */
+  .nav-toggle:checked ~ .header-nav {
+    right: 0;
+  }
+
+  .nav-toggle:checked ~ .nav-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* コンテンツの上余白：ヘッダーが少し薄くなった分だけ調整 */
+  body.with-header > .container {
+    padding-top: 64px;
   }
 }
