@@ -20,7 +20,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body class="with-header" id="top">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="header">
-  <nav class="header-nav">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニュー">
+  <label for="nav-toggle" class="nav-toggle-label" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </label>
+<nav class="header-nav" id="primary-nav">
     <a href="index.html"><i class="fas fa-home"></i> トップ</a>
     <a href="toeic-overview.html"><i class="fas fa-info-circle"></i> TOEIC概要</a>
     <a href="toeic-books.html" class="active"><i class="fas fa-book"></i> おすすめ教材</a>
@@ -29,6 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="contact.html"><i class="fas fa-envelope"></i> お問い合わせ</a>
     <a href="profile.html"><i class="fas fa-user-circle"></i> 私のプロフィール</a>
   </nav>
+  <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
 </header>
 
 <div class="container">
@@ -76,7 +81,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">公式問題集（L&R）</div>
             <h4 class="book-name">本番形式に慣れて「時間感覚」を作る</h4>
             <div class="book-meta">書籍：公式TOEIC Listening & Reading 問題集 12</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>問題形式・音声速度・設問パターン<br>まずは1冊を「解く→復習→音読/シャドーイング」まで回します。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>問題形式・音声速度・設問パターン<br>まずは1冊を「解く→復習→音読/シャドーイング」まで回します。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4906033776/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=TOEIC+%E5%85%AC%E5%BC%8F%E5%95%8F%E9%A1%8C%E9%9B%86+12&tag=lengzhuji-22">検索で比較</a>
@@ -92,7 +97,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">頻出単語（基礎〜中級）</div>
             <h4 class="book-name">頻出語を増やして“見たことある”を作る</h4>
             <div class="book-meta">書籍：TOEIC L&R TEST 出る単特急 銀のフレーズ</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>Part5/7の語彙＋リスニングの聞き取り<br>1日20〜50語を毎日。例文を音読して定着を早めます。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>Part5/7の語彙＋リスニングの聞き取り<br>1日20〜50語を毎日。例文を音読して定着を早めます。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4023323406/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=TOEIC+%E9%8A%80%E3%81%AE%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BA&tag=lengzhuji-22">検索で比較</a>
@@ -108,7 +113,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">基礎英文法（やり直し）</div>
             <h4 class="book-name">文の骨格（SVO）を理解してPart5の土台を作る</h4>
             <div class="book-meta">書籍：中学英語をもう一度ひとつひとつわかりやすく。改訂版</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>時制・品詞・前置詞・関係代名詞の基本<br>“わかる”を優先して、苦手を潰してから演習に進みます。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>時制・品詞・前置詞・関係代名詞の基本<br>“わかる”を優先して、苦手を潰してから演習に進みます。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4053054826/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=%E4%B8%AD%E5%AD%A6%E8%8B%B1%E8%AA%9E%E3%82%92%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%E3%81%B2%E3%81%A8%E3%81%A4%E3%81%B2%E3%81%A8%E3%81%A4%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%8F+%E6%94%B9%E8%A8%82%E7%89%88&tag=lengzhuji-22">検索で比較</a>
@@ -124,7 +129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">リスニング基礎（短い会話）</div>
             <h4 class="book-name">短文の聞き取りを安定させる（Part2/3の土台）</h4>
             <div class="book-meta">書籍：TOEICテスト はじめてのリスニング</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>短い会話→設問の型／頻出フレーズ<br>音声は必ず反復（通常→1.2倍→通常）で耳を作ります。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>短い会話→設問の型／頻出フレーズ<br>音声は必ず反復（通常→1.2倍→通常）で耳を作ります。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4010940603/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=TOEIC%E3%83%86%E3%82%B9%E3%83%88+%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%8B%E3%83%B3%E3%82%B0&tag=lengzhuji-22">検索で比較</a>
@@ -158,7 +163,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">公式問題集（L&R）</div>
             <h4 class="book-name">復習で“根拠取り”を鍛えて得点を安定させる</h4>
             <div class="book-meta">書籍：公式TOEIC Listening & Reading 問題集 12</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>根拠の取り方／音声の聞き逃し分析<br>解き直しで「なぜそれが根拠か」を言語化します。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>根拠の取り方／音声の聞き逃し分析<br>解き直しで「なぜそれが根拠か」を言語化します。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4906033776/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=TOEIC+%E5%85%AC%E5%BC%8F%E5%95%8F%E9%A1%8C%E9%9B%86+12&tag=lengzhuji-22">検索で比較</a>
@@ -174,7 +179,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">頻出単語（600〜）</div>
             <h4 class="book-name">言い換え（パラフレーズ）耐性を上げる</h4>
             <div class="book-meta">書籍：TOEIC L&R TEST 出る単特急 金のフレーズ</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>語彙の取りこぼし削減／長文の理解速度UP<br>「見た瞬間に意味が出る」まで反復＋例文音読。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>語彙の取りこぼし削減／長文の理解速度UP<br>「見た瞬間に意味が出る」まで反復＋例文音読。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4023315680/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=TOEIC+%E9%87%91%E3%81%AE%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BA&tag=lengzhuji-22">検索で比較</a>
@@ -190,7 +195,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">文法（Part5/6）</div>
             <h4 class="book-name">品詞・時制・前置詞の“型”をスピード処理する</h4>
             <div class="book-meta">書籍：TOEIC L&R TEST 文法問題 でる1000問</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>頻出パターンの自動化／解く速度UP<br>1周目は正確さ、2周目以降は時間を計って回します。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>頻出パターンの自動化／解く速度UP<br>1周目は正確さ、2周目以降は時間を計って回します。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4866390832/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=TOEIC+%E6%96%87%E6%B3%95%E5%95%8F%E9%A1%8C+%E3%81%A7%E3%82%8B1000%E5%95%8F&tag=lengzhuji-22">検索で比較</a>
@@ -206,7 +211,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">長文（Part7）</div>
             <h4 class="book-name">設問先読み＋根拠取りで時間内に解く</h4>
             <div class="book-meta">書籍：TOEIC L&R TEST 出る問超特急 Part7</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>先読み／情報の拾い方／落とし穴回避<br>解説を読み込み、同じミスを再現しない仕組みを作ります。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>先読み／情報の拾い方／落とし穴回避<br>解説を読み込み、同じミスを再現しない仕組みを作ります。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4023323691/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=%E5%87%BA%E3%82%8B%E5%95%8F%E8%B6%85%E7%89%B9%E6%80%A5+Part7&tag=lengzhuji-22">検索で比較</a>
@@ -222,7 +227,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">リスニング（Part3/4）</div>
             <h4 class="book-name">先読み＋要点取りの精度を上げる</h4>
             <div class="book-meta">書籍：TOEIC L&R TEST 5分間特急 超集中リスニング</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>会話の流れ把握／選択肢の拾い方<br>短時間で回せる教材で「毎日」耳を作ります（倍速→通常）。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>会話の流れ把握／選択肢の拾い方<br>短時間で回せる教材で「毎日」耳を作ります（倍速→通常）。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4023319694/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=5%E5%88%86%E9%96%93%E7%89%B9%E6%80%A5+%E8%B6%85%E9%9B%86%E4%B8%AD%E3%83%AA%E3%82%B9%E3%83%8B%E3%83%B3%E3%82%B0&tag=lengzhuji-22">検索で比較</a>
@@ -256,7 +261,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">公式（複数回し）</div>
             <h4 class="book-name">弱点分析→復習で“取りこぼし”を最小化する</h4>
             <div class="book-meta">書籍：公式TOEIC Listening & Reading 問題集 12</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>根拠の言い換え／聞き逃しの原因特定<br>間違えた理由を言語化し、同じミスを再現しない仕組みを作ります。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>根拠の言い換え／聞き逃しの原因特定<br>間違えた理由を言語化し、同じミスを再現しない仕組みを作ります。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4906033776/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=TOEIC+%E5%85%AC%E5%BC%8F%E5%95%8F%E9%A1%8C%E9%9B%86+12&tag=lengzhuji-22">検索で比較</a>
@@ -272,7 +277,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">上級語彙（熟語・言い換え）</div>
             <h4 class="book-name">パラフレーズに強くなり長文で落とさない</h4>
             <div class="book-meta">書籍：TOEIC L&R TEST 出る単特急 金の熟語</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>熟語の意味処理／言い換え耐性<br>熟語は“塊”で覚えると、Part7の理解速度に直結します。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>熟語の意味処理／言い換え耐性<br>熟語は“塊”で覚えると、Part7の理解速度に直結します。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4023318620/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=%E9%87%91%E3%81%AE%E7%86%9F%E8%AA%9E+TOEIC&tag=lengzhuji-22">検索で比較</a>
@@ -288,7 +293,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">文法・語彙（精度）</div>
             <h4 class="book-name">曖昧な文法知識をゼロにして失点を消す</h4>
             <div class="book-meta">書籍：TOEIC L&Rテスト 990点攻略 文法・語彙問題1000</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>ひっかけの見抜き方／品詞・語法の精度<br>上級者でも落とす“定番パターン”をまとめて潰します。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>ひっかけの見抜き方／品詞・語法の精度<br>上級者でも落とす“定番パターン”をまとめて潰します。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4010930004/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=4010930004&tag=lengzhuji-22">検索で比較</a>
@@ -304,7 +309,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">長文（900帯の精度）</div>
             <h4 class="book-name">難問でも根拠を外さず“満点設計”にする</h4>
             <div class="book-meta">書籍：TOEIC L&R TEST 長文読解問題集 TARGET 900</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>根拠取りの精度／時間配分の最適化<br>900狙いは「長文で落とさない」設計が重要です。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>根拠取りの精度／時間配分の最適化<br>900狙いは「長文で落とさない」設計が重要です。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4863925344/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=TOEIC+%E9%95%B7%E6%96%87%E8%AA%AD%E8%A7%A3+TARGET+900&tag=lengzhuji-22">検索で比較</a>
@@ -320,7 +325,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="book-kicker">リスニング（難問対策）</div>
             <h4 class="book-name">短文の聞き取り精度を上げ、ひっかけに強くなる</h4>
             <div class="book-meta">書籍：TOEIC L&R TEST パート1・2特急II 出る問 難問240</div>
-            <p class="book-desc"><span class="muted">身につくこと：</span>Part1/2の難問耐性／原因分析<br>ミスの原因を「語彙/音/先入観」に分けて潰します。<br><span class="muted">使い方のコツ：</span>1周目は「理解重視」、2周目以降は「スピード重視」。間違えた問題だけをメモして反復すると、学習量が増えても迷いません。</p>
+            <p class="book-desc"><span class="muted">身につくこと：</span>Part1/2の難問耐性／原因分析<br>ミスの原因を「語彙/音/先入観」に分けて潰します。</p>
             <div class="book-actions">
               <a class="btn primary" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/dp/4023317154/?tag=lengzhuji-22"><i class="fab fa-amazon"></i> Amazonで商品を見る</a>
               <a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="https://www.amazon.co.jp/s?k=%E3%83%91%E3%83%BC%E3%83%881+2%E7%89%B9%E6%80%A5II+%E5%87%BA%E3%82%8B%E5%95%8F+%E9%9B%A3%E5%95%8F240&tag=lengzhuji-22">検索で比較</a>

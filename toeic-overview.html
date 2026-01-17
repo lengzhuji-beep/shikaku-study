@@ -24,16 +24,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="header">
-        <nav class="header-nav">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニュー">
+  <label for="nav-toggle" class="nav-toggle-label" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </label>
+<nav class="header-nav" id="primary-nav">
             <a href="index.html"><i class="fas fa-home"></i> トップ</a>
             <a href="toeic-overview.html" class="active"><i class="fas fa-info-circle"></i> TOEIC概要</a>
-            <a href="toeic-books.html"><i class="fas fa-book"></i> おすすめ教材</a>
             <a href="columns/column.html"><i class="fas fa-book-open"></i> コラム</a>
             <a href="other-exams.html"><i class="fas fa-graduation-cap"></i> 他資格対策</a>
             <a href="contact.html"><i class="fas fa-envelope"></i> お問い合わせ</a>
             <a href="profile.html"><i class="fas fa-user-circle"></i> 私のプロフィール</a>
             </nav>
-    </header>
+      <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+</header>
 
     <div class="container">
         <div class="hero-header">
