@@ -941,11 +941,22 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
    TOEICおすすめ教材：スコア別ジャンプ（level-nav / level-pill）
    ========================= */
 .level-nav{
+  position: sticky;
+  top: 64px; /* ヘッダーの下に固定 */
+  z-index: 900;
+
   display:flex;
   flex-wrap:wrap;
   gap:10px;
   align-items:center;
   margin:14px 0 18px;
+
+  /* スクロール中も読みやすくする */
+  padding:10px 0;
+  background:rgba(248, 249, 251, 0.96);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(0,0,0,0.08);
 }
 
 .level-pill{
