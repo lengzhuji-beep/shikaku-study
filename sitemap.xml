@@ -1,281 +1,645 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-<!--  created with free sitemap generation system www.sitemapxml.jp  -->
-<url>
-  <loc>https://shikakus-study.com/contact.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-28T12:53:48+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/profile.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-28T12:53:48+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/bookmark.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/result.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/study/vocabulary/test.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/study/vocabulary/training.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/study/vocabulary/bookmark.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/study/writing/test.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/study/writing/training.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/study/writing/bookmark.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/study/listening/test.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/study/listening/training.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/study/listening/bookmark.html</loc>
-  <priority>0.8</priority>
-  <lastmod>2025-09-15T21:26:28+09:00</lastmod>
-</url>
-<url>
-  <loc>https://shikakus-study.com/columns/column.html?tab=part-specific&amp;part=1</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://shikakus-study.com/columns/column.html?tab=part-specific&amp;part=2</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://shikakus-study.com/columns/column.html?tab=part-specific&amp;part=3</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://shikakus-study.com/columns/column.html?tab=part-specific&amp;part=4</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://shikakus-study.com/columns/column.html?tab=part-specific&amp;part=5</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://shikakus-study.com/columns/column.html?tab=part-specific&amp;part=6</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://shikakus-study.com/columns/column.html?tab=part-specific&amp;part=7</loc>
-  <priority>0.7</priority>
-</url>
-<url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://shikakus-study.com/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/bookmark.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/contact.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/main_col.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/mypage.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/other-exams.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/profile.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/result.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/toeic-books.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/toeic-overview.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/toeic-types.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/training.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/articles.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/glossary.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/1kyu/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/1kyu/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/1kyu/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/2kyu/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/2kyu/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/2kyu/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/3kyu/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/3kyu/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/boki/3kyu/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://shikakus-study.com/columns/01-first-toeic-roadmap.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/02-3months-200up-plan.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/03-habit-psychology-technique.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/04-score-stagnation-reasons.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/05-gap-time-for-600.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/06-difference-between-improving-and-not.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/07-how-many-hours-to-study.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/08-gamify-toeic-study.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/09-study-method-by-score.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/10-input-output-ratio.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://shikakus-study.com/columns/11-part1-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/12-part1-advanced-tips.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/13-part2-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/14-part2-trick-questions.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/15-part3-pre-reading-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/16-part3-intention-questions.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/17-part4-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/18-part4-note-taking.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/19-part5-pos-questions.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/20-part5-grammar-vocab-training.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/21-part6-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/22-part6-conjunctions-adverbs.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/23-part7-time-management.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/24-part7-time-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://shikakus-study.com/columns/25-yougaku-learning-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/26-drama-movie-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/27-english-news-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/28-newspaper-vocabulary-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/29-podcast-listening-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shikakus-study.com/columns/30-online-eikaiwa-strategy.html</loc>
-    <lastmod>2025-09-27</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://shikakus-study.com/columns/column.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/articles.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/glossary.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/1kyu/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/1kyu/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/1kyu/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/2kyu/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/2kyu/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/2kyu/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/3kyu/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/3kyu/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/3kyu/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/columns/01-fp-study-roadmap.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/columns/02-fp-law-reforms.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/columns/03-fp1-master-roadmap.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/columns/04-fp-practical-exam-choice.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/columns/05-fp-calculation-formulas.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/columns/06-fp-new-nisa-2024.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/columns/07-fp-trick-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/columns/08-fp-tax-planning-strategy.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/fp/columns/09-fp-career-utilization.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/it-passport/articles.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/it-passport/glossary.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/it-passport/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/it-passport/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/it-passport/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/listening/bookmark.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/listening/test.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/listening/training.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/reading/bookmark.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/reading/test.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/reading/training.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/vocabulary/bookmark.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/vocabulary/test.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/vocabulary/training.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/writing/bookmark.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/writing/test.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/study/writing/training.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/takken/articles.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/takken/glossary.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/takken/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/takken/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/takken/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/toeic/articles.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/toeic/glossary.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/toeic/index.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/toeic/past-questions.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shikakus-study.com/toeic/problems.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
