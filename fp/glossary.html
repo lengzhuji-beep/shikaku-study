@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FP (ファイナンシャル・プランナー) 頻出用語集 | 重要キーワードまとめ | Shikakus</title>
-<meta name="description" content="FP (ファイナンシャル・プランナー)試験によく出る重要用語・キーワードを分かりやすく解説。スキマ時間の暗記・直前総チェックに。">
+<title>ファイナンシャル・プランナー (FP) 頻出用語集 | 6分野重要キーワード | Shikakus</title>
+<meta name="description" content="ファイナンシャル・プランナー (FP)試験によく出る重要用語・係数・税制キーワードを分かりやすく解説。スキマ時間の暗記・直前総チェックに。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/glossary.css">
 </head>
 <body class="with-header">
 
-  <!-- ヘッダー（資格ページ共通：トップのみ） -->
-    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
   <header class="kakutoku-header">
     <div class="header-inner">
       <a href="../index.html" class="logo-link">
@@ -27,7 +27,6 @@
     </div>
   </header>
 
-
 <div class="container">
   <ul class="breadcrumb">
     <li><a href="../index.html">ホーム</a></li>
@@ -36,49 +35,14 @@
   </ul>
 
   <div class="hero-header">
-    <h1>FP 頻出用語集</h1>
-    <p>本試験で差がつく重要用語・キーコンセプトを一覧でチェックできます</p>
+    <h1>ファイナンシャル・プランナー (FP) 頻出用語集</h1>
+    <p>ライフプラン・保険・金融・税務・不動産・相続の全6分野・重要用語（全108語）を徹底解説</p>
   </div>
-<div class="card">
-    <table class="glossary-table">
-      <thead>
-        <tr>
-          <th style="width: 25%;">用語 / 単語</th>
-          <th style="width: 60%;">意味・重要解説</th>
-          <th style="width: 15%; text-align:center;">重要度</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td class="glossary-term">元利均等返済</td>
-          <td class="glossary-desc">毎回の返済額（元金＋利息）が一定となる返済方法。返済計画が立てやすい特徴がある。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">ポートフォリオ効果</td>
-          <td class="glossary-desc">異なる値動きをする資産を組み合わせることで、リターンを維持しつつリスク（価格変動幅）を低減させる効果。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">小規模宅地等の特例</td>
-          <td class="glossary-desc">被相続人の居住用や事業用の宅地等を相続した場合、一定の要件を満たせば評価額が最大80%減額される相続税の特例制度。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">PER (株価収益率)</td>
-          <td class="glossary-desc">株価 ÷ 1株当たり当期純利益（EPS）で算出され、株価の割安・割高を測る指標。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
-</div>
 
+  <!-- 用語集アプリコンテナ -->
+  <div id="glossary-app"></div>
+
+</div>
 
 <footer class="site-footer">
   <div class="footer-container">
@@ -102,7 +66,7 @@
       <h4>学習コンテンツ</h4>
       <ul>
         <li><a href="../contact.html">お問い合わせ</a></li>
-        <li><a href="../profile.html">運営者プロフィール</a></li>
+        <li><a href="../profile.html">サイト制作者のプロフィール</a></li>
       </ul>
     </div>
   </div>
@@ -111,6 +75,16 @@
   </div>
 </footer>
 
-  <script src="../assets/js/study-tracker.js"></script>
+<script src="../assets/js/glossary/fp-glossary-data.js"></script>
+<script src="../assets/js/glossary-renderer.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.initGlossary({
+      dataVar: 'GLOSSARY_DATA_FP',
+      containerId: 'glossary-app'
+    });
+  });
+</script>
+<script src="../assets/js/study-tracker.js"></script>
 </body>
 </html>

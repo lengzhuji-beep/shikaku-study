@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>宅地建物取引士 (宅建士) 頻出用語集 | 重要キーワードまとめ | Shikakus</title>
-<meta name="description" content="宅地建物取引士 (宅建士)試験によく出る重要用語・キーワードを分かりやすく解説。スキマ時間の暗記・直前総チェックに。">
+<title>宅地建物取引士 (宅建士) 頻出用語集 | 権利関係・業法・法令上の制限 | Shikakus</title>
+<meta name="description" content="宅地建物取引士 (宅建士)試験によく出る重要用語・民法・業法キーワードを分かりやすく解説。スキマ時間の暗記・直前総チェックに。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/glossary.css">
 </head>
 <body class="with-header">
 
-  <!-- ヘッダー（資格ページ共通：トップのみ） -->
-    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
   <header class="kakutoku-header">
     <div class="header-inner">
       <a href="../index.html" class="logo-link">
@@ -27,58 +27,22 @@
     </div>
   </header>
 
-
 <div class="container">
   <ul class="breadcrumb">
     <li><a href="../index.html">ホーム</a></li>
-    <li><a href="index.html">宅地建物取引士 (宅建士)</a></li>
+    <li><a href="index.html">宅地建物取引士 (宅建)</a></li>
     <li>用語集</li>
   </ul>
 
   <div class="hero-header">
     <h1>宅地建物取引士 (宅建士) 頻出用語集</h1>
-    <p>本試験で差がつく重要用語・キーコンセプト</p>
+    <p>権利関係・宅建業法・法令制限・税その他の最重要キーワード（全106語）を完全解説</p>
   </div>
-<div class="card">
-    <table class="glossary-table">
-      <thead>
-        <tr>
-          <th style="width: 25%;">用語 / 単語</th>
-          <th style="width: 60%;">意味・重要解説</th>
-          <th style="width: 15%; text-align:center;">重要度</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td class="glossary-term">重要事項説明 (35条)</td>
-          <td class="glossary-desc">契約が成立する前に、宅建士が取引の相手方に物件や取引条件に関する重要事項を説明すること。取引士証の提示が必須。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">クーリング・オフ</td>
-          <td class="glossary-desc">事務所等以外の場所で買受けの申込み等をした一般消費者買主が、8日以内であれば無条件で解除できる制度。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">対抗要件</td>
-          <td class="glossary-desc">二重譲渡などがあった場合に、自分の権利を第三者に主張するために必要な法的要件（不動産登記など）。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">用途地域</td>
-          <td class="glossary-desc">都市計画法に基づき、住居・商業・工業など用途に応じて定められた13種類の地域区分。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
-</div>
 
+  <!-- 用語集アプリコンテナ -->
+  <div id="glossary-app"></div>
+
+</div>
 
 <footer class="site-footer">
   <div class="footer-container">
@@ -102,7 +66,7 @@
       <h4>学習コンテンツ</h4>
       <ul>
         <li><a href="../contact.html">お問い合わせ</a></li>
-        <li><a href="../profile.html">運営者プロフィール</a></li>
+        <li><a href="../profile.html">サイト制作者のプロフィール</a></li>
       </ul>
     </div>
   </div>
@@ -111,6 +75,16 @@
   </div>
 </footer>
 
-  <script src="../assets/js/study-tracker.js"></script>
+<script src="../assets/js/glossary/takken-glossary-data.js"></script>
+<script src="../assets/js/glossary-renderer.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.initGlossary({
+      dataVar: 'GLOSSARY_DATA_TAKKEN',
+      containerId: 'glossary-app'
+    });
+  });
+</script>
+<script src="../assets/js/study-tracker.js"></script>
 </body>
 </html>

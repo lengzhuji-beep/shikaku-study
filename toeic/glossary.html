@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TOEIC® L&R 頻出用語集 | 重要キーワードまとめ | Shikakus</title>
-<meta name="description" content="TOEIC® L&R試験によく出る重要用語・キーワードを分かりやすく解説。スキマ時間の暗記・直前総チェックに。">
+<title>TOEIC® L&R 頻出ビジネス用語・重要単語集 | 出る順105語 | Shikakus</title>
+<meta name="description" content="TOEIC® L&Rテストによく出る重要ビジネス単語・コロケーション・文法キーワードを分かりやすく解説。スコアアップ・直前総チェックに。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/glossary.css">
 </head>
 <body class="with-header">
 
-  <!-- ヘッダー（資格ページ共通：トップのみ） -->
-    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
   <header class="kakutoku-header">
     <div class="header-inner">
       <a href="../index.html" class="logo-link">
@@ -27,7 +27,6 @@
     </div>
   </header>
 
-
 <div class="container">
   <ul class="breadcrumb">
     <li><a href="../index.html">ホーム</a></li>
@@ -36,49 +35,14 @@
   </ul>
 
   <div class="hero-header">
-    <h1>TOEIC® L&R 頻出用語集</h1>
-    <p>本試験で差がつく重要用語・キーコンセプト</p>
+    <h1>TOEIC® L&R 頻出ビジネス用語集</h1>
+    <p>ビジネス・人事・製造・マーケティング・文法のスコア直結キーワード（全105語）を解説</p>
   </div>
-<div class="card">
-    <table class="glossary-table">
-      <thead>
-        <tr>
-          <th style="width: 25%;">用語 / 単語</th>
-          <th style="width: 60%;">意味・重要解説</th>
-          <th style="width: 15%; text-align:center;">重要度</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td class="glossary-term">quarterly</td>
-          <td class="glossary-desc">季刊の、年4回の、四半期ごとの</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">initiative</td>
-          <td class="glossary-desc">新たな取り組み、主導権、構想</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">reimburse</td>
-          <td class="glossary-desc">〜を払い戻す、精算・補償する</td>
-          <td style="text-align:center;"><span class="badge-star">★★☆</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">mandatory</td>
-          <td class="glossary-desc">義務的な、必須の、強制の</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
-</div>
 
+  <!-- 用語集アプリコンテナ -->
+  <div id="glossary-app"></div>
+
+</div>
 
 <footer class="site-footer">
   <div class="footer-container">
@@ -102,7 +66,7 @@
       <h4>学習コンテンツ</h4>
       <ul>
         <li><a href="../contact.html">お問い合わせ</a></li>
-        <li><a href="../profile.html">運営者プロフィール</a></li>
+        <li><a href="../profile.html">サイト制作者のプロフィール</a></li>
       </ul>
     </div>
   </div>
@@ -111,6 +75,16 @@
   </div>
 </footer>
 
-  <script src="../assets/js/study-tracker.js"></script>
+<script src="../assets/js/glossary/toeic-glossary-data.js"></script>
+<script src="../assets/js/glossary-renderer.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.initGlossary({
+      dataVar: 'GLOSSARY_DATA_TOEIC',
+      containerId: 'glossary-app'
+    });
+  });
+</script>
+<script src="../assets/js/study-tracker.js"></script>
 </body>
 </html>

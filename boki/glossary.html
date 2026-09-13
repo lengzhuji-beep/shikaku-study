@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日商簿記検定 (3級・2級) 頻出用語集 | 重要キーワードまとめ | Shikakus</title>
-<meta name="description" content="日商簿記検定 (3級・2級)試験によく出る重要用語・キーワードを分かりやすく解説。スキマ時間の暗記・直前総チェックに。">
+<title>日商簿記検定 頻出用語集 | 商業簿記・工業簿記・原価計算 | Shikakus</title>
+<meta name="description" content="日商簿記検定試験によく出る重要用語・勘定科目・原価計算キーワードを分かりやすく解説。スキマ時間の暗記・直前総チェックに。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/glossary.css">
 </head>
 <body class="with-header">
 
-  <!-- ヘッダー（資格ページ共通：トップのみ） -->
-    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
   <header class="kakutoku-header">
     <div class="header-inner">
       <a href="../index.html" class="logo-link">
@@ -27,58 +27,22 @@
     </div>
   </header>
 
-
 <div class="container">
   <ul class="breadcrumb">
     <li><a href="../index.html">ホーム</a></li>
-    <li><a href="index.html">日商簿記検定 (3級・2級)</a></li>
+    <li><a href="index.html">日商簿記検定</a></li>
     <li>用語集</li>
   </ul>
 
   <div class="hero-header">
-    <h1>日商簿記検定 (3級・2級) 頻出用語集</h1>
-    <p>本試験で差がつく重要用語・キーコンセプト</p>
+    <h1>日商簿記検定 頻出用語集</h1>
+    <p>仕訳・勘定科目・決算整理から工業簿記・原価計算まで（全104語）を丁寧に解説</p>
   </div>
-<div class="card">
-    <table class="glossary-table">
-      <thead>
-        <tr>
-          <th style="width: 25%;">用語 / 単語</th>
-          <th style="width: 60%;">意味・重要解説</th>
-          <th style="width: 15%; text-align:center;">重要度</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td class="glossary-term">仕訳 (しわけ)</td>
-          <td class="glossary-desc">取引を「借方（左側）」と「貸方（右側）」の勘定科目に分類し、原因と結果を金銭単位で複式記録すること。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">減価償却</td>
-          <td class="glossary-desc">建物や車両などの固定資産の取得原価を、耐用年数にわたって各会計期間の費用として配分する手続き。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">貸倒引当金</td>
-          <td class="glossary-desc">売掛金や受取手形などの債権が将来回収不能になるリスクに備えて、あらかじめ見積もって計上しておく準備金。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">損益計算書 (P/L)</td>
-          <td class="glossary-desc">企業の一会計期間における経営成績（どれだけ利益を出したか、費用を使ったか）を表す財務諸表。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
-</div>
 
+  <!-- 用語集アプリコンテナ -->
+  <div id="glossary-app"></div>
+
+</div>
 
 <footer class="site-footer">
   <div class="footer-container">
@@ -102,7 +66,7 @@
       <h4>学習コンテンツ</h4>
       <ul>
         <li><a href="../contact.html">お問い合わせ</a></li>
-        <li><a href="../profile.html">運営者プロフィール</a></li>
+        <li><a href="../profile.html">サイト制作者のプロフィール</a></li>
       </ul>
     </div>
   </div>
@@ -111,6 +75,16 @@
   </div>
 </footer>
 
-  <script src="../assets/js/study-tracker.js"></script>
+<script src="../assets/js/glossary/boki-glossary-data.js"></script>
+<script src="../assets/js/glossary-renderer.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.initGlossary({
+      dataVar: 'GLOSSARY_DATA_BOKI',
+      containerId: 'glossary-app'
+    });
+  });
+</script>
+<script src="../assets/js/study-tracker.js"></script>
 </body>
 </html>

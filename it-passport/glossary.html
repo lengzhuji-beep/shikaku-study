@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ITパスポート試験 (iパス) 頻出用語集 | 重要キーワードまとめ | Shikakus</title>
+<title>ITパスポート試験 (iパス) 頻出用語集 | 重要キーワード完全網羅 | Shikakus</title>
 <meta name="description" content="ITパスポート試験 (iパス)試験によく出る重要用語・キーワードを分かりやすく解説。スキマ時間の暗記・直前総チェックに。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/kakutoku.css">
+<link rel="stylesheet" href="../assets/css/glossary.css">
 </head>
 <body class="with-header">
 
-  <!-- ヘッダー（資格ページ共通：トップのみ） -->
-    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
   <header class="kakutoku-header">
     <div class="header-inner">
       <a href="../index.html" class="logo-link">
@@ -27,7 +27,6 @@
     </div>
   </header>
 
-
 <div class="container">
   <ul class="breadcrumb">
     <li><a href="../index.html">ホーム</a></li>
@@ -37,48 +36,13 @@
 
   <div class="hero-header">
     <h1>ITパスポート試験 (iパス) 頻出用語集</h1>
-    <p>本試験で差がつく重要用語・キーコンセプト</p>
+    <p>シラバス対応・試験頻出の重要キーワード（全134語）を分かりやすく解説</p>
   </div>
-<div class="card">
-    <table class="glossary-table">
-      <thead>
-        <tr>
-          <th style="width: 25%;">用語 / 単語</th>
-          <th style="width: 60%;">意味・重要解説</th>
-          <th style="width: 15%; text-align:center;">重要度</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td class="glossary-term">フィッシング (Phishing)</td>
-          <td class="glossary-desc">正規の金融機関やECサイト等を装ったメールで偽サイトへ誘導し、IDやパスワード、カード情報を盗み取る手口。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">ランサムウェア</td>
-          <td class="glossary-desc">感染したPCのデータを暗号化してアクセス不能にし、復旧と引き換えに金銭（身代金）を要求するマルウェア。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">ディープラーニング</td>
-          <td class="glossary-desc">人間の脳神経回路を模したニューラルネットワークを多層にして、データから高度な特徴量を自律学習する技術。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-        <tr>
-          <td class="glossary-term">ゼロトラスト</td>
-          <td class="glossary-desc">「社内ネットワークも含め、いかなる通信も信用しない」ことを前提に、全アクセスを厳格に検証・認証するセキュリティ概念。</td>
-          <td style="text-align:center;"><span class="badge-star">★★★</span></td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
-</div>
 
+  <!-- 用語集アプリコンテナ -->
+  <div id="glossary-app"></div>
+
+</div>
 
 <footer class="site-footer">
   <div class="footer-container">
@@ -102,7 +66,7 @@
       <h4>学習コンテンツ</h4>
       <ul>
         <li><a href="../contact.html">お問い合わせ</a></li>
-        <li><a href="../profile.html">運営者プロフィール</a></li>
+        <li><a href="../profile.html">サイト制作者のプロフィール</a></li>
       </ul>
     </div>
   </div>
@@ -111,6 +75,16 @@
   </div>
 </footer>
 
-  <script src="../assets/js/study-tracker.js"></script>
+<script src="../assets/js/glossary/itpass-glossary-data.js"></script>
+<script src="../assets/js/glossary-renderer.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.initGlossary({
+      dataVar: 'GLOSSARY_DATA_ITPASS',
+      containerId: 'glossary-app'
+    });
+  });
+</script>
+<script src="../assets/js/study-tracker.js"></script>
 </body>
 </html>
