@@ -295,6 +295,7 @@
 
 .item-title-wrap {
   flex: 1;
+  text-align: left;
 }
 
 .item-meta-top {
@@ -345,6 +346,7 @@
   font-weight: 800;
   color: #1e293b;
   line-height: 1.4;
+  text-align: left;
 }
 
 .item-ruby {
@@ -352,6 +354,7 @@
   font-size: 0.8rem;
   color: #64748b;
   margin-top: 0.15rem;
+  text-align: left;
 }
 
 /* 右上ボタングループ（☆/★星ボタン ＋ 開閉矢印） */
