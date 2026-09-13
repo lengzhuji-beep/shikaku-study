@@ -35,7 +35,7 @@ const pastHtml = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FP3級 過去問演習 | 過去5年分・試験実施回＆6大分野別選択 | 資格対策ドットコム</title>
+<title>FP3級 過去問演習 | 過去5年分・試験実施回＆6大分野別選択 | Shikakus</title>
 <meta name="description" content="FP3級（ファイナンシャル・プランニング技能士3級）の本試験過去問題。過去5年分の試験実施回、および6大分野（ライフ・リスク・金融・タックス・不動産・相続）から選択して本番演習が可能です。">
 <link rel="icon" href="../../favicon.png" type="image/png">
 <link rel="stylesheet" href="../../assets/css/style.css">
@@ -157,7 +157,7 @@ const pastHtml = `<!DOCTYPE html>
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-col">
-      <h4>資格対策ドットコム</h4>
+      <h4>Shikakus</h4>
       <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
         FP・TOEIC・宅建・ITパスポート・簿記など、主要資格の練習問題・過去問・コラムをすべて無料で提供する総合学習プラットフォームです。
       </p>
@@ -180,7 +180,7 @@ const pastHtml = `<!DOCTYPE html>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -196,7 +196,7 @@ const probHtml = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FP3級 練習問題 | 6大分野別トレーニング＆ブックマーク復習 | 資格対策ドットコム</title>
+<title>FP3級 練習問題 | 6大分野別トレーニング＆ブックマーク復習 | Shikakus</title>
 <meta name="description" content="FP3級の分野別練習問題。ライフ・リスク・金融・タックス・不動産・相続の6大分野から選択し、一問一答トレーニングと苦手ブックマーク復習が可能です。">
 <link rel="icon" href="../../favicon.png" type="image/png">
 <link rel="stylesheet" href="../../assets/css/style.css">
@@ -325,7 +325,7 @@ const probHtml = `<!DOCTYPE html>
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-col">
-      <h4>資格対策ドットコム</h4>
+      <h4>Shikakus</h4>
       <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
         FP・TOEIC・宅建・ITパスポート・簿記など、主要資格の練習問題・過去問・コラムをすべて無料で提供する総合学習プラットフォームです。
       </p>
@@ -348,7 +348,7 @@ const probHtml = `<!DOCTYPE html>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
   </div>
 </footer>
 <script src="../../assets/js/common-quiz.js"></script>

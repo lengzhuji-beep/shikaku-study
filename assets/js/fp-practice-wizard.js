@@ -1,5 +1,5 @@
 /**
- * 資格対策ドットコム - FP分野・問題数選択＆1問ずつ集中ランダム出題スクリプト
+ * Shikakus - FP分野・問題数選択＆1問ずつ集中ランダム出題スクリプト
  */
 document.addEventListener('DOMContentLoaded', () => {
   const wizardSection = document.getElementById('wizardSection');
@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>${examTitle} プリント（全${total}問） | 資格対策ドットコム</title>
+<title>${examTitle} プリント（全${total}問） | Shikakus</title>
 <style>
   @page {
     size: A4;

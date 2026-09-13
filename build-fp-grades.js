@@ -183,7 +183,7 @@ function getFooter(prefix = '../../') {
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-col">
-      <h4>資格対策ドットコム</h4>
+      <h4>Shikakus</h4>
       <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
         FP・TOEIC・宅建・ITパスポート・簿記など、主要資格の練習問題・過去問・コラムをすべて無料で提供する総合学習プラットフォームです。
       </p>
@@ -206,7 +206,7 @@ function getFooter(prefix = '../../') {
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
   </div>
 </footer>
 `;
@@ -223,7 +223,7 @@ function generateGradePages(gradeKey, gradeName, gradeDesc, passRate, diff, ques
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${gradeName} 合格対策 | 練習問題・本番過去問5年分 | 資格対策ドットコム</title>
+<title>${gradeName} 合格対策 | 練習問題・本番過去問5年分 | Shikakus</title>
 <meta name="description" content="${gradeName}の無料学習ポータル。分野別一問一答トレーニング、過去5年分の試験実施回別本番過去問演習をすべて無料で利用できます。">
 <link rel="icon" href="../../favicon.png" type="image/png">
 <link rel="stylesheet" href="../../assets/css/style.css">
@@ -302,7 +302,7 @@ ${getFooter('../../')}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${gradeName} 練習問題 | トレーニング＆ブックマーク | 資格対策ドットコム</title>
+<title>${gradeName} 練習問題 | トレーニング＆ブックマーク | Shikakus</title>
 <meta name="description" content="${gradeName}の分野別練習問題。一問一答トレーニングで基礎力を鍛え、ブックマークした問題を繰り返し復習できます。">
 <link rel="icon" href="../../favicon.png" type="image/png">
 <link rel="stylesheet" href="../../assets/css/style.css">
@@ -393,7 +393,7 @@ ${getFooter('../../')}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${gradeName} 過去問演習 | 過去5年分・試験実施回別選択 | 資格対策ドットコム</title>
+<title>${gradeName} 過去問演習 | 過去5年分・試験実施回別選択 | Shikakus</title>
 <meta name="description" content="${gradeName}の本試験過去問題。過去5年分（年3回・全15回）の試験実施回から選択して、本番形式の演習と詳しい解答・解説で合格力を高めます。">
 <link rel="icon" href="../../favicon.png" type="image/png">
 <link rel="stylesheet" href="../../assets/css/style.css">
@@ -533,7 +533,7 @@ const fpMainIndex = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FP技能士 対策トップ | 1級・2級・3級 練習問題＆過去5年分過去問 | 資格対策ドットコム</title>
+<title>FP技能士 対策トップ | 1級・2級・3級 練習問題＆過去5年分過去問 | Shikakus</title>
 <meta name="description" content="FP（ファイナンシャル・プランナー）1級・2級・3級の対策総合ポータル。級ごとの分野別練習問題（トレーニング・ブックマーク）や過去5年分の本試験過去問演習をすべて無料で学習できます。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">

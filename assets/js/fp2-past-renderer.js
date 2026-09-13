@@ -1,5 +1,5 @@
 /**
- * 資格対策ドットコム - FP2級過去問 過去5年分（全15回・900問）動的レンダリングスクリプト
+ * Shikakus - FP2級過去問 過去5年分（全15回・900問）動的レンダリングスクリプト
  */
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('pastQuestionsContainer');
@@ -532,7 +532,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>${examTitle} プリント（全${total}問） | 資格対策ドットコム</title>
+<title>${examTitle} プリント（全${total}問） | Shikakus</title>
 <style>
   @page {
     size: A4;
@@ -773,7 +773,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- 問題編 -->
     <div class="print-header">
       <h1 class="print-title">${examTitle} 【問題編】</h1>
-      <div class="print-subtitle">資格対策ドットコム ｜ 制限時間: 120分 ｜ 合格基準: 60問中36問以上正解</div>
+      <div class="print-subtitle">Shikakus ｜ 制限時間: 120分 ｜ 合格基準: 60問中36問以上正解</div>
     </div>
 
     <div class="print-section-title">■ 問題</div>
@@ -783,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="page-break"></div>
     <div class="print-header">
       <h1 class="print-title">${examTitle} 【解答・解説編】</h1>
-      <div class="print-subtitle">資格対策ドットコム ｜ 正解と詳細解説一覧</div>
+      <div class="print-subtitle">Shikakus ｜ 正解と詳細解説一覧</div>
     </div>
 
     <div class="print-section-title">■ 正解一覧</div>

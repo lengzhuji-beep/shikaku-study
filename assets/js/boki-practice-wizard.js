@@ -1,5 +1,5 @@
 /**
- * 資格対策ドットコム - 日商簿記検定（3級・2級・1級）練習問題ウィザード＆演習レンダラー
+ * Shikakus - 日商簿記検定（3級・2級・1級）練習問題ウィザード＆演習レンダラー
  */
 document.addEventListener('DOMContentLoaded', () => {
   // 現在の級判定
@@ -655,7 +655,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>${examTitle} プリント（全${total}問） | 資格対策ドットコム</title>
+<title>${examTitle} プリント（全${total}問） | Shikakus</title>
 <style>
   @page {
     size: A4 portrait;
@@ -891,7 +891,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="print-page-container">
     <div class="print-header">
       <div class="print-title">${examTitle} 【問題編】</div>
-      <div class="print-subtitle">資格対策ドットコム</div>
+      <div class="print-subtitle">Shikakus</div>
     </div>
     <div class="print-meta-box">
       <div>実施日：${new Date().toLocaleDateString('ja-JP')} ｜ 出題数：全 ${total} 問</div>
@@ -912,7 +912,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="print-page-container">
     <div class="print-header">
       <div class="print-title">${examTitle} 【解答・解説編】</div>
-      <div class="print-subtitle">資格対策ドットコム ｜ 正解と詳細解説一覧</div>
+      <div class="print-subtitle">Shikakus ｜ 正解と詳細解説一覧</div>
     </div>
 
     <div class="print-section-title">■ 正解一覧</div>

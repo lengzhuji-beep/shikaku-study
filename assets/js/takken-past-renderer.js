@@ -1,5 +1,5 @@
 /**
- * 資格対策ドットコム - 宅地建物取引士（宅建士）過去問演習
+ * Shikakus - 宅地建物取引士（宅建士）過去問演習
  * 令和7年〜平成23年（全17回・計850問）動的レンダリングスクリプト（ワンタップ即時判定・印刷・合否判定・ブックマーク）
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>${examTitle} プリント（全${total}問） | 資格対策ドットコム</title>
+<title>${examTitle} プリント（全${total}問） | Shikakus</title>
 <style>
   @page {
     size: A4;
@@ -824,7 +824,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- 1. 問題用紙 -->
     <div class="print-header">
       <h1 class="print-title">${examTitle} 【問題用紙】</h1>
-      <div class="print-subtitle">資格対策ドットコム ｜ 出題数: ${total} 問 ｜ 制限時間: 120分 ｜ 合格基準: 50問中36問前後正解</div>
+      <div class="print-subtitle">Shikakus ｜ 出題数: ${total} 問 ｜ 制限時間: 120分 ｜ 合格基準: 50問中36問前後正解</div>
     </div>
     <div class="print-section-title">■ 問題</div>
     ${questionsHtml}
@@ -833,7 +833,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="page-break"></div>
     <div class="print-header">
       <h1 class="print-title">${examTitle} 【解答一覧】</h1>
-      <div class="print-subtitle">資格対策ドットコム ｜ 全 ${total} 問 正解一覧</div>
+      <div class="print-subtitle">Shikakus ｜ 全 ${total} 問 正解一覧</div>
     </div>
     <div class="print-section-title">■ 正解一覧</div>
     <table class="print-ans-table">
@@ -853,7 +853,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="page-break"></div>
     <div class="print-header">
       <h1 class="print-title">${examTitle} 【詳細解説】</h1>
-      <div class="print-subtitle">資格対策ドットコム ｜ 全 ${total} 問 詳細解説</div>
+      <div class="print-subtitle">Shikakus ｜ 全 ${total} 問 詳細解説</div>
     </div>
     <div class="print-section-title">■ 詳細解説</div>
     ${explanationsHtml}

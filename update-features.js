@@ -402,7 +402,7 @@ function getFooterHtml(prefix = '../') {
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-col">
-      <h4>資格対策ドットコム</h4>
+      <h4>Shikakus</h4>
       <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
         TOEIC・FP・宅建・ITパスポート・簿記など、人気の主要資格の練習問題・過去問・コラム・用語集をすべて無料で提供する総合学習プラットフォームです。
       </p>
@@ -427,7 +427,7 @@ function getFooterHtml(prefix = '../') {
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
   </div>
 </footer>
 `;
@@ -470,7 +470,7 @@ qualifications.forEach(q => {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${q.name} 練習問題 | トレーニング＆ブックマーク復習 | 資格対策ドットコム</title>
+<title>${q.name} 練習問題 | トレーニング＆ブックマーク復習 | Shikakus</title>
 <meta name="description" content="${q.name}の練習問題。トレーニングで重要論点を反復し、苦手な問題はブックマークして集中的に復習できます。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -573,7 +573,7 @@ ${getFooterHtml()}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${q.name} 過去問演習 | 試験実施回・年度別選択 | 資格対策ドットコム</title>
+<title>${q.name} 過去問演習 | 試験実施回・年度別選択 | Shikakus</title>
 <meta name="description" content="${q.name}の年度別・試験実施回別の過去問演習。解きたい実施回を選択して本番形式の演習と詳しい解説で試験対策ができます。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">

@@ -161,7 +161,7 @@ articles.forEach(article => {
   let newContent = template;
   
   // Replace Title in head
-  newContent = newContent.replace(/<title>.*?<\/title>/, "<title>" + article.title + " | 資格対策ドットコム</title>");
+  newContent = newContent.replace(/<title>.*?<\/title>/, "<title>" + article.title + " | Shikakus</title>");
   
   // Replace meta description
   newContent = newContent.replace(/<meta name="description" content=".*?">/, "<meta name=\\"description\\" content=\\"" + article.desc + "\\">");
@@ -175,7 +175,7 @@ articles.forEach(article => {
   // Replace Meta info date
   const today = new Date();
   const dateStr = today.getFullYear() + '年' + String(today.getMonth() + 1).padStart(2, '0') + '月' + String(today.getDate()).padStart(2, '0') + '日';
-  newContent = newContent.replace(/<p class="meta-info">.*?<\/p>/, "<p class=\\"meta-info\\">公開日: " + dateStr + " | 執筆: 資格対策ドットコム FP試験対策チーム</p>");
+  newContent = newContent.replace(/<p class="meta-info">.*?<\/p>/, "<p class=\\"meta-info\\">公開日: " + dateStr + " | 執筆: Shikakus FP試験対策チーム</p>");
   
   // Replace article content
   const beforeContent = newContent.substring(0, newContent.indexOf('<div class="article-content">') + '<div class="article-content">'.length);
@@ -208,7 +208,7 @@ articles.forEach((a, i) => {
         </div>
         <div class="article-meta">
           <span><i class="far fa-calendar-alt"></i> \${dateStr}</span>
-          <span>資格対策ドットコム編集部</span>
+          <span>Shikakus編集部</span>
         </div>
       </div>
     </a>

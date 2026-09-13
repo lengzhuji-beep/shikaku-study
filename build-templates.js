@@ -368,7 +368,7 @@ function getFooterHtml(isRoot = false) {
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-col">
-      <h4>資格対策ドットコム</h4>
+      <h4>Shikakus</h4>
       <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
         TOEIC・FP・宅建・ITパスポート・簿記など、人気の主要資格の練習問題・過去問・コラム・用語集をすべて無料で提供する総合学習プラットフォームです。
       </p>
@@ -393,7 +393,7 @@ function getFooterHtml(isRoot = false) {
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
   </div>
 </footer>
 `;
@@ -439,7 +439,7 @@ qualifications.forEach(q => {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${q.name} 対策まとめ | 練習問題・過去問・勉強法なら資格対策ドットコム</title>
+<title>${q.name} 対策まとめ | 練習問題・過去問・勉強法ならShikakus</title>
 <meta name="description" content="${q.name}の合格対策決定版！分野別練習問題、過去問演習、独学勉強法コラム、頻出用語集をすべて無料で公開しています。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -481,7 +481,7 @@ ${getHeaderHtml(q.id, false)}
   <div class="card">
     <h2>${q.name}とは？ 試験の概要と特徴</h2>
     <p style="font-size:1.05rem; line-height:1.8;">${q.desc}</p>
-    <p>資格対策ドットコムでは、初めて学習される方から直前期の総仕上げまで、<strong>「練習問題」「過去問演習」「コラム」「用語集」</strong>の4つのツールを完全無料で活用いただけます。</p>
+    <p>Shikakusでは、初めて学習される方から直前期の総仕上げまで、<strong>「練習問題」「過去問演習」「コラム」「用語集」</strong>の4つのツールを完全無料で活用いただけます。</p>
   </div>
 
   <h2 style="margin: 30px 0 15px 0;">学習メニュー</h2>
@@ -548,7 +548,7 @@ ${getFooterHtml(false)}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${q.name} 分野別練習問題 | 無料で解ける1問1答 | 資格対策ドットコム</title>
+<title>${q.name} 分野別練習問題 | 無料で解ける1問1答 | Shikakus</title>
 <meta name="description" content="${q.name}の分野別練習問題。選択肢を選んで即座に正誤判定と詳しい解説を確認できます。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -617,7 +617,7 @@ ${getFooterHtml(false)}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${q.name} 過去問演習 | 年度別・本番過去問解説 | 資格対策ドットコム</title>
+<title>${q.name} 過去問演習 | 年度別・本番過去問解説 | Shikakus</title>
 <meta name="description" content="${q.name}の過去問・模擬試験問題です。本番同様の出題形式で実力判定と丁寧な解説付き。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -685,7 +685,7 @@ ${getFooterHtml(false)}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${q.name} コラム・勉強法 | 独学合格ノウハウ | 資格対策ドットコム</title>
+<title>${q.name} コラム・勉強法 | 独学合格ノウハウ | Shikakus</title>
 <meta name="description" content="${q.name}の合格に向けたコラム・勉強法記事一覧。最短合格スケジュールや参考書選び、頻出ポイントを網羅。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -722,7 +722,7 @@ ${getHeaderHtml(q.id, false)}
         </div>
         <div class="article-meta">
           <span><i class="far fa-calendar-alt"></i> ${art.date}</span>
-          <span>資格対策ドットコム編集部</span>
+          <span>Shikakus編集部</span>
         </div>
       </div>
     </div>
@@ -741,7 +741,7 @@ ${getFooterHtml(false)}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${q.name} 頻出用語集 | 重要キーワードまとめ | 資格対策ドットコム</title>
+<title>${q.name} 頻出用語集 | 重要キーワードまとめ | Shikakus</title>
 <meta name="description" content="${q.name}試験によく出る重要用語・キーワードを分かりやすく解説。スキマ時間の暗記・直前総チェックに。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
