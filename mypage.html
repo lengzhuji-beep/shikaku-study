@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N3ZFKBQ3');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マイページ（学習時間ダッシュボード） | 資格対策ドットコム</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta name="description" content="資格対策ドットコムのユーザー専用マイページ。日々の学習時間・閲覧時間の推移、年間ヒートマップ、資格別の学習時間比率を可視化します。">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/kakutoku.css">
+
+  <!-- Firebase SDK (無料・認証＆Firestore用) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="assets/js/firebase-auth.js"></script>
+</head>
+<body class="with-header">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- ヘッダー -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html#courses" class="nav-link">資格を選ぶ</a>
+        <a href="index.html#features" class="nav-link">使い方</a>
+        <a href="index.html#voices" class="nav-link">合格者の声</a>
+        <a href="mypage.html" class="nav-link active">マイページ</a>
+        <a href="contact.html" class="nav-link">お問い合わせ</a>
+        <a href="profile.html" class="nav-link">私のプロフィール</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- パンくずリスト -->
+  <div class="container" style="padding-top: 1.5rem;">
+    <ul class="breadcrumb" style="margin-bottom: 0;">
+      <li><a href="index.html">ホーム</a></li>
+      <li>マイページ（学習時間の可視化）</li>
+    </ul>
+  </div>
+
+  <!-- マイページ ヒーロー -->
+  <section class="mypage-hero">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h1 class="mypage-hero-title">
+            <i class="fas fa-chart-line" style="color: #345d4d;"></i> マイページ
+          </h1>
+          <p class="mypage-hero-desc">
+            学習時間・閲覧時間を自動計測し、合格に向けた継続努力を可視化します。
+          </p>
+        </div>
+        <div>
+          <span class="live-pulse-badge">
+            <span class="pulse-dot"></span> リアルタイム計測中
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- クラウド同期・アカウント案内バナー（未ログイン時） -->
+    <div class="cloud-sync-banner" id="cloudSyncBanner">
+      <div class="sync-banner-content">
+        <div class="sync-banner-icon">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <div>
+          <h3 class="sync-banner-title">スマホとPCで学習データを同期しませんか？</h3>
+          <p class="sync-banner-desc">
+            ログインすると学習記録・ヒートマップがクラウドに無料バックアップされ、端末間ですぐに共有されます（登録不要のままでも利用可能）。
+          </p>
+        </div>
+      </div>
+      <div>
+        <button class="btn-auth-login" id="btnOpenAuthModal" onclick="document.getElementById('authModalOverlay').classList.add('active');">
+          <i class="fab fa-google"></i> ログイン / 連携する
+        </button>
+      </div>
+    </div>
+
+    <!-- ログイン済みユーザー情報バー（ログイン時） -->
+    <div class="user-profile-bar" id="userProfileBar" style="display: none;">
+      <div class="user-info-group">
+        <img src="" alt="ユーザーアバター" class="user-avatar-img" id="userAvatarImg" style="display: none;">
+        <div class="user-avatar-fallback" id="userAvatarFallback">U</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h3 class="user-name-text" id="userNameText">学習ユーザー</h3>
+            <span class="sync-status-badge">
+              <i class="fas fa-check-circle"></i> クラウド同期完了
+            </span>
+          </div>
+          <div style="font-size: 0.78rem; color: #64748b; margin-top: 2px;" id="userEmailText">
+            user@example.com
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn-auth-logout" id="btnLogout">
+          <i class="fas fa-sign-out-alt"></i> ログアウト
+        </button>
+      </div>
+    </div>
+
+    <!-- 1. 総閲覧時間 & 統計サマリーカード -->
+    <div class="mypage-summary-grid">
+      <!-- サイト総閲覧時間カード（強調表示） -->
+      <div class="mypage-summary-card primary">
+        <div>
+          <div class="summary-top">
+            <span class="summary-label">サイト総閲覧時間</span>
+            <i class="fas fa-clock summary-icon"></i>
+          </div>
+          <div class="summary-value" id="totalStudyTimeDisplay">
+            0<span class="unit">時間</span> 0<span class="unit">分</span>
+          </div>
+        </div>
+        <div class="summary-footer" style="display: flex; justify-content: space-between; align-items: center;">
+          <span>全資格の合計学習時間</span>
+          <span class="live-pulse-badge" style="background: rgba(255,255,255,0.2); color: #fff;">計測中</span>
+        </div>
+      </div>
+
+      <!-- 継続日数カード -->
+      <div class="mypage-summary-card">
+        <div>
+          <div class="summary-top">
+            <span class="summary-label">連続学習日数</span>
+            <i class="fas fa-fire summary-icon" style="color: #f97316;"></i>
+          </div>
+          <div class="summary-value" id="streakDaysDisplay">
+            0<span class="unit">日連続</span>
+          </div>
+        </div>
+        <div class="summary-footer">
+          習慣化スコア: <strong style="color: #15803d;" id="streakStatusText">好調継続中！</strong>
+        </div>
+      </div>
+
+      <!-- 今週の学習時間 -->
+      <div class="mypage-summary-card">
+        <div>
+          <div class="summary-top">
+            <span class="summary-label">今週の閲覧時間</span>
+            <i class="fas fa-calendar-week summary-icon" style="color: #0284c7;"></i>
+          </div>
+          <div class="summary-value" id="weekStudyTimeDisplay">
+            0<span class="unit">時間</span> 0<span class="unit">分</span>
+          </div>
+        </div>
+        <div class="summary-footer">
+          直近7日間の学習実績
+        </div>
+      </div>
+
+      <!-- 今月の学習時間 -->
+      <div class="mypage-summary-card">
+        <div>
+          <div class="summary-top">
+            <span class="summary-label">今月の閲覧時間</span>
+            <i class="fas fa-calendar-alt summary-icon" style="color: #7c3aed;"></i>
+          </div>
+          <div class="summary-value" id="monthStudyTimeDisplay">
+            0<span class="unit">時間</span> 0<span class="unit">分</span>
+          </div>
+        </div>
+        <div class="summary-footer">
+          直近30日間の学習実績
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 年間学習ヒートマップ (GitHub風 Contribution Graph) -->
+    <div class="heatmap-card">
+      <div class="heatmap-header">
+        <div class="heatmap-title-group">
+          <h2><i class="fas fa-th" style="color: #345d4d;"></i> 年間学習コントリビューション</h2>
+          <p>過去1年間の毎日の学習・閲覧時間を色濃淡で可視化しています（マスにカーソルを合わせると詳細表示）</p>
+        </div>
+        <div class="heatmap-actions">
+          <button class="heatmap-btn-sm" id="btnSeedData" title="リアルな年間サンプルデータを復元します">
+            <i class="fas fa-history"></i> サンプルデータ復元
+          </button>
+          <button class="heatmap-btn-sm" id="btnClearData" title="記録を0にリセットします">
+            <i class="fas fa-trash-alt"></i> 0分リセット
+          </button>
+        </div>
+      </div>
+
+      <!-- スクロール可能なヒートマップ領域 -->
+      <div class="heatmap-scroll-area" id="heatmapScrollArea">
+        <div class="heatmap-container" id="heatmapContainer">
+          <!-- 月ラベル -->
+          <div class="heatmap-months" id="heatmapMonths">
+            <!-- JavaScriptで動的生成 -->
+          </div>
+          
+          <div class="heatmap-body">
+            <!-- 曜日ラベル -->
+            <div class="heatmap-weekdays">
+              <span></span>
+              <span>Mon</span>
+              <span></span>
+              <span>Wed</span>
+              <span></span>
+              <span>Fri</span>
+              <span></span>
+            </div>
+            
+            <!-- 52週×7日 セルグリッド -->
+            <div class="heatmap-grid" id="heatmapGrid">
+              <!-- JavaScriptで動的生成 (365〜371マス) -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ホバー用ツールチップ -->
+        <div class="heatmap-tooltip" id="heatmapTooltip"></div>
+      </div>
+
+      <!-- ヒートマップフッター（凡例・補足） -->
+      <div class="heatmap-footer">
+        <div>
+          <span>総学習記録日: <strong id="totalActiveDaysCount" style="color: #1e293b;">0</strong> 日</span>
+        </div>
+        <div class="heatmap-legend">
+          <span>Less</span>
+          <div class="heatmap-legend-scale">
+            <div class="heatmap-legend-cell heatmap-cell level-0" title="0分"></div>
+            <div class="heatmap-legend-cell heatmap-cell level-1" title="〜30分"></div>
+            <div class="heatmap-legend-cell heatmap-cell level-2" title="〜60分"></div>
+            <div class="heatmap-legend-cell heatmap-cell level-3" title="〜120分"></div>
+            <div class="heatmap-legend-cell heatmap-cell level-4" title="120分超"></div>
+          </div>
+          <span>More</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 各資格別 閲覧時間セクション -->
+    <section class="category-times-section">
+      <div class="section-heading-wrapper">
+        <div>
+          <h2 class="section-heading">
+            <i class="fas fa-layer-group" style="color: #345d4d;"></i> 各資格の閲覧・学習時間
+          </h2>
+          <p style="color: #64748b; font-size: 0.9rem; margin: 4px 0 0 0;">
+            資格別の閲覧時間と全体比率です。目標時間に応じたバランス学習にご活用ください。
+          </p>
+        </div>
+      </div>
+
+      <!-- 資格別カードグリッド -->
+      <div class="category-cards-grid" id="categoryCardsGrid">
+        
+        <!-- TOEIC® -->
+        <div class="category-time-card" id="card-toeic">
+          <div>
+            <div class="cat-card-header">
+              <div class="cat-badge-info">
+                <div class="cat-icon-circle" style="background: rgba(2, 132, 199, 0.12); color: #0284c7;">
+                  <i class="fas fa-language"></i>
+                </div>
+                <div>
+                  <h3 class="cat-title">TOEIC® L&R</h3>
+                  <div class="cat-subtitle">Part 5 / Part 6 / Part 7 / 語彙</div>
+                </div>
+              </div>
+              <span class="cat-percent-tag" id="percent-toeic">0%</span>
+            </div>
+
+            <div class="cat-time-display">
+              <div class="cat-time-val" id="time-toeic">0<span class="unit">分</span></div>
+              <div class="cat-last-study" id="last-toeic">直近: 未学習</div>
+            </div>
+
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="progress-toeic" style="width: 0%; background: #0284c7;"></div>
+            </div>
+          </div>
+
+          <div class="cat-card-footer">
+            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 30%</span>
+            <a href="toeic/problems.html" class="cat-action-btn">
+              学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 日商簿記 -->
+        <div class="category-time-card" id="card-boki">
+          <div>
+            <div class="cat-card-header">
+              <div class="cat-badge-info">
+                <div class="cat-icon-circle" style="background: rgba(22, 163, 74, 0.12); color: #16a34a;">
+                  <i class="fas fa-calculator"></i>
+                </div>
+                <div>
+                  <h3 class="cat-title">日商簿記検定</h3>
+                  <div class="cat-subtitle">1級 / 2級 / 3級 / 仕訳問題</div>
+                </div>
+              </div>
+              <span class="cat-percent-tag" id="percent-boki">0%</span>
+            </div>
+
+            <div class="cat-time-display">
+              <div class="cat-time-val" id="time-boki">0<span class="unit">分</span></div>
+              <div class="cat-last-study" id="last-boki">直近: 未学習</div>
+            </div>
+
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="progress-boki" style="width: 0%; background: #16a34a;"></div>
+            </div>
+          </div>
+
+          <div class="cat-card-footer">
+            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 25%</span>
+            <a href="boki/problems.html" class="cat-action-btn">
+              学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- FP技能士 -->
+        <div class="category-time-card" id="card-fp">
+          <div>
+            <div class="cat-card-header">
+              <div class="cat-badge-info">
+                <div class="cat-icon-circle" style="background: rgba(217, 119, 6, 0.12); color: #d97706;">
+                  <i class="fas fa-coins"></i>
+                </div>
+                <div>
+                  <h3 class="cat-title">ファイナンシャル・プランナー</h3>
+                  <div class="cat-subtitle">1級 / 2級 / 3級 学科・実技</div>
+                </div>
+              </div>
+              <span class="cat-percent-tag" id="percent-fp">0%</span>
+            </div>
+
+            <div class="cat-time-display">
+              <div class="cat-time-val" id="time-fp">0<span class="unit">分</span></div>
+              <div class="cat-last-study" id="last-fp">直近: 未学習</div>
+            </div>
+
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="progress-fp" style="width: 0%; background: #d97706;"></div>
+            </div>
+          </div>
+
+          <div class="cat-card-footer">
+            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 20%</span>
+            <a href="fp/problems.html" class="cat-action-btn">
+              学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 宅地建物取引士 -->
+        <div class="category-time-card" id="card-takken">
+          <div>
+            <div class="cat-card-header">
+              <div class="cat-badge-info">
+                <div class="cat-icon-circle" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed;">
+                  <i class="fas fa-building"></i>
+                </div>
+                <div>
+                  <h3 class="cat-title">宅地建物取引士</h3>
+                  <div class="cat-subtitle">権利関係 / 宅建業法 / 法令上の制限</div>
+                </div>
+              </div>
+              <span class="cat-percent-tag" id="percent-takken">0%</span>
+            </div>
+
+            <div class="cat-time-display">
+              <div class="cat-time-val" id="time-takken">0<span class="unit">分</span></div>
+              <div class="cat-last-study" id="last-takken">直近: 未学習</div>
+            </div>
+
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="progress-takken" style="width: 0%; background: #7c3aed;"></div>
+            </div>
+          </div>
+
+          <div class="cat-card-footer">
+            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 15%</span>
+            <a href="takken/problems.html" class="cat-action-btn">
+              学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- ITパスポート -->
+        <div class="category-time-card" id="card-itpass">
+          <div>
+            <div class="cat-card-header">
+              <div class="cat-badge-info">
+                <div class="cat-icon-circle" style="background: rgba(37, 99, 235, 0.12); color: #2563eb;">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+                <div>
+                  <h3 class="cat-title">ITパスポート</h3>
+                  <div class="cat-subtitle">ストラテジ / マネジメント / テクノロジ</div>
+                </div>
+              </div>
+              <span class="cat-percent-tag" id="percent-itpass">0%</span>
+            </div>
+
+            <div class="cat-time-display">
+              <div class="cat-time-val" id="time-itpass">0<span class="unit">分</span></div>
+              <div class="cat-last-study" id="last-itpass">直近: 未学習</div>
+            </div>
+
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="progress-itpass" style="width: 0%; background: #2563eb;"></div>
+            </div>
+          </div>
+
+          <div class="cat-card-footer">
+            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 10%</span>
+            <a href="it-passport/problems.html" class="cat-action-btn">
+              学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 共通フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="text-align: center; border-top: 1px solid #e7dfd5; padding: 2rem 0; margin-top: 2rem; color: #8896a6; font-size: 0.85rem;">
+        <p>&copy; 2026 資格対策ドットコム (Kakutoku). All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 認証モーダル -->
+  <div class="auth-modal-overlay" id="authModalOverlay">
+    <div class="auth-modal-dialog">
+      <button class="auth-modal-close" id="btnCloseAuthModal" onclick="document.getElementById('authModalOverlay').classList.remove('active')">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="auth-modal-header">
+        <h2 class="auth-modal-title">Kakutoku アカウント連携</h2>
+        <p class="auth-modal-subtitle">ログインすると学習履歴がクラウドに無料バックアップされ、スマホ・PC間で同期されます</p>
+      </div>
+
+      <!-- Googleログインボタン -->
+      <button class="btn-google-login" id="btnGoogleAuth">
+        <svg class="google-g-icon" viewBox="0 0 48 48">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+        <span>Googleアカウントでログイン</span>
+      </button>
+
+      <div class="modal-divider">
+        <span>またはメールアドレス</span>
+      </div>
+
+      <!-- メール認証フォーム -->
+      <form id="emailAuthForm" onsubmit="return false;">
+        <div class="auth-input-group">
+          <label class="auth-label" for="authEmailInput">メールアドレス</label>
+          <input type="email" id="authEmailInput" class="auth-input" placeholder="example@email.com" required>
+        </div>
+        <div class="auth-input-group">
+          <label class="auth-label" for="authPasswordInput">パスワード</label>
+          <input type="password" id="authPasswordInput" class="auth-input" placeholder="6文字以上" required>
+        </div>
+        <button type="submit" class="btn-email-submit" id="btnEmailSubmit">
+          メールでログイン / 新規登録
+        </button>
+      </form>
+
+      <div class="auth-modal-note">
+        ※ログインは任意です。未ログインのままでも学習記録はお使いの端末に保存され、完全無料で利用できます。
+      </div>
+    </div>
+  </div>
+
+  <!-- 学習計測エンジン & ヒートマップ描画スクリプト -->
+  <script src="assets/js/study-tracker.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      const Tracker = window.KakutokuTracker;
+      if (!Tracker) return;
+
+      // 月の名前（短縮形）
+      const MONTH_NAMES = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+
+      // ヒートマップ描画関数
+      function renderHeatmap(data) {
+        const grid = document.getElementById('heatmapGrid');
+        const monthsContainer = document.getElementById('heatmapMonths');
+        const tooltip = document.getElementById('heatmapTooltip');
+        if (!grid || !monthsContainer) return;
+
+        grid.innerHTML = '';
+        monthsContainer.innerHTML = '';
+
+        const today = new Date();
+        // 今日の曜日 (0: 日, 1: 月, ..., 6: 土)
+        const todayDayOfWeek = today.getDay();
+
+        // 過去52週分 + 今週の経過日数
+        // 合計週数: 53週
+        const totalWeeks = 53;
+        const totalDays = totalWeeks * 7;
+        
+        // 開始日を計算（53週前の日曜日）
+        const startDate = new Date(today);
+        startDate.setDate(today.getDate() - todayDayOfWeek - ((totalWeeks - 1) * 7));
+
+        let currentMonth = -1;
+        const monthColumns = [];
+
+        // 1列 (1週) ごとに月ラベルの位置を判定
+        let activeDaysCount = 0;
+
+        for (let w = 0; w < totalWeeks; w++) {
+          const weekStartDate = new Date(startDate);
+          weekStartDate.setDate(startDate.getDate() + (w * 7));
+          const m = weekStartDate.getMonth();
+
+          if (m !== currentMonth) {
+            currentMonth = m;
+            monthColumns.push({ weekIndex: w, name: MONTH_NAMES[m] });
+          }
+
+          // 1週間の7日分を描画
+          for (let d = 0; d < 7; d++) {
+            const cellDate = new Date(startDate);
+            cellDate.setDate(startDate.getDate() + (w * 7) + d);
+            const dateKey = Tracker.formatDate(cellDate);
+
+            const isFuture = cellDate > today;
+            const log = data.daily[dateKey] || { totalSec: 0, cats: {} };
+            const sec = isFuture ? 0 : log.totalSec;
+
+            if (sec > 0) {
+              activeDaysCount++;
+            }
+
+            // レベル判定 (0〜4)
+            let level = 0;
+            if (sec > 0 && sec <= 1800) level = 1;       // 1〜30分
+            else if (sec > 1800 && sec <= 3600) level = 2; // 30〜60分
+            else if (sec > 3600 && sec <= 7200) level = 3; // 60〜120分
+            else if (sec > 7200) level = 4;              // 120分超
+
+            const cell = document.createElement('div');
+            cell.className = `heatmap-cell level-${level}`;
+            if (isFuture) {
+              cell.style.opacity = '0.3';
+              cell.style.pointerEvents = 'none';
+            }
+
+            // ツールチップイベント
+            cell.addEventListener('mouseenter', function(e) {
+              if (isFuture) return;
+              const formattedTime = Tracker.formatHoursMinutesPlain(sec);
+              const jpDate = `${cellDate.getFullYear()}年${cellDate.getMonth() + 1}月${cellDate.getDate()}日`;
+              
+              let details = '';
+              if (sec > 0 && log.cats) {
+                const catNames = [];
+                for (const k of Object.keys(log.cats)) {
+                  if (log.cats[k] > 0 && Tracker.CATEGORIES[k]) {
+                    const m = Math.round(log.cats[k] / 60);
+                    catNames.push(`${Tracker.CATEGORIES[k].name}: ${m}分`);
+                  }
+                }
+                if (catNames.length > 0) {
+                  details = `<br><span style="color:#94a3b8; font-size:0.7rem;">(${catNames.join(' / ')})</span>`;
+                }
+              }
+
+              tooltip.innerHTML = `<strong>${jpDate}</strong>: ${sec > 0 ? formattedTime : '学習記録なし'}${details}`;
+              tooltip.classList.add('show');
+
+              const rect = cell.getBoundingClientRect();
+              const parentRect = document.getElementById('heatmapScrollArea').getBoundingClientRect();
+              tooltip.style.left = `${rect.left - parentRect.left + (rect.width / 2) + document.getElementById('heatmapScrollArea').scrollLeft}px`;
+              tooltip.style.top = `${rect.top - parentRect.top}px`;
+            });
+
+            cell.addEventListener('mouseleave', function() {
+              tooltip.classList.remove('show');
+            });
+
+            grid.appendChild(cell);
+          }
+        }
+
+        // 月ラベルの配置（53カラムに対応）
+        const monthSpanContainer = document.createElement('div');
+        monthSpanContainer.style.display = 'flex';
+        monthSpanContainer.style.position = 'relative';
+        monthSpanContainer.style.width = '100%';
+        monthSpanContainer.style.height = '18px';
+
+        // 曜日ラベルの余白 36px
+        const spacer = document.createElement('div');
+        spacer.style.width = '36px';
+        spacer.style.flexShrink = '0';
+        monthsContainer.appendChild(spacer);
+
+        const monthsInner = document.createElement('div');
+        monthsInner.style.position = 'relative';
+        monthsInner.style.flex = '1';
+        monthsInner.style.height = '18px';
+
+        monthColumns.forEach((mc, idx) => {
+          // 各週の幅は 12px + 3px gap = 15px
+          const leftPos = mc.weekIndex * 15;
+          const label = document.createElement('span');
+          label.textContent = mc.name;
+          label.style.position = 'absolute';
+          label.style.left = `${leftPos}px`;
+          label.style.top = '0';
+          label.style.fontSize = '0.72rem';
+          label.style.color = '#64748b';
+          monthsInner.appendChild(label);
+        });
+        monthsContainer.appendChild(monthsInner);
+
+        // 総記録日数更新
+        const activeDaysElem = document.getElementById('totalActiveDaysCount');
+        if (activeDaysElem) activeDaysElem.textContent = activeDaysCount;
+      }
+
+      // サマリーと各資格別カードの描画
+      function renderStats(data) {
+        // サイト総閲覧時間
+        const totalDisplay = document.getElementById('totalStudyTimeDisplay');
+        if (totalDisplay) {
+          totalDisplay.innerHTML = Tracker.formatHoursMinutes(data.totalSeconds);
+        }
+
+        // 継続日数
+        const streakDisplay = document.getElementById('streakDaysDisplay');
+        if (streakDisplay) {
+          streakDisplay.innerHTML = `${data.streak}<span class="unit">日連続</span>`;
+        }
+
+        // 直近7日 & 直近30日の集計
+        const today = new Date();
+        let weekSec = 0;
+        let monthSec = 0;
+
+        for (let i = 0; i < 30; i++) {
+          const d = new Date(today);
+          d.setDate(d.getDate() - i);
+          const k = Tracker.formatDate(d);
+          const log = data.daily[k];
+          if (log && log.totalSec) {
+            monthSec += log.totalSec;
+            if (i < 7) {
+              weekSec += log.totalSec;
+            }
+          }
+        }
+
+        const weekDisplay = document.getElementById('weekStudyTimeDisplay');
+        if (weekDisplay) {
+          weekDisplay.innerHTML = Tracker.formatHoursMinutes(weekSec);
+        }
+
+        const monthDisplay = document.getElementById('monthStudyTimeDisplay');
+        if (monthDisplay) {
+          monthDisplay.innerHTML = Tracker.formatHoursMinutes(monthSec);
+        }
+
+        // 各資格別カードの更新
+        const cats = ['toeic', 'boki', 'fp', 'takken', 'itpass'];
+        const totalSec = Math.max(data.totalSeconds, 1);
+
+        cats.forEach(catKey => {
+          const sec = data.categories[catKey] || 0;
+          const percent = Math.round((sec / totalSec) * 100);
+
+          const percentElem = document.getElementById(`percent-${catKey}`);
+          if (percentElem) percentElem.textContent = `${percent}%`;
+
+          const timeElem = document.getElementById(`time-${catKey}`);
+          if (timeElem) timeElem.innerHTML = Tracker.formatHoursMinutes(sec);
+
+          const progressElem = document.getElementById(`progress-${catKey}`);
+          if (progressElem) progressElem.style.width = `${percent}%`;
+
+          // 直近の学習日を探す
+          let lastDateStr = '未学習';
+          for (let i = 0; i < 60; i++) {
+            const d = new Date(today);
+            d.setDate(d.getDate() - i);
+            const k = Tracker.formatDate(d);
+            const log = data.daily[k];
+            if (log && log.cats && log.cats[catKey] > 0) {
+              if (i === 0) lastDateStr = '今日学習済み';
+              else if (i === 1) lastDateStr = '昨日';
+              else lastDateStr = `${i}日前`;
+              break;
+            }
+          }
+          const lastElem = document.getElementById(`last-${catKey}`);
+          if (lastElem) lastElem.textContent = `直近: ${lastDateStr}`;
+        });
+      }
+
+      // 初期化実行
+      const initialData = Tracker.loadData();
+      renderStats(initialData);
+      renderHeatmap(initialData);
+
+      // リアルタイム自動更新（study-tracker.js から毎秒呼ばれる）
+      window.KakutokuMypage = {
+        refreshLive: function(updatedData) {
+          renderStats(updatedData);
+        }
+      };
+
+      // 操作ボタン
+      const btnSeed = document.getElementById('btnSeedData');
+      if (btnSeed) {
+        btnSeed.addEventListener('click', Tracker.resetData);
+      }
+      const btnClear = document.getElementById('btnClearData');
+      if (btnClear) {
+        btnClear.addEventListener('click', Tracker.clearAllToZero);
+      }
+
+      // ヒートマップを右端（最新日付）に自動スクロール
+      const scrollArea = document.getElementById('heatmapScrollArea');
+      if (scrollArea) {
+        setTimeout(() => {
+          scrollArea.scrollLeft = scrollArea.scrollWidth;
+        }, 100);
+      }
+
+      // =====================================================================
+      // 認証（Firebase / デモ同期）UI制御
+      // =====================================================================
+      const Auth = window.KakutokuAuth;
+      const modal = document.getElementById('authModalOverlay');
+      const btnOpenModal = document.getElementById('btnOpenAuthModal');
+      const btnCloseModal = document.getElementById('btnCloseAuthModal');
+      const btnGoogle = document.getElementById('btnGoogleAuth');
+      const emailForm = document.getElementById('emailAuthForm');
+      const btnLogout = document.getElementById('btnLogout');
+
+      const banner = document.getElementById('cloudSyncBanner');
+      const userBar = document.getElementById('userProfileBar');
+      const userName = document.getElementById('userNameText');
+      const userEmail = document.getElementById('userEmailText');
+      const avatarImg = document.getElementById('userAvatarImg');
+      const avatarFallback = document.getElementById('userAvatarFallback');
+
+      function openModal() {
+        if (modal) modal.classList.add('active');
+      }
+      function closeModal() {
+        if (modal) modal.classList.remove('active');
+      }
+
+      if (btnOpenModal) btnOpenModal.addEventListener('click', openModal);
+      if (btnCloseModal) btnCloseModal.addEventListener('click', closeModal);
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      // ユーザー状態の購読
+      if (Auth) {
+        Auth.onAuthStateChanged(function(user) {
+          if (user) {
+            if (banner) banner.style.display = 'none';
+            if (userBar) userBar.style.display = 'flex';
+            if (userName) userName.textContent = user.displayName || '学習ユーザー';
+            if (userEmail) userEmail.textContent = user.email || 'クラウド同期中';
+
+            if (user.photoURL && avatarImg) {
+              avatarImg.src = user.photoURL;
+              avatarImg.style.display = 'block';
+              if (avatarFallback) avatarFallback.style.display = 'none';
+            } else {
+              if (avatarImg) avatarImg.style.display = 'none';
+              if (avatarFallback) {
+                avatarFallback.style.display = 'flex';
+                avatarFallback.textContent = (user.displayName || 'U').charAt(0).toUpperCase();
+              }
+            }
+          } else {
+            if (banner) banner.style.display = 'flex';
+            if (userBar) userBar.style.display = 'none';
+          }
+        });
+
+        // Googleログイン
+        if (btnGoogle) {
+          btnGoogle.addEventListener('click', async function() {
+            try {
+              btnGoogle.disabled = true;
+              btnGoogle.style.opacity = '0.7';
+              await Auth.loginWithGoogle();
+              closeModal();
+            } catch (err) {
+              console.error(err);
+            } finally {
+              btnGoogle.disabled = false;
+              btnGoogle.style.opacity = '1';
+            }
+          });
+        }
+
+        // メールログイン
+        if (emailForm) {
+          emailForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('authEmailInput').value;
+            const password = document.getElementById('authPasswordInput').value;
+            const submitBtn = document.getElementById('btnEmailSubmit');
+            try {
+              submitBtn.disabled = true;
+              submitBtn.textContent = '接続中...';
+              await Auth.loginWithEmail(email, password);
+              closeModal();
+            } catch (err) {
+              console.error(err);
+            } finally {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'メールでログイン / 新規登録';
+            }
+          });
+        }
+
+        // ログアウト
+        if (btnLogout) {
+          btnLogout.addEventListener('click', async function() {
+            if (confirm('ログアウトしますか？（ゲスト状態に戻ります）')) {
+              await Auth.logout();
+            }
+          });
+        }
+      }
+
+    })();
+  </script>
+</body>
+</html>

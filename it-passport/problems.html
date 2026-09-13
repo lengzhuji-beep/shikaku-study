@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITパスポート試験（iパス） 練習問題 | 分野・問題数を選んでランダム演習 | 資格対策ドットコム</title>
+<meta name="description" content="ITパスポート試験（iパス）の分野別練習問題。3大分野（ストラテジ系・マネジメント系・テクノロジ系）の各専門分野や出題数（最大100問）を自由に選んで、全過去問プールから1問1答形式で効率的に学習できます。苦手なブックマーク問題だけの復習も可能。">
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+  }
+  .category-group {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .category-group h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .category-items {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .category-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .category-item label {
+    font-size: 0.95rem;
+    color: #4a5568;
+    cursor: pointer;
+    user-select: none;
+  }
+  .category-item input[type="checkbox"],
+  .cat-group-check {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+  }
+  .category-control-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+  }
+  .batch-check-btn {
+    padding: 6px 14px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #cbd5e0;
+    background: white;
+    color: #4a5568;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .batch-check-btn:hover {
+    background: #edf2f7;
+    border-color: #a0aec0;
+  }
+</style>
+  <link rel="stylesheet" href="../assets/css/kakutoku.css">
+</head>
+<body class="with-header">
+
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../index.html">ホーム</a></li>
+    <li><a href="index.html">ITパスポート試験</a></li>
+    <li>練習問題</li>
+  </ul>
+
+  <div class="hero-header">
+    <h1>ITパスポート試験 練習問題（一問一答演習）</h1>
+    <p>分野と出題数を自由に選んで、全過去問プールからランダムに集中特訓できます</p>
+  </div>
+
+  <!-- モード切り替えタブ -->
+  <div class="mode-switch-container">
+    <button type="button" class="mode-switch-btn active" data-mode="all">
+      <i class="fas fa-dumbbell"></i> すべての問題（トレーニング）
+    </button>
+    <button type="button" class="mode-switch-btn" data-mode="bookmark">
+      <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマークした問題だけ復習
+    </button>
+  </div>
+
+  <!-- ブックマークがない時の案内メッセージ -->
+  <div id="bookmarkEmptyMsg" class="card" style="display:none; text-align:center; padding:35px; background:#fffaf0; border:1px solid #feebc8; margin-bottom:20px;">
+    <i class="far fa-star" style="font-size:2rem; color:#d69e2e; margin-bottom:10px;"></i>
+    <h3>ブックマークされた問題がありません</h3>
+    <p style="color:#744210;">問題の右上にある「☆ ブックマーク」ボタンを押すと、ここに保存されていつでも苦手問題だけを復習できます。</p>
+  </div>
+
+  <!-- ① ウィザード画面（分野選択＆問題数選択） -->
+  <div id="wizardSection">
+    <!-- ステップ1: 分野選択 -->
+    <div class="wizard-step-card">
+      <h2><i class="fas fa-check-circle" style="color:#345d4d;"></i> ステップ 1：出題分野を選択</h2>
+      <p class="wizard-desc">苦手な分野だけを集中的に解くことも、全分野を横断して実戦演習することも可能です（複数選択可）。</p>
+
+      <div class="category-control-bar">
+        <div style="display:flex; gap:10px;">
+          <button type="button" class="batch-check-btn" id="btn-check-all"><i class="fas fa-check-double"></i> 全項目チェック ON</button>
+          <button type="button" class="batch-check-btn" id="btn-check-none"><i class="fas fa-times"></i> 全項目チェック OFF</button>
+        </div>
+        <span style="font-size:0.85rem; color:#718096;"><i class="fas fa-info-circle"></i> 各分野名横のチェックで一括選択できます</span>
+      </div>
+
+      <div class="category-grid" id="category-grid">
+        <!-- ストラテジ系 -->
+        <div class="category-group">
+          <h3>
+            <input type="checkbox" id="cat-strategy-all" class="cat-group-check" checked> 
+            <label for="cat-strategy-all"><i class="fas fa-briefcase" style="color:#345d4d;"></i> ストラテジ系</label>
+          </h3>
+          <div class="category-items" data-group="strategy">
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-kigyo" value="企業活動" checked><label for="cat-kigyo">企業活動</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-homu" value="法務" checked><label for="cat-homu">法務</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-keiei" value="経営戦略マネジメント" checked><label for="cat-keiei">経営戦略マネジメント</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-gijutsu" value="技術戦略マネジメント" checked><label for="cat-gijutsu">技術戦略マネジメント</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-business" value="ビジネスインダストリ" checked><label for="cat-business">ビジネスインダストリ</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-sys_sen" value="システム戦略" checked><label for="cat-sys_sen">システム戦略</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-sys_ki" value="システム企画" checked><label for="cat-sys_ki">システム企画</label></div>
+          </div>
+        </div>
+        
+        <!-- マネジメント系 -->
+        <div class="category-group">
+          <h3>
+            <input type="checkbox" id="cat-management-all" class="cat-group-check" checked> 
+            <label for="cat-management-all"><i class="fas fa-tasks" style="color:#c53030;"></i> マネジメント系</label>
+          </h3>
+          <div class="category-items" data-group="management">
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-sys_kai" value="システム開発技術" checked><label for="cat-sys_kai">システム開発技術</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-soft_kai" value="ソフトウェア開発管理技術" checked><label for="cat-soft_kai">ソフトウェア開発管理技術</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-pm" value="プロジェクトマネジメント" checked><label for="cat-pm">プロジェクトマネジメント</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-sm" value="サービスマネジメント" checked><label for="cat-sm">サービスマネジメント</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-kansa" value="システム監査" checked><label for="cat-kansa">システム監査</label></div>
+          </div>
+        </div>
+        
+        <!-- テクノロジ系 -->
+        <div class="category-group">
+          <h3>
+            <input type="checkbox" id="cat-technology-all" class="cat-group-check" checked> 
+            <label for="cat-technology-all"><i class="fas fa-microchip" style="color:#234e52;"></i> テクノロジ系</label>
+          </h3>
+          <div class="category-items" data-group="technology">
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-kiso" value="基礎理論" checked><label for="cat-kiso">基礎理論</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-algo" value="アルゴリズムとプログラミング" checked><label for="cat-algo">アルゴリズムとプログラミング</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-comp" value="コンピュータ構成要素" checked><label for="cat-comp">コンピュータ構成要素</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-sys_ko" value="システム構成要素" checked><label for="cat-sys_ko">システム構成要素</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-soft" value="ソフトウェア" checked><label for="cat-soft">ソフトウェア</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-hard" value="ハードウェア" checked><label for="cat-hard">ハードウェア</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-design" value="情報デザイン" checked><label for="cat-design">情報デザイン</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-media" value="情報メディア" checked><label for="cat-media">情報メディア</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-db" value="データベース" checked><label for="cat-db">データベース</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-nw" value="ネットワーク" checked><label for="cat-nw">ネットワーク</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-sec" value="セキュリティ" checked><label for="cat-sec">セキュリティ</label></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ステップ2: 出題数選択 -->
+      <h2 style="margin-top:30px;"><i class="fas fa-sliders-h" style="color:#345d4d;"></i> ステップ 2：出題数を選択（最大100問）</h2>
+      <p class="wizard-desc">スキマ時間のクイック学習から、本番フルサイズ100問演習まで自由に選べます。</p>
+
+      <div class="count-button-grid">
+        <button type="button" class="count-btn" data-count="5">5問</button>
+        <button type="button" class="count-btn selected" data-count="10">10問</button>
+        <button type="button" class="count-btn" data-count="15">15問</button>
+        <button type="button" class="count-btn" data-count="30">30問</button>
+        <button type="button" class="count-btn" data-count="50">50問</button>
+        <button type="button" class="count-btn" data-count="100">100問</button>
+      </div>
+
+      <!-- アクションボタンエリア -->
+      <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top:20px;">
+        <button type="button" id="startPracticeBtn" class="start-quiz-btn" style="flex:1; min-width:260px; margin:0;">
+          <i class="fas fa-play-circle"></i> この条件でランダム練習を開始する
+        </button>
+        <button type="button" id="printPracticeBtn" class="print-quiz-btn" style="flex:1; min-width:260px; padding:16px; background:#38a169; color:white; font-size:1.15rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; text-align:center; box-shadow:0 4px 12px rgba(56,161,105,0.25); transition:0.2s; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <i class="fas fa-print"></i> この条件で問題をプリントアウトする
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 演習実行画面（最初は非表示、スタート時に表示） -->
+  <div id="quizPlaySection" style="display:none;">
+    <!-- 上部ナビバー -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+      <button type="button" id="backToWizardBtn" class="btn" style="background:#718096; color:white; padding:8px 16px; font-size:0.9rem;">
+        <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+      </button>
+      <span style="font-size:0.9rem; color:#718096;"><i class="fas fa-random"></i> ランダム出題モード実行中</span>
+    </div>
+
+    <!-- 進捗バー -->
+    <div class="progress-card">
+      <span id="playProgressText" style="font-size:0.95rem; color:#4a5568;">進捗: 読み込み中...</span>
+      <div class="progress-bar-bg">
+        <div id="playProgressFill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- 動的クイズカード挿入コンテナ -->
+    <div id="quizCardsContainer"></div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>資格対策ドットコム</h4>
+      <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
+        TOEIC・FP・宅建・ITパスポート・簿記など、人気の主要資格の練習問題・過去問・コラム・用語集をすべて無料で提供する総合学習プラットフォームです。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>資格から探す</h4>
+      <ul>
+        <li><a href="../toeic/index.html">TOEIC® L&R</a></li>
+        <li><a href="../fp/index.html">FP (ファイナンシャル・プランナー)</a></li>
+        <li><a href="../takken/index.html">宅地建物取引士 (宅建)</a></li>
+        <li><a href="index.html">ITパスポート</a></li>
+        <li><a href="../boki/index.html">日商簿記検定</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>ご案内</h4>
+      <ul>
+        <li><a href="../contact.html">お問い合わせ</a></li>
+        <li><a href="../profile.html">運営者プロフィール</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="../assets/js/itpass-data.js"></script>
+<script src="../assets/js/itpass-practice-wizard.js?v=2"></script>
+  <script src="../assets/js/study-tracker.js"></script>
+</body>
+</html>

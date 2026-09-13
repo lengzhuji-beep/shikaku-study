@@ -15,6 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
          crossorigin="anonymous"></script>
     
+  <link rel="stylesheet" href="assets/css/kakutoku.css">
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
@@ -87,7 +88,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
             showLevelSelect();
         }
-        function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
+        function getCategoryName(category) { return { vocabulary: '単語', reading: 'リーディング', writing: 'リーディング', listening: 'リスニング' }[category] || ''; }
         function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
         function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
         function showLevelSelect() { hideAllSections(); document.getElementById("level-select").classList.remove("hidden"); }
@@ -200,5 +201,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
         window.onload = initializeApp;
     </script>
+  <script src="assets/js/study-tracker.js"></script>
 </body>
 </html>

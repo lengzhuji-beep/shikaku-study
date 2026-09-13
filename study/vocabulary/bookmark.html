@@ -7,154 +7,385 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-N3ZFKBQ3');</script>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOEIC 対策ツール - 単語 ブックマークモード</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
-         crossorigin="anonymous"></script>
-    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC® 単語 ブックマーク復習 | 資格対策ドットコム</title>
+<meta name="description" content="TOEIC® L&R 単語のブックマーク復習。チェックした苦手単語をレベル別または一括で集中復習できます。">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+:root {
+  --vocab-accent: #059669;
+  --vocab-light: #ecfdf5;
+  --ok-color: #065f46;
+  --ng-color: #991b1b;
+}
+.level-badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 16px 0 24px;
+}
+.level-pill-btn {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  color: #334155;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+.level-pill-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+}
+.level-pill-btn.active {
+  background: var(--vocab-accent);
+  border-color: var(--vocab-accent);
+  color: #fff;
+}
+.vocab-choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: all 0.15s ease;
+  color: #1e293b;
+  box-sizing: border-box;
+}
+.vocab-choice-btn:hover:not(:disabled) {
+  background: #eff6ff;
+  border-color: #345d4d;
+  transform: translateY(-1px);
+}
+.vocab-choice-btn.correct {
+  background: #ecfdf5 !important;
+  border-color: #10b981 !important;
+  color: #065f46 !important;
+  font-weight: 700;
+}
+.vocab-choice-btn.wrong {
+  background: #fef2f2 !important;
+  border-color: #ef4444 !important;
+  color: #991b1b !important;
+}
+.vocab-exp-box {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid var(--vocab-accent);
+}
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-btn-primary { background: var(--vocab-accent); color: #fff; }
+.nav-btn-primary:hover { background: #047857; }
+.nav-btn-secondary { background: #e2e8f0; color: #334155; }
+.nav-btn-secondary:hover { background: #cbd5e1; }
+.quit-quiz-btn {
+  background: #6c757d;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.quit-quiz-btn:hover {
+  background: #5a6268;
+  color: #ffffff;
+}
+</style>
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
 </head>
-<body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="container">
-        <div id="level-select" class="card">
-            <h2>単語 - ブックマークモード</h2>
-            <p>復習したい問題のレベルを選択してください</p>
-            <div class="level-buttons-group">
-                <button class="icon-button" data-level="300" onclick="startBookmarkQuiz(300)">300点</button>
-                <button class="icon-button" data-level="400" onclick="startBookmarkQuiz(400)">400点</button>
-                <button class="icon-button" data-level="500" onclick="startBookmarkQuiz(500)">500点</button>
-                <button class="icon-button" data-level="600" onclick="startBookmarkQuiz(600)">600点</button>
-                <button class="icon-button" data-level="700" onclick="startBookmarkQuiz(700)">700点</button>
-                <button class="icon-button" data-level="800" onclick="startBookmarkQuiz(800)">800点</button>
-                <button class="icon-button" data-level="900" onclick="startBookmarkQuiz(900)">900点以上</button>
-            </div>
-            <a href="../../index.html" class="back-to-level-select">トップに戻る</a>
-        </div>
-        <div id="quiz" class="card hidden">
-            <a href="../../index.html" class="quit-quiz-btn">解答を中止する</a>
-            <h2 id="quiz-title"></h2>
-            <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
-            <div id="question" style="font-size: 1.5em; text-align: center; margin: 20px 0;"></div>
-            <div id="choices" style="display: flex; flex-direction: column; gap: 10px;"></div>
-            <div id="feedback" class="feedback hidden"></div>
-            <button id="next-btn" onclick="nextQuestion()" class="hidden">次の問題へ</button>
-        </div>
-        <div id="result" class="card hidden" style="text-align:center;">
-             <h2>ブックマーク復習完了！</h2>
-             <p id="result-text"></p>
-             <button onclick="showLevelSelect()" style="background-color: #6c757d;">別のレベルを復習</button>
-             <a href="../../index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
-        </div>
+<body class="with-header">
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
     </div>
-    
-    <script>
-        const currentCategory = 'vocabulary';
-        const currentMode = 'bookmark';
-        let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
-        function initializeApp() {
-            bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
-            showLevelSelect();
-        }
-        function updateLevelButtonsState() {
-            const levels = [300, 400, 500, 600, 700, 800, 900];
-            const categoryBookmarks = bookmarks[currentCategory] || [];
-            levels.forEach(level => {
-                const hasBookmarksForLevel = categoryBookmarks.some(bookmark => bookmark.level === level);
-                const button = document.querySelector(`#level-select button[data-level="${level}"]`);
-                if (button) {
-                    button.disabled = !hasBookmarksForLevel;
-                }
-            });
-        }
-        function hideAllSections() { ["level-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
-        function showLevelSelect() { 
-            hideAllSections(); 
-            document.getElementById("level-select").classList.remove("hidden"); 
-            updateLevelButtonsState();
-        }
-        function startBookmarkQuiz(level) {
-            currentLevel = level;
-            const allBookmarkedQuestions = bookmarks[currentCategory] || [];
-            currentQuestions = allBookmarkedQuestions.filter(q => q.level === currentLevel);
-            currentQuestion = 0;
-            score = 0;
-            hideAllSections();
-            document.getElementById("quiz").classList.remove("hidden");
-            showQuestion();
-        }
-        function shuffleArray(array) {
-            let shuffled = [...array];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            }
-            return shuffled;
-        }
-        function showQuestion() {
-            document.getElementById("feedback").classList.add("hidden");
-            document.getElementById("next-btn").classList.add("hidden");
-            const qData = currentQuestions[currentQuestion];
-            document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
-            document.getElementById("question").textContent = qData.q;
-            const choicesDiv = document.getElementById("choices");
-            choicesDiv.innerHTML = "";
-            shuffleArray(qData.choices).forEach(choice => {
-                const btn = document.createElement("button");
-                btn.textContent = choice;
-                btn.onclick = () => checkAnswer(choice);
-                choicesDiv.appendChild(btn);
-            });
-            document.querySelectorAll('#choices button').forEach(button => button.disabled = false);
-            updateBookmarkStatus();
-        }
-        function checkAnswer(choice) {
-            const qData = currentQuestions[currentQuestion];
-            const isCorrect = choice === qData.answer;
-            if(isCorrect) score++;
-            const feedbackDiv = document.getElementById("feedback");
-            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}`;
-            feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-            feedbackDiv.classList.remove("hidden");
-            document.querySelectorAll('#choices button').forEach(button => button.disabled = true);
-            document.getElementById("next-btn").classList.remove("hidden");
-        }
-        function nextQuestion() {
-            currentQuestion++;
-            if (currentQuestion < currentQuestions.length) {
-                showQuestion();
-            } else {
-                showResult();
-            }
-        }
-        function showResult() {
-            hideAllSections();
-            const resultDiv = document.getElementById("result");
-            resultDiv.classList.remove("hidden");
-            document.getElementById("result-text").textContent = `${currentQuestions.length}問中、${score}問正解しました。`;
-        }
-        function updateBookmarkStatus() {
-            const qData = currentQuestions[currentQuestion];
-            const isBookmarked = bookmarks[currentCategory].some(b => b.q === qData.q);
-            const bookmarkEl = document.getElementById("bookmark");
-            bookmarkEl.textContent = isBookmarked ? "★" : "☆";
-            bookmarkEl.className = isBookmarked ? "bookmark bookmarked" : "bookmark";
-        }
-        function toggleBookmark() {
-            const qData = currentQuestions[currentQuestion];
-            const bookmarkIndex = bookmarks[currentCategory].findIndex(b => b.q === qData.q);
-            if (bookmarkIndex === -1) {
-                bookmarks[currentCategory].push({ ...qData, level: currentLevel, category: currentCategory });
-            } else {
-                bookmarks[currentCategory].splice(bookmarkIndex, 1);
-            }
-            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-            updateBookmarkStatus();
-        }
-        window.onload = initializeApp;
-    </script>
+  </header>
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../../index.html">ホーム</a></li>
+    <li><a href="../../toeic/index.html">TOEIC® L&R</a></li>
+    <li><a href="../../toeic/problems.html">練習問題</a></li>
+    <li>単語 ブックマーク復習</li>
+  </ul>
+
+  <!-- STEP 1: レベル選択 -->
+  <div id="level-select" class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+      <h1 style="margin:0; font-size:1.6rem; text-align:left;">
+        <i class="fas fa-star" style="color:#eab308;"></i> 単語 - ブックマーク復習
+      </h1>
+      <a href="../../toeic/problems.html" class="btn small" style="background:#64748b; color:#fff;">問題選択へ戻る</a>
+    </div>
+
+    <p style="margin-top:10px;">演習中に保存（★）した苦手な単語を復習します。</p>
+
+    <div id="bookmark-summary-bar" style="background:#f8fafc; padding:14px 18px; border-radius:10px; border:1px solid #e2e8f0; margin:16px 0; font-weight:700; color:#334155;">
+      読み込み中...
+    </div>
+
+    <h3 style="text-align:left; margin-top:20px;">復習するレベルを選択</h3>
+    <div id="level-btn-container" class="level-badge-grid"></div>
+
+    <div style="text-align:center; margin-top:20px;">
+      <button id="all-bookmarks-btn" class="nav-btn nav-btn-primary" onclick="startQuiz('all')">
+        <i class="fas fa-play"></i> 保存された全問を一括復習する
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 2: 問題解答 -->
+  <div id="quiz-view" class="card hidden" style="position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:8px;">
+      <span id="quiz-progress-text" style="font-weight:700; color:var(--vocab-accent);"></span>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button id="bookmark-toggle-btn" class="nav-btn nav-btn-secondary" style="padding:6px 12px; font-size:0.85rem;" onclick="toggleCurrentBookmark()">
+          <i class="fas fa-star" style="color:#eab308;"></i> 解除する
+        </button>
+        <button type="button" class="quit-quiz-btn" onclick="showLevelSelect()">
+          <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+        </button>
+      </div>
+    </div>
+
+    <div id="quiz-word" style="font-size:2.2rem; font-weight:800; color:#1e293b; text-align:center; margin:25px 0 30px;"></div>
+    <div id="quiz-choices-container"></div>
+
+    <div id="explanation-box" class="vocab-exp-box hidden">
+      <div id="explanation-title" style="font-weight:800; margin-bottom:6px;"></div>
+      <div id="explanation-content" style="color:#334155; line-height:1.7;"></div>
+    </div>
+
+    <div style="margin-top:20px; text-align:right;">
+      <button id="next-btn" class="nav-btn nav-btn-primary hidden" onclick="nextQuestion()">
+        次の問題へ <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 3: 結果 -->
+  <div id="result-view" class="card hidden" style="text-align:center; padding:35px 20px;">
+    <div style="font-size:3rem; color:var(--vocab-accent); margin-bottom:12px;">
+      <i class="fas fa-check-circle" style="color:#10b981;"></i>
+    </div>
+    <h2>ブックマーク復習完了！</h2>
+    <p id="result-text" style="font-size:1.2rem; margin:16px 0; font-weight:700;"></p>
+    <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px;">
+      <button class="nav-btn nav-btn-primary" onclick="showLevelSelect()">
+        <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+      </button>
+      <a href="training.html" class="nav-btn nav-btn-secondary" style="text-decoration:none;">
+        <i class="fas fa-dumbbell"></i> トレーニングへ
+      </a>
+      <a href="../../toeic/problems.html" class="nav-btn nav-btn-secondary" style="text-decoration:none;">
+        <i class="fas fa-list"></i> 問題選択へ戻る
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+let bookmarks = { vocabulary: [] };
+let currentQuestions = [];
+let currentIdx = 0;
+let score = 0;
+let isAnswered = false;
+
+function initApp() {
+  try {
+    const raw = localStorage.getItem('bookmarks');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      bookmarks = parsed;
+      if (!bookmarks.vocabulary) bookmarks.vocabulary = [];
+    }
+  } catch(e) {}
+  showLevelSelect();
+}
+
+function showLevelSelect() {
+  document.getElementById('level-select').classList.remove('hidden');
+  document.getElementById('quiz-view').classList.add('hidden');
+  document.getElementById('result-view').classList.add('hidden');
+
+  const vBookmarks = bookmarks.vocabulary || [];
+  document.getElementById('bookmark-summary-bar').innerHTML = `
+    保存中の単語問題： <strong>${vBookmarks.length}</strong> 問
+  `;
+
+  document.getElementById('all-bookmarks-btn').disabled = (vBookmarks.length === 0);
+
+  const container = document.getElementById('level-btn-container');
+  container.innerHTML = '';
+  const levels = [300, 400, 500, 600, 700, 800, 900];
+  levels.forEach(lv => {
+    const count = vBookmarks.filter(b => b.level === lv).length;
+    const btn = document.createElement('button');
+    btn.className = 'level-pill-btn';
+    btn.textContent = `${lv}点 (${count}問)`;
+    btn.disabled = (count === 0);
+    btn.onclick = () => startQuiz(lv);
+    container.appendChild(btn);
+  });
+}
+
+function startQuiz(target) {
+  const vBookmarks = bookmarks.vocabulary || [];
+  if (target === 'all') {
+    currentQuestions = [...vBookmarks];
+  } else {
+    currentQuestions = vBookmarks.filter(b => b.level === target);
+  }
+  if (currentQuestions.length === 0) {
+    alert('該当するブックマークがありません。');
+    return;
+  }
+  currentIdx = 0;
+  score = 0;
+
+  document.getElementById('level-select').classList.add('hidden');
+  document.getElementById('result-view').classList.add('hidden');
+  document.getElementById('quiz-view').classList.remove('hidden');
+
+  renderQuestion();
+}
+
+function renderQuestion() {
+  isAnswered = false;
+  const qData = currentQuestions[currentIdx];
+
+  document.getElementById('quiz-progress-text').textContent = 
+    `問題 ${currentIdx + 1} / ${currentQuestions.length} (${qData.level || 'レベル共通'}点)`;
+
+  document.getElementById('quiz-word').textContent = qData.q;
+
+  const choicesContainer = document.getElementById('quiz-choices-container');
+  choicesContainer.innerHTML = '';
+
+  document.getElementById('explanation-box').classList.add('hidden');
+  document.getElementById('next-btn').classList.add('hidden');
+
+  const choices = [...(qData.choices || [])];
+  choices.forEach(choice => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'vocab-choice-btn';
+    btn.textContent = choice;
+    btn.onclick = () => handleAnswer(choice, btn);
+    choicesContainer.appendChild(btn);
+  });
+}
+
+function handleAnswer(choice, selectedBtn) {
+  if (isAnswered) return;
+  isAnswered = true;
+
+  const qData = currentQuestions[currentIdx];
+  const isCorrect = (choice === qData.answer);
+  if (isCorrect) score++;
+
+  const allBtns = document.querySelectorAll('#quiz-choices-container .vocab-choice-btn');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    if (b.textContent === qData.answer) {
+      b.classList.add('correct');
+      b.innerHTML = `<i class="fas fa-check-circle" style="margin-right:8px;"></i>${b.textContent}`;
+    } else if (b === selectedBtn && !isCorrect) {
+      b.classList.add('wrong');
+      b.innerHTML = `<i class="fas fa-times-circle" style="margin-right:8px;"></i>${b.textContent}`;
+    }
+  });
+
+  const expBox = document.getElementById('explanation-box');
+  const expTitle = document.getElementById('explanation-title');
+  const expContent = document.getElementById('explanation-content');
+
+  expBox.classList.remove('hidden');
+  if (isCorrect) {
+    expTitle.innerHTML = '<i class="fas fa-check-circle" style="color:#10b981;"></i> 正解！';
+  } else {
+    expTitle.innerHTML = `<i class="fas fa-times-circle" style="color:#ef4444;"></i> 不正解（正解: 「${qData.answer}」）`;
+  }
+  expContent.innerHTML = `<strong>【解説・語法】</strong><br>${qData.explanation || '解説はありません。'}`;
+
+  const nextBtn = document.getElementById('next-btn');
+  nextBtn.classList.remove('hidden');
+  nextBtn.innerHTML = (currentIdx + 1 >= currentQuestions.length)
+    ? '復習結果を見る <i class="fas fa-check"></i>'
+    : '次の問題へ <i class="fas fa-arrow-right"></i>';
+}
+
+function nextQuestion() {
+  currentIdx++;
+  if (currentIdx < currentQuestions.length) {
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function toggleCurrentBookmark() {
+  const qData = currentQuestions[currentIdx];
+  const bList = bookmarks.vocabulary || [];
+  const idx = bList.findIndex(b => b.q === qData.q);
+  if (idx !== -1) {
+    bList.splice(idx, 1);
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    alert('この問題をブックマークから解除しました。');
+  }
+}
+
+function showResult() {
+  document.getElementById('quiz-view').classList.add('hidden');
+  document.getElementById('result-view').classList.remove('hidden');
+  document.getElementById('result-text').textContent = 
+    `${currentQuestions.length}問中、${score}問正解しました！`;
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
+</script>
+  <script src="../../assets/js/study-tracker.js"></script>
 </body>
 </html>

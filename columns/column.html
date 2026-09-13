@@ -19,26 +19,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
          crossorigin="anonymous"></script>
   
+  <link rel="stylesheet" href="../assets/css/kakutoku.css">
 </head>
 <body class="with-header">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<header class="header">
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニュー">
-  <label for="nav-toggle" class="nav-toggle-label" aria-label="メニューを開く">
-    <span></span><span></span><span></span>
-  </label>
-<nav class="header-nav" id="primary-nav">
-      <a href="../index.html"><i class="fas fa-home"></i> トップ</a>
-      <a href="../toeic-overview.html"><i class="fas fa-info-circle"></i> TOEIC概要</a>
-        <a href="../toeic-books.html"><i class="fas fa-book"></i> おすすめ教材</a>
-      <a href="column.html" class="active"><i class="fas fa-book-open"></i> コラム</a>
-      <a href="../other-exams.html"><i class="fas fa-graduation-cap"></i> 他資格対策</a>
-      <a href="../contact.html"><i class="fas fa-envelope"></i> お問い合わせ</a>
-      <a href="../profile.html"><i class="fas fa-user-circle"></i> 私のプロフィール</a>
-      </nav>
-    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
-</header>
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
   <div class="container">
     <div class="hero-header">
         <h1>コラム</h1>
@@ -193,5 +192,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     };
   </script>
+  <script src="../assets/js/study-tracker.js"></script>
 </body>
 </html>

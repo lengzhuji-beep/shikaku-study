@@ -15,8 +15,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
          crossorigin="anonymous"></script>
     
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
 </head>
 <body>
+  <!-- ヘッダー（共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
@@ -46,12 +61,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
              <button onclick="showLevelSelect()" class="back-to-level-select">レベル選択に戻る</button>
              </div>
-        <div id="quiz" class="card hidden">
+        <div id="quiz" class="card single-quiz-card hidden" style="position: relative;">
             <a href="../../index.html" class="quit-quiz-btn">解答を中止する</a>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
-            <h2 id="quiz-title"></h2>
-            <div id="question" style="font-size: 1.5em; text-align: center; margin: 20px 0;"></div>
-            <div id="choices" class="choices"></div>
+            <h2 id="quiz-title" style="margin-top: 10px;"></h2>
+            <div id="question" style="font-size: 1.8em; text-align: center; margin: 25px 0; font-weight: bold; color: #2d3748;"></div>
+            <div id="choices" class="quiz-options"></div>
+            <div id="explanation-area" class="quiz-explanation-area">
+                <div id="explanation-title" class="quiz-result-title"></div>
+                <div id="explanation-body" style="line-height: 1.7; margin: 12px 0;"></div>
+                <div class="next-question-bar">
+                    <button id="next-btn" type="button" class="next-question-btn" onclick="nextQuestion()">
+                        次の問題へ <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
         </div>
         <div id="result" class="result card hidden"></div>
     </div>
@@ -74,7 +98,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             statistics = JSON.parse(localStorage.getItem('statistics')) || {};
             showLevelSelect();
         }
-        function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
+        function getCategoryName(category) { return { vocabulary: '単語', reading: 'リーディング', writing: 'リーディング', listening: 'リスニング' }[category] || ''; }
         function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
         function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
         function showLevelSelect() { hideAllSections(); document.getElementById("level-select").classList.remove("hidden"); }
@@ -106,24 +130,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             return shuffled;
         }
         function showQuestion() {
+            const expArea = document.getElementById("explanation-area");
+            expArea.style.display = "none";
+            expArea.className = "quiz-explanation-area";
+
             const qData = currentQuestions[currentQuestion];
             document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
             document.getElementById("question").textContent = qData.q;
             const choicesDiv = document.getElementById("choices");
             choicesDiv.innerHTML = "";
+
+            let answered = false;
             shuffleArray(qData.choices).forEach(choice => {
-                const btn = document.createElement("button");
-                btn.textContent = choice;
-                btn.onclick = () => checkAnswer(choice);
-                choicesDiv.appendChild(btn);
+                const opt = document.createElement("div");
+                opt.className = "quiz-option";
+                opt.textContent = choice;
+                opt.onclick = () => {
+                    if (answered) return;
+                    answered = true;
+                    checkAnswer(choice, opt);
+                };
+                choicesDiv.appendChild(opt);
             });
             updateBookmarkStatus();
         }
-        function checkAnswer(choice) {
+        function checkAnswer(choice, selectedOpt) {
             const qData = currentQuestions[currentQuestion];
             qData.userAnswer = choice;
-            updateStatistics(currentCategory, currentLevel, choice === qData.answer, qData.q);
-            nextQuestion();
+            const isCorrect = (choice === qData.answer);
+            updateStatistics(currentCategory, currentLevel, isCorrect, qData.q);
+
+            const allOpts = document.querySelectorAll('#choices .quiz-option');
+            allOpts.forEach(opt => {
+                opt.classList.add("locked");
+                opt.style.pointerEvents = "none";
+                if (opt.textContent === qData.answer) {
+                    opt.classList.add("correct-choice");
+                    opt.innerHTML = `<i class="fas fa-check-circle" style="color:#22543d; margin-right:10px;"></i>${opt.textContent}`;
+                } else if (opt === selectedOpt && !isCorrect) {
+                    opt.classList.add("wrong-choice");
+                    opt.innerHTML = `<i class="fas fa-times-circle" style="color:#742a2a; margin-right:10px;"></i>${opt.textContent}`;
+                }
+            });
+
+            const expArea = document.getElementById("explanation-area");
+            const expTitle = document.getElementById("explanation-title");
+            const expBody = document.getElementById("explanation-body");
+            const nextBtn = document.getElementById("next-btn");
+
+            expArea.style.display = "block";
+            if (isCorrect) {
+                expArea.className = "quiz-explanation-area is-correct";
+                expTitle.innerHTML = '<i class="fas fa-check-circle"></i> 正解！';
+            } else {
+                expArea.className = "quiz-explanation-area is-wrong";
+                expTitle.innerHTML = `<i class="fas fa-times-circle"></i> 不正解... （正解: 「${qData.answer}」）`;
+            }
+            expBody.innerHTML = `<strong>【解説・語法】</strong><br>${qData.explanation}`;
+
+            const isLast = (currentQuestion + 1 >= currentQuestions.length);
+            nextBtn.innerHTML = isLast 
+                ? 'テスト結果を見る <i class="fas fa-check-circle"></i>' 
+                : '次の問題へ <i class="fas fa-arrow-right"></i>';
         }
         function nextQuestion() {
             currentQuestion++;
@@ -207,5 +275,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
         window.onload = initializeApp;
     </script>
+  <script src="../../assets/js/study-tracker.js"></script>
 </body>
 </html>

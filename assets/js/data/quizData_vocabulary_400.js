@@ -1,22 +1,122 @@
 quizData.vocabulary[400] = [
-  {"q": "reservation", "choices": ["約束（面談）", "準備する", "予約", "更新／更新する"], "answer": "予約", "explanation": "'reservation' は『予約』を意味します。"},
-  {"q": "receipt", "choices": ["割引", "キャンセルする", "減少する／減少", "領収書"], "answer": "領収書", "explanation": "'receipt' は『領収書』を意味します。"},
-  {"q": "invoice", "choices": ["変更する", "準備する", "請求書", "予約"], "answer": "請求書", "explanation": "'invoice' は『請求書』を意味します。"},
-  {"q": "deadline", "choices": ["締め切り", "完了する", "割引", "キャンセルする"], "answer": "締め切り", "explanation": "'deadline' は『締め切り』を意味します。"},
-  {"q": "appointment", "choices": ["締め切り", "キャンセルする", "部署", "約束（面談）"], "answer": "約束（面談）", "explanation": "'appointment' は『約束（面談）』を意味します。"},
-  {"q": "request", "choices": ["送る", "管理職／マネージャー", "部署", "依頼／依頼する"], "answer": "依頼／依頼する", "explanation": "'request' は『依頼／依頼する』を意味します。"},
-  {"q": "cancel", "choices": ["キャンセルする", "解決策", "締め切り", "完了する"], "answer": "キャンセルする", "explanation": "'cancel' は『キャンセルする』を意味します。"},
-  {"q": "change", "choices": ["増加する／増加", "締め切り", "送る", "変更する"], "answer": "変更する", "explanation": "'change' は『変更する』を意味します。"},
-  {"q": "send", "choices": ["完了する", "領収書", "依頼／依頼する", "送る"], "answer": "送る", "explanation": "'send' は『送る』を意味します。"},
-  {"q": "receive", "choices": ["領収書", "約束（面談）", "依頼／依頼する", "受け取る"], "answer": "受け取る", "explanation": "'receive' は『受け取る』を意味します。"},
-  {"q": "department", "choices": ["問題", "準備する", "部署", "減少する／減少"], "answer": "部署", "explanation": "'department' は『部署』を意味します。"},
-  {"q": "manager", "choices": ["部署", "準備する", "管理職／マネージャー", "更新／更新する"], "answer": "管理職／マネージャー", "explanation": "'manager' は『管理職／マネージャー』を意味します。"},
-  {"q": "update", "choices": ["約束（面談）", "受け取る", "更新／更新する", "依頼／依頼する"], "answer": "更新／更新する", "explanation": "'update' は『更新／更新する』を意味します。"},
-  {"q": "problem", "choices": ["変更する", "送る", "問題", "請求書"], "answer": "問題", "explanation": "'problem' は『問題』を意味します。"},
-  {"q": "solution", "choices": ["請求書", "問題", "変更する", "解決策"], "answer": "解決策", "explanation": "'solution' は『解決策』を意味します。"},
-  {"q": "discount", "choices": ["割引", "部署", "領収書", "完了する"], "answer": "割引", "explanation": "'discount' は『割引』を意味します。"},
-  {"q": "increase", "choices": ["割引", "予約", "増加する／増加", "約束（面談）"], "answer": "増加する／増加", "explanation": "'increase' は『増加する／増加』を意味します。"},
-  {"q": "decrease", "choices": ["変更する", "管理職／マネージャー", "減少する／減少", "増加する／増加"], "answer": "減少する／減少", "explanation": "'decrease' は『減少する／減少』を意味します。"},
-  {"q": "prepare", "choices": ["更新／更新する", "請求書", "準備する", "受け取る"], "answer": "準備する", "explanation": "'prepare' は『準備する』を意味します。"},
-  {"q": "complete", "choices": ["変更する", "約束（面談）", "受け取る", "完了する"], "answer": "完了する", "explanation": "'complete' は『完了する』を意味します。"}
+  {
+    "q": "applicant",
+    "choices": ["応募者・志願者", "採用担当者", "面接官", "合格者"],
+    "answer": "応募者・志願者",
+    "explanation": "【名詞】応募者、志願者。TOEIC頻出：'job applicant'（求人応募者）、'qualified applicants'（資格を満たす応募者）。動詞 apply（応募する）、名詞 application（応募書類）も必修。"
+  },
+  {
+    "q": "appointment",
+    "choices": ["約束・予約", "契約", "提案", "苦情"],
+    "answer": "約束・予約",
+    "explanation": "【名詞】（面会・診察などの）約束、予約。TOEIC頻出：'make an appointment with a doctor'（医師の診察予約を取る）。なお、ホテルの部屋や電車の予約は reservation を使います。"
+  },
+  {
+    "q": "budget",
+    "choices": ["予算・経費", "利益", "負債", "税金"],
+    "answer": "予算・経費",
+    "explanation": "【名詞/動詞】予算、予算を立てる。TOEIC頻出：'within budget'（予算内で）、'annual budget'（年間予算）、'cut the budget'（予算を削減する）。"
+  },
+  {
+    "q": "charge",
+    "choices": ["料金・請求する・担当", "割引", "領収書", "入金"],
+    "answer": "料金・請求する・担当",
+    "explanation": "【名詞/動詞】料金、請求する、担当。TOEIC頻出：'additional charge'（追加料金）、'free of charge'（無料で）、'in charge of'（〜を担当して）。"
+  },
+  {
+    "q": "confirm",
+    "choices": ["確認する", "延期する", "変更する", "取り消す"],
+    "answer": "確認する",
+    "explanation": "【動詞】確認する、裏付ける。TOEIC頻出：'confirm a reservation'（予約を確認する）、'confirm the date'（日程を確認する）。名詞形は confirmation（確認書）。"
+  },
+  {
+    "q": "deadline",
+    "choices": ["締め切り・期限", "開始日", "予定表", "会議室"],
+    "answer": "締め切り・期限",
+    "explanation": "【名詞】締め切り、期限。TOEIC頻出コロケーション：'meet the deadline'（締め切りに間に合わせる）、'miss the deadline'（締め切りに遅れる）、'tight deadline'（厳しい締め切り）。"
+  },
+  {
+    "q": "discount",
+    "choices": ["割引", "追加料金", "税金", "利息"],
+    "answer": "割引",
+    "explanation": "【名詞/動詞】割引、割り引く。TOEIC頻出：'offer a 20% discount'（20%の割引を提供する）、'special discount'（特別割引）。"
+  },
+  {
+    "q": "equipment",
+    "choices": ["機器・設備", "家具", "消耗品", "文房具"],
+    "answer": "機器・設備",
+    "explanation": "【名詞】（集合的に）機器、設備、用具。不可算名詞（数えられない名詞）である点がTOEIC文法問題でも頻出。'office equipment'（事務機器）。"
+  },
+  {
+    "q": "fee",
+    "choices": ["（専門職やサービスの）料金・手数料", "給与", "利息", "領収書"],
+    "answer": "（専門職やサービスの）料金・手数料",
+    "explanation": "【名詞】（サービスや入場などの）料金、手数料。TOEIC頻出：'registration fee'（登録料）、'cancellation fee'（キャンセル料）、'admission fee'（入場料）。"
+  },
+  {
+    "q": "inconvenience",
+    "choices": ["不便・迷惑", "快適さ", "便利さ", "遅延"],
+    "answer": "不便・迷惑",
+    "explanation": "【名詞】不便、迷惑。TOEICのお詫び定型フレーズ：'We apologize for any inconvenience caused.'（ご不便をおかけして申し訳ございません）。"
+  },
+  {
+    "q": "invoice",
+    "choices": ["請求書・送り状", "領収書", "見積書", "契約書"],
+    "answer": "請求書・送り状",
+    "explanation": "【名詞/動詞】請求書、請求書を送る。TOEIC頻出：'issue an invoice'（請求書を発行する）、'pay the invoice'（請求書の金額を支払う）。"
+  },
+  {
+    "q": "location",
+    "choices": ["場所・位置・拠点", "方角", "交通手段", "距離"],
+    "answer": "場所・位置・拠点",
+    "explanation": "【名詞】場所、位置、立地。TOEIC頻出：'convenient location'（便利な立地）、'new store location'（新店舗の拠点）。動詞は locate（位置づける）。"
+  },
+  {
+    "q": "receipt",
+    "choices": ["領収書・レシート", "請求書", "割引券", "身分証"],
+    "answer": "領収書・レシート",
+    "explanation": "【名詞】領収書、受領（pは発音しない）。TOEIC頻出：'keep the original receipt'（領収書の原本を保管する）、'upon receipt of'（〜を受領し次第）。"
+  },
+  {
+    "q": "refund",
+    "choices": ["返金・払い戻す", "追加請求", "寄付", "前払い"],
+    "answer": "返金・払い戻す",
+    "explanation": "【名詞/動詞】返金、払い戻し、払い戻す。TOEIC頻出：'full refund'（全額返金）、'request a refund'（返金を求める）、'non-refundable'（返金不可の）。"
+  },
+  {
+    "q": "request",
+    "choices": ["依頼する・要請", "拒否する", "提案する", "決定する"],
+    "answer": "依頼する・要請",
+    "explanation": "【名詞/動詞】要請、依頼、依頼する。TOEIC頻出：'upon request'（ご要望に応じて）、'request assistance'（支援を要請する）。"
+  },
+  {
+    "q": "reservation",
+    "choices": ["予約", "約束", "案内", "確認"],
+    "answer": "予約",
+    "explanation": "【名詞】（ホテル・飛行機・レストランなどの）予約。TOEIC頻出：'make a reservation'（予約する）、'cancel a reservation'（予約を取り消す）。"
+  },
+  {
+    "q": "salary",
+    "choices": ["給料・月給", "時給", "賞与", "年金"],
+    "answer": "給料・月給",
+    "explanation": "【名詞】（主に月給制の）給料、給与。TOEIC頻出：'annual salary'（年俸）、'competitive salary'（他社に引けを取らない高給）。時給は wage を使います。"
+  },
+  {
+    "q": "shuttle",
+    "choices": ["シャトル便・定期往復便", "急行列車", "タクシー", "貨物船"],
+    "answer": "シャトル便・定期往復便",
+    "explanation": "【名詞/動詞】定期往復便（バスや飛行機）。TOEIC頻出：'free shuttle bus service'（無料シャトルバス運行）、'airport shuttle'（空港シャトル）。"
+  },
+  {
+    "q": "survey",
+    "choices": ["アンケート調査", "監査", "実験", "面接"],
+    "answer": "アンケート調査",
+    "explanation": "【名詞/動詞】調査、アンケート調査を行う。TOEIC頻出：'conduct a customer survey'（顧客アンケートを実施する）、'survey results'（アンケート結果）。"
+  },
+  {
+    "q": "warranty",
+    "choices": ["品質保証・保証書", "取扱説明書", "保険契約", "見積書"],
+    "answer": "品質保証・保証書",
+    "explanation": "【名詞】（製品の）品質保証、保証書。TOEIC頻出：'under warranty'（保証期間中で）、'one-year warranty'（1年間保証）、'extended warranty'（延長保証）。"
+  }
 ];

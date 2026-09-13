@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日商簿記2級 練習問題（全700問・一問一答・印刷対応） | 資格対策ドットコム</title>
+<meta name="description" content="日商簿記2級の分野別練習問題（全14分野・計700問）。商業簿記（連結会計・有価証券等）と工業簿記（費目別・総合原価・CVP等）から苦手分野を自由に選んで集中特訓。A4プリントアウト印刷にも対応。">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  .wizard-step-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+  }
+  .wizard-step-card h2 {
+    font-size: 1.25rem;
+    color: #2d3748;
+    margin-top: 0;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .wizard-desc {
+    color: #718096;
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .category-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  /* セクション区分デザイン */
+  .category-group-container {
+    margin-bottom: 24px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+  }
+  .category-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .category-group-header.commercial {
+    border-left: 5px solid #345d4d;
+    background: linear-gradient(to right, #f7fafc, #ffffff);
+  }
+  .category-group-header.industrial {
+    border-left: 5px solid #2f855a;
+    background: linear-gradient(to right, #f7fafc, #ffffff);
+  }
+  .category-group-title {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .group-count-badge {
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .commercial-badge {
+    background: #ebf8ff;
+    color: #345d4d;
+    border: 1px solid #bee3f8;
+  }
+  .industrial-badge {
+    background: #f0fff4;
+    color: #2f855a;
+    border: 1px solid #c6f6d5;
+  }
+  .group-toggle-btn {
+    font-size: 0.86rem;
+    padding: 6px 14px;
+    background: #edf2f7;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #4a5568;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .group-toggle-btn:hover {
+    background: #e2e8f0;
+    color: #1a202c;
+  }
+  .category-group-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    padding: 16px 18px;
+  }
+
+  /* 工業簿記専用の選択スタイル */
+  .industrial-group .category-check-item:hover {
+    border-color: #2f855a;
+    background: #f0fff4;
+  }
+  .industrial-group .category-check-item.selected {
+    border-color: #2f855a;
+    background: #f0fff4;
+    font-weight: 600;
+  }
+  .industrial-group .category-check-item input[type="checkbox"] {
+    accent-color: #2f855a;
+  }
+  .category-check-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .category-check-item:hover {
+    border-color: #345d4d;
+    background: #ebf8ff;
+  }
+  .category-check-item.selected {
+    border-color: #345d4d;
+    background: #ebf8ff;
+    font-weight: 600;
+  }
+  .category-check-item input[type="checkbox"] {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+    accent-color: #345d4d;
+    cursor: pointer;
+  }
+  .count-button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .count-btn {
+    padding: 10px 22px;
+    border: 2px solid #cbd5e0;
+    background: white;
+    color: #4a5568;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .count-btn:hover {
+    border-color: #345d4d;
+    color: #345d4d;
+  }
+  .count-btn.selected {
+    background: #345d4d;
+    border-color: #345d4d;
+    color: white;
+  }
+  .start-quiz-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #345d4d 0%, #345d4d 100%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.35);
+    transition: 0.2s;
+  }
+  .start-quiz-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(49, 130, 206, 0.45);
+  }
+</style>
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
+</head>
+<body class="with-header">
+
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../../index.html">ホーム</a></li>
+    <li><a href="../index.html">日商簿記検定</a></li>
+    <li><a href="index.html">簿記2級</a></li>
+    <li>練習問題</li>
+  </ul>
+
+  <div class="hero-header">
+    <h1>日商簿記2級 練習問題（全700問・一問一答演習）</h1>
+    <p>商業簿記7分野＋工業簿記7分野（計700問）から苦手分野と出題数を選んで、重要論点を集中トレーニング</p>
+  </div>
+
+  <!-- モード切り替えタブ -->
+  <div class="mode-switch-container">
+    <button type="button" class="mode-switch-btn active" data-mode="all">
+      <i class="fas fa-dumbbell"></i> すべての問題（トレーニング）
+    </button>
+    <button type="button" class="mode-switch-btn" data-mode="bookmark">
+      <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマークした問題だけ復習
+    </button>
+  </div>
+
+  <!-- ブックマークがない時の案内メッセージ -->
+  <div id="bookmarkEmptyMsg" class="card" style="display:none; text-align:center; padding:35px; background:#fffaf0; border:1px solid #feebc8; margin-bottom:20px;">
+    <i class="far fa-star" style="font-size:2rem; color:#d69e2e; margin-bottom:10px;"></i>
+    <h3>ブックマークされた問題がありません</h3>
+    <p style="color:#744210;">問題の右上にある「☆ ブックマーク」ボタンを押すと、ここに保存されていつでも苦手問題だけを復習できます。</p>
+  </div>
+
+  <!-- ① ウィザード画面（分野選択＆問題数選択） -->
+  <div id="wizardSection">
+    <!-- ステップ1: 分野選択 -->
+    <div class="wizard-step-card">
+      <h2><i class="fas fa-check-circle" style="color:#345d4d;"></i> ステップ 1：出題分野を選択（全14分野・計700問）</h2>
+      <p class="wizard-desc">商業簿記・工業簿記の苦手分野だけを解くことも、全分野を横断して演習することも可能です（複数選択可）。</p>
+
+      <!-- 全分野選択バー -->
+      <div style="margin-bottom: 22px;">
+        <label class="category-check-item selected" style="background:#edf2f7; border-color:#cbd5e0; font-weight:700;">
+          <input type="checkbox" id="cat-all" checked>
+          <span><i class="fas fa-globe" style="color:#345d4d;"></i> 全分野からランダム出題（全14分野・計700問すべて選択）</span>
+        </label>
+      </div>
+
+      <!-- ① 商業簿記セクション（7分野・350問） -->
+      <div class="category-group-container commercial-group">
+        <div class="category-group-header commercial">
+          <div class="category-group-title">
+            <i class="fas fa-building" style="color:#345d4d;"></i>
+            <span>商業簿記（全7分野・計350問）</span>
+            <span class="group-count-badge commercial-badge">財務諸表・連結会計等</span>
+          </div>
+          <button type="button" class="group-toggle-btn" id="toggleComBtn" data-target="commercial">
+            <i class="fas fa-check-square"></i> 商業簿記を全選択/解除
+          </button>
+        </div>
+        <div class="category-group-grid">
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_fin" checked>
+            <span><i class="fas fa-coins" style="color:#345d4d;"></i> ① 金融・債権・外貨建 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_sec" checked>
+            <span><i class="fas fa-chart-line" style="color:#345d4d;"></i> ② 有価証券・端数利息 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_asset" checked>
+            <span><i class="fas fa-building" style="color:#234e52;"></i> ③ 固定資産・リース・無形 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_debt" checked>
+            <span><i class="fas fa-shield-alt" style="color:#234e52;"></i> ④ 引当金・商品券・保証 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_equity" checked>
+            <span><i class="fas fa-file-invoice-dollar" style="color:#744210;"></i> ⑤ 純資産・配当・税効果 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_rev" checked>
+            <span><i class="fas fa-handshake" style="color:#744210;"></i> ⑥ 収益認識・役務会計 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_group" checked>
+            <span><i class="fas fa-sitemap" style="color:#553c9a;"></i> ⑦ 連結会計・本支店会計 (50問)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ② 工業簿記・原価計算セクション（7分野・350問） -->
+      <div class="category-group-container industrial-group">
+        <div class="category-group-header industrial">
+          <div class="category-group-title">
+            <i class="fas fa-industry" style="color:#2f855a;"></i>
+            <span>工業簿記・原価計算（全7分野・計350問）</span>
+            <span class="group-count-badge industrial-badge">製造業原価・差異分析等</span>
+          </div>
+          <button type="button" class="group-toggle-btn" id="toggleIndBtn" data-target="industrial">
+            <i class="fas fa-check-square"></i> 工業簿記を全選択/解除
+          </button>
+        </div>
+        <div class="category-group-grid">
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_cost" checked>
+            <span><i class="fas fa-industry" style="color:#2f855a;"></i> ⑧ 費目別計算（材料・労務・経費） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_mfg" checked>
+            <span><i class="fas fa-cogs" style="color:#2f855a;"></i> ⑨ 製造間接費配賦・差異 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_dept" checked>
+            <span><i class="fas fa-warehouse" style="color:#2f855a;"></i> ⑩ 部門別・本社工場間会計 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_job" checked>
+            <span><i class="fas fa-clipboard-list" style="color:#c53030;"></i> ⑪ 個別原価・仕損・作業屑 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_proc" checked>
+            <span><i class="fas fa-boxes" style="color:#c53030;"></i> ⑫ 総合原価（単純・工程・減損） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_std" checked>
+            <span><i class="fas fa-chart-bar" style="color:#d69e2e;"></i> ⑬ 標準原価計算・差異分析 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_cvp" checked>
+            <span><i class="fas fa-chart-pie" style="color:#d69e2e;"></i> ⑭ 直接原価計算・CVP分析 (50問)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ステップ2: 出題数選択 -->
+      <h2><i class="fas fa-sliders-h" style="color:#345d4d;"></i> ステップ 2：出題数を選択（最大100問）</h2>
+      <p class="wizard-desc">スキマ時間のクイック学習から、じっくり取り組む100問まで自由に選べます。</p>
+
+      <div class="count-button-grid">
+        <button type="button" class="count-btn" data-count="5">5問</button>
+        <button type="button" class="count-btn selected" data-count="10">10問</button>
+        <button type="button" class="count-btn" data-count="20">20問</button>
+        <button type="button" class="count-btn" data-count="30">30問</button>
+        <button type="button" class="count-btn" data-count="50">50問</button>
+        <button type="button" class="count-btn" data-count="100">100問</button>
+      </div>
+
+      <!-- アクションボタンエリア -->
+      <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top:20px;">
+        <button type="button" id="startPracticeBtn" class="start-quiz-btn" style="flex:1; min-width:260px; margin:0;">
+          <i class="fas fa-play-circle"></i> この条件でランダム練習を開始する
+        </button>
+        <button type="button" id="printPracticeBtn" class="print-quiz-btn" style="flex:1; min-width:260px; padding:16px; background:#38a169; color:white; font-size:1.15rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; text-align:center; box-shadow:0 4px 12px rgba(56,161,105,0.25); transition:0.2s; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <i class="fas fa-print"></i> この条件で問題をプリントアウトする
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 演習実行画面（最初は非表示、スタート時に表示） -->
+  <div id="quizPlaySection" style="display:none;">
+    <!-- 上部ナビバー -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+      <button type="button" id="backToWizardBtn" class="btn" style="background:#718096; color:white; padding:8px 16px; font-size:0.9rem; border:none; border-radius:6px; cursor:pointer;">
+        <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+      </button>
+      <span style="font-size:0.9rem; color:#718096;"><i class="fas fa-random"></i> ランダム出題モード実行中</span>
+    </div>
+
+    <!-- 進捗バー -->
+    <div class="progress-card">
+      <span id="playProgressText" style="font-size:0.95rem; color:#4a5568;">進捗: 読み込み中...</span>
+      <div class="progress-bar-bg">
+        <div id="playProgressFill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- 動的クイズカード挿入コンテナ -->
+    <div id="quizCardsContainer"></div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>資格対策ドットコム</h4>
+      <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
+        FP・TOEIC・宅建・ITパスポート・簿記など、主要資格の練習問題・過去問・コラムをすべて無料で提供する総合学習プラットフォームです。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>日商簿記検定（級別）</h4>
+      <ul>
+        <li><a href="../3kyu/index.html">簿記3級対策トップ</a></li>
+        <li><a href="index.html">簿記2級対策トップ</a></li>
+        <li><a href="../1kyu/index.html">簿記1級対策トップ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>ご案内</h4>
+      <ul>
+        <li><a href="../../contact.html">お問い合わせ</a></li>
+        <li><a href="../../profile.html">運営者プロフィール</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  window.BOKI_GRADE = '2kyu';
+</script>
+<script src="../../assets/js/boki2-data.js"></script>
+<script src="../../assets/js/boki-practice-wizard.js"></script>
+
+  <script src="../../assets/js/study-tracker.js"></script>
+</body>
+</html>

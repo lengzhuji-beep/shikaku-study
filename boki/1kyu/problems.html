@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日商簿記1級 練習問題（全28分野・計1,400問） | 資格対策ドットコム</title>
+<meta name="description" content="日商簿記1級の練習問題（全28分野・計1,400問）。商業簿記・会計学・工業簿記・原価計算の4科目を完全網羅。科目別一括選択や100問演習、A4印刷に対応。">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  .wizard-step-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+  }
+  .wizard-step-card h2 {
+    font-size: 1.25rem;
+    color: #2d3748;
+    margin-top: 0;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .wizard-desc {
+    color: #718096;
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  /* 4科目グループ化コンテナ */
+  .category-group-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .category-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .category-group-header.commercial {
+    border-left: 5px solid #345d4d;
+    background: linear-gradient(to right, #f7fafc, #ffffff);
+  }
+  .category-group-header.accounting {
+    border-left: 5px solid #6b46c1;
+    background: linear-gradient(to right, #f7fafc, #ffffff);
+  }
+  .category-group-header.industrial {
+    border-left: 5px solid #2f855a;
+    background: linear-gradient(to right, #f7fafc, #ffffff);
+  }
+  .category-group-header.cost {
+    border-left: 5px solid #dd6b20;
+    background: linear-gradient(to right, #f7fafc, #ffffff);
+  }
+  .category-group-title {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .group-count-badge {
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .commercial-badge {
+    background: #ebf8ff;
+    color: #345d4d;
+    border: 1px solid #bee3f8;
+  }
+  .accounting-badge {
+    background: #faf5ff;
+    color: #6b46c1;
+    border: 1px solid #e9d8fd;
+  }
+  .industrial-badge {
+    background: #f0fff4;
+    color: #2f855a;
+    border: 1px solid #c6f6d5;
+  }
+  .cost-badge {
+    background: #fffaf0;
+    color: #dd6b20;
+    border: 1px solid #feebc8;
+  }
+  .group-toggle-btn {
+    font-size: 0.86rem;
+    padding: 6px 14px;
+    background: #edf2f7;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #4a5568;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .group-toggle-btn:hover {
+    background: #e2e8f0;
+    color: #1a202c;
+  }
+  .category-group-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    padding: 16px 18px;
+  }
+
+  /* 商業簿記専用スタイル */
+  .commercial-group .category-check-item:hover {
+    border-color: #345d4d;
+    background: #ebf8ff;
+  }
+  .commercial-group .category-check-item.selected {
+    border-color: #345d4d;
+    background: #ebf8ff;
+    font-weight: 600;
+  }
+  .commercial-group .category-check-item input[type="checkbox"] {
+    accent-color: #345d4d;
+  }
+
+  /* 会計学専用スタイル */
+  .accounting-group .category-check-item:hover {
+    border-color: #6b46c1;
+    background: #faf5ff;
+  }
+  .accounting-group .category-check-item.selected {
+    border-color: #6b46c1;
+    background: #faf5ff;
+    font-weight: 600;
+  }
+  .accounting-group .category-check-item input[type="checkbox"] {
+    accent-color: #6b46c1;
+  }
+
+  /* 工業簿記専用スタイル */
+  .industrial-group .category-check-item:hover {
+    border-color: #2f855a;
+    background: #f0fff4;
+  }
+  .industrial-group .category-check-item.selected {
+    border-color: #2f855a;
+    background: #f0fff4;
+    font-weight: 600;
+  }
+  .industrial-group .category-check-item input[type="checkbox"] {
+    accent-color: #2f855a;
+  }
+
+  /* 原価計算専用スタイル */
+  .cost-group .category-check-item:hover {
+    border-color: #dd6b20;
+    background: #fffaf0;
+  }
+  .cost-group .category-check-item.selected {
+    border-color: #dd6b20;
+    background: #fffaf0;
+    font-weight: 600;
+  }
+  .cost-group .category-check-item input[type="checkbox"] {
+    accent-color: #dd6b20;
+  }
+
+  .category-check-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .count-button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .count-btn {
+    padding: 10px 22px;
+    border: 2px solid #cbd5e0;
+    background: white;
+    color: #4a5568;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .count-btn:hover {
+    border-color: #345d4d;
+    color: #345d4d;
+  }
+  .count-btn.selected {
+    background: #345d4d;
+    border-color: #345d4d;
+    color: white;
+  }
+  .start-quiz-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #345d4d 0%, #345d4d 100%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.35);
+    transition: 0.2s;
+  }
+  .start-quiz-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(49, 130, 206, 0.45);
+  }
+</style>
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
+</head>
+<body class="with-header">
+
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../../index.html">ホーム</a></li>
+    <li><a href="../index.html">日商簿記検定</a></li>
+    <li><a href="index.html">簿記1級</a></li>
+    <li>練習問題</li>
+  </ul>
+
+  <div class="hero-header">
+    <h1>日商簿記1級 練習問題（全28分野・計1,400問）</h1>
+    <p>商業簿記・会計学・工業簿記・原価計算の4科目を完全網羅。苦手分野と出題数を選んで、重要論点を集中トレーニング</p>
+  </div>
+
+  <!-- モード切り替えタブ -->
+  <div class="mode-switch-container">
+    <button type="button" class="mode-switch-btn active" data-mode="all">
+      <i class="fas fa-dumbbell"></i> すべての問題（トレーニング）
+    </button>
+    <button type="button" class="mode-switch-btn" data-mode="bookmark">
+      <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマークした問題だけ復習
+    </button>
+  </div>
+
+  <!-- ブックマークがない時の案内メッセージ -->
+  <div id="bookmarkEmptyMsg" class="card" style="display:none; text-align:center; padding:35px; background:#fffaf0; border:1px solid #feebc8; margin-bottom:20px;">
+    <i class="far fa-star" style="font-size:2rem; color:#d69e2e; margin-bottom:10px;"></i>
+    <h3>ブックマークされた問題がありません</h3>
+    <p style="color:#744210;">問題の右上にある「☆ ブックマーク」ボタンを押すと、ここに保存されていつでも苦手問題だけを復習できます。</p>
+  </div>
+
+  <!-- ① ウィザード画面（分野選択＆問題数選択） -->
+  <div id="wizardSection">
+    <!-- ステップ1: 分野選択 -->
+    <div class="wizard-step-card">
+      <h2><i class="fas fa-check-circle" style="color:#345d4d;"></i> ステップ 1：出題分野を選択（4科目・全28分野・計1,400問）</h2>
+      <p class="wizard-desc">商業簿記・会計学・工業簿記・原価計算の各科目の苦手分野だけを解くことも、全分野を横断して演習することも可能です（複数選択可）。</p>
+
+      <!-- 全分野選択バー -->
+      <div style="margin-bottom: 22px;">
+        <label class="category-check-item selected" style="background:#edf2f7; border-color:#cbd5e0; font-weight:700;">
+          <input type="checkbox" id="cat-all" checked>
+          <span><i class="fas fa-globe" style="color:#345d4d;"></i> 全分野からランダム出題（4科目・全28分野・計1,400問すべて選択）</span>
+        </label>
+      </div>
+
+      <!-- ① 商業簿記セクション（7分野・350問） -->
+      <div class="category-group-container commercial-group">
+        <div class="category-group-header commercial">
+          <div class="category-group-title">
+            <i class="fas fa-building" style="color:#345d4d;"></i>
+            <span>商業簿記（全7分野・計350問）</span>
+            <span class="group-count-badge commercial-badge">決算整理・有価証券・固定資産・税効果等</span>
+          </div>
+          <button type="button" class="group-toggle-btn" id="toggleComBtn" data-target="commercial">
+            <i class="fas fa-check-square"></i> 商業簿記を全選択/解除
+          </button>
+        </div>
+        <div class="category-group-grid">
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_calc" checked>
+            <span><i class="fas fa-calculator" style="color:#345d4d;"></i> ① 損益計算・決算整理・外貨換算 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_sec" checked>
+            <span><i class="fas fa-chart-line" style="color:#345d4d;"></i> ② 有価証券（売買・満期・減損） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_asset" checked>
+            <span><i class="fas fa-warehouse" style="color:#345d4d;"></i> ③ 固定資産・減損・除去債務 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_lease" checked>
+            <span><i class="fas fa-file-contract" style="color:#345d4d;"></i> ④ リース会計（移転外・セールバック） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_bond" checked>
+            <span><i class="fas fa-money-check-alt" style="color:#345d4d;"></i> ⑤ 社債・新株予約権・買入消却 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_debt" checked>
+            <span><i class="fas fa-shield-alt" style="color:#345d4d;"></i> ⑥ 引当金・退職給付・ストックオプション (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="com_tax" checked>
+            <span><i class="fas fa-file-invoice-dollar" style="color:#345d4d;"></i> ⑦ 税効果会計・収益認識基準 (50問)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ② 会計学セクション（7分野・350問） -->
+      <div class="category-group-container accounting-group">
+        <div class="category-group-header accounting">
+          <div class="category-group-title">
+            <i class="fas fa-balance-scale" style="color:#6b46c1;"></i>
+            <span>会計学（全7分野・計350問）</span>
+            <span class="group-count-badge accounting-badge">会計基準・企業結合・連結・CF計算書等</span>
+          </div>
+          <button type="button" class="group-toggle-btn" id="toggleAccBtn" data-target="accounting">
+            <i class="fas fa-check-square"></i> 会計学を全選択/解除
+          </button>
+        </div>
+        <div class="category-group-grid">
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="acc_frame" checked>
+            <span><i class="fas fa-book" style="color:#6b46c1;"></i> ⑧ 会計原則・概念フレームワーク (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="acc_fin" checked>
+            <span><i class="fas fa-exchange-alt" style="color:#6b46c1;"></i> ⑨ 金融商品会計・デリバティブ・ヘッジ (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="acc_merge" checked>
+            <span><i class="fas fa-handshake" style="color:#6b46c1;"></i> ⑩ 企業結合・事業分離・のれん (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="acc_consol" checked>
+            <span><i class="fas fa-sitemap" style="color:#6b46c1;"></i> ⑪ 連結会計（資本・成果・持分法） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="acc_foreign" checked>
+            <span><i class="fas fa-globe-americas" style="color:#6b46c1;"></i> ⑫ 在外子会社等の換算・為替換算調整 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="acc_cf" checked>
+            <span><i class="fas fa-money-bill-wave" style="color:#6b46c1;"></i> ⑬ キャッシュ・フロー計算書 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="acc_eps" checked>
+            <span><i class="fas fa-percentage" style="color:#6b46c1;"></i> ⑭ 1株当たり当期純利益（EPS）・誤謬 (50問)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ③ 工業簿記セクション（7分野・350問） -->
+      <div class="category-group-container industrial-group">
+        <div class="category-group-header industrial">
+          <div class="category-group-title">
+            <i class="fas fa-industry" style="color:#2f855a;"></i>
+            <span>工業簿記（全7分野・計350問）</span>
+            <span class="group-count-badge industrial-badge">費目別・部門別・総合原価・標準原価等</span>
+          </div>
+          <button type="button" class="group-toggle-btn" id="toggleIndBtn" data-target="industrial">
+            <i class="fas fa-check-square"></i> 工業簿記を全選択/解除
+          </button>
+        </div>
+        <div class="category-group-grid">
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_elem" checked>
+            <span><i class="fas fa-boxes" style="color:#2f855a;"></i> ⑮ 費目別計算（材料・労務・経費） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_dept" checked>
+            <span><i class="fas fa-network-wired" style="color:#2f855a;"></i> ⑯ 部門別計算（複数基準・相互配賦） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_job" checked>
+            <span><i class="fas fa-clipboard-list" style="color:#2f855a;"></i> ⑰ 個別原価計算（予定配賦・仕損・作業屑） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_proc" checked>
+            <span><i class="fas fa-cogs" style="color:#2f855a;"></i> ⑱ 総合原価計算（単純・工程別・加工費） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_loss" checked>
+            <span><i class="fas fa-trash-alt" style="color:#2f855a;"></i> ⑲ 総合原価の減損・仕損・連産品 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_std" checked>
+            <span><i class="fas fa-chart-bar" style="color:#2f855a;"></i> ⑳ 標準原価計算（パーシャル・差異分析） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="ind_diff" checked>
+            <span><i class="fas fa-sync-alt" style="color:#2f855a;"></i> ㉑ 原価差異の会計処理・工場独立会計 (50問)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ④ 原価計算セクション（7分野・350問） -->
+      <div class="category-group-container cost-group">
+        <div class="category-group-header cost">
+          <div class="category-group-title">
+            <i class="fas fa-coins" style="color:#dd6b20;"></i>
+            <span>原価計算（全7分野・計350問）</span>
+            <span class="group-count-badge cost-badge">CVP分析・意思決定・事業部制・戦略原価等</span>
+          </div>
+          <button type="button" class="group-toggle-btn" id="toggleCstBtn" data-target="cost">
+            <i class="fas fa-check-square"></i> 原価計算を全選択/解除
+          </button>
+        </div>
+        <div class="category-group-grid">
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="cst_base" checked>
+            <span><i class="fas fa-book-reader" style="color:#dd6b20;"></i> ㉒ 原価計算基準体系・原価の本質 (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="cst_direct" checked>
+            <span><i class="fas fa-sort-amount-down" style="color:#dd6b20;"></i> ㉓ 直接原価計算・固変分解（高低点法等） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="cst_cvp" checked>
+            <span><i class="fas fa-calculator" style="color:#dd6b20;"></i> ㉔ CVP分析・損益分岐点・セールスミックス (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="cst_short" checked>
+            <span><i class="fas fa-bolt" style="color:#dd6b20;"></i> ㉕ 業務的意思決定（差額原価収益・自製外注） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="cst_long" checked>
+            <span><i class="fas fa-chart-line" style="color:#dd6b20;"></i> ㉖ 設備投資意思決定（NPV・IRR・回収期間） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="cst_div" checked>
+            <span><i class="fas fa-chess-knight" style="color:#dd6b20;"></i> ㉗ 事業部制会計・業績測定（ROI/RI/EVA） (50問)</span>
+          </label>
+
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="cst_strat" checked>
+            <span><i class="fas fa-bullseye" style="color:#dd6b20;"></i> ㉘ 戦略的原価計算（ABC・原価企画・BSC） (50問)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ステップ2: 出題数選択 -->
+      <h2><i class="fas fa-sliders-h" style="color:#345d4d;"></i> ステップ 2：出題数を選択（最大100問）</h2>
+      <p class="wizard-desc">スキマ時間のクイック学習から、じっくり取り組む100問まで自由に選べます。</p>
+
+      <div class="count-button-grid">
+        <button type="button" class="count-btn" data-count="5">5問</button>
+        <button type="button" class="count-btn selected" data-count="10">10問</button>
+        <button type="button" class="count-btn" data-count="15">15問</button>
+        <button type="button" class="count-btn" data-count="30">30問</button>
+        <button type="button" class="count-btn" data-count="50">50問</button>
+        <button type="button" class="count-btn" data-count="100">100問</button>
+      </div>
+
+      <!-- アクションボタンエリア -->
+      <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top:20px;">
+        <button type="button" id="startPracticeBtn" class="start-quiz-btn" style="flex:1; min-width:260px; margin:0;">
+          <i class="fas fa-play-circle"></i> この条件でランダム練習を開始する
+        </button>
+        <button type="button" id="printPracticeBtn" class="print-quiz-btn" style="flex:1; min-width:260px; padding:16px; background:#38a169; color:white; font-size:1.15rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; text-align:center; box-shadow:0 4px 12px rgba(56,161,105,0.25); transition:0.2s; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <i class="fas fa-print"></i> この条件で問題をプリントアウトする
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 演習実行画面（最初は非表示、スタート時に表示） -->
+  <div id="quizPlaySection" style="display:none;">
+    <!-- 上部ナビバー -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+      <button type="button" id="backToWizardBtn" class="btn" style="background:#718096; color:white; padding:8px 16px; font-size:0.9rem; border:none; border-radius:6px; cursor:pointer;">
+        <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+      </button>
+      <span style="font-size:0.9rem; color:#718096;"><i class="fas fa-random"></i> ランダム出題モード実行中</span>
+    </div>
+
+    <!-- 進捗バー -->
+    <div class="progress-card">
+      <span id="playProgressText" style="font-size:0.95rem; color:#4a5568;">進捗: 読み込み中...</span>
+      <div class="progress-bar-bg">
+        <div id="playProgressFill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- 動的クイズカード挿入コンテナ -->
+    <div id="quizCardsContainer"></div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>資格対策ドットコム</h4>
+      <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
+        FP・TOEIC・宅建・ITパスポート・簿記など、主要資格の練習問題・過去問・コラムをすべて無料で提供する総合学習プラットフォームです。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>日商簿記検定（級別）</h4>
+      <ul>
+        <li><a href="../3kyu/index.html">簿記3級対策トップ</a></li>
+        <li><a href="../2kyu/index.html">簿記2級対策トップ</a></li>
+        <li><a href="index.html">簿記1級対策トップ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>ご案内</h4>
+      <ul>
+        <li><a href="../../contact.html">お問い合わせ</a></li>
+        <li><a href="../../profile.html">運営者プロフィール</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  window.BOKI_GRADE = '1kyu';
+</script>
+<script src="../../assets/js/boki1-data.js"></script>
+<script src="../../assets/js/boki-practice-wizard.js"></script>
+
+  <script src="../../assets/js/study-tracker.js"></script>
+</body>
+</html>

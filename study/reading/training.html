@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N3ZFKBQ3');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC® リーディング演習（Part 5・6・7） | スコア別対策 | 資格対策ドットコム</title>
+<meta name="description" content="TOEIC® L&R リーディングセクション対策。Part 5（短文穴埋め）、Part 6（長文穴埋め）、Part 7（長文読解）をスコアレベル別（500点〜800点以上）に無料で実践演習できます。">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+/* --- リーディング演習専用の洗練されたUIスタイル --- */
+:root {
+  --reading-primary: #1e3a8a;
+  --reading-accent: #345d4d;
+  --reading-light: #eff6ff;
+  --reading-border: #cbd5e1;
+  --ok-bg: #ecfdf5;
+  --ok-border: #10b981;
+  --ok-color: #065f46;
+  --ng-bg: #fef2f2;
+  --ng-border: #ef4444;
+  --ng-color: #991b1b;
+}
+
+/* パート選択カードグリッド */
+.part-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.part-card-btn {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.part-card-btn:hover {
+  border-color: var(--reading-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37,99,235,0.12);
+}
+.part-card-btn.active {
+  border-color: var(--reading-accent);
+  background: var(--reading-light);
+}
+.part-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--reading-primary);
+  margin-bottom: 8px;
+}
+
+/* レベルボタングループ */
+.level-badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 16px 0 24px;
+}
+.level-badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.level-pill-btn {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  color: #334155;
+  padding: 10px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  box-sizing: border-box;
+}
+.level-pill-btn .pill-main {
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.level-pill-btn .pill-sub {
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 3px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.level-pill-btn:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+.level-pill-btn.active {
+  background: var(--reading-accent);
+  border-color: var(--reading-accent);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(37,99,235,0.32);
+}
+.level-pill-btn.active .pill-sub {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* 長文読解（Part 6 & 7）用 2カラムレイアウト */
+.reading-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 15px;
+}
+@media (max-width: 860px) {
+  .reading-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* パッセージ本文カード */
+.passage-container {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  position: sticky;
+  top: 85px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+@media (max-width: 860px) {
+  .passage-container {
+    position: static;
+    max-height: 480px;
+  }
+}
+.passage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+.passage-type-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.passage-meta {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+.passage-body {
+  font-size: 1.02rem;
+  line-height: 1.95;
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  word-break: break-word;
+}
+.passage-body p {
+  margin: 0 0 14px;
+  color: inherit;
+}
+.passage-body mark.erq-blank {
+  background: #fef08a;
+  color: #854d0e;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #fde047;
+}
+
+/* 設問エリア */
+.questions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.reading-q-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  transition: border-color 0.2s;
+}
+.reading-q-card.is-answered {
+  border-color: #cbd5e1;
+}
+.reading-q-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.reading-q-num {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--reading-accent);
+}
+.reading-q-stem {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #0f172a;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.reading-choices-list {
+  display: grid;
+  gap: 8px;
+}
+.reading-choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: #1e293b;
+}
+.reading-choice-btn:hover:not(:disabled) {
+  border-color: var(--reading-accent);
+  background: #eff6ff;
+}
+.reading-choice-btn .choice-letter {
+  flex: 0 0 24px;
+  height: 24px;
+  background: #e2e8f0;
+  color: #475569;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+.reading-choice-btn.correct {
+  background: var(--ok-bg) !important;
+  border-color: var(--ok-border) !important;
+  color: var(--ok-color) !important;
+  font-weight: 700;
+}
+.reading-choice-btn.correct .choice-letter {
+  background: var(--ok-border);
+  color: #fff;
+}
+.reading-choice-btn.wrong {
+  background: var(--ng-bg) !important;
+  border-color: var(--ng-border) !important;
+  color: var(--ng-color) !important;
+  text-decoration: line-through;
+}
+.reading-choice-btn.wrong .choice-letter {
+  background: var(--ng-border);
+  color: #fff;
+}
+
+/* 解説アコーディオン */
+.reading-exp-box {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid var(--reading-accent);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.reading-exp-box.is-correct-exp {
+  border-left-color: var(--ok-border);
+  background: #f0fdf4;
+}
+.reading-exp-box.is-wrong-exp {
+  border-left-color: var(--ng-border);
+  background: #fef2f2;
+}
+.reading-exp-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.reading-exp-content {
+  color: #334155;
+}
+
+/* パッセージナビゲーションバー */
+.passage-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 14px 20px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+.nav-btn-primary {
+  background: var(--reading-accent);
+  color: #fff;
+}
+.nav-btn-primary:hover {
+  background: #345d4d;
+}
+.nav-btn-secondary {
+  background: #e2e8f0;
+  color: #334155;
+}
+.nav-btn-secondary:hover {
+  background: #cbd5e1;
+}
+
+/* Part 5 用のシンプル単問表示カード */
+.part5-quiz-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.part5-q-text {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.65;
+  margin: 20px 0;
+  text-align: left;
+}
+.quit-quiz-btn {
+  background: #6c757d;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.quit-quiz-btn:hover {
+  background: #5a6268;
+  color: #ffffff;
+}
+</style>
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
+</head>
+<body class="with-header">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../../index.html">ホーム</a></li>
+    <li><a href="../../toeic/index.html">TOEIC® L&R</a></li>
+    <li><a href="../../toeic/problems.html">練習問題</a></li>
+    <li>リーディングトレーニング</li>
+  </ul>
+
+  <!-- STEP 1: パート & レベル選択画面 -->
+  <div id="selection-card" class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+      <h1 style="margin:0; font-size:1.6rem; text-align:left;">
+        <i class="fas fa-book-open" style="color:var(--reading-accent);"></i> リーディング - トレーニングモード
+      </h1>
+      
+    </div>
+
+    <div class="internal-link-box" style="margin-top:14px;">
+      <p class="internal-link-title"><i class="fas fa-info-circle"></i> リーディングセクション（75分間・100問）</p>
+      <p>Part 5（短文穴埋め・30問）、Part 6（長文穴埋め・16問）、Part 7（読解問題・54問）から学習したい形式とスコアレベルを選んでスタートできます。</p>
+    </div>
+
+    <h3 style="text-align:left; margin-top:22px; font-size:1.15rem;">1. 演習パートを選択</h3>
+    <div class="part-select-grid">
+      <div class="part-card-btn active" id="part-btn-5" onclick="selectPart(5)">
+        <span class="part-badge">Part 5</span>
+        <h4 style="margin:0 0 6px; text-align:left; font-size:1.1rem;">短文穴埋め問題</h4>
+        <p style="margin:0; font-size:0.88rem; color:#64748b;">文法・語彙の瞬発力を鍛える短文4択クイズ。300〜900点対応。</p>
+      </div>
+      <div class="part-card-btn" id="part-btn-6" onclick="selectPart(6)">
+        <span class="part-badge" style="background:#0284c7;">Part 6</span>
+        <h4 style="margin:0 0 6px; text-align:left; font-size:1.1rem;">長文穴埋め問題</h4>
+        <p style="margin:0; font-size:0.88rem; color:#64748b;">メールや社内通知などの長文中に4つの空所。文脈把握・文挿入を演習。</p>
+      </div>
+      <div class="part-card-btn" id="part-btn-7" onclick="selectPart(7)">
+        <span class="part-badge" style="background:#4f46e5;">Part 7</span>
+        <h4 style="margin:0 0 6px; text-align:left; font-size:1.1rem;">長文読解問題</h4>
+        <p style="margin:0; font-size:0.88rem; color:#64748b;">広告、記事、複数文書の総合読解。情報検索力・大意把握を特訓。</p>
+      </div>
+    </div>
+
+    <h3 style="text-align:left; margin-top:20px; font-size:1.15rem;">2. 目標スコアレベルを選択</h3>
+    <div id="level-container" class="level-badge-grid">
+      <!-- JSでパートに応じてボタンを動的生成 -->
+    </div>
+
+    <h3 style="text-align:left; margin-top:20px; font-size:1.15rem;">3. 出題数を選択</h3>
+    <div id="count-container" class="level-badge-grid">
+      <!-- JSでパートに応じてボタンを動的生成 -->
+    </div>
+
+    <div style="text-align:center; margin-top:25px;">
+      <button class="nav-btn nav-btn-primary" style="font-size:1.1rem; padding:12px 36px;" onclick="startReadingSession()">
+        <i class="fas fa-play"></i> この設定で演習を開始する
+      </button>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="../../toeic/problems.html" style="color:#475569; background:#f1f5f9; border:1px solid #cbd5e1; padding:8px 18px; border-radius:8px; font-size:0.92rem; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:6px; transition:all 0.2s ease;">
+        <i class="fas fa-arrow-left"></i> 学習分野を選択し直す
+      </a>
+    </div>
+  </div>
+
+  <!-- STEP 2A: Part 5 演習画面（1問1答） -->
+  <div id="part5-view" class="card hidden" style="position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+      <span id="part5-progress-label" style="font-weight:700; color:var(--reading-accent);"></span>
+      <div>
+        <button id="part5-bookmark-btn" class="nav-btn nav-btn-secondary" style="padding:6px 12px; font-size:0.85rem;" onclick="toggleBookmarkPart5()">
+          <i class="far fa-star"></i> ブックマーク
+        </button>
+        <button type="button" class="quit-quiz-btn" style="position:static; margin:0;" onclick="exitToSelection()">
+          <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+        </button>
+      </div>
+    </div>
+
+    <div class="part5-quiz-card">
+      <div id="part5-question-text" class="part5-q-text"></div>
+      <div id="part5-choices-list" class="reading-choices-list"></div>
+
+      <div id="part5-explanation-area" class="reading-exp-box hidden">
+        <div id="part5-exp-title" class="reading-exp-title"></div>
+        <div id="part5-exp-body" class="reading-exp-content"></div>
+      </div>
+
+      <div style="margin-top:20px; text-align:right;">
+        <button id="part5-next-btn" class="nav-btn nav-btn-primary hidden" onclick="nextQuestionPart5()">
+          次の問題へ <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2B: Part 6 & Part 7 演習画面（長文＋設問群の読解UI） -->
+  <div id="passage-view" class="hidden">
+    <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:12px 20px; border-radius:12px; margin-bottom:15px; border:1px solid #e2e8f0; flex-wrap:wrap; gap:10px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span id="passage-part-badge" class="part-badge" style="margin:0;">Part 6</span>
+        <span id="passage-counter" style="font-weight:700; color:#1e293b;">長文 1 / 5</span>
+        <span id="passage-score-badge" class="passage-type-badge">600点レベル</span>
+      </div>
+      <div>
+        <button type="button" class="quit-quiz-btn" style="position:static; margin:0;" onclick="exitToSelection()">
+          <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+        </button>
+      </div>
+    </div>
+
+    <div class="reading-layout">
+      <!-- 左側：長文パッセージ本文 -->
+      <div class="passage-container">
+        <div class="passage-header">
+          <span id="passage-doc-type" class="passage-type-badge">Email</span>
+          <span id="passage-word-count" class="passage-meta">約 120 words</span>
+        </div>
+        <div id="passage-body-content" class="passage-body">
+          <!-- 本文HTMLを動的挿入 -->
+        </div>
+      </div>
+
+      <!-- 右側：設問カード群 -->
+      <div class="questions-container" id="passage-questions-list">
+        <!-- 各設問カードを動的生成 -->
+      </div>
+    </div>
+
+    <!-- パッセージ切り替えバー -->
+    <div class="passage-nav-bar">
+      <button id="prev-passage-btn" class="nav-btn nav-btn-secondary" onclick="changePassage(-1)">
+        <i class="fas fa-arrow-left"></i> 前の長文へ
+      </button>
+      <span id="passage-completion-status" style="font-size:0.9rem; font-weight:700; color:#64748b;">
+        全設問に解答してください
+      </span>
+      <button id="next-passage-btn" class="nav-btn nav-btn-primary" onclick="changePassage(1)">
+        次の長文へ <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 3: 完了画面 -->
+  <div id="result-view" class="card hidden" style="text-align:center; padding:40px 20px;">
+    <div style="font-size:3rem; color:var(--reading-accent); margin-bottom:12px;">
+      <i class="fas fa-trophy"></i>
+    </div>
+    <h2 style="font-size:1.8rem; margin-bottom:8px;">演習完了！お疲れさまでした</h2>
+    <p id="result-summary-text" style="font-size:1.2rem; color:#334155; font-weight:700; margin-bottom:20px;"></p>
+    
+    <div id="result-breakdown" style="max-width:500px; margin:0 auto 24px; background:#f8fafc; border-radius:12px; padding:18px; text-align:left; border:1px solid #e2e8f0;"></div>
+
+    <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+      <button class="nav-btn nav-btn-primary" onclick="exitToSelection()">
+        <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+      </button>
+      <a href="../../toeic/problems.html" class="nav-btn nav-btn-secondary" style="text-decoration:none;">
+        <i class="fas fa-list"></i> 学習分野を選択し直す
+      </a>
+      <a href="../../bookmark.html" class="nav-btn nav-btn-secondary" style="text-decoration:none;">
+        <i class="fas fa-star"></i> ブックマークを確認
+      </a>
+      <a href="../../result.html" class="nav-btn nav-btn-secondary" style="text-decoration:none;">
+        <i class="fas fa-chart-bar"></i> 学習統計を見る
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 問題データ読み込み -->
+<script>
+  window.quizData = { reading: { part5: {}, part6: [], part7: [] } };
+</script>
+<script src="../../assets/js/data/quizData_reading_part5.js"></script>
+<script src="../../assets/js/data/quizData_reading_part6.js"></script>
+<script src="../../assets/js/data/quizData_reading_part7.js"></script>
+
+<script>
+// --- リーディング演習 ロジック ---
+let selectedPart = 5;
+let selectedLevel = 600;
+let selectedCount = 5; // Part5は問数、Part6/7は長文数
+
+// セッション管理
+let sessionData = []; // 出題問題またはパッセージの配列
+let currentPassageIndex = 0;
+let passageAnswers = {}; // { passageIndex_qIndex: { selectedChoice, isCorrect } }
+let part5CurrentIndex = 0;
+let part5Score = 0;
+let part5Answered = false;
+
+// ブックマークデータ
+let bookmarks = { vocabulary: [], writing: [], reading: [], listening: [] };
+
+function initApp() {
+  // localStorage のマイグレーション & 読み込み
+  try {
+    const raw = localStorage.getItem('bookmarks');
+    if (raw) {
+      bookmarks = JSON.parse(raw);
+      if (!bookmarks.reading) {
+        // writing のブックマークがあれば reading へ移行
+        bookmarks.reading = bookmarks.writing || [];
+      }
+    }
+  } catch(e) {
+    console.warn('Bookmarks load error', e);
+  }
+
+  // URLクエリパラメータの確認 (?part=6&level=700 等)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('part')) selectedPart = parseInt(params.get('part'), 10) || 5;
+  if (params.get('level')) selectedLevel = parseInt(params.get('level'), 10) || 600;
+
+  selectPart(selectedPart);
+}
+
+function selectPart(partNum) {
+  selectedPart = partNum;
+  [5, 6, 7].forEach(p => {
+    const el = document.getElementById(`part-btn-${p}`);
+    if (el) {
+      if (p === partNum) el.classList.add('active');
+      else el.classList.remove('active');
+    }
+  });
+
+  // レベルボタンの更新
+  const levelContainer = document.getElementById('level-container');
+  levelContainer.innerHTML = '';
+
+  let availableLevels = [];
+  if (selectedPart === 5) {
+    availableLevels = [
+      { lv: 300, main: '300点レベル', sub: '（超入門）' },
+      { lv: 400, main: '400点レベル', sub: '（入門）' },
+      { lv: 500, main: '500点レベル', sub: '（基礎）' },
+      { lv: 600, main: '600点レベル', sub: '（標準）' },
+      { lv: 700, main: '700点レベル', sub: '（中上級）' },
+      { lv: 800, main: '800点レベル', sub: '（上級）' },
+      { lv: 900, main: '900点レベル', sub: '（難関）' }
+    ];
+  } else if (selectedPart === 6) {
+    availableLevels = [
+      { lv: 500, main: '500点レベル', sub: '（基礎）' },
+      { lv: 600, main: '600点レベル', sub: '（標準）' },
+      { lv: 700, main: '700点レベル', sub: '（中上級）' },
+      { lv: 800, main: '800点レベル', sub: '（上級・難関）' }
+    ];
+  } else {
+    availableLevels = [
+      { lv: 500, main: '500点レベル', sub: '（基礎）' },
+      { lv: 600, main: '600点レベル', sub: '（標準）' },
+      { lv: 700, main: '700点レベル', sub: '（中上級）' },
+      { lv: 800, main: '800点レベル', sub: '（上級・難関）' }
+    ];
+  }
+
+  // 選択されていたレベルが新リストに存在しなければ先頭または近いレベルに調整
+  if (!availableLevels.some(l => l.lv === selectedLevel)) {
+    selectedLevel = 600;
+  }
+
+  availableLevels.forEach(item => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `level-pill-btn ${item.lv === selectedLevel ? 'active' : ''}`;
+    btn.innerHTML = `<span class="pill-main">${item.main}</span><span class="pill-sub">${item.sub}</span>`;
+    btn.onclick = () => {
+      document.querySelectorAll('#level-container .level-pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedLevel = item.lv;
+    };
+    levelContainer.appendChild(btn);
+  });
+
+  updateCountButtons();
+}
+
+function updateCountButtons() {
+  const countContainer = document.getElementById("count-container");
+  if (!countContainer) return;
+  countContainer.innerHTML = "";
+
+  let options = [];
+  if (selectedPart === 5) {
+    options = [
+      { val: 10, main: "10問", sub: "（ミニ特訓）" },
+      { val: 20, main: "20問", sub: "（標準）" },
+      { val: 30, main: "30問", sub: "（集中演習）" },
+      { val: 50, main: "50問", sub: "（全問制覇）" }
+    ];
+  } else if (selectedPart === 6) {
+    options = [
+      { val: 1, main: "1長文", sub: "（4問）" },
+      { val: 3, main: "3長文", sub: "（12問）" },
+      { val: 6, main: "6長文", sub: "（24問）" },
+      { val: 13, main: "全13長文", sub: "（52問・全問）" }
+    ];
+  } else {
+    // Part 7
+    options = [
+      { val: 1, main: "1長文", sub: "（約3〜4問）" },
+      { val: 3, main: "3長文", sub: "（約10問）" },
+      { val: 6, main: "6長文", sub: "（約20問）" },
+      { val: 999, main: "全長文", sub: "（約55問・全問）" }
+    ];
+  }
+
+  // デフォルト値がオプションに含まれているか確認
+  if (!options.some(o => o.val === selectedCount)) {
+    selectedCount = options[0].val;
+  }
+
+  options.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = `level-pill-btn ${opt.val === selectedCount ? "active" : ""}`;
+    btn.innerHTML = `<span class="pill-main">${opt.main}</span><span class="pill-sub">${opt.sub}</span>`;
+    btn.onclick = () => {
+      document.querySelectorAll("#count-container .level-pill-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedCount = opt.val;
+    };
+    countContainer.appendChild(btn);
+  });
+}
+
+function startReadingSession() {
+  hideAllViews();
+  passageAnswers = {};
+
+  if (selectedPart === 5) {
+    const rawList = (window.quizData.reading.part5 && window.quizData.reading.part5[selectedLevel]) || [];
+    if (rawList.length === 0) {
+      alert(`Part 5 の ${selectedLevel}点レベルの問題データがありません。`);
+      exitToSelection();
+      return;
+    }
+    const count = Math.min(selectedCount, rawList.length);
+    sessionData = shuffleArray([...rawList]).slice(0, count);
+    part5CurrentIndex = 0;
+    part5Score = 0;
+    document.getElementById('part5-view').classList.remove('hidden');
+    renderPart5Question();
+  } else {
+    // Part 6 or Part 7
+    const allPassages = (selectedPart === 6 ? window.quizData.reading.part6 : window.quizData.reading.part7) || [];
+    const filtered = allPassages.filter(p => p.level === selectedLevel);
+    if (filtered.length === 0) {
+      alert(`Part ${selectedPart} の ${selectedLevel}点レベルの長文データがありません。`);
+      exitToSelection();
+      return;
+    }
+    const count = Math.min(selectedCount, filtered.length);
+    sessionData = shuffleArray([...filtered]).slice(0, count);
+    currentPassageIndex = 0;
+    document.getElementById('passage-view').classList.remove('hidden');
+    renderPassage();
+  }
+}
+
+// ========== Part 5 (短文穴埋め) レンダリング ==========
+function renderPart5Question() {
+  part5Answered = false;
+  const qData = sessionData[part5CurrentIndex];
+  
+  document.getElementById('part5-progress-label').textContent = 
+    `Part 5 短文穴埋め (${selectedLevel}点) — 問題 ${part5CurrentIndex + 1} / ${sessionData.length}`;
+
+  document.getElementById('part5-question-text').textContent = qData.q;
+  
+  const choicesDiv = document.getElementById('part5-choices-list');
+  choicesDiv.innerHTML = '';
+
+  const expArea = document.getElementById('part5-explanation-area');
+  expArea.classList.add('hidden');
+  const nextBtn = document.getElementById('part5-next-btn');
+  nextBtn.classList.add('hidden');
+
+  // ブックマーク状態の確認
+  updatePart5BookmarkIcon();
+
+  const letters = ['A', 'B', 'C', 'D'];
+  qData.choices.forEach((choice, idx) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'reading-choice-btn';
+    btn.innerHTML = `<span class="choice-letter">${letters[idx] || ''}</span><span>${choice}</span>`;
+    btn.onclick = () => onPart5ChoiceSelected(choice, btn);
+    choicesDiv.appendChild(btn);
+  });
+}
+
+function onPart5ChoiceSelected(choice, selectedBtn) {
+  if (part5Answered) return;
+  part5Answered = true;
+
+  const qData = sessionData[part5CurrentIndex];
+  const isCorrect = (choice === qData.answer);
+  if (isCorrect) part5Score++;
+
+  // 統計更新 (reading & writing 両方に反映)
+  recordStatistics('reading', selectedLevel, isCorrect, qData.q);
+  recordStatistics('writing', selectedLevel, isCorrect, qData.q);
+
+  // ボタンのクラス更新
+  const allBtns = document.querySelectorAll('#part5-choices-list .reading-choice-btn');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    const text = b.querySelector('span:nth-child(2)').textContent;
+    if (text === qData.answer) {
+      b.classList.add('correct');
+    } else if (b === selectedBtn && !isCorrect) {
+      b.classList.add('wrong');
+    }
+  });
+
+  // 解説表示
+  const expArea = document.getElementById('part5-explanation-area');
+  const expTitle = document.getElementById('part5-exp-title');
+  const expBody = document.getElementById('part5-exp-body');
+
+  expArea.classList.remove('hidden', 'is-correct-exp', 'is-wrong-exp');
+  if (isCorrect) {
+    expArea.classList.add('is-correct-exp');
+    expTitle.innerHTML = '<i class="fas fa-check-circle" style="color:var(--ok-border);"></i> 正解！';
+  } else {
+    expArea.classList.add('is-wrong-exp');
+    expTitle.innerHTML = `<i class="fas fa-times-circle" style="color:var(--ng-border);"></i> 不正解... （正解: 「${qData.answer}」）`;
+  }
+
+  let bodyHtml = `<strong>【解説】</strong><br>${qData.explanation || '解説はありません。'}`;
+  if (qData.translation) {
+    bodyHtml += `<br><br><strong>【和訳】</strong><br>${qData.translation}`;
+  }
+  expBody.innerHTML = bodyHtml;
+
+  const nextBtn = document.getElementById('part5-next-btn');
+  nextBtn.classList.remove('hidden');
+  nextBtn.innerHTML = (part5CurrentIndex + 1 >= sessionData.length)
+    ? '結果を見る <i class="fas fa-check-circle"></i>'
+    : '次の問題へ <i class="fas fa-arrow-right"></i>';
+}
+
+function nextQuestionPart5() {
+  part5CurrentIndex++;
+  if (part5CurrentIndex < sessionData.length) {
+    renderPart5Question();
+  } else {
+    showFinalResult(part5Score, sessionData.length, `Part 5 (${selectedLevel}点)`);
+  }
+}
+
+function toggleBookmarkPart5() {
+  const qData = sessionData[part5CurrentIndex];
+  toggleBookmarkItem({
+    q: qData.q,
+    choices: qData.choices,
+    answer: qData.answer,
+    explanation: qData.explanation,
+    translation: qData.translation || '',
+    part: 5,
+    level: selectedLevel,
+    category: 'reading'
+  });
+  updatePart5BookmarkIcon();
+}
+
+function updatePart5BookmarkIcon() {
+  const qData = sessionData[part5CurrentIndex];
+  const isBookmarked = (bookmarks.reading || []).some(b => b.q === qData.q);
+  const btn = document.getElementById('part5-bookmark-btn');
+  if (!btn) return;
+  btn.classList.toggle('is-bookmarked', isBookmarked);
+  if (isBookmarked) {
+    btn.innerHTML = '<i class="fas fa-star"></i> ブックマーク中';
+  } else {
+    btn.innerHTML = '<i class="far fa-star"></i> ブックマーク';
+  }
+}
+
+// ========== Part 6 & Part 7 (長文読解) レンダリング ==========
+function renderPassage() {
+  const pData = sessionData[currentPassageIndex];
+  
+  // バッジ更新
+  const partBadge = document.getElementById('passage-part-badge');
+  partBadge.textContent = `Part ${selectedPart}`;
+  partBadge.style.background = selectedPart === 6 ? '#0284c7' : '#4f46e5';
+
+  document.getElementById('passage-counter').textContent = 
+    `長文 ${currentPassageIndex + 1} / ${sessionData.length}`;
+  document.getElementById('passage-score-badge').textContent = pData.levelName || `${selectedLevel}点レベル`;
+
+  document.getElementById('passage-doc-type').textContent = pData.type || 'Document';
+  document.getElementById('passage-word-count').textContent = `約 ${pData.wordCount} words`;
+
+  // 本文挿入（HTML）
+  document.getElementById('passage-body-content').innerHTML = pData.passageHtml;
+
+  // 設問リスト生成
+  const qListContainer = document.getElementById('passage-questions-list');
+  qListContainer.innerHTML = '';
+
+  const letters = ['A', 'B', 'C', 'D'];
+  pData.questions.forEach((qItem, qIdx) => {
+    const qKey = `${currentPassageIndex}_${qIdx}`;
+    const answeredState = passageAnswers[qKey];
+
+    const card = document.createElement('div');
+    card.className = `reading-q-card ${answeredState ? 'is-answered' : ''}`;
+    card.id = `qcard_${qKey}`;
+
+    const head = document.createElement('div');
+    head.className = 'reading-q-head';
+    head.innerHTML = `
+      <span class="reading-q-num">設問 ${qItem.num || (qIdx + 1)}</span>
+      <button class="bookmark-toggle-btn ${isPassageQBookmarked(qItem) ? 'is-bookmarked' : ''}" style="padding:4px 12px; font-size:0.82rem;" onclick="toggleBookmarkPassageQ(${currentPassageIndex}, ${qIdx})">
+        <i class="${isPassageQBookmarked(qItem) ? 'fas' : 'far'} fa-star"></i> ${isPassageQBookmarked(qItem) ? 'ブックマーク中' : 'ブックマーク'}
+      </button>
+    `;
+    card.appendChild(head);
+
+    const stem = document.createElement('div');
+    stem.className = 'reading-q-stem';
+    stem.textContent = qItem.q;
+    card.appendChild(stem);
+
+    const choicesGrid = document.createElement('div');
+    choicesGrid.className = 'reading-choices-list';
+
+    qItem.choices.forEach((choice, cIdx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'reading-choice-btn';
+      btn.innerHTML = `<span class="choice-letter">${letters[cIdx] || ''}</span><span>${choice}</span>`;
+
+      if (answeredState) {
+        btn.disabled = true;
+        if (choice === qItem.answer) {
+          btn.classList.add('correct');
+        } else if (choice === answeredState.selectedChoice && !answeredState.isCorrect) {
+          btn.classList.add('wrong');
+        }
+      } else {
+        btn.onclick = () => onPassageChoiceSelected(currentPassageIndex, qIdx, choice, btn);
+      }
+      choicesGrid.appendChild(btn);
+    });
+    card.appendChild(choicesGrid);
+
+    // 解説欄
+    const expBox = document.createElement('div');
+    expBox.id = `exp_${qKey}`;
+    expBox.className = `reading-exp-box ${answeredState ? '' : 'hidden'} ${answeredState ? (answeredState.isCorrect ? 'is-correct-exp' : 'is-wrong-exp') : ''}`;
+    if (answeredState) {
+      expBox.innerHTML = `
+        <div class="reading-exp-title">
+          <i class="fas ${answeredState.isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+          ${answeredState.isCorrect ? '正解！' : `不正解（正解: 「${qItem.answer}」）`}
+        </div>
+        <div class="reading-exp-content">${qItem.explanation || '解説はありません。'}</div>
+      `;
+    }
+    card.appendChild(expBox);
+
+    qListContainer.appendChild(card);
+  });
+
+  updatePassageNavBar();
+}
+
+function onPassageChoiceSelected(pIdx, qIdx, choice, selectedBtn) {
+  const qKey = `${pIdx}_${qIdx}`;
+  if (passageAnswers[qKey]) return;
+
+  const pData = sessionData[pIdx];
+  const qItem = pData.questions[qIdx];
+  const isCorrect = (choice === qItem.answer);
+
+  passageAnswers[qKey] = { selectedChoice: choice, isCorrect };
+
+  // 統計更新
+  recordStatistics('reading', selectedLevel, isCorrect, `[Part${selectedPart}] ${qItem.q}`);
+
+  // カード内のボタンのクラス更新
+  const card = document.getElementById(`qcard_${qKey}`);
+  if (card) {
+    card.classList.add('is-answered');
+    const allBtns = card.querySelectorAll('.reading-choice-btn');
+    allBtns.forEach(b => {
+      b.disabled = true;
+      const text = b.querySelector('span:nth-child(2)').textContent;
+      if (text === qItem.answer) {
+        b.classList.add('correct');
+      } else if (b === selectedBtn && !isCorrect) {
+        b.classList.add('wrong');
+      }
+    });
+
+    const expBox = document.getElementById(`exp_${qKey}`);
+    if (expBox) {
+      expBox.classList.remove('hidden');
+      expBox.classList.add(isCorrect ? 'is-correct-exp' : 'is-wrong-exp');
+      expBox.innerHTML = `
+        <div class="reading-exp-title">
+          <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+          ${isCorrect ? '正解！' : `不正解（正解: 「${qItem.answer}」）`}
+        </div>
+        <div class="reading-exp-content">${qItem.explanation || '解説はありません。'}</div>
+      `;
+    }
+  }
+
+  updatePassageNavBar();
+}
+
+function updatePassageNavBar() {
+  const pData = sessionData[currentPassageIndex];
+  const totalQ = pData.questions.length;
+  let answeredQ = 0;
+  for (let i = 0; i < totalQ; i++) {
+    if (passageAnswers[`${currentPassageIndex}_${i}`]) answeredQ++;
+  }
+
+  const prevBtn = document.getElementById('prev-passage-btn');
+  const nextBtn = document.getElementById('next-passage-btn');
+  const statusEl = document.getElementById('passage-completion-status');
+
+  prevBtn.disabled = (currentPassageIndex === 0);
+  prevBtn.style.opacity = (currentPassageIndex === 0) ? '0.5' : '1';
+
+  statusEl.textContent = `解答状況: ${answeredQ} / ${totalQ} 問`;
+
+  const isLast = (currentPassageIndex + 1 >= sessionData.length);
+  if (isLast) {
+    nextBtn.innerHTML = 'すべての結果を見る <i class="fas fa-check-double"></i>';
+  } else {
+    nextBtn.innerHTML = '次の長文へ <i class="fas fa-arrow-right"></i>';
+  }
+}
+
+function changePassage(offset) {
+  const newIndex = currentPassageIndex + offset;
+  if (newIndex >= 0 && newIndex < sessionData.length) {
+    currentPassageIndex = newIndex;
+    renderPassage();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else if (newIndex >= sessionData.length) {
+    // 終了画面へ
+    let totalQ = 0;
+    let totalCorrect = 0;
+    sessionData.forEach((p, pIdx) => {
+      p.questions.forEach((q, qIdx) => {
+        totalQ++;
+        const ans = passageAnswers[`${pIdx}_${qIdx}`];
+        if (ans && ans.isCorrect) totalCorrect++;
+      });
+    });
+    showFinalResult(totalCorrect, totalQ, `Part ${selectedPart} (${selectedLevel}点)`);
+  }
+}
+
+function isPassageQBookmarked(qItem) {
+  return (bookmarks.reading || []).some(b => b.q === qItem.q);
+}
+
+function toggleBookmarkPassageQ(pIdx, qIdx) {
+  const pData = sessionData[pIdx];
+  const qItem = pData.questions[qIdx];
+  toggleBookmarkItem({
+    q: qItem.q,
+    choices: qItem.choices,
+    answer: qItem.answer,
+    explanation: qItem.explanation,
+    translation: pData.passageText || '',
+    part: selectedPart,
+    level: selectedLevel,
+    category: 'reading',
+    passageTitle: pData.type || '長文'
+  });
+  renderPassage();
+}
+
+// ========== 共通ブックマーク & 統計処理 ==========
+function toggleBookmarkItem(item) {
+  if (!bookmarks.reading) bookmarks.reading = [];
+  const idx = bookmarks.reading.findIndex(b => b.q === item.q);
+  if (idx === -1) {
+    bookmarks.reading.push(item);
+  } else {
+    bookmarks.reading.splice(idx, 1);
+  }
+  // writing側へも同期保存
+  bookmarks.writing = bookmarks.reading;
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+}
+
+function recordStatistics(category, level, isCorrect, questionKey) {
+  try {
+    let stats = JSON.parse(localStorage.getItem('statistics')) || {};
+    let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
+    const key = `${category}_${level}`;
+    if (!stats[key]) stats[key] = { total: 0, correct: 0, category, level };
+    stats[key].total++;
+    if (isCorrect) {
+      stats[key].correct++;
+    } else {
+      if (!mistakes[key]) mistakes[key] = {};
+      mistakes[key][questionKey] = (mistakes[key][questionKey] || 0) + 1;
+    }
+    localStorage.setItem('statistics', JSON.stringify(stats));
+    localStorage.setItem('mistakes', JSON.stringify(mistakes));
+  } catch(e) {
+    console.warn('Stat record error', e);
+  }
+}
+
+// ========== 終了画面 ==========
+function showFinalResult(correct, total, title) {
+  hideAllViews();
+  const resView = document.getElementById('result-view');
+  resView.classList.remove('hidden');
+
+  const rate = total > 0 ? Math.round((correct / total) * 100) : 0;
+  document.getElementById('result-summary-text').textContent = 
+    `${title}： ${total}問中 ${correct}問 正解！（正答率 ${rate}%）`;
+
+  let comment = "";
+  if (rate >= 90) {
+    comment = "🎉 素晴らしい正答率です！このレベルの読解・語彙力は十分に定着しています。次の上位レベルにも挑戦してみましょう。";
+  } else if (rate >= 70) {
+    comment = "👍 合格圏内です！間違えた問題の解説と全文和訳を復習し、時間配分を意識して練習を重ねましょう。";
+  } else {
+    comment = "💡 焦らずに復習を重ねましょう。文法・構文のチェックと、設問のキーワードを素早く本文から特定する練習が効果的です。";
+  }
+
+  document.getElementById('result-breakdown').innerHTML = `
+    <div style="font-weight:700; margin-bottom:8px; color:#1e293b;">【学習アドバイス】</div>
+    <div style="font-size:0.95rem; line-height:1.7; color:#475569;">${comment}</div>
+  `;
+}
+
+function exitToSelection() {
+  hideAllViews();
+  document.getElementById('selection-card').classList.remove('hidden');
+}
+
+function hideAllViews() {
+  ['selection-card', 'part5-view', 'passage-view', 'result-view'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('hidden');
+  });
+}
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// DOM構築完了時に即時実行（AdSense待機による遅延を防止）
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
+</script>
+  <script src="../../assets/js/study-tracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宅地建物取引士 (宅建士) 練習問題 | 分野・出題数を選んでランダム演習 | 資格対策ドットコム</title>
+<meta name="description" content="宅地建物取引士 (宅建士)の分野別練習問題。権利関係、宅建業法、法令上の制限、税・その他から苦手分野をピンポイント選択して1問1答形式で効率的に学習できます。">
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  .wizard-step-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+  }
+  .wizard-step-card h2 {
+    font-size: 1.25rem;
+    color: #2d3748;
+    margin-top: 0;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .wizard-desc {
+    color: #718096;
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  .category-group {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .category-group h3 {
+    font-size: 1.05rem;
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .category-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .category-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    color: #4a5568;
+    cursor: pointer;
+  }
+  .category-item input[type="checkbox"],
+  .category-group h3 input[type="checkbox"] {
+    cursor: pointer;
+    width: 17px;
+    height: 17px;
+    accent-color: #345d4d;
+  }
+  .count-button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .count-btn {
+    padding: 10px 22px;
+    border: 2px solid #cbd5e0;
+    background: white;
+    color: #4a5568;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .count-btn:hover {
+    border-color: #345d4d;
+    color: #345d4d;
+  }
+  .count-btn.selected {
+    background: #345d4d;
+    border-color: #345d4d;
+    color: white;
+  }
+  .start-quiz-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #345d4d 0%, #345d4d 100%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.35);
+    transition: 0.2s;
+  }
+  .start-quiz-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(49, 130, 206, 0.45);
+  }
+  .category-control-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+  }
+  .batch-check-btn {
+    padding: 6px 14px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #cbd5e0;
+    background: white;
+    color: #4a5568;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .batch-check-btn:hover {
+    background: #edf2f7;
+    border-color: #a0aec0;
+  }
+</style>
+  <link rel="stylesheet" href="../assets/css/kakutoku.css">
+</head>
+<body class="with-header">
+
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../index.html">ホーム</a></li>
+    <li><a href="index.html">宅地建物取引士 (宅建士)</a></li>
+    <li>練習問題</li>
+  </ul>
+
+  <div class="hero-header">
+    <h1>宅地建物取引士 (宅建士) 練習問題（一問一答演習）</h1>
+    <p>分野と出題数を自由に選んで、全過去問プール（850問）から集中特訓できます</p>
+  </div>
+
+  <!-- モード切り替えタブ -->
+  <div class="mode-switch-container">
+    <button type="button" class="mode-switch-btn active" data-mode="all">
+      <i class="fas fa-dumbbell"></i> すべての問題（トレーニング）
+    </button>
+    <button type="button" class="mode-switch-btn" data-mode="bookmark">
+      <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマークした問題だけ復習
+    </button>
+  </div>
+
+  <!-- ブックマークがない時の案内メッセージ -->
+  <div id="bookmarkEmptyMsg" class="card" style="display:none; text-align:center; padding:35px; background:#fffaf0; border:1px solid #feebc8; margin-bottom:20px;">
+    <i class="far fa-star" style="font-size:2rem; color:#d69e2e; margin-bottom:10px;"></i>
+    <h3>ブックマークされた問題がありません</h3>
+    <p style="color:#744210;">問題の右上にある「☆ ブックマーク」ボタンを押すと、ここに保存されていつでも苦手問題だけを復習できます。</p>
+  </div>
+
+  <!-- ブックマーク一覧表示用コンテナ -->
+  <div id="bookmarkListContainer" style="display:none;"></div>
+
+  <!-- ① ウィザード画面（分野選択＆問題数選択） -->
+  <div id="wizardSection">
+    <!-- ステップ1: 分野選択 -->
+    <div class="wizard-step-card">
+      <h2><i class="fas fa-check-circle" style="color:#345d4d;"></i> ステップ 1：出題分野を選択</h2>
+      <p class="wizard-desc">苦手な科目・細目だけを集中的に解くことも、全科目を横断して実戦演習することも可能です（複数選択可）。</p>
+
+      <div class="category-control-bar">
+        <div style="display:flex; gap:10px;">
+          <button type="button" class="batch-check-btn" id="btn-check-all"><i class="fas fa-check-double"></i> 全項目チェック ON</button>
+          <button type="button" class="batch-check-btn" id="btn-check-none"><i class="fas fa-times"></i> 全項目チェック OFF</button>
+        </div>
+        <span style="font-size:0.85rem; color:#718096;"><i class="fas fa-info-circle"></i> 各科目名横のチェックで一括選択できます</span>
+      </div>
+
+      <div class="category-grid" id="category-grid" style="margin-top:15px;">
+        <!-- 権利関係 -->
+        <div class="category-group">
+          <h3>
+            <input type="checkbox" id="cat-rights-all" class="cat-group-check" checked> 
+            <label for="cat-rights-all"><i class="fas fa-balance-scale" style="color:#345d4d;"></i> 権利関係（民法等）</label>
+          </h3>
+          <div class="category-items" data-group="rights">
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r1" value="制限行為能力者" checked><label for="cat-r1">制限行為能力者</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r2" value="意思表示" checked><label for="cat-r2">意思表示</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r3" value="代理" checked><label for="cat-r3">代理</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r4" value="時効" checked><label for="cat-r4">条件・期間・時効</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r5" value="物権" checked><label for="cat-r5">所有権・共有・物権</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r6" value="担保物権" checked><label for="cat-r6">担保物権（抵当権など）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r7" value="債権" checked><label for="cat-r7">債権総則（保証・連帯債務等）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r8" value="売買" checked><label for="cat-r8">売買契約・解除</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r9" value="賃貸借" checked><label for="cat-r9">賃貸借契約</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r10" value="不法行為" checked><label for="cat-r10">不法行為・事務管理</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r11" value="家族法" checked><label for="cat-r11">親族・相続</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r12" value="借地借家法" checked><label for="cat-r12">借地借家法（土地・建物）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r13" value="区分所有法" checked><label for="cat-r13">区分所有法</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-r14" value="不動産登記法" checked><label for="cat-r14">不動産登記法</label></div>
+          </div>
+        </div>
+
+        <!-- 宅建業法 -->
+        <div class="category-group">
+          <h3>
+            <input type="checkbox" id="cat-gyohou-all" class="cat-group-check" checked> 
+            <label for="cat-gyohou-all"><i class="fas fa-building" style="color:#276749;"></i> 宅地建物取引業法</label>
+          </h3>
+          <div class="category-items" data-group="gyohou">
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g1" value="免許" checked><label for="cat-g1">宅地建物取引業・免許</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g2" value="宅地建物取引士" checked><label for="cat-g2">宅地建物取引士</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g3" value="営業保証金" checked><label for="cat-g3">営業保証金</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g4" value="保証協会" checked><label for="cat-g4">宅地建物取引業保証協会</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g5" value="業務上の規制" checked><label for="cat-g5">業務上の規制（広告・手付等）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g6" value="媒介契約" checked><label for="cat-g6">媒介・代理契約書面</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g7" value="35条書面" checked><label for="cat-g7">重要事項説明（35条書面）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g8" value="37条書面" checked><label for="cat-g8">契約締結時交付書面（37条書面）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g9" value="8種制限" checked><label for="cat-g9">自ら売主の8種制限</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g10" value="報酬" checked><label for="cat-g10">報酬額の計算・制限</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g11" value="監督処分" checked><label for="cat-g11">監督処分・罰則</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-g12" value="住宅瑕疵担保" checked><label for="cat-g12">住宅瑕疵担保履行法</label></div>
+          </div>
+        </div>
+
+        <!-- 法令上の制限 -->
+        <div class="category-group">
+          <h3>
+            <input type="checkbox" id="cat-limits-all" class="cat-group-check" checked> 
+            <label for="cat-limits-all"><i class="fas fa-ruler-combined" style="color:#c53030;"></i> 法令上の制限</label>
+          </h3>
+          <div class="category-items" data-group="limits">
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-l1" value="都市計画法" checked><label for="cat-l1">都市計画法</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-l2" value="建築基準法" checked><label for="cat-l2">建築基準法（用途・建蔽率・容積率）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-l3" value="国土利用計画法" checked><label for="cat-l3">国土利用計画法（事後届出等）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-l4" value="農地法" checked><label for="cat-l4">農地法（3条・4条・5条許可）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-l5" value="土地区画整理法" checked><label for="cat-l5">土地区画整理法</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-l6" value="盛土規制法" checked><label for="cat-l6">盛土規制法（宅地造成等規制法）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-l7" value="その他の法令" checked><label for="cat-l7">その他の法令（景観法・自然公園法等）</label></div>
+          </div>
+        </div>
+
+        <!-- 税・その他 -->
+        <div class="category-group">
+          <h3>
+            <input type="checkbox" id="cat-tax-all" class="cat-group-check" checked> 
+            <label for="cat-tax-all"><i class="fas fa-coins" style="color:#b7791f;"></i> 税・その他（税法・免除科目）</label>
+          </h3>
+          <div class="category-items" data-group="tax_other">
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-t1" value="不動産取得税" checked><label for="cat-t1">不動産取得税・固定資産税（地方税）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-t2" value="所得税" checked><label for="cat-t2">譲渡所得税・印紙税・登録免許税（国税）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-t3" value="地価公示法" checked><label for="cat-t3">地価公示法・不動産鑑定評価基準</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-t4" value="住宅金融支援機構" checked><label for="cat-t4">住宅金融支援機構法</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-t5" value="不当景品類" checked><label for="cat-t5">景品表示法（公正競争規約）</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-t6" value="需給" checked><label for="cat-t6">不動産の需給・統計動向</label></div>
+            <div class="category-item"><input type="checkbox" class="cat-checkbox" id="cat-t7" value="土地" checked><label for="cat-t7">土地・建物の構造・形質</label></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ステップ2: 出題数選択 -->
+      <h2 style="margin-top:30px;"><i class="fas fa-sliders-h" style="color:#345d4d;"></i> ステップ 2：出題数を選択（最大100問）</h2>
+      <p class="wizard-desc">スキマ時間のクイック演習から、本番フルサイズ50問〜100問演習まで自由に選べます。</p>
+
+      <div class="count-button-grid">
+        <button type="button" class="count-btn" data-count="5">5問</button>
+        <button type="button" class="count-btn selected" data-count="10">10問</button>
+        <button type="button" class="count-btn" data-count="15">15問</button>
+        <button type="button" class="count-btn" data-count="30">30問</button>
+        <button type="button" class="count-btn" data-count="50">50問</button>
+        <button type="button" class="count-btn" data-count="100">100問</button>
+      </div>
+
+      <!-- アクションボタンエリア -->
+      <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top:20px;">
+        <button type="button" id="startPracticeBtn" class="start-quiz-btn" style="flex:1; min-width:260px; margin:0;">
+          <i class="fas fa-play-circle"></i> この条件で練習問題を開始する
+        </button>
+        <button type="button" id="printPracticeBtn" class="print-quiz-btn" style="flex:1; min-width:260px; padding:16px; background:#38a169; color:white; font-size:1.15rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; text-align:center; box-shadow:0 4px 12px rgba(56,161,105,0.25); transition:0.2s; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <i class="fas fa-print"></i> この条件で問題をプリントアウトする
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 演習実行画面（最初は非表示、スタート時に表示） -->
+  <div id="quizPlaySection" style="display:none;">
+    <!-- 上部ナビバー -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+      <button type="button" id="backToWizardBtn" class="btn" style="background:#718096; color:white; padding:8px 16px; font-size:0.9rem; border-radius:6px; border:none; cursor:pointer;">
+        <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+      </button>
+      <span style="font-size:0.9rem; color:#718096;"><i class="fas fa-random"></i> 宅建士 1問1答集中演習</span>
+    </div>
+
+    <!-- 進捗バー -->
+    <div class="progress-card">
+      <span id="playProgressText" style="font-size:0.95rem; color:#4a5568;">進捗: 読み込み中...</span>
+      <div class="progress-bar-bg">
+        <div id="playProgressFill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- 動的クイズカード挿入コンテナ -->
+    <div id="quizCardsContainer"></div>
+  </div>
+
+  <!-- ③ リザルト画面 -->
+  <div id="resultSection" style="display:none;">
+    <div class="card result-card" style="padding:35px; text-align:center; background:#fff; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.08); border:1px solid #e2e8f0;">
+      <div id="resultIcon" style="font-size:3rem; margin-bottom:15px;">🎉</div>
+      <h2 style="font-size:1.8rem; margin-bottom:10px; color:#2d3748;">演習完了！</h2>
+      
+      <div style="display:inline-block; padding:15px 30px; background:#f7fafc; border:2px solid #cbd5e0; border-radius:10px; margin:20px 0;">
+        <span style="font-size:1.1rem; color:#4a5568; display:block;">あなたのスコア</span>
+        <span id="resultScoreText" style="font-size:2.5rem; font-weight:800; color:#345d4d;">0 / 0 問</span>
+        <span id="resultRateText" style="display:block; font-size:1.2rem; font-weight:700; color:#4a5568; margin-top:5px;">正解率: 0%</span>
+      </div>
+      
+      <p id="resultMessageText" style="font-size:1.05rem; color:#4a5568; max-width:600px; margin:0 auto 25px; line-height:1.7;">
+        お疲れ様でした！間違えた問題の解説をしっかり復習しましょう。
+      </p>
+
+      <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:35px;">
+        <button type="button" id="btnRetryQuiz" style="padding:12px 26px; font-weight:bold; font-size:1rem; background:#345d4d; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+          <i class="fas fa-redo"></i> 同じ条件でもう一度解く
+        </button>
+        <button type="button" id="btnBackToWizard" style="padding:12px 26px; font-weight:bold; font-size:1rem; background:#edf2f7; color:#4a5568; border:1px solid #cbd5e0; border-radius:6px; cursor:pointer;">
+          <i class="fas fa-sliders-h"></i> 分野・条件を選び直す
+        </button>
+      </div>
+
+      <hr style="border:none; border-top:1px solid #e2e8f0; margin:30px 0;">
+      <h3 style="text-align:left; font-size:1.2rem; margin-bottom:15px; color:#2d3748;">
+        <i class="fas fa-list-check" style="color:#345d4d;"></i> 回答結果・見直しリスト
+      </h3>
+      <div id="resultReviewList" style="text-align:left; display:flex; flex-direction:column; gap:10px;"></div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>資格対策ドットコム</h4>
+      <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
+        TOEIC・FP・宅建・ITパスポート・簿記など、主要資格の練習問題・過去問・コラムをすべて無料で提供する総合学習プラットフォームです。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>取り扱い資格</h4>
+      <ul>
+        <li><a href="../toeic/index.html">TOEIC® L&R</a></li>
+        <li><a href="../fp/index.html">FP (ファイナンシャル・プランナー)</a></li>
+        <li><a href="index.html">宅地建物取引士 (宅建)</a></li>
+        <li><a href="../it-passport/index.html">ITパスポート</a></li>
+        <li><a href="../boki/index.html">日商簿記検定</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>ご案内</h4>
+      <ul>
+        <li><a href="../contact.html">お問い合わせ</a></li>
+        <li><a href="../profile.html">運営者プロフィール</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="../assets/js/takken-past-all-data.js"></script>
+<script src="../assets/js/takken-practice-wizard.js"></script>
+  <script src="../assets/js/study-tracker.js"></script>
+</body>
+</html>

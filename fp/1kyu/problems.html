@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FP1級（ファイナンシャル・プランニング技能士1級） 練習問題 | トレーニング＆ブックマーク | 資格対策ドットコム</title>
+<meta name="description" content="FP1級（ファイナンシャル・プランニング技能士1級）の分野別練習問題。一問一答トレーニングで基礎力を鍛え、ブックマークした問題を繰り返し復習できます。">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
+</head>
+<body class="with-header">
+
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../../index.html">ホーム</a></li>
+    <li><a href="../index.html">FP技能士</a></li>
+    <li><a href="index.html">FP1級（ファイナンシャル・プランニング技能士1級）</a></li>
+    <li>練習問題</li>
+  </ul>
+
+  <div class="hero-header">
+    <h1>FP1級 練習問題（一問一答演習）</h1>
+    <p>分野と出題数を自由に選んで、本番過去問プールからランダムに集中特訓できます</p>
+  </div>
+
+  <!-- モード切り替えタブ -->
+  <div class="mode-switch-container">
+    <button type="button" class="mode-switch-btn active" data-mode="all">
+      <i class="fas fa-dumbbell"></i> すべての問題（トレーニング）
+    </button>
+    <button type="button" class="mode-switch-btn" data-mode="bookmark">
+      <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマークした問題だけ復習
+    </button>
+  </div>
+
+  <!-- ブックマークがない時の案内メッセージ -->
+  <div id="bookmarkEmptyMsg" class="card" style="display:none; text-align:center; padding:35px; background:#fffaf0; border:1px solid #feebc8; margin-bottom:20px;">
+    <i class="far fa-star" style="font-size:2rem; color:#d69e2e; margin-bottom:10px;"></i>
+    <h3>ブックマークされた問題がありません</h3>
+    <p style="color:#744210;">問題の右上にある「☆ ブックマーク」ボタンを押すと、ここに保存されていつでも苦手問題だけを復習できます。</p>
+  </div>
+
+  <!-- ① ウィザード画面（分野選択＆問題数選択） -->
+  <div id="wizardSection">
+    <!-- ステップ1: 分野選択 -->
+    <div class="wizard-step-card">
+      <h2><i class="fas fa-check-circle" style="color:#345d4d;"></i> ステップ 1：出題分野を選択</h2>
+      <p class="wizard-desc">苦手な分野だけを集中的に解くことも、全分野を横断して実戦演習することも可能です（複数選択可）。</p>
+
+      <div class="category-checkbox-grid">
+        <label class="category-check-item selected" style="grid-column: 1 / -1; background:#edf2f7; border-color:#cbd5e0;">
+          <input type="checkbox" id="cat-all" checked>
+          <span><i class="fas fa-globe"></i> 全分野からランダム出題（すべて選択）</span>
+        </label>
+
+        <label class="category-check-item selected">
+          <input type="checkbox" class="cat-checkbox" value="life" checked>
+          <span><i class="fas fa-user-friends" style="color:#345d4d;"></i> ① ライフプランニングと資金計画</span>
+        </label>
+
+        <label class="category-check-item selected">
+          <input type="checkbox" class="cat-checkbox" value="risk" checked>
+          <span><i class="fas fa-shield-alt" style="color:#c53030;"></i> ② リスク管理（生命・損害保険）</span>
+        </label>
+
+        <label class="category-check-item selected">
+          <input type="checkbox" class="cat-checkbox" value="finance" checked>
+          <span><i class="fas fa-chart-line" style="color:#234e52;"></i> ③ 金融資産運用（投資信託・株式）</span>
+        </label>
+
+        <label class="category-check-item selected">
+          <input type="checkbox" class="cat-checkbox" value="tax" checked>
+          <span><i class="fas fa-file-invoice-dollar" style="color:#744210;"></i> ④ タックスプランニング（所得税制）</span>
+        </label>
+
+        <label class="category-check-item selected">
+          <input type="checkbox" class="cat-checkbox" value="realestate" checked>
+          <span><i class="fas fa-home" style="color:#9c4221;"></i> ⑤ 不動産（取引規制・法令）</span>
+        </label>
+
+        <label class="category-check-item selected">
+          <input type="checkbox" class="cat-checkbox" value="inheritance" checked>
+          <span><i class="fas fa-gift" style="color:#553c9a;"></i> ⑥ 相続・事業承継（民法・相続税）</span>
+        </label>
+      </div>
+
+      <!-- ステップ2: 出題数選択 -->
+      <h2><i class="fas fa-sliders-h" style="color:#345d4d;"></i> ステップ 2：出題数を選択（最大50問）</h2>
+      <p class="wizard-desc">スキマ時間のクイック学習から、じっくり取り組む50問まで自由に選べます。</p>
+
+      <div class="count-button-grid">
+        <button type="button" class="count-btn" data-count="5">5問</button>
+        <button type="button" class="count-btn selected" data-count="10">10問</button>
+        <button type="button" class="count-btn" data-count="15">15問</button>
+        <button type="button" class="count-btn" data-count="30">30問</button>
+        <button type="button" class="count-btn" data-count="50">50問</button>
+      </div>
+
+      <!-- アクションボタンエリア -->
+      <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top:20px;">
+        <button type="button" id="startPracticeBtn" class="start-quiz-btn" style="flex:1; min-width:260px; margin:0;">
+          <i class="fas fa-play-circle"></i> この条件でランダム練習を開始する
+        </button>
+        <button type="button" id="printPracticeBtn" class="print-quiz-btn" style="flex:1; min-width:260px; padding:16px; background:#38a169; color:white; font-size:1.15rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; text-align:center; box-shadow:0 4px 12px rgba(56,161,105,0.25); transition:0.2s; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <i class="fas fa-print"></i> この条件で問題をプリントアウトする
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 演習実行画面（最初は非表示、スタート時に表示） -->
+  <div id="quizPlaySection" style="display:none;">
+    <!-- 上部ナビバー -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+      <button type="button" id="backToWizardBtn" class="btn" style="background:#718096; color:white; padding:8px 16px; font-size:0.9rem;">
+        <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+      </button>
+      <span style="font-size:0.9rem; color:#718096;"><i class="fas fa-random"></i> ランダム出題モード実行中</span>
+    </div>
+
+    <!-- 進捗バー -->
+    <div class="progress-card">
+      <span id="playProgressText" style="font-size:0.95rem; color:#4a5568;">進捗: 読み込み中...</span>
+      <div class="progress-bar-bg">
+        <div id="playProgressFill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- 動的クイズカード挿入コンテナ -->
+    <div id="quizCardsContainer"></div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>資格対策ドットコム</h4>
+      <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
+        FP・TOEIC・宅建・ITパスポート・簿記など、主要資格の練習問題・過去問・コラムをすべて無料で提供する総合学習プラットフォームです。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>FP技能検定（級別）</h4>
+      <ul>
+        <li><a href="../3kyu/index.html">FP3級対策トップ</a></li>
+        <li><a href="../2kyu/index.html">FP2級対策トップ</a></li>
+        <li><a href="index.html">FP1級対策トップ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>ご案内</h4>
+      <ul>
+        <li><a href="../../contact.html">お問い合わせ</a></li>
+        <li><a href="../../profile.html">運営者プロフィール</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- 問題データプール ＆ ウィザードスクリプト -->
+<script src="../../assets/js/fp1-data.js"></script>
+<script src="../../assets/js/fp-practice-wizard.js?v=3"></script>
+  <script src="../../assets/js/study-tracker.js"></script>
+</body>
+</html>

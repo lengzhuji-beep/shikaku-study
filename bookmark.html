@@ -16,18 +16,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
          crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/kakutoku.css">
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
     <div id="bookmarks-list" class="card">
-      <a href="index.html" id="back-to-top-btn" class="card-icon-button">トップに戻る</a>
+      <a href="toeic/problems.html" id="back-to-top-btn" class="card-icon-button"><i class="fas fa-arrow-left"></i> 問題選択へ戻る</a>
       <h2><i class="fas fa-bookmark"></i> ブックマークした問題</h2>
       <div class="tab-container">
         <div class="tab-buttons">
           <button class="tab-button active" onclick="showBookmarkTab('vocabulary')">単語</button>
-          <button class="tab-button" onclick="showBookmarkTab('writing')">ライティング</button>
+          <button class="tab-button" onclick="showBookmarkTab('reading')">リーディング</button>
           <button class="tab-button" onclick="showBookmarkTab('listening')">リスニング</button>
         </div>
         <div id="bookmarked-questions"></div>
@@ -43,15 +44,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <script>
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], reading: [], listening: [] };
+    // 互換マイグレーション
+    if (!bookmarks.reading || bookmarks.reading.length === 0) {
+      if (bookmarks.writing && bookmarks.writing.length > 0) {
+        bookmarks.reading = [...bookmarks.writing];
+      } else {
+        bookmarks.reading = [];
+      }
+    }
     let bookmarkToDelete = null;
 
     function getCategoryName(category) {
-      const names = { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' };
+      const names = { vocabulary: '単語', reading: 'リーディング', writing: 'リーディング', listening: 'リスニング' };
       return names[category] || category;
     }
     
     function showBookmarkTab(category) {
+      // writingが渡された場合もreadingとして処理
+      if (category === 'writing') category = 'reading';
+
       document.querySelectorAll('#bookmarks-list .tab-button').forEach(btn => {
         btn.classList.remove('active');
         const btnText = btn.textContent;
@@ -108,13 +120,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     function confirmDeleteBookmark(confirmed) {
       if (confirmed && bookmarkToDelete !== null) {
-        bookmarks[bookmarkToDelete.category].splice(bookmarkToDelete.index, 1);
+        const cat = bookmarkToDelete.category;
+        bookmarks[cat].splice(bookmarkToDelete.index, 1);
+        if (cat === 'reading') bookmarks.writing = bookmarks.reading;
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
         showPopup("ブックマークから削除しました");
-        // Re-render the current tab to reflect the deletion
-        const activeTabButton = document.querySelector('.tab-button.active');
-        const activeCategory = Object.keys({ vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }).find(key => getCategoryName(key) === activeTabButton.textContent);
-        showBookmarkTab(activeCategory || 'vocabulary');
+        showBookmarkTab(cat);
       }
       document.getElementById("confirmation-dialog").classList.add("hidden");
       bookmarkToDelete = null;
@@ -131,5 +142,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       showBookmarkTab('vocabulary');
     };
   </script>
+  <script src="assets/js/study-tracker.js"></script>
 </body>
 </html>

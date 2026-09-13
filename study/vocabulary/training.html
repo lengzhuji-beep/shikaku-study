@@ -15,51 +15,204 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
          crossorigin="anonymous"></script>
     
+
+<style>
+.level-badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.level-pill-btn {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  color: #334155;
+  padding: 10px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  box-sizing: border-box;
+}
+.level-pill-btn .pill-main {
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.level-pill-btn .pill-sub {
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 3px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.level-pill-btn:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+.level-pill-btn.active {
+  background: #059669;
+  border-color: #059669;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(5,150,105,0.32);
+}
+.level-pill-btn.active .pill-sub {
+  color: rgba(255, 255, 255, 0.92);
+}
+.start-train-btn {
+  font-size: 1.05rem;
+  padding: 12px 36px;
+  background: #059669;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(5,150,105,0.3);
+  transition: all 0.2s ease;
+}
+.start-train-btn:hover {
+  background: #047857;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5,150,105,0.4);
+}
+
+#level-select.card {
+  max-width: 780px;
+  margin: 20px auto;
+}
+#quiz.single-quiz-card {
+  max-width: 680px;
+  margin: 20px auto;
+  padding: 30px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+}
+#result.card {
+  max-width: 680px;
+  margin: 20px auto;
+}
+.quiz-options {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+}
+.quiz-option {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 13px 18px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: #f8fafc;
+  color: #1e293b;
+  text-align: left;
+}
+.quiz-option:hover:not(.locked) {
+  background: #eff6ff;
+  border-color: #345d4d;
+  transform: translateY(-1px);
+}
+.quiz-option.correct-choice {
+  background: #ecfdf5 !important;
+  border-color: #10b981 !important;
+  color: #065f46 !important;
+  font-weight: 700;
+}
+.quiz-option.wrong-choice {
+  background: #fef2f2 !important;
+  border-color: #ef4444 !important;
+  color: #991b1b !important;
+}
+
+</style>
+
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
 </head>
 <body>
+  <!-- ヘッダー（共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
-        <div id="level-select" class="card">
-            <h2>単語 - トレーニングモード</h2>
-            <p>レベルを選択してください</p>
-            <div class="level-buttons-group">
-                <button class="icon-button" onclick="selectLevel(300)">300点</button>
-                <button class="icon-button" onclick="selectLevel(400)">400点</button>
-                <button class="icon-button" onclick="selectLevel(500)">500点</button>
-                <button class="icon-button" onclick="selectLevel(600)">600点</button>
-                <button class="icon-button" onclick="selectLevel(700)">700点</button>
-                <button class="icon-button" onclick="selectLevel(800)">800点</button>
-                <button class="icon-button" onclick="selectLevel(900)">900点以上</button>
+                <div id="level-select" class="card">
+            <div style="text-align:center; margin-bottom:20px;">
+                <span style="background:#e6f4ea; color:#059669; font-size:0.85rem; font-weight:700; padding:4px 12px; border-radius:20px; display:inline-block; margin-bottom:8px;">Vocabulary</span>
+                <h2 style="margin:0 0 6px;">単語トレーニング</h2>
+                <p style="margin:0; font-size:0.92rem; color:#64748b;">目標スコアレベルと出題数を選択して演習をスタートします。</p>
             </div>
-            <a href="../../index.html" class="back-to-level-select">トップに戻る</a>
+
+            <h3 style="text-align:left; margin-top:16px; font-size:1.1rem; color:#1e293b;">1. 目標スコアレベルを選択</h3>
+            <div id="level-container" class="level-badge-grid"></div>
+
+            <h3 style="text-align:left; margin-top:16px; font-size:1.1rem; color:#1e293b;">2. 出題数を選択</h3>
+            <div id="count-container" class="level-badge-grid"></div>
+
+            <div style="text-align:center; margin-top:25px;">
+                <button type="button" class="start-train-btn" onclick="startVocabularySession()">
+                    <i class="fas fa-play"></i> この設定でトレーニングを開始する
+                </button>
+            </div>
+            <div style="text-align:center; margin-top:20px;">
+                <a href="../../toeic/problems.html" style="color:#475569; background:#f1f5f9; border:1px solid #cbd5e1; padding:8px 18px; border-radius:8px; font-size:0.92rem; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:6px; transition:all 0.2s ease;">
+                    <i class="fas fa-arrow-left"></i> 学習分野を選択し直す
+                </a>
+            </div>
         </div>
-        <div id="question-count-select" class="card hidden">
-            <h2 id="selected-info"></h2>
-            <p>出題数を選択してください</p>
-            <div class="icon-container">
-                 <button class="icon-button" onclick="startQuiz(5)">5問</button>
-                 <button class="icon-button" onclick="startQuiz(10)">10問</button>
-                 <button class="icon-button" onclick="startQuiz(15)">15問</button>
-                 <button class="icon-button" onclick="startQuiz(30)">30問</button>
-                 <button class="icon-button" onclick="startQuizAll()">全問題</button>
-            </div>
-             <button onclick="showLevelSelect()" class="back-to-level-select">レベル選択に戻る</button>
-             </div>
-        <div id="quiz" class="card hidden">
-            <a href="../../index.html" class="quit-quiz-btn">解答を中止する</a>
+        <div id="question-count-select" class="hidden"></div>
+        </div>
+        <div id="quiz" class="card single-quiz-card hidden" style="position: relative;">
+            <button type="button" class="quit-quiz-btn" onclick="showLevelSelect()"><i class="fas fa-arrow-left"></i> 条件を変更して選び直す</button>
             <span id="bookmark" class="bookmark" onclick="toggleBookmark()">☆</span>
-            <h2 id="quiz-title"></h2>
-            <div id="question" style="font-size: 1.5em; text-align: center; margin: 20px 0;"></div>
-            <div id="choices" class="choices"></div>
-            <div id="feedback" class="feedback hidden"></div>
-            <button id="next-btn" onclick="nextQuestion()" class="hidden">次の問題へ</button>
+            <h2 id="quiz-title" style="margin-top: 10px;"></h2>
+            <div id="question" style="font-size: 1.8em; text-align: center; margin: 25px 0; font-weight: bold; color: #2d3748;"></div>
+            <div id="choices" class="quiz-options"></div>
+            <div id="explanation-area" class="quiz-explanation-area">
+                <div id="explanation-title" class="quiz-result-title"></div>
+                <div id="explanation-body" style="line-height: 1.7; margin: 12px 0;"></div>
+                <div class="next-question-bar">
+                    <button id="next-btn" type="button" class="next-question-btn" onclick="nextQuestion()">
+                        次の問題へ <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
         </div>
         <div id="result" class="card hidden" style="text-align:center;">
              <h2>トレーニング完了！</h2>
              <p id="result-text"></p>
-             <button onclick="showLevelSelect()">別のレベルに挑戦</button>
-             <a href="../../index.html"><button style="background-color: #6c757d;">トップに戻る</button></a>
+             <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px;">
+                 <button type="button" onclick="showLevelSelect()" style="background:#059669; color:#fff; font-weight:700; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">
+                     <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+                 </button>
+                 <a href="../../toeic/problems.html" style="text-decoration:none;">
+                     <button type="button" style="background:#64748b; color:#fff; font-weight:700; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">
+                         <i class="fas fa-list"></i> 学習分野を選択し直す
+                     </button>
+                 </a>
+             </div>
         </div>
     </div>
 
@@ -73,27 +226,87 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="../../assets/js/data/quizData_vocabulary_900.js"></script>
     
     <script>
-        const currentCategory = 'vocabulary';
+                const currentCategory = 'vocabulary';
         const currentMode = 'training';
-        let currentLevel, currentQuestions, currentQuestion, score, bookmarks;
+        let currentLevel = 600;
+        let selectedCount = 10;
+        let currentQuestions, currentQuestion, score, bookmarks;
         
+        const availableLevels = [
+            { lv: 300, main: '300点レベル', sub: '（超入門）' },
+            { lv: 400, main: '400点レベル', sub: '（入門）' },
+            { lv: 500, main: '500点レベル', sub: '（基礎）' },
+            { lv: 600, main: '600点レベル', sub: '（標準）' },
+            { lv: 700, main: '700点レベル', sub: '（中上級）' },
+            { lv: 800, main: '800点レベル', sub: '（上級）' },
+            { lv: 900, main: '900点レベル', sub: '（難関）' }
+        ];
+
+        const countOptions = [
+            { val: 5, main: '5問', sub: '（ミニ特訓）' },
+            { val: 10, main: '10問', sub: '（標準）' },
+            { val: 15, main: '15問', sub: '（集中演習）' },
+            { val: 20, main: '20問', sub: '（全問制覇）' }
+        ];
+
         function initializeApp() {
-            bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
+            bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], reading: [], listening: [] };
+            renderLevelButtons();
+            renderCountButtons();
             showLevelSelect();
         }
-        function getCategoryName(category) { return { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' }[category] || ''; }
+
+        function renderLevelButtons() {
+            const container = document.getElementById('level-container');
+            if (!container) return;
+            container.innerHTML = '';
+            availableLevels.forEach(item => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `level-pill-btn ${item.lv === currentLevel ? 'active' : ''}`;
+                btn.innerHTML = `<span class="pill-main">${item.main}</span><span class="pill-sub">${item.sub}</span>`;
+                btn.onclick = () => {
+                    document.querySelectorAll('#level-container .level-pill-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentLevel = item.lv;
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function renderCountButtons() {
+            const container = document.getElementById('count-container');
+            if (!container) return;
+            container.innerHTML = '';
+            countOptions.forEach(item => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `level-pill-btn ${item.val === selectedCount ? 'active' : ''}`;
+                btn.innerHTML = `<span class="pill-main">${item.main}</span><span class="pill-sub">${item.sub}</span>`;
+                btn.onclick = () => {
+                    document.querySelectorAll('#count-container .level-pill-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    selectedCount = item.val;
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function startVocabularySession() {
+            if (!quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
+                alert(`レベル${currentLevel}点の単語問題データが見つかりません。`);
+                return;
+            }
+            startQuiz(selectedCount);
+        }
+
+        function getCategoryName(category) { return { vocabulary: '単語', reading: 'リーディング', writing: 'リーディング', listening: 'リスニング' }[category] || ''; }
         function getModeName(mode) { return { test: 'テスト', training: 'トレーニング' }[mode] || ''; }
-        function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => document.getElementById(id).classList.add("hidden")); }
+        function hideAllSections() { ["level-select", "question-count-select", "quiz", "result"].forEach(id => { const el = document.getElementById(id); if (el) el.classList.add("hidden"); }); }
         function showLevelSelect() { hideAllSections(); document.getElementById("level-select").classList.remove("hidden"); }
         function selectLevel(level) {
             currentLevel = level;
-            if (!quizData[currentCategory][currentLevel] || quizData[currentCategory][currentLevel].length === 0) {
-                alert(`レベル${currentLevel}点の単語問題データが見つかりません。\nJSファイルが正しく作成・配置されているか確認してください。`);
-                return;
-            }
-            hideAllSections();
-            document.getElementById("question-count-select").classList.remove("hidden");
-            document.getElementById("selected-info").textContent = `${getCategoryName(currentCategory)} - ${getModeName(currentMode)}モード - レベル: ${level}点`;
+            startVocabularySession();
         }
         function startQuiz(questionCount) {
             currentQuestion = 0;
@@ -114,33 +327,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             return shuffled;
         }
         function showQuestion() {
-            document.getElementById("feedback").classList.add("hidden");
-            document.getElementById("next-btn").classList.add("hidden");
+            const expArea = document.getElementById("explanation-area");
+            expArea.style.display = "none";
+            expArea.className = "quiz-explanation-area";
+
             const qData = currentQuestions[currentQuestion];
             document.getElementById("quiz-title").textContent = `問題 ${currentQuestion + 1} / ${currentQuestions.length}`;
             document.getElementById("question").textContent = qData.q;
             const choicesDiv = document.getElementById("choices");
             choicesDiv.innerHTML = "";
+
+            let answered = false;
             shuffleArray(qData.choices).forEach(choice => {
-                const btn = document.createElement("button");
-                btn.textContent = choice;
-                btn.onclick = () => checkAnswer(choice);
-                choicesDiv.appendChild(btn);
+                const opt = document.createElement("div");
+                opt.className = "quiz-option";
+                opt.textContent = choice;
+                opt.onclick = () => {
+                    if (answered) return;
+                    answered = true;
+                    checkAnswer(choice, opt);
+                };
+                choicesDiv.appendChild(opt);
             });
-            document.querySelectorAll('#choices button').forEach(button => button.disabled = false);
             updateBookmarkStatus();
         }
-        function checkAnswer(choice) {
+        function checkAnswer(choice, selectedOpt) {
             const qData = currentQuestions[currentQuestion];
             const isCorrect = choice === qData.answer;
             if(isCorrect) score++;
             updateStatistics(currentCategory, currentLevel, isCorrect, qData.q);
-            const feedbackDiv = document.getElementById("feedback");
-            feedbackDiv.innerHTML = `<strong>${isCorrect ? "正解！" : "不正解..."}</strong><br>正解は「${qData.answer}」です。<br><br><strong>解説：</strong>${qData.explanation}`;
-            feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-            feedbackDiv.classList.remove("hidden");
-            document.querySelectorAll('#choices button').forEach(button => button.disabled = true);
-            document.getElementById("next-btn").classList.remove("hidden");
+
+            const allOpts = document.querySelectorAll('#choices .quiz-option');
+            allOpts.forEach(opt => {
+                opt.classList.add("locked");
+                opt.style.pointerEvents = "none";
+                if (opt.textContent === qData.answer) {
+                    opt.classList.add("correct-choice");
+                    opt.innerHTML = `<i class="fas fa-check-circle" style="color:#22543d; margin-right:10px;"></i>${opt.textContent}`;
+                } else if (opt === selectedOpt && !isCorrect) {
+                    opt.classList.add("wrong-choice");
+                    opt.innerHTML = `<i class="fas fa-times-circle" style="color:#742a2a; margin-right:10px;"></i>${opt.textContent}`;
+                }
+            });
+
+            const expArea = document.getElementById("explanation-area");
+            const expTitle = document.getElementById("explanation-title");
+            const expBody = document.getElementById("explanation-body");
+            const nextBtn = document.getElementById("next-btn");
+
+            expArea.style.display = "block";
+            if (isCorrect) {
+                expArea.className = "quiz-explanation-area is-correct";
+                expTitle.innerHTML = '<i class="fas fa-check-circle"></i> 正解！';
+            } else {
+                expArea.className = "quiz-explanation-area is-wrong";
+                expTitle.innerHTML = `<i class="fas fa-times-circle"></i> 不正解... （正解: 「${qData.answer}」）`;
+            }
+            expBody.innerHTML = `<strong>【解説・語法】</strong><br>${qData.explanation}`;
+
+            const isLast = (currentQuestion + 1 >= currentQuestions.length);
+            nextBtn.innerHTML = isLast 
+                ? '結果を見る <i class="fas fa-check-circle"></i>' 
+                : '次の問題へ <i class="fas fa-arrow-right"></i>';
         }
         function nextQuestion() {
             currentQuestion++;
@@ -192,7 +440,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             localStorage.setItem('statistics', JSON.stringify(statistics));
             localStorage.setItem('mistakes', JSON.stringify(mistakes));
         }
-        window.onload = initializeApp;
+        // DOM構築完了時に即時実行（AdSense等の外部通信待機による遅延を防止）
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
     </script>
+  <script src="../../assets/js/study-tracker.js"></script>
 </body>
 </html>

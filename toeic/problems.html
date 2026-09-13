@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEIC® L&R 練習問題 | Kakutoku</title>
+  <meta name="description" content="TOEIC® L&Rの無料練習問題。単語、リーディング（Part 5・Part 6・Part 7）、リスニング（音声付き）からスコアレベル別（500点〜800点以上）に選んで演習できます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/kakutoku.css">
+  <style>
+    .page-header-section {
+      padding: 3.5rem 0 2rem;
+    }
+    .page-title-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #eef5f1;
+      color: #345d4d;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+    .page-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #1a231f;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .page-desc {
+      font-size: 1.05rem;
+      color: #6b7770;
+      max-width: 680px;
+      line-height: 1.6;
+    }
+    .learning-section {
+      padding: 1.5rem 0 5rem;
+    }
+    .grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    @media (max-width: 960px) {
+      .grid-3col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+    .study-card {
+      background: #ffffff;
+      border: 1px solid #e7dfd5;
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(45, 55, 48, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .study-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(45, 55, 48, 0.08);
+      border-color: #345d4d;
+    }
+    .study-card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .study-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #f0f6f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .study-heading {
+      flex: 1;
+    }
+    .study-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #1a231f;
+      margin-bottom: 0.25rem;
+    }
+    .study-sub {
+      font-size: 0.85rem;
+      color: #7b8881;
+      font-weight: 600;
+    }
+    .study-desc {
+      font-size: 0.93rem;
+      color: #55625a;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .study-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .study-spec-box {
+      background: #faf7f2;
+      border-radius: 12px;
+      padding: 0.65rem 0.5rem;
+      text-align: center;
+    }
+    .study-spec-label {
+      font-size: 0.72rem;
+      color: #7b8881;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .study-spec-val {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #24332c;
+    }
+    .study-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+    .btn-study-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.25rem;
+      background: #345d4d;
+      color: #ffffff;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(52, 93, 77, 0.15);
+    }
+    .btn-study-main:hover {
+      background: #254337;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(52, 93, 77, 0.25);
+    }
+    .btn-study-sub {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      background: #ffffff;
+      color: #4b5851;
+      border: 1px solid #d5cdc3;
+      border-radius: 9999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-study-sub:hover {
+      background: #f7f3ec;
+      border-color: #345d4d;
+      color: #345d4d;
+    }
+    .breadcrumb-nav {
+      padding: 1.25rem 0 0;
+      font-size: 0.88rem;
+      color: #7b8881;
+    }
+    .breadcrumb-nav a {
+      color: #55625a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .breadcrumb-nav a:hover {
+      color: #345d4d;
+    }
+    .breadcrumb-separator {
+      margin: 0 0.5rem;
+      color: #b5bfb9;
+    }
+    .info-banner {
+      background: #ffffff;
+      border: 1px solid #e7dfd5;
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: 0 2px 8px rgba(45, 55, 48, 0.03);
+    }
+    @media (max-width: 640px) {
+      .info-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .info-banner-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .info-banner-text h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #1a231f;
+      margin-bottom: 0.25rem;
+    }
+    .info-banner-text p {
+      font-size: 0.9rem;
+      color: #6b7770;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body class="kakutoku-body">
+  <!-- ヘッダー -->
+    <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- パンくずリスト（原本構成） -->
+    <div class="breadcrumb-nav">
+      <a href="../index.html">ホーム</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">TOEIC® L&R</a>
+      <span class="breadcrumb-separator">›</span>
+      <span style="color: #24332c; font-weight: 700;">練習問題</span>
+    </div>
+
+    <!-- ページ見出し -->
+    <div class="page-header-section">
+      <div class="page-title-badge">
+        <span>🎧</span> TOEIC® L&R 対策コース
+      </div>
+      <h1 class="page-title">学習分野を選択</h1>
+      <p class="page-desc">
+        オリジナル全777問を完全収録。「トレーニングモード」でスコアレベル別に反復練習し、間違えた問題は「ブックマーク復習」で集中的に克服できます。
+      </p>
+    </div>
+
+    <!-- 案内バナー -->
+    <div class="info-banner">
+      <div class="info-banner-icon">💡</div>
+      <div class="info-banner-text">
+        <h4>スキマ時間にサクサク解ける</h4>
+        <p>各分野で「5問・10問・15問・全問（または各大問数）」から学習ボリュームを選べます。即時判定と詳しい解説つきで、短時間でも確実に実力が身につきます。</p>
+      </div>
+    </div>
+
+    <!-- 3カードグリッド -->
+    <section class="learning-section">
+      <div class="grid-3col">
+        <!-- 1. 単語 -->
+        <div class="study-card" id="card-vocab">
+          <div>
+            <div class="study-card-top">
+              <div class="study-icon">🔤</div>
+              <div class="study-heading">
+                <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.25rem;">
+                  <h2 class="study-title" style="margin: 0;">単語</h2>
+                  <span class="kakutoku-badge badge-green">300〜900点</span>
+                </div>
+                <div class="study-sub">Vocabulary</div>
+              </div>
+            </div>
+            <p class="study-desc">
+              TOEIC頻出の最重要英単語をスコア別に完全網羅。4択形式で瞬発力を鍛え、語彙力を最短で底上げします。
+            </p>
+            <div class="study-specs">
+              <div class="study-spec-box">
+                <div class="study-spec-label">収録数</div>
+                <div class="study-spec-val">300語</div>
+              </div>
+              <div class="study-spec-box">
+                <div class="study-spec-label">出題形式</div>
+                <div class="study-spec-val">4択問題</div>
+              </div>
+              <div class="study-spec-box">
+                <div class="study-spec-label">解説</div>
+                <div class="study-spec-val">例文つき</div>
+              </div>
+            </div>
+          </div>
+          <div class="study-actions">
+            <a href="../study/vocabulary/training.html" class="btn-study-main" id="btn-vocab-train">
+              <span>🎯</span> 単語トレーニングへ
+            </a>
+            <a href="../study/vocabulary/bookmark.html" class="btn-study-sub" id="btn-vocab-bm">
+              <span>🔖</span> ブックマーク復習
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. リーディング -->
+        <div class="study-card" id="card-reading">
+          <div>
+            <div class="study-card-top">
+              <div class="study-icon">📖</div>
+              <div class="study-heading">
+                <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.25rem;">
+                  <h2 class="study-title" style="margin: 0;">リーディング</h2>
+                  <span class="kakutoku-badge badge-blue">Part 5 / 6 / 7</span>
+                </div>
+                <div class="study-sub">Reading Section</div>
+              </div>
+            </div>
+            <p class="study-desc">
+              Part 5短文穴埋め、Part 6長文穴埋め、Part 7読解問題を完全網羅。本番同様の文章構成と設問で読解スピードを鍛えます。
+            </p>
+            <div class="study-specs">
+              <div class="study-spec-box">
+                <div class="study-spec-label">収録数</div>
+                <div class="study-spec-val">250問+</div>
+              </div>
+              <div class="study-spec-box">
+                <div class="study-spec-label">レベル</div>
+                <div class="study-spec-val">500〜800+</div>
+              </div>
+              <div class="study-spec-box">
+                <div class="study-spec-label">出題選択</div>
+                <div class="study-spec-val">大問別OK</div>
+              </div>
+            </div>
+          </div>
+          <div class="study-actions">
+            <a href="../study/reading/training.html" class="btn-study-main" id="btn-reading-train">
+              <span>🎯</span> リーディング演習へ
+            </a>
+            <a href="../study/reading/bookmark.html" class="btn-study-sub" id="btn-reading-bm">
+              <span>🔖</span> ブックマーク復習
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. リスニング -->
+        <div class="study-card" id="card-listening">
+          <div>
+            <div class="study-card-top">
+              <div class="study-icon">🎧</div>
+              <div class="study-heading">
+                <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.25rem;">
+                  <h2 class="study-title" style="margin: 0;">リスニング</h2>
+                  <span class="kakutoku-badge badge-purple">音声再生対応</span>
+                </div>
+                <div class="study-sub">Listening Section</div>
+              </div>
+            </div>
+            <p class="study-desc">
+              Part 1写真描写・Part 2応答問題を音声再生つきで演習。ネイティブ発音を聞き分け、瞬時に正解を選ぶ耳を作ります。
+            </p>
+            <div class="study-specs">
+              <div class="study-spec-box">
+                <div class="study-spec-label">収録数</div>
+                <div class="study-spec-val">200問+</div>
+              </div>
+              <div class="study-spec-box">
+                <div class="study-spec-label">音声</div>
+                <div class="study-spec-val">ネイティブ</div>
+              </div>
+              <div class="study-spec-box">
+                <div class="study-spec-label">形式</div>
+                <div class="study-spec-val">Part 1・2</div>
+              </div>
+            </div>
+          </div>
+          <div class="study-actions">
+            <a href="../study/listening/training.html" class="btn-study-main" id="btn-listening-train">
+              <span>🎯</span> リスニング演習へ
+            </a>
+            <a href="../study/listening/bookmark.html" class="btn-study-sub" id="btn-listening-bm">
+              <span>🔖</span> ブックマーク復習
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer style="background: #ffffff; border-top: 1px solid #e7dfd5; padding: 3rem 0; margin-top: 3rem;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+        <a href="../index.html" class="logo-link">
+          <div class="logo-mark">K</div>
+          <span class="logo-text">Kakutoku</span>
+        </a>
+        <div style="color: #8a968f; font-size: 0.85rem;">
+          &copy; 2026 Kakutoku. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/study-tracker.js"></script>
+</body>
+</html>

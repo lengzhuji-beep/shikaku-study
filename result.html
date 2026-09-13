@@ -18,6 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
          crossorigin="anonymous"></script>
   
+  <link rel="stylesheet" href="assets/css/kakutoku.css">
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
@@ -31,7 +32,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="tab-container">
         <div class="tab-buttons">
           <button class="tab-button active" onclick="showStatisticsTab('vocabulary')">単語</button>
-          <button class="tab-button" onclick="showStatisticsTab('writing')">ライティング</button>
+          <button class="tab-button" onclick="showStatisticsTab('reading')">リーディング</button>
           <button class="tab-button" onclick="showStatisticsTab('listening')">リスニング</button>
         </div>
         <canvas id="combinedChart"></canvas>
@@ -42,7 +43,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="popup" class="popup"></div>
 
   <script>
-    const quizData = { vocabulary: {}, writing: {}, listening: {} };
+    const quizData = { vocabulary: {}, writing: {}, reading: {}, listening: {} };
   </script>
   <script src="assets/js/data/quizData_vocabulary_300.js"></script>
   <script src="assets/js/data/quizData_vocabulary_400.js"></script>
@@ -51,13 +52,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="assets/js/data/quizData_vocabulary_700.js"></script>
   <script src="assets/js/data/quizData_vocabulary_800.js"></script>
   <script src="assets/js/data/quizData_vocabulary_900.js"></script>
-  <script src="assets/js/data/quizData_writing_300.js"></script>
-  <script src="assets/js/data/quizData_writing_400.js"></script>
-  <script src="assets/js/data/quizData_writing_500.js"></script>
-  <script src="assets/js/data/quizData_writing_600.js"></script>
-  <script src="assets/js/data/quizData_writing_700.js"></script>
-  <script src="assets/js/data/quizData_writing_800.js"></script>
-  <script src="assets/js/data/quizData_writing_900.js"></script>
+  <script src="assets/js/data/quizData_reading_part5.js"></script>
+  <script src="assets/js/data/quizData_reading_part6.js"></script>
+  <script src="assets/js/data/quizData_reading_part7.js"></script>
   <script src="assets/js/data/quizData_listening_300.js"></script>
   <script src="assets/js/data/quizData_listening_400.js"></script>
   <script src="assets/js/data/quizData_listening_500.js"></script>
@@ -69,7 +66,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     let statistics = JSON.parse(localStorage.getItem('statistics')) || {};
     let mistakes = JSON.parse(localStorage.getItem('mistakes')) || {};
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], listening: [] };
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || { vocabulary: [], writing: [], reading: [], listening: [] };
 
     function deleteAllHistory() {
         if (confirm('全ての学習統計と間違えた問題の履歴を削除しますか？\n（ブックマークは削除されません）')) {
@@ -80,7 +77,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     function getCategoryName(category) {
-      const names = { vocabulary: '単語', writing: 'ライティング', listening: 'リスニング' };
+      const names = { vocabulary: '単語', reading: 'リーディング', writing: 'リーディング', listening: 'リスニング' };
       return names[category] || category;
     }
     function showStatisticsTab(category) {
@@ -91,7 +88,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           btn.classList.add('active');
         }
       });
-      const categoryStats = Object.values(statistics).filter(stat => stat.category === category);
+      // reading と writing の両方の統計を統合
+      let categoryStats = [];
+      if (category === 'reading') {
+        const rStats = Object.values(statistics).filter(stat => stat.category === 'reading' || stat.category === 'writing');
+        // レベルごとに合算
+        const byLevel = {};
+        rStats.forEach(s => {
+          if (!byLevel[s.level]) byLevel[s.level] = { level: s.level, category: 'reading', total: 0, correct: 0 };
+          byLevel[s.level].total += s.total;
+          byLevel[s.level].correct += s.correct;
+        });
+        categoryStats = Object.values(byLevel);
+      } else {
+        categoryStats = Object.values(statistics).filter(stat => stat.category === category);
+      }
       const ctx = document.getElementById('combinedChart').getContext('2d');
       if (window.combinedChartInstance) window.combinedChartInstance.destroy();
       
@@ -201,5 +212,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.getElementById('delete-history-btn').addEventListener('click', deleteAllHistory);
     };
   </script>
+  <script src="assets/js/study-tracker.js"></script>
 </body>
 </html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N3ZFKBQ3');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC® リーディング ブックマーク復習 | 資格対策ドットコム</title>
+<meta name="description" content="TOEIC® L&R リーディングセクションのブックマーク復習。Part 5・6・7でチェックした苦手問題を集中演習できます。">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+:root {
+  --reading-primary: #1e3a8a;
+  --reading-accent: #345d4d;
+  --reading-light: #eff6ff;
+  --ok-color: #065f46;
+  --ng-color: #991b1b;
+}
+.level-badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 16px 0 24px;
+}
+.level-pill-btn {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  color: #334155;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+.level-pill-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+}
+.level-pill-btn.active {
+  background: var(--reading-accent);
+  border-color: var(--reading-accent);
+  color: #fff;
+}
+.reading-choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.98rem;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.reading-choice-btn.correct {
+  background: #ecfdf5 !important;
+  border-color: #10b981 !important;
+  color: #065f46 !important;
+  font-weight: 700;
+}
+.reading-choice-btn.wrong {
+  background: #fef2f2 !important;
+  border-color: #ef4444 !important;
+  color: #991b1b !important;
+}
+.reading-exp-box {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid var(--reading-accent);
+}
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-btn-primary { background: var(--reading-accent); color: #fff; }
+.nav-btn-secondary { background: #e2e8f0; color: #334155; }
+</style>
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
+</head>
+<body class="with-header">
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">K</div>
+        <span class="logo-text">Kakutoku</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../../index.html">ホーム</a></li>
+    <li><a href="../../toeic/index.html">TOEIC® L&R</a></li>
+    <li><a href="../../toeic/problems.html">練習問題</a></li>
+    <li>リーディング ブックマーク復習</li>
+  </ul>
+
+  <!-- STEP 1: レベル選択 -->
+  <div id="level-select" class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+      <h1 style="margin:0; font-size:1.6rem; text-align:left;">
+        <i class="fas fa-star" style="color:#eab308;"></i> リーディング - ブックマーク復習
+      </h1>
+      <a href="../../toeic/problems.html" class="btn small" style="background:#64748b; color:#fff;">問題選択へ戻る</a>
+    </div>
+
+    <p style="margin-top:10px;">演習中に保存（★）した苦手なPart 5・Part 6・Part 7の問題を復習します。</p>
+
+    <div id="bookmark-summary-bar" style="background:#f8fafc; padding:14px 18px; border-radius:10px; border:1px solid #e2e8f0; margin:16px 0; font-weight:700; color:#334155;">
+      読み込み中...
+    </div>
+
+    <h3 style="text-align:left; margin-top:20px;">復習するレベルを選択</h3>
+    <div id="level-btn-container" class="level-badge-grid"></div>
+
+    <div style="text-align:center; margin-top:20px;">
+      <button id="all-bookmarks-btn" class="nav-btn nav-btn-primary" onclick="startQuiz('all')">
+        <i class="fas fa-play"></i> 保存された全問を一括復習する
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 2: 問題解答 -->
+  <div id="quiz-view" class="card hidden" style="position:relative;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+      <span id="quiz-progress-text" style="font-weight:700; color:var(--reading-accent);"></span>
+      <div>
+        <button id="bookmark-toggle-btn" class="nav-btn nav-btn-secondary" style="padding:6px 12px; font-size:0.85rem;" onclick="toggleCurrentBookmark()">
+          <i class="fas fa-star" style="color:#eab308;"></i> 解除する
+        </button>
+        <button type="button" class="quit-quiz-btn" onclick="showLevelSelect()">
+          <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+        </button>
+      </div>
+    </div>
+
+    <!-- コンテキスト（長文の設問の場合） -->
+    <div id="passage-context" class="hidden" style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:12px; margin-bottom:14px; font-size:0.92rem;">
+      <strong style="color:#345d4d;" id="passage-context-title">【長文】</strong>
+      <div id="passage-context-text" style="max-height:160px; overflow-y:auto; margin-top:6px; color:#1e293b; white-space:pre-wrap;"></div>
+    </div>
+
+    <div id="quiz-question-text" style="font-size:1.25rem; font-weight:700; color:#1e293b; margin-bottom:18px;"></div>
+    <div id="quiz-choices-container"></div>
+
+    <div id="explanation-box" class="reading-exp-box hidden">
+      <div id="explanation-title" style="font-weight:800; margin-bottom:6px;"></div>
+      <div id="explanation-content" style="color:#334155; line-height:1.7;"></div>
+    </div>
+
+    <div style="margin-top:20px; text-align:right;">
+      <button id="next-btn" class="nav-btn nav-btn-primary hidden" onclick="nextQuestion()">
+        次の問題へ <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 3: 結果 -->
+  <div id="result-view" class="card hidden" style="text-align:center; padding:35px 20px;">
+    <div style="font-size:3rem; color:var(--reading-accent); margin-bottom:12px;">
+      <i class="fas fa-check-circle" style="color:#10b981;"></i>
+    </div>
+    <h2>ブックマーク復習完了！</h2>
+    <p id="result-text" style="font-size:1.2rem; margin:16px 0; font-weight:700;"></p>
+    <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px;">
+      <button class="nav-btn nav-btn-primary" onclick="showLevelSelect()">
+        <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
+      </button>
+      <a href="training.html" class="nav-btn nav-btn-secondary" style="text-decoration:none;">
+        <i class="fas fa-dumbbell"></i> トレーニングへ
+      </a>
+      <a href="../../toeic/problems.html" class="nav-btn nav-btn-secondary" style="text-decoration:none;">
+        <i class="fas fa-list"></i> 問題選択へ戻る
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+let bookmarks = { reading: [] };
+let currentQuestions = [];
+let currentIdx = 0;
+let score = 0;
+let isAnswered = false;
+
+function initApp() {
+  try {
+    const raw = localStorage.getItem('bookmarks');
+    if (raw) {
+      bookmarks = JSON.parse(raw);
+      if (!bookmarks.reading) {
+        bookmarks.reading = bookmarks.writing || [];
+      }
+    }
+  } catch(e) {}
+  showLevelSelect();
+}
+
+function showLevelSelect() {
+  document.getElementById('level-select').classList.remove('hidden');
+  document.getElementById('quiz-view').classList.add('hidden');
+  document.getElementById('result-view').classList.add('hidden');
+
+  const readingBookmarks = bookmarks.reading || [];
+  document.getElementById('bookmark-summary-bar').innerHTML = `
+    保存中のリーディング問題： <strong>${readingBookmarks.length}</strong> 問
+  `;
+
+  document.getElementById('all-bookmarks-btn').disabled = (readingBookmarks.length === 0);
+
+  const container = document.getElementById('level-btn-container');
+  container.innerHTML = '';
+  const levels = [300, 400, 500, 600, 700, 800, 900];
+  levels.forEach(lv => {
+    const count = readingBookmarks.filter(b => b.level === lv).length;
+    const btn = document.createElement('button');
+    btn.className = 'level-pill-btn';
+    btn.textContent = `${lv}点 (${count}問)`;
+    btn.disabled = (count === 0);
+    btn.onclick = () => startQuiz(lv);
+    container.appendChild(btn);
+  });
+}
+
+function startQuiz(target) {
+  const readingBookmarks = bookmarks.reading || [];
+  if (target === 'all') {
+    currentQuestions = [...readingBookmarks];
+  } else {
+    currentQuestions = readingBookmarks.filter(b => b.level === target);
+  }
+  if (currentQuestions.length === 0) {
+    alert('該当するブックマークがありません。');
+    return;
+  }
+  currentIdx = 0;
+  score = 0;
+
+  document.getElementById('level-select').classList.add('hidden');
+  document.getElementById('result-view').classList.add('hidden');
+  document.getElementById('quiz-view').classList.remove('hidden');
+
+  renderQuestion();
+}
+
+function renderQuestion() {
+  isAnswered = false;
+  const qData = currentQuestions[currentIdx];
+
+  document.getElementById('quiz-progress-text').textContent = 
+    `問題 ${currentIdx + 1} / ${currentQuestions.length} (${qData.level || 'レベル共通'}点)`;
+
+  const ctxBox = document.getElementById('passage-context');
+  if (qData.translation && (qData.part === 6 || qData.part === 7 || qData.passageTitle)) {
+    ctxBox.classList.remove('hidden');
+    document.getElementById('passage-context-title').textContent = `【${qData.passageTitle || `Part ${qData.part || '読解'}`}】`;
+    document.getElementById('passage-context-text').textContent = qData.translation;
+  } else {
+    ctxBox.classList.add('hidden');
+  }
+
+  document.getElementById('quiz-question-text').textContent = qData.q;
+
+  const choicesContainer = document.getElementById('quiz-choices-container');
+  choicesContainer.innerHTML = '';
+
+  document.getElementById('explanation-box').classList.add('hidden');
+  document.getElementById('next-btn').classList.add('hidden');
+
+  const letters = ['A', 'B', 'C', 'D'];
+  qData.choices.forEach((choice, idx) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'reading-choice-btn';
+    btn.innerHTML = `<span style="font-weight:800; margin-right:8px;">${letters[idx] || ''}.</span> ${choice}`;
+    btn.onclick = () => handleAnswer(choice, btn);
+    choicesContainer.appendChild(btn);
+  });
+}
+
+function handleAnswer(choice, selectedBtn) {
+  if (isAnswered) return;
+  isAnswered = true;
+
+  const qData = currentQuestions[currentIdx];
+  const isCorrect = (choice === qData.answer);
+  if (isCorrect) score++;
+
+  const allBtns = document.querySelectorAll('#quiz-choices-container .reading-choice-btn');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    const text = b.innerText.replace(/^[A-D]\.\s*/, '').trim();
+    if (text === qData.answer) {
+      b.classList.add('correct');
+    } else if (b === selectedBtn && !isCorrect) {
+      b.classList.add('wrong');
+    }
+  });
+
+  const expBox = document.getElementById('explanation-box');
+  const expTitle = document.getElementById('explanation-title');
+  const expContent = document.getElementById('explanation-content');
+
+  expBox.classList.remove('hidden');
+  if (isCorrect) {
+    expTitle.innerHTML = '<i class="fas fa-check-circle" style="color:#10b981;"></i> 正解！';
+  } else {
+    expTitle.innerHTML = `<i class="fas fa-times-circle" style="color:#ef4444;"></i> 不正解（正解: 「${qData.answer}」）`;
+  }
+  expContent.innerHTML = `<strong>【解説】</strong><br>${qData.explanation || '解説はありません。'}`;
+
+  const nextBtn = document.getElementById('next-btn');
+  nextBtn.classList.remove('hidden');
+  nextBtn.innerHTML = (currentIdx + 1 >= currentQuestions.length)
+    ? '復習結果を見る <i class="fas fa-check"></i>'
+    : '次の問題へ <i class="fas fa-arrow-right"></i>';
+}
+
+function nextQuestion() {
+  currentIdx++;
+  if (currentIdx < currentQuestions.length) {
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function toggleCurrentBookmark() {
+  const qData = currentQuestions[currentIdx];
+  const bList = bookmarks.reading || [];
+  const idx = bList.findIndex(b => b.q === qData.q);
+  if (idx !== -1) {
+    bList.splice(idx, 1);
+    bookmarks.writing = bList;
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    alert('この問題をブックマークから解除しました。');
+  }
+}
+
+function showResult() {
+  document.getElementById('quiz-view').classList.add('hidden');
+  document.getElementById('result-view').classList.remove('hidden');
+  document.getElementById('result-text').textContent = 
+    `${currentQuestions.length}問中、${score}問正解しました！`;
+}
+
+window.onload = initApp;
+</script>
+  <script src="../../assets/js/study-tracker.js"></script>
+</body>
+</html>
