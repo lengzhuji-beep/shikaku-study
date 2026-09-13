@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.innerHTML = `
         <div class="quiz-header-row">
           <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-            <span class="quiz-num-badge" style="font-size:0.95rem; padding:5px 12px; background:#ebf8ff; color:#2b6cb0;">第 ${item.num || qNum} 問 / 全 ${total} 問</span>
+            <span class="quiz-num-badge" style="font-size:0.95rem; padding:5px 12px; background:#edf4f0; color:#254337;">第 ${item.num || qNum} 問 / 全 ${total} 問</span>
             <span class="shikaku-card-badge ${item.catClass}" style="font-size:0.85rem;">${item.catName}</span>
           </div>
           <button type="button" class="bookmark-toggle-btn ${isBookmarked ? 'is-bookmarked' : ''}" id="currentFp1BmBtn">
@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="display:flex; justify-content:center; gap:30px; margin-bottom:30px; flex-wrap:wrap;">
           <div style="background:#f7fafc; padding:15px 25px; border-radius:8px; border:1px solid #edf2f7; min-width:140px;">
             <div style="font-size:0.88rem; color:#718096; margin-bottom:5px;">正解数</div>
-            <div style="font-size:1.8rem; font-weight:bold; color:#2b6cb0;">${correctCount} / ${total} 問</div>
+            <div style="font-size:1.8rem; font-weight:bold; color:#254337;">${correctCount} / ${total} 問</div>
           </div>
           <div style="background:#f7fafc; padding:15px 25px; border-radius:8px; border:1px solid #edf2f7; min-width:140px;">
             <div style="font-size:0.88rem; color:#718096; margin-bottom:5px;">正答率</div>
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
-          <button type="button" id="retryFp1ExamBtn" class="btn" style="background:#3182ce; color:white; padding:12px 24px; font-weight:bold; border-radius:6px; border:none; cursor:pointer;">
+          <button type="button" id="retryFp1ExamBtn" class="btn" style="background:#345d4d; color:white; padding:12px 24px; font-weight:bold; border-radius:6px; border:none; cursor:pointer;">
             <i class="fas fa-redo"></i> もう一度この回を解く
           </button>
           <button type="button" id="chooseOtherFp1Btn" class="btn" style="background:#edf2f7; color:#4a5568; padding:12px 24px; font-weight:bold; border-radius:6px; border:1px solid #cbd5e0; cursor:pointer;">
@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.innerHTML = `
           <div class="quiz-header-row">
             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-              <span class="quiz-num-badge" style="background:#ebf8ff; color:#2b6cb0;">第 ${item.num} 問</span>
+              <span class="quiz-num-badge" style="background:#edf4f0; color:#254337;">第 ${item.num} 問</span>
               <span class="shikaku-card-badge ${item.catClass}">${item.catName}</span>
             </div>
             <button type="button" class="bookmark-toggle-btn ${isBookmarked ? 'is-bookmarked' : ''}">
@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr>
         <td style="text-align:center; font-weight:bold; width:20%;">第 ${idx + 1} 問</td>
         <td>${q.catName || ''}</td>
-        <td style="text-align:center; font-weight:bold; color:#2b6cb0; font-size:1.1rem; width:25%;">${q.correct}</td>
+        <td style="text-align:center; font-weight:bold; color:#254337; font-size:1.1rem; width:25%;">${q.correct}</td>
       </tr>
     `).join('');
 
@@ -598,14 +598,14 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   }
   .print-header {
-    border-bottom: 2px solid #2b6cb0;
+    border-bottom: 2px solid #254337;
     padding-bottom: 12px;
     margin-bottom: 20px;
   }
   .print-title {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #2b6cb0;
+    color: #254337;
     margin: 0 0 4px 0;
   }
   .print-subtitle {
@@ -616,7 +616,7 @@ document.addEventListener('DOMContentLoaded', () => {
     font-size: 1.15rem;
     font-weight: bold;
     color: #2d3748;
-    border-left: 4px solid #3182ce;
+    border-left: 4px solid #345d4d;
     padding-left: 10px;
     margin: 20px 0 15px 0;
   }
@@ -639,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   .print-q-num {
     font-weight: bold;
-    color: #2b6cb0;
+    color: #254337;
     font-size: 0.95rem;
   }
   .print-q-cat {

@@ -177,9 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 上部コントロールバー（ブックマーク件数案内 ＆ 印刷ボタン）
     const headerBar = document.createElement('div');
-    headerBar.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:20px; margin-bottom:12px; padding:12px 18px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:8px;';
+    headerBar.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:20px; margin-bottom:12px; padding:12px 18px; background:#edf4f0; border:1px solid #c6e6d4; border-radius:8px;';
     headerBar.innerHTML = `
-      <span style="color:#2b6cb0; font-weight:bold; font-size:0.95rem;">
+      <span style="color:#254337; font-weight:bold; font-size:0.95rem;">
         <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマーク保存中の問題: <strong>${total}</strong> 問
       </span>
       <button type="button" id="printBookmarkBtn" class="print-quiz-btn" style="padding:10px 18px; background:#38a169; color:white; font-size:0.95rem; font-weight:700; border:none; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:8px; transition:0.2s; box-shadow:0 2px 6px rgba(56,161,105,0.25);">
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.innerHTML = `
         <div class="quiz-header-row">
           <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-            <span class="quiz-num-badge" style="background:#ebf8ff; color:#2b6cb0;">第 ${index + 1} 問</span>
+            <span class="quiz-num-badge" style="background:#edf4f0; color:#254337;">第 ${index + 1} 問</span>
             <span class="shikaku-card-badge ${item.catClass}">${item.catName}</span>
           </div>
           <button type="button" class="bookmark-toggle-btn is-bookmarked">
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr>
         <td style="text-align:center; font-weight:bold; width:18%;">第 ${idx + 1} 問</td>
         <td>${q.catName}</td>
-        <td style="text-align:center; font-weight:bold; color:#2b6cb0; font-size:1.1rem; width:22%;">${q.correct}</td>
+        <td style="text-align:center; font-weight:bold; color:#254337; font-size:1.1rem; width:22%;">${q.correct}</td>
       </tr>
     `).join('');
 
@@ -561,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .print-q-num {
     font-size: 11pt;
     font-weight: bold;
-    color: #2b6cb0;
+    color: #254337;
   }
   .print-q-cat {
     font-size: 8.5pt;
@@ -904,8 +904,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ${accuracy >= 60 ? '★ 合格ライン（60%以上）をクリアしています！この調子で反復練習を重ねましょう。' : '基礎の復習が必要です。間違えた問題やブックマークした問題を重点的に反復しましょう。'}
       </p>
       <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
-        <button type="button" class="btn" id="restartWizardBtn" style="background:#3182ce; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
-        <a href="past-questions.html" class="btn" style="background:#2b6cb0; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-file-alt"></i> 過去問（本番年度別模試）へ</a>
+        <button type="button" class="btn" id="restartWizardBtn" style="background:#345d4d; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
+        <a href="past-questions.html" class="btn" style="background:#254337; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-file-alt"></i> 過去問（本番年度別模試）へ</a>
       </div>
     `;
     quizCardsContainer.appendChild(compCard);

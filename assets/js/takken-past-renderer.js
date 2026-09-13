@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.innerHTML = `
         <div class="quiz-header-row">
           <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-            <span class="quiz-num-badge" style="font-size:0.95rem; padding:5px 12px; background:#ebf8ff; color:#2b6cb0;">第 ${item.num || qNum} 問 / 全 ${total} 問</span>
+            <span class="quiz-num-badge" style="font-size:0.95rem; padding:5px 12px; background:#edf4f0; color:#254337;">第 ${item.num || qNum} 問 / 全 ${total} 問</span>
             <span class="shikaku-card-badge ${item.badgeClass || 'badge-cat-rights'}" style="font-size:0.85rem;">${item.fieldName || '宅建'}</span>
             ${item.subCategory ? `<span style="font-size:0.8rem; color:#718096; background:#edf2f7; padding:3px 8px; border-radius:4px;">${item.subCategory}</span>` : ''}
           </div>
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div style="display:inline-block; padding:20px 40px; background:#f7fafc; border:2px solid ${isPassed ? '#48bb78' : '#cbd5e0'}; border-radius:12px; margin-bottom:25px;">
           <span style="font-size:1.1rem; color:#4a5568; display:block;">得点 / 合否判定</span>
-          <span style="font-size:3rem; font-weight:800; color:${isPassed ? '#2f855a' : '#3182ce'};">
+          <span style="font-size:3rem; font-weight:800; color:${isPassed ? '#2f855a' : '#345d4d'};">
             ${correctCount} / ${total} 問
           </span>
           <span style="display:block; font-size:1.3rem; font-weight:700; color:${isPassed ? '#2f855a' : '#e53e3e'}; margin-top:5px;">
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </p>
 
         <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:35px;">
-          <button type="button" id="retryExamBtn" class="btn" style="padding:12px 28px; background:#3182ce; color:white; font-weight:bold; font-size:1rem; border-radius:6px; border:none; cursor:pointer;">
+          <button type="button" id="retryExamBtn" class="btn" style="padding:12px 28px; background:#345d4d; color:white; font-weight:bold; font-size:1rem; border-radius:6px; border:none; cursor:pointer;">
             <i class="fas fa-redo"></i> もう一度解く
           </button>
           <button type="button" id="changeSessionBtn" class="btn" style="padding:12px 28px; background:#edf2f7; color:#4a5568; font-weight:bold; font-size:1rem; border-radius:6px; border:1px solid #cbd5e0; cursor:pointer;">
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <hr style="border:none; border-top:1px solid #e2e8f0; margin:30px 0;">
         <h3 style="text-align:left; font-size:1.25rem; margin-bottom:15px; color:#2d3748;">
-          <i class="fas fa-list-check" style="color:#3182ce;"></i> 回答結果・見直しリスト
+          <i class="fas fa-list-check" style="color:#345d4d;"></i> 回答結果・見直しリスト
         </h3>
         <div style="text-align:left; display:flex; flex-direction:column; gap:10px;">
           ${currentQuestions.map((q, idx) => `
@@ -384,9 +384,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // ブックマーク操作ヘッダー
       const bmHeader = document.createElement('div');
-      bmHeader.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px; padding:12px 18px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:8px;';
+      bmHeader.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px; padding:12px 18px; background:#edf4f0; border:1px solid #c6e6d4; border-radius:8px;';
       bmHeader.innerHTML = `
-        <div style="font-size:0.95rem; color:#2b6cb0; font-weight:bold;">
+        <div style="font-size:0.95rem; color:#254337; font-weight:bold;">
           <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマーク保存中の問題: ${total} 問
         </div>
         <button type="button" id="printBmBtn" class="btn" style="background:#38a169; color:white; border:none; padding:8px 18px; border-radius:6px; font-weight:bold; font-size:0.92rem; cursor:pointer; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
@@ -519,7 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr>
         <td style="text-align:center; font-weight:bold; width:15%;">第 ${q.num || (idx + 1)} 問</td>
         <td>${q.fieldName || '宅建'} ${q.subCategory ? `<span style="color:#718096; font-size:0.85em;">(${q.subCategory})</span>` : ''}</td>
-        <td style="text-align:center; font-weight:bold; color:#2b6cb0; font-size:1.1rem; width:20%;">${q.answer}</td>
+        <td style="text-align:center; font-weight:bold; color:#254337; font-size:1.1rem; width:20%;">${q.answer}</td>
       </tr>
     `).join('');
 
@@ -643,14 +643,14 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   }
   .print-header {
-    border-bottom: 2px solid #2b6cb0;
+    border-bottom: 2px solid #254337;
     padding-bottom: 12px;
     margin-bottom: 20px;
   }
   .print-title {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #2b6cb0;
+    color: #254337;
     margin: 0 0 4px 0;
   }
   .print-subtitle {
@@ -661,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
     font-size: 1.15rem;
     font-weight: bold;
     color: #2d3748;
-    border-left: 4px solid #3182ce;
+    border-left: 4px solid #345d4d;
     padding-left: 10px;
     margin: 25px 0 15px 0;
   }
@@ -684,7 +684,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   .print-q-num {
     font-weight: bold;
-    color: #2b6cb0;
+    color: #254337;
     font-size: 0.95rem;
   }
   .print-q-cat {

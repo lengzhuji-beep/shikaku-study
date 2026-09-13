@@ -159,10 +159,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const headerNote = document.createElement('div');
     headerNote.className = 'card';
-    headerNote.style.cssText = 'padding:15px 20px; margin-bottom:20px; background:#ebf8ff; border:1px solid #bee3f8; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;';
+    headerNote.style.cssText = 'padding:15px 20px; margin-bottom:20px; background:#edf4f0; border:1px solid #c6e6d4; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;';
     headerNote.innerHTML = `
       <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2b6cb0; font-weight:bold; font-size:1.05rem;">
+        <span style="color:#254337; font-weight:bold; font-size:1.05rem;">
           <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマーク保存中の問題: ${bookmarkedQuestions.length} 問
         </span>
         <span style="font-size:0.85rem; color:#4a5568;">（星マークで解除）</span>
@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.innerHTML = `
       <div class="quiz-header-row">
         <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-          <span class="quiz-num-badge" style="font-size:0.95rem; padding:5px 12px; background:#ebf8ff; color:#2b6cb0;">
+          <span class="quiz-num-badge" style="font-size:0.95rem; padding:5px 12px; background:#edf4f0; color:#254337;">
             第 ${qNum} 問 / 全 ${total} 問
           </span>
           <span class="shikaku-card-badge ${item.badgeClass || 'badge-cat-rights'}" style="font-size:0.85rem;">
@@ -618,7 +618,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr>
         <td style="text-align:center; font-weight:bold; width:18%;">問 ${idx + 1}</td>
         <td>${q.fieldName || '宅建'} ${q.subCategory ? `(${q.subCategory})` : ''}</td>
-        <td style="text-align:center; font-weight:bold; color:#2b6cb0; font-size:1.1rem; width:22%;">${q.answer}</td>
+        <td style="text-align:center; font-weight:bold; color:#254337; font-size:1.1rem; width:22%;">${q.answer}</td>
       </tr>
     `).join('');
 
@@ -724,7 +724,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 0 10px rgba(0,0,0,0.08);
   }
   .print-header {
-    border-bottom: 2px solid #2b6cb0;
+    border-bottom: 2px solid #254337;
     padding-bottom: 8px;
     margin-bottom: 20px;
     display: flex;
@@ -734,7 +734,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .print-title {
     font-size: 16pt;
     font-weight: bold;
-    color: #2b6cb0;
+    color: #254337;
   }
   .print-subtitle {
     font-size: 9pt;
@@ -780,7 +780,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .print-q-num {
     font-size: 11pt;
     font-weight: bold;
-    color: #2b6cb0;
+    color: #254337;
   }
   .print-q-cat {
     font-size: 8.5pt;
@@ -836,7 +836,7 @@ document.addEventListener('DOMContentLoaded', () => {
     font-size: 13pt;
     font-weight: bold;
     color: #2d3748;
-    border-left: 4px solid #2b6cb0;
+    border-left: 4px solid #254337;
     padding-left: 8px;
     margin: 20px 0 12px 0;
   }
@@ -851,8 +851,8 @@ document.addEventListener('DOMContentLoaded', () => {
     padding: 6px 10px;
   }
   .print-ans-table th {
-    background: #ebf8ff;
-    color: #2b6cb0;
+    background: #edf4f0;
+    color: #254337;
     text-align: center;
   }
   .print-expl-item {

@@ -198,9 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const headerBar = document.createElement('div');
-    headerBar.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:20px; margin-bottom:12px; padding:12px 18px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:8px;';
+    headerBar.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:20px; margin-bottom:12px; padding:12px 18px; background:#edf4f0; border:1px solid #c6e6d4; border-radius:8px;';
     headerBar.innerHTML = `
-      <div style="font-size:0.95rem; color:#2b6cb0; font-weight:bold;">
+      <div style="font-size:0.95rem; color:#254337; font-weight:bold;">
         <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマーク保存中の問題: ${total} 問
       </div>
       <button type="button" id="printBookmarkBtn" class="btn" style="background:#38a169; color:white; border:none; padding:8px 18px; border-radius:6px; font-weight:bold; font-size:0.92rem; cursor:pointer; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
@@ -563,8 +563,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ${accuracy >= 70 ? '★ 合格基準（70%以上）をクリアしています！この調子で反復練習を続けましょう。' : '基礎の復習が必要です。間違えた問題やブックマークした問題を重点的に反復しましょう。'}
       </p>
       <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
-        <button type="button" class="btn" id="restartWizardBtn" style="background:#3182ce; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
-        <a href="past-questions.html" class="btn" style="background:#2b6cb0; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-file-alt"></i> 過去問演習へ</a>
+        <button type="button" class="btn" id="restartWizardBtn" style="background:#345d4d; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
+        <a href="past-questions.html" class="btn" style="background:#254337; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-file-alt"></i> 過去問演習へ</a>
       </div>
     `;
     quizCardsContainer.appendChild(compCard);
@@ -610,7 +610,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr>
         <td style="text-align:center; font-weight:bold; width:18%;">第 ${idx + 1} 問</td>
         <td>${q.catName || '簿記'}</td>
-        <td style="text-align:center; font-weight:bold; color:#2b6cb0; font-size:1.1rem; width:22%;">${q.correct}</td>
+        <td style="text-align:center; font-weight:bold; color:#254337; font-size:1.1rem; width:22%;">${q.correct}</td>
       </tr>
     `).join('');
 
@@ -685,7 +685,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
   .no-print-bar button {
-    background: #3182ce;
+    background: #345d4d;
     color: white;
     border: none;
     padding: 8px 20px;
@@ -696,7 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
   .no-print-bar button:hover {
-    background: #2b6cb0;
+    background: #254337;
   }
   .print-page-container {
     background: white;
@@ -706,7 +706,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 0 10px rgba(0,0,0,0.08);
   }
   .print-header {
-    border-bottom: 2px solid #2b6cb0;
+    border-bottom: 2px solid #254337;
     padding-bottom: 8px;
     margin-bottom: 20px;
     display: flex;
@@ -716,7 +716,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .print-title {
     font-size: 16pt;
     font-weight: bold;
-    color: #2b6cb0;
+    color: #254337;
   }
   .print-subtitle {
     font-size: 9pt;
@@ -762,7 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .print-q-num {
     font-size: 11pt;
     font-weight: bold;
-    color: #2b6cb0;
+    color: #254337;
   }
   .print-q-cat {
     font-size: 8.5pt;
@@ -818,7 +818,7 @@ document.addEventListener('DOMContentLoaded', () => {
     font-size: 13pt;
     font-weight: bold;
     color: #2d3748;
-    border-left: 4px solid #2b6cb0;
+    border-left: 4px solid #254337;
     padding-left: 8px;
     margin: 20px 0 12px 0;
   }
@@ -833,8 +833,8 @@ document.addEventListener('DOMContentLoaded', () => {
     padding: 6px 10px;
   }
   .print-ans-table th {
-    background: #ebf8ff;
-    color: #2b6cb0;
+    background: #edf4f0;
+    color: #254337;
     text-align: center;
   }
   .print-expl-item {

@@ -10,11 +10,11 @@
 
   // 資格カテゴリの定義
   const CATEGORIES = {
-    toeic: { name: 'TOEIC® L&R', icon: 'fa-language', color: '#0284c7', url: 'toeic/problems.html' },
-    boki: { name: '日商簿記検定', icon: 'fa-calculator', color: '#16a34a', url: 'boki/problems.html' },
-    fp: { name: 'FP技能士', icon: 'fa-coins', color: '#d97706', url: 'fp/problems.html' },
-    takken: { name: '宅地建物取引士', icon: 'fa-building', color: '#7c3aed', url: 'takken/problems.html' },
-    itpass: { name: 'ITパスポート', icon: 'fa-laptop-code', color: '#2563eb', url: 'it-passport/problems.html' },
+    toeic: { name: 'TOEIC® L&R', icon: 'fa-language', color: '#0284c7', url: 'toeic/index.html' },
+    boki: { name: '日商簿記検定', icon: 'fa-calculator', color: '#16a34a', url: 'boki/index.html' },
+    fp: { name: 'FP技能士', icon: 'fa-coins', color: '#d97706', url: 'fp/index.html' },
+    takken: { name: '宅地建物取引士', icon: 'fa-building', color: '#7c3aed', url: 'takken/index.html' },
+    itpass: { name: 'ITパスポート', icon: 'fa-laptop-code', color: '#2563eb', url: 'it-passport/index.html' },
     other: { name: '総合・その他', icon: 'fa-graduation-cap', color: '#4b5563', url: 'index.html' }
   };
 

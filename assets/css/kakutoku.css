@@ -2870,4 +2870,60 @@ label[style*="grid-column: 1 / -1"].selected {
   line-height: 1.5;
 }
 
+/* ==========================================================================
+   演習完了画面のボタンスタイル統一（Kakutoku Forest Green）
+   ========================================================================== */
+#restartWizardBtn,
+#retryExamBtn,
+#retryFp1ExamBtn,
+#retryFp2ExamBtn,
+#retryFp3ExamBtn {
+  background: #345d4d !important;
+  color: #ffffff !important;
+  border: 1px solid #345d4d !important;
+  border-radius: 9999px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(52, 93, 77, 0.22) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+#restartWizardBtn:hover,
+#retryExamBtn:hover,
+#retryFp1ExamBtn:hover,
+#retryFp2ExamBtn:hover,
+#retryFp3ExamBtn:hover {
+  background: #254337 !important;
+  border-color: #254337 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 16px rgba(52, 93, 77, 0.3) !important;
+}
+
+/* 過去問（本番年度別模試）へボタン */
+a[href*="past-questions.html"].btn,
+.card a[href*="past-questions.html"] {
+  background: #f7f4ed !important;
+  color: #345d4d !important;
+  border: 1.5px solid #345d4d !important;
+  border-radius: 9999px !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+}
+a[href*="past-questions.html"].btn:hover,
+.card a[href*="past-questions.html"]:hover {
+  background: #345d4d !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(52, 93, 77, 0.22) !important;
+}
+
+
 
