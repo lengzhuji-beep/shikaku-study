@@ -31,7 +31,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- ヘッダー -->
+    <!-- ヘッダー -->
   <header class="kakutoku-header">
     <div class="header-inner">
       <a href="index.html" class="logo-link">
@@ -43,13 +43,12 @@
         <a href="index.html#courses" class="nav-link">資格を選ぶ</a>
         <a href="index.html#features" class="nav-link">使い方</a>
         <a href="index.html#voices" class="nav-link">合格者の声</a>
-        <a href="mypage.html" class="nav-link active">マイページ</a>
         <a href="contact.html" class="nav-link">お問い合わせ</a>
-        <a href="profile.html" class="nav-link">私のプロフィール</a>
+        <a href="profile.html" class="nav-link">サイト制作者のプロフィール</a>
       </nav>
 
       <div class="header-actions">
-        <a href="index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+        <a href="mypage.html" class="btn-pill btn-pill-primary" style="padding: 0.6rem 1.35rem; font-size: 0.9rem;">マイページ</a>
       </div>
     </div>
   </header>
@@ -209,15 +208,7 @@
           <h2><i class="fas fa-th" style="color: #345d4d;"></i> 年間学習コントリビューション</h2>
           <p>過去1年間の毎日の学習・閲覧時間を色濃淡で可視化しています（マスにカーソルを合わせると詳細表示）</p>
         </div>
-        <div class="heatmap-actions">
-          <button class="heatmap-btn-sm" id="btnSeedData" title="リアルな年間サンプルデータを復元します">
-            <i class="fas fa-history"></i> サンプルデータ復元
-          </button>
-          <button class="heatmap-btn-sm" id="btnClearData" title="記録を0にリセットします">
-            <i class="fas fa-trash-alt"></i> 0分リセット
-          </button>
         </div>
-      </div>
 
       <!-- スクロール可能なヒートマップ領域 -->
       <div class="heatmap-scroll-area" id="heatmapScrollArea">
@@ -311,8 +302,7 @@
             </div>
           </div>
 
-          <div class="cat-card-footer">
-            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 30%</span>
+          <div class="cat-card-footer" style="justify-content: flex-end;">
             <a href="toeic/index.html" class="cat-action-btn">
               学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
             </a>
@@ -345,8 +335,7 @@
             </div>
           </div>
 
-          <div class="cat-card-footer">
-            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 25%</span>
+          <div class="cat-card-footer" style="justify-content: flex-end;">
             <a href="boki/index.html" class="cat-action-btn">
               学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
             </a>
@@ -379,8 +368,7 @@
             </div>
           </div>
 
-          <div class="cat-card-footer">
-            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 20%</span>
+          <div class="cat-card-footer" style="justify-content: flex-end;">
             <a href="fp/index.html" class="cat-action-btn">
               学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
             </a>
@@ -413,8 +401,7 @@
             </div>
           </div>
 
-          <div class="cat-card-footer">
-            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 15%</span>
+          <div class="cat-card-footer" style="justify-content: flex-end;">
             <a href="takken/index.html" class="cat-action-btn">
               学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
             </a>
@@ -447,8 +434,7 @@
             </div>
           </div>
 
-          <div class="cat-card-footer">
-            <span style="font-size: 0.8rem; color: #64748b;">配分目標: 10%</span>
+          <div class="cat-card-footer" style="justify-content: flex-end;">
             <a href="it-passport/index.html" class="cat-action-btn">
               学習を再開 <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
             </a>
@@ -761,16 +747,6 @@
           renderStats(updatedData);
         }
       };
-
-      // 操作ボタン
-      const btnSeed = document.getElementById('btnSeedData');
-      if (btnSeed) {
-        btnSeed.addEventListener('click', Tracker.resetData);
-      }
-      const btnClear = document.getElementById('btnClearData');
-      if (btnClear) {
-        btnClear.addEventListener('click', Tracker.clearAllToZero);
-      }
 
       // ヒートマップを右端（最新日付）に自動スクロール
       const scrollArea = document.getElementById('heatmapScrollArea');

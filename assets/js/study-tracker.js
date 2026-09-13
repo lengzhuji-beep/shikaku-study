@@ -112,19 +112,45 @@
     return data;
   }
 
+  // 空（初期値0）データの生成
+  function createEmptyData() {
+    return {
+      version: 2,
+      totalSeconds: 0,
+      categories: {
+        toeic: 0,
+        boki: 0,
+        fp: 0,
+        takken: 0,
+        itpass: 0,
+        other: 0
+      },
+      daily: {},
+      streak: 0,
+      lastActive: new Date().toISOString()
+    };
+  }
+
   // データの読み込み
   function loadData() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
-        return JSON.parse(raw);
+        const parsed = JSON.parse(raw);
+        // 過去のサンプルデータ（version 1）の場合は0初期データに初期化
+        if (!parsed.version || parsed.version < 2) {
+          const fresh = createEmptyData();
+          saveData(fresh);
+          return fresh;
+        }
+        return parsed;
       }
     } catch (e) {
       console.warn('LocalStorage load error:', e);
     }
-    const seed = generateSeedData();
-    saveData(seed);
-    return seed;
+    const empty = createEmptyData();
+    saveData(empty);
+    return empty;
   }
 
   // データの保存
