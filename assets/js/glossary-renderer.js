@@ -122,19 +122,12 @@
     // HTMLテンプレート構築
     container.innerHTML = `
       <div class="glossary-controls-wrapper">
-        <!-- 検索バー ＆ ブックマーククイックトグル -->
-        <div class="glossary-search-container">
-          <div class="glossary-search-box">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" id="glossary-search-input" class="glossary-search-input" placeholder="用語名・読み仮名・キーワードで検索..." autocomplete="off">
-            <button type="button" id="glossary-clear-search" class="glossary-clear-btn" style="display:none;" title="検索をクリア">
-              <i class="fas fa-times-circle"></i>
-            </button>
-          </div>
-          <button type="button" id="glossary-bm-quick-toggle" class="glossary-bm-quick-btn" title="ブックマークした用語のみを表示">
-            <span class="bm-quick-star">★</span>
-            <span class="bm-quick-text">ブックマークのみ</span>
-            <span class="bm-quick-badge" id="search-bm-badge">0</span>
+        <!-- 検索バー -->
+        <div class="glossary-search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="glossary-search-input" class="glossary-search-input" placeholder="用語名・読み仮名・キーワードで検索..." autocomplete="off">
+          <button type="button" id="glossary-clear-search" class="glossary-clear-btn" style="display:none;" title="検索をクリア">
+            <i class="fas fa-times-circle"></i>
           </button>
         </div>
 
@@ -230,8 +223,6 @@
     // DOM要素
     const searchInput = document.getElementById('glossary-search-input');
     const clearSearchBtn = document.getElementById('glossary-clear-search');
-    const bmQuickToggleBtn = document.getElementById('glossary-bm-quick-toggle');
-    const searchBmBadge = document.getElementById('search-bm-badge');
     const filterBmBadge = document.getElementById('filter-bm-badge');
     const bookmarkFilterTabs = document.getElementById('bookmark-filter-tabs');
     const categoryTabs = document.getElementById('category-tabs');
@@ -247,16 +238,7 @@
     // バッジ件数更新
     function updateBookmarkBadges() {
       const count = getBookmarkCount();
-      if (searchBmBadge) searchBmBadge.textContent = count;
       if (filterBmBadge) filterBmBadge.textContent = count;
-
-      if (bmQuickToggleBtn) {
-        if (currentBookmarkOnly) {
-          bmQuickToggleBtn.classList.add('is-active');
-        } else {
-          bmQuickToggleBtn.classList.remove('is-active');
-        }
-      }
 
       if (bookmarkFilterTabs) {
         bookmarkFilterTabs.querySelectorAll('.filter-btn').forEach(btn => {
@@ -434,11 +416,6 @@
       this.style.display = 'none';
       filterData();
       searchInput.focus();
-    });
-
-    // 検索バー横のクイックトグル
-    bmQuickToggleBtn.addEventListener('click', function() {
-      setBookmarkOnly(!currentBookmarkOnly);
     });
 
     // フィルタ行のブックマーク切り替え
