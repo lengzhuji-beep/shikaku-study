@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N3ZFKBQ3');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【ITパスポート】ネットワークの基礎（OSIモデル・TCP/IP・IPアドレス）図解攻略 | Shikakus</title>
+<meta name="description" content="ITパスポート試験のテクノロジ系で頻出のネットワーク基礎知識を完全図解。OSI参照モデル7階層、TCPとUDPの違い、主要プロトコル（HTTP/DNS/DHCP等）、IPv4とIPv6、サブネットマスクの計算・役割を初心者向けに解説。">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/column-article.css?v=20260915">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/kakutoku.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
+   crossorigin="anonymous"></script>
+</head>
+<body class="with-header">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">S</div>
+        <span class="logo-text">Shikakus</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../../index.html">ホーム</a></li>
+    <li><a href="../index.html">ITパスポート</a></li>
+    <li><a href="../articles.html">コラム・勉強法</a></li>
+    <li>ネットワークの基礎とプロトコル</li>
+  </ul>
+
+  <div class="article-container">
+    <div class="article-header">
+      <span class="shikaku-card-badge badge-it" style="font-size:0.9rem; padding:6px 14px; margin-bottom:12px; display:inline-block;">テクノロジ系・基礎</span>
+      <h1 style="line-height:1.45; font-size:1.85rem;">【ITパスポート】ネットワークの基礎を図解徹底攻略！OSI参照モデル・TCP/IP・IPアドレス（IPv4/IPv6）頻出プロトコルまとめ</h1>
+      <p class="meta-info">公開日: 2026年04月28日 | 最終更新: 2026年09月15日 | 執筆: Shikakus IT試験対策チーム</p>
+    </div>
+
+    <!-- 記事リード文 -->
+    <div class="lead-box" style="background:#f3f7f4; border-left:4px solid #1e3a2b; padding:18px 22px; border-radius:0 8px 8px 0; margin-bottom:30px; font-size:1.02rem; line-height:1.75;">
+      インターネットや社内LANの通信を支える「ネットワーク技術」。英字3〜4文字のプロトコル名（TCP, UDP, DNS, DHCP, HTTP等）やIPアドレスの仕組みは、文系・初学者が苦手意識を持ちやすい分野です。しかし、<strong>「手紙の郵送システム」に例えて階層構造を理解すれば、驚くほど簡単に整理できます</strong>。本記事では、ITパスポートで狙われる頻出ポイントを分かりやすく図解します。
+    </div>
+
+    <!-- 目次コンテナ（自動生成） -->
+    <div class="toc-wrapper">
+      <div class="toc-title"><i class="fas fa-list-ul" style="margin-right:8px; color:#1e3a2b;"></i>目次</div>
+      <div id="article-toc"></div>
+    </div>
+
+    <div class="article-body">
+      <h2>1. 通信の共通ルール「プロトコル」と階層化のメリット</h2>
+      <p>メーカーやOS（Windows, Mac, iPhone, Android）が異なるコンピューター同士が通信するためには、世界共通の取り決め（ルール）が必要です。この通信規約を<strong>「プロトコル（Protocol）」</strong>と呼びます。</p>
+      <p>プロトコルは1つの巨大なルールにするのではなく、「アプリケーション」「通信の信頼性」「宛先のルーティング」「物理的な電気信号」のように<strong>役割ごとに階層化（レイヤー化）</strong>されています。これにより、ある層の技術（例：有線LANからWi-Fiへの変更）が変わっても、Webブラウザのプログラム自体を作り直す必要がなくなります。</p>
+
+      <h2>2. TCP/IP 4階層モデルと主要プロトコル一覧</h2>
+      <p>インターネットで事実上の世界標準となっているのが「TCP/IPモデル」です。</p>
+
+      <div class="table-responsive" style="overflow-x:auto; margin:20px 0;">
+        <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.08); font-size:0.92rem;">
+          <thead>
+            <tr style="background:#1e3a2b; color:#fff;">
+              <th style="padding:10px; border:1px solid #ddd;">階層（レイヤー）</th>
+              <th style="padding:10px; border:1px solid #ddd;">主な役割</th>
+              <th style="padding:10px; border:1px solid #ddd;">代表的なプロトコルと機能</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">第4層：アプリケーション層</td>
+              <td style="padding:10px; border:1px solid #ddd;">ユーザーが使うアプリ（Web、メール等）ごとのデータ形式を規定</td>
+              <td style="padding:10px; border:1px solid #ddd;">
+                ・<strong>HTTP / HTTPS</strong>：Webページの送受信（Sは暗号化）<br>
+                ・<strong>SMTP</strong>：メールの「送信」<br>
+                ・<strong>POP3 / IMAP</strong>：メールの「受信」（IMAPはサーバー上で管理）<br>
+                ・<strong>DNS</strong>：ドメイン名（URL）とIPアドレスを相互変換<br>
+                ・<strong>DHCP</strong>：IPアドレスを端末に自動割り当て
+              </td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">第3層：トランスポート層</td>
+              <td style="padding:10px; border:1px solid #ddd;">通信の「信頼性」や「伝送効率」をコントロールする</td>
+              <td style="padding:10px; border:1px solid #ddd;">
+                ・<strong>TCP</strong>：3ウェイハンドシェイクで接続確認。確実性を重視。<br>
+                ・<strong>UDP</strong>：確認応答なしで連続送信。動画配信や音声通話向け。
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">第2層：インターネット層</td>
+              <td style="padding:10px; border:1px solid #ddd;">世界中のネットワーク間でデータを目的地まで届ける（ルーティング）</td>
+              <td style="padding:10px; border:1px solid #ddd;">
+                ・<strong>IP</strong>：IPアドレスを用いてパケットを中継・配送<br>
+                ・代表機器：<strong>ルーター</strong>
+              </td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">第1層：ネットワークインターフェース層</td>
+              <td style="padding:10px; border:1px solid #ddd;">同一LAN内の通信（物理的なケーブルや電波）を制御する</td>
+              <td style="padding:10px; border:1px solid #ddd;">
+                ・<strong>Ethernet（有線LAN）</strong>、<strong>Wi-Fi（無線LAN）</strong><br>
+                ・機器固有の識別番号：<strong>MACアドレス</strong>（48ビット）<br>
+                ・代表機器：<strong>スイッチングハブ</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>3. TCPとUDPの決定的な違い（試験頻出対比）</h2>
+      <div class="highlight-box" style="background:#eef6f0; border:1px solid #c2e0cb; border-radius:8px; padding:18px; margin:20px 0;">
+        <h4 style="margin:0 0 10px 0; color:#1e3a2b;"><i class="fas fa-arrows-alt-h" style="margin-right:6px;"></i>TCP vs UDP の違い</h4>
+        <ul style="margin:0; padding-left:20px; line-height:1.8;">
+          <li><strong>TCP（Transmission Control Protocol）</strong>：<strong>「確実性・信頼性」</strong>重視。データを送信する前に相手と接続を確立（3ウェイハンドシェイク）し、パケットの抜け落ちがあれば再送する。Web閲覧（HTTP）やメール送受信（SMTP）に使われる。</li>
+          <li><strong>UDP（User Datagram Protocol）</strong>：<strong>「速度・リアルタイム性」</strong>重視。事前の確認を行わず一方的にデータを送り続ける。少々のデータ欠損があっても遅延を嫌う、YouTubeの動画ストリーミング、Zoom等のオンライン通話、DNSの問い合わせに使われる。</li>
+        </ul>
+      </div>
+
+      <h2>4. IPアドレスの基本：IPv4 と IPv6 の違い</h2>
+      <p>IPアドレスは、インターネット上のコンピューターに割り振られる「住所」です。</p>
+
+      <div class="table-responsive" style="overflow-x:auto; margin:20px 0;">
+        <table style="width:100%; border-collapse:collapse; background:#fff; font-size:0.92rem;">
+          <thead>
+            <tr style="background:#2d5a3f; color:#fff;">
+              <th style="padding:10px; border:1px solid #ddd;">規格</th>
+              <th style="padding:10px; border:1px solid #ddd;">ビット数・表記方法</th>
+              <th style="padding:10px; border:1px solid #ddd;">アドレス総数と特徴</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">IPv4</td>
+              <td style="padding:10px; border:1px solid #ddd;"><strong>32ビット</strong><br>8ビットずつ10進数でドット区切り<br>（例：192.168.1.1）</td>
+              <td style="padding:10px; border:1px solid #ddd;">約43億個（2の32乗）。インターネットの急速な普及によりアドレスが枯渇。</td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">IPv6</td>
+              <td style="padding:10px; border:1px solid #ddd;"><strong>128ビット</strong><br>16ビットずつ16進数でコロン区切り<br>（例：2001:0db8::1）</td>
+              <td style="padding:10px; border:1px solid #ddd;">約340澗個（実質無限）。セキュリティ機能（IPsec）が標準搭載。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>サブネットマスクの役割（ネットワーク部とホスト部）</h3>
+      <p>IPアドレスは「どのネットワークに属しているか（ネットワーク部）」と「その中のどの端末か（ホスト部）」の2つの部分から構成されます。その境界線を決めるのが<strong>「サブネットマスク」</strong>です。</p>
+      <p>例：IPアドレスが「192.168.1.100」で、サブネットマスクが「255.255.255.0」の場合、先頭3つ（192.168.1）が同一ネットワーク内の住所を表し、最後の「100」が端末番号を表します。</p>
+
+      <h2>5. 本試験の頻出チェック問題</h2>
+      <div class="question-box" style="background:#fff; border:2px solid #2d5a3f; border-radius:8px; padding:18px; margin:15px 0;">
+        <h4 style="color:#2d5a3f; margin-top:0;"><i class="fas fa-question-circle" style="margin-right:6px; color:#2d5a3f;"></i>過去問演習：プロトコルの機能判定</h4>
+        <p><strong>【問題】</strong>インターネットに接続されたPCが、Webサイトを閲覧する際に「www.example.com」のようなドメイン名から、対応するIPアドレスを自動的に問い合わせて取得するプロトコルはどれか？</p>
+        <p style="color:#1e3a2b; font-weight:bold;">【正解】DNS（Domain Name System）</p>
+        <p><strong>【解説】</strong>人間が理解しやすいドメイン名（URL）と、PC同士が通信に使う数字のIPアドレスを変換（名前解決）する仕組みがDNSです。DHCP（IPアドレスの自動配布）との混同に注意しましょう。</p>
+      </div>
+
+      <!-- 練習問題への内部リンクカード -->
+      <div class="cta-box" style="background:linear-gradient(135deg, #1e3a2b 0%, #2d5a3f 100%); color:#fff; border-radius:10px; padding:28px; margin:40px 0; text-align:center;">
+        <h3 style="color:#fff; margin-top:0; font-size:1.35rem;">ネットワーク分野の過去問を解いてみる！</h3>
+        <p style="color:#d8ebd9; font-size:0.95rem; margin-bottom:20px;">
+          TCP/IP、DNS、DHCP、Wi-Fiの暗号化規格（WPA3）など、テクノロジ系の重要過去問を今すぐ演習できます。
+        </p>
+        <a href="../problems.html" class="btn-pill" style="background:#fff; color:#1e3a2b; font-weight:bold; padding:12px 28px; text-decoration:none; display:inline-block; border-radius:50px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">ITパスポート 練習問題に挑戦する →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>Shikakus</h4>
+      <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
+        TOEIC・FP・宅建・ITパスポート・簿記など、人気の主要資格の練習問題・過去問・コラム・用語集をすべて無料で提供する総合学習プラットフォームです。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>資格から探す</h4>
+      <ul>
+        <li><a href="../../toeic/index.html">TOEIC® L&R</a></li>
+        <li><a href="../../fp/index.html">FP (ファイナンシャル・プランナー)</a></li>
+        <li><a href="../../takken/index.html">宅地建物取引士 (宅建)</a></li>
+        <li><a href="../index.html">ITパスポート</a></li>
+        <li><a href="../../boki/index.html">日商簿記検定</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>学習コンテンツ</h4>
+      <ul>
+        <li><a href="../../contact.html">お問い合わせ</a></li>
+        <li><a href="../../profile.html">運営者プロフィール</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var articleBody = document.querySelector('.article-body');
+  var tocContainer = document.getElementById('article-toc');
+  if (!articleBody || !tocContainer) return;
+  var headings = articleBody.querySelectorAll('h2, h3');
+  if (headings.length === 0) return;
+  var ul = document.createElement('ul');
+  headings.forEach(function(heading, index) {
+    if (!heading.id) {
+      heading.id = 'section-' + (index + 1);
+    }
+    var li = document.createElement('li');
+    li.className = heading.tagName.toLowerCase() === 'h3' ? 'toc-h3' : 'toc-h2';
+    var a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = heading.textContent;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  tocContainer.appendChild(ul);
+});
+</script>
+<script src="../../assets/js/study-tracker.js"></script>
+</body>
+</html>

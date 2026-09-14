@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N3ZFKBQ3');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【ITパスポート】サイバー攻撃手法と暗号化技術（公開鍵・共通鍵）完全攻略 | Shikakus</title>
+<meta name="description" content="ITパスポート試験のテクノロジ系最頻出分野「情報セキュリティ」を完全解説。ランサムウェア、フィッシング、標的型攻撃、Dos/DDoS攻撃の手法と、共通鍵暗号・公開鍵暗号（ハイブリッド暗号）、ディジタル署名の仕組みを初心者向けに図解。">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/column-article.css?v=20260915">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/kakutoku.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
+   crossorigin="anonymous"></script>
+</head>
+<body class="with-header">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">S</div>
+        <span class="logo-text">Shikakus</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <ul class="breadcrumb">
+    <li><a href="../../index.html">ホーム</a></li>
+    <li><a href="../index.html">ITパスポート</a></li>
+    <li><a href="../articles.html">コラム・勉強法</a></li>
+    <li>サイバー攻撃と暗号化技術</li>
+  </ul>
+
+  <div class="article-container">
+    <div class="article-header">
+      <span class="shikaku-card-badge badge-it" style="font-size:0.9rem; padding:6px 14px; margin-bottom:12px; display:inline-block;">テクノロジ系・最重要</span>
+      <h1 style="line-height:1.45; font-size:1.85rem;">【ITパスポート】サイバー攻撃手法と暗号化技術（公開鍵・共通鍵）完全攻略！テクノロジ系の最頻出パターンを図解</h1>
+      <p class="meta-info">公開日: 2026年04月22日 | 最終更新: 2026年09月15日 | 執筆: Shikakus IT試験対策チーム</p>
+    </div>
+
+    <!-- 記事リード文 -->
+    <div class="lead-box" style="background:#f3f7f4; border-left:4px solid #1e3a2b; padding:18px 22px; border-radius:0 8px 8px 0; margin-bottom:30px; font-size:1.02rem; line-height:1.75;">
+      ITパスポート試験で毎年最も多く出題される単元が<strong>「情報セキュリティ（サイバー攻撃と暗号化）」</strong>です。全100問中、セキュリティ関連だけで10〜15問程度を占めるため、ここを得点源にできるかどうかが合否を決定づけます。本記事では、頻出の攻撃手法のキーワードと、初学者が混乱しやすい「共通鍵暗号・公開鍵暗号・ディジタル署名」の仕組みをすっきり整理して解説します。
+    </div>
+
+    <!-- 目次コンテナ（自動生成） -->
+    <div class="toc-wrapper">
+      <div class="toc-title"><i class="fas fa-list-ul" style="margin-right:8px; color:#1e3a2b;"></i>目次</div>
+      <div id="article-toc"></div>
+    </div>
+
+    <div class="article-body">
+      <h2>1. 情報セキュリティの3要素（CIA）＋追加4要素</h2>
+      <p>セキュリティの基本は、以下の3大要素（CIA）の頭文字から始まります。</p>
+
+      <div class="table-responsive" style="overflow-x:auto; margin:20px 0;">
+        <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.08); font-size:0.92rem;">
+          <thead>
+            <tr style="background:#1e3a2b; color:#fff;">
+              <th style="padding:10px; border:1px solid #ddd;">要素</th>
+              <th style="padding:10px; border:1px solid #ddd;">英語名称</th>
+              <th style="padding:10px; border:1px solid #ddd;">定義と脅威の例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">機密性（C）</td>
+              <td style="padding:10px; border:1px solid #ddd;">Confidentiality</td>
+              <td style="padding:10px; border:1px solid #ddd;">許可された人だけが情報にアクセスできること。<br>脅威：情報漏洩、盗聴、ショルダーハッキング。</td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">完全性（I）</td>
+              <td style="padding:10px; border:1px solid #ddd;">Integrity</td>
+              <td style="padding:10px; border:1px solid #ddd;">情報が正確で改ざんされていないこと。<br>脅威：Webサイトの改ざん、データの不正書き換え。</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">可用性（A）</td>
+              <td style="padding:10px; border:1px solid #ddd;">Availability</td>
+              <td style="padding:10px; border:1px solid #ddd;">必要なときにいつでも情報やサービスを利用できること。<br>脅威：DoS/DDoS攻撃、ランサムウェア、システム障害。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>追加4要素として<strong>「真正性（本人の確認）」「責任追跡性（ログの記録）」「否認防止（やったことを否定させない）」「信頼性（欠陥なく動作）」</strong>も頻出です。</p>
+
+      <h2>2. 頻出サイバー攻撃手法とキーワード判定表</h2>
+      <p>ITパスポートでは、問題文のキーワードから攻撃手法の名称を答えさせる問題が定番です。</p>
+
+      <div class="table-responsive" style="overflow-x:auto; margin:20px 0;">
+        <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.08); font-size:0.92rem;">
+          <thead>
+            <tr style="background:#2d5a3f; color:#fff;">
+              <th style="padding:10px; border:1px solid #ddd;">攻撃手法名</th>
+              <th style="padding:10px; border:1px solid #ddd;">攻撃の特徴・仕組み</th>
+              <th style="padding:10px; border:1px solid #ddd;">問題文に出る決定打キーワード</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">ランサムウェア</td>
+              <td style="padding:10px; border:1px solid #ddd;">PC内のファイルを暗号化して使えなくし、復号のために身代金を要求する。</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#b83232; font-weight:bold;">「暗号化」「身代金（Ransom）」</td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">フィッシング（Phishing）</td>
+              <td style="padding:10px; border:1px solid #ddd;">実在の銀行やECサイトを装った偽メールを送り、偽サイトに誘導してID・パスワードを盗む。</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#b83232; font-weight:bold;">「実在の企業を装う」「偽サイトへ誘導」</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">標的型攻撃（APT）</td>
+              <td style="padding:10px; border:1px solid #ddd;">特定の組織・企業を狙い撃ちにし、業務連絡を装ったメール等で侵入して機密情報を盗み出す。</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#b83232; font-weight:bold;">「特定の組織を標的」「業務連絡メールを偽装」</td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">DoS攻撃 / DDoS攻撃</td>
+              <td style="padding:10px; border:1px solid #ddd;">大量のアクセスやパケットを送りつけてサーバーを過負荷にし、サービスを停止させる。複数端末から行うのがDDoS。</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#b83232; font-weight:bold;">「過負荷」「サービス停止」「複数の踏み台PC」</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">SQLインジェクション</td>
+              <td style="padding:10px; border:1px solid #ddd;">Webサイトの入力フォームに不正なSQL文を注入し、データベースから情報を抜き取ったり改ざんする。</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#b83232; font-weight:bold;">「入力フォーム」「データベースの不正操作」</td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">クロスサイトスクリプティング（XSS）</td>
+              <td style="padding:10px; border:1px solid #ddd;">掲示板等の入力欄に悪意あるスクリプトを埋め込み、閲覧した一般ユーザーのブラウザ上で不正実行させる。</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#b83232; font-weight:bold;">「悪意あるスクリプト」「Cookie窃取」</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">ソーシャルエンジニアリング</td>
+              <td style="padding:10px; border:1px solid #ddd;">人間の心理的な隙や物理的な行動（肩越しに覗き見、ゴミ箱をあさる）を利用してパスワード等を入手する。</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#b83232; font-weight:bold;">「ショルダーハッキング」「トラッシング（ゴミ漁り）」</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>3. 暗号化技術の超基本：共通鍵暗号 vs 公開鍵暗号</h2>
+      <p>暗号化とは、第三者に盗聴されても内容が読めないようにデータを変換する技術です。</p>
+
+      <div class="table-responsive" style="overflow-x:auto; margin:20px 0;">
+        <table style="width:100%; border-collapse:collapse; background:#fff; font-size:0.92rem;">
+          <thead>
+            <tr style="background:#1e3a2b; color:#fff;">
+              <th style="padding:10px; border:1px solid #ddd;">暗号方式</th>
+              <th style="padding:10px; border:1px solid #ddd;">鍵の種類</th>
+              <th style="padding:10px; border:1px solid #ddd;">メリット</th>
+              <th style="padding:10px; border:1px solid #ddd;">デメリット・課題</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">共通鍵暗号方式<br>（代表例：AES）</td>
+              <td style="padding:10px; border:1px solid #ddd;">暗号化と復号で<strong>同じ1つの鍵</strong>を使う</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#1e3a2b; font-weight:bold;">暗号化・復号の処理速度が非常に高速</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#b83232;">相手に安全に鍵を渡すのが困難（鍵配送問題）。人数が増えると鍵の数が爆発。</td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px; border:1px solid #ddd; font-weight:bold;">公開鍵暗号方式<br>（代表例：RSA）</td>
+              <td style="padding:10px; border:1px solid #ddd;">誰もが見てよい<strong>「公開鍵」</strong>と、本人のみが持つ<strong>「秘密鍵」</strong>のペアを使う</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#1e3a2b; font-weight:bold;">公開鍵をネット上に公開できるため鍵配送問題が起きない</td>
+              <td style="padding:10px; border:1px solid #ddd; color:#b83232;">数学的計算が複雑なため処理速度が遅い</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="memo-card" style="background:#fff9e6; border-left:4px solid #f0a500; padding:15px; border-radius:4px; margin:20px 0;">
+        <strong>【公開鍵暗号のルール：どちらの鍵を使うか？】</strong>
+        <p style="margin:5px 0 0 0;">
+          「相手Bにデータを送りたいとき、送信者Aは<strong>『受信者Bの公開鍵』</strong>で暗号化する。受け取ったBは<strong>『自分Bの秘密鍵』</strong>で復号する。」<br>
+          ※Bの秘密鍵は世界中でBしか持っていないため、途中でデータを盗まれても絶対に復号できません。
+        </p>
+      </div>
+
+      <h2>4. ディジタル署名と認証局（CA）の仕組み</h2>
+      <p>ディジタル署名は、「データの改ざんがないこと（完全性）」と「送信者が本人であること（真正性）」を証明する技術です。</p>
+
+      <div class="highlight-box" style="background:#eef6f0; border:1px solid #c2e0cb; border-radius:8px; padding:18px; margin:20px 0;">
+        <h4 style="margin:0 0 10px 0; color:#1e3a2b;"><i class="fas fa-file-signature" style="margin-right:6px;"></i>ディジタル署名の作成と検証の流れ</h4>
+        <ol style="margin:0; padding-left:20px; line-height:1.8;">
+          <li>送信者は、元データからハッシュ関数を使って「ハッシュ値」を計算する。</li>
+          <li>送信者は、ハッシュ値を<strong>「送信者自身の秘密鍵」</strong>で暗号化する（これがディジタル署名！）。</li>
+          <li>受信者は、ディジタル署名を<strong>「送信者の公開鍵」</strong>で復号する。</li>
+          <li>復号して得られたハッシュ値と、受信した元データから算出したハッシュ値を比較し、一致すれば「改ざんゼロ＆本人からの送信」が証明される。</li>
+        </ol>
+      </div>
+
+      <h2>5. 本試験の頻出チェック問題</h2>
+      <div class="question-box" style="background:#fff; border:2px solid #2d5a3f; border-radius:8px; padding:18px; margin:15px 0;">
+        <h4 style="color:#2d5a3f; margin-top:0;"><i class="fas fa-question-circle" style="margin-right:6px;"></i>過去問演習：暗号化鍵の組み合わせ</h4>
+        <p><strong>【問題】</strong>公開鍵暗号方式を用いて、AさんがBさんに秘密のメッセージを送る場合、Aさんが暗号化に使用する鍵と、Bさんが復号に使用する鍵の組み合わせとして適切なものはどれか？</p>
+        <p style="color:#1e3a2b; font-weight:bold;">【正解】暗号化：Bさんの公開鍵 ／ 復号：Bさんの秘密鍵</p>
+        <p><strong>【解説】</strong>メッセージを読めるのはBさんだけでなければならないため、Bさんしか持っていない秘密鍵で復号できるように、ペアとなる「Bさんの公開鍵」で暗号化します。Aさんの鍵を使うと引っかけです。</p>
+      </div>
+
+      <!-- 練習問題への内部リンクカード -->
+      <div class="cta-box" style="background:linear-gradient(135deg, #1e3a2b 0%, #2d5a3f 100%); color:#fff; border-radius:10px; padding:28px; margin:40px 0; text-align:center;">
+        <h3 style="color:#fff; margin-top:0; font-size:1.35rem;">ITパスポート セキュリティ問題を今すぐ演習！</h3>
+        <p style="color:#d8ebd9; font-size:0.95rem; margin-bottom:20px;">
+          サイバー攻撃・暗号化・セキュリティ管理の頻出問題を、無料の一問一答でサクサク復習できます。
+        </p>
+        <a href="../problems.html" class="btn-pill" style="background:#fff; color:#1e3a2b; font-weight:bold; padding:12px 28px; text-decoration:none; display:inline-block; border-radius:50px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">ITパスポート 練習問題に挑戦する →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>Shikakus</h4>
+      <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
+        TOEIC・FP・宅建・ITパスポート・簿記など、人気の主要資格の練習問題・過去問・コラム・用語集をすべて無料で提供する総合学習プラットフォームです。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>資格から探す</h4>
+      <ul>
+        <li><a href="../../toeic/index.html">TOEIC® L&R</a></li>
+        <li><a href="../../fp/index.html">FP (ファイナンシャル・プランナー)</a></li>
+        <li><a href="../../takken/index.html">宅地建物取引士 (宅建)</a></li>
+        <li><a href="../index.html">ITパスポート</a></li>
+        <li><a href="../../boki/index.html">日商簿記検定</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>学習コンテンツ</h4>
+      <ul>
+        <li><a href="../../contact.html">お問い合わせ</a></li>
+        <li><a href="../../profile.html">運営者プロフィール</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var articleBody = document.querySelector('.article-body');
+  var tocContainer = document.getElementById('article-toc');
+  if (!articleBody || !tocContainer) return;
+  var headings = articleBody.querySelectorAll('h2, h3');
+  if (headings.length === 0) return;
+  var ul = document.createElement('ul');
+  headings.forEach(function(heading, index) {
+    if (!heading.id) {
+      heading.id = 'section-' + (index + 1);
+    }
+    var li = document.createElement('li');
+    li.className = heading.tagName.toLowerCase() === 'h3' ? 'toc-h3' : 'toc-h2';
+    var a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = heading.textContent;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  tocContainer.appendChild(ul);
+});
+</script>
+<script src="../../assets/js/study-tracker.js"></script>
+</body>
+</html>
