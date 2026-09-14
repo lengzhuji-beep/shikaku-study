@@ -1,151 +1,256 @@
-/* 記事ページ専用のモダンなスタイル */
+/* ==========================================================================
+   Shikakus - コラム・記事ページ専用スタイル (Site Unified Green Theme)
+   ========================================================================== */
+
 .article-container {
-    background-color: #fff;
-    padding: 20px; /* パディングを少し減らして調整 */
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* シャドウを強調 */
-    margin: 20px auto;
-    max-width: 900px; /* 最大幅を設定して読みやすく */
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef2f0;
+    margin: 20px auto 40px;
+    max-width: 920px;
 }
+
 @media (min-width: 768px) {
     .article-container {
-        padding: 40px;
+        padding: 45px 50px;
     }
 }
 
-/* メイン画像 */
-.article-main-image {
-    width: 100%;
-    padding-bottom: 35%;
-    /* 変更点1: 画像全体が収まるように 'contain' に変更 */
-    background-size: contain;
-    /* 変更点2: 'contain' を使うため、画像の繰り返し表示を無効化 */
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    /* 任意: 左右の余白部分の背景色（コンテナの背景色と合わせる） */
-    background-color: #fff;
-}
-
+/* 記事ヘッダー */
 .article-header {
     text-align: center;
     margin-bottom: 30px;
-    border-bottom: 1px dashed #e0e0e0; /* 軽い区切り線 */
-    padding-bottom: 20px;
-}
-.article-header h1 {
-    font-size: 2.2em; /* タイトルを少し大きく */
-    color: #333;
-    line-height: 1.4;
-    margin-bottom: 10px;
-}
-.article-header .meta-info {
-    color: #777;
-    font-size: 0.9em;
+    border-bottom: 1px dashed #e2e8f0;
+    padding-bottom: 25px;
 }
 
-/* 目次スタイル */
-.table-of-contents {
-    background-color: #f8f9fa;
-    border-left: 5px solid #4a90e2;
-    padding: 15px 20px;
-    margin-bottom: 30px;
-    border-radius: 5px;
+.article-header h1 {
+    font-size: 2.1rem;
+    color: #1e293b;
+    line-height: 1.45;
+    margin-bottom: 15px;
+    font-weight: 800;
 }
+
+.article-header .meta-info {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* 記事内の挿入画像ボックス */
+.article-image-box {
+    margin: 28px 0 35px;
+    text-align: center;
+}
+
+.article-image-box img {
+    width: 100%;
+    max-width: 820px;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.article-image-caption {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* 目次（TOC）スタイル - サイトのグリーン基調に統一 */
+.table-of-contents {
+    background-color: #f4f8f5;
+    border: 1px solid #d8ebd9;
+    border-left: 5px solid #2d5a3f;
+    padding: 22px 26px;
+    margin-bottom: 35px;
+    border-radius: 12px;
+}
+
 .table-of-contents h2 {
-    font-size: 1.3em;
-    color: #4a90e2;
+    font-size: 1.25rem;
+    color: #2d5a3f;
     margin-top: 0;
     margin-bottom: 15px;
     border-bottom: none;
     padding-bottom: 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
+
 .table-of-contents ul {
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
 }
+
 .table-of-contents li {
-    margin-bottom: 8px;
-}
-.table-of-contents a {
-    color: #555;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.table-of-contents a:hover {
-    color: #4a90e2;
-    text-decoration: underline;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-.article-content h2 {
-    font-size: 1.8em; /* H2を少し大きく */
-    color: #4a90e2; /* ブランドカラー */
-    border-bottom: 2px solid #4a90e2;
-    padding-bottom: 10px;
-    margin-top: 50px; /* 上余白を増やす */
-    margin-bottom: 25px;
-    text-align: left;
-}
-.article-content h3 {
-    font-size: 1.4em; /* H3を少し大きく */
-    color: #333;
-    border-left: 5px solid #4a90e2; /* 左ボーダーを強調 */
-    padding-left: 15px; /* パディングを増やす */
-    margin-top: 35px;
-    margin-bottom: 20px;
-    text-align: left;
-}
-.article-content p {
-    line-height: 1.8;
-    margin-bottom: 1.5em; /* 段落間の余白を増やす */
-    color: #333;
-    font-size: 1.05em; /* 本文のフォントサイズを微調整 */
-}
-.article-content ul {
-    padding-left: 25px; /* リストのインデントを増やす */
-    list-style-type: disc;
-    margin-bottom: 1.5em;
-    color: #333;
-}
-.article-content li {
-    margin-bottom: 0.8em;
-    line-height: 1.6;
-}
-.back-to-list {
-    display: inline-block;
-    margin-top: 40px;
-    padding: 12px 25px;
-    background-color: #6c757d;
-    color: white;
+.table-of-contents a {
+    color: #334155;
     text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
+    transition: all 0.2s ease;
+    font-weight: 500;
 }
+
+.table-of-contents a:hover {
+    color: #2d5a3f;
+    text-decoration: underline;
+    padding-left: 3px;
+}
+
+/* 本文見出し - グリーン系アクセント */
+.article-content h2 {
+    font-size: 1.7rem;
+    color: #1e3a2b;
+    border-bottom: 2.5px solid #2d5a3f;
+    padding-bottom: 10px;
+    margin-top: 55px;
+    margin-bottom: 22px;
+    text-align: left;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.article-content h3 {
+    font-size: 1.32rem;
+    color: #1e293b;
+    border-left: 5px solid #38a169;
+    padding-left: 14px;
+    margin-top: 38px;
+    margin-bottom: 18px;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.article-content h4 {
+    font-size: 1.15rem;
+    color: #276749;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* 本文段落・テキスト */
+.article-content p {
+    line-height: 1.85;
+    margin-bottom: 1.6em;
+    color: #334155;
+    font-size: 1.02rem;
+}
+
+.article-content strong {
+    color: #1e293b;
+    background: linear-gradient(transparent 65%, #d1f4da 65%);
+}
+
+.article-content a {
+    color: #2d5a3f;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.article-content a:hover {
+    color: #1b432e;
+}
+
+.article-content ul, .article-content ol {
+    padding-left: 24px;
+    margin-bottom: 1.6em;
+    color: #334155;
+    line-height: 1.8;
+}
+
+.article-content li {
+    margin-bottom: 0.6em;
+}
+
+/* テーブルスタイル */
+.article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.article-content th {
+    background: #e6f4ea;
+    color: #137333;
+    font-weight: 700;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.92rem;
+    text-align: left;
+}
+
+.article-content td {
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.92rem;
+    color: #334155;
+}
+
+.article-content tbody tr:nth-child(even) {
+    background-color: #fafdfb;
+}
+
+/* 一覧に戻るボタン */
+.back-to-list {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 40px;
+    padding: 12px 28px;
+    background-color: #1e3a2b;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
 .back-to-list:hover {
-    background-color: #5a6268;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background-color: #2d5a3f;
+    box-shadow: 0 4px 12px rgba(30, 58, 43, 0.25);
+    transform: translateY(-1px);
 }
 
 /* レスポンシブ調整 */
-@media (max-width: 600px) {
-    .article-header h1 {
-        font-size: 1.6em;
+@media (max-width: 640px) {
+    .article-container {
+        padding: 20px 16px;
+        margin: 10px auto;
+        border-radius: 12px;
     }
-    .article-main-image {
-        padding-bottom: 45%;
+    .article-header h1 {
+        font-size: 1.55rem;
     }
     .article-content h2 {
-        font-size: 1.4em;
+        font-size: 1.4rem;
+        margin-top: 40px;
     }
     .article-content h3 {
-        font-size: 1.2em;
+        font-size: 1.2rem;
     }
-    .article-container {
-        padding: 15px;
-        margin: 10px auto;
+    .table-of-contents {
+        padding: 16px 18px;
     }
 }
