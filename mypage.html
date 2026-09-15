@@ -151,19 +151,19 @@
         </div>
         <div>
           <h3 class="sync-banner-title">学習データを安全に保護＆スマホ・PCで同期しませんか？</h3>
-          <p class="sync-banner-desc" style="margin-bottom: 6px;">
+          <p class="sync-banner-desc" style="margin-bottom: 8px;">
             ※未ログインの場合、ブラウザのキャッシュ削除や機種変更で学習記録が消えてしまうことがあります。無料ログイン（Google連携）を行うと、以下の機能が利用できます：
           </p>
-          <div style="display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.8rem; color: #166534; font-weight: 600;">
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.85rem; color: #166534; font-weight: 600;">
             <span><i class="fas fa-check-circle" style="color: #16a34a;"></i> キャッシュクリアでも学習記録を永久保存</span>
             <span><i class="fas fa-check-circle" style="color: #16a34a;"></i> スマホとPC間でリアルタイム同期</span>
             <span><i class="fas fa-check-circle" style="color: #16a34a;"></i> Googleで1秒・完全無料</span>
           </div>
         </div>
       </div>
-      <div>
+      <div class="sync-banner-action">
         <button class="btn-auth-login" id="btnOpenAuthModal" onclick="document.getElementById('authModalOverlay').classList.add('active');">
-          <i class="fab fa-google"></i> ログイン / 連携する
+          <i class="fab fa-google" style="font-size: 1.15rem;"></i> Googleでログイン / 連携する
         </button>
       </div>
     </div>
@@ -194,7 +194,7 @@
 
     <!-- 1. 総閲覧時間 & 統計サマリーカード -->
     <div class="mypage-summary-grid">
-      <!-- サイト総閲覧時間カード（強調表示） -->
+      <!-- 1. サイト総閲覧時間カード（強調表示） -->
       <div class="mypage-summary-card primary">
         <div>
           <div class="summary-top">
@@ -211,7 +211,39 @@
         </div>
       </div>
 
-      <!-- 継続日数カード -->
+      <!-- 2. 今日の閲覧時間 -->
+      <div class="mypage-summary-card">
+        <div>
+          <div class="summary-top">
+            <span class="summary-label">今日の閲覧時間</span>
+            <i class="fas fa-calendar-day summary-icon" style="color: #0284c7;"></i>
+          </div>
+          <div class="summary-value" id="todayStudyTimeDisplay">
+            0<span class="unit">時間</span> 0<span class="unit">分</span>
+          </div>
+        </div>
+        <div class="summary-footer">
+          本日の学習実績
+        </div>
+      </div>
+
+      <!-- 3. 今月の閲覧時間 -->
+      <div class="mypage-summary-card">
+        <div>
+          <div class="summary-top">
+            <span class="summary-label">今月の閲覧時間</span>
+            <i class="fas fa-calendar-alt summary-icon" style="color: #7c3aed;"></i>
+          </div>
+          <div class="summary-value" id="monthStudyTimeDisplay">
+            0<span class="unit">時間</span> 0<span class="unit">分</span>
+          </div>
+        </div>
+        <div class="summary-footer">
+          当月の合計学習時間
+        </div>
+      </div>
+
+      <!-- 4. 連続学習日数 -->
       <div class="mypage-summary-card">
         <div>
           <div class="summary-top">
@@ -224,38 +256,6 @@
         </div>
         <div class="summary-footer">
           習慣化スコア: <strong style="color: #15803d;" id="streakStatusText">好調継続中！</strong>
-        </div>
-      </div>
-
-      <!-- 今週の学習時間 -->
-      <div class="mypage-summary-card">
-        <div>
-          <div class="summary-top">
-            <span class="summary-label">今週の閲覧時間</span>
-            <i class="fas fa-calendar-week summary-icon" style="color: #0284c7;"></i>
-          </div>
-          <div class="summary-value" id="weekStudyTimeDisplay">
-            0<span class="unit">時間</span> 0<span class="unit">分</span>
-          </div>
-        </div>
-        <div class="summary-footer">
-          直近7日間の学習実績
-        </div>
-      </div>
-
-      <!-- 今月の学習時間 -->
-      <div class="mypage-summary-card">
-        <div>
-          <div class="summary-top">
-            <span class="summary-label">今月の閲覧時間</span>
-            <i class="fas fa-calendar-alt summary-icon" style="color: #7c3aed;"></i>
-          </div>
-          <div class="summary-value" id="monthStudyTimeDisplay">
-            0<span class="unit">時間</span> 0<span class="unit">分</span>
-          </div>
-        </div>
-        <div class="summary-footer">
-          直近30日間の学習実績
         </div>
       </div>
     </div>
@@ -719,44 +719,56 @@
 
       // サマリーと各資格別カードの描画
       function renderStats(data) {
-        // サイト総閲覧時間
+        // 1. サイト総閲覧時間
         const totalDisplay = document.getElementById('totalStudyTimeDisplay');
         if (totalDisplay) {
-          totalDisplay.innerHTML = Tracker.formatHoursMinutes(data.totalSeconds);
+          totalDisplay.innerHTML = Tracker.formatHoursMinutes(data.totalSeconds || 0);
         }
 
-        // 継続日数
-        const streakDisplay = document.getElementById('streakDaysDisplay');
-        if (streakDisplay) {
-          streakDisplay.innerHTML = `${data.streak}<span class="unit">日連続</span>`;
-        }
-
-        // 直近7日 & 直近30日の集計
         const today = new Date();
-        let weekSec = 0;
-        let monthSec = 0;
+        const todayKey = Tracker.formatDate(today);
 
-        for (let i = 0; i < 30; i++) {
-          const d = new Date(today);
-          d.setDate(d.getDate() - i);
-          const k = Tracker.formatDate(d);
-          const log = data.daily[k];
-          if (log && log.totalSec) {
-            monthSec += log.totalSec;
-            if (i < 7) {
-              weekSec += log.totalSec;
+        // 2. 今日の閲覧時間
+        const todaySec = (data.daily && data.daily[todayKey] && data.daily[todayKey].totalSec) || 0;
+        const todayDisplay = document.getElementById('todayStudyTimeDisplay');
+        if (todayDisplay) {
+          todayDisplay.innerHTML = Tracker.formatHoursMinutes(todaySec);
+        }
+
+        // 3. 今月の閲覧時間（当月1日〜現在までの集計）
+        let monthSec = 0;
+        const currentYear = today.getFullYear();
+        const currentMonth = today.getMonth();
+        if (data.daily) {
+          for (const dateKey of Object.keys(data.daily)) {
+            const parts = dateKey.split('-');
+            if (parts.length === 3) {
+              const y = parseInt(parts[0], 10);
+              const m = parseInt(parts[1], 10) - 1;
+              if (y === currentYear && m === currentMonth) {
+                monthSec += (data.daily[dateKey].totalSec || 0);
+              }
             }
           }
         }
-
-        const weekDisplay = document.getElementById('weekStudyTimeDisplay');
-        if (weekDisplay) {
-          weekDisplay.innerHTML = Tracker.formatHoursMinutes(weekSec);
-        }
-
         const monthDisplay = document.getElementById('monthStudyTimeDisplay');
         if (monthDisplay) {
           monthDisplay.innerHTML = Tracker.formatHoursMinutes(monthSec);
+        }
+
+        // 4. 連続学習日数（Tracker.calculateStreakで最新状態を正確に算出）
+        const streak = Tracker.calculateStreak ? Tracker.calculateStreak(data.daily) : (data.streak || 0);
+        const streakDisplay = document.getElementById('streakDaysDisplay');
+        if (streakDisplay) {
+          streakDisplay.innerHTML = `${streak}<span class="unit">日連続</span>`;
+        }
+
+        const streakStatus = document.getElementById('streakStatusText');
+        if (streakStatus) {
+          if (streak >= 7) streakStatus.textContent = '素晴らしい継続力！';
+          else if (streak >= 3) streakStatus.textContent = '習慣化定着中！';
+          else if (streak >= 1) streakStatus.textContent = '好調継続中！';
+          else streakStatus.textContent = '今日からスタート！';
         }
 
         // 各資格別カードの更新

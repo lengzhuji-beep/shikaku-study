@@ -37,10 +37,37 @@
     return 'other';
   }
 
+  // 連続学習日数（ストリーク）の正確な計算
+  function calculateStreak(daily) {
+    if (!daily) return 0;
+    const today = new Date();
+    const todayKey = formatDate(today);
+    const hasStudiedToday = !!(daily[todayKey] && daily[todayKey].totalSec > 0);
+
+    // 今日学習していれば今日から、今日まだ未学習なら昨日から遡って判定
+    let checkDate = new Date(today);
+    if (!hasStudiedToday) {
+      checkDate.setDate(checkDate.getDate() - 1);
+    }
+
+    let streak = 0;
+    for (let i = 0; i < 365; i++) {
+      const d = new Date(checkDate);
+      d.setDate(checkDate.getDate() - i);
+      const key = formatDate(d);
+      if (daily[key] && daily[key].totalSec > 0) {
+        streak++;
+      } else {
+        break;
+      }
+    }
+    return streak;
+  }
+
   // 初期シードデータ生成（過去1年分のリアルな学習データ）
   function generateSeedData() {
     const data = {
-      version: 1,
+      version: 2,
       totalSeconds: 0,
       categories: {
         toeic: 0,
@@ -95,20 +122,7 @@
       }
     }
 
-    // ストリーク（連続日数）の計算
-    let streak = 0;
-    for (let i = 0; i < 365; i++) {
-      const d = new Date(today);
-      d.setDate(d.getDate() - i);
-      const key = formatDate(d);
-      if (data.daily[key] && data.daily[key].totalSec > 0) {
-        streak++;
-      } else if (i > 0) {
-        break;
-      }
-    }
-    data.streak = streak;
-
+    data.streak = calculateStreak(data.daily);
     return data;
   }
 
@@ -143,6 +157,8 @@
           saveData(fresh);
           return fresh;
         }
+        // 連続日数を最新状態で再計算
+        parsed.streak = calculateStreak(parsed.daily);
         return parsed;
       }
     } catch (e) {
@@ -156,6 +172,7 @@
   // データの保存
   function saveData(data) {
     try {
+      data.streak = calculateStreak(data.daily);
       data.lastActive = new Date().toISOString();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch (e) {
@@ -228,6 +245,7 @@
     CATEGORIES,
     loadData,
     saveData,
+    calculateStreak,
     formatDate,
     formatHoursMinutes,
     formatHoursMinutesPlain,

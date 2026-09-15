@@ -73,7 +73,7 @@ p { color: #555; }
 }
 
 /* --- ボタン --- */
-button:not(.hamburger-btn):not(.drawer-close-btn) {
+button:not(.hamburger-btn):not(.drawer-close-btn):not(.btn-auth-logout):not(.btn-auth-login) {
   background: #4a90e2;
   color: white;
   padding: 10px 20px;
@@ -84,8 +84,8 @@ button:not(.hamburger-btn):not(.drawer-close-btn) {
   transition: 0.3s;
   font-size: 1em;
 }
-button:not(.hamburger-btn):not(.drawer-close-btn):hover { background: #357ABD; }
-button:not(.hamburger-btn):not(.drawer-close-btn):disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
+button:not(.hamburger-btn):not(.drawer-close-btn):not(.btn-auth-logout):not(.btn-auth-login):hover { background: #357ABD; }
+button:not(.hamburger-btn):not(.drawer-close-btn):not(.btn-auth-logout):not(.btn-auth-login):disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
 
 /* ========== index.html（トップページ）用 ========== */
 .icon-button {
