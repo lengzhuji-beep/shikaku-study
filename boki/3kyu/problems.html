@@ -10,115 +10,108 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日商簿記3級 練習問題（一問一答） | 資格対策ドットコム</title>
+<title>日商簿記3級 練習問題（一問一答） | Shikakus</title>
 <meta name="description" content="日商簿記3級の分野別練習問題。仕訳、現金預金、商品売買、固定資産、決算整理、試算表など苦手な分野を自由に選んでランダム集中特訓。A4プリントアウト印刷にも対応。">
 <link rel="icon" href="../../favicon.png" type="image/png">
 <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
-  .wizard-step-card {
-    background: white;
-    border-radius: 12px;
-    padding: 28px 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border: 1px solid #e2e8f0;
+  /* ========== Shikakus / Kakutoku UI 統一スタイル（青色を完全排除） ========== */
+  body {
+    background-color: #faf7f2 !important;
+    color: #27272a !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", "Yu Gothic", Meiryo, sans-serif !important;
   }
-  .wizard-step-card h2 {
-    font-size: 1.25rem;
-    color: #2d3748;
-    margin-top: 0;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .wizard-desc {
-    color: #718096;
-    font-size: 0.92rem;
-    margin-bottom: 20px;
-    line-height: 1.5;
-  }
-  .category-checkbox-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 12px;
-    margin-bottom: 30px;
-  }
-  .category-check-item {
-    display: flex;
-    align-items: center;
-    padding: 14px 18px;
-    background: #f8fafc;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    user-select: none;
-  }
-  .category-check-item:hover {
-    border-color: #2f855a;
-    background: #f0fff4;
-  }
-  .category-check-item.selected {
-    border-color: #2f855a;
-    background: #f0fff4;
-    font-weight: 600;
-  }
-  .category-check-item input[type="checkbox"] {
-    margin-right: 12px;
-    width: 18px;
-    height: 18px;
-    accent-color: #2f855a;
-    cursor: pointer;
-  }
-  .count-button-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 30px;
-  }
-  .count-btn {
-    padding: 10px 22px;
-    border: 2px solid #cbd5e0;
-    background: white;
-    color: #4a5568;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .count-btn:hover {
-    border-color: #2f855a;
-    color: #2f855a;
-  }
-  .count-btn.selected {
-    background: #2f855a;
-    border-color: #2f855a;
-    color: white;
-  }
-  .start-quiz-btn {
-    display: block;
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(47, 133, 90, 0.35);
-    transition: 0.2s;
-  }
-  .start-quiz-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(47, 133, 90, 0.45);
+  
+  /* style.css のデフォルト button{ background:#4a90e2; } を完全リセット */
+  button {
+    background: transparent;
+    color: inherit;
   }
 
-  /* 大問選択タブ・資料表示スタイル */
+  /* ヒーローヘッダー：宅建等と統一のフォレストグリーン */
+  .hero-header {
+    background: #234735 !important;
+    border-radius: 12px !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    color: white !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 4px 12px rgba(35, 71, 53, 0.15) !important;
+  }
+  .hero-header h1 {
+    color: white !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+  }
+  .hero-header p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.98rem !important;
+    margin-top: 10px !important;
+  }
+
+  /* モード切り替えタブ（角丸ピル形状） */
+  .mode-switch-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+  .mode-switch-btn {
+    flex: 1;
+    padding: 14px 20px !important;
+    border-radius: 30px !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    border: 1px solid #d5cdc3 !important;
+    background: white !important;
+    color: #345d4d !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+  .mode-switch-btn:hover {
+    background: #fbfaf8 !important;
+  }
+  .mode-switch-btn.active {
+    background: #345d4d !important;
+    color: white !important;
+    border-color: #345d4d !important;
+  }
+
+  /* ウィザードステップカード */
+  .wizard-step-card {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 28px 30px !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03) !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+  .wizard-step-card h2 {
+    font-size: 1.25rem !important;
+    color: #27272a !important;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left !important;
+  }
+  .wizard-desc {
+    color: #71717a !important;
+    font-size: 0.92rem !important;
+    margin-bottom: 20px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* 大問選択タブ（青色のベタ塗りを完全排除し、白背景カード＆グリーンアクティブに統一） */
   .section-tabs-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -126,33 +119,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-bottom: 24px;
   }
   .section-tab-btn {
-    background: #ffffff;
-    border: 2px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 14px 16px;
-    text-align: left;
+    background: white !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    padding: 16px !important;
+    text-align: left !important;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
+    color: #27272a !important;
+    box-shadow: none !important;
+    margin: 0 !important;
   }
   .section-tab-btn:hover {
-    border-color: #2f855a;
-    background: #f7fafc;
+    border-color: #345d4d !important;
+    background: #fbfaf8 !important;
   }
   .section-tab-btn.active {
-    border-color: #2f855a;
-    background: #f0fff4;
-    box-shadow: 0 4px 12px rgba(47, 133, 90, 0.15);
+    border-color: #345d4d !important;
+    background: #e6f0eb !important;
+    box-shadow: 0 4px 12px rgba(52, 93, 77, 0.12) !important;
   }
   .sec-tab-badge {
     display: inline-block;
     align-self: flex-start;
     font-size: 0.75rem;
     font-weight: 700;
-    background: #2f855a;
-    color: white;
+    background: #345d4d !important;
+    color: white !important;
     padding: 2px 8px;
     border-radius: 4px;
     margin-bottom: 2px;
@@ -160,23 +156,107 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .sec-tab-title {
     font-size: 1.02rem;
     font-weight: 700;
-    color: #1a202c;
+    color: #1a231f !important;
     display: flex;
     align-items: center;
     gap: 6px;
   }
   .sec-tab-sub {
     font-size: 0.82rem;
-    color: #718096;
-  }
-  .category-section-group {
-    display: none;
-  }
-  .category-section-group.active {
-    display: block;
+    color: #71717a !important;
   }
 
-  /* 本試験資料カード・帳票・T字勘定のスタイル */
+  /* チェックボックスアイテム */
+  .category-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .category-check-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    background: white !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+    color: #27272a !important;
+  }
+  .category-check-item:hover {
+    border-color: #345d4d !important;
+    background: #fbfaf8 !important;
+  }
+  .category-check-item.selected {
+    border-color: #345d4d !important;
+    background: #e6f0eb !important;
+    font-weight: 600;
+  }
+  .category-check-item input[type="checkbox"] {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+    accent-color: #345d4d !important;
+    cursor: pointer;
+  }
+
+  /* ステップ2：出題数選択ボタン（青色ベタ塗りを完全排除し、白背景＆グリーンアクティブに統一） */
+  .count-button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .count-btn {
+    padding: 10px 22px !important;
+    border: 1.5px solid #cbd5e0 !important;
+    background: white !important;
+    color: #4a5568 !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+  .count-btn:hover {
+    border-color: #345d4d !important;
+    color: #345d4d !important;
+    background: #fbfaf8 !important;
+  }
+  .count-btn.selected {
+    background: #345d4d !important;
+    border-color: #345d4d !important;
+    color: white !important;
+  }
+
+  /* スタートボタン：フォレストグリーン */
+  .start-quiz-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: #345d4d !important;
+    color: white !important;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(52, 93, 77, 0.25) !important;
+    transition: 0.2s;
+    margin: 0 !important;
+  }
+  .start-quiz-btn:hover {
+    background: #2a4c3e !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(52, 93, 77, 0.35) !important;
+  }
+
+  /* 演習画面パーツ */
   .quiz-material-wrapper {
     margin: 14px 0 18px 0;
   }
@@ -184,24 +264,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     padding: 16px;
     background: #f8fafc;
     border: 1px solid #cbd5e1;
-    border-left: 4px solid #2f855a;
+    border-left: 4px solid #345d4d !important;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-  }
-  .material-title {
-    font-weight: 700;
-    color: #1e293b;
-    font-size: 0.98rem;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .material-desc {
-    font-size: 0.92rem;
-    color: #475569;
-    line-height: 1.6;
-    margin: 0 0 8px 0;
   }
   .exam-table {
     width: 100%;
@@ -220,63 +285,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: #1e293b;
     font-weight: 600;
   }
-  .t-account-wrap {
-    margin: 10px 0;
-    background: white;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  .t-account-title {
-    text-align: center;
-    font-weight: 700;
-    padding: 6px;
-    background: #e2e8f0;
-    color: #1e293b;
-    border-bottom: 2px solid #94a3b8;
-  }
-  .t-account-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .t-account-table th, .t-account-table td {
-    border: 1px solid #cbd5e1;
-    padding: 8px 12px;
-    vertical-align: top;
-    font-size: 0.9rem;
-  }
-  .t-account-table th {
-    text-align: center;
-    background: #f8fafc;
-  }
-  .t-account-total {
-    font-weight: 700;
-    background: #f8fafc;
-    border-top: 2px solid #64748b;
-    border-bottom: 3px double #64748b;
-  }
-
-
-  /* ヒーローヘッダーをフォレストグリーンの上質グラデーションに */
-  .hero-header {
-    background: linear-gradient(135deg, #2d5a46 0%, #1f3f31 100%) !important;
-    box-shadow: 0 8px 20px rgba(31, 63, 49, 0.25) !important;
-  }
-
-
   .progress-bar-fill {
-    background: linear-gradient(90deg, #38a169, #2f855a) !important;
-  }
-  .mode-switch-btn.active {
-    background: #2f855a !important;
-    border-color: #2f855a !important;
-    color: white !important;
-  }
-
-
-  /* ヘッダーの簿記アクティブタブをグリーン系に統一 */
-  .header-nav a.active {
-    background-color: #2f855a !important;
+    background: linear-gradient(90deg, #38a169, #345d4d) !important;
   }
 
 </style>
@@ -289,23 +299,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<header class="header">
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニュー">
-  <label for="nav-toggle" class="nav-toggle-label" aria-label="メニューを開く">
-    <span></span><span></span><span></span>
-  </label>
-  <nav class="header-nav" id="primary-nav">
-    <a href="../../index.html"><i class="fas fa-home"></i> トップ</a>
-    <a href="../../toeic/index.html"><i class="fas fa-language"></i> TOEIC</a>
-    <a href="../../fp/index.html"><i class="fas fa-coins"></i> FP</a>
-    <a href="../../takken/index.html"><i class="fas fa-building"></i> 宅建</a>
-    <a href="../../it-passport/index.html"><i class="fas fa-laptop-code"></i> ITパスポート</a>
-    <a href="../../boki/index.html" class="active"><i class="fas fa-calculator"></i> 簿記</a>
-    <a href="../../contact.html"><i class="fas fa-envelope"></i> お問い合わせ</a>
-    <a href="../../profile.html"><i class="fas fa-user-circle"></i> 私のプロフィール</a>
-  </nav>
-  <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
-</header>
+  <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <header class="kakutoku-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-link">
+        <div class="logo-mark">S</div>
+        <span class="logo-text">Shikakus</span>
+      </a>
+
+      <div class="header-actions">
+        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
+      </div>
+    </div>
+  </header>
 
 <div class="container">
   <ul class="breadcrumb">
@@ -509,8 +515,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- ステップ2: 出題数選択 -->
-      <h2><i class="fas fa-sliders-h" style="color:#2f855a;"></i> ステップ 2：出題数を選択（最大100問）</h2>
+        <!-- ステップ2: 出題数選択 -->
+    <div class="wizard-step-card">
+      <h2><i class="fas fa-sliders-h" style="color:#345d4d;"></i> ステップ 2：出題数を選択（最大100問）</h2>
       <p class="wizard-desc">スキマ時間のクイック学習から、全範囲を総ざらいする100問マラソンまで自由に選べます。</p>
 
       <div class="count-button-grid">
@@ -527,7 +534,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button type="button" id="startPracticeBtn" class="start-quiz-btn" style="flex:1; min-width:260px; margin:0;">
           <i class="fas fa-play-circle"></i> この条件でランダム練習を開始する
         </button>
-        <button type="button" id="printPracticeBtn" class="print-quiz-btn" style="flex:1; min-width:260px; padding:16px; background:#38a169; color:white; font-size:1.15rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; text-align:center; box-shadow:0 4px 12px rgba(56,161,105,0.25); transition:0.2s; display:flex; align-items:center; justify-content:center; gap:8px;">
+        <button type="button" id="printPracticeBtn" class="print-quiz-btn" style="flex:1; min-width:260px; padding:16px; background:#345d4d; color:white; font-size:1.15rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; text-align:center; box-shadow:0 4px 12px rgba(52,93,77,0.25); transition:0.2s; display:flex; align-items:center; justify-content:center; gap:8px;">
           <i class="fas fa-print"></i> この条件で問題をプリントアウトする
         </button>
       </div>
