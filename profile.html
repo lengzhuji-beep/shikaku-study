@@ -87,7 +87,64 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
     }
 </style>
-  <link rel="stylesheet" href="assets/css/kakutoku.css">
+  <link rel="stylesheet" href="assets/css/kakutoku.css?v=20260915_m3">
+
+<style>
+/* PC表示ではハンバーガーボタンを完全非表示 */
+.hamburger-btn {
+  display: none !important;
+}
+
+/* スマホ表示（860px以下）のヘッダー崩れ防止 & ハンバーガー表示 */
+@media (max-width: 860px) {
+  .nav-links, .kt-nav {
+    display: none !important;
+  }
+  .hamburger-btn {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    border: 1px solid #d5cdc3 !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+  }
+  .hamburger-btn span {
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    background-color: #1a231f !important;
+    border-radius: 2px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  .hamburger-btn.is-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg) !important;
+  }
+  .hamburger-btn.is-active span:nth-child(2) {
+    opacity: 0 !important;
+  }
+  .hamburger-btn.is-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg) !important;
+  }
+  header.kakutoku-header, .kakutoku-header {
+    padding: 10px 0 !important;
+  }
+  .header-inner {
+    padding: 0 16px !important;
+  }
+  .header-actions .btn-pill {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.82rem !important;
+  }
+}
+</style>
+
 </head>
 <body class="with-header">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3ZFKBQ3"
