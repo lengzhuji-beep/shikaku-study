@@ -262,9 +262,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const headerBar = document.createElement('div');
-    headerBar.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:20px; margin-bottom:12px; padding:12px 18px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:8px;';
+    headerBar.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:20px; margin-bottom:12px; padding:12px 18px; background:#f0fff4; border:1px solid #c6f6d5; border-radius:8px;';
     headerBar.innerHTML = `
-      <div style="font-size:0.95rem; color:#2b6cb0; font-weight:bold;">
+      <div style="font-size:0.95rem; color:#276749; font-weight:bold;">
         <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマーク保存中の問題: ${total} 問
       </div>
       <button type="button" id="printBookmarkBtn" class="btn" style="background:#38a169; color:white; border:none; padding:8px 18px; border-radius:6px; font-weight:bold; font-size:0.92rem; cursor:pointer; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
@@ -543,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ${item.explanation}
         </div>
         <div style="text-align:right; margin-top:15px;">
-          <button type="button" class="btn" id="nextQuestionBtn" style="background:#3182ce; color:white; padding:10px 24px; font-weight:bold; font-size:1rem; border-radius:6px; border:none; cursor:pointer;">
+          <button type="button" class="btn" id="nextQuestionBtn" style="background:#2f855a; color:white; padding:10px 24px; font-weight:bold; font-size:1rem; border-radius:6px; border:none; cursor:pointer;">
             ${currentIndex + 1 === total ? '結果を見る <i class="fas fa-check-circle"></i>' : '次の問題へ <i class="fas fa-arrow-right"></i>'}
           </button>
         </div>
@@ -643,8 +643,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ${accuracy >= 70 ? '★ 合格基準（70%以上）をクリアしています！この調子で反復練習を続けましょう。' : '基礎の復習が必要です。間違えた問題やブックマークした問題を重点的に反復しましょう。'}
       </p>
       <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
-        <button type="button" class="btn" id="restartWizardBtn" style="background:#3182ce; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
-        <a href="past-questions.html" class="btn" style="background:#2b6cb0; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-file-alt"></i> 過去問演習へ</a>
+        <button type="button" class="btn" id="restartWizardBtn" style="background:#2f855a; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
+        <a href="past-questions.html" class="btn" style="background:#345d4d; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-file-alt"></i> 過去問演習へ</a>
       </div>
     `;
     quizCardsContainer.appendChild(compCard);
@@ -690,7 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr>
         <td style="text-align:center; font-weight:bold; width:18%;">第 ${idx + 1} 問</td>
         <td>${q.catName || '簿記'}</td>
-        <td style="text-align:center; font-weight:bold; color:#2b6cb0; font-size:1.1rem; width:22%;">${q.correct}</td>
+        <td style="text-align:center; font-weight:bold; color:#276749; font-size:1.1rem; width:22%;">${q.correct}</td>
       </tr>
     `).join('');
 

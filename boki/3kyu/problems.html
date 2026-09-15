@@ -57,19 +57,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     user-select: none;
   }
   .category-check-item:hover {
-    border-color: #3182ce;
-    background: #ebf8ff;
+    border-color: #2f855a;
+    background: #f0fff4;
   }
   .category-check-item.selected {
-    border-color: #3182ce;
-    background: #ebf8ff;
+    border-color: #2f855a;
+    background: #f0fff4;
     font-weight: 600;
   }
   .category-check-item input[type="checkbox"] {
     margin-right: 12px;
     width: 18px;
     height: 18px;
-    accent-color: #3182ce;
+    accent-color: #2f855a;
     cursor: pointer;
   }
   .count-button-grid {
@@ -90,19 +90,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     transition: all 0.2s;
   }
   .count-btn:hover {
-    border-color: #3182ce;
-    color: #3182ce;
+    border-color: #2f855a;
+    color: #2f855a;
   }
   .count-btn.selected {
-    background: #3182ce;
-    border-color: #3182ce;
+    background: #2f855a;
+    border-color: #2f855a;
     color: white;
   }
   .start-quiz-btn {
     display: block;
     width: 100%;
     padding: 16px;
-    background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
+    background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
     color: white;
     font-size: 1.2rem;
     font-weight: 700;
@@ -110,12 +110,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.35);
+    box-shadow: 0 4px 12px rgba(47, 133, 90, 0.35);
     transition: 0.2s;
   }
   .start-quiz-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(49, 130, 206, 0.45);
+    box-shadow: 0 6px 18px rgba(47, 133, 90, 0.45);
   }
 
   /* 大問選択タブ・資料表示スタイル */
@@ -138,20 +138,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gap: 4px;
   }
   .section-tab-btn:hover {
-    border-color: #3182ce;
+    border-color: #2f855a;
     background: #f7fafc;
   }
   .section-tab-btn.active {
-    border-color: #3182ce;
-    background: #ebf8ff;
-    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.15);
+    border-color: #2f855a;
+    background: #f0fff4;
+    box-shadow: 0 4px 12px rgba(47, 133, 90, 0.15);
   }
   .sec-tab-badge {
     display: inline-block;
     align-self: flex-start;
     font-size: 0.75rem;
     font-weight: 700;
-    background: #3182ce;
+    background: #2f855a;
     color: white;
     padding: 2px 8px;
     border-radius: 4px;
@@ -184,7 +184,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     padding: 16px;
     background: #f8fafc;
     border: 1px solid #cbd5e1;
-    border-left: 4px solid #3182ce;
+    border-left: 4px solid #2f855a;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.03);
   }
@@ -256,6 +256,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-bottom: 3px double #64748b;
   }
 
+
+  /* ヒーローヘッダーをフォレストグリーンの上質グラデーションに */
+  .hero-header {
+    background: linear-gradient(135deg, #2d5a46 0%, #1f3f31 100%) !important;
+    box-shadow: 0 8px 20px rgba(31, 63, 49, 0.25) !important;
+  }
+
+
+  .progress-bar-fill {
+    background: linear-gradient(90deg, #38a169, #2f855a) !important;
+  }
+  .mode-switch-btn.active {
+    background: #2f855a !important;
+    border-color: #2f855a !important;
+    color: white !important;
+  }
+
+
+  /* ヘッダーの簿記アクティブタブをグリーン系に統一 */
+  .header-nav a.active {
+    background-color: #2f855a !important;
+  }
+
 </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
      crossorigin="anonymous"></script>
@@ -318,14 +341,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="wizardSection">
         <!-- ステップ1: 出題範囲・大問選択 -->
     <div class="wizard-step-card">
-      <h2><i class="fas fa-check-circle" style="color:#3182ce;"></i> ステップ 1：出題の大問・分野を選択</h2>
+      <h2><i class="fas fa-check-circle" style="color:#2f855a;"></i> ステップ 1：出題の大問・分野を選択</h2>
       <p class="wizard-desc">本試験の構成に合わせて【第1問：仕訳】【第2問：帳簿・伝票・勘定記入】【第3問：決算書作成】から選択できます。</p>
 
       <!-- 大問選択タブ -->
       <div class="section-tabs-container" id="bokiSectionTabs">
         <button type="button" class="section-tab-btn active" data-section="q1">
           <div class="sec-tab-badge">配点45点</div>
-          <div class="sec-tab-title"><i class="fas fa-edit" style="color:#3182ce;"></i> 【第1問】仕訳問題</div>
+          <div class="sec-tab-title"><i class="fas fa-edit" style="color:#2f855a;"></i> 【第1問】仕訳問題</div>
           <div class="sec-tab-sub">全14分野・計700問の仕訳マスター</div>
         </button>
         <button type="button" class="section-tab-btn" data-section="q2">
@@ -348,7 +371,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- ① 第1問 分野グループ -->
       <div class="category-section-group active" id="group-q1">
         <div style="font-size:0.92rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
-          <span><i class="fas fa-list-ul" style="color:#3182ce;"></i> 【第1問】仕訳問題の出題分野（全14分野・各50問）</span>
+          <span><i class="fas fa-list-ul" style="color:#2f855a;"></i> 【第1問】仕訳問題の出題分野（全14分野・各50問）</span>
           <button type="button" class="section-all-toggle-btn" data-target="q1" style="font-size:0.85rem; padding:4px 10px; background:#e2e8f0; border:none; border-radius:4px; cursor:pointer; color:#4a5568;">すべて選択 / 解除</button>
         </div>
         <div class="category-checkbox-grid">
@@ -366,7 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </label>
           <label class="category-check-item selected">
             <input type="checkbox" class="cat-checkbox" value="loan" checked data-section="q1">
-            <span><i class="fas fa-hand-holding-usd" style="color:#3182ce;"></i> 4. 金銭貸借・商品券 (50問)</span>
+            <span><i class="fas fa-hand-holding-usd" style="color:#2f855a;"></i> 4. 金銭貸借・商品券 (50問)</span>
           </label>
           <label class="category-check-item selected">
             <input type="checkbox" class="cat-checkbox" value="fixed_assets" checked data-section="q1">
@@ -487,7 +510,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- ステップ2: 出題数選択 -->
-      <h2><i class="fas fa-sliders-h" style="color:#3182ce;"></i> ステップ 2：出題数を選択（最大100問）</h2>
+      <h2><i class="fas fa-sliders-h" style="color:#2f855a;"></i> ステップ 2：出題数を選択（最大100問）</h2>
       <p class="wizard-desc">スキマ時間のクイック学習から、全範囲を総ざらいする100問マラソンまで自由に選べます。</p>
 
       <div class="count-button-grid">
