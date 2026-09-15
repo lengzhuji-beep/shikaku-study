@@ -6,7 +6,7 @@
     var headerInner = document.querySelector('.header-inner') || document.querySelector('.kakutoku-header .container');
     if (!headerInner) return;
 
-    // ハンバーガーボタンが存在しない場合は自動生成
+    // ハンバーガーボタンの取得または生成
     var hamburgerBtn = headerInner.querySelector('.hamburger-btn');
     if (!hamburgerBtn) {
       hamburgerBtn = document.createElement('button');
@@ -23,7 +23,28 @@
       }
     }
 
-    // ドロワーとオーバーレイが存在しない場合は自動生成
+    // 画面幅に応じたボタン表示切り替え（CSSのキャッシュに左右されない完全保証）
+    function updateButtonVisibility() {
+      if (window.innerWidth <= 860) {
+        hamburgerBtn.style.setProperty('display', 'flex', 'important');
+        var navLinks = document.querySelector('.nav-links') || document.querySelector('.kt-nav');
+        if (navLinks) {
+          navLinks.style.setProperty('display', 'none', 'important');
+        }
+      } else {
+        hamburgerBtn.style.setProperty('display', 'none', 'important');
+        var navLinks = document.querySelector('.nav-links') || document.querySelector('.kt-nav');
+        if (navLinks) {
+          navLinks.style.setProperty('display', 'flex', 'important');
+        }
+      }
+    }
+
+    // 初期化時およびリサイズ時に実行
+    updateButtonVisibility();
+    window.addEventListener('resize', updateButtonVisibility);
+
+    // ドロワーとオーバーレイの取得または生成
     var overlay = document.querySelector('.drawer-overlay');
     var drawer = document.querySelector('.mobile-drawer');
 
