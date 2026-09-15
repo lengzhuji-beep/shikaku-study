@@ -2923,6 +2923,7 @@ a[href*="past-questions.html"].btn:hover,
   color: #ffffff !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 4px 12px rgba(52, 93, 77, 0.22) !important;
+}
 
 /* ==========================================================================
    モバイル・レスポンシブ対応（ハンバーガーメニュー & ドロワー & UI最適化）

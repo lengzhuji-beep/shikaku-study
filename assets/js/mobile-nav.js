@@ -6,8 +6,22 @@
     var headerInner = document.querySelector('.header-inner') || document.querySelector('.kakutoku-header .container');
     if (!headerInner) return;
 
+    // もし下層ページ（「トップへ戻る」ボタンがあるページ等）であれば、ハンバーガーボタンは生成・配置しない
+    var backBtn = headerInner.querySelector('.btn-pill-outline') || headerInner.querySelector('a.btn-pill');
+    var isBackPage = false;
+    if (backBtn && (backBtn.textContent.includes('トップ') || backBtn.textContent.includes('戻る'))) {
+      isBackPage = true;
+    }
+
     // ハンバーガーボタンの取得または生成
     var hamburgerBtn = headerInner.querySelector('.hamburger-btn');
+    if (isBackPage) {
+      if (hamburgerBtn) {
+        hamburgerBtn.remove();
+      }
+      return; // 下層ページではハンバーガーボタンおよびドロワー初期化を行わない
+    }
+
     if (!hamburgerBtn) {
       hamburgerBtn = document.createElement('button');
       hamburgerBtn.className = 'hamburger-btn';
