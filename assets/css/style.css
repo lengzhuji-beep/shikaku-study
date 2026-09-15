@@ -330,8 +330,11 @@ button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.6; }
 .result-item .bookmark { top: 15px; right: 15px; }
 .result-item.correct { background-color: #d4edda; border-color: #28a745; }
 .result-item.incorrect { background-color: #f8d7da; border-color: #dc3545; }
-.quit-quiz-btn { position: absolute; top: 20px; left: 20px; background: #6c757d; color: white; padding: 8px 15px; margin: 0; border-radius: 8px; text-decoration: none; font-size: 14px; z-index: 10; }
+.quit-quiz-btn { position: absolute; top: 20px; left: 20px; background: #6c757d; color: white; padding: 8px 15px; margin: 0; border-radius: 8px; text-decoration: none; font-size: 14px; z-index: 10; cursor: pointer; border: none; }
 .quit-quiz-btn:hover { background: #5a6268; color: white; }
+@media (max-width: 640px) {
+  .quit-quiz-btn { position: static !important; display: inline-flex !important; margin-bottom: 14px !important; }
+}
 .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
 .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
 .feedback.incorrect { background-color: #f8d7da; border-color: #f5c6cb; }
