@@ -1,5 +1,5 @@
 /**
- * Shikakus - 日商簿記検定（3級・2級・1級）練習問題ウィザード＆演習レンダラー
+ * 資格対策ドットコム - 日商簿記検定（3級・2級・1級）練習問題ウィザード＆演習レンダラー
  */
 document.addEventListener('DOMContentLoaded', () => {
   // 現在の級判定
@@ -14,18 +14,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const quizCardsContainer = document.getElementById('quizCardsContainer');
   const resultSection = document.getElementById('resultSection');
 
-  // 1. カテゴリチェックボックス
+  // 1. 大問タブとカテゴリチェックボックス
+  let currentSection = 'q1';
+  const sectionTabBtns = document.querySelectorAll('.section-tab-btn');
+  const sectionGroups = document.querySelectorAll('.category-section-group');
   const catAllCheck = document.getElementById('cat-all');
   const specificCatCheckboxes = document.querySelectorAll('.cat-checkbox');
   const startBtn = document.getElementById('startPracticeBtn');
   const printBtn = document.getElementById('printPracticeBtn');
 
+  function getActiveCheckboxes() {
+    if (currentSection === 'all') {
+      return catAllCheck && catAllCheck.checked ? [catAllCheck] : [];
+    }
+    const activeGroup = document.getElementById(`group-${currentSection}`);
+    if (!activeGroup) return Array.from(specificCatCheckboxes).filter(cb => cb.checked);
+    return Array.from(activeGroup.querySelectorAll('.cat-checkbox')).filter(cb => cb.checked);
+  }
+
   function validateButtons() {
-    const anyChecked = Array.from(specificCatCheckboxes).some(cb => cb.checked);
+    let hasValidSelection = false;
+    if (currentSection === 'all') {
+      hasValidSelection = catAllCheck ? catAllCheck.checked : true;
+    } else {
+      const activeGroup = document.getElementById(`group-${currentSection}`);
+      if (activeGroup) {
+        hasValidSelection = Array.from(activeGroup.querySelectorAll('.cat-checkbox')).some(cb => cb.checked);
+      } else {
+        hasValidSelection = Array.from(specificCatCheckboxes).some(cb => cb.checked);
+      }
+    }
+
     [startBtn, printBtn].forEach(btn => {
       if (!btn) return;
-      btn.disabled = !anyChecked;
-      if (!anyChecked) {
+      btn.disabled = !hasValidSelection;
+      if (!hasValidSelection) {
         btn.style.opacity = '0.5';
         btn.style.cursor = 'not-allowed';
       } else {
@@ -34,6 +57,47 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 大問タブの切り替え処理
+  sectionTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sectionTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentSection = btn.getAttribute('data-section') || 'q1';
+
+      sectionGroups.forEach(g => {
+        if (g.id === `group-${currentSection}`) {
+          g.classList.add('active');
+        } else {
+          g.classList.remove('active');
+        }
+      });
+      validateButtons();
+    });
+  });
+
+  // 大問別の一括選択/解除ボタン
+  const sectionToggleBtns = document.querySelectorAll('.section-all-toggle-btn');
+  sectionToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetSec = btn.getAttribute('data-target');
+      const grp = document.getElementById(`group-${targetSec}`);
+      if (!grp) return;
+      const cbs = grp.querySelectorAll('.cat-checkbox');
+      const allChecked = Array.from(cbs).every(c => c.checked);
+      const newStatus = !allChecked;
+
+      cbs.forEach(cb => {
+        cb.checked = newStatus;
+        const parent = cb.closest('.category-check-item');
+        if (parent) {
+          if (newStatus) parent.classList.add('selected');
+          else parent.classList.remove('selected');
+        }
+      });
+      validateButtons();
+    });
+  });
 
   if (catAllCheck) {
     catAllCheck.addEventListener('change', (e) => {
@@ -198,9 +262,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const headerBar = document.createElement('div');
-    headerBar.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:20px; margin-bottom:12px; padding:12px 18px; background:#edf4f0; border:1px solid #c6e6d4; border-radius:8px;';
+    headerBar.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:20px; margin-bottom:12px; padding:12px 18px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:8px;';
     headerBar.innerHTML = `
-      <div style="font-size:0.95rem; color:#254337; font-weight:bold;">
+      <div style="font-size:0.95rem; color:#2b6cb0; font-weight:bold;">
         <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマーク保存中の問題: ${total} 問
       </div>
       <button type="button" id="printBookmarkBtn" class="btn" style="background:#38a169; color:white; border:none; padding:8px 18px; border-radius:6px; font-weight:bold; font-size:0.92rem; cursor:pointer; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
@@ -273,6 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="quiz-question-text">${item.text}</div>
+        ${item.materialHtml ? `<div class="quiz-material-wrapper">${item.materialHtml}</div>` : ''}
         <div class="quiz-options">${optionsHtml}</div>
 
         <div class="quiz-explanation-area" style="display:none;">
@@ -305,15 +370,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           });
 
-          expArea.classList.remove('is-correct', 'is-wrong');
           if (isCorrect) {
             opt.classList.add('correct-choice');
             resTitle.innerHTML = '<span style="color:#2f855a; font-weight:bold; font-size:1.15rem;"><i class="fas fa-check-circle"></i> 正解！</span>';
-            expArea.classList.add('is-correct');
           } else {
             opt.classList.add('wrong-choice');
             resTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${item.correct}）</span>`;
-            expArea.classList.add('is-wrong');
           }
 
           expArea.style.display = 'block';
@@ -366,11 +428,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (startBtn && questionPool) {
     startBtn.addEventListener('click', () => {
-      const selectedCats = Array.from(specificCatCheckboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.value);
+      let candidatePool = [];
+      if (currentSection === 'all') {
+        candidatePool = questionPool;
+      } else {
+        const activeGroup = document.getElementById(`group-${currentSection}`);
+        const activeCheckboxes = activeGroup ? activeGroup.querySelectorAll('.cat-checkbox') : specificCatCheckboxes;
+        const selectedCats = Array.from(activeCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
 
-      let candidatePool = questionPool.filter(q => selectedCats.includes(q.catKey));
+        candidatePool = questionPool.filter(q => {
+          if (q.section && q.section !== currentSection) return false;
+          return selectedCats.includes(q.catKey);
+        });
+      }
 
       if (candidatePool.length === 0) {
         alert('選択された分野の問題が見つかりませんでした。別の分野を選択してください。');
@@ -397,12 +469,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. 印刷・PDF出力ボタン
   if (printBtn && questionPool) {
     printBtn.addEventListener('click', () => {
-      const selectedCats = Array.from(specificCatCheckboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.value);
+      let candidatePool = [];
+      if (currentSection === 'all') {
+        candidatePool = questionPool;
+      } else {
+        const activeGroup = document.getElementById(`group-${currentSection}`);
+        const activeCheckboxes = activeGroup ? activeGroup.querySelectorAll('.cat-checkbox') : specificCatCheckboxes;
+        const selectedCats = Array.from(activeCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
 
-      let candidatePool = questionPool.filter(q => selectedCats.includes(q.catKey));
-      if (candidatePool.length === 0) candidatePool = questionPool;
+        candidatePool = questionPool.filter(q => {
+          if (q.section && q.section !== currentSection) return false;
+          return selectedCats.includes(q.catKey);
+        });
+        if (candidatePool.length === 0) candidatePool = questionPool;
+      }
 
       const shuffled = shuffle(candidatePool);
       const printQuestions = shuffled.slice(0, Math.min(selectedCount, shuffled.length));
@@ -452,6 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <div class="quiz-question-text">${item.text}</div>
+      ${item.materialHtml ? `<div class="quiz-material-wrapper">${item.materialHtml}</div>` : ''}
       <div class="quiz-options">${optionsHtml}</div>
 
       <div class="quiz-explanation-area" style="display:none;" id="currentExplanationArea">
@@ -460,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ${item.explanation}
         </div>
         <div style="text-align:right; margin-top:15px;">
-          <button type="button" class="btn next-question-btn" id="nextQuestionBtn" style="background:#345d4d; color:white; padding:10px 24px; font-weight:bold; font-size:1rem; border-radius:9999px; border:none; cursor:pointer;">
+          <button type="button" class="btn" id="nextQuestionBtn" style="background:#3182ce; color:white; padding:10px 24px; font-weight:bold; font-size:1rem; border-radius:6px; border:none; cursor:pointer;">
             ${currentIndex + 1 === total ? '結果を見る <i class="fas fa-check-circle"></i>' : '次の問題へ <i class="fas fa-arrow-right"></i>'}
           </button>
         </div>
@@ -491,15 +574,12 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        expArea.classList.remove('is-correct', 'is-wrong');
         if (isCorrect) {
           opt.classList.add('correct-choice');
           resTitle.innerHTML = '<span style="color:#2f855a; font-weight:bold; font-size:1.15rem;"><i class="fas fa-check-circle"></i> 正解！</span>';
-          expArea.classList.add('is-correct');
         } else {
           opt.classList.add('wrong-choice');
           resTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${item.correct}）</span>`;
-          expArea.classList.add('is-wrong');
         }
 
         expArea.style.display = 'block';
@@ -563,8 +643,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ${accuracy >= 70 ? '★ 合格基準（70%以上）をクリアしています！この調子で反復練習を続けましょう。' : '基礎の復習が必要です。間違えた問題やブックマークした問題を重点的に反復しましょう。'}
       </p>
       <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
-        <button type="button" class="btn" id="restartWizardBtn" style="background:#345d4d; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
-        <a href="past-questions.html" class="btn" style="background:#254337; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-file-alt"></i> 過去問演習へ</a>
+        <button type="button" class="btn" id="restartWizardBtn" style="background:#3182ce; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
+        <a href="past-questions.html" class="btn" style="background:#2b6cb0; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-file-alt"></i> 過去問演習へ</a>
       </div>
     `;
     quizCardsContainer.appendChild(compCard);
@@ -610,7 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr>
         <td style="text-align:center; font-weight:bold; width:18%;">第 ${idx + 1} 問</td>
         <td>${q.catName || '簿記'}</td>
-        <td style="text-align:center; font-weight:bold; color:#254337; font-size:1.1rem; width:22%;">${q.correct}</td>
+        <td style="text-align:center; font-weight:bold; color:#2b6cb0; font-size:1.1rem; width:22%;">${q.correct}</td>
       </tr>
     `).join('');
 
@@ -625,6 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="print-q-ansbox">解答記入欄：( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>
         </div>
         <div class="print-q-text">${q.text}</div>
+        ${q.materialHtml ? `<div class="print-material" style="margin:10px 0;">${q.materialHtml}</div>` : ''}
         <div class="print-q-options">
           ${(q.options || []).map((opt, i) => `
             <div class="print-q-opt">
@@ -655,7 +736,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>${examTitle} プリント（全${total}問） | Shikakus</title>
+<title>${examTitle} プリント（全${total}問） | 資格対策ドットコム</title>
 <style>
   @page {
     size: A4 portrait;
@@ -685,7 +766,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
   .no-print-bar button {
-    background: #345d4d;
+    background: #3182ce;
     color: white;
     border: none;
     padding: 8px 20px;
@@ -696,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
   .no-print-bar button:hover {
-    background: #254337;
+    background: #2b6cb0;
   }
   .print-page-container {
     background: white;
@@ -706,7 +787,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 0 10px rgba(0,0,0,0.08);
   }
   .print-header {
-    border-bottom: 2px solid #254337;
+    border-bottom: 2px solid #2b6cb0;
     padding-bottom: 8px;
     margin-bottom: 20px;
     display: flex;
@@ -716,7 +797,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .print-title {
     font-size: 16pt;
     font-weight: bold;
-    color: #254337;
+    color: #2b6cb0;
   }
   .print-subtitle {
     font-size: 9pt;
@@ -762,7 +843,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .print-q-num {
     font-size: 11pt;
     font-weight: bold;
-    color: #254337;
+    color: #2b6cb0;
   }
   .print-q-cat {
     font-size: 8.5pt;
@@ -818,7 +899,7 @@ document.addEventListener('DOMContentLoaded', () => {
     font-size: 13pt;
     font-weight: bold;
     color: #2d3748;
-    border-left: 4px solid #254337;
+    border-left: 4px solid #2b6cb0;
     padding-left: 8px;
     margin: 20px 0 12px 0;
   }
@@ -833,8 +914,8 @@ document.addEventListener('DOMContentLoaded', () => {
     padding: 6px 10px;
   }
   .print-ans-table th {
-    background: #edf4f0;
-    color: #254337;
+    background: #ebf8ff;
+    color: #2b6cb0;
     text-align: center;
   }
   .print-expl-item {
@@ -891,7 +972,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="print-page-container">
     <div class="print-header">
       <div class="print-title">${examTitle} 【問題編】</div>
-      <div class="print-subtitle">Shikakus</div>
+      <div class="print-subtitle">資格対策ドットコム</div>
     </div>
     <div class="print-meta-box">
       <div>実施日：${new Date().toLocaleDateString('ja-JP')} ｜ 出題数：全 ${total} 問</div>
@@ -912,7 +993,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="print-page-container">
     <div class="print-header">
       <div class="print-title">${examTitle} 【解答・解説編】</div>
-      <div class="print-subtitle">Shikakus ｜ 正解と詳細解説一覧</div>
+      <div class="print-subtitle">資格対策ドットコム ｜ 正解と詳細解説一覧</div>
     </div>
 
     <div class="print-section-title">■ 正解一覧</div>

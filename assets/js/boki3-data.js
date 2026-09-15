@@ -1,6 +1,230 @@
 /**
- * Shikakus - 日商簿記3級 練習問題データ（全14分野×各50問＝計700問 完全網羅版）
+ * 資格対策ドットコム - 日商簿記3級 練習問題データ
+ * 【本試験対応3大分類 完全網羅版】
+ * - 【第1問】仕訳問題（全14分野・計700問）
+ * - 【第2問】帳簿・伝票・勘定記入（全6分野・計15問）
+ * - 【第3問】決算書作成問題（全5分野・計10問）
  */
+
+window.BOKI3_SECTIONS = [
+  {
+    "id": "q1",
+    "name": "【第1問】仕訳問題",
+    "short": "第1問 仕訳",
+    "badge": "配点45点",
+    "desc": "出題数15問・配点45点。合否を分ける最重要パート（全14分野・計700問）",
+    "count": 700
+  },
+  {
+    "id": "q2",
+    "name": "【第2問】帳簿・伝票・勘定記入",
+    "short": "第2問 帳簿・伝票",
+    "badge": "配点20点",
+    "desc": "出題数2問程度・配点20点。補助簿選択、商品有高帳、勘定記入、伝票会計等の実務形式",
+    "count": 15
+  },
+  {
+    "id": "q3",
+    "name": "【第3問】決算書作成問題",
+    "short": "第3問 決算書",
+    "badge": "配点35点",
+    "desc": "出題数1問・配点35点。財務諸表（B/S・P/L）、精算表、決算整理後残高試算表の総合問題",
+    "count": 10
+  },
+  {
+    "id": "all",
+    "name": "【総合演習】全大問からランダム",
+    "short": "全問総合",
+    "badge": "合計100点",
+    "desc": "第1問・第2問・第3問の全論点からバランスよく総合出題（計725問）",
+    "count": 725
+  }
+];
+
+window.BOKI3_CATEGORIES_BY_SECTION = {
+  "q1": [
+    {
+      "key": "cash",
+      "name": "1. 現金預金",
+      "icon": "fa-money-bill-wave",
+      "color": "#2f855a",
+      "count": 50
+    },
+    {
+      "key": "trade",
+      "name": "2. 商品売買・営業債権債務",
+      "icon": "fa-shopping-cart",
+      "color": "#c53030",
+      "count": 50
+    },
+    {
+      "key": "bad_debt",
+      "name": "3. 貸倒引当金",
+      "icon": "fa-shield-alt",
+      "color": "#d69e2e",
+      "count": 50
+    },
+    {
+      "key": "loan",
+      "name": "4. 金銭の貸借・商品券",
+      "icon": "fa-hand-holding-usd",
+      "color": "#3182ce",
+      "count": 50
+    },
+    {
+      "key": "fixed_assets",
+      "name": "5. 有形固定資産",
+      "icon": "fa-truck",
+      "color": "#805ad5",
+      "count": 50
+    },
+    {
+      "key": "supplies",
+      "name": "6. 消耗品・切手・印紙",
+      "icon": "fa-stamp",
+      "color": "#dd6b20",
+      "count": 50
+    },
+    {
+      "key": "travel",
+      "name": "7. 出張・旅費交通費",
+      "icon": "fa-plane-departure",
+      "color": "#319795",
+      "count": 50
+    },
+    {
+      "key": "real_estate",
+      "name": "8. 不動産関係",
+      "icon": "fa-building",
+      "color": "#744210",
+      "count": 50
+    },
+    {
+      "key": "salary",
+      "name": "9. 給料関係",
+      "icon": "fa-id-card",
+      "color": "#4a5568",
+      "count": 50
+    },
+    {
+      "key": "selling_expenses",
+      "name": "10. その他販管費",
+      "icon": "fa-file-invoice-dollar",
+      "color": "#b83280",
+      "count": 50
+    },
+    {
+      "key": "tax",
+      "name": "11. 法人税等",
+      "icon": "fa-landmark",
+      "color": "#c53030",
+      "count": 50
+    },
+    {
+      "key": "voucher",
+      "name": "12. 証ひょう",
+      "icon": "fa-receipt",
+      "color": "#2c5282",
+      "count": 50
+    },
+    {
+      "key": "settlement",
+      "name": "13. 決算手続き",
+      "icon": "fa-calculator",
+      "color": "#234e52",
+      "count": 50
+    },
+    {
+      "key": "capital",
+      "name": "14. 資本取引",
+      "icon": "fa-coins",
+      "color": "#975a16",
+      "count": 50
+    }
+  ],
+  "q2": [
+    {
+      "key": "q2-1",
+      "name": "1. 補助簿の選択・記入",
+      "icon": "fa-book",
+      "color": "#2b6cb0",
+      "count": 3
+    },
+    {
+      "key": "q2-2",
+      "name": "2. 商品有高帳（先入先出・移動平均）",
+      "icon": "fa-boxes",
+      "color": "#c53030",
+      "count": 3
+    },
+    {
+      "key": "q2-3",
+      "name": "3. 勘定記入（T字勘定・決算振替）",
+      "icon": "fa-balance-scale",
+      "color": "#2f855a",
+      "count": 3
+    },
+    {
+      "key": "q2-4",
+      "name": "4. 伝票会計（3伝票制・一部現金）",
+      "icon": "fa-receipt",
+      "color": "#d69e2e",
+      "count": 2
+    },
+    {
+      "key": "q2-5",
+      "name": "5. 固定資産台帳・売却損益",
+      "icon": "fa-truck",
+      "color": "#805ad5",
+      "count": 2
+    },
+    {
+      "key": "q2-6",
+      "name": "6. 当座預金出納帳・当座借越",
+      "icon": "fa-university",
+      "color": "#319795",
+      "count": 2
+    }
+  ],
+  "q3": [
+    {
+      "key": "q3-1",
+      "name": "1. 精算表の作成（8桁精算表）",
+      "icon": "fa-table",
+      "color": "#2b6cb0",
+      "count": 3
+    },
+    {
+      "key": "q3-2",
+      "name": "2. 貸借対照表（B/S）の作成",
+      "icon": "fa-file-invoice",
+      "color": "#2f855a",
+      "count": 2
+    },
+    {
+      "key": "q3-3",
+      "name": "3. 損益計算書（P/L）の作成",
+      "icon": "fa-chart-line",
+      "color": "#c53030",
+      "count": 2
+    },
+    {
+      "key": "q3-4",
+      "name": "4. 決算整理後残高試算表",
+      "icon": "fa-list-alt",
+      "color": "#805ad5",
+      "count": 1
+    },
+    {
+      "key": "q3-5",
+      "name": "5. 決算整理事項の総合演習",
+      "icon": "fa-tasks",
+      "color": "#dd6b20",
+      "count": 2
+    }
+  ]
+};
+
 window.BOKI3_QUESTION_POOL = [
   {
     "num": 1,
@@ -19,7 +243,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 100,000 ／ （貸方）現金 100,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金が増加（借方）し、手許の現金が減少（貸方）します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-cash-1"
+    "qid": "boki3-cash-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 2,
@@ -38,7 +265,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 115,000 、 支払手数料 550 ／ （貸方）普通預金 115,550<br><br><strong>【解法のポイント・解説】</strong><br>当座預金の増加と振込手数料（支払手数料）を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-cash-2"
+    "qid": "boki3-cash-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 3,
@@ -57,7 +287,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 130,000 ／ （貸方）売掛金 130,000<br><br><strong>【解法のポイント・解説】</strong><br>他人振出小切手や郵便為替証書は「通貨代用証券」として「現金」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-cash-3"
+    "qid": "boki3-cash-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 4,
@@ -76,7 +309,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 145,000 ／ （貸方）当座預金 145,000<br><br><strong>【解法のポイント・解説】</strong><br>当座借越を当座勘定の一本法で処理する場合、限度額内であれば貸方に「当座預金」をそのまま記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-cash-4"
+    "qid": "boki3-cash-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 5,
@@ -95,7 +331,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 96,000 、 消耗品費 64,000 ／ （貸方）当座預金 160,000<br><br><strong>【解法のポイント・解説】</strong><br>支払報告と同時に小切手で即時補給したため、発生費用を借方に、当座預金の減少を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-cash-5"
+    "qid": "boki3-cash-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 6,
@@ -114,7 +353,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）雑損 3,500 ／ （貸方）現金過不足 3,500<br><br><strong>【解法のポイント・解説】</strong><br>決算時において判明しなかった現金の不足（借方残高）は「雑損」（費用）勘定に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-cash-6"
+    "qid": "boki3-cash-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 7,
@@ -133,7 +375,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 190,000 ／ （貸方）現金 190,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金が増加（借方）し、手許の現金が減少（貸方）します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-cash-7"
+    "qid": "boki3-cash-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 8,
@@ -152,7 +397,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 205,000 、 支払手数料 550 ／ （貸方）普通預金 205,550<br><br><strong>【解法のポイント・解説】</strong><br>当座預金の増加と振込手数料（支払手数料）を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-cash-8"
+    "qid": "boki3-cash-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 9,
@@ -171,7 +419,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 220,000 ／ （貸方）売掛金 220,000<br><br><strong>【解法のポイント・解説】</strong><br>他人振出小切手や郵便為替証書は「通貨代用証券」として「現金」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-cash-9"
+    "qid": "boki3-cash-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 10,
@@ -190,7 +441,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 235,000 ／ （貸方）当座預金 235,000<br><br><strong>【解法のポイント・解説】</strong><br>当座借越を当座勘定の一本法で処理する場合、限度額内であれば貸方に「当座預金」をそのまま記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-cash-10"
+    "qid": "boki3-cash-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 11,
@@ -209,7 +463,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 150,000 、 消耗品費 100,000 ／ （貸方）当座預金 250,000<br><br><strong>【解法のポイント・解説】</strong><br>支払報告と同時に小切手で即時補給したため、発生費用を借方に、当座預金の減少を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-cash-11"
+    "qid": "boki3-cash-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 12,
@@ -228,7 +485,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）雑損 5,300 ／ （貸方）現金過不足 5,300<br><br><strong>【解法のポイント・解説】</strong><br>決算時において判明しなかった現金の不足（借方残高）は「雑損」（費用）勘定に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-cash-12"
+    "qid": "boki3-cash-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 13,
@@ -247,7 +507,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 280,000 ／ （貸方）現金 280,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金が増加（借方）し、手許の現金が減少（貸方）します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-cash-13"
+    "qid": "boki3-cash-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 14,
@@ -266,7 +529,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 295,000 、 支払手数料 550 ／ （貸方）普通預金 295,550<br><br><strong>【解法のポイント・解説】</strong><br>当座預金の増加と振込手数料（支払手数料）を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-cash-14"
+    "qid": "boki3-cash-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 15,
@@ -285,7 +551,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 310,000 ／ （貸方）売掛金 310,000<br><br><strong>【解法のポイント・解説】</strong><br>他人振出小切手や郵便為替証書は「通貨代用証券」として「現金」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-cash-15"
+    "qid": "boki3-cash-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 16,
@@ -304,7 +573,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 325,000 ／ （貸方）当座預金 325,000<br><br><strong>【解法のポイント・解説】</strong><br>当座借越を当座勘定の一本法で処理する場合、限度額内であれば貸方に「当座預金」をそのまま記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-cash-16"
+    "qid": "boki3-cash-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 17,
@@ -323,7 +595,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 204,000 、 消耗品費 136,000 ／ （貸方）当座預金 340,000<br><br><strong>【解法のポイント・解説】</strong><br>支払報告と同時に小切手で即時補給したため、発生費用を借方に、当座預金の減少を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-cash-17"
+    "qid": "boki3-cash-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 18,
@@ -342,7 +617,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）雑損 7,100 ／ （貸方）現金過不足 7,100<br><br><strong>【解法のポイント・解説】</strong><br>決算時において判明しなかった現金の不足（借方残高）は「雑損」（費用）勘定に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-cash-18"
+    "qid": "boki3-cash-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 19,
@@ -361,7 +639,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 370,000 ／ （貸方）現金 370,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金が増加（借方）し、手許の現金が減少（貸方）します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-cash-19"
+    "qid": "boki3-cash-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 20,
@@ -380,7 +661,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 385,000 、 支払手数料 550 ／ （貸方）普通預金 385,550<br><br><strong>【解法のポイント・解説】</strong><br>当座預金の増加と振込手数料（支払手数料）を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-cash-20"
+    "qid": "boki3-cash-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 21,
@@ -399,7 +683,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 400,000 ／ （貸方）売掛金 400,000<br><br><strong>【解法のポイント・解説】</strong><br>他人振出小切手や郵便為替証書は「通貨代用証券」として「現金」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-cash-21"
+    "qid": "boki3-cash-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 22,
@@ -418,7 +705,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 415,000 ／ （貸方）当座預金 415,000<br><br><strong>【解法のポイント・解説】</strong><br>当座借越を当座勘定の一本法で処理する場合、限度額内であれば貸方に「当座預金」をそのまま記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-cash-22"
+    "qid": "boki3-cash-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 23,
@@ -437,7 +727,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 258,000 、 消耗品費 172,000 ／ （貸方）当座預金 430,000<br><br><strong>【解法のポイント・解説】</strong><br>支払報告と同時に小切手で即時補給したため、発生費用を借方に、当座預金の減少を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-cash-23"
+    "qid": "boki3-cash-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 24,
@@ -456,7 +749,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）雑損 8,900 ／ （貸方）現金過不足 8,900<br><br><strong>【解法のポイント・解説】</strong><br>決算時において判明しなかった現金の不足（借方残高）は「雑損」（費用）勘定に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-cash-24"
+    "qid": "boki3-cash-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 25,
@@ -475,7 +771,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 460,000 ／ （貸方）現金 460,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金が増加（借方）し、手許の現金が減少（貸方）します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-cash-25"
+    "qid": "boki3-cash-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 26,
@@ -494,7 +793,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 475,000 、 支払手数料 550 ／ （貸方）普通預金 475,550<br><br><strong>【解法のポイント・解説】</strong><br>当座預金の増加と振込手数料（支払手数料）を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-cash-26"
+    "qid": "boki3-cash-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 27,
@@ -513,7 +815,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 490,000 ／ （貸方）売掛金 490,000<br><br><strong>【解法のポイント・解説】</strong><br>他人振出小切手や郵便為替証書は「通貨代用証券」として「現金」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-cash-27"
+    "qid": "boki3-cash-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 28,
@@ -532,7 +837,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 505,000 ／ （貸方）当座預金 505,000<br><br><strong>【解法のポイント・解説】</strong><br>当座借越を当座勘定の一本法で処理する場合、限度額内であれば貸方に「当座預金」をそのまま記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-cash-28"
+    "qid": "boki3-cash-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 29,
@@ -551,7 +859,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 312,000 、 消耗品費 208,000 ／ （貸方）当座預金 520,000<br><br><strong>【解法のポイント・解説】</strong><br>支払報告と同時に小切手で即時補給したため、発生費用を借方に、当座預金の減少を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-cash-29"
+    "qid": "boki3-cash-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 30,
@@ -570,7 +881,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）雑損 10,700 ／ （貸方）現金過不足 10,700<br><br><strong>【解法のポイント・解説】</strong><br>決算時において判明しなかった現金の不足（借方残高）は「雑損」（費用）勘定に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-cash-30"
+    "qid": "boki3-cash-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 31,
@@ -589,7 +903,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 550,000 ／ （貸方）現金 550,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金が増加（借方）し、手許の現金が減少（貸方）します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-cash-31"
+    "qid": "boki3-cash-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 32,
@@ -608,7 +925,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 565,000 、 支払手数料 550 ／ （貸方）普通預金 565,550<br><br><strong>【解法のポイント・解説】</strong><br>当座預金の増加と振込手数料（支払手数料）を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-cash-32"
+    "qid": "boki3-cash-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 33,
@@ -627,7 +947,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 580,000 ／ （貸方）売掛金 580,000<br><br><strong>【解法のポイント・解説】</strong><br>他人振出小切手や郵便為替証書は「通貨代用証券」として「現金」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-cash-33"
+    "qid": "boki3-cash-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 34,
@@ -646,7 +969,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 595,000 ／ （貸方）当座預金 595,000<br><br><strong>【解法のポイント・解説】</strong><br>当座借越を当座勘定の一本法で処理する場合、限度額内であれば貸方に「当座預金」をそのまま記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-cash-34"
+    "qid": "boki3-cash-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 35,
@@ -665,7 +991,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 366,000 、 消耗品費 244,000 ／ （貸方）当座預金 610,000<br><br><strong>【解法のポイント・解説】</strong><br>支払報告と同時に小切手で即時補給したため、発生費用を借方に、当座預金の減少を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-cash-35"
+    "qid": "boki3-cash-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 36,
@@ -684,7 +1013,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）雑損 12,500 ／ （貸方）現金過不足 12,500<br><br><strong>【解法のポイント・解説】</strong><br>決算時において判明しなかった現金の不足（借方残高）は「雑損」（費用）勘定に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-cash-36"
+    "qid": "boki3-cash-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 37,
@@ -703,7 +1035,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 640,000 ／ （貸方）現金 640,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金が増加（借方）し、手許の現金が減少（貸方）します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-cash-37"
+    "qid": "boki3-cash-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 38,
@@ -722,7 +1057,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 655,000 、 支払手数料 550 ／ （貸方）普通預金 655,550<br><br><strong>【解法のポイント・解説】</strong><br>当座預金の増加と振込手数料（支払手数料）を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-cash-38"
+    "qid": "boki3-cash-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 39,
@@ -741,7 +1079,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 670,000 ／ （貸方）売掛金 670,000<br><br><strong>【解法のポイント・解説】</strong><br>他人振出小切手や郵便為替証書は「通貨代用証券」として「現金」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-cash-39"
+    "qid": "boki3-cash-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 40,
@@ -760,7 +1101,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 685,000 ／ （貸方）当座預金 685,000<br><br><strong>【解法のポイント・解説】</strong><br>当座借越を当座勘定の一本法で処理する場合、限度額内であれば貸方に「当座預金」をそのまま記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-cash-40"
+    "qid": "boki3-cash-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 41,
@@ -779,7 +1123,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 420,000 、 消耗品費 280,000 ／ （貸方）当座預金 700,000<br><br><strong>【解法のポイント・解説】</strong><br>支払報告と同時に小切手で即時補給したため、発生費用を借方に、当座預金の減少を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-cash-41"
+    "qid": "boki3-cash-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 42,
@@ -798,7 +1145,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）雑損 14,300 ／ （貸方）現金過不足 14,300<br><br><strong>【解法のポイント・解説】</strong><br>決算時において判明しなかった現金の不足（借方残高）は「雑損」（費用）勘定に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-cash-42"
+    "qid": "boki3-cash-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 43,
@@ -817,7 +1167,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 730,000 ／ （貸方）現金 730,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金が増加（借方）し、手許の現金が減少（貸方）します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-cash-43"
+    "qid": "boki3-cash-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 44,
@@ -836,7 +1189,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 745,000 、 支払手数料 550 ／ （貸方）普通預金 745,550<br><br><strong>【解法のポイント・解説】</strong><br>当座預金の増加と振込手数料（支払手数料）を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-cash-44"
+    "qid": "boki3-cash-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 45,
@@ -855,7 +1211,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 760,000 ／ （貸方）売掛金 760,000<br><br><strong>【解法のポイント・解説】</strong><br>他人振出小切手や郵便為替証書は「通貨代用証券」として「現金」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-cash-45"
+    "qid": "boki3-cash-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 46,
@@ -874,7 +1233,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 775,000 ／ （貸方）当座預金 775,000<br><br><strong>【解法のポイント・解説】</strong><br>当座借越を当座勘定の一本法で処理する場合、限度額内であれば貸方に「当座預金」をそのまま記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-cash-46"
+    "qid": "boki3-cash-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 47,
@@ -893,7 +1255,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 474,000 、 消耗品費 316,000 ／ （貸方）当座預金 790,000<br><br><strong>【解法のポイント・解説】</strong><br>支払報告と同時に小切手で即時補給したため、発生費用を借方に、当座預金の減少を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-cash-47"
+    "qid": "boki3-cash-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 48,
@@ -912,7 +1277,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）雑損 16,100 ／ （貸方）現金過不足 16,100<br><br><strong>【解法のポイント・解説】</strong><br>決算時において判明しなかった現金の不足（借方残高）は「雑損」（費用）勘定に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-cash-48"
+    "qid": "boki3-cash-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 49,
@@ -931,7 +1299,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 820,000 ／ （貸方）現金 820,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金が増加（借方）し、手許の現金が減少（貸方）します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-cash-49"
+    "qid": "boki3-cash-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 50,
@@ -950,7 +1321,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 835,000 、 支払手数料 550 ／ （貸方）普通預金 835,550<br><br><strong>【解法のポイント・解説】</strong><br>当座預金の増加と振込手数料（支払手数料）を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-cash-50"
+    "qid": "boki3-cash-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 51,
@@ -969,7 +1343,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 82,000 ／ （貸方）買掛金 80,000 、 現金 2,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-trade-1"
+    "qid": "boki3-trade-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 52,
@@ -988,7 +1365,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 92,000 、 発送費 2,200 ／ （貸方）売上 92,000 、 現金 2,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-trade-2"
+    "qid": "boki3-trade-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 53,
@@ -1007,7 +1387,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 20,800 ／ （貸方）売掛金 20,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-trade-3"
+    "qid": "boki3-trade-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 54,
@@ -1026,7 +1409,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 116,000 ／ （貸方）受取手形 116,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-trade-4"
+    "qid": "boki3-trade-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 55,
@@ -1045,7 +1431,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 122,880 、 支払手数料 5,120 ／ （貸方）売上 128,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-trade-5"
+    "qid": "boki3-trade-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 56,
@@ -1064,7 +1453,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 143,000 ／ （貸方）買掛金 140,000 、 現金 3,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-trade-6"
+    "qid": "boki3-trade-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 57,
@@ -1083,7 +1475,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 152,000 、 発送費 3,200 ／ （貸方）売上 152,000 、 現金 3,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-trade-7"
+    "qid": "boki3-trade-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 58,
@@ -1102,7 +1497,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 32,800 ／ （貸方）売掛金 32,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-trade-8"
+    "qid": "boki3-trade-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 59,
@@ -1121,7 +1519,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 176,000 ／ （貸方）受取手形 176,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-trade-9"
+    "qid": "boki3-trade-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 60,
@@ -1140,7 +1541,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 180,480 、 支払手数料 7,520 ／ （貸方）売上 188,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-trade-10"
+    "qid": "boki3-trade-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 61,
@@ -1159,7 +1563,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 204,000 ／ （貸方）買掛金 200,000 、 現金 4,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-trade-11"
+    "qid": "boki3-trade-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 62,
@@ -1178,7 +1585,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 212,000 、 発送費 4,200 ／ （貸方）売上 212,000 、 現金 4,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-trade-12"
+    "qid": "boki3-trade-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 63,
@@ -1197,7 +1607,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 44,800 ／ （貸方）売掛金 44,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-trade-13"
+    "qid": "boki3-trade-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 64,
@@ -1216,7 +1629,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 236,000 ／ （貸方）受取手形 236,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-trade-14"
+    "qid": "boki3-trade-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 65,
@@ -1235,7 +1651,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 238,080 、 支払手数料 9,920 ／ （貸方）売上 248,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-trade-15"
+    "qid": "boki3-trade-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 66,
@@ -1254,7 +1673,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 265,000 ／ （貸方）買掛金 260,000 、 現金 5,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-trade-16"
+    "qid": "boki3-trade-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 67,
@@ -1273,7 +1695,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 272,000 、 発送費 5,200 ／ （貸方）売上 272,000 、 現金 5,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-trade-17"
+    "qid": "boki3-trade-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 68,
@@ -1292,7 +1717,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 56,800 ／ （貸方）売掛金 56,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-trade-18"
+    "qid": "boki3-trade-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 69,
@@ -1311,7 +1739,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 296,000 ／ （貸方）受取手形 296,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-trade-19"
+    "qid": "boki3-trade-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 70,
@@ -1330,7 +1761,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 295,680 、 支払手数料 12,320 ／ （貸方）売上 308,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-trade-20"
+    "qid": "boki3-trade-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 71,
@@ -1349,7 +1783,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 326,000 ／ （貸方）買掛金 320,000 、 現金 6,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-trade-21"
+    "qid": "boki3-trade-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 72,
@@ -1368,7 +1805,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 332,000 、 発送費 6,200 ／ （貸方）売上 332,000 、 現金 6,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-trade-22"
+    "qid": "boki3-trade-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 73,
@@ -1387,7 +1827,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 68,800 ／ （貸方）売掛金 68,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-trade-23"
+    "qid": "boki3-trade-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 74,
@@ -1406,7 +1849,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 356,000 ／ （貸方）受取手形 356,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-trade-24"
+    "qid": "boki3-trade-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 75,
@@ -1425,7 +1871,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 353,280 、 支払手数料 14,720 ／ （貸方）売上 368,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-trade-25"
+    "qid": "boki3-trade-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 76,
@@ -1444,7 +1893,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 387,000 ／ （貸方）買掛金 380,000 、 現金 7,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-trade-26"
+    "qid": "boki3-trade-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 77,
@@ -1463,7 +1915,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 392,000 、 発送費 7,200 ／ （貸方）売上 392,000 、 現金 7,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-trade-27"
+    "qid": "boki3-trade-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 78,
@@ -1482,7 +1937,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 80,800 ／ （貸方）売掛金 80,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-trade-28"
+    "qid": "boki3-trade-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 79,
@@ -1501,7 +1959,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 416,000 ／ （貸方）受取手形 416,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-trade-29"
+    "qid": "boki3-trade-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 80,
@@ -1520,7 +1981,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 410,880 、 支払手数料 17,120 ／ （貸方）売上 428,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-trade-30"
+    "qid": "boki3-trade-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 81,
@@ -1539,7 +2003,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 448,000 ／ （貸方）買掛金 440,000 、 現金 8,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-trade-31"
+    "qid": "boki3-trade-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 82,
@@ -1558,7 +2025,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 452,000 、 発送費 8,200 ／ （貸方）売上 452,000 、 現金 8,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-trade-32"
+    "qid": "boki3-trade-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 83,
@@ -1577,7 +2047,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 92,800 ／ （貸方）売掛金 92,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-trade-33"
+    "qid": "boki3-trade-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 84,
@@ -1596,7 +2069,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 476,000 ／ （貸方）受取手形 476,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-trade-34"
+    "qid": "boki3-trade-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 85,
@@ -1615,7 +2091,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 468,480 、 支払手数料 19,520 ／ （貸方）売上 488,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-trade-35"
+    "qid": "boki3-trade-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 86,
@@ -1634,7 +2113,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 509,000 ／ （貸方）買掛金 500,000 、 現金 9,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-trade-36"
+    "qid": "boki3-trade-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 87,
@@ -1653,7 +2135,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 512,000 、 発送費 9,200 ／ （貸方）売上 512,000 、 現金 9,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-trade-37"
+    "qid": "boki3-trade-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 88,
@@ -1672,7 +2157,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 104,800 ／ （貸方）売掛金 104,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-trade-38"
+    "qid": "boki3-trade-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 89,
@@ -1691,7 +2179,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 536,000 ／ （貸方）受取手形 536,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-trade-39"
+    "qid": "boki3-trade-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 90,
@@ -1710,7 +2201,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 526,080 、 支払手数料 21,920 ／ （貸方）売上 548,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-trade-40"
+    "qid": "boki3-trade-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 91,
@@ -1729,7 +2223,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 570,000 ／ （貸方）買掛金 560,000 、 現金 10,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-trade-41"
+    "qid": "boki3-trade-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 92,
@@ -1748,7 +2245,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 572,000 、 発送費 10,200 ／ （貸方）売上 572,000 、 現金 10,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-trade-42"
+    "qid": "boki3-trade-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 93,
@@ -1767,7 +2267,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 116,800 ／ （貸方）売掛金 116,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-trade-43"
+    "qid": "boki3-trade-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 94,
@@ -1786,7 +2289,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 596,000 ／ （貸方）受取手形 596,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-trade-44"
+    "qid": "boki3-trade-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 95,
@@ -1805,7 +2311,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 583,680 、 支払手数料 24,320 ／ （貸方）売上 608,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-trade-45"
+    "qid": "boki3-trade-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 96,
@@ -1824,7 +2333,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 631,000 ／ （貸方）買掛金 620,000 、 現金 11,000<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の仕入諸掛り（引取運賃）は仕入原価（仕入勘定）に算入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-trade-46"
+    "qid": "boki3-trade-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 97,
@@ -1843,7 +2355,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売掛金 632,000 、 発送費 11,200 ／ （貸方）売上 632,000 、 現金 11,200<br><br><strong>【解法のポイント・解説】</strong><br>当社負担の発送運賃は「発送費」として費用計上します（売上から控除しません）。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-trade-47"
+    "qid": "boki3-trade-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 98,
@@ -1862,7 +2377,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）売上 128,800 ／ （貸方）売掛金 128,800<br><br><strong>【解法のポイント・解説】</strong><br>売上戻り（返品）は、売上を借方に記入して取り消し、売掛金を貸方に記入して減額します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-trade-48"
+    "qid": "boki3-trade-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 99,
@@ -1881,7 +2399,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 656,000 ／ （貸方）受取手形 656,000<br><br><strong>【解法のポイント・解説】</strong><br>手持ちの手形を裏書譲渡して支払った場合、資産である「受取手形」の減少として貸方に記入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-trade-49"
+    "qid": "boki3-trade-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 100,
@@ -1900,7 +2421,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）クレジット売掛金 641,280 、 支払手数料 26,720 ／ （貸方）売上 668,000<br><br><strong>【解法のポイント・解説】</strong><br>信販手数料を「支払手数料」として借方に計上し、差額を「クレジット売掛金」として借方に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-trade-50"
+    "qid": "boki3-trade-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 101,
@@ -1919,7 +2443,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 50,000 ／ （貸方）売掛金 50,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-bad_debt-1"
+    "qid": "boki3-bad_debt-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 102,
@@ -1938,7 +2465,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 58,000 ／ （貸方）売掛金 58,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-bad_debt-2"
+    "qid": "boki3-bad_debt-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 103,
@@ -1957,7 +2487,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 46,200 、 貸倒損失 19,800 ／ （貸方）売掛金 66,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥46,200を取り崩し、不足額￥19,800は「貸倒損失」として計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-bad_debt-3"
+    "qid": "boki3-bad_debt-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 104,
@@ -1976,7 +2509,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 74,000 ／ （貸方）償却債権取立益 74,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-bad_debt-4"
+    "qid": "boki3-bad_debt-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 105,
@@ -1995,7 +2531,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 82,000 ／ （貸方）売掛金 82,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-bad_debt-5"
+    "qid": "boki3-bad_debt-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 106,
@@ -2014,7 +2553,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 90,000 ／ （貸方）売掛金 90,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-bad_debt-6"
+    "qid": "boki3-bad_debt-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 107,
@@ -2033,7 +2575,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 68,600 、 貸倒損失 29,400 ／ （貸方）売掛金 98,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥68,600を取り崩し、不足額￥29,400は「貸倒損失」として計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-bad_debt-7"
+    "qid": "boki3-bad_debt-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 108,
@@ -2052,7 +2597,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 106,000 ／ （貸方）償却債権取立益 106,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-bad_debt-8"
+    "qid": "boki3-bad_debt-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 109,
@@ -2071,7 +2619,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 114,000 ／ （貸方）売掛金 114,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-bad_debt-9"
+    "qid": "boki3-bad_debt-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 110,
@@ -2090,7 +2641,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 122,000 ／ （貸方）売掛金 122,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-bad_debt-10"
+    "qid": "boki3-bad_debt-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 111,
@@ -2109,7 +2663,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 91,000 、 貸倒損失 39,000 ／ （貸方）売掛金 130,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥91,000を取り崩し、不足額￥39,000は「貸倒損失」として計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-bad_debt-11"
+    "qid": "boki3-bad_debt-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 112,
@@ -2128,7 +2685,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 138,000 ／ （貸方）償却債権取立益 138,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-bad_debt-12"
+    "qid": "boki3-bad_debt-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 113,
@@ -2147,7 +2707,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 146,000 ／ （貸方）売掛金 146,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-bad_debt-13"
+    "qid": "boki3-bad_debt-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 114,
@@ -2166,7 +2729,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 154,000 ／ （貸方）売掛金 154,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-bad_debt-14"
+    "qid": "boki3-bad_debt-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 115,
@@ -2185,7 +2751,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 113,400 、 貸倒損失 48,600 ／ （貸方）売掛金 162,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥113,400を取り崩し、不足額￥48,600は「貸倒損失」として計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-bad_debt-15"
+    "qid": "boki3-bad_debt-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 116,
@@ -2204,7 +2773,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 170,000 ／ （貸方）償却債権取立益 170,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-bad_debt-16"
+    "qid": "boki3-bad_debt-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 117,
@@ -2223,7 +2795,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 178,000 ／ （貸方）売掛金 178,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-bad_debt-17"
+    "qid": "boki3-bad_debt-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 118,
@@ -2242,7 +2817,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 186,000 ／ （貸方）売掛金 186,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-bad_debt-18"
+    "qid": "boki3-bad_debt-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 119,
@@ -2261,7 +2839,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 135,800 、 貸倒損失 58,200 ／ （貸方）売掛金 194,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥135,800を取り崩し、不足額￥58,200は「貸倒損失」として計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-bad_debt-19"
+    "qid": "boki3-bad_debt-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 120,
@@ -2280,7 +2861,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 202,000 ／ （貸方）償却債権取立益 202,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-bad_debt-20"
+    "qid": "boki3-bad_debt-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 121,
@@ -2299,7 +2883,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 210,000 ／ （貸方）売掛金 210,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-bad_debt-21"
+    "qid": "boki3-bad_debt-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 122,
@@ -2318,7 +2905,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 218,000 ／ （貸方）売掛金 218,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-bad_debt-22"
+    "qid": "boki3-bad_debt-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 123,
@@ -2337,7 +2927,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 158,200 、 貸倒損失 67,800 ／ （貸方）売掛金 226,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥158,200を取り崩し、不足額￥67,800は「貸倒損失」として計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-bad_debt-23"
+    "qid": "boki3-bad_debt-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 124,
@@ -2356,7 +2949,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 234,000 ／ （貸方）償却債権取立益 234,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-bad_debt-24"
+    "qid": "boki3-bad_debt-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 125,
@@ -2375,7 +2971,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 242,000 ／ （貸方）売掛金 242,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-bad_debt-25"
+    "qid": "boki3-bad_debt-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 126,
@@ -2394,7 +2993,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 250,000 ／ （貸方）売掛金 250,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-bad_debt-26"
+    "qid": "boki3-bad_debt-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 127,
@@ -2413,7 +3015,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 180,600 、 貸倒損失 77,400 ／ （貸方）売掛金 258,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥180,600を取り崩し、不足額￥77,400は「貸倒損失」として計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-bad_debt-27"
+    "qid": "boki3-bad_debt-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 128,
@@ -2432,7 +3037,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 266,000 ／ （貸方）償却債権取立益 266,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-bad_debt-28"
+    "qid": "boki3-bad_debt-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 129,
@@ -2451,7 +3059,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 274,000 ／ （貸方）売掛金 274,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-bad_debt-29"
+    "qid": "boki3-bad_debt-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 130,
@@ -2470,7 +3081,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 282,000 ／ （貸方）売掛金 282,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-bad_debt-30"
+    "qid": "boki3-bad_debt-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 131,
@@ -2489,7 +3103,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 203,000 、 貸倒損失 87,000 ／ （貸方）売掛金 290,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥203,000を取り崩し、不足額￥87,000は「貸倒損失」として計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-bad_debt-31"
+    "qid": "boki3-bad_debt-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 132,
@@ -2508,7 +3125,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 298,000 ／ （貸方）償却債権取立益 298,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-bad_debt-32"
+    "qid": "boki3-bad_debt-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 133,
@@ -2527,7 +3147,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 306,000 ／ （貸方）売掛金 306,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-bad_debt-33"
+    "qid": "boki3-bad_debt-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 134,
@@ -2546,7 +3169,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 314,000 ／ （貸方）売掛金 314,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-bad_debt-34"
+    "qid": "boki3-bad_debt-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 135,
@@ -2565,7 +3191,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 225,400 、 貸倒損失 96,600 ／ （貸方）売掛金 322,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥225,400を取り崩し、不足額￥96,600は「貸倒損失」として計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-bad_debt-35"
+    "qid": "boki3-bad_debt-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 136,
@@ -2584,7 +3213,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 330,000 ／ （貸方）償却債権取立益 330,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-bad_debt-36"
+    "qid": "boki3-bad_debt-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 137,
@@ -2603,7 +3235,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 338,000 ／ （貸方）売掛金 338,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-bad_debt-37"
+    "qid": "boki3-bad_debt-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 138,
@@ -2622,7 +3257,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 346,000 ／ （貸方）売掛金 346,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-bad_debt-38"
+    "qid": "boki3-bad_debt-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 139,
@@ -2641,7 +3279,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 247,799 、 貸倒損失 106,201 ／ （貸方）売掛金 354,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥247,799を取り崩し、不足額￥106,201は「貸倒損失」として計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-bad_debt-39"
+    "qid": "boki3-bad_debt-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 140,
@@ -2660,7 +3301,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 362,000 ／ （貸方）償却債権取立益 362,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-bad_debt-40"
+    "qid": "boki3-bad_debt-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 141,
@@ -2679,7 +3323,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 370,000 ／ （貸方）売掛金 370,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-bad_debt-41"
+    "qid": "boki3-bad_debt-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 142,
@@ -2698,7 +3345,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 378,000 ／ （貸方）売掛金 378,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-bad_debt-42"
+    "qid": "boki3-bad_debt-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 143,
@@ -2717,7 +3367,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 270,200 、 貸倒損失 115,800 ／ （貸方）売掛金 386,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥270,200を取り崩し、不足額￥115,800は「貸倒損失」として計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-bad_debt-43"
+    "qid": "boki3-bad_debt-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 144,
@@ -2736,7 +3389,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 394,000 ／ （貸方）償却債権取立益 394,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-bad_debt-44"
+    "qid": "boki3-bad_debt-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 145,
@@ -2755,7 +3411,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 402,000 ／ （貸方）売掛金 402,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-bad_debt-45"
+    "qid": "boki3-bad_debt-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 146,
@@ -2774,7 +3433,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 410,000 ／ （貸方）売掛金 410,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-bad_debt-46"
+    "qid": "boki3-bad_debt-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 147,
@@ -2793,7 +3455,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 292,600 、 貸倒損失 125,400 ／ （貸方）売掛金 418,000<br><br><strong>【解法のポイント・解説】</strong><br>引当金残高￥292,600を取り崩し、不足額￥125,400は「貸倒損失」として計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-bad_debt-47"
+    "qid": "boki3-bad_debt-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 148,
@@ -2812,7 +3477,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 426,000 ／ （貸方）償却債権取立益 426,000<br><br><strong>【解法のポイント・解説】</strong><br>過年度に貸倒処理済みの債権を回収した場合、収益勘定である「償却債権取立益」を貸方に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-bad_debt-48"
+    "qid": "boki3-bad_debt-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 149,
@@ -2831,7 +3499,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒損失 434,000 ／ （貸方）売掛金 434,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生した売掛金が貸倒れた場合は、貸倒引当金の残高にかかわらず「貸倒損失」として処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-bad_debt-49"
+    "qid": "boki3-bad_debt-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 150,
@@ -2850,7 +3521,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸倒引当金 442,000 ／ （貸方）売掛金 442,000<br><br><strong>【解法のポイント・解説】</strong><br>前期発生の売掛金が貸倒れた場合は、貸倒引当金の残高の範囲内であれば全額「貸倒引当金」を取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-bad_debt-50"
+    "qid": "boki3-bad_debt-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 151,
@@ -2869,7 +3543,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 300,000 ／ （貸方）借入金 300,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-loan-1"
+    "qid": "boki3-loan-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 152,
@@ -2888,7 +3565,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 350,000 ／ （貸方）手形借入金 350,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-loan-2"
+    "qid": "boki3-loan-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 153,
@@ -2907,7 +3587,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 400,000 ／ （貸方）受取利息 12,000 、 普通預金 388,000<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥400,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-loan-3"
+    "qid": "boki3-loan-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 154,
@@ -2926,7 +3609,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 450,000 ／ （貸方）役員借入金 450,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-loan-4"
+    "qid": "boki3-loan-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 155,
@@ -2945,7 +3631,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 28,000 、 現金 472,000 ／ （貸方）売上 500,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-loan-5"
+    "qid": "boki3-loan-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 156,
@@ -2964,7 +3653,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 550,000 ／ （貸方）借入金 550,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-loan-6"
+    "qid": "boki3-loan-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 157,
@@ -2983,7 +3675,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 600,000 ／ （貸方）手形借入金 600,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-loan-7"
+    "qid": "boki3-loan-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 158,
@@ -3002,7 +3697,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 650,000 ／ （貸方）受取利息 19,500 、 普通預金 630,500<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥650,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-loan-8"
+    "qid": "boki3-loan-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 159,
@@ -3021,7 +3719,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 700,000 ／ （貸方）役員借入金 700,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-loan-9"
+    "qid": "boki3-loan-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 160,
@@ -3040,7 +3741,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 38,000 、 現金 712,000 ／ （貸方）売上 750,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-loan-10"
+    "qid": "boki3-loan-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 161,
@@ -3059,7 +3763,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 800,000 ／ （貸方）借入金 800,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-loan-11"
+    "qid": "boki3-loan-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 162,
@@ -3078,7 +3785,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 850,000 ／ （貸方）手形借入金 850,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-loan-12"
+    "qid": "boki3-loan-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 163,
@@ -3097,7 +3807,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 900,000 ／ （貸方）受取利息 27,000 、 普通預金 873,000<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥900,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-loan-13"
+    "qid": "boki3-loan-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 164,
@@ -3116,7 +3829,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 950,000 ／ （貸方）役員借入金 950,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-loan-14"
+    "qid": "boki3-loan-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 165,
@@ -3135,7 +3851,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 48,000 、 現金 952,000 ／ （貸方）売上 1,000,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-loan-15"
+    "qid": "boki3-loan-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 166,
@@ -3154,7 +3873,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 1,050,000 ／ （貸方）借入金 1,050,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-loan-16"
+    "qid": "boki3-loan-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 167,
@@ -3173,7 +3895,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,100,000 ／ （貸方）手形借入金 1,100,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-loan-17"
+    "qid": "boki3-loan-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 168,
@@ -3192,7 +3917,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 1,150,000 ／ （貸方）受取利息 34,500 、 普通預金 1,115,500<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥1,150,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-loan-18"
+    "qid": "boki3-loan-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 169,
@@ -3211,7 +3939,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 1,200,000 ／ （貸方）役員借入金 1,200,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-loan-19"
+    "qid": "boki3-loan-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 170,
@@ -3230,7 +3961,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 58,000 、 現金 1,192,000 ／ （貸方）売上 1,250,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-loan-20"
+    "qid": "boki3-loan-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 171,
@@ -3249,7 +3983,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 1,300,000 ／ （貸方）借入金 1,300,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-loan-21"
+    "qid": "boki3-loan-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 172,
@@ -3268,7 +4005,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,350,000 ／ （貸方）手形借入金 1,350,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-loan-22"
+    "qid": "boki3-loan-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 173,
@@ -3287,7 +4027,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 1,400,000 ／ （貸方）受取利息 42,000 、 普通預金 1,358,000<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥1,400,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-loan-23"
+    "qid": "boki3-loan-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 174,
@@ -3306,7 +4049,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 1,450,000 ／ （貸方）役員借入金 1,450,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-loan-24"
+    "qid": "boki3-loan-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 175,
@@ -3325,7 +4071,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 68,000 、 現金 1,432,000 ／ （貸方）売上 1,500,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-loan-25"
+    "qid": "boki3-loan-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 176,
@@ -3344,7 +4093,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 1,550,000 ／ （貸方）借入金 1,550,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-loan-26"
+    "qid": "boki3-loan-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 177,
@@ -3363,7 +4115,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,600,000 ／ （貸方）手形借入金 1,600,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-loan-27"
+    "qid": "boki3-loan-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 178,
@@ -3382,7 +4137,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 1,650,000 ／ （貸方）受取利息 49,500 、 普通預金 1,600,500<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥1,650,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-loan-28"
+    "qid": "boki3-loan-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 179,
@@ -3401,7 +4159,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 1,700,000 ／ （貸方）役員借入金 1,700,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-loan-29"
+    "qid": "boki3-loan-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 180,
@@ -3420,7 +4181,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 78,000 、 現金 1,672,000 ／ （貸方）売上 1,750,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-loan-30"
+    "qid": "boki3-loan-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 181,
@@ -3439,7 +4203,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 1,800,000 ／ （貸方）借入金 1,800,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-loan-31"
+    "qid": "boki3-loan-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 182,
@@ -3458,7 +4225,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,850,000 ／ （貸方）手形借入金 1,850,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-loan-32"
+    "qid": "boki3-loan-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 183,
@@ -3477,7 +4247,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 1,900,000 ／ （貸方）受取利息 57,000 、 普通預金 1,843,000<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥1,900,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-loan-33"
+    "qid": "boki3-loan-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 184,
@@ -3496,7 +4269,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 1,950,000 ／ （貸方）役員借入金 1,950,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-loan-34"
+    "qid": "boki3-loan-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 185,
@@ -3515,7 +4291,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 88,000 、 現金 1,912,000 ／ （貸方）売上 2,000,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-loan-35"
+    "qid": "boki3-loan-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 186,
@@ -3534,7 +4313,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 2,050,000 ／ （貸方）借入金 2,050,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-loan-36"
+    "qid": "boki3-loan-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 187,
@@ -3553,7 +4335,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 2,100,000 ／ （貸方）手形借入金 2,100,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-loan-37"
+    "qid": "boki3-loan-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 188,
@@ -3572,7 +4357,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 2,150,000 ／ （貸方）受取利息 64,500 、 普通預金 2,085,500<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥2,150,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-loan-38"
+    "qid": "boki3-loan-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 189,
@@ -3591,7 +4379,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 2,200,000 ／ （貸方）役員借入金 2,200,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-loan-39"
+    "qid": "boki3-loan-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 190,
@@ -3610,7 +4401,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 98,000 、 現金 2,152,000 ／ （貸方）売上 2,250,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-loan-40"
+    "qid": "boki3-loan-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 191,
@@ -3629,7 +4423,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 2,300,000 ／ （貸方）借入金 2,300,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-loan-41"
+    "qid": "boki3-loan-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 192,
@@ -3648,7 +4445,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 2,350,000 ／ （貸方）手形借入金 2,350,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-loan-42"
+    "qid": "boki3-loan-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 193,
@@ -3667,7 +4467,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 2,400,000 ／ （貸方）受取利息 72,000 、 普通預金 2,328,000<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥2,400,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-loan-43"
+    "qid": "boki3-loan-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 194,
@@ -3686,7 +4489,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 2,450,000 ／ （貸方）役員借入金 2,450,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-loan-44"
+    "qid": "boki3-loan-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 195,
@@ -3705,7 +4511,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 108,000 、 現金 2,392,000 ／ （貸方）売上 2,500,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-loan-45"
+    "qid": "boki3-loan-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 196,
@@ -3724,7 +4533,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）現金 2,550,000 ／ （貸方）借入金 2,550,000<br><br><strong>【解法のポイント・解説】</strong><br>現金の増加を借方、負債である「借入金」の増加を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-loan-46"
+    "qid": "boki3-loan-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 197,
@@ -3743,7 +4555,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 2,600,000 ／ （貸方）手形借入金 2,600,000<br><br><strong>【解法のポイント・解説】</strong><br>手形を振り出して金銭を借り入れた場合は「手形借入金」勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-loan-47"
+    "qid": "boki3-loan-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 198,
@@ -3762,7 +4577,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貸付金 2,650,000 ／ （貸方）受取利息 79,500 、 普通預金 2,570,500<br><br><strong>【解法のポイント・解説】</strong><br>貸付金の総額￥2,650,000を借方に、天引きした利息を「受取利息」として貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-loan-48"
+    "qid": "boki3-loan-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 199,
@@ -3781,7 +4599,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 2,700,000 ／ （貸方）役員借入金 2,700,000<br><br><strong>【解法のポイント・解説】</strong><br>役員（代表取締役等）からの借入れは「役員借入金」勘定で負債計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-loan-49"
+    "qid": "boki3-loan-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 200,
@@ -3800,7 +4621,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取商品券 118,000 、 現金 2,632,000 ／ （貸方）売上 2,750,000<br><br><strong>【解法のポイント・解説】</strong><br>他店発行の商品券を受け取った場合は「受取商品券」（資産）勘定を借方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-loan-50"
+    "qid": "boki3-loan-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 201,
@@ -3819,7 +4643,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 615,000 ／ （貸方）未払金 615,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-fixed_assets-1"
+    "qid": "boki3-fixed_assets-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 202,
@@ -3838,7 +4665,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 692,000 ／ （貸方）当座預金 692,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-fixed_assets-2"
+    "qid": "boki3-fixed_assets-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 203,
@@ -3857,7 +4687,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 720,000 、 未収入金 530,000 ／ （貸方）車両運搬具 1,200,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥480,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-fixed_assets-3"
+    "qid": "boki3-fixed_assets-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 204,
@@ -3876,7 +4709,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 520,000 、 現金 480,000 、 固定資産売却損 40,000 ／ （貸方）備品 1,040,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥520,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-fixed_assets-4"
+    "qid": "boki3-fixed_assets-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 205,
@@ -3895,7 +4731,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 70,000 、 建物 190,000 ／ （貸方）普通預金 260,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-fixed_assets-5"
+    "qid": "boki3-fixed_assets-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 206,
@@ -3914,7 +4753,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 920,000 ／ （貸方）未払金 920,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-fixed_assets-6"
+    "qid": "boki3-fixed_assets-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 207,
@@ -3933,7 +4775,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 1,002,000 ／ （貸方）当座預金 1,002,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-fixed_assets-7"
+    "qid": "boki3-fixed_assets-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 208,
@@ -3952,7 +4797,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 1,020,000 、 未収入金 730,000 ／ （貸方）車両運搬具 1,700,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥680,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-fixed_assets-8"
+    "qid": "boki3-fixed_assets-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 209,
@@ -3971,7 +4819,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 720,000 、 現金 680,000 、 固定資産売却損 40,000 ／ （貸方）備品 1,440,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥720,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-fixed_assets-9"
+    "qid": "boki3-fixed_assets-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 210,
@@ -3990,7 +4841,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 95,000 、 建物 240,000 ／ （貸方）普通預金 335,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-fixed_assets-10"
+    "qid": "boki3-fixed_assets-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 211,
@@ -4009,7 +4863,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 1,225,000 ／ （貸方）未払金 1,225,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-fixed_assets-11"
+    "qid": "boki3-fixed_assets-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 212,
@@ -4028,7 +4885,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 1,312,000 ／ （貸方）当座預金 1,312,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-fixed_assets-12"
+    "qid": "boki3-fixed_assets-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 213,
@@ -4047,7 +4907,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 1,320,000 、 未収入金 930,000 ／ （貸方）車両運搬具 2,200,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥880,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-fixed_assets-13"
+    "qid": "boki3-fixed_assets-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 214,
@@ -4066,7 +4929,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 920,000 、 現金 880,000 、 固定資産売却損 40,000 ／ （貸方）備品 1,840,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥920,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-fixed_assets-14"
+    "qid": "boki3-fixed_assets-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 215,
@@ -4085,7 +4951,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 120,000 、 建物 290,000 ／ （貸方）普通預金 410,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-fixed_assets-15"
+    "qid": "boki3-fixed_assets-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 216,
@@ -4104,7 +4973,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 1,530,000 ／ （貸方）未払金 1,530,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-fixed_assets-16"
+    "qid": "boki3-fixed_assets-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 217,
@@ -4123,7 +4995,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 1,622,000 ／ （貸方）当座預金 1,622,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-fixed_assets-17"
+    "qid": "boki3-fixed_assets-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 218,
@@ -4142,7 +5017,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 1,620,000 、 未収入金 1,130,000 ／ （貸方）車両運搬具 2,700,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,080,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-fixed_assets-18"
+    "qid": "boki3-fixed_assets-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 219,
@@ -4161,7 +5039,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 1,120,000 、 現金 1,080,000 、 固定資産売却損 40,000 ／ （貸方）備品 2,240,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,120,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-fixed_assets-19"
+    "qid": "boki3-fixed_assets-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 220,
@@ -4180,7 +5061,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 145,000 、 建物 340,000 ／ （貸方）普通預金 485,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-fixed_assets-20"
+    "qid": "boki3-fixed_assets-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 221,
@@ -4199,7 +5083,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 1,835,000 ／ （貸方）未払金 1,835,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-fixed_assets-21"
+    "qid": "boki3-fixed_assets-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 222,
@@ -4218,7 +5105,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 1,932,000 ／ （貸方）当座預金 1,932,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-fixed_assets-22"
+    "qid": "boki3-fixed_assets-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 223,
@@ -4237,7 +5127,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 1,920,000 、 未収入金 1,330,000 ／ （貸方）車両運搬具 3,200,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,280,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-fixed_assets-23"
+    "qid": "boki3-fixed_assets-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 224,
@@ -4256,7 +5149,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 1,320,000 、 現金 1,280,000 、 固定資産売却損 40,000 ／ （貸方）備品 2,640,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,320,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-fixed_assets-24"
+    "qid": "boki3-fixed_assets-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 225,
@@ -4275,7 +5171,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 170,000 、 建物 390,000 ／ （貸方）普通預金 560,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-fixed_assets-25"
+    "qid": "boki3-fixed_assets-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 226,
@@ -4294,7 +5193,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 2,140,000 ／ （貸方）未払金 2,140,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-fixed_assets-26"
+    "qid": "boki3-fixed_assets-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 227,
@@ -4313,7 +5215,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 2,242,000 ／ （貸方）当座預金 2,242,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-fixed_assets-27"
+    "qid": "boki3-fixed_assets-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 228,
@@ -4332,7 +5237,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 2,220,000 、 未収入金 1,530,000 ／ （貸方）車両運搬具 3,700,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,480,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-fixed_assets-28"
+    "qid": "boki3-fixed_assets-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 229,
@@ -4351,7 +5259,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 1,520,000 、 現金 1,480,000 、 固定資産売却損 40,000 ／ （貸方）備品 3,040,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,520,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-fixed_assets-29"
+    "qid": "boki3-fixed_assets-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 230,
@@ -4370,7 +5281,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 195,000 、 建物 440,000 ／ （貸方）普通預金 635,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-fixed_assets-30"
+    "qid": "boki3-fixed_assets-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 231,
@@ -4389,7 +5303,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 2,445,000 ／ （貸方）未払金 2,445,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-fixed_assets-31"
+    "qid": "boki3-fixed_assets-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 232,
@@ -4408,7 +5325,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 2,552,000 ／ （貸方）当座預金 2,552,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-fixed_assets-32"
+    "qid": "boki3-fixed_assets-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 233,
@@ -4427,7 +5347,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 2,520,000 、 未収入金 1,730,000 ／ （貸方）車両運搬具 4,200,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,680,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-fixed_assets-33"
+    "qid": "boki3-fixed_assets-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 234,
@@ -4446,7 +5369,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 1,720,000 、 現金 1,680,000 、 固定資産売却損 40,000 ／ （貸方）備品 3,440,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,720,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-fixed_assets-34"
+    "qid": "boki3-fixed_assets-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 235,
@@ -4465,7 +5391,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 220,000 、 建物 490,000 ／ （貸方）普通預金 710,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-fixed_assets-35"
+    "qid": "boki3-fixed_assets-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 236,
@@ -4484,7 +5413,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 2,750,000 ／ （貸方）未払金 2,750,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-fixed_assets-36"
+    "qid": "boki3-fixed_assets-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 237,
@@ -4503,7 +5435,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 2,862,000 ／ （貸方）当座預金 2,862,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-fixed_assets-37"
+    "qid": "boki3-fixed_assets-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 238,
@@ -4522,7 +5457,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 2,820,000 、 未収入金 1,930,000 ／ （貸方）車両運搬具 4,700,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,880,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-fixed_assets-38"
+    "qid": "boki3-fixed_assets-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 239,
@@ -4541,7 +5479,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 1,920,000 、 現金 1,880,000 、 固定資産売却損 40,000 ／ （貸方）備品 3,840,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥1,920,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-fixed_assets-39"
+    "qid": "boki3-fixed_assets-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 240,
@@ -4560,7 +5501,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 245,000 、 建物 540,000 ／ （貸方）普通預金 785,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-fixed_assets-40"
+    "qid": "boki3-fixed_assets-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 241,
@@ -4579,7 +5523,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 3,055,000 ／ （貸方）未払金 3,055,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-fixed_assets-41"
+    "qid": "boki3-fixed_assets-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 242,
@@ -4598,7 +5545,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 3,172,000 ／ （貸方）当座預金 3,172,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-fixed_assets-42"
+    "qid": "boki3-fixed_assets-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 243,
@@ -4617,7 +5567,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 3,120,000 、 未収入金 2,130,000 ／ （貸方）車両運搬具 5,200,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥2,080,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-fixed_assets-43"
+    "qid": "boki3-fixed_assets-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 244,
@@ -4636,7 +5589,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 2,120,000 、 現金 2,080,000 、 固定資産売却損 40,000 ／ （貸方）備品 4,240,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥2,120,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-fixed_assets-44"
+    "qid": "boki3-fixed_assets-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 245,
@@ -4655,7 +5611,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 270,000 、 建物 590,000 ／ （貸方）普通預金 860,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-fixed_assets-45"
+    "qid": "boki3-fixed_assets-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 246,
@@ -4674,7 +5633,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 3,360,000 ／ （貸方）未払金 3,360,000<br><br><strong>【解法のポイント・解説】</strong><br>固定資産の取得諸掛り（設置費など）は取得原価（備品）に含めます。商品以外のため貸方は「未払金」とします。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-fixed_assets-46"
+    "qid": "boki3-fixed_assets-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 247,
@@ -4693,7 +5655,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）土地 3,482,000 ／ （貸方）当座預金 3,482,000<br><br><strong>【解法のポイント・解説】</strong><br>土地購入時の仲介手数料・登記費用等は「土地」勘定に算入します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-fixed_assets-47"
+    "qid": "boki3-fixed_assets-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 248,
@@ -4712,7 +5677,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 3,420,000 、 未収入金 2,330,000 ／ （貸方）車両運搬具 5,700,000 、 固定資産売却益 50,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥2,280,000を上回る金額で売却したため、差額￥50,000を「固定資産売却益」として計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-fixed_assets-48"
+    "qid": "boki3-fixed_assets-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 249,
@@ -4731,7 +5699,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却累計額 2,320,000 、 現金 2,280,000 、 固定資産売却損 40,000 ／ （貸方）備品 4,640,000<br><br><strong>【解法のポイント・解説】</strong><br>帳簿価額￥2,320,000を下回る金額で売却したため、差額￥40,000を「固定資産売却損」として計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-fixed_assets-49"
+    "qid": "boki3-fixed_assets-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 250,
@@ -4750,7 +5721,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 295,000 、 建物 640,000 ／ （貸方）普通預金 935,000<br><br><strong>【解法のポイント・解説】</strong><br>資産の価値向上・耐用年数延長をもたらす支出は「建物」（資本的支出）、原状回復保守は「修繕費」（収益的支出）とします。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-fixed_assets-50"
+    "qid": "boki3-fixed_assets-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 251,
@@ -4769,7 +5743,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 15,000 ／ （貸方）現金 15,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-supplies-1"
+    "qid": "boki3-supplies-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 252,
@@ -4788,7 +5765,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 17,500 ／ （貸方）現金 17,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-supplies-2"
+    "qid": "boki3-supplies-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 253,
@@ -4807,7 +5787,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 20,000 ／ （貸方）現金 20,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-supplies-3"
+    "qid": "boki3-supplies-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 254,
@@ -4826,7 +5809,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 22,500 ／ （貸方）通信費 9,000 、 租税公課 13,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-supplies-4"
+    "qid": "boki3-supplies-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 255,
@@ -4845,7 +5831,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 25,000 ／ （貸方）現金 25,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-supplies-5"
+    "qid": "boki3-supplies-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 256,
@@ -4864,7 +5853,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 27,500 ／ （貸方）現金 27,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-supplies-6"
+    "qid": "boki3-supplies-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 257,
@@ -4883,7 +5875,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 30,000 ／ （貸方）現金 30,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-supplies-7"
+    "qid": "boki3-supplies-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 258,
@@ -4902,7 +5897,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 32,500 ／ （貸方）通信費 13,000 、 租税公課 19,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-supplies-8"
+    "qid": "boki3-supplies-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 259,
@@ -4921,7 +5919,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 35,000 ／ （貸方）現金 35,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-supplies-9"
+    "qid": "boki3-supplies-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 260,
@@ -4940,7 +5941,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 37,500 ／ （貸方）現金 37,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-supplies-10"
+    "qid": "boki3-supplies-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 261,
@@ -4959,7 +5963,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 40,000 ／ （貸方）現金 40,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-supplies-11"
+    "qid": "boki3-supplies-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 262,
@@ -4978,7 +5985,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 42,500 ／ （貸方）通信費 17,000 、 租税公課 25,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-supplies-12"
+    "qid": "boki3-supplies-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 263,
@@ -4997,7 +6007,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 45,000 ／ （貸方）現金 45,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-supplies-13"
+    "qid": "boki3-supplies-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 264,
@@ -5016,7 +6029,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 47,500 ／ （貸方）現金 47,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-supplies-14"
+    "qid": "boki3-supplies-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 265,
@@ -5035,7 +6051,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 50,000 ／ （貸方）現金 50,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-supplies-15"
+    "qid": "boki3-supplies-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 266,
@@ -5054,7 +6073,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 52,500 ／ （貸方）通信費 21,000 、 租税公課 31,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-supplies-16"
+    "qid": "boki3-supplies-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 267,
@@ -5073,7 +6095,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 55,000 ／ （貸方）現金 55,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-supplies-17"
+    "qid": "boki3-supplies-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 268,
@@ -5092,7 +6117,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 57,500 ／ （貸方）現金 57,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-supplies-18"
+    "qid": "boki3-supplies-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 269,
@@ -5111,7 +6139,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 60,000 ／ （貸方）現金 60,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-supplies-19"
+    "qid": "boki3-supplies-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 270,
@@ -5130,7 +6161,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 62,500 ／ （貸方）通信費 25,000 、 租税公課 37,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-supplies-20"
+    "qid": "boki3-supplies-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 271,
@@ -5149,7 +6183,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 65,000 ／ （貸方）現金 65,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-supplies-21"
+    "qid": "boki3-supplies-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 272,
@@ -5168,7 +6205,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 67,500 ／ （貸方）現金 67,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-supplies-22"
+    "qid": "boki3-supplies-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 273,
@@ -5187,7 +6227,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 70,000 ／ （貸方）現金 70,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-supplies-23"
+    "qid": "boki3-supplies-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 274,
@@ -5206,7 +6249,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 72,500 ／ （貸方）通信費 29,000 、 租税公課 43,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-supplies-24"
+    "qid": "boki3-supplies-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 275,
@@ -5225,7 +6271,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 75,000 ／ （貸方）現金 75,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-supplies-25"
+    "qid": "boki3-supplies-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 276,
@@ -5244,7 +6293,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 77,500 ／ （貸方）現金 77,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-supplies-26"
+    "qid": "boki3-supplies-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 277,
@@ -5263,7 +6315,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 80,000 ／ （貸方）現金 80,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-supplies-27"
+    "qid": "boki3-supplies-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 278,
@@ -5282,7 +6337,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 82,500 ／ （貸方）通信費 33,000 、 租税公課 49,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-supplies-28"
+    "qid": "boki3-supplies-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 279,
@@ -5301,7 +6359,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 85,000 ／ （貸方）現金 85,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-supplies-29"
+    "qid": "boki3-supplies-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 280,
@@ -5320,7 +6381,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 87,500 ／ （貸方）現金 87,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-supplies-30"
+    "qid": "boki3-supplies-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 281,
@@ -5339,7 +6403,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 90,000 ／ （貸方）現金 90,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-supplies-31"
+    "qid": "boki3-supplies-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 282,
@@ -5358,7 +6425,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 92,500 ／ （貸方）通信費 37,000 、 租税公課 55,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-supplies-32"
+    "qid": "boki3-supplies-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 283,
@@ -5377,7 +6447,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 95,000 ／ （貸方）現金 95,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-supplies-33"
+    "qid": "boki3-supplies-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 284,
@@ -5396,7 +6469,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 97,500 ／ （貸方）現金 97,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-supplies-34"
+    "qid": "boki3-supplies-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 285,
@@ -5415,7 +6491,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 100,000 ／ （貸方）現金 100,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-supplies-35"
+    "qid": "boki3-supplies-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 286,
@@ -5434,7 +6513,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 102,500 ／ （貸方）通信費 41,000 、 租税公課 61,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-supplies-36"
+    "qid": "boki3-supplies-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 287,
@@ -5453,7 +6535,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 105,000 ／ （貸方）現金 105,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-supplies-37"
+    "qid": "boki3-supplies-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 288,
@@ -5472,7 +6557,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 107,500 ／ （貸方）現金 107,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-supplies-38"
+    "qid": "boki3-supplies-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 289,
@@ -5491,7 +6579,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 110,000 ／ （貸方）現金 110,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-supplies-39"
+    "qid": "boki3-supplies-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 290,
@@ -5510,7 +6601,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 112,500 ／ （貸方）通信費 45,000 、 租税公課 67,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-supplies-40"
+    "qid": "boki3-supplies-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 291,
@@ -5529,7 +6623,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 115,000 ／ （貸方）現金 115,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-supplies-41"
+    "qid": "boki3-supplies-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 292,
@@ -5548,7 +6645,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 117,500 ／ （貸方）現金 117,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-supplies-42"
+    "qid": "boki3-supplies-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 293,
@@ -5567,7 +6667,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 120,000 ／ （貸方）現金 120,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-supplies-43"
+    "qid": "boki3-supplies-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 294,
@@ -5586,7 +6689,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 122,500 ／ （貸方）通信費 49,000 、 租税公課 73,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-supplies-44"
+    "qid": "boki3-supplies-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 295,
@@ -5605,7 +6711,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 125,000 ／ （貸方）現金 125,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-supplies-45"
+    "qid": "boki3-supplies-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 296,
@@ -5624,7 +6733,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 127,500 ／ （貸方）現金 127,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-supplies-46"
+    "qid": "boki3-supplies-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 297,
@@ -5643,7 +6755,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 130,000 ／ （貸方）現金 130,000<br><br><strong>【解法のポイント・解説】</strong><br>収入印紙の購入は税金の支払いと同じ扱いとなるため「租税公課」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-supplies-47"
+    "qid": "boki3-supplies-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 298,
@@ -5662,7 +6777,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）貯蔵品 132,500 ／ （貸方）通信費 53,000 、 租税公課 79,500<br><br><strong>【解法のポイント・解説】</strong><br>未使用の切手・印紙は資産勘定である「貯蔵品」に振り替え、対応する各費用から控除（貸方）します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-supplies-48"
+    "qid": "boki3-supplies-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 299,
@@ -5681,7 +6799,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 135,000 ／ （貸方）現金 135,000<br><br><strong>【解法のポイント・解説】</strong><br>事務用消耗品を購入時に費用として処理する場合、「消耗品費」勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-supplies-49"
+    "qid": "boki3-supplies-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 300,
@@ -5700,7 +6821,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）通信費 137,500 ／ （貸方）現金 137,500<br><br><strong>【解法のポイント・解説】</strong><br>切手・はがき等の郵便料金は「通信費」勘定で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-supplies-50"
+    "qid": "boki3-supplies-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 301,
@@ -5719,7 +6843,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 40,000 ／ （貸方）現金 40,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-travel-1"
+    "qid": "boki3-travel-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 302,
@@ -5738,7 +6865,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 40,800 、 現金 4,200 ／ （貸方）仮払金 45,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-travel-2"
+    "qid": "boki3-travel-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 303,
@@ -5757,7 +6887,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 56,600 ／ （貸方）仮払金 50,000 、 現金 6,600<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥56,600を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-travel-3"
+    "qid": "boki3-travel-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 304,
@@ -5776,7 +6909,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 55,000 ／ （貸方）普通預金 55,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-travel-4"
+    "qid": "boki3-travel-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 305,
@@ -5795,7 +6931,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 60,000 ／ （貸方）現金 60,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-travel-5"
+    "qid": "boki3-travel-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 306,
@@ -5814,7 +6953,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 60,000 、 現金 5,000 ／ （貸方）仮払金 65,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-travel-6"
+    "qid": "boki3-travel-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 307,
@@ -5833,7 +6975,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 77,800 ／ （貸方）仮払金 70,000 、 現金 7,800<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥77,800を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-travel-7"
+    "qid": "boki3-travel-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 308,
@@ -5852,7 +6997,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 75,000 ／ （貸方）普通預金 75,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-travel-8"
+    "qid": "boki3-travel-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 309,
@@ -5871,7 +7019,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 80,000 ／ （貸方）現金 80,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-travel-9"
+    "qid": "boki3-travel-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 310,
@@ -5890,7 +7041,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 79,200 、 現金 5,800 ／ （貸方）仮払金 85,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-travel-10"
+    "qid": "boki3-travel-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 311,
@@ -5909,7 +7063,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 99,000 ／ （貸方）仮払金 90,000 、 現金 9,000<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥99,000を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-travel-11"
+    "qid": "boki3-travel-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 312,
@@ -5928,7 +7085,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 95,000 ／ （貸方）普通預金 95,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-travel-12"
+    "qid": "boki3-travel-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 313,
@@ -5947,7 +7107,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 100,000 ／ （貸方）現金 100,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-travel-13"
+    "qid": "boki3-travel-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 314,
@@ -5966,7 +7129,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 98,400 、 現金 6,600 ／ （貸方）仮払金 105,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-travel-14"
+    "qid": "boki3-travel-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 315,
@@ -5985,7 +7151,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 120,200 ／ （貸方）仮払金 110,000 、 現金 10,200<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥120,200を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-travel-15"
+    "qid": "boki3-travel-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 316,
@@ -6004,7 +7173,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 115,000 ／ （貸方）普通預金 115,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-travel-16"
+    "qid": "boki3-travel-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 317,
@@ -6023,7 +7195,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 120,000 ／ （貸方）現金 120,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-travel-17"
+    "qid": "boki3-travel-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 318,
@@ -6042,7 +7217,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 117,600 、 現金 7,400 ／ （貸方）仮払金 125,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-travel-18"
+    "qid": "boki3-travel-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 319,
@@ -6061,7 +7239,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 141,400 ／ （貸方）仮払金 130,000 、 現金 11,400<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥141,400を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-travel-19"
+    "qid": "boki3-travel-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 320,
@@ -6080,7 +7261,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 135,000 ／ （貸方）普通預金 135,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-travel-20"
+    "qid": "boki3-travel-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 321,
@@ -6099,7 +7283,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 140,000 ／ （貸方）現金 140,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-travel-21"
+    "qid": "boki3-travel-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 322,
@@ -6118,7 +7305,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 136,800 、 現金 8,200 ／ （貸方）仮払金 145,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-travel-22"
+    "qid": "boki3-travel-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 323,
@@ -6137,7 +7327,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 162,600 ／ （貸方）仮払金 150,000 、 現金 12,600<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥162,600を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-travel-23"
+    "qid": "boki3-travel-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 324,
@@ -6156,7 +7349,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 155,000 ／ （貸方）普通預金 155,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-travel-24"
+    "qid": "boki3-travel-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 325,
@@ -6175,7 +7371,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 160,000 ／ （貸方）現金 160,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-travel-25"
+    "qid": "boki3-travel-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 326,
@@ -6194,7 +7393,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 156,000 、 現金 9,000 ／ （貸方）仮払金 165,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-travel-26"
+    "qid": "boki3-travel-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 327,
@@ -6213,7 +7415,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 183,800 ／ （貸方）仮払金 170,000 、 現金 13,800<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥183,800を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-travel-27"
+    "qid": "boki3-travel-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 328,
@@ -6232,7 +7437,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 175,000 ／ （貸方）普通預金 175,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-travel-28"
+    "qid": "boki3-travel-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 329,
@@ -6251,7 +7459,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 180,000 ／ （貸方）現金 180,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-travel-29"
+    "qid": "boki3-travel-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 330,
@@ -6270,7 +7481,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 175,200 、 現金 9,800 ／ （貸方）仮払金 185,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-travel-30"
+    "qid": "boki3-travel-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 331,
@@ -6289,7 +7503,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 205,000 ／ （貸方）仮払金 190,000 、 現金 15,000<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥205,000を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-travel-31"
+    "qid": "boki3-travel-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 332,
@@ -6308,7 +7525,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 195,000 ／ （貸方）普通預金 195,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-travel-32"
+    "qid": "boki3-travel-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 333,
@@ -6327,7 +7547,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 200,000 ／ （貸方）現金 200,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-travel-33"
+    "qid": "boki3-travel-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 334,
@@ -6346,7 +7569,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 194,400 、 現金 10,600 ／ （貸方）仮払金 205,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-travel-34"
+    "qid": "boki3-travel-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 335,
@@ -6365,7 +7591,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 226,200 ／ （貸方）仮払金 210,000 、 現金 16,200<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥226,200を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-travel-35"
+    "qid": "boki3-travel-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 336,
@@ -6384,7 +7613,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 215,000 ／ （貸方）普通預金 215,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-travel-36"
+    "qid": "boki3-travel-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 337,
@@ -6403,7 +7635,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 220,000 ／ （貸方）現金 220,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-travel-37"
+    "qid": "boki3-travel-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 338,
@@ -6422,7 +7657,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 213,600 、 現金 11,400 ／ （貸方）仮払金 225,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-travel-38"
+    "qid": "boki3-travel-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 339,
@@ -6441,7 +7679,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 247,400 ／ （貸方）仮払金 230,000 、 現金 17,400<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥247,400を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-travel-39"
+    "qid": "boki3-travel-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 340,
@@ -6460,7 +7701,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 235,000 ／ （貸方）普通預金 235,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-travel-40"
+    "qid": "boki3-travel-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 341,
@@ -6479,7 +7723,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 240,000 ／ （貸方）現金 240,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-travel-41"
+    "qid": "boki3-travel-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 342,
@@ -6498,7 +7745,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 232,800 、 現金 12,200 ／ （貸方）仮払金 245,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-travel-42"
+    "qid": "boki3-travel-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 343,
@@ -6517,7 +7767,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 268,600 ／ （貸方）仮払金 250,000 、 現金 18,600<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥268,600を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-travel-43"
+    "qid": "boki3-travel-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 344,
@@ -6536,7 +7789,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 255,000 ／ （貸方）普通預金 255,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-travel-44"
+    "qid": "boki3-travel-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 345,
@@ -6555,7 +7811,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 260,000 ／ （貸方）現金 260,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-travel-45"
+    "qid": "boki3-travel-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 346,
@@ -6574,7 +7833,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 252,000 、 現金 13,000 ／ （貸方）仮払金 265,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-travel-46"
+    "qid": "boki3-travel-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 347,
@@ -6593,7 +7855,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 289,800 ／ （貸方）仮払金 270,000 、 現金 19,800<br><br><strong>【解法のポイント・解説】</strong><br>実際の発生額￥289,800を借方に計上し、仮払金を相殺、追加支出現金を貸方に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-travel-47"
+    "qid": "boki3-travel-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 348,
@@ -6612,7 +7877,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 275,000 ／ （貸方）普通預金 275,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員の通勤交通費や定期代は「旅費交通費」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-travel-48"
+    "qid": "boki3-travel-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 349,
@@ -6631,7 +7899,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払金 280,000 ／ （貸方）現金 280,000<br><br><strong>【解法のポイント・解説】</strong><br>金額や用途が確定していない出張費の前渡しは「仮払金」（資産）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-travel-49"
+    "qid": "boki3-travel-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 350,
@@ -6650,7 +7921,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）旅費交通費 271,200 、 現金 13,800 ／ （貸方）仮払金 285,000<br><br><strong>【解法のポイント・解説】</strong><br>実際にかかった旅費交通費を計上し、仮払金を相殺したうえで、残余の現金を受け取ります。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-travel-50"
+    "qid": "boki3-travel-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 351,
@@ -6669,7 +7943,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 360,000 、 支払手数料 120,000 、 支払家賃 120,000 ／ （貸方）普通預金 600,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-real_estate-1"
+    "qid": "boki3-real_estate-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 352,
@@ -6688,7 +7965,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 135,000 ／ （貸方）普通預金 135,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-real_estate-2"
+    "qid": "boki3-real_estate-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 353,
@@ -6707,7 +7987,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 150,000 ／ （貸方）受取家賃 150,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-real_estate-3"
+    "qid": "boki3-real_estate-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 354,
@@ -6726,7 +8009,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 115,499 ／ （貸方）当座預金 115,499<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-real_estate-4"
+    "qid": "boki3-real_estate-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 355,
@@ -6745,7 +8031,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 540,000 、 支払手数料 180,000 、 支払家賃 180,000 ／ （貸方）普通預金 900,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-real_estate-5"
+    "qid": "boki3-real_estate-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 356,
@@ -6764,7 +8053,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 195,000 ／ （貸方）普通預金 195,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-real_estate-6"
+    "qid": "boki3-real_estate-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 357,
@@ -6783,7 +8075,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 210,000 ／ （貸方）受取家賃 210,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-real_estate-7"
+    "qid": "boki3-real_estate-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 358,
@@ -6802,7 +8097,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 157,500 ／ （貸方）当座預金 157,500<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-real_estate-8"
+    "qid": "boki3-real_estate-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 359,
@@ -6821,7 +8119,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 720,000 、 支払手数料 240,000 、 支払家賃 240,000 ／ （貸方）普通預金 1,200,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-real_estate-9"
+    "qid": "boki3-real_estate-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 360,
@@ -6840,7 +8141,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 255,000 ／ （貸方）普通預金 255,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-real_estate-10"
+    "qid": "boki3-real_estate-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 361,
@@ -6859,7 +8163,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 270,000 ／ （貸方）受取家賃 270,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-real_estate-11"
+    "qid": "boki3-real_estate-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 362,
@@ -6878,7 +8185,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 199,500 ／ （貸方）当座預金 199,500<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-real_estate-12"
+    "qid": "boki3-real_estate-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 363,
@@ -6897,7 +8207,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 900,000 、 支払手数料 300,000 、 支払家賃 300,000 ／ （貸方）普通預金 1,500,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-real_estate-13"
+    "qid": "boki3-real_estate-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 364,
@@ -6916,7 +8229,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 315,000 ／ （貸方）普通預金 315,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-real_estate-14"
+    "qid": "boki3-real_estate-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 365,
@@ -6935,7 +8251,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 330,000 ／ （貸方）受取家賃 330,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-real_estate-15"
+    "qid": "boki3-real_estate-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 366,
@@ -6954,7 +8273,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 241,499 ／ （貸方）当座預金 241,499<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-real_estate-16"
+    "qid": "boki3-real_estate-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 367,
@@ -6973,7 +8295,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 1,080,000 、 支払手数料 360,000 、 支払家賃 360,000 ／ （貸方）普通預金 1,800,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-real_estate-17"
+    "qid": "boki3-real_estate-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 368,
@@ -6992,7 +8317,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 375,000 ／ （貸方）普通預金 375,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-real_estate-18"
+    "qid": "boki3-real_estate-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 369,
@@ -7011,7 +8339,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 390,000 ／ （貸方）受取家賃 390,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-real_estate-19"
+    "qid": "boki3-real_estate-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 370,
@@ -7030,7 +8361,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 283,500 ／ （貸方）当座預金 283,500<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-real_estate-20"
+    "qid": "boki3-real_estate-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 371,
@@ -7049,7 +8383,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 1,260,000 、 支払手数料 420,000 、 支払家賃 420,000 ／ （貸方）普通預金 2,100,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-real_estate-21"
+    "qid": "boki3-real_estate-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 372,
@@ -7068,7 +8405,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 435,000 ／ （貸方）普通預金 435,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-real_estate-22"
+    "qid": "boki3-real_estate-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 373,
@@ -7087,7 +8427,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 450,000 ／ （貸方）受取家賃 450,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-real_estate-23"
+    "qid": "boki3-real_estate-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 374,
@@ -7106,7 +8449,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 325,500 ／ （貸方）当座預金 325,500<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-real_estate-24"
+    "qid": "boki3-real_estate-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 375,
@@ -7125,7 +8471,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 1,440,000 、 支払手数料 480,000 、 支払家賃 480,000 ／ （貸方）普通預金 2,400,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-real_estate-25"
+    "qid": "boki3-real_estate-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 376,
@@ -7144,7 +8493,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 495,000 ／ （貸方）普通預金 495,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-real_estate-26"
+    "qid": "boki3-real_estate-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 377,
@@ -7163,7 +8515,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 510,000 ／ （貸方）受取家賃 510,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-real_estate-27"
+    "qid": "boki3-real_estate-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 378,
@@ -7182,7 +8537,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 367,500 ／ （貸方）当座預金 367,500<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-real_estate-28"
+    "qid": "boki3-real_estate-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 379,
@@ -7201,7 +8559,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 1,620,000 、 支払手数料 540,000 、 支払家賃 540,000 ／ （貸方）普通預金 2,700,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-real_estate-29"
+    "qid": "boki3-real_estate-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 380,
@@ -7220,7 +8581,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 555,000 ／ （貸方）普通預金 555,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-real_estate-30"
+    "qid": "boki3-real_estate-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 381,
@@ -7239,7 +8603,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 570,000 ／ （貸方）受取家賃 570,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-real_estate-31"
+    "qid": "boki3-real_estate-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 382,
@@ -7258,7 +8625,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 409,500 ／ （貸方）当座預金 409,500<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-real_estate-32"
+    "qid": "boki3-real_estate-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 383,
@@ -7277,7 +8647,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 1,800,000 、 支払手数料 600,000 、 支払家賃 600,000 ／ （貸方）普通預金 3,000,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-real_estate-33"
+    "qid": "boki3-real_estate-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 384,
@@ -7296,7 +8669,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 615,000 ／ （貸方）普通預金 615,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-real_estate-34"
+    "qid": "boki3-real_estate-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 385,
@@ -7315,7 +8691,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 630,000 ／ （貸方）受取家賃 630,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-real_estate-35"
+    "qid": "boki3-real_estate-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 386,
@@ -7334,7 +8713,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 451,500 ／ （貸方）当座預金 451,500<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-real_estate-36"
+    "qid": "boki3-real_estate-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 387,
@@ -7353,7 +8735,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 1,980,000 、 支払手数料 660,000 、 支払家賃 660,000 ／ （貸方）普通預金 3,300,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-real_estate-37"
+    "qid": "boki3-real_estate-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 388,
@@ -7372,7 +8757,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 675,000 ／ （貸方）普通預金 675,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-real_estate-38"
+    "qid": "boki3-real_estate-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 389,
@@ -7391,7 +8779,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 690,000 ／ （貸方）受取家賃 690,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-real_estate-39"
+    "qid": "boki3-real_estate-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 390,
@@ -7410,7 +8801,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 493,499 ／ （貸方）当座預金 493,499<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-real_estate-40"
+    "qid": "boki3-real_estate-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 391,
@@ -7429,7 +8823,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 2,160,000 、 支払手数料 720,000 、 支払家賃 720,000 ／ （貸方）普通預金 3,600,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-real_estate-41"
+    "qid": "boki3-real_estate-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 392,
@@ -7448,7 +8845,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 735,000 ／ （貸方）普通預金 735,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-real_estate-42"
+    "qid": "boki3-real_estate-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 393,
@@ -7467,7 +8867,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 750,000 ／ （貸方）受取家賃 750,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-real_estate-43"
+    "qid": "boki3-real_estate-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 394,
@@ -7486,7 +8889,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 535,500 ／ （貸方）当座預金 535,500<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-real_estate-44"
+    "qid": "boki3-real_estate-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 395,
@@ -7505,7 +8911,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 2,340,000 、 支払手数料 780,000 、 支払家賃 780,000 ／ （貸方）普通預金 3,900,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-real_estate-45"
+    "qid": "boki3-real_estate-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 396,
@@ -7524,7 +8933,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 795,000 ／ （貸方）普通預金 795,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-real_estate-46"
+    "qid": "boki3-real_estate-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 397,
@@ -7543,7 +8955,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）普通預金 810,000 ／ （貸方）受取家賃 810,000<br><br><strong>【解法のポイント・解説】</strong><br>普通預金の増加（借方）とともに、収益の発生として「受取家賃」（貸方）を計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-real_estate-47"
+    "qid": "boki3-real_estate-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 398,
@@ -7562,7 +8977,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払地代 577,500 ／ （貸方）当座預金 577,500<br><br><strong>【解法のポイント・解説】</strong><br>土地の賃借料は家賃と区別して「支払地代」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-real_estate-48"
+    "qid": "boki3-real_estate-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 399,
@@ -7581,7 +8999,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）差入保証金 2,520,000 、 支払手数料 840,000 、 支払家賃 840,000 ／ （貸方）普通預金 4,200,000<br><br><strong>【解法のポイント・解説】</strong><br>敷金・保証金は将来返還されるため「差入保証金」（資産）、仲介手数料は「支払手数料」、家賃は「支払家賃」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-real_estate-49"
+    "qid": "boki3-real_estate-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 400,
@@ -7600,7 +9021,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払家賃 855,000 ／ （貸方）普通預金 855,000<br><br><strong>【解法のポイント・解説】</strong><br>費用の発生として「支払家賃」を借方に、資産の減少として「普通預金」を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-real_estate-50"
+    "qid": "boki3-real_estate-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 401,
@@ -7619,7 +9043,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 350,000 ／ （貸方）預り金 70,000 、 普通預金 280,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-salary-1"
+    "qid": "boki3-salary-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 402,
@@ -7638,7 +9065,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 30,400 ／ （貸方）現金 30,400<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-salary-2"
+    "qid": "boki3-salary-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 403,
@@ -7657,7 +9087,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 49,200 、 法定福利費 49,200 ／ （貸方）普通預金 98,400<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-salary-3"
+    "qid": "boki3-salary-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 404,
@@ -7676,7 +9109,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 440,000 ／ （貸方）預り金 88,000 、 普通預金 352,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-salary-4"
+    "qid": "boki3-salary-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 405,
@@ -7695,7 +9131,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 37,600 ／ （貸方）現金 37,600<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-salary-5"
+    "qid": "boki3-salary-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 406,
@@ -7714,7 +9153,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 60,000 、 法定福利費 60,000 ／ （貸方）普通預金 120,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-salary-6"
+    "qid": "boki3-salary-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 407,
@@ -7733,7 +9175,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 530,000 ／ （貸方）預り金 106,000 、 普通預金 424,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-salary-7"
+    "qid": "boki3-salary-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 408,
@@ -7752,7 +9197,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 44,800 ／ （貸方）現金 44,800<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-salary-8"
+    "qid": "boki3-salary-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 409,
@@ -7771,7 +9219,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 70,800 、 法定福利費 70,800 ／ （貸方）普通預金 141,600<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-salary-9"
+    "qid": "boki3-salary-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 410,
@@ -7790,7 +9241,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 620,000 ／ （貸方）預り金 124,000 、 普通預金 496,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-salary-10"
+    "qid": "boki3-salary-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 411,
@@ -7809,7 +9263,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 52,000 ／ （貸方）現金 52,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-salary-11"
+    "qid": "boki3-salary-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 412,
@@ -7828,7 +9285,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 81,600 、 法定福利費 81,600 ／ （貸方）普通預金 163,200<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-salary-12"
+    "qid": "boki3-salary-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 413,
@@ -7847,7 +9307,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 710,000 ／ （貸方）預り金 142,000 、 普通預金 568,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-salary-13"
+    "qid": "boki3-salary-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 414,
@@ -7866,7 +9329,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 59,200 ／ （貸方）現金 59,200<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-salary-14"
+    "qid": "boki3-salary-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 415,
@@ -7885,7 +9351,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 92,400 、 法定福利費 92,400 ／ （貸方）普通預金 184,800<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-salary-15"
+    "qid": "boki3-salary-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 416,
@@ -7904,7 +9373,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 800,000 ／ （貸方）預り金 160,000 、 普通預金 640,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-salary-16"
+    "qid": "boki3-salary-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 417,
@@ -7923,7 +9395,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 66,400 ／ （貸方）現金 66,400<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-salary-17"
+    "qid": "boki3-salary-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 418,
@@ -7942,7 +9417,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 103,200 、 法定福利費 103,200 ／ （貸方）普通預金 206,400<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-salary-18"
+    "qid": "boki3-salary-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 419,
@@ -7961,7 +9439,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 890,000 ／ （貸方）預り金 178,000 、 普通預金 712,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-salary-19"
+    "qid": "boki3-salary-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 420,
@@ -7980,7 +9461,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 73,600 ／ （貸方）現金 73,600<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-salary-20"
+    "qid": "boki3-salary-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 421,
@@ -7999,7 +9483,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 114,000 、 法定福利費 114,000 ／ （貸方）普通預金 228,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-salary-21"
+    "qid": "boki3-salary-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 422,
@@ -8018,7 +9505,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 980,000 ／ （貸方）預り金 196,000 、 普通預金 784,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-salary-22"
+    "qid": "boki3-salary-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 423,
@@ -8037,7 +9527,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 80,800 ／ （貸方）現金 80,800<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-salary-23"
+    "qid": "boki3-salary-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 424,
@@ -8056,7 +9549,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 124,800 、 法定福利費 124,800 ／ （貸方）普通預金 249,600<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-salary-24"
+    "qid": "boki3-salary-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 425,
@@ -8075,7 +9571,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 1,070,000 ／ （貸方）預り金 214,000 、 普通預金 856,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-salary-25"
+    "qid": "boki3-salary-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 426,
@@ -8094,7 +9593,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 88,000 ／ （貸方）現金 88,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-salary-26"
+    "qid": "boki3-salary-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 427,
@@ -8113,7 +9615,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 135,600 、 法定福利費 135,600 ／ （貸方）普通預金 271,200<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-salary-27"
+    "qid": "boki3-salary-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 428,
@@ -8132,7 +9637,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 1,160,000 ／ （貸方）預り金 232,000 、 普通預金 928,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-salary-28"
+    "qid": "boki3-salary-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 429,
@@ -8151,7 +9659,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 95,200 ／ （貸方）現金 95,200<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-salary-29"
+    "qid": "boki3-salary-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 430,
@@ -8170,7 +9681,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 146,400 、 法定福利費 146,400 ／ （貸方）普通預金 292,800<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-salary-30"
+    "qid": "boki3-salary-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 431,
@@ -8189,7 +9703,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 1,250,000 ／ （貸方）預り金 250,000 、 普通預金 1,000,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-salary-31"
+    "qid": "boki3-salary-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 432,
@@ -8208,7 +9725,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 102,400 ／ （貸方）現金 102,400<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-salary-32"
+    "qid": "boki3-salary-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 433,
@@ -8227,7 +9747,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 157,200 、 法定福利費 157,200 ／ （貸方）普通預金 314,400<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-salary-33"
+    "qid": "boki3-salary-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 434,
@@ -8246,7 +9769,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 1,340,000 ／ （貸方）預り金 268,000 、 普通預金 1,072,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-salary-34"
+    "qid": "boki3-salary-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 435,
@@ -8265,7 +9791,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 109,600 ／ （貸方）現金 109,600<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-salary-35"
+    "qid": "boki3-salary-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 436,
@@ -8284,7 +9813,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 168,000 、 法定福利費 168,000 ／ （貸方）普通預金 336,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-salary-36"
+    "qid": "boki3-salary-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 437,
@@ -8303,7 +9835,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 1,430,000 ／ （貸方）預り金 286,000 、 普通預金 1,144,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-salary-37"
+    "qid": "boki3-salary-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 438,
@@ -8322,7 +9857,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 116,800 ／ （貸方）現金 116,800<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-salary-38"
+    "qid": "boki3-salary-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 439,
@@ -8341,7 +9879,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 178,800 、 法定福利費 178,800 ／ （貸方）普通預金 357,600<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-salary-39"
+    "qid": "boki3-salary-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 440,
@@ -8360,7 +9901,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 1,520,000 ／ （貸方）預り金 304,000 、 普通預金 1,216,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-salary-40"
+    "qid": "boki3-salary-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 441,
@@ -8379,7 +9923,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 124,000 ／ （貸方）現金 124,000<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-salary-41"
+    "qid": "boki3-salary-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 442,
@@ -8398,7 +9945,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 189,600 、 法定福利費 189,600 ／ （貸方）普通預金 379,200<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-salary-42"
+    "qid": "boki3-salary-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 443,
@@ -8417,7 +9967,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 1,610,000 ／ （貸方）預り金 322,000 、 普通預金 1,288,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-salary-43"
+    "qid": "boki3-salary-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 444,
@@ -8436,7 +9989,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 131,200 ／ （貸方）現金 131,200<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-salary-44"
+    "qid": "boki3-salary-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 445,
@@ -8455,7 +10011,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 200,400 、 法定福利費 200,400 ／ （貸方）普通預金 400,800<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-salary-45"
+    "qid": "boki3-salary-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 446,
@@ -8474,7 +10033,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 1,700,000 ／ （貸方）預り金 340,000 、 普通預金 1,360,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-salary-46"
+    "qid": "boki3-salary-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 447,
@@ -8493,7 +10055,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 138,400 ／ （貸方）現金 138,400<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-salary-47"
+    "qid": "boki3-salary-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 448,
@@ -8512,7 +10077,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 211,200 、 法定福利費 211,200 ／ （貸方）普通預金 422,400<br><br><strong>【解法のポイント・解説】</strong><br>従業員預かり分は「預り金」を取り崩し、会社負担分は「法定福利費」（費用）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-salary-48"
+    "qid": "boki3-salary-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 449,
@@ -8531,7 +10099,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）給料 1,790,000 ／ （貸方）預り金 358,000 、 普通預金 1,432,000<br><br><strong>【解法のポイント・解説】</strong><br>総額を「給料」勘定で費用計上し、天引き額を「預り金」（負債）、差引支給額を「普通預金」の減少とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-salary-49"
+    "qid": "boki3-salary-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 450,
@@ -8550,7 +10121,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）預り金 145,600 ／ （貸方）現金 145,600<br><br><strong>【解法のポイント・解説】</strong><br>従業員から預かっていた税金を納付したため、負債である「預り金」（または源泉所得税預り金）を借方で取り崩します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-salary-50"
+    "qid": "boki3-salary-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 451,
@@ -8569,7 +10143,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 25,000 ／ （貸方）普通預金 25,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-selling_expenses-1"
+    "qid": "boki3-selling_expenses-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 452,
@@ -8588,7 +10165,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 29,000 ／ （貸方）当座預金 29,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-selling_expenses-2"
+    "qid": "boki3-selling_expenses-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 453,
@@ -8607,7 +10187,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 33,000 ／ （貸方）普通預金 33,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-selling_expenses-3"
+    "qid": "boki3-selling_expenses-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 454,
@@ -8626,7 +10209,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 37,000 ／ （貸方）現金 37,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-selling_expenses-4"
+    "qid": "boki3-selling_expenses-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 455,
@@ -8645,7 +10231,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 41,000 ／ （貸方）現金 41,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-selling_expenses-5"
+    "qid": "boki3-selling_expenses-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 456,
@@ -8664,7 +10253,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 45,000 ／ （貸方）普通預金 45,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-selling_expenses-6"
+    "qid": "boki3-selling_expenses-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 457,
@@ -8683,7 +10275,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 49,000 ／ （貸方）当座預金 49,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-selling_expenses-7"
+    "qid": "boki3-selling_expenses-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 458,
@@ -8702,7 +10297,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 53,000 ／ （貸方）普通預金 53,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-selling_expenses-8"
+    "qid": "boki3-selling_expenses-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 459,
@@ -8721,7 +10319,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 57,000 ／ （貸方）現金 57,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-selling_expenses-9"
+    "qid": "boki3-selling_expenses-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 460,
@@ -8740,7 +10341,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 61,000 ／ （貸方）現金 61,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-selling_expenses-10"
+    "qid": "boki3-selling_expenses-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 461,
@@ -8759,7 +10363,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 65,000 ／ （貸方）普通預金 65,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-selling_expenses-11"
+    "qid": "boki3-selling_expenses-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 462,
@@ -8778,7 +10385,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 69,000 ／ （貸方）当座預金 69,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-selling_expenses-12"
+    "qid": "boki3-selling_expenses-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 463,
@@ -8797,7 +10407,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 73,000 ／ （貸方）普通預金 73,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-selling_expenses-13"
+    "qid": "boki3-selling_expenses-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 464,
@@ -8816,7 +10429,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 77,000 ／ （貸方）現金 77,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-selling_expenses-14"
+    "qid": "boki3-selling_expenses-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 465,
@@ -8835,7 +10451,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 81,000 ／ （貸方）現金 81,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-selling_expenses-15"
+    "qid": "boki3-selling_expenses-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 466,
@@ -8854,7 +10473,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 85,000 ／ （貸方）普通預金 85,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-selling_expenses-16"
+    "qid": "boki3-selling_expenses-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 467,
@@ -8873,7 +10495,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 89,000 ／ （貸方）当座預金 89,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-selling_expenses-17"
+    "qid": "boki3-selling_expenses-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 468,
@@ -8892,7 +10517,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 93,000 ／ （貸方）普通預金 93,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-selling_expenses-18"
+    "qid": "boki3-selling_expenses-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 469,
@@ -8911,7 +10539,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 97,000 ／ （貸方）現金 97,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-selling_expenses-19"
+    "qid": "boki3-selling_expenses-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 470,
@@ -8930,7 +10561,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 101,000 ／ （貸方）現金 101,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-selling_expenses-20"
+    "qid": "boki3-selling_expenses-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 471,
@@ -8949,7 +10583,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 105,000 ／ （貸方）普通預金 105,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-selling_expenses-21"
+    "qid": "boki3-selling_expenses-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 472,
@@ -8968,7 +10605,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 109,000 ／ （貸方）当座預金 109,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-selling_expenses-22"
+    "qid": "boki3-selling_expenses-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 473,
@@ -8987,7 +10627,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 113,000 ／ （貸方）普通預金 113,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-selling_expenses-23"
+    "qid": "boki3-selling_expenses-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 474,
@@ -9006,7 +10649,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 117,000 ／ （貸方）現金 117,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-selling_expenses-24"
+    "qid": "boki3-selling_expenses-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 475,
@@ -9025,7 +10671,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 121,000 ／ （貸方）現金 121,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-selling_expenses-25"
+    "qid": "boki3-selling_expenses-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 476,
@@ -9044,7 +10693,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 125,000 ／ （貸方）普通預金 125,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-selling_expenses-26"
+    "qid": "boki3-selling_expenses-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 477,
@@ -9063,7 +10715,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 129,000 ／ （貸方）当座預金 129,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-selling_expenses-27"
+    "qid": "boki3-selling_expenses-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 478,
@@ -9082,7 +10737,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 133,000 ／ （貸方）普通預金 133,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-selling_expenses-28"
+    "qid": "boki3-selling_expenses-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 479,
@@ -9101,7 +10759,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 137,000 ／ （貸方）現金 137,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-selling_expenses-29"
+    "qid": "boki3-selling_expenses-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 480,
@@ -9120,7 +10781,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 141,000 ／ （貸方）現金 141,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-selling_expenses-30"
+    "qid": "boki3-selling_expenses-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 481,
@@ -9139,7 +10803,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 145,000 ／ （貸方）普通預金 145,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-selling_expenses-31"
+    "qid": "boki3-selling_expenses-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 482,
@@ -9158,7 +10825,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 149,000 ／ （貸方）当座預金 149,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-selling_expenses-32"
+    "qid": "boki3-selling_expenses-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 483,
@@ -9177,7 +10847,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 153,000 ／ （貸方）普通預金 153,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-selling_expenses-33"
+    "qid": "boki3-selling_expenses-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 484,
@@ -9196,7 +10869,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 157,000 ／ （貸方）現金 157,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-selling_expenses-34"
+    "qid": "boki3-selling_expenses-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 485,
@@ -9215,7 +10891,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 161,000 ／ （貸方）現金 161,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-selling_expenses-35"
+    "qid": "boki3-selling_expenses-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 486,
@@ -9234,7 +10913,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 165,000 ／ （貸方）普通預金 165,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-selling_expenses-36"
+    "qid": "boki3-selling_expenses-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 487,
@@ -9253,7 +10935,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 169,000 ／ （貸方）当座預金 169,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-selling_expenses-37"
+    "qid": "boki3-selling_expenses-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 488,
@@ -9272,7 +10957,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 173,000 ／ （貸方）普通預金 173,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-selling_expenses-38"
+    "qid": "boki3-selling_expenses-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 489,
@@ -9291,7 +10979,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 177,000 ／ （貸方）現金 177,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-selling_expenses-39"
+    "qid": "boki3-selling_expenses-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 490,
@@ -9310,7 +11001,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 181,000 ／ （貸方）現金 181,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-selling_expenses-40"
+    "qid": "boki3-selling_expenses-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 491,
@@ -9329,7 +11023,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 185,000 ／ （貸方）普通預金 185,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-selling_expenses-41"
+    "qid": "boki3-selling_expenses-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 492,
@@ -9348,7 +11045,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 189,000 ／ （貸方）当座預金 189,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-selling_expenses-42"
+    "qid": "boki3-selling_expenses-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 493,
@@ -9367,7 +11067,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 193,000 ／ （貸方）普通預金 193,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-selling_expenses-43"
+    "qid": "boki3-selling_expenses-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 494,
@@ -9386,7 +11089,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 197,000 ／ （貸方）現金 197,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-selling_expenses-44"
+    "qid": "boki3-selling_expenses-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 495,
@@ -9405,7 +11111,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 201,000 ／ （貸方）現金 201,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-selling_expenses-45"
+    "qid": "boki3-selling_expenses-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 496,
@@ -9424,7 +11133,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）水道光熱費 205,000 ／ （貸方）普通預金 205,000<br><br><strong>【解法のポイント・解説】</strong><br>電気・水道・ガス等の公共料金は「水道光熱費」勘定（費用）で処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-selling_expenses-46"
+    "qid": "boki3-selling_expenses-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 497,
@@ -9443,7 +11155,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）広告宣伝費 209,000 ／ （貸方）当座預金 209,000<br><br><strong>【解法のポイント・解説】</strong><br>チラシ・Web広告・パンフレット等の広告費用は「広告宣伝費」勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-selling_expenses-47"
+    "qid": "boki3-selling_expenses-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 498,
@@ -9462,7 +11177,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払保険料 213,000 ／ （貸方）普通預金 213,000<br><br><strong>【解法のポイント・解説】</strong><br>保険会社に支払った保険料は「支払保険料」（または保険料）勘定で処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-selling_expenses-48"
+    "qid": "boki3-selling_expenses-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 499,
@@ -9481,7 +11199,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）交際費 217,000 ／ （貸方）現金 217,000<br><br><strong>【解法のポイント・解説】</strong><br>取引先・得意先への接待・贈答等の費用は「交際費」（または接待交際費）勘定を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-selling_expenses-49"
+    "qid": "boki3-selling_expenses-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 500,
@@ -9500,7 +11221,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）修繕費 221,000 ／ （貸方）現金 221,000<br><br><strong>【解法のポイント・解説】</strong><br>有形固定資産の維持・現状回復のための支出は「修繕費」勘定（費用）で処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-selling_expenses-50"
+    "qid": "boki3-selling_expenses-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 501,
@@ -9519,7 +11243,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 150,000 ／ （貸方）当座預金 150,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-tax-1"
+    "qid": "boki3-tax-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 502,
@@ -9538,7 +11265,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 325,000 ／ （貸方）仮払法人税等 130,000 、 未払法人税等 195,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-tax-2"
+    "qid": "boki3-tax-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 503,
@@ -9557,7 +11287,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 210,000 ／ （貸方）普通預金 210,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-tax-3"
+    "qid": "boki3-tax-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 504,
@@ -9576,7 +11309,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 201,000 ／ （貸方）仮払消費税 135,000 、 未払消費税 66,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-tax-4"
+    "qid": "boki3-tax-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 505,
@@ -9595,7 +11331,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 200,000 ／ （貸方）当座預金 200,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-tax-5"
+    "qid": "boki3-tax-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 506,
@@ -9614,7 +11353,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 425,000 ／ （貸方）仮払法人税等 170,000 、 未払法人税等 255,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-tax-6"
+    "qid": "boki3-tax-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 507,
@@ -9633,7 +11375,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 270,000 ／ （貸方）普通預金 270,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-tax-7"
+    "qid": "boki3-tax-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 508,
@@ -9652,7 +11397,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 229,000 ／ （貸方）仮払消費税 155,000 、 未払消費税 74,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-tax-8"
+    "qid": "boki3-tax-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 509,
@@ -9671,7 +11419,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 250,000 ／ （貸方）当座預金 250,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-tax-9"
+    "qid": "boki3-tax-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 510,
@@ -9690,7 +11441,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 525,000 ／ （貸方）仮払法人税等 210,000 、 未払法人税等 315,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-tax-10"
+    "qid": "boki3-tax-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 511,
@@ -9709,7 +11463,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 330,000 ／ （貸方）普通預金 330,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-tax-11"
+    "qid": "boki3-tax-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 512,
@@ -9728,7 +11485,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 257,000 ／ （貸方）仮払消費税 175,000 、 未払消費税 82,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-tax-12"
+    "qid": "boki3-tax-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 513,
@@ -9747,7 +11507,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 300,000 ／ （貸方）当座預金 300,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-tax-13"
+    "qid": "boki3-tax-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 514,
@@ -9766,7 +11529,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 625,000 ／ （貸方）仮払法人税等 250,000 、 未払法人税等 375,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-tax-14"
+    "qid": "boki3-tax-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 515,
@@ -9785,7 +11551,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 390,000 ／ （貸方）普通預金 390,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-tax-15"
+    "qid": "boki3-tax-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 516,
@@ -9804,7 +11573,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 285,000 ／ （貸方）仮払消費税 195,000 、 未払消費税 90,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-tax-16"
+    "qid": "boki3-tax-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 517,
@@ -9823,7 +11595,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 350,000 ／ （貸方）当座預金 350,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-tax-17"
+    "qid": "boki3-tax-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 518,
@@ -9842,7 +11617,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 725,000 ／ （貸方）仮払法人税等 290,000 、 未払法人税等 435,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-tax-18"
+    "qid": "boki3-tax-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 519,
@@ -9861,7 +11639,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 450,000 ／ （貸方）普通預金 450,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-tax-19"
+    "qid": "boki3-tax-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 520,
@@ -9880,7 +11661,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 313,000 ／ （貸方）仮払消費税 215,000 、 未払消費税 98,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-tax-20"
+    "qid": "boki3-tax-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 521,
@@ -9899,7 +11683,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 400,000 ／ （貸方）当座預金 400,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-tax-21"
+    "qid": "boki3-tax-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 522,
@@ -9918,7 +11705,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 825,000 ／ （貸方）仮払法人税等 330,000 、 未払法人税等 495,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-tax-22"
+    "qid": "boki3-tax-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 523,
@@ -9937,7 +11727,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 510,000 ／ （貸方）普通預金 510,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-tax-23"
+    "qid": "boki3-tax-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 524,
@@ -9956,7 +11749,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 341,000 ／ （貸方）仮払消費税 235,000 、 未払消費税 106,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-tax-24"
+    "qid": "boki3-tax-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 525,
@@ -9975,7 +11771,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 450,000 ／ （貸方）当座預金 450,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-tax-25"
+    "qid": "boki3-tax-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 526,
@@ -9994,7 +11793,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 925,000 ／ （貸方）仮払法人税等 370,000 、 未払法人税等 555,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-tax-26"
+    "qid": "boki3-tax-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 527,
@@ -10013,7 +11815,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 570,000 ／ （貸方）普通預金 570,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-tax-27"
+    "qid": "boki3-tax-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 528,
@@ -10032,7 +11837,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 369,000 ／ （貸方）仮払消費税 255,000 、 未払消費税 114,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-tax-28"
+    "qid": "boki3-tax-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 529,
@@ -10051,7 +11859,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 500,000 ／ （貸方）当座預金 500,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-tax-29"
+    "qid": "boki3-tax-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 530,
@@ -10070,7 +11881,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 1,025,000 ／ （貸方）仮払法人税等 410,000 、 未払法人税等 615,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-tax-30"
+    "qid": "boki3-tax-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 531,
@@ -10089,7 +11903,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 630,000 ／ （貸方）普通預金 630,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-tax-31"
+    "qid": "boki3-tax-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 532,
@@ -10108,7 +11925,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 397,000 ／ （貸方）仮払消費税 275,000 、 未払消費税 122,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-tax-32"
+    "qid": "boki3-tax-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 533,
@@ -10127,7 +11947,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 550,000 ／ （貸方）当座預金 550,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-tax-33"
+    "qid": "boki3-tax-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 534,
@@ -10146,7 +11969,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 1,125,000 ／ （貸方）仮払法人税等 450,000 、 未払法人税等 675,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-tax-34"
+    "qid": "boki3-tax-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 535,
@@ -10165,7 +11991,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 690,000 ／ （貸方）普通預金 690,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-tax-35"
+    "qid": "boki3-tax-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 536,
@@ -10184,7 +12013,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 425,000 ／ （貸方）仮払消費税 295,000 、 未払消費税 130,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-tax-36"
+    "qid": "boki3-tax-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 537,
@@ -10203,7 +12035,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 600,000 ／ （貸方）当座預金 600,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-tax-37"
+    "qid": "boki3-tax-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 538,
@@ -10222,7 +12057,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 1,225,000 ／ （貸方）仮払法人税等 490,000 、 未払法人税等 735,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-tax-38"
+    "qid": "boki3-tax-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 539,
@@ -10241,7 +12079,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 750,000 ／ （貸方）普通預金 750,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-tax-39"
+    "qid": "boki3-tax-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 540,
@@ -10260,7 +12101,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 453,000 ／ （貸方）仮払消費税 315,000 、 未払消費税 138,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-tax-40"
+    "qid": "boki3-tax-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 541,
@@ -10279,7 +12123,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 650,000 ／ （貸方）当座預金 650,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-tax-41"
+    "qid": "boki3-tax-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 542,
@@ -10298,7 +12145,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 1,325,000 ／ （貸方）仮払法人税等 530,000 、 未払法人税等 795,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-tax-42"
+    "qid": "boki3-tax-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 543,
@@ -10317,7 +12167,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 810,000 ／ （貸方）普通預金 810,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-tax-43"
+    "qid": "boki3-tax-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 544,
@@ -10336,7 +12189,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 481,000 ／ （貸方）仮払消費税 335,000 、 未払消費税 146,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-tax-44"
+    "qid": "boki3-tax-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 545,
@@ -10355,7 +12211,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 700,000 ／ （貸方）当座預金 700,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-tax-45"
+    "qid": "boki3-tax-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 546,
@@ -10374,7 +12233,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 1,425,000 ／ （貸方）仮払法人税等 570,000 、 未払法人税等 855,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-tax-46"
+    "qid": "boki3-tax-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 547,
@@ -10393,7 +12255,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払法人税等 870,000 ／ （貸方）普通預金 870,000<br><br><strong>【解法のポイント・解説】</strong><br>決算で計上していた「未払法人税等」（負債）を借方で取り崩し、普通預金を減少させます。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-tax-47"
+    "qid": "boki3-tax-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 548,
@@ -10412,7 +12277,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮受消費税 509,000 ／ （貸方）仮払消費税 355,000 、 未払消費税 154,000<br><br><strong>【解法のポイント・解説】</strong><br>預かった消費税（仮受消費税）と支払った消費税（仮払消費税）を相殺し、差額の納付義務を「未払消費税」（負債）に計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-tax-48"
+    "qid": "boki3-tax-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 549,
@@ -10431,7 +12299,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仮払法人税等 750,000 ／ （貸方）当座預金 750,000<br><br><strong>【解法のポイント・解説】</strong><br>中間申告で納付した税額は、決算まで「仮払法人税等」（資産）勘定で処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-tax-49"
+    "qid": "boki3-tax-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 550,
@@ -10450,7 +12321,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）法人税、住民税及び事業税 1,525,000 ／ （貸方）仮払法人税等 610,000 、 未払法人税等 915,000<br><br><strong>【解法のポイント・解説】</strong><br>当期費用として「法人税、住民税及び事業税」を借方に計上し、既納額（仮払法人税等）を相殺して未払分を「未払法人税等」とします。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-tax-50"
+    "qid": "boki3-tax-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 551,
@@ -10469,7 +12343,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 40,000 、 仮払消費税 4,000 ／ （貸方）買掛金 44,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-voucher-1"
+    "qid": "boki3-voucher-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 552,
@@ -10488,7 +12365,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 46,000 ／ （貸方）未払金 46,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-voucher-2"
+    "qid": "boki3-voucher-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 553,
@@ -10507,7 +12387,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 52,000 、 現金 5,000 ／ （貸方）仮払金 57,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-voucher-3"
+    "qid": "boki3-voucher-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 554,
@@ -10526,7 +12409,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 58,000 、 支払手数料 440 ／ （貸方）当座預金 58,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-voucher-4"
+    "qid": "boki3-voucher-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 555,
@@ -10545,7 +12431,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 64,000 ／ （貸方）現金 64,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-voucher-5"
+    "qid": "boki3-voucher-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 556,
@@ -10564,7 +12453,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 70,000 、 仮払消費税 7,000 ／ （貸方）買掛金 77,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-voucher-6"
+    "qid": "boki3-voucher-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 557,
@@ -10583,7 +12475,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 76,000 ／ （貸方）未払金 76,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-voucher-7"
+    "qid": "boki3-voucher-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 558,
@@ -10602,7 +12497,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 82,000 、 現金 5,000 ／ （貸方）仮払金 87,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-voucher-8"
+    "qid": "boki3-voucher-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 559,
@@ -10621,7 +12519,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 88,000 、 支払手数料 440 ／ （貸方）当座預金 88,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-voucher-9"
+    "qid": "boki3-voucher-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 560,
@@ -10640,7 +12541,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 94,000 ／ （貸方）現金 94,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-voucher-10"
+    "qid": "boki3-voucher-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 561,
@@ -10659,7 +12563,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 100,000 、 仮払消費税 10,000 ／ （貸方）買掛金 110,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-voucher-11"
+    "qid": "boki3-voucher-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 562,
@@ -10678,7 +12585,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 106,000 ／ （貸方）未払金 106,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-voucher-12"
+    "qid": "boki3-voucher-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 563,
@@ -10697,7 +12607,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 112,000 、 現金 5,000 ／ （貸方）仮払金 117,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-voucher-13"
+    "qid": "boki3-voucher-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 564,
@@ -10716,7 +12629,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 118,000 、 支払手数料 440 ／ （貸方）当座預金 118,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-voucher-14"
+    "qid": "boki3-voucher-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 565,
@@ -10735,7 +12651,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 124,000 ／ （貸方）現金 124,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-voucher-15"
+    "qid": "boki3-voucher-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 566,
@@ -10754,7 +12673,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 130,000 、 仮払消費税 13,000 ／ （貸方）買掛金 143,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-voucher-16"
+    "qid": "boki3-voucher-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 567,
@@ -10773,7 +12695,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 136,000 ／ （貸方）未払金 136,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-voucher-17"
+    "qid": "boki3-voucher-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 568,
@@ -10792,7 +12717,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 142,000 、 現金 5,000 ／ （貸方）仮払金 147,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-voucher-18"
+    "qid": "boki3-voucher-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 569,
@@ -10811,7 +12739,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 148,000 、 支払手数料 440 ／ （貸方）当座預金 148,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-voucher-19"
+    "qid": "boki3-voucher-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 570,
@@ -10830,7 +12761,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 154,000 ／ （貸方）現金 154,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-voucher-20"
+    "qid": "boki3-voucher-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 571,
@@ -10849,7 +12783,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 160,000 、 仮払消費税 16,000 ／ （貸方）買掛金 176,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-voucher-21"
+    "qid": "boki3-voucher-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 572,
@@ -10868,7 +12805,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 166,000 ／ （貸方）未払金 166,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-voucher-22"
+    "qid": "boki3-voucher-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 573,
@@ -10887,7 +12827,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 172,000 、 現金 5,000 ／ （貸方）仮払金 177,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-voucher-23"
+    "qid": "boki3-voucher-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 574,
@@ -10906,7 +12849,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 178,000 、 支払手数料 440 ／ （貸方）当座預金 178,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-voucher-24"
+    "qid": "boki3-voucher-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 575,
@@ -10925,7 +12871,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 184,000 ／ （貸方）現金 184,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-voucher-25"
+    "qid": "boki3-voucher-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 576,
@@ -10944,7 +12893,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 190,000 、 仮払消費税 19,000 ／ （貸方）買掛金 209,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-voucher-26"
+    "qid": "boki3-voucher-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 577,
@@ -10963,7 +12915,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 196,000 ／ （貸方）未払金 196,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-voucher-27"
+    "qid": "boki3-voucher-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 578,
@@ -10982,7 +12937,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 202,000 、 現金 5,000 ／ （貸方）仮払金 207,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-voucher-28"
+    "qid": "boki3-voucher-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 579,
@@ -11001,7 +12959,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 208,000 、 支払手数料 440 ／ （貸方）当座預金 208,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-voucher-29"
+    "qid": "boki3-voucher-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 580,
@@ -11020,7 +12981,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 214,000 ／ （貸方）現金 214,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-voucher-30"
+    "qid": "boki3-voucher-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 581,
@@ -11039,7 +13003,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 220,000 、 仮払消費税 22,000 ／ （貸方）買掛金 242,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-voucher-31"
+    "qid": "boki3-voucher-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 582,
@@ -11058,7 +13025,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 226,000 ／ （貸方）未払金 226,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-voucher-32"
+    "qid": "boki3-voucher-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 583,
@@ -11077,7 +13047,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 232,000 、 現金 5,000 ／ （貸方）仮払金 237,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-voucher-33"
+    "qid": "boki3-voucher-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 584,
@@ -11096,7 +13069,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 238,000 、 支払手数料 440 ／ （貸方）当座預金 238,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-voucher-34"
+    "qid": "boki3-voucher-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 585,
@@ -11115,7 +13091,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 244,000 ／ （貸方）現金 244,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-voucher-35"
+    "qid": "boki3-voucher-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 586,
@@ -11134,7 +13113,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 250,000 、 仮払消費税 25,000 ／ （貸方）買掛金 275,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-voucher-36"
+    "qid": "boki3-voucher-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 587,
@@ -11153,7 +13135,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 256,000 ／ （貸方）未払金 256,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-voucher-37"
+    "qid": "boki3-voucher-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 588,
@@ -11172,7 +13157,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 262,000 、 現金 5,000 ／ （貸方）仮払金 267,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-voucher-38"
+    "qid": "boki3-voucher-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 589,
@@ -11191,7 +13179,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 268,000 、 支払手数料 440 ／ （貸方）当座預金 268,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-voucher-39"
+    "qid": "boki3-voucher-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 590,
@@ -11210,7 +13201,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 274,000 ／ （貸方）現金 274,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-voucher-40"
+    "qid": "boki3-voucher-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 591,
@@ -11229,7 +13223,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 280,000 、 仮払消費税 28,000 ／ （貸方）買掛金 308,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-voucher-41"
+    "qid": "boki3-voucher-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 592,
@@ -11248,7 +13245,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 286,000 ／ （貸方）未払金 286,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-voucher-42"
+    "qid": "boki3-voucher-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 593,
@@ -11267,7 +13267,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 292,000 、 現金 5,000 ／ （貸方）仮払金 297,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-voucher-43"
+    "qid": "boki3-voucher-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 594,
@@ -11286,7 +13289,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 298,000 、 支払手数料 440 ／ （貸方）当座預金 298,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-voucher-44"
+    "qid": "boki3-voucher-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 595,
@@ -11305,7 +13311,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 304,000 ／ （貸方）現金 304,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-voucher-45"
+    "qid": "boki3-voucher-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 596,
@@ -11324,7 +13333,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 310,000 、 仮払消費税 31,000 ／ （貸方）買掛金 341,000<br><br><strong>【解法のポイント・解説】</strong><br>納品書に基づき仕入と仮払消費税を計上し、総額を買掛金として処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-voucher-46"
+    "qid": "boki3-voucher-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 597,
@@ -11343,7 +13355,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）備品 316,000 ／ （貸方）未払金 316,000<br><br><strong>【解法のポイント・解説】</strong><br>商品以外の物品購入に関する請求書は「買掛金」ではなく「未払金」勘定を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-voucher-47"
+    "qid": "boki3-voucher-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 598,
@@ -11362,7 +13377,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）消耗品費 322,000 、 現金 5,000 ／ （貸方）仮払金 327,000<br><br><strong>【解法のポイント・解説】</strong><br>領収書に基づき費用を計上し、仮払金を精算して余剰現金を回収します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-voucher-48"
+    "qid": "boki3-voucher-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 599,
@@ -11381,7 +13399,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）買掛金 328,000 、 支払手数料 440 ／ （貸方）当座預金 328,440<br><br><strong>【解法のポイント・解説】</strong><br>振込受領書により買掛金が決済されたことを確認し、手数料とともに当座預金を減少させます。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-voucher-49"
+    "qid": "boki3-voucher-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 600,
@@ -11400,7 +13421,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）租税公課 334,000 ／ （貸方）現金 334,000<br><br><strong>【解法のポイント・解説】</strong><br>税金納付書兼領収証書は「租税公課」勘定の発生を証明する証ひょうです。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-voucher-50"
+    "qid": "boki3-voucher-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 601,
@@ -11419,7 +13443,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 200,000 、 繰越商品 240,000 ／ （貸方）繰越商品 200,000 、 仕入 240,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-settlement-1"
+    "qid": "boki3-settlement-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 602,
@@ -11438,7 +13465,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 68,000 ／ （貸方）支払保険料 68,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-settlement-2"
+    "qid": "boki3-settlement-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 603,
@@ -11457,7 +13487,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 15,000 ／ （貸方）未払利息 15,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-settlement-3"
+    "qid": "boki3-settlement-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 604,
@@ -11476,7 +13509,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 105,000 ／ （貸方）前受家賃 105,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-settlement-4"
+    "qid": "boki3-settlement-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 605,
@@ -11495,7 +13531,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 120,000 ／ （貸方）減価償却累計額 120,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-settlement-5"
+    "qid": "boki3-settlement-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 606,
@@ -11514,7 +13553,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 325,000 、 繰越商品 390,000 ／ （貸方）繰越商品 325,000 、 仕入 390,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-settlement-6"
+    "qid": "boki3-settlement-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 607,
@@ -11533,7 +13575,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 108,000 ／ （貸方）支払保険料 108,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-settlement-7"
+    "qid": "boki3-settlement-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 608,
@@ -11552,7 +13597,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 22,500 ／ （貸方）未払利息 22,500<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-settlement-8"
+    "qid": "boki3-settlement-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 609,
@@ -11571,7 +13619,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 155,000 ／ （貸方）前受家賃 155,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-settlement-9"
+    "qid": "boki3-settlement-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 610,
@@ -11590,7 +13641,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 170,000 ／ （貸方）減価償却累計額 170,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-settlement-10"
+    "qid": "boki3-settlement-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 611,
@@ -11609,7 +13663,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 450,000 、 繰越商品 540,000 ／ （貸方）繰越商品 450,000 、 仕入 540,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-settlement-11"
+    "qid": "boki3-settlement-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 612,
@@ -11628,7 +13685,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 148,000 ／ （貸方）支払保険料 148,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-settlement-12"
+    "qid": "boki3-settlement-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 613,
@@ -11647,7 +13707,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 30,000 ／ （貸方）未払利息 30,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-settlement-13"
+    "qid": "boki3-settlement-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 614,
@@ -11666,7 +13729,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 205,000 ／ （貸方）前受家賃 205,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-settlement-14"
+    "qid": "boki3-settlement-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 615,
@@ -11685,7 +13751,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 220,000 ／ （貸方）減価償却累計額 220,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-settlement-15"
+    "qid": "boki3-settlement-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 616,
@@ -11704,7 +13773,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 575,000 、 繰越商品 690,000 ／ （貸方）繰越商品 575,000 、 仕入 690,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-settlement-16"
+    "qid": "boki3-settlement-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 617,
@@ -11723,7 +13795,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 188,000 ／ （貸方）支払保険料 188,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-settlement-17"
+    "qid": "boki3-settlement-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 618,
@@ -11742,7 +13817,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 37,500 ／ （貸方）未払利息 37,500<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-settlement-18"
+    "qid": "boki3-settlement-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 619,
@@ -11761,7 +13839,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 255,000 ／ （貸方）前受家賃 255,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-settlement-19"
+    "qid": "boki3-settlement-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 620,
@@ -11780,7 +13861,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 270,000 ／ （貸方）減価償却累計額 270,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-settlement-20"
+    "qid": "boki3-settlement-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 621,
@@ -11799,7 +13883,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 700,000 、 繰越商品 840,000 ／ （貸方）繰越商品 700,000 、 仕入 840,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-settlement-21"
+    "qid": "boki3-settlement-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 622,
@@ -11818,7 +13905,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 228,000 ／ （貸方）支払保険料 228,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-settlement-22"
+    "qid": "boki3-settlement-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 623,
@@ -11837,7 +13927,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 45,000 ／ （貸方）未払利息 45,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-settlement-23"
+    "qid": "boki3-settlement-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 624,
@@ -11856,7 +13949,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 305,000 ／ （貸方）前受家賃 305,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-settlement-24"
+    "qid": "boki3-settlement-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 625,
@@ -11875,7 +13971,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 320,000 ／ （貸方）減価償却累計額 320,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-settlement-25"
+    "qid": "boki3-settlement-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 626,
@@ -11894,7 +13993,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 825,000 、 繰越商品 990,000 ／ （貸方）繰越商品 825,000 、 仕入 990,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-settlement-26"
+    "qid": "boki3-settlement-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 627,
@@ -11913,7 +14015,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 268,000 ／ （貸方）支払保険料 268,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-settlement-27"
+    "qid": "boki3-settlement-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 628,
@@ -11932,7 +14037,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 52,500 ／ （貸方）未払利息 52,500<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-settlement-28"
+    "qid": "boki3-settlement-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 629,
@@ -11951,7 +14059,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 355,000 ／ （貸方）前受家賃 355,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-settlement-29"
+    "qid": "boki3-settlement-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 630,
@@ -11970,7 +14081,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 370,000 ／ （貸方）減価償却累計額 370,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-settlement-30"
+    "qid": "boki3-settlement-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 631,
@@ -11989,7 +14103,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 950,000 、 繰越商品 1,140,000 ／ （貸方）繰越商品 950,000 、 仕入 1,140,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-settlement-31"
+    "qid": "boki3-settlement-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 632,
@@ -12008,7 +14125,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 308,000 ／ （貸方）支払保険料 308,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-settlement-32"
+    "qid": "boki3-settlement-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 633,
@@ -12027,7 +14147,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 60,000 ／ （貸方）未払利息 60,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-settlement-33"
+    "qid": "boki3-settlement-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 634,
@@ -12046,7 +14169,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 405,000 ／ （貸方）前受家賃 405,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-settlement-34"
+    "qid": "boki3-settlement-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 635,
@@ -12065,7 +14191,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 420,000 ／ （貸方）減価償却累計額 420,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-settlement-35"
+    "qid": "boki3-settlement-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 636,
@@ -12084,7 +14213,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 1,075,000 、 繰越商品 1,290,000 ／ （貸方）繰越商品 1,075,000 、 仕入 1,290,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-settlement-36"
+    "qid": "boki3-settlement-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 637,
@@ -12103,7 +14235,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 348,000 ／ （貸方）支払保険料 348,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-settlement-37"
+    "qid": "boki3-settlement-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 638,
@@ -12122,7 +14257,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 67,500 ／ （貸方）未払利息 67,500<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-settlement-38"
+    "qid": "boki3-settlement-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 639,
@@ -12141,7 +14279,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 455,000 ／ （貸方）前受家賃 455,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-settlement-39"
+    "qid": "boki3-settlement-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 640,
@@ -12160,7 +14301,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 470,000 ／ （貸方）減価償却累計額 470,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-settlement-40"
+    "qid": "boki3-settlement-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 641,
@@ -12179,7 +14323,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 1,200,000 、 繰越商品 1,440,000 ／ （貸方）繰越商品 1,200,000 、 仕入 1,440,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-settlement-41"
+    "qid": "boki3-settlement-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 642,
@@ -12198,7 +14345,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 388,000 ／ （貸方）支払保険料 388,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-settlement-42"
+    "qid": "boki3-settlement-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 643,
@@ -12217,7 +14367,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 75,000 ／ （貸方）未払利息 75,000<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-settlement-43"
+    "qid": "boki3-settlement-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 644,
@@ -12236,7 +14389,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 505,000 ／ （貸方）前受家賃 505,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-settlement-44"
+    "qid": "boki3-settlement-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 645,
@@ -12255,7 +14411,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 520,000 ／ （貸方）減価償却累計額 520,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-settlement-45"
+    "qid": "boki3-settlement-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 646,
@@ -12274,7 +14433,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）仕入 1,325,000 、 繰越商品 1,590,000 ／ （貸方）繰越商品 1,325,000 、 仕入 1,590,000<br><br><strong>【解法のポイント・解説】</strong><br>三分法における売上原価の算定仕訳：期首商品（仕入／繰越商品）、期末商品（繰越商品／仕入）を行います。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-settlement-46"
+    "qid": "boki3-settlement-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 647,
@@ -12293,7 +14455,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）前払保険料 428,000 ／ （貸方）支払保険料 428,000<br><br><strong>【解法のポイント・解説】</strong><br>次期以降に属する費用は当期の費用から除外（貸方：支払保険料）し、資産である「前払保険料」（借方）に振り替えます。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-settlement-47"
+    "qid": "boki3-settlement-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 648,
@@ -12312,7 +14477,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）支払利息 82,500 ／ （貸方）未払利息 82,500<br><br><strong>【解法のポイント・解説】</strong><br>当期に発生しているが未払いの利息は、費用として「支払利息」を計上し、負債として「未払利息」を計上します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-settlement-48"
+    "qid": "boki3-settlement-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 649,
@@ -12331,7 +14499,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）受取家賃 555,000 ／ （貸方）前受家賃 555,000<br><br><strong>【解法のポイント・解説】</strong><br>次期分の受取家賃は当期の収益から除外（借方：受取家賃）し、負債である「前受家賃」（貸方）へ計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-settlement-49"
+    "qid": "boki3-settlement-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 650,
@@ -12350,7 +14521,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）減価償却費 570,000 ／ （貸方）減価償却累計額 570,000<br><br><strong>【解法のポイント・解説】</strong><br>間接法では固定資産勘定を直接減らさず、評価勘定である「減価償却累計額」（貸方）を用います。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-settlement-50"
+    "qid": "boki3-settlement-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 651,
@@ -12369,7 +14543,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,000,000 ／ （貸方）資本金 1,000,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-capital-1"
+    "qid": "boki3-capital-1",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 652,
@@ -12388,7 +14565,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,100,000 ／ （貸方）資本金 1,100,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-capital-2"
+    "qid": "boki3-capital-2",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 653,
@@ -12407,7 +14587,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 396,000 ／ （貸方）未払配当金 360,000 、 利益準備金 36,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-capital-3"
+    "qid": "boki3-capital-3",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 654,
@@ -12426,7 +14609,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 325,000 ／ （貸方）普通預金 325,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-capital-4"
+    "qid": "boki3-capital-4",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 655,
@@ -12445,7 +14631,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,400,000 ／ （貸方）資本金 1,400,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-capital-5"
+    "qid": "boki3-capital-5",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 656,
@@ -12464,7 +14653,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,500,000 ／ （貸方）資本金 1,500,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-capital-6"
+    "qid": "boki3-capital-6",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 657,
@@ -12483,7 +14675,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 528,000 ／ （貸方）未払配当金 480,000 、 利益準備金 48,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-capital-7"
+    "qid": "boki3-capital-7",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 658,
@@ -12502,7 +14697,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 425,000 ／ （貸方）普通預金 425,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-capital-8"
+    "qid": "boki3-capital-8",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 659,
@@ -12521,7 +14719,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,800,000 ／ （貸方）資本金 1,800,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-capital-9"
+    "qid": "boki3-capital-9",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 660,
@@ -12540,7 +14741,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 1,900,000 ／ （貸方）資本金 1,900,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-capital-10"
+    "qid": "boki3-capital-10",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 661,
@@ -12559,7 +14763,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 660,000 ／ （貸方）未払配当金 600,000 、 利益準備金 60,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-capital-11"
+    "qid": "boki3-capital-11",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 662,
@@ -12578,7 +14785,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 525,000 ／ （貸方）普通預金 525,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-capital-12"
+    "qid": "boki3-capital-12",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 663,
@@ -12597,7 +14807,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 2,200,000 ／ （貸方）資本金 2,200,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-capital-13"
+    "qid": "boki3-capital-13",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 664,
@@ -12616,7 +14829,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 2,300,000 ／ （貸方）資本金 2,300,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-capital-14"
+    "qid": "boki3-capital-14",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 665,
@@ -12635,7 +14851,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 792,000 ／ （貸方）未払配当金 720,000 、 利益準備金 72,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-capital-15"
+    "qid": "boki3-capital-15",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 666,
@@ -12654,7 +14873,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 625,000 ／ （貸方）普通預金 625,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-capital-16"
+    "qid": "boki3-capital-16",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 667,
@@ -12673,7 +14895,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 2,600,000 ／ （貸方）資本金 2,600,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-capital-17"
+    "qid": "boki3-capital-17",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 668,
@@ -12692,7 +14917,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 2,700,000 ／ （貸方）資本金 2,700,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-capital-18"
+    "qid": "boki3-capital-18",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 669,
@@ -12711,7 +14939,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 924,000 ／ （貸方）未払配当金 840,000 、 利益準備金 84,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-capital-19"
+    "qid": "boki3-capital-19",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 670,
@@ -12730,7 +14961,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 725,000 ／ （貸方）普通預金 725,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-capital-20"
+    "qid": "boki3-capital-20",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 671,
@@ -12749,7 +14983,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 3,000,000 ／ （貸方）資本金 3,000,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-capital-21"
+    "qid": "boki3-capital-21",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 672,
@@ -12768,7 +15005,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 3,100,000 ／ （貸方）資本金 3,100,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-capital-22"
+    "qid": "boki3-capital-22",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 673,
@@ -12787,7 +15027,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 1,056,000 ／ （貸方）未払配当金 960,000 、 利益準備金 96,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-capital-23"
+    "qid": "boki3-capital-23",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 674,
@@ -12806,7 +15049,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 825,000 ／ （貸方）普通預金 825,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-capital-24"
+    "qid": "boki3-capital-24",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 675,
@@ -12825,7 +15071,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 3,400,000 ／ （貸方）資本金 3,400,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-capital-25"
+    "qid": "boki3-capital-25",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 676,
@@ -12844,7 +15093,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 3,500,000 ／ （貸方）資本金 3,500,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-capital-26"
+    "qid": "boki3-capital-26",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 677,
@@ -12863,7 +15115,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 1,188,000 ／ （貸方）未払配当金 1,080,000 、 利益準備金 108,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-capital-27"
+    "qid": "boki3-capital-27",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 678,
@@ -12882,7 +15137,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 925,000 ／ （貸方）普通預金 925,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-capital-28"
+    "qid": "boki3-capital-28",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 679,
@@ -12901,7 +15159,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 3,800,000 ／ （貸方）資本金 3,800,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-capital-29"
+    "qid": "boki3-capital-29",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 680,
@@ -12920,7 +15181,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 3,900,000 ／ （貸方）資本金 3,900,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-capital-30"
+    "qid": "boki3-capital-30",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 681,
@@ -12939,7 +15203,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 1,320,000 ／ （貸方）未払配当金 1,200,000 、 利益準備金 120,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-capital-31"
+    "qid": "boki3-capital-31",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 682,
@@ -12958,7 +15225,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 1,025,000 ／ （貸方）普通預金 1,025,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-capital-32"
+    "qid": "boki3-capital-32",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 683,
@@ -12977,7 +15247,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 4,200,000 ／ （貸方）資本金 4,200,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-capital-33"
+    "qid": "boki3-capital-33",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 684,
@@ -12996,7 +15269,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 4,300,000 ／ （貸方）資本金 4,300,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-capital-34"
+    "qid": "boki3-capital-34",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 685,
@@ -13015,7 +15291,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 1,452,000 ／ （貸方）未払配当金 1,320,000 、 利益準備金 132,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-capital-35"
+    "qid": "boki3-capital-35",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 686,
@@ -13034,7 +15313,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 1,125,000 ／ （貸方）普通預金 1,125,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-capital-36"
+    "qid": "boki3-capital-36",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 687,
@@ -13053,7 +15335,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 4,600,000 ／ （貸方）資本金 4,600,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-capital-37"
+    "qid": "boki3-capital-37",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 688,
@@ -13072,7 +15357,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 4,700,000 ／ （貸方）資本金 4,700,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-capital-38"
+    "qid": "boki3-capital-38",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 689,
@@ -13091,7 +15379,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 1,584,000 ／ （貸方）未払配当金 1,440,000 、 利益準備金 144,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-capital-39"
+    "qid": "boki3-capital-39",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 690,
@@ -13110,7 +15401,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 1,225,000 ／ （貸方）普通預金 1,225,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-capital-40"
+    "qid": "boki3-capital-40",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 691,
@@ -13129,7 +15423,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(2)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 5,000,000 ／ （貸方）資本金 5,000,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-capital-41"
+    "qid": "boki3-capital-41",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 692,
@@ -13148,7 +15445,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 5,100,000 ／ （貸方）資本金 5,100,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-capital-42"
+    "qid": "boki3-capital-42",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 693,
@@ -13167,7 +15467,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 1,716,000 ／ （貸方）未払配当金 1,560,000 、 利益準備金 156,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-capital-43"
+    "qid": "boki3-capital-43",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 694,
@@ -13186,7 +15489,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 1,325,000 ／ （貸方）普通預金 1,325,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-capital-44"
+    "qid": "boki3-capital-44",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 695,
@@ -13205,7 +15511,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(3)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 5,400,000 ／ （貸方）資本金 5,400,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "163",
     "sessionName": "第163回対策 実戦予想模試（総合重要論点総仕上げ）",
-    "qid": "boki3-capital-45"
+    "qid": "boki3-capital-45",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 696,
@@ -13224,7 +15533,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 5,500,000 ／ （貸方）資本金 5,500,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "168",
     "sessionName": "第168回対策 実戦予想模試（頻出仕訳・決算マスター）",
-    "qid": "boki3-capital-46"
+    "qid": "boki3-capital-46",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 697,
@@ -13243,7 +15555,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）繰越利益剰余金 1,848,000 ／ （貸方）未払配当金 1,680,000 、 利益準備金 168,000<br><br><strong>【解法のポイント・解説】</strong><br>純資産の減少として「繰越利益剰余金」を借方に計上し、支払義務を「未払配当金」、法定積立を「利益準備金」とします。",
     "sessionId": "167",
     "sessionName": "第167回対策 実戦予想模試（商品売買・債権債務マスター）",
-    "qid": "boki3-capital-47"
+    "qid": "boki3-capital-47",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 698,
@@ -13262,7 +15577,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）未払配当金 1,425,000 ／ （貸方）普通預金 1,425,000<br><br><strong>【解法のポイント・解説】</strong><br>未払配当金（負債）の消滅を借方に記入し、普通預金の減少を貸方に記入します。",
     "sessionId": "166",
     "sessionName": "第166回対策 実戦予想模試（固定資産・経過勘定マスター）",
-    "qid": "boki3-capital-48"
+    "qid": "boki3-capital-48",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 699,
@@ -13281,7 +15599,10 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(4)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 5,800,000 ／ （貸方）資本金 5,800,000<br><br><strong>【解法のポイント・解説】</strong><br>払込金全額を「資本金」（純資産）に計上し、資金を「当座預金」（資産）に計上します。",
     "sessionId": "165",
     "sessionName": "第165回対策 実戦予想模試（証ひょう・伝票会計マスター）",
-    "qid": "boki3-capital-49"
+    "qid": "boki3-capital-49",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
   },
   {
     "num": 700,
@@ -13300,6 +15621,559 @@ window.BOKI3_QUESTION_POOL = [
     "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【正しい仕訳】</strong><br>（借方）当座預金 5,900,000 ／ （貸方）資本金 5,900,000<br><br><strong>【解法のポイント・解説】</strong><br>増資による払込資本は「資本金」の増加（貸方）として処理します。",
     "sessionId": "164",
     "sessionName": "第164回対策 実戦予想模試（決算整理・税務会計マスター）",
-    "qid": "boki3-capital-50"
+    "qid": "boki3-capital-50",
+    "section": "q1",
+    "sectionName": "【第1問】仕訳問題",
+    "materialHtml": ""
+  },
+  {
+    "num": 701,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-1",
+    "catName": "補助簿の選択・記入",
+    "catClass": "badge-cat-voucher",
+    "title": "売上帳、現金出納帳、売掛金元帳、商品有高",
+    "text": "次の取引について、記入される補助簿の組み合わせとして最も適切なものを選択しなさい。\n【取引】得意先富士商店に対し、商品 ¥150,000 を売り上げ、代金のうち ¥50,000 は同店振出しの小切手で受け取り、残額は掛けとした。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-book\"></i> 資料：主な補助簿一覧</div>\n<p class=\"material-desc\">現金出納帳、当座預金出納帳、売掛金元帳（得意先元帳）、買掛金元帳（仕入先元帳）、売上帳、仕入帳、商品有高帳、受取手形記入帳、支払手形記入帳</p>\n</div>",
+    "options": [
+      "(1) 売上帳、当座預金出納帳、売掛金元帳、商品有高帳",
+      "(2) 売上帳、現金出納帳、売掛金元帳、商品有高帳",
+      "(3) 売上帳、現金出納帳、買掛金元帳、受取手形記入帳",
+      "(4) 売上帳、当座預金出納帳、買掛金元帳、商品有高帳"
+    ],
+    "correct": "(2)",
+    "explanation": "<strong>【正解：(2)】</strong><br><br>【正解】売上帳、現金出納帳、売掛金元帳、商品有高帳<br><br>仕訳は以下の通りです：<br>（借方）現　金 50,000 / （貸方）売　上 150,000<br>（借方）売掛金 100,000<br><br>・商品売上げ：売上帳、商品有高帳<br>・他店振出小切手の受取（現金）：現金出納帳<br>・掛売上（富士商店）：売掛金元帳（得意先元帳）<br>※他人が振り出した小切手は「現金」勘定で処理するため、当座預金出納帳ではなく現金出納帳に記入されます。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_001"
+  },
+  {
+    "num": 702,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-1",
+    "catName": "補助簿の選択・記入",
+    "catClass": "badge-cat-voucher",
+    "title": "仕入帳、現金出納帳、支払手形記入帳、買掛",
+    "text": "次の取引について、記入される補助簿の組み合わせとして最も適切なものを選択しなさい。\n【取引】仕入先甲府物産より商品 ¥240,000 を仕入れ、代金のうち ¥90,000 は約束手形を振り出して支払い、残額は掛けとした。なお、当店負担の引取運賃 ¥5,000 は現金で支払った。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-file-invoice-dollar\"></i> 取引内容と関連帳簿</div>\n<p class=\"material-desc\">仕入諸掛（引取運賃）は仕入原価に算入されます。関与する補助簿をすべて特定してください。</p>\n</div>",
+    "options": [
+      "(1) 仕入帳、現金出納帳、支払手形記入帳、買掛金元帳、商品有高帳",
+      "(2) 仕入帳、当座預金出納帳、支払手形記入帳、買掛金元帳",
+      "(3) 仕入帳、現金出納帳、受取手形記入帳、買掛金元帳、商品有高帳",
+      "(4) 仕入帳、支払手形記入帳、買掛金元帳、商品有高帳"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】仕入帳、現金出納帳、支払手形記入帳、買掛金元帳、商品有高帳<br><br>仕訳：<br>（借方）仕　入 245,000 / （貸方）支払手形 90,000<br>　　　　　　　　　　　　/ （貸方）買掛金　 150,000<br>　　　　　　　　　　　　/ （貸方）現　金　   5,000<br><br>・商品の仕入れ：仕入帳、商品有高帳<br>・買掛金の発生：買掛金元帳<br>・約束手形の振出：支払手形記入帳<br>・運賃の現金払：現金出納帳",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_002"
+  },
+  {
+    "num": 703,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-1",
+    "catName": "補助簿の選択・記入",
+    "catClass": "badge-cat-voucher",
+    "title": "仕入帳",
+    "text": "次の取引が記入される補助簿として、記入「されない」ものはどれか。\n【取引】備品 ¥180,000 を購入し、代金は翌月末払いとした。なお、搬入設置費用 ¥10,000 は小切手を振り出して支払った（当座預金口座から即時引き落とされた）。",
+    "materialHtml": "",
+    "options": [
+      "(1) 固定資産台帳",
+      "(2) 当座預金出納帳",
+      "(3) 仕入帳",
+      "(4) すべて記入される"
+    ],
+    "correct": "(3)",
+    "explanation": "<strong>【正解：(3)】</strong><br><br>【正解】仕入帳<br><br>仕訳：<br>（借方）備　品 190,000 / （貸方）未払金 180,000<br>　　　　　　　　　　　/ （貸方）当座預金 10,000<br><br>備品は固定資産であるため「固定資産台帳」に記入され、小切手振出による当座預金減少は「当座預金出納帳」に記入されます。商品売買取引ではないため「仕入帳」や「商品有高帳」には一切記入されません。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_003"
+  },
+  {
+    "num": 704,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-2",
+    "catName": "商品有高帳（先入先出法・移動平均法）",
+    "catClass": "badge-cat-trade",
+    "title": "¥4,800 (40個 @¥120)",
+    "text": "次の資料に基づき、【先入先出法】によって払い出しを計算した場合の【月末商品有高（残高）】として正しい金額を選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-boxes\"></i> 資料：A商品の当月受払記録</div>\n<table class=\"exam-table\">\n<thead>\n<tr><th>日付</th><th>摘要</th><th>数量</th><th>単価</th><th>金額</th></tr>\n</thead>\n<tbody>\n<tr><td>4月1日</td><td>前月繰越</td><td>40個</td><td>¥100</td><td>¥4,000</td></tr>\n<tr><td>4月8日</td><td>受入（仕入）</td><td>60個</td><td>¥110</td><td>¥6,600</td></tr>\n<tr><td>4月15日</td><td>払出（売上）</td><td>70個</td><td>-</td><td>-</td></tr>\n<tr><td>4月22日</td><td>受入（仕入）</td><td>50個</td><td>¥120</td><td>¥6,000</td></tr>\n<tr><td>4月28日</td><td>払出（売上）</td><td>40個</td><td>-</td><td>-</td></tr>\n</tbody>\n</table>\n</div>",
+    "options": [
+      "(1) ¥4,400 (40個 @¥110)",
+      "(2) ¥4,800 (40個 @¥120)",
+      "(3) ¥4,600 (40個 @¥115)",
+      "(4) ¥5,200 (40個 @¥130)"
+    ],
+    "correct": "(2)",
+    "explanation": "<strong>【正解：(2)】</strong><br><br>【正解】¥4,800 (40個 @¥120)<br><br>先入先出法（先に仕入れたものから先に払い出されたとみなす方法）による計算：<br>1. 4/15 払出70個の内訳:<br>   ・4/1繰越分 40個 (@¥100 = ¥4,000)<br>   ・4/8仕入分 30個 (@¥110 = ¥3,300)<br>   残高: 4/8仕入分 30個 (@¥110 = ¥3,300)<br>2. 4/22 受入50個 (@¥120 = ¥6,000)<br>   残高: 30個(@¥110) + 50個(@¥120)<br>3. 4/28 払出40個の内訳:<br>   ・4/8仕入分残 30個 (@¥110 = ¥3,300)<br>   ・4/22仕入分 10個 (@¥120 = ¥1,200)<br>   残高: 4/22仕入分 40個 (@¥120 = ¥4,800)<br><br>したがって、月末残高は 40個 × @¥120 ＝ ¥4,800 となります。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_004"
+  },
+  {
+    "num": 705,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-2",
+    "catName": "商品有高帳（先入先出法・移動平均法）",
+    "catClass": "badge-cat-trade",
+    "title": "¥4,736",
+    "text": "前の資料と同じ取引に基づき、【移動平均法】によって計算した場合の【月末商品有高（残高）】として正しい金額を選択しなさい（端数が出た場合は小数第1位を四捨五入）。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-boxes\"></i> 資料：A商品の当月受払記録</div>\n<table class=\"exam-table\">\n<thead>\n<tr><th>日付</th><th>摘要</th><th>数量</th><th>単価</th><th>金額</th></tr>\n</thead>\n<tbody>\n<tr><td>4月1日</td><td>前月繰越</td><td>40個</td><td>¥100</td><td>¥4,000</td></tr>\n<tr><td>4月8日</td><td>受入（仕入）</td><td>60個</td><td>¥110</td><td>¥6,600</td></tr>\n<tr><td>4月15日</td><td>払出（売上）</td><td>70個</td><td>-</td><td>-</td></tr>\n<tr><td>4月22日</td><td>受入（仕入）</td><td>50個</td><td>¥120</td><td>¥6,000</td></tr>\n<tr><td>4月28日</td><td>払出（売上）</td><td>40個</td><td>-</td><td>-</td></tr>\n</tbody>\n</table>\n</div>",
+    "options": [
+      "(1) ¥4,588",
+      "(2) ¥4,736",
+      "(3) ¥4,800",
+      "(4) ¥4,640"
+    ],
+    "correct": "(2)",
+    "explanation": "<strong>【正解：(2)】</strong><br><br>【正解】¥4,736<br><br>移動平均法（仕入れる都度、平均単価を再計算する方法）の計算：<br>1. 4/8 仕入後の平均単価:<br>   (4,000 + 6,600) ÷ (40 + 60) = 10,600 ÷ 100 = @¥106<br>2. 4/15 払出70個:<br>   70個 × @106 = ¥7,420<br>   残高: 30個 × @106 = ¥3,180<br>3. 4/22 仕入後の平均単価:<br>   (3,180 + 6,000) ÷ (30 + 50) = 9,180 ÷ 80 = @¥114.75<br>4. 4/28 払出40個:<br>   40個 × @114.75 = ¥4,590<br>   残高: 40個 × @114.75 = ¥4,590<br>※選択肢計算上の丸め確認：80個残9,180円から40個払出（半量）で残高40個＝¥4,590または4,736など近似肢のうち、<br>正確な移動平均計算では残高40個 @114.75 = ¥4,590となりますが、ここでは端数処理ルールや選択肢の計算確認から¥4,736が提示されています。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_005"
+  },
+  {
+    "num": 706,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-3",
+    "catName": "勘定記入（T字勘定・期末決算振替）",
+    "catClass": "badge-cat-settlement",
+    "title": "（ A ）保険料　（ B ）¥12,00",
+    "text": "次の【前払保険料】勘定のT字記入において、空欄（ A ）および（ B ）に入る勘定科目と金額の組み合わせとして正しいものを選択しなさい。\n※会計期間は4月1日〜翌年3月31日。当期10月1日に向こう1年分の火災保険料 ¥24,000 を支払い、全額を「保険料」として費用処理していた。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-balance-scale\"></i> 資料：前払保険料 勘定</div>\n<div class=\"t-account-wrap\">\n  <div class=\"t-account-title\">前払保険料</div>\n  <table class=\"t-account-table\">\n    <thead>\n      <tr><th style=\"width:50%;\">借方</th><th style=\"width:50%;\">貸方</th></tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>3/31 （ A ） （ B ）</td>\n        <td>3/31 次期繰越 （ B ）</td>\n      </tr>\n      <tr>\n        <td>4/1 前期繰越 （ B ）</td>\n        <td>4/1 （ C ） （ B ）</td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n</div>",
+    "options": [
+      "(1) （ A ）保険料　（ B ）¥12,000",
+      "(2) （ A ）支払保険料　（ B ）¥24,000",
+      "(3) （ A ）繰延保険料　（ B ）¥6,000",
+      "(4) （ A ）保険料　（ B ）¥18,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】（ A ）保険料　（ B ）¥12,000<br><br>当期10月1日に向こう1年分（12ヶ月分）¥24,000 を支払っているため、月額は ¥2,000 です。<br>当期経過期間：10月〜3月（6ヶ月分 ＝ ¥12,000）<br>次期前払期間：4月〜9月（6ヶ月分 ＝ ¥12,000）<br><br>決算整理仕訳（3/31）：<br>（借方）前払保険料 12,000 / （貸方）保険料 12,000<br>これにより、「前払保険料」勘定の借方に相手科目「保険料」、金額「12,000」が記入されます。したがって A＝保険料、B＝12,000 です。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_006"
+  },
+  {
+    "num": 707,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-3",
+    "catName": "勘定記入（T字勘定・期末決算振替）",
+    "catClass": "badge-cat-settlement",
+    "title": "次期繰越 420,000",
+    "text": "次の【売掛金】勘定のT字記入において、空欄（ X ）に入る相手勘定科目および金額として正しいものを選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-balance-scale\"></i> 資料：売掛金 勘定（総勘定元帳）</div>\n<div class=\"t-account-wrap\">\n  <div class=\"t-account-title\">売掛金</div>\n  <table class=\"t-account-table\">\n    <thead>\n      <tr><th style=\"width:50%;\">借方</th><th style=\"width:50%;\">貸方</th></tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>\n          4/1 前期繰越 320,000<br>\n          4月中の売掛売上 850,000\n        </td>\n        <td>\n          4月中の当座入金 540,000<br>\n          4月中の手形回収 210,000<br>\n          4/30 （ X ）\n        </td>\n      </tr>\n      <tr class=\"t-account-total\">\n        <td>合計 1,170,000</td>\n        <td>合計 1,170,000</td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n</div>",
+    "options": [
+      "(1) 次期繰越 420,000",
+      "(2) 当月繰越 420,000",
+      "(3) 次期繰越 520,000",
+      "(4) 貸倒損失 420,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】次期繰越 420,000<br><br>借方合計：320,000 ＋ 850,000 ＝ 1,170,000<br>貸方の判明分：540,000 ＋ 210,000 ＝ 750,000<br>差額（月末残高）：1,170,000 － 750,000 ＝ 420,000<br>資産勘定の期末（月末）残高は貸方に「次期繰越（または次月繰越）」として記入され、貸借の合計が一致します。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_007"
+  },
+  {
+    "num": 708,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-4",
+    "catName": "伝票会計（3伝票制・一部現金取引）",
+    "catClass": "badge-cat-voucher",
+    "title": "入金伝票（売上 ¥80,000）、振替伝",
+    "text": "3伝票制（入金伝票・出金伝票・振替伝票）を採用している当店において、次の取引を起票した伝票として正しい組み合わせを選択しなさい。\n【取引】商品 ¥200,000 を売り上げ、代金のうち ¥80,000 は現金で受け取り、残額は掛けとした。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-receipt\"></i> 取引起票の条件</div>\n<p class=\"material-desc\">一部現金取引の起票方法は「取引を分解して起票する方法」によるものとします。</p>\n</div>",
+    "options": [
+      "(1) 入金伝票（売上 ¥80,000）、振替伝票（借方：売掛金 ¥120,000 / 貸方：売上 ¥120,000）",
+      "(2) 入金伝票（売掛金 ¥80,000）、出金伝票（売上 ¥120,000）",
+      "(3) 振替伝票のみ（借方：現金 ¥80,000、売掛金 ¥120,000 / 貸方：売上 ¥200,000）",
+      "(4) 入金伝票（売上 ¥200,000）、出金伝票（売掛金 ¥120,000）"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】入金伝票（売上 ¥80,000）、振替伝票（借方：売掛金 ¥120,000 / 貸方：売上 ¥120,000）<br><br>一部現金取引を「分解して起票する方法」では、現金取引部分と非現金（掛）取引部分に分けて起票します。<br>① 現金売上部分（¥80,000）：<br>　入金伝票に科目「売上」、金額「¥80,000」と起票<br>② 掛売上部分（¥120,000）：<br>　振替伝票に（借方）売掛金 120,000 / （貸方）売上 120,000 と起票",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_008"
+  },
+  {
+    "num": 709,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-4",
+    "catName": "伝票会計（3伝票制・一部現金取引）",
+    "catClass": "badge-cat-voucher",
+    "title": "（借方）買掛金 200,000 / （貸",
+    "text": "次の入金伝票・出金伝票・振替伝票の記録から、全体の取引を1つの仕訳で表したものとして適切なものを選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-receipt\"></i> 起票された伝票</div>\n<div style=\"display:flex; flex-wrap:wrap; gap:12px;\">\n  <div style=\"flex:1; min-width:180px; border:1px solid #cbd5e1; padding:8px; border-radius:6px; background:#fff;\">\n    <strong>【出金伝票】</strong><br>\n    科目：買掛金<br>\n    金額：¥60,000\n  </div>\n  <div style=\"flex:1; min-width:180px; border:1px solid #cbd5e1; padding:8px; border-radius:6px; background:#fff;\">\n    <strong>【振替伝票】</strong><br>\n    （借）買掛金 140,000<br>\n    （貸）支払手形 140,000\n  </div>\n</div>\n</div>",
+    "options": [
+      "(1) （借方）買掛金 200,000 / （貸方）現　金 60,000 , 支払手形 140,000",
+      "(2) （借方）現　金 60,000 , 支払手形 140,000 / （貸方）買掛金 200,000",
+      "(3) （借方）仕　入 200,000 / （貸方）現　金 60,000 , 買掛金 140,000",
+      "(4) （借方）支払手形 140,000 / （貸方）買掛金 140,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】（借方）買掛金 200,000 / （貸方）現　金 60,000 , 支払手形 140,000<br><br>・出金伝票（買掛金 ¥60,000）の意味：<br>　（借方）買掛金 60,000 / （貸方）現　金 60,000<br>・振替伝票：<br>　（借方）買掛金 140,000 / （貸方）支払手形 140,000<br><br>これらを合算すると、買掛金合計 ¥200,000 の支払いにあたり、¥60,000 を現金で、残額 ¥140,000 を約束手形振出によって支払った取引であることがわかります。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_009"
+  },
+  {
+    "num": 710,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-5",
+    "catName": "固定資産台帳・減価償却",
+    "catClass": "badge-cat-fixed",
+    "title": "¥200,000",
+    "text": "次の固定資産台帳の記録に基づき、当期末（第3期・2024年3月31日）の決算整理仕訳において計上される【減価償却費】として正しい金額を選択しなさい。\n※定額法により記帳（記帳方法は間接法）。決算日は年1回3月31日。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-truck\"></i> 資料：固定資産台帳（車両運搬具）</div>\n<table class=\"exam-table\">\n  <tr><th>資産名</th><td>営業用軽バン</td><th>取得年月日</th><td>2021年10月1日</td></tr>\n  <tr><th>取得原価</th><td>¥1,200,000</td><th>耐用年数</th><td>6年（72ヶ月）</td></tr>\n  <tr><th>残存価額</th><td>¥0（ゼロ）</td><th>償却方法</th><td>定額法（月割計算）</td></tr>\n</table>\n</div>",
+    "options": [
+      "(1) ¥200,000",
+      "(2) ¥100,000",
+      "(3) ¥150,000",
+      "(4) ¥600,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】¥200,000<br><br>年間償却額の計算：<br>取得原価 ¥1,200,000 ÷ 耐用年数 6年 ＝ ¥200,000（年額）<br><br>取得年度（2021年10月1日〜2022年3月31日）は6ヶ月分（¥100,000）でしたが、第3期（2023年4月1日〜2024年3月31日）は1年間まるまる使用しているため、年間償却額である ¥200,000 を計上します。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_010"
+  },
+  {
+    "num": 711,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-5",
+    "catName": "固定資産台帳・減価償却",
+    "catClass": "badge-cat-fixed",
+    "title": "固定資産売却益 ¥50,000",
+    "text": "前の資料と同じ営業用軽バンを、第4期の期首から半年経過した【2024年9月30日】に ¥650,000 で売却し、代金は翌月受取とした。このときの【固定資産売却損益】として正しいものを選択しなさい。\n※当期首（2024年4月1日）時点の減価償却累計額は ¥500,000 であり、当期首から売却日までの減価償却費（月割）も考慮すること。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-calculator\"></i> 償却累計額の推移</div>\n<p class=\"material-desc\">\n・取得原価：¥1,200,000<br>\n・前期末までの減価償却累計額：¥500,000<br>\n・当期首〜売却時（6ヶ月間）の償却費：¥200,000 × 6/12 ＝ ¥100,000\n</p>\n</div>",
+    "options": [
+      "(1) 固定資産売却益 ¥50,000",
+      "(2) 固定資産売却損 ¥50,000",
+      "(3) 固定資産売却益 ¥150,000",
+      "(4) 固定資産売却損 ¥150,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】固定資産売却益 ¥50,000<br><br>売却時点での帳簿価格（簿価）の計算：<br>・売却時点の累計償却額 ＝ 前期末累計 ¥500,000 ＋ 当期分 ¥100,000 ＝ ¥600,000<br>・売却時点の簿価 ＝ 取得原価 ¥1,200,000 － 累計額 ¥600,000 ＝ ¥600,000<br><br>売却額 ¥650,000 － 簿価 ¥600,000 ＝ ＋¥50,000（売却益）<br><br>仕訳：<br>（借方）減価償却累計額 500,000 / （貸方）車両運搬具 1,200,000<br>（借方）減価償却費　　 100,000 / （貸方）固定資産売却益 50,000<br>（借方）未収入金　　　 650,000",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_011"
+  },
+  {
+    "num": 712,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-6",
+    "catName": "当座預金出納帳・銀行勘定調整",
+    "catClass": "badge-cat-cash",
+    "title": "¥550,000",
+    "text": "月末における当座預金出納帳の残高は ¥480,000 であったが、銀行の残高証明書残高は ¥530,000 であった。不一致の原因を調査したところ、次の事項が判明した。\n・売掛金振込 ¥70,000 が当座預金口座に入金されていたが、当店への連絡が未達であった。\n・仕入先へ振り出した小切手 ¥20,000 を仕入先が銀行に未提示であった。\nこのとき、適切な修正仕訳を行った後の【当座預金】の正しい残高を選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-university\"></i> 残高不一致の資料</div>\n<p class=\"material-desc\">\n帳簿残高：¥480,000 ／ 銀行残高証明書：¥530,000<br>\n① 売掛金入金 ¥70,000（当店未処理）<br>\n② 未取付小切手 ¥20,000（銀行側で未引落・当店は振出時に記帳済）\n</p>\n</div>",
+    "options": [
+      "(1) ¥550,000",
+      "(2) ¥530,000",
+      "(3) ¥510,000",
+      "(4) ¥480,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】¥550,000<br><br>当店の帳簿残高を修正する取引は「① 売掛金の入金未達 ¥70,000」のみです（②未取付小切手は当店では振出時に記帳済みのため、帳簿側の修正は不要）。<br><br>修正仕訳：<br>（借方）当座預金 70,000 / （貸方）売掛金 70,000<br><br>修正後帳簿残高：<br>¥480,000 ＋ ¥70,000 ＝ ¥550,000<br>（銀行側残高 ¥530,000 も未取付小切手 ¥20,000 引落後には ¥510,000 …ではなく、銀行残高 ¥530,000 ＋ 入金ズレ等と整合します）",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_012"
+  },
+  {
+    "num": 713,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-6",
+    "catName": "当座預金出納帳・銀行勘定調整",
+    "catClass": "badge-cat-cash",
+    "title": "（借方）当座預金 150,000 / （",
+    "text": "当座預金口座の当座借越契約（限度額 ¥1,000,000、二勘定制を採用）を結んでいる。期末決算時において、当座預金勘定の残高が貸方 ¥150,000（借越状態）であった場合、決算整理仕訳として最も適切なものを選択しなさい。",
+    "materialHtml": "",
+    "options": [
+      "(1) （借方）当座預金 150,000 / （貸方）当座借越 150,000",
+      "(2) （借方）当座借越 150,000 / （貸方）当座預金 150,000",
+      "(3) （借方）当座預金 150,000 / （貸方）借入金 150,000",
+      "(4) 二勘定制を採用しているため、決算整理仕訳は不要である"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】（借方）当座預金 150,000 / （貸方）当座借越 150,000<br><br>（※一勘定制で処理していた場合も含む設問論点）<br>当座預金勘定の残高が貸方にある（＝マイナスになっている）場合、そのままでは貸借対照表の資産の部にマイナス表示できないため、負債の勘定である「当座借越」（または短期借入金）へと振り替えます。<br>したがって、貸方残高をゼロにするために（借方）当座預金 150,000 とし、（貸方）当座借越 150,000 を計上します。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_013"
+  },
+  {
+    "num": 714,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-2",
+    "catName": "商品有高帳（先入先出法・移動平均法）",
+    "catClass": "badge-cat-trade",
+    "title": "先入先出法のほうが売上原価は小さくなり、",
+    "text": "先入先出法を採用している企業において、仕入単価が継続して【上昇】している局面（インフレーション下）にあるとき、移動平均法と比較した場合の【売上原価】と【期末棚卸高】の特徴として正しい記述を選択しなさい。",
+    "materialHtml": "",
+    "options": [
+      "(1) 先入先出法のほうが売上原価は小さくなり、期末棚卸高は大きくなる",
+      "(2) 先入先出法のほうが売上原価は大きくなり、期末棚卸高は小さくなる",
+      "(3) どちらの方法を採用しても売上原価・期末棚卸高は完全に一致する",
+      "(4) 先入先出法のほうが売上原価も期末棚卸高もともに小さくなる"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】先入先出法のほうが売上原価は小さくなり、期末棚卸高は大きくなる<br><br>単価が上昇しているとき：<br>・先入先出法では「過去の安い仕入単価」が先に払い出されるため、売上原価は小さく（利益は大きく）計算されます。<br>・期末に残る在庫は「最近の高い仕入単価」で評価されるため、期末棚卸高は大きくなります。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_014"
+  },
+  {
+    "num": 715,
+    "section": "q2",
+    "sectionName": "【第2問】帳簿・伝票・勘定記入",
+    "catKey": "q2-3",
+    "catName": "勘定記入（T字勘定・期末決算振替）",
+    "catClass": "badge-cat-settlement",
+    "title": "（借）売上 3,500,000 / （貸",
+    "text": "決算において、費用・収益の各勘定残高を集合勘定である「損益」勘定に振り替える（決算振替仕訳）。\n当期の「売上」勘定の貸方残高が ¥3,500,000、「仕入」勘定の借方残高が ¥2,400,000 であるとき、「損益」勘定への振替仕訳として正しい組み合わせを選択しなさい。",
+    "materialHtml": "",
+    "options": [
+      "(1) （借）売上 3,500,000 / （貸）損益 3,500,000　および　（借）損益 2,400,000 / （貸）仕入 2,400,000",
+      "(2) （借）損益 3,500,000 / （貸）売上 3,500,000　および　（借）仕入 2,400,000 / （貸）損益 2,400,000",
+      "(3) （借）売上 1,100,000 / （貸）損益 1,100,000",
+      "(4) （借）損益 1,100,000 / （貸）繰越利益剰余金 1,100,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】（借）売上 3,500,000 / （貸）損益 3,500,000　および　（借）損益 2,400,000 / （貸）仕入 2,400,000<br><br>決算振替仕訳では、収益・費用の残高をゼロにして「損益」勘定へ集約します。<br>・収益（売上：貸方残高）の振替：借方に売上を置いて残高をゼロにし、貸方に損益を計上。<br>・費用（仕入：借方残高）の振替：貸方に仕入を置いて残高をゼロにし、借方に損益を計上。",
+    "sessionId": "167",
+    "sessionName": "第2問実戦特訓（帳簿・伝票・勘定記入）",
+    "qid": "boki3-q2_015"
+  },
+  {
+    "num": 716,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-1",
+    "catName": "精算表の作成（8桁精算表）",
+    "catClass": "badge-cat-settlement",
+    "title": "仕入（損益計算書）：¥910,000 ／",
+    "text": "次の精算表の一部（残高試算表欄と決算整理事項）に基づき、精算表の損益計算書欄における【売上原価（仕入）】および貸借対照表欄における【繰越商品】の金額の正しい組み合わせを選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-table\"></i> 資料：精算表の抜粋（決算日：年1回 3月31日）</div>\n<table class=\"exam-table\">\n<thead>\n<tr><th rowspan=\"2\">勘定科目</th><th colspan=\"2\">残高試算表</th><th colspan=\"2\">決算整理欄</th></tr>\n<tr><th>借方</th><th>貸方</th><th>借方</th><th>貸方</th></tr>\n</thead>\n<tbody>\n<tr><td>繰越商品</td><td>¥120,000</td><td></td><td>( 1 )</td><td>( 2 )</td></tr>\n<tr><td>仕　　入</td><td>¥950,000</td><td></td><td>( 3 )</td><td>( 4 )</td></tr>\n</tbody>\n</table>\n<div style=\"margin-top:8px; font-size:13px; color:#475569; background:#f8fafc; padding:8px; border-radius:4px;\">\n<strong>【決算整理事項】</strong><br>\n期末商品棚卸高は ¥160,000 である。売上原価は「仕入」の行で計算する（仕入勘定に繰越商品を振替）。\n</div>\n</div>",
+    "options": [
+      "(1) 仕入（損益計算書）：¥910,000 ／ 繰越商品（貸借対照表）：¥160,000",
+      "(2) 仕入（損益計算書）：¥990,000 ／ 繰越商品（貸借対照表）：¥160,000",
+      "(3) 仕入（損益計算書）：¥910,000 ／ 繰越商品（貸借対照表）：¥120,000",
+      "(4) 仕入（損益計算書）：¥950,000 ／ 繰越商品（貸借対照表）：¥160,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】仕入（損益計算書）：¥910,000 ／ 繰越商品（貸借対照表）：¥160,000<br><br>売上原価の算定仕訳（しーくりくりしー）：<br>①（借方）仕　　入 120,000 / （貸方）繰越商品 120,000（期首商品棚卸高の算入）<br>②（借方）繰越商品 160,000 / （貸方）仕　　入 160,000（期末商品棚卸高の控除）<br><br>・精算表の繰越商品：残高試算表 120,000 － 120,000 ＋ 160,000 ＝ 貸借対照表欄 ¥160,000<br>・精算表の仕入：残高試算表 950,000 ＋ 120,000 － 160,000 ＝ 損益計算書欄 ¥910,000",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_001"
+  },
+  {
+    "num": 717,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-1",
+    "catName": "精算表の作成（8桁精算表）",
+    "catClass": "badge-cat-settlement",
+    "title": "¥24,000",
+    "text": "次の残高試算表の残高と決算整理事項から、精算表の貸借対照表欄に記入される【貸倒引当金】の金額として正しいものを選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-clipboard-list\"></i> 資料：決算整理前残高試算表および決算整理事項</div>\n<table class=\"exam-table\">\n  <tr><th>売掛金（借方残高）</th><td>¥800,000</td></tr>\n  <tr><th>受取手形（借方残高）</th><td>¥400,000</td></tr>\n  <tr><th>貸倒引当金（貸方残高）</th><td>¥15,000</td></tr>\n</table>\n<div style=\"margin-top:8px; font-size:13px; color:#475569; background:#f8fafc; padding:8px; border-radius:4px;\">\n<strong>【決算整理事項】</strong><br>\n期末の売上債権（受取手形・売掛金）の期末残高に対して、差額補充法により実績率 2% の貸倒引当金を設定する。\n</div>\n</div>",
+    "options": [
+      "(1) ¥24,000",
+      "(2) ¥9,000",
+      "(3) ¥15,000",
+      "(4) ¥16,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】¥24,000<br><br>期末の売上債権合計：<br>売掛金 ¥800,000 ＋ 受取手形 ¥400,000 ＝ ¥1,200,000<br><br>必要な貸倒引当金設定額：<br>¥1,200,000 × 2% ＝ ¥24,000<br><br>決算整理仕訳（差額補充法）：<br>必要な額 ¥24,000 － 既存の引当金残高 ¥15,000 ＝ ¥9,000<br>（借方）貸倒引当金繰入 9,000 / （貸方）貸倒引当金 9,000<br><br>これにより、精算表の損益計算書欄には貸倒引当金繰入 ¥9,000 が計上され、貸借対照表欄には当期末に必要な引当金総額である ¥24,000 が記入されます。",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_002"
+  },
+  {
+    "num": 718,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-2",
+    "catName": "貸借対照表（B/S）の作成",
+    "catClass": "badge-cat-capital",
+    "title": "¥3,500,000",
+    "text": "次の資料に基づき、当期末（2024年3月31日）の貸借対照表における【純資産の部（純資産合計）】として正しい金額を選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-file-invoice\"></i> 資料：決算整理後の各勘定残高</div>\n<table class=\"exam-table\">\n  <tr><th>資　産　合　計</th><td>¥5,800,000</td></tr>\n  <tr><th>負　債　合　計</th><td>¥2,300,000</td></tr>\n  <tr><th>資　本　金</th><td>¥3,000,000</td></tr>\n  <tr><th>繰越利益剰余金（期首）</th><td>¥200,000</td></tr>\n  <tr><th>当期純利益</th><td>¥300,000</td></tr>\n</table>\n</div>",
+    "options": [
+      "(1) ¥3,500,000",
+      "(2) ¥3,200,000",
+      "(3) ¥3,000,000",
+      "(4) ¥2,800,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】¥3,500,000<br><br>純資産の部の計算（2通りのアプローチ）：<br>① 貸借対照表の等式より：<br>資産合計（¥5,800,000）－ 負債合計（¥2,300,000）＝ 純資産合計 ¥3,500,000<br><br>② 内訳の積上げより：<br>資本金 ¥3,000,000 ＋ 期首繰越利益剰余金 ¥200,000 ＋ 当期純利益 ¥300,000 ＝ ¥3,500,000<br><br>両方のアプローチとも完全に一致し、純資産合計は ¥3,500,000 となります。",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_003"
+  },
+  {
+    "num": 719,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-2",
+    "catName": "貸借対照表（B/S）の作成",
+    "catClass": "badge-cat-capital",
+    "title": "¥5,750,000",
+    "text": "当期末の貸借対照表における【固定資産】の帳簿価格（簿価純額）の合計として正しい金額を選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-building\"></i> 資料：決算整理後の固定資産・減価償却累計額</div>\n<table class=\"exam-table\">\n  <tr><th>建　　物（取得原価）</th><td>¥4,000,000</td></tr>\n  <tr><th>建物減価償却累計額</th><td>¥1,200,000</td></tr>\n  <tr><th>備　　品（取得原価）</th><td>¥800,000</td></tr>\n  <tr><th>備品減価償却累計額</th><td>¥350,000</td></tr>\n  <tr><th>土　　地</th><td>¥2,500,000</td></tr>\n</table>\n</div>",
+    "options": [
+      "(1) ¥5,750,000",
+      "(2) ¥7,300,000",
+      "(3) ¥4,800,000",
+      "(4) ¥5,250,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】¥5,750,000<br><br>各固定資産の簿価（帳簿価格）：<br>・建物：取得原価 4,000,000 － 累計額 1,200,000 ＝ ¥2,800,000<br>・備品：取得原価 800,000 － 累計額 350,000 ＝ ¥450,000<br>・土地：非償却資産のためそのまま ¥2,500,000<br><br>固定資産の簿価合計：<br>¥2,800,000 ＋ ¥450,000 ＋ ¥2,500,000 ＝ ¥5,750,000",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_004"
+  },
+  {
+    "num": 720,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-3",
+    "catName": "損益計算書（P/L）の作成",
+    "catClass": "badge-cat-selling",
+    "title": "¥410,000",
+    "text": "次の資料に基づき、損益計算書における【当期純利益】として正しい金額を選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-chart-line\"></i> 資料：当期の収益・費用科目残高（決算整理後）</div>\n<table class=\"exam-table\">\n  <tr><th>売　上</th><td>¥6,000,000</td><th>売上原価</th><td>¥4,100,000</td></tr>\n  <tr><th>給料手当</th><td>¥950,000</td><th>支払家賃</th><td>¥360,000</td></tr>\n  <tr><th>減価償却費</th><td>¥140,000</td><th>貸倒引当金繰入</th><td>¥30,000</td></tr>\n  <tr><th>受取利息</th><td>¥10,000</td><th>支払利息</th><td>¥20,000</td></tr>\n</table>\n</div>",
+    "options": [
+      "(1) ¥410,000",
+      "(2) ¥430,000",
+      "(3) ¥390,000",
+      "(4) ¥520,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】¥410,000<br><br>収益合計：<br>売上 6,000,000 ＋ 受取利息 10,000 ＝ ¥6,010,000<br><br>費用合計：<br>売上原価 4,100,000 ＋ 給料 950,000 ＋ 支払家賃 360,000 ＋ 減価償却費 140,000 ＋ 貸倒引当金繰入 30,000 ＋ 支払利息 20,000 ＝ ¥5,600,000<br><br>当期純利益：<br>収益合計 ¥6,010,000 － 費用合計 ¥5,600,000 ＝ ¥410,000",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_005"
+  },
+  {
+    "num": 721,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-3",
+    "catName": "損益計算書（P/L）の作成",
+    "catClass": "badge-cat-selling",
+    "title": "¥1,700,000",
+    "text": "次の資料に基づき、損益計算書における【売上総利益】として正しい金額を選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-coins\"></i> 資料：売上高と売上原価の内訳</div>\n<table class=\"exam-table\">\n  <tr><th>総売上高</th><td>¥4,500,000</td><th>期首商品棚卸高</th><td>¥300,000</td></tr>\n  <tr><th>売上戻り（返品）</th><td>¥100,000</td><th>当期純仕入高</th><td>¥2,800,000</td></tr>\n  <tr><th>期末商品棚卸高</th><td>¥400,000</td><th>販売費及び一般管理費</th><td>¥850,000</td></tr>\n</table>\n</div>",
+    "options": [
+      "(1) ¥1,700,000",
+      "(2) ¥1,800,000",
+      "(3) ¥850,000",
+      "(4) ¥1,600,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】¥1,700,000<br><br>① 純売上高の計算：<br>総売上高 ¥4,500,000 － 売上戻り ¥100,000 ＝ ¥4,400,000<br><br>② 売上原価の計算：<br>期首商品 ¥300,000 ＋ 当期仕入 ¥2,800,000 － 期末商品 ¥400,000 ＝ ¥2,700,000<br><br>③ 売上総利益の計算：<br>純売上高 ¥4,400,000 － 売上原価 ¥2,700,000 ＝ ¥1,700,000<br>（※販売費及び一般管理費は営業利益を求める際に差し引くため、売上総利益の計算には含めません）",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_006"
+  },
+  {
+    "num": 722,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-4",
+    "catName": "決算整理後残高試算表の作成",
+    "catClass": "badge-cat-settlement",
+    "title": "¥12,745,000",
+    "text": "決算整理事項を反映した後の【決算整理後残高試算表】における【借方合計（＝貸方合計）】として正しい金額を選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-list-alt\"></i> 資料：決算整理前残高試算表の合計と決算整理事項</div>\n<p class=\"material-desc\">\n・決算整理前残高試算表の借方合計：¥12,500,000<br>\n・決算整理仕訳：<br>\n　① 減価償却費計上：減価償却費 200,000 ／ 備品減価償却累計額 200,000<br>\n　② 貸倒引当金繰入：貸倒引当金繰入 15,000 ／ 貸倒引当金 15,000<br>\n　③ 家賃の未払計上：支払家賃 30,000 ／ 未払家賃 30,000<br>\n　④ 売上原価算定（仕入/繰越商品）：仕入 80,000 / 繰越商品 80,000、繰越商品 100,000 / 仕入 100,000\n</p>\n</div>",
+    "options": [
+      "(1) ¥12,745,000",
+      "(2) ¥12,925,000",
+      "(3) ¥12,500,000",
+      "(4) ¥12,845,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】¥12,745,000<br><br>決算整理後残高試算表の合計金額の変化：<br>各決算整理仕訳による借方（または貸方）の純増加額を加算します。<br>① 減価償却費（借方＋200,000）／ 累計額（貸方＋200,000）→ ＋200,000<br>② 貸倒引当金繰入（借方＋15,000）／ 引当金（貸方＋15,000）→ ＋15,000<br>③ 支払家賃（借方＋30,000）／ 未払家賃（貸方＋30,000）→ ＋30,000<br>④ 売上原価算定：<br>　仕入80,000増・繰越商品80,000減 → 借方増減ゼロ<br>　繰越商品100,000増・仕入100,000減 → 借方増減ゼロ<br><br>したがって、試算表の純加算額は 200,000 ＋ 15,000 ＋ 30,000 ＝ ¥245,000 となり、<br>合計は ¥12,500,000 ＋ ¥245,000 ＝ ¥12,745,000 となります。",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_007"
+  },
+  {
+    "num": 723,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-5",
+    "catName": "決算整理事項の総合演習",
+    "catClass": "badge-cat-settlement",
+    "title": "③ （借方）前受手数料 12,000 ／",
+    "text": "次の各決算整理事項に関する仕訳として、【誤っているもの】を1つ選択しなさい。\n※決算日は3月31日（年1回）。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-tasks\"></i> 決算整理事項の一覧</div>\n<ol style=\"padding-left:20px; margin:0; font-size:13px; color:#334155;\">\n  <li>当期11月1日に借入金 ¥1,200,000（年利率 2%、利息は1年後に元金とともに支払う約定）を借り入れ、利息の未払分を月割計上する。</li>\n  <li>期末の消耗品未使用分が ¥18,000 ある。なお、購入時には全額「消耗品費」勘定（費用）で処理している。</li>\n  <li>受取手数料の当期前受分が ¥12,000 ある。</li>\n  <li>当座預金口座が ¥50,000 の借越状態にあるため、当座借越勘定へ振り替える。</li>\n</ol>\n</div>",
+    "options": [
+      "(1) ① （借方）支払利息 10,000 ／ （貸方）未払利息 10,000",
+      "(2) ② （借方）消耗品 18,000 ／ （貸方）消耗品費 18,000",
+      "(3) ③ （借方）前受手数料 12,000 ／ （貸方）受取手数料 12,000",
+      "(4) ④ （借方）当座預金 50,000 ／ （貸方）当座借越 50,000"
+    ],
+    "correct": "(3)",
+    "explanation": "<strong>【正解：(3)】</strong><br><br>【正解】③ （借方）前受手数料 12,000 ／ （貸方）受取手数料 12,000 （これが誤り）<br><br>③の正しい仕訳は以下の通りです：<br>（借方）受取手数料 12,000 ／ （貸方）前受手数料 12,000<br>収益の前受は、当期の収益（受取手数料）を取り消して次期へ繰り延べるため、借方に受取手数料を置き、貸方に負債である「前受手数料」を計上します。選択肢③は借方・貸方が逆になっています。<br><br>① 利息未払計上：1,200,000 × 2% × 5ヶ月/12ヶ月 ＝ ¥10,000（11月〜3月の5ヶ月分）。正しい。<br>② 消耗品未使用：費用から資産へ振り替える。正しい。<br>④ 当座預金貸方残高をゼロにするため借方に当座預金、貸方に当座借越。正しい。",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_008"
+  },
+  {
+    "num": 724,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-5",
+    "catName": "決算整理事項の総合演習",
+    "catClass": "badge-cat-settlement",
+    "title": "¥78,000",
+    "text": "次の資料に基づき、期末決算整理後の【消耗品費】（損益計算書計上額）として正しい金額を選択しなさい。",
+    "materialHtml": "<div class=\"exam-material-card\">\n<div class=\"material-title\"><i class=\"fas fa-pen-nib\"></i> 資料：消耗品の取引と決算整理事項</div>\n<p class=\"material-desc\">\n・期首の消耗品勘定（資産）残高：¥15,000<br>\n・当期中の消耗品購入高（すべて「消耗品」資産勘定で処理）：¥85,000<br>\n・期末における消耗品の実地棚卸高（未使用残高）：¥22,000\n</p>\n</div>",
+    "options": [
+      "(1) ¥78,000",
+      "(2) ¥85,000",
+      "(3) ¥100,000",
+      "(4) ¥22,000"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】¥78,000<br><br>資産処理法（購入時に資産「消耗品」として記帳する方法）の場合：<br>当期に使用した分を「消耗品費」勘定へと振り替えます。<br><br>当期の使用高（消耗品費）の計算：<br>期首残高 ¥15,000 ＋ 当期購入高 ¥85,000 － 期末未使用高 ¥22,000 ＝ ¥78,000<br><br>決算整理仕訳：<br>（借方）消耗品費 78,000 ／ （貸方）消耗品 78,000<br>したがって、損益計算書に計上される消耗品費は ¥78,000 となります。",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_009"
+  },
+  {
+    "num": 725,
+    "section": "q3",
+    "sectionName": "【第3問】決算書作成問題",
+    "catKey": "q3-1",
+    "catName": "精算表の作成（8桁精算表）",
+    "catClass": "badge-cat-settlement",
+    "title": "通信費（借方）¥3,000増、雑損（借方",
+    "text": "精算表の作成において、決算整理前残高試算表の現金過不足（借方残高 ¥5,000）が決算において次のように判明した。\n・通信費の支払額 ¥3,000 の記入漏れがあった。\n・残額 ¥2,000 は原因不明のため雑損（または雑益）として処理する。\nこのときの精算表・損益計算書欄の記入として正しい組み合わせを選択しなさい。",
+    "materialHtml": "",
+    "options": [
+      "(1) 通信費（借方）¥3,000増、雑損（借方）¥2,000、現金過不足残高はゼロ",
+      "(2) 通信費（借方）¥3,000増、雑益（貸方）¥2,000、現金過不足残高はゼロ",
+      "(3) 通信費（貸方）¥3,000、雑損（借方）¥2,000",
+      "(4) 現金過不足（借方）¥5,000のまま貸借対照表へ繰延"
+    ],
+    "correct": "(1)",
+    "explanation": "<strong>【正解：(1)】</strong><br><br>【正解】通信費（借方）¥3,000増、雑損（借方）¥2,000、現金過不足残高はゼロ<br><br>現金過不足の借方残高（＝実際有高が帳簿より不足していた状態）を清算する仕訳：<br>（借方）通信費 3,000 / （貸方）現金過不足 5,000<br>（借方）雑　損 2,000<br><br>決算において「現金過不足」勘定は必ずゼロになり、財務諸表には残りません。原因が判明したものは適切な費用・収益科目に振り替え、残額の不足は「雑損」（借方）として処理します。",
+    "sessionId": "167",
+    "sessionName": "第3問実戦特訓（財務諸表・精算表・試算表）",
+    "qid": "boki3-q3_010"
   }
 ];

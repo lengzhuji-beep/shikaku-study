@@ -10,7 +10,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日商簿記3級 練習問題（一問一答） | Shikakus</title>
+<title>日商簿記3級 練習問題（一問一答） | 資格対策ドットコム</title>
 <meta name="description" content="日商簿記3級の分野別練習問題。仕訳、現金預金、商品売買、固定資産、決算整理、試算表など苦手な分野を自由に選んでランダム集中特訓。A4プリントアウト印刷にも対応。">
 <link rel="icon" href="../../favicon.png" type="image/png">
 <link rel="stylesheet" href="../../assets/css/style.css">
@@ -57,11 +57,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     user-select: none;
   }
   .category-check-item:hover {
-    border-color: #345d4d;
+    border-color: #3182ce;
     background: #ebf8ff;
   }
   .category-check-item.selected {
-    border-color: #345d4d;
+    border-color: #3182ce;
     background: #ebf8ff;
     font-weight: 600;
   }
@@ -69,7 +69,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-right: 12px;
     width: 18px;
     height: 18px;
-    accent-color: #345d4d;
+    accent-color: #3182ce;
     cursor: pointer;
   }
   .count-button-grid {
@@ -90,19 +90,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     transition: all 0.2s;
   }
   .count-btn:hover {
-    border-color: #345d4d;
-    color: #345d4d;
+    border-color: #3182ce;
+    color: #3182ce;
   }
   .count-btn.selected {
-    background: #345d4d;
-    border-color: #345d4d;
+    background: #3182ce;
+    border-color: #3182ce;
     color: white;
   }
   .start-quiz-btn {
     display: block;
     width: 100%;
     padding: 16px;
-    background: linear-gradient(135deg, #345d4d 0%, #345d4d 100%);
+    background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
     color: white;
     font-size: 1.2rem;
     font-weight: 700;
@@ -117,8 +117,146 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(49, 130, 206, 0.45);
   }
+
+  /* 大問選択タブ・資料表示スタイル */
+  .section-tabs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .section-tab-btn {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .section-tab-btn:hover {
+    border-color: #3182ce;
+    background: #f7fafc;
+  }
+  .section-tab-btn.active {
+    border-color: #3182ce;
+    background: #ebf8ff;
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.15);
+  }
+  .sec-tab-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: #3182ce;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+  }
+  .sec-tab-title {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #1a202c;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sec-tab-sub {
+    font-size: 0.82rem;
+    color: #718096;
+  }
+  .category-section-group {
+    display: none;
+  }
+  .category-section-group.active {
+    display: block;
+  }
+
+  /* 本試験資料カード・帳票・T字勘定のスタイル */
+  .quiz-material-wrapper {
+    margin: 14px 0 18px 0;
+  }
+  .exam-material-card {
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid #3182ce;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  }
+  .material-title {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 0.98rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .material-desc {
+    font-size: 0.92rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+  }
+  .exam-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    background: white;
+  }
+  .exam-table th, .exam-table td {
+    border: 1px solid #cbd5e1;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  .exam-table th {
+    background: #f1f5f9;
+    color: #1e293b;
+    font-weight: 600;
+  }
+  .t-account-wrap {
+    margin: 10px 0;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .t-account-title {
+    text-align: center;
+    font-weight: 700;
+    padding: 6px;
+    background: #e2e8f0;
+    color: #1e293b;
+    border-bottom: 2px solid #94a3b8;
+  }
+  .t-account-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .t-account-table th, .t-account-table td {
+    border: 1px solid #cbd5e1;
+    padding: 8px 12px;
+    vertical-align: top;
+    font-size: 0.9rem;
+  }
+  .t-account-table th {
+    text-align: center;
+    background: #f8fafc;
+  }
+  .t-account-total {
+    font-weight: 700;
+    background: #f8fafc;
+    border-top: 2px solid #64748b;
+    border-bottom: 3px double #64748b;
+  }
+
 </style>
-  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
      crossorigin="anonymous"></script>
 </head>
@@ -128,20 +266,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-  <!-- ヘッダー（資格ページ共通：トップのみ） -->
-    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
-  <header class="kakutoku-header">
-    <div class="header-inner">
-      <a href="../../index.html" class="logo-link">
-        <div class="logo-mark">S</div>
-        <span class="logo-text">Shikakus</span>
-      </a>
-
-      <div class="header-actions">
-        <a href="../../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
-      </div>
-    </div>
-  </header>
+<header class="header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニュー">
+  <label for="nav-toggle" class="nav-toggle-label" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </label>
+  <nav class="header-nav" id="primary-nav">
+    <a href="../../index.html"><i class="fas fa-home"></i> トップ</a>
+    <a href="../../toeic/index.html"><i class="fas fa-language"></i> TOEIC</a>
+    <a href="../../fp/index.html"><i class="fas fa-coins"></i> FP</a>
+    <a href="../../takken/index.html"><i class="fas fa-building"></i> 宅建</a>
+    <a href="../../it-passport/index.html"><i class="fas fa-laptop-code"></i> ITパスポート</a>
+    <a href="../../boki/index.html" class="active"><i class="fas fa-calculator"></i> 簿記</a>
+    <a href="../../contact.html"><i class="fas fa-envelope"></i> お問い合わせ</a>
+    <a href="../../profile.html"><i class="fas fa-user-circle"></i> 私のプロフィール</a>
+  </nav>
+  <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+</header>
 
 <div class="container">
   <ul class="breadcrumb">
@@ -152,8 +293,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
 
   <div class="hero-header">
-    <h1>日商簿記3級 練習問題（一問一答演習・全700問）</h1>
-    <p>出題分野（全14分野・計700問）と問題数を自由に選んで、仕訳・決算の重要論点を集中トレーニング</p>
+    <h1>日商簿記3級 練習問題（第1問・第2問・第3問 完全対応）</h1>
+    <p>【第1問：仕訳】【第2問：帳簿・伝票・勘定記入】【第3問：決算書作成】の3大分類から選択して実戦演習（全725問）</p>
   </div>
 
   <!-- モード切り替えタブ -->
@@ -175,90 +316,178 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- ① ウィザード画面（分野選択＆問題数選択） -->
   <div id="wizardSection">
-    <!-- ステップ1: 分野選択 -->
+        <!-- ステップ1: 出題範囲・大問選択 -->
     <div class="wizard-step-card">
-      <h2><i class="fas fa-check-circle" style="color:#345d4d;"></i> ステップ 1：出題分野を選択</h2>
-      <p class="wizard-desc">苦手な分野だけを集中的に解くことも、全分野を横断して実戦演習することも可能です（複数選択可）。</p>
+      <h2><i class="fas fa-check-circle" style="color:#3182ce;"></i> ステップ 1：出題の大問・分野を選択</h2>
+      <p class="wizard-desc">本試験の構成に合わせて【第1問：仕訳】【第2問：帳簿・伝票・勘定記入】【第3問：決算書作成】から選択できます。</p>
 
-      <div class="category-checkbox-grid">
-        <label class="category-check-item selected" style="grid-column: 1 / -1; background:#edf2f7; border-color:#cbd5e0;">
-          <input type="checkbox" id="cat-all" checked>
-          <span><i class="fas fa-globe"></i> 全分野からランダム出題（全14分野・計700問）</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="cash" checked>
-          <span><i class="fas fa-money-bill-wave" style="color:#2f855a;"></i> 1. 現金預金 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="trade" checked>
-          <span><i class="fas fa-shopping-cart" style="color:#c53030;"></i> 2. 商品売買・営業債権債務 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="bad_debt" checked>
-          <span><i class="fas fa-shield-alt" style="color:#d69e2e;"></i> 3. 貸倒引当金 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="loan" checked>
-          <span><i class="fas fa-hand-holding-usd" style="color:#345d4d;"></i> 4. 金銭の貸借・商品券 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="fixed_assets" checked>
-          <span><i class="fas fa-truck" style="color:#805ad5;"></i> 5. 有形固定資産 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="supplies" checked>
-          <span><i class="fas fa-stamp" style="color:#dd6b20;"></i> 6. 消耗品・切手・収入印紙 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="travel" checked>
-          <span><i class="fas fa-plane-departure" style="color:#319795;"></i> 7. 出張・その他旅費交通費 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="real_estate" checked>
-          <span><i class="fas fa-building" style="color:#744210;"></i> 8. 不動産関係 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="salary" checked>
-          <span><i class="fas fa-id-card" style="color:#4a5568;"></i> 9. 給料関係 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="selling_expenses" checked>
-          <span><i class="fas fa-file-invoice-dollar" style="color:#b83280;"></i> 10. その他販管費 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="tax" checked>
-          <span><i class="fas fa-landmark" style="color:#c53030;"></i> 11. 法人税等 (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="voucher" checked>
-          <span><i class="fas fa-receipt" style="color:#2c5282;"></i> 12. 証ひょう (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="settlement" checked>
-          <span><i class="fas fa-calculator" style="color:#234e52;"></i> 13. 決算手続き (50問)</span>
-        </label>
-
-        <label class="category-check-item selected">
-          <input type="checkbox" class="cat-checkbox" value="capital" checked>
-          <span><i class="fas fa-coins" style="color:#975a16;"></i> 14. 資本取引 (50問)</span>
-        </label>
+      <!-- 大問選択タブ -->
+      <div class="section-tabs-container" id="bokiSectionTabs">
+        <button type="button" class="section-tab-btn active" data-section="q1">
+          <div class="sec-tab-badge">配点45点</div>
+          <div class="sec-tab-title"><i class="fas fa-edit" style="color:#3182ce;"></i> 【第1問】仕訳問題</div>
+          <div class="sec-tab-sub">全14分野・計700問の仕訳マスター</div>
+        </button>
+        <button type="button" class="section-tab-btn" data-section="q2">
+          <div class="sec-tab-badge" style="background:#805ad5;">配点20点</div>
+          <div class="sec-tab-title"><i class="fas fa-book-open" style="color:#805ad5;"></i> 【第2問】帳簿・伝票・勘定記入</div>
+          <div class="sec-tab-sub">補助簿選択・商品有高帳・T字勘定</div>
+        </button>
+        <button type="button" class="section-tab-btn" data-section="q3">
+          <div class="sec-tab-badge" style="background:#dd6b20;">配点35点</div>
+          <div class="sec-tab-title"><i class="fas fa-file-invoice-dollar" style="color:#dd6b20;"></i> 【第3問】決算書作成問題</div>
+          <div class="sec-tab-sub">財務諸表（B/S・P/L）・精算表・試算表</div>
+        </button>
+        <button type="button" class="section-tab-btn" data-section="all">
+          <div class="sec-tab-badge" style="background:#2f855a;">合計100点</div>
+          <div class="sec-tab-title"><i class="fas fa-globe" style="color:#2f855a;"></i> 【総合演習】全範囲から出題</div>
+          <div class="sec-tab-sub">第1問〜第3問を完全横断（計725問）</div>
+        </button>
       </div>
 
-      <!-- ステップ2: 出題数選択 -->
-      <h2><i class="fas fa-sliders-h" style="color:#345d4d;"></i> ステップ 2：出題数を選択（最大100問）</h2>
+      <!-- ① 第1問 分野グループ -->
+      <div class="category-section-group active" id="group-q1">
+        <div style="font-size:0.92rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+          <span><i class="fas fa-list-ul" style="color:#3182ce;"></i> 【第1問】仕訳問題の出題分野（全14分野・各50問）</span>
+          <button type="button" class="section-all-toggle-btn" data-target="q1" style="font-size:0.85rem; padding:4px 10px; background:#e2e8f0; border:none; border-radius:4px; cursor:pointer; color:#4a5568;">すべて選択 / 解除</button>
+        </div>
+        <div class="category-checkbox-grid">
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="cash" checked data-section="q1">
+            <span><i class="fas fa-money-bill-wave" style="color:#2f855a;"></i> 1. 現金預金 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="trade" checked data-section="q1">
+            <span><i class="fas fa-shopping-cart" style="color:#c53030;"></i> 2. 商品売買・債権債務 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="bad_debt" checked data-section="q1">
+            <span><i class="fas fa-shield-alt" style="color:#d69e2e;"></i> 3. 貸倒引当金 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="loan" checked data-section="q1">
+            <span><i class="fas fa-hand-holding-usd" style="color:#3182ce;"></i> 4. 金銭貸借・商品券 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="fixed_assets" checked data-section="q1">
+            <span><i class="fas fa-truck" style="color:#805ad5;"></i> 5. 有形固定資産 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="supplies" checked data-section="q1">
+            <span><i class="fas fa-stamp" style="color:#dd6b20;"></i> 6. 消耗品・切手・印紙 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="travel" checked data-section="q1">
+            <span><i class="fas fa-plane-departure" style="color:#319795;"></i> 7. 出張・旅費交通費 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="real_estate" checked data-section="q1">
+            <span><i class="fas fa-building" style="color:#744210;"></i> 8. 不動産関係 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="salary" checked data-section="q1">
+            <span><i class="fas fa-id-card" style="color:#4a5568;"></i> 9. 給料関係 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="selling_expenses" checked data-section="q1">
+            <span><i class="fas fa-file-invoice-dollar" style="color:#b83280;"></i> 10. その他販管費 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="tax" checked data-section="q1">
+            <span><i class="fas fa-landmark" style="color:#c53030;"></i> 11. 法人税等 (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="voucher" checked data-section="q1">
+            <span><i class="fas fa-receipt" style="color:#2c5282;"></i> 12. 証ひょう (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="settlement" checked data-section="q1">
+            <span><i class="fas fa-calculator" style="color:#234e52;"></i> 13. 決算手続き (50問)</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="capital" checked data-section="q1">
+            <span><i class="fas fa-coins" style="color:#975a16;"></i> 14. 資本取引 (50問)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ② 第2問 分野グループ -->
+      <div class="category-section-group" id="group-q2">
+        <div style="font-size:0.92rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+          <span><i class="fas fa-book-open" style="color:#805ad5;"></i> 【第2問】帳簿・伝票・勘定記入の出題分野</span>
+          <button type="button" class="section-all-toggle-btn" data-target="q2" style="font-size:0.85rem; padding:4px 10px; background:#e2e8f0; border:none; border-radius:4px; cursor:pointer; color:#4a5568;">すべて選択 / 解除</button>
+        </div>
+        <div class="category-checkbox-grid">
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q2-1" checked data-section="q2">
+            <span><i class="fas fa-book" style="color:#2b6cb0;"></i> 1. 補助簿の選択・記入</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q2-2" checked data-section="q2">
+            <span><i class="fas fa-boxes" style="color:#c53030;"></i> 2. 商品有高帳（先入先出・移動平均）</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q2-3" checked data-section="q2">
+            <span><i class="fas fa-balance-scale" style="color:#2f855a;"></i> 3. 勘定記入（T字勘定・決算振替）</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q2-4" checked data-section="q2">
+            <span><i class="fas fa-receipt" style="color:#d69e2e;"></i> 4. 伝票会計（3伝票制・一部現金）</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q2-5" checked data-section="q2">
+            <span><i class="fas fa-truck" style="color:#805ad5;"></i> 5. 固定資産台帳・売却損益</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q2-6" checked data-section="q2">
+            <span><i class="fas fa-university" style="color:#319795;"></i> 6. 当座預金出納帳・当座借越</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ③ 第3問 分野グループ -->
+      <div class="category-section-group" id="group-q3">
+        <div style="font-size:0.92rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+          <span><i class="fas fa-file-invoice-dollar" style="color:#dd6b20;"></i> 【第3問】決算書作成問題の出題分野</span>
+          <button type="button" class="section-all-toggle-btn" data-target="q3" style="font-size:0.85rem; padding:4px 10px; background:#e2e8f0; border:none; border-radius:4px; cursor:pointer; color:#4a5568;">すべて選択 / 解除</button>
+        </div>
+        <div class="category-checkbox-grid">
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q3-1" checked data-section="q3">
+            <span><i class="fas fa-table" style="color:#2b6cb0;"></i> 1. 精算表の作成（8桁精算表）</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q3-2" checked data-section="q3">
+            <span><i class="fas fa-file-invoice" style="color:#2f855a;"></i> 2. 貸借対照表（B/S）の作成</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q3-3" checked data-section="q3">
+            <span><i class="fas fa-chart-line" style="color:#c53030;"></i> 3. 損益計算書（P/L）の作成</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q3-4" checked data-section="q3">
+            <span><i class="fas fa-list-alt" style="color:#805ad5;"></i> 4. 決算整理後残高試算表</span>
+          </label>
+          <label class="category-check-item selected">
+            <input type="checkbox" class="cat-checkbox" value="q3-5" checked data-section="q3">
+            <span><i class="fas fa-tasks" style="color:#dd6b20;"></i> 5. 決算整理事項の総合演習</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ④ 全範囲（総合）グループ -->
+      <div class="category-section-group" id="group-all">
+        <div class="category-checkbox-grid">
+          <label class="category-check-item selected" style="grid-column: 1 / -1; background:#f0fff4; border-color:#9ae6b4;">
+            <input type="checkbox" id="cat-all" checked>
+            <span><i class="fas fa-check-double" style="color:#38a169;"></i> 第1問〜第3問の全分野から横断出題（全問対象・計725問）</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ステップ2: 出題数選択 -->
+      <h2><i class="fas fa-sliders-h" style="color:#3182ce;"></i> ステップ 2：出題数を選択（最大100問）</h2>
       <p class="wizard-desc">スキマ時間のクイック学習から、全範囲を総ざらいする100問マラソンまで自由に選べます。</p>
 
       <div class="count-button-grid">
@@ -309,7 +538,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-col">
-      <h4>Shikakus</h4>
+      <h4>資格対策ドットコム</h4>
       <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
         FP・TOEIC・宅建・ITパスポート・簿記など、主要資格の練習問題・過去問・コラムをすべて無料で提供する総合学習プラットフォームです。
       </p>
@@ -331,7 +560,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
+    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -341,7 +570,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="../../assets/js/boki3-data.js"></script>
 <script src="../../assets/js/boki-practice-wizard.js"></script>
 
-  <script src="../../assets/js/study-tracker.js"></script>
+  <script src="../../assets/js/mobile-nav.js"></script>
 </body>
 </html>
 
