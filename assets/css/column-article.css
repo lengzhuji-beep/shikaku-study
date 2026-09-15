@@ -314,3 +314,48 @@
         padding: 16px 18px;
     }
 }
+
+/* モバイル・レスポンシブテーブル横スクロール対応 */
+.table-responsive {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 24px 0 !important;
+    border-radius: 8px !important;
+    border: 1px solid #e2efe6 !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+.table-responsive table,
+.article-body table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    min-width: 520px !important; /* スマホでセルが縮んで文字が縦折れしないよう最小幅を保証 */
+}
+
+.table-responsive th,
+.table-responsive td,
+.article-body th,
+.article-body td {
+    padding: 11px 14px !important;
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    word-break: normal !important;
+}
+
+@media (max-width: 640px) {
+    .article-header h1 {
+        font-size: 1.45rem !important;
+        line-height: 1.4 !important;
+    }
+    .lead-box {
+        padding: 14px 16px !important;
+        font-size: 0.95rem !important;
+    }
+    .cta-box {
+        padding: 24px 16px !important;
+    }
+    .cta-box h3 {
+        font-size: 1.2rem !important;
+    }
+}
