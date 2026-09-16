@@ -24,25 +24,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const printBtn = document.getElementById('printPracticeBtn');
 
   function getActiveCheckboxes() {
-    if (currentSection === 'all') {
-      return catAllCheck && catAllCheck.checked ? [catAllCheck] : [];
+    if (sectionTabBtns.length > 0) {
+      if (currentSection === 'all') {
+        return catAllCheck && catAllCheck.checked ? [catAllCheck] : [];
+      }
+      const activeGroup = document.getElementById(`group-${currentSection}`);
+      if (!activeGroup) return Array.from(specificCatCheckboxes).filter(cb => cb.checked);
+      return Array.from(activeGroup.querySelectorAll('.cat-checkbox')).filter(cb => cb.checked);
     }
-    const activeGroup = document.getElementById(`group-${currentSection}`);
-    if (!activeGroup) return Array.from(specificCatCheckboxes).filter(cb => cb.checked);
-    return Array.from(activeGroup.querySelectorAll('.cat-checkbox')).filter(cb => cb.checked);
+    if (catAllCheck && catAllCheck.checked) {
+      return [catAllCheck];
+    }
+    return Array.from(specificCatCheckboxes).filter(cb => cb.checked);
   }
 
   function validateButtons() {
     let hasValidSelection = false;
-    if (currentSection === 'all') {
-      hasValidSelection = catAllCheck ? catAllCheck.checked : true;
-    } else {
-      const activeGroup = document.getElementById(`group-${currentSection}`);
-      if (activeGroup) {
-        hasValidSelection = Array.from(activeGroup.querySelectorAll('.cat-checkbox')).some(cb => cb.checked);
+    if (sectionTabBtns.length > 0) {
+      if (currentSection === 'all') {
+        hasValidSelection = catAllCheck ? catAllCheck.checked : true;
       } else {
-        hasValidSelection = Array.from(specificCatCheckboxes).some(cb => cb.checked);
+        const activeGroup = document.getElementById(`group-${currentSection}`);
+        if (activeGroup) {
+          hasValidSelection = Array.from(activeGroup.querySelectorAll('.cat-checkbox')).some(cb => cb.checked);
+        } else {
+          hasValidSelection = Array.from(specificCatCheckboxes).some(cb => cb.checked);
+        }
       }
+    } else {
+      hasValidSelection = (catAllCheck && catAllCheck.checked) || Array.from(specificCatCheckboxes).some(cb => cb.checked);
     }
 
     [startBtn, printBtn].forEach(btn => {
@@ -95,6 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
           else parent.classList.remove('selected');
         }
       });
+
+      if (catAllCheck) {
+        const allCheckedGlobal = Array.from(specificCatCheckboxes).every(c => c.checked);
+        catAllCheck.checked = allCheckedGlobal;
+        const allParent = catAllCheck.closest('.category-check-item');
+        if (allParent) {
+          if (allCheckedGlobal) allParent.classList.add('selected');
+          else allParent.classList.remove('selected');
+        }
+      }
       validateButtons();
     });
   });
@@ -426,9 +446,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return a;
   }
 
-  if (startBtn && questionPool) {
-    startBtn.addEventListener('click', () => {
-      let candidatePool = [];
+  function getCandidatePool() {
+    let candidatePool = [];
+    if (sectionTabBtns.length > 0) {
       if (currentSection === 'all') {
         candidatePool = questionPool;
       } else {
@@ -443,6 +463,22 @@ document.addEventListener('DOMContentLoaded', () => {
           return selectedCats.includes(q.catKey);
         });
       }
+    } else {
+      if (catAllCheck && catAllCheck.checked) {
+        candidatePool = questionPool;
+      } else {
+        const selectedCats = Array.from(specificCatCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
+        candidatePool = questionPool.filter(q => selectedCats.includes(q.catKey));
+      }
+    }
+    return candidatePool;
+  }
+
+  if (startBtn && questionPool) {
+    startBtn.addEventListener('click', () => {
+      const candidatePool = getCandidatePool();
 
       if (candidatePool.length === 0) {
         alert('選択された分野の問題が見つかりませんでした。別の分野を選択してください。');
@@ -469,22 +505,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. 印刷・PDF出力ボタン
   if (printBtn && questionPool) {
     printBtn.addEventListener('click', () => {
-      let candidatePool = [];
-      if (currentSection === 'all') {
-        candidatePool = questionPool;
-      } else {
-        const activeGroup = document.getElementById(`group-${currentSection}`);
-        const activeCheckboxes = activeGroup ? activeGroup.querySelectorAll('.cat-checkbox') : specificCatCheckboxes;
-        const selectedCats = Array.from(activeCheckboxes)
-          .filter(cb => cb.checked)
-          .map(cb => cb.value);
-
-        candidatePool = questionPool.filter(q => {
-          if (q.section && q.section !== currentSection) return false;
-          return selectedCats.includes(q.catKey);
-        });
-        if (candidatePool.length === 0) candidatePool = questionPool;
-      }
+      let candidatePool = getCandidatePool();
+      if (candidatePool.length === 0) candidatePool = questionPool;
 
       const shuffled = shuffle(candidatePool);
       const printQuestions = shuffled.slice(0, Math.min(selectedCount, shuffled.length));

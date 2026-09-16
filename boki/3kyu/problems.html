@@ -111,61 +111,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     line-height: 1.5 !important;
   }
 
-  /* 大問選択タブ（青色のベタ塗りを完全排除し、白背景カード＆グリーンアクティブに統一） */
-  .section-tabs-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .section-tab-btn {
-    background: white !important;
-    border: 2px solid #e2e8f0 !important;
-    border-radius: 10px !important;
-    padding: 16px !important;
-    text-align: left !important;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    color: #27272a !important;
-    box-shadow: none !important;
-    margin: 0 !important;
-  }
-  .section-tab-btn:hover {
-    border-color: #345d4d !important;
-    background: #fbfaf8 !important;
-  }
-  .section-tab-btn.active {
-    border-color: #345d4d !important;
-    background: #e6f0eb !important;
-    box-shadow: 0 4px 12px rgba(52, 93, 77, 0.12) !important;
-  }
-  .sec-tab-badge {
-    display: inline-block;
-    align-self: flex-start;
-    font-size: 0.75rem;
-    font-weight: 700;
-    background: #345d4d !important;
-    color: white !important;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-bottom: 2px;
-  }
-  .sec-tab-title {
-    font-size: 1.02rem;
-    font-weight: 700;
-    color: #1a231f !important;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .sec-tab-sub {
-    font-size: 0.82rem;
-    color: #71717a !important;
-  }
-
   /* チェックボックスアイテム */
   .category-checkbox-grid {
     display: grid;
@@ -345,39 +290,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- ① ウィザード画面（分野選択＆問題数選択） -->
   <div id="wizardSection">
-        <!-- ステップ1: 出題範囲・大問選択 -->
+        <!-- ステップ1: 出題分野選択 -->
     <div class="wizard-step-card">
-      <h2><i class="fas fa-check-circle" style="color:#2f855a;"></i> ステップ 1：出題の大問・分野を選択</h2>
-      <p class="wizard-desc">本試験の構成に合わせて【第1問：仕訳】【第2問：帳簿・伝票・勘定記入】【第3問：決算書作成】から選択できます。</p>
+      <h2><i class="fas fa-check-circle" style="color:#2f855a;"></i> ステップ 1：出題の分野を選択</h2>
+      <p class="wizard-desc">本試験の構成に合わせて【第1問：仕訳】【第2問：帳簿・伝票・勘定記入】【第3問：決算書作成】から苦手な分野を自由に選択できます（複数選択可）。</p>
 
-      <!-- 大問選択タブ -->
-      <div class="section-tabs-container" id="bokiSectionTabs">
-        <button type="button" class="section-tab-btn active" data-section="q1">
-          <div class="sec-tab-badge">配点45点</div>
-          <div class="sec-tab-title"><i class="fas fa-edit" style="color:#2f855a;"></i> 【第1問】仕訳問題</div>
-          <div class="sec-tab-sub">全14分野・計700問の仕訳マスター</div>
-        </button>
-        <button type="button" class="section-tab-btn" data-section="q2">
-          <div class="sec-tab-badge" style="background:#805ad5;">配点20点</div>
-          <div class="sec-tab-title"><i class="fas fa-book-open" style="color:#805ad5;"></i> 【第2問】帳簿・伝票・勘定記入</div>
-          <div class="sec-tab-sub">補助簿選択・商品有高帳・T字勘定</div>
-        </button>
-        <button type="button" class="section-tab-btn" data-section="q3">
-          <div class="sec-tab-badge" style="background:#dd6b20;">配点35点</div>
-          <div class="sec-tab-title"><i class="fas fa-file-invoice-dollar" style="color:#dd6b20;"></i> 【第3問】決算書作成問題</div>
-          <div class="sec-tab-sub">財務諸表（B/S・P/L）・精算表・試算表</div>
-        </button>
-        <button type="button" class="section-tab-btn" data-section="all">
-          <div class="sec-tab-badge" style="background:#2f855a;">合計100点</div>
-          <div class="sec-tab-title"><i class="fas fa-globe" style="color:#2f855a;"></i> 【総合演習】全範囲から出題</div>
-          <div class="sec-tab-sub">第1問〜第3問を完全横断（計725問）</div>
-        </button>
+      <!-- 全範囲（総合）横断出題チェックボックス（一番上に配置） -->
+      <div class="category-checkbox-grid" style="margin-bottom: 24px;">
+        <label class="category-check-item selected" style="grid-column: 1 / -1; background:#f0fff4; border-color:#9ae6b4;">
+          <input type="checkbox" id="cat-all" checked>
+          <span><i class="fas fa-check-double" style="color:#38a169;"></i> 第1問〜第3問の全分野から横断出題（全問対象・計725問）</span>
+        </label>
       </div>
 
       <!-- ① 第1問 分野グループ -->
-      <div class="category-section-group active" id="group-q1">
-        <div style="font-size:0.92rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
-          <span><i class="fas fa-list-ul" style="color:#2f855a;"></i> 【第1問】仕訳問題の出題分野（全14分野・各50問）</span>
+      <div class="category-section-group" id="group-q1" style="margin-bottom: 24px;">
+        <div style="font-size:0.95rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+          <span><i class="fas fa-edit" style="color:#2f855a;"></i> 【第1問】仕訳問題の出題分野（全14分野・各50問）</span>
           <button type="button" class="section-all-toggle-btn" data-target="q1" style="font-size:0.85rem; padding:4px 10px; background:#e2e8f0; border:none; border-radius:4px; cursor:pointer; color:#4a5568;">すべて選択 / 解除</button>
         </div>
         <div class="category-checkbox-grid">
@@ -441,8 +370,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- ② 第2問 分野グループ -->
-      <div class="category-section-group" id="group-q2">
-        <div style="font-size:0.92rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+      <div class="category-section-group" id="group-q2" style="margin-bottom: 24px;">
+        <div style="font-size:0.95rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
           <span><i class="fas fa-book-open" style="color:#805ad5;"></i> 【第2問】帳簿・伝票・勘定記入の出題分野</span>
           <button type="button" class="section-all-toggle-btn" data-target="q2" style="font-size:0.85rem; padding:4px 10px; background:#e2e8f0; border:none; border-radius:4px; cursor:pointer; color:#4a5568;">すべて選択 / 解除</button>
         </div>
@@ -476,7 +405,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- ③ 第3問 分野グループ -->
       <div class="category-section-group" id="group-q3">
-        <div style="font-size:0.92rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-size:0.95rem; font-weight:700; color:#2d3748; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
           <span><i class="fas fa-file-invoice-dollar" style="color:#dd6b20;"></i> 【第3問】決算書作成問題の出題分野</span>
           <button type="button" class="section-all-toggle-btn" data-target="q3" style="font-size:0.85rem; padding:4px 10px; background:#e2e8f0; border:none; border-radius:4px; cursor:pointer; color:#4a5568;">すべて選択 / 解除</button>
         </div>
@@ -500,16 +429,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <label class="category-check-item selected">
             <input type="checkbox" class="cat-checkbox" value="q3-5" checked data-section="q3">
             <span><i class="fas fa-tasks" style="color:#dd6b20;"></i> 5. 決算整理事項の総合演習</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- ④ 全範囲（総合）グループ -->
-      <div class="category-section-group" id="group-all">
-        <div class="category-checkbox-grid">
-          <label class="category-check-item selected" style="grid-column: 1 / -1; background:#f0fff4; border-color:#9ae6b4;">
-            <input type="checkbox" id="cat-all" checked>
-            <span><i class="fas fa-check-double" style="color:#38a169;"></i> 第1問〜第3問の全分野から横断出題（全問対象・計725問）</span>
           </label>
         </div>
       </div>
