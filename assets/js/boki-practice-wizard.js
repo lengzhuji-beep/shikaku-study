@@ -496,6 +496,8 @@ document.addEventListener('DOMContentLoaded', () => {
       wizardSection.style.display = 'none';
       if (resultSection) resultSection.style.display = 'none';
       quizPlaySection.style.display = 'block';
+      const quitBtn = document.getElementById('quitQuizBtn');
+      if (quitBtn) quitBtn.style.setProperty('display', 'inline-flex', 'important');
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
       renderCurrentQuestion();
@@ -528,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const total = currentActiveQuestions.length;
     const qNum = currentIndex + 1;
 
-    updatePlayProgress(currentIndex, total);
+    updatePlayProgress(qNum, total);
 
     const qId = getItemQid(item);
     const card = document.createElement('div');
@@ -615,30 +617,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const bmBtn = card.querySelector('#currentBookmarkBtn');
-    bmBtn.addEventListener('click', () => {
-      bookmarks = getStoredBookmarks();
-      const currentStatus = isItemBookmarked(item, qId);
-      if (currentStatus) {
-        bookmarks = bookmarks.filter(id => id !== qId);
-        bmBtn.classList.remove('is-bookmarked');
-        bmBtn.innerHTML = '<i class="far fa-star"></i> ブックマーク';
-      } else {
-        bookmarks.push(qId);
-        bmBtn.classList.add('is-bookmarked');
-        bmBtn.innerHTML = '<i class="fas fa-star"></i> ブックマーク中';
-      }
-      saveStoredBookmarks(bookmarks);
-    });
+    if (bmBtn) {
+      bmBtn.addEventListener('click', () => {
+        bookmarks = getStoredBookmarks();
+        const currentStatus = isItemBookmarked(item, qId);
+        if (currentStatus) {
+          bookmarks = bookmarks.filter(id => id !== qId);
+          bmBtn.classList.remove('is-bookmarked');
+          bmBtn.innerHTML = '<i class="far fa-star"></i> ブックマーク';
+        } else {
+          bookmarks.push(qId);
+          bmBtn.classList.add('is-bookmarked');
+          bmBtn.innerHTML = '<i class="fas fa-star"></i> ブックマーク中';
+        }
+        saveStoredBookmarks(bookmarks);
+      });
+    }
   }
 
-  function updatePlayProgress(done, total) {
-    const fill = document.getElementById('playProgressFill');
+  function updatePlayProgress(currentNum, total) {
+    const fill = document.getElementById('playProgressBar') || document.getElementById('playProgressFill');
     const text = document.getElementById('playProgressText');
-    if (fill && text && total > 0) {
-      const pct = Math.round((done / total) * 100);
-      fill.style.width = `${pct}%`;
-      const accuracy = done > 0 ? Math.round((correctCount / done) * 100) : 0;
-      text.innerHTML = `進捗: <strong>${done} / ${total} 問完了</strong> (正答率: ${accuracy}%)`;
+    if (total > 0) {
+      const current = Math.min(Math.max(currentNum, 1), total);
+      const pct = Math.round((current / total) * 100);
+      if (fill) {
+        fill.style.width = `${pct}%`;
+      }
+      if (text) {
+        text.innerHTML = `第 <strong>${current}</strong> 問 / 全 ${total} 問`;
+      }
     }
   }
 
@@ -646,55 +654,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const total = currentActiveQuestions.length;
     const accuracy = Math.round((correctCount / total) * 100);
 
-    const fill = document.getElementById('playProgressFill');
+    const fill = document.getElementById('playProgressBar') || document.getElementById('playProgressFill');
     const text = document.getElementById('playProgressText');
-    if (fill && text) {
+    const quitBtn = document.getElementById('quitQuizBtn');
+    if (fill) {
       fill.style.width = '100%';
-      text.innerHTML = `進捗: <strong>${total} / ${total} 問完了</strong> (正答率: ${accuracy}%)`;
+    }
+    if (text) {
+      text.innerHTML = `演習完了（全 <strong>${total}</strong> 問完了）`;
+    }
+    if (quitBtn) {
+      quitBtn.style.setProperty('display', 'none', 'important');
     }
 
     const compCard = document.createElement('div');
     compCard.className = 'card';
-    compCard.style.cssText = 'text-align:center; padding:40px 25px; border-top:6px solid #38a169; margin-top:10px;';
+    compCard.style.cssText = 'text-align:center; padding:40px 25px; border:1px solid #e2e8f0; border-radius:12px; margin-top:10px; box-shadow:0 4px 15px rgba(0,0,0,0.03); background:white;';
     compCard.innerHTML = `
-      <h2><i class="fas fa-flag-checkered" style="color:#38a169;"></i> 演習完了！ お疲れ様でした</h2>
+      <h2><i class="fas fa-flag-checkered" style="color:#234735;"></i> 演習完了！ お疲れ様でした</h2>
       <p style="font-size:1.4rem; margin:18px 0;">
-        結果: <strong>${correctCount} / ${total} 問正解</strong>（正答率: <span style="color:${accuracy >= 70 ? '#38a169' : '#e53e3e'}; font-weight:bold;">${accuracy}%</span>）
+        結果: <strong>${correctCount} / ${total} 問正解</strong>（正答率: <span style="color:${accuracy >= 70 ? '#2f855a' : '#c53030'}; font-weight:bold;">${accuracy}%</span>）
       </p>
       <p style="color:#718096; font-size:1rem; max-width:600px; margin:0 auto 25px auto; line-height:1.6;">
         ${accuracy >= 70 ? '★ 合格基準（70%以上）をクリアしています！この調子で反復練習を続けましょう。' : '基礎の復習が必要です。間違えた問題やブックマークした問題を重点的に反復しましょう。'}
       </p>
       <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
-        <button type="button" class="btn" id="restartWizardBtn" style="background:#2f855a; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
-        <a href="past-questions.html" class="btn" style="background:#345d4d; color:white; padding:12px 24px; font-size:1.05rem;"><i class="fas fa-file-alt"></i> 過去問演習へ</a>
+        <button type="button" class="btn" id="restartWizardBtn" style="background:#234735 !important; color:white !important; padding:12px 28px !important; font-size:1rem !important; font-weight:700 !important; border-radius:8px !important; border:none !important; cursor:pointer !important; display:inline-flex !important; align-items:center !important; gap:8px !important; box-shadow:0 4px 12px rgba(35,71,53,0.2) !important;"><i class="fas fa-redo"></i> 条件を変えてもう一度解く</button>
+        <a href="index.html" class="btn" style="background:white !important; color:#234735 !important; border:1.5px solid #234735 !important; padding:12px 28px !important; font-size:1rem !important; font-weight:700 !important; border-radius:8px !important; text-decoration:none !important; display:inline-flex !important; align-items:center !important; gap:8px !important;"><i class="fas fa-arrow-left"></i> 簿記2級トップへ</a>
       </div>
     `;
     quizCardsContainer.appendChild(compCard);
 
-    document.getElementById('restartWizardBtn').addEventListener('click', () => {
-      quizPlaySection.style.display = 'none';
-      wizardSection.style.display = 'block';
-      const modeSwitchContainer = document.querySelector('.mode-switch-container');
-      if (modeSwitchContainer) modeSwitchContainer.style.display = 'flex';
-      updateModeUI();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // 中断して条件選択に戻るボタン
-  const backToWizardBtn = document.getElementById('backToWizardBtn');
-  if (backToWizardBtn) {
-    backToWizardBtn.addEventListener('click', () => {
-      if (confirm('現在の演習を中断して、分野・問題数の選択に戻りますか？')) {
+    const restartBtn = document.getElementById('restartWizardBtn');
+    if (restartBtn) {
+      restartBtn.addEventListener('click', () => {
         quizPlaySection.style.display = 'none';
         wizardSection.style.display = 'block';
         const modeSwitchContainer = document.querySelector('.mode-switch-container');
         if (modeSwitchContainer) modeSwitchContainer.style.display = 'flex';
         updateModeUI();
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    });
+      });
+    }
   }
+
+  // 中断して条件選択に戻るボタン（#quitQuizBtn および #backToWizardBtn の両方に対応）
+  ['quitQuizBtn', 'backToWizardBtn'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) {
+      btn.addEventListener('click', () => {
+        if (confirm('現在の演習を中断して、分野・問題数の選択に戻りますか？')) {
+          quizPlaySection.style.display = 'none';
+          wizardSection.style.display = 'block';
+          const modeSwitchContainer = document.querySelector('.mode-switch-container');
+          if (modeSwitchContainer) modeSwitchContainer.style.display = 'flex';
+          updateModeUI();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
+  });
 
   // 8. 印刷ウィンドウ生成関数
   function openPrintWindow(questions, customTitle) {
@@ -921,8 +940,8 @@ document.addEventListener('DOMContentLoaded', () => {
     font-size: 13pt;
     font-weight: bold;
     color: #2d3748;
-    border-left: 4px solid #2b6cb0;
-    padding-left: 8px;
+    border-bottom: 2px solid #234735;
+    padding-bottom: 4px;
     margin: 20px 0 12px 0;
   }
   .print-ans-table {
@@ -936,8 +955,8 @@ document.addEventListener('DOMContentLoaded', () => {
     padding: 6px 10px;
   }
   .print-ans-table th {
-    background: #ebf8ff;
-    color: #2b6cb0;
+    background: #f0fff4;
+    color: #234735;
     text-align: center;
   }
   .print-expl-item {
@@ -961,8 +980,8 @@ document.addEventListener('DOMContentLoaded', () => {
     line-height: 1.6;
     background: #f7fafc;
     padding: 8px 12px;
-    border-radius: 4px;
-    border-left: 3px solid #cbd5e0;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
   }
   @media print {
     body {

@@ -14,7 +14,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="description" content="日商簿記3級の分野別練習問題。仕訳、現金預金、商品売買、固定資産、決算整理、試算表など苦手な分野を自由に選んでランダム集中特訓。A4プリントアウト印刷にも対応。">
 <link rel="icon" href="../../favicon.png" type="image/png">
 <link rel="stylesheet" href="../../assets/css/style.css">
-  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
   /* ========== Shikakus / Kakutoku UI 統一スタイル（青色を完全排除） ========== */
@@ -25,9 +24,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   
   /* style.css のデフォルト button{ background:#4a90e2; } を完全リセット */
-  button {
+  button,
+  button:not(.hamburger-btn):not(.drawer-close-btn):not(.btn-auth-logout):not(.btn-auth-login) {
     background: transparent;
     color: inherit;
+  }
+
+  /* 戻る・中断ボタン（青色排除・控えめで洗練されたアウトラインデザイン） */
+  #backToWizardBtn, #quitQuizBtn {
+    background: white !important;
+    color: #4a5568 !important;
+    border: 1px solid #cbd5e0 !important;
+    border-radius: 6px !important;
+    padding: 6px 14px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+  #backToWizardBtn:hover, #quitQuizBtn:hover {
+    background: #f7fafc !important;
+    color: #2d3748 !important;
+    border-color: #a0aec0 !important;
   }
 
   /* ヒーローヘッダー：宅建等と統一のフォレストグリーン */
@@ -208,8 +231,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .exam-material-card {
     padding: 16px;
     background: #f8fafc;
-    border: 1px solid #cbd5e1;
-    border-left: 4px solid #345d4d !important;
+    border: 1px solid #cbd5e1 !important;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.03);
   }
@@ -231,10 +253,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: 600;
   }
   .progress-bar-fill {
-    background: linear-gradient(90deg, #38a169, #345d4d) !important;
+    height: 100%;
+    background: #234735 !important;
+    border-radius: 4px;
+    transition: width 0.3s ease;
   }
 
 </style>
+  <link rel="stylesheet" href="../../assets/css/kakutoku.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
      crossorigin="anonymous"></script>
 </head>
@@ -244,7 +270,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-  <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
+  <!-- ヘッダー（資格ページ共通：トップのみ） -->
+    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
   <header class="kakutoku-header">
     <div class="header-inner">
       <a href="../../index.html" class="logo-link">
@@ -464,7 +491,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="quizPlaySection" style="display:none;">
     <!-- 上部ナビバー -->
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
-      <button type="button" id="backToWizardBtn" class="btn" style="background:#718096; color:white; padding:8px 16px; font-size:0.9rem; border:none; border-radius:6px; cursor:pointer;">
+      <button type="button" id="backToWizardBtn">
         <i class="fas fa-arrow-left"></i> 条件を変更して選び直す
       </button>
       <span style="font-size:0.9rem; color:#718096;"><i class="fas fa-random"></i> ランダム出題モード実行中</span>
@@ -487,7 +514,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-col">
-      <h4>資格対策ドットコム</h4>
+      <h4>Shikakus</h4>
       <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
         FP・TOEIC・宅建・ITパスポート・簿記など、主要資格の練習問題・過去問・コラムをすべて無料で提供する総合学習プラットフォームです。
       </p>
@@ -509,7 +536,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
+    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -519,6 +546,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="../../assets/js/boki3-data.js"></script>
 <script src="../../assets/js/boki-practice-wizard.js"></script>
 
+  <script src="../../assets/js/study-tracker.js"></script>
   <script src="../../assets/js/mobile-nav.js"></script>
 </body>
 </html>

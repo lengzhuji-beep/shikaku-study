@@ -24,9 +24,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   
   /* style.css のデフォルト button{ background:#4a90e2; } を完全リセット */
-  button {
+  button,
+  button:not(.hamburger-btn):not(.drawer-close-btn):not(.btn-auth-logout):not(.btn-auth-login) {
     background: transparent;
     color: inherit;
+  }
+
+  /* 中断して戻るボタン（青色排除・控えめで洗練されたアウトラインデザイン） */
+  #quitQuizBtn {
+    background: white !important;
+    color: #4a5568 !important;
+    border: 1px solid #cbd5e0 !important;
+    border-radius: 6px !important;
+    padding: 6px 14px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+  #quitQuizBtn:hover {
+    background: #f7fafc !important;
+    color: #2d3748 !important;
+    border-color: #a0aec0 !important;
   }
 
   /* ヒーローヘッダー：統一のフォレストグリーン */
@@ -221,14 +245,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background: #e6f0eb !important;
   }
 
-  /* 資料表示カード */
+  /* 資料表示カード（左枠線のみ太いデザインを廃止し、全体に上品な均等細枠線へ） */
   .exam-material-card {
     background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-left: 4px solid #345d4d;
-    border-radius: 6px;
-    padding: 14px 16px;
-    margin: 15px 0;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin: 16px 0;
     font-size: 0.93rem;
   }
   .material-title {
@@ -363,9 +386,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .progress-bar-fill {
     height: 100%;
-    background: #345d4d;
+    background: #234735 !important;
     width: 0%;
-    transition: width 0.3s;
+    transition: width 0.3s ease;
+    border-radius: 4px;
   }
 
   /* 結果カード */
@@ -618,7 +642,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="progress-card">
       <div style="display:flex; justify-content:space-between; align-items:center;">
         <span id="playProgressText" style="font-size:0.95rem; font-weight:700; color:#2d3748;">第 1 問 / 全 10 問</span>
-        <button type="button" id="quitQuizBtn" style="border:none; color:#718096; font-size:0.9rem; cursor:pointer;">
+        <button type="button" id="quitQuizBtn">
           <i class="fas fa-times"></i> 中断して戻る
         </button>
       </div>
