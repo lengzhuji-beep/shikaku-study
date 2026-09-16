@@ -159,14 +159,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!progressText || !progressFill || totalCount === 0) return;
     const answered = Object.keys(userAnswers).length;
     let correct = 0;
+    let earnedPoints = 0;
+    let totalPoints = 0;
+    const hasPoints = sessionQuestions.some(q => typeof q.points === 'number');
+
     sessionQuestions.forEach(q => {
+      const qPts = typeof q.points === 'number' ? q.points : 1;
+      totalPoints += qPts;
       const qId = getItemQid(q);
-      if (userAnswers[qId] && userAnswers[qId] === q.correct) correct++;
+      if (userAnswers[qId] && userAnswers[qId] === q.correct) {
+        correct++;
+        earnedPoints += qPts;
+      }
     });
+
     const pct = Math.round((answered / totalCount) * 100);
-    const acc = answered > 0 ? Math.round((correct / answered) * 100) : 0;
     progressFill.style.width = `${pct}%`;
-    progressText.innerHTML = `進捗: <strong>${answered} / ${totalCount} 問完了</strong> (正答率: ${acc}%)`;
+    if (hasPoints) {
+      progressText.innerHTML = `進捗: <strong>${answered} / ${totalCount} 問完了</strong>（現在獲得点: <strong>${earnedPoints} / ${totalPoints} 点</strong>）`;
+    } else {
+      const acc = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+      progressText.innerHTML = `進捗: <strong>${answered} / ${totalCount} 問完了</strong> (正答率: ${acc}%)`;
+    }
   }
 
   // 問題レンダリング
@@ -191,23 +205,28 @@ document.addEventListener('DOMContentLoaded', () => {
         optionsHtml += `<div class="quiz-option" data-value="${val}">${opt}</div>`;
       });
 
+      const sectionBadge = item.sectionName ? `<span class="shikaku-card-badge" style="background:#e6fffa; color:#234e52; border:1px solid #b2f5ea; font-weight:600;"><i class="fas fa-layer-group"></i> ${item.sectionName}</span>` : '';
+      const pointsBadge = (typeof item.points === 'number') ? `<span class="shikaku-card-badge" style="background:#fefcbf; color:#744210; border:1px solid #faf089; font-weight:bold;"><i class="fas fa-star"></i> 配点 ${item.points}点</span>` : '';
+
       card.innerHTML = `
-        <div class="quiz-header-row">
-          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <div class="quiz-header-row" style="margin-bottom:12px; display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
             <span class="quiz-num-badge">第 ${qNum} 問 / 全 ${total} 問</span>
+            ${sectionBadge}
             <span class="shikaku-card-badge ${item.catClass || 'badge-cat-basic'}">${item.catName || '簿記'}</span>
+            ${pointsBadge}
           </div>
           <button type="button" class="bookmark-toggle-btn ${isBookmarked ? 'is-bookmarked' : ''}">
             <i class="${isBookmarked ? 'fas' : 'far'} fa-star"></i> ${isBookmarked ? 'ブックマーク中' : 'ブックマーク'}
           </button>
         </div>
 
-        <div class="quiz-question-text">${item.text}</div>
+        <div class="quiz-question-text" style="font-size:1.05rem; line-height:1.75; color:#2d3748; margin-bottom:16px;">${item.text}</div>
         <div class="quiz-options">${optionsHtml}</div>
 
         <div class="quiz-explanation-area" style="display:none;">
-          <div class="quiz-result-title"></div>
-          <div class="quiz-explanation-body" style="padding:15px; background:#f7fafc; border-radius:6px; margin:15px 0;">
+          <div class="quiz-result-title" style="margin-top:14px;"></div>
+          <div class="quiz-explanation-body" style="padding:16px; background:#f7fafc; border:1px solid #e2e8f0; border-radius:8px; margin-top:10px; font-size:0.95rem; line-height:1.7; color:#2d3748;">
             ${item.explanation}
           </div>
         </div>
@@ -238,7 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
           if (isCorrect) {
             opt.classList.add('correct-choice');
-            resTitle.innerHTML = '<span style="color:#2f855a; font-weight:bold; font-size:1.15rem;"><i class="fas fa-check-circle"></i> 正解！</span>';
+            const ptStr = (typeof item.points === 'number') ? `（+${item.points}点 獲得）` : '';
+            resTitle.innerHTML = `<span style="color:#2f855a; font-weight:bold; font-size:1.15rem;"><i class="fas fa-check-circle"></i> 正解！ ${ptStr}</span>`;
           } else {
             opt.classList.add('wrong-choice');
             resTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${item.correct}）</span>`;
@@ -275,29 +295,46 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderResultSummary() {
     const total = sessionQuestions.length;
     let correct = 0;
+    let earnedPoints = 0;
+    let totalPoints = 0;
+    const hasPoints = sessionQuestions.some(q => typeof q.points === 'number');
+
     sessionQuestions.forEach(q => {
+      const qPts = typeof q.points === 'number' ? q.points : 1;
+      totalPoints += qPts;
       const qId = getItemQid(q);
-      if (userAnswers[qId] === q.correct) correct++;
+      if (userAnswers[qId] === q.correct) {
+        correct++;
+        earnedPoints += qPts;
+      }
     });
-    const acc = Math.round((correct / total) * 100);
-    const passed = acc >= 70;
+
+    const passed = hasPoints ? (earnedPoints >= 70) : (Math.round((correct / total) * 100) >= 70);
+    const scoreText = hasPoints 
+      ? `得点: <span style="font-size:2rem; font-weight:bold; color:${passed ? '#2e7d32' : '#c53030'};">${earnedPoints}</span> / ${totalPoints} 点 （正解: ${correct} / ${total} 問）`
+      : `スコア: <strong>${correct} / ${total} 問正解</strong>（正答率: <span style="color:${passed ? '#2e7d32' : '#c53030'}; font-weight:bold;">${Math.round((correct / total) * 100)}%</span>）`;
 
     const resCard = document.createElement('div');
     resCard.className = 'card';
-    resCard.style.cssText = 'text-align:center; padding:35px 25px; margin-top:25px; border-top:6px solid ' + (passed ? '#38a169;' : '#e53e3e;');
+    resCard.style.cssText = `text-align:center; padding:35px 25px; margin-top:25px; border:1px solid ${passed ? '#81c784' : '#feb2b2'}; background:${passed ? '#f0fdf4' : '#fff5f5'}; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05);`;
     resCard.innerHTML = `
-      <h2><i class="fas ${passed ? 'fa-award' : 'fa-exclamation-circle'}" style="color:${passed ? '#38a169' : '#e53e3e'};"></i> 演習完了</h2>
-      <p style="font-size:1.4rem; margin:15px 0;">
-        スコア: <strong>${correct} / ${total} 問正解</strong>（正答率: <span style="color:${passed ? '#38a169' : '#e53e3e'}; font-weight:bold;">${acc}%</span>）
+      <div style="font-size:2.8rem; color:${passed ? '#2e7d32' : '#e53e3e'}; margin-bottom:10px;">
+        <i class="fas ${passed ? 'fa-award' : 'fa-clipboard-check'}"></i>
+      </div>
+      <h2 style="font-size:1.6rem; color:#1a202c; margin-bottom:12px;">${passed ? '合格おめでとうございます！' : '演習完了（合格ラインまであと少し）'}</h2>
+      <p style="font-size:1.3rem; margin:15px 0; color:#2d3748;">
+        ${scoreText}
       </p>
-      <p style="font-size:1.05rem; color:#4a5568; margin-bottom:20px;">
-        ${passed ? '合格ライン（70%以上）を達成しました！素晴らしい実力です。' : '合格ライン（70%以上）に届きませんでした。間違えた問題を復習しましょう。'}
+      <p style="font-size:1.05rem; color:#4a5568; max-width:600px; margin:0 auto 24px;">
+        ${passed 
+          ? '本番合格ライン（70点以上 / 100点満点）を見事に突破しました！この調子で他の実施回や実戦形式の演習にもチャレンジしてみましょう。' 
+          : '合格基準は70点以上です。間違えた問題の解説をしっかり確認し、類似の仕訳や計算パターンを復習して再挑戦しましょう！'}
       </p>
-      <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-        <button type="button" class="btn" id="retryExamBtn" style="background:#345d4d; color:white; padding:10px 20px;">
+      <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+        <button type="button" class="btn" id="retryExamBtn" style="background:#2e7d32; color:white; padding:12px 24px; border-radius:8px; font-weight:bold; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 2px 6px rgba(46,125,50,0.25);">
           <i class="fas fa-redo"></i> この実施回をもう一度解く
         </button>
-        <button type="button" class="btn" id="chooseOtherExamBtn" style="background:#718096; color:white; padding:10px 20px;">
+        <button type="button" class="btn" id="chooseOtherExamBtn" style="background:#4a5568; color:white; padding:12px 24px; border-radius:8px; font-weight:bold; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;">
           <i class="fas fa-calendar-alt"></i> 他の実施回を選ぶ
         </button>
       </div>
