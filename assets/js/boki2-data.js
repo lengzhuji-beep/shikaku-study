@@ -6846,7 +6846,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "連結会計（当期取引）",
     "catClass": "badge-cat-rights",
     "title": "連結第1年度における【のれん償却】および【期末債権債務の相殺消去】",
-    "text": "問6の前提に基づき、連結第1年度末の処理を行う。のれんは20年間にわたり定額法で規則的に償却する（月割ではなく年額償却）。また、当期末においてP社のS社に対する売掛金残高が <strong>￥1,500,000</strong>（S社のP社に対する買掛金同額）ある。<br>連結修正仕訳における【のれん償却額】および【債権債務相殺消去】の組み合わせとして正しいものを選択しなさい。",
+    "text": "問6の前提に基づき、連結第1年度末の処理を行う。のれんは20年間にわたり定額法で規則的に償却する（月割ではなく年額償却）。また、当期末においてP社のS社に対する売掛金残高が <strong>￥1,500,000</strong>（S社のP社に対する買掛金同額）ある。<br>連結修正仕訳における【のれん償却額】および【債権債務相殺消去】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-sitemap\"></i> 資料：連結精算表（支配獲得日抜粋）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>P社個別</th><th>S社個別</th><th>修正消去 借方</th><th>修正消去 貸方</th><th>連結貸借対照表</th></tr></thead><tbody><tr><td class=\"\">S社株式</td><td class=\"num\">￥8,800,000</td><td class=\"\">−</td><td class=\"\"></td><td class=\"blank\">（ [ 空欄 A ] ） [ 金額 A ]</td><td class=\"\">−</td></tr><tr><td class=\"\">資本金（S社）</td><td class=\"\">−</td><td class=\"num\">￥6,000,000</td><td class=\"num\">￥6,000,000</td><td class=\"\"></td><td class=\"\">−</td></tr><tr><td class=\"\">資本剰余金（S社）</td><td class=\"\">−</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,000,000</td><td class=\"\"></td><td class=\"\">−</td></tr><tr><td class=\"\">利益剰余金（S社）</td><td class=\"\">−</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,000,000</td><td class=\"\"></td><td class=\"\">−</td></tr><tr><td class=\"\">のれん</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"blank\">（ [ 空欄 B ] ） [ 金額 B ]</td><td class=\"\"></td><td class=\"blank\">[ 空欄 C ]</td></tr><tr><td class=\"\">非支配株主持分</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\"></td><td class=\"blank\">（ [ 空欄 D ] ） [ 金額 D ]</td><td class=\"\">[ 金額 D ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) のれん償却額：￥40,000 ／ （借方）買掛金 1,500,000 （貸方）売掛金 1,500,000",
       "(2) のれん償却額：￥40,000 ／ （借方）売掛金 1,500,000 （貸方）買掛金 1,500,000",
@@ -6867,7 +6867,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "連結貸借対照表",
     "catClass": "badge-cat-rights",
     "title": "連結第1年度末の連結貸借対照表に計上される【のれん】の計上額",
-    "text": "問6および問7の処理を経た後の、連結第1年度末の連結貸借対照表（連結B/S）における [ 空欄 C：のれん計上額 ] として正しいものを選択しなさい。",
+    "text": "問6および問7の処理を経た後の、連結第1年度末の連結貸借対照表（連結B/S）における [ 空欄 C：のれん計上額 ] として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-sitemap\"></i> 資料：連結精算表（支配獲得日抜粋）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>P社個別</th><th>S社個別</th><th>修正消去 借方</th><th>修正消去 貸方</th><th>連結貸借対照表</th></tr></thead><tbody><tr><td class=\"\">S社株式</td><td class=\"num\">￥8,800,000</td><td class=\"\">−</td><td class=\"\"></td><td class=\"blank\">（ [ 空欄 A ] ） [ 金額 A ]</td><td class=\"\">−</td></tr><tr><td class=\"\">資本金（S社）</td><td class=\"\">−</td><td class=\"num\">￥6,000,000</td><td class=\"num\">￥6,000,000</td><td class=\"\"></td><td class=\"\">−</td></tr><tr><td class=\"\">資本剰余金（S社）</td><td class=\"\">−</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,000,000</td><td class=\"\"></td><td class=\"\">−</td></tr><tr><td class=\"\">利益剰余金（S社）</td><td class=\"\">−</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,000,000</td><td class=\"\"></td><td class=\"\">−</td></tr><tr><td class=\"\">のれん</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"blank\">（ [ 空欄 B ] ） [ 金額 B ]</td><td class=\"\"></td><td class=\"blank\">[ 空欄 C ]</td></tr><tr><td class=\"\">非支配株主持分</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\"></td><td class=\"blank\">（ [ 空欄 D ] ） [ 金額 D ]</td><td class=\"\">[ 金額 D ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥760,000",
       "(2) ￥800,000",
@@ -6909,7 +6909,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "株主資本等変動計算書",
     "catClass": "badge-cat-rights",
     "title": "株主資本等変動計算書における【期末利益準備金】および【期末繰越利益剰余金】の算定",
-    "text": "問6と同一の資料に基づき、当期末における [ 空欄 C：利益準備金残高 ] および [ 空欄 D：繰越利益剰余金残高 ] の組み合わせとして正しいものを選択しなさい。",
+    "text": "問6と同一の資料に基づき、当期末における [ 空欄 C：利益準備金残高 ] および [ 空欄 D：繰越利益剰余金残高 ] の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-invoice-dollar\"></i> 資料：株主資本等変動計算書（抜粋）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>資本金</th><th>資本準備金</th><th>利益準備金</th><th>繰越利益剰余金</th><th>自己株式</th><th>株主資本合計</th></tr></thead><tbody><tr><td class=\"\">当期首残高</td><td class=\"num\">￥10,000,000</td><td class=\"num\">￥2,500,000</td><td class=\"num\">￥800,000</td><td class=\"num\">￥3,200,000</td><td class=\"\">−</td><td class=\"num\">￥16,500,000</td></tr><tr><td class=\"\">剰余金の配当（6/25）</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"blank\">（ [ 空欄 A ] ）</td><td class=\"\">△￥500,000</td><td class=\"\">−</td><td class=\"\">△￥450,000</td></tr><tr><td class=\"\">当期純利益</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"blank\">[ 空欄 B ]</td><td class=\"\">−</td><td class=\"blank\">[ 空欄 B ]</td></tr><tr><td class=\"\">自己株式の取得</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\">△￥300,000</td><td class=\"\">△￥300,000</td></tr><tr><td class=\"\">当期末残高</td><td class=\"num\">￥10,000,000</td><td class=\"num\">￥2,500,000</td><td class=\"blank\">[ 空欄 C ]</td><td class=\"blank\">[ 空欄 D ]</td><td class=\"\">△￥300,000</td><td class=\"blank\">[ 空欄 E ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) [C] ￥850,000 ／ [D] ￥3,900,000",
       "(2) [C] ￥800,000 ／ [D] ￥3,900,000",
@@ -6930,7 +6930,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "株主資本等変動計算書",
     "catClass": "badge-cat-rights",
     "title": "株主資本等変動計算書における【期末株主資本合計】の算定",
-    "text": "問6および問7の資料に基づき、当期末における [ 空欄 E：株主資本合計 ] の金額として正しいものを選択しなさい。",
+    "text": "問6および問7の資料に基づき、当期末における [ 空欄 E：株主資本合計 ] の金額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-invoice-dollar\"></i> 資料：株主資本等変動計算書（抜粋）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>資本金</th><th>資本準備金</th><th>利益準備金</th><th>繰越利益剰余金</th><th>自己株式</th><th>株主資本合計</th></tr></thead><tbody><tr><td class=\"\">当期首残高</td><td class=\"num\">￥10,000,000</td><td class=\"num\">￥2,500,000</td><td class=\"num\">￥800,000</td><td class=\"num\">￥3,200,000</td><td class=\"\">−</td><td class=\"num\">￥16,500,000</td></tr><tr><td class=\"\">剰余金の配当（6/25）</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"blank\">（ [ 空欄 A ] ）</td><td class=\"\">△￥500,000</td><td class=\"\">−</td><td class=\"\">△￥450,000</td></tr><tr><td class=\"\">当期純利益</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"blank\">[ 空欄 B ]</td><td class=\"\">−</td><td class=\"blank\">[ 空欄 B ]</td></tr><tr><td class=\"\">自己株式の取得</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\">−</td><td class=\"\">△￥300,000</td><td class=\"\">△￥300,000</td></tr><tr><td class=\"\">当期末残高</td><td class=\"num\">￥10,000,000</td><td class=\"num\">￥2,500,000</td><td class=\"blank\">[ 空欄 C ]</td><td class=\"blank\">[ 空欄 D ]</td><td class=\"\">△￥300,000</td><td class=\"blank\">[ 空欄 E ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥16,950,000",
       "(2) ￥17,250,000",
@@ -6972,7 +6972,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "連結会計",
     "catClass": "badge-cat-rights",
     "title": "連結貸借対照表における【非支配株主持分（当期末残高）】の算定",
-    "text": "問6と同一の資料に基づき、当期末におけるS社の純資産個別合算額が￥9,500,000である場合の【連結貸借対照表の非支配株主持分（20％）】として正しいものを選択しなさい（ダウンストリームのため土地未実現利益の負担は生じない）。",
+    "text": "問6と同一の資料に基づき、当期末におけるS社の純資産個別合算額が￥9,500,000である場合の【連結貸借対照表の非支配株主持分（20％）】として正しいものを選択しなさい（ダウンストリームのため土地未実現利益の負担は生じない）。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-sitemap\"></i> 資料：連結修正データ抜粋</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>科目</th><th>支配獲得日（前々期末）</th><th>当期首残高</th><th>当期末残高（個別合算）</th></tr></thead><tbody><tr><td class=\"\">S社株式（取得原価）</td><td class=\"num\">￥7,000,000</td><td class=\"num\">￥7,000,000</td><td class=\"num\">￥7,000,000</td></tr><tr><td class=\"\">S社純資産（資本金等）</td><td class=\"num\">￥8,000,000（80%取得）</td><td class=\"num\">￥8,600,000</td><td class=\"num\">￥9,500,000</td></tr><tr><td class=\"\">のれん（10年均等償却）</td><td class=\"num\">￥600,000</td><td class=\"num\">￥540,000</td><td class=\"blank\">[ 空欄 A ]</td></tr><tr><td class=\"\">P社→S社売却土地（帳簿価額￥2,000,000を￥2,500,000で売却）</td><td class=\"\">−</td><td class=\"\">未実現利益 ￥500,000</td><td class=\"blank\">[ 空欄 B ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥1,900,000",
       "(2) ￥1,800,000",
@@ -6993,7 +6993,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "連結会計",
     "catClass": "badge-cat-rights",
     "title": "期首未実現利益の開始仕訳における【利益剰余金当期首残高】の処理",
-    "text": "問6の土地未実現利益に関して、当期首において行われた開始仕訳として正しいものを選択しなさい。",
+    "text": "問6の土地未実現利益に関して、当期首において行われた開始仕訳として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-sitemap\"></i> 資料：連結修正データ抜粋</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>科目</th><th>支配獲得日（前々期末）</th><th>当期首残高</th><th>当期末残高（個別合算）</th></tr></thead><tbody><tr><td class=\"\">S社株式（取得原価）</td><td class=\"num\">￥7,000,000</td><td class=\"num\">￥7,000,000</td><td class=\"num\">￥7,000,000</td></tr><tr><td class=\"\">S社純資産（資本金等）</td><td class=\"num\">￥8,000,000（80%取得）</td><td class=\"num\">￥8,600,000</td><td class=\"num\">￥9,500,000</td></tr><tr><td class=\"\">のれん（10年均等償却）</td><td class=\"num\">￥600,000</td><td class=\"num\">￥540,000</td><td class=\"blank\">[ 空欄 A ]</td></tr><tr><td class=\"\">P社→S社売却土地（帳簿価額￥2,000,000を￥2,500,000で売却）</td><td class=\"\">−</td><td class=\"\">未実現利益 ￥500,000</td><td class=\"blank\">[ 空欄 B ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) （借方）利益剰余金当期首残高 500,000 ／ （貸方）土地 500,000",
       "(2) （借方）土地売却益 500,000 ／ （貸方）土地 500,000",
@@ -7035,7 +7035,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "圧縮記帳",
     "catClass": "badge-cat-building",
     "title": "圧縮記帳における【特別利益・特別損失】の損益計上額",
-    "text": "問6において、国庫補助金受贈時および圧縮記帳時に損益計算書に計上される【国庫補助金受贈益】および【固定資産圧縮損】の組み合わせとして正しいものを選択しなさい。",
+    "text": "問6において、国庫補助金受贈時および圧縮記帳時に損益計算書に計上される【国庫補助金受贈益】および【固定資産圧縮損】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-shield\"></i> 資料：固定資産台帳（圧縮記帳）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>固定資産名称</th><th>購入原価</th><th>国庫補助金受贈額</th><th>圧縮記帳後の帳簿価額</th><th>耐用年数・償却方法</th><th>当期減価償却費</th></tr></thead><tbody><tr><td class=\"\">製造設備機械</td><td class=\"num\">￥10,000,000</td><td class=\"num\">￥4,000,000</td><td class=\"blank\">[ 空欄 A ]</td><td class=\"\">5年（定額法・残存ゼロ）</td><td class=\"blank\">[ 空欄 B ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) 国庫補助金受贈益：￥4,000,000（特別利益） ／ 固定資産圧縮損：￥4,000,000（特別損失）",
       "(2) 国庫補助金受贈益：￥4,000,000（営業外収益） ／ 固定資産圧縮損：￥4,000,000（特別損失）",
@@ -7056,7 +7056,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "圧縮記帳",
     "catClass": "badge-cat-building",
     "title": "直接減額方式における期末貸借対照表の機械装置帳簿価額",
-    "text": "問6および問7の処理を経た当期末の貸借対照表に計上される【機械装置の期末帳簿価額（圧縮記帳後原価 − 減価償却累計額）】として正しいものを選択しなさい。",
+    "text": "問6および問7の処理を経た当期末の貸借対照表に計上される【機械装置の期末帳簿価額（圧縮記帳後原価 − 減価償却累計額）】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-shield\"></i> 資料：固定資産台帳（圧縮記帳）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>固定資産名称</th><th>購入原価</th><th>国庫補助金受贈額</th><th>圧縮記帳後の帳簿価額</th><th>耐用年数・償却方法</th><th>当期減価償却費</th></tr></thead><tbody><tr><td class=\"\">製造設備機械</td><td class=\"num\">￥10,000,000</td><td class=\"num\">￥4,000,000</td><td class=\"blank\">[ 空欄 A ]</td><td class=\"\">5年（定額法・残存ゼロ）</td><td class=\"blank\">[ 空欄 B ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥4,800,000",
       "(2) ￥8,000,000",
@@ -7098,7 +7098,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "固定資産除却",
     "catClass": "badge-cat-rights",
     "title": "新ソフトウェア稼働に伴う【旧システムの除却損】の算定",
-    "text": "新ソフトウェアの稼働に伴い、これまで使用していた旧ソフトウェア（取得原価￥4,000,000、当期首までの減価償却累計額￥3,200,000、当期償却なし）を除却し廃棄した。除却時の仕訳として正しいものを選択しなさい（直接控除法）。",
+    "text": "新ソフトウェアの稼働に伴い、これまで使用していた旧ソフトウェア（取得原価￥4,000,000、当期首までの減価償却累計額￥3,200,000、当期償却なし）を除却し廃棄した。除却時の仕訳として正しいものを選択しなさい（直接控除法）。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-laptop-code\"></i> 資料：ソフトウェア開発支出一覧</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>支出区分</th><th>支出金額</th><th>会計上の処理（資産または費用）</th></tr></thead><tbody><tr><td class=\"\">自社利用ソフトウェアの調査・研究開発段階の支出</td><td class=\"num\">￥1,500,000</td><td class=\"\">研究開発費（販管費）</td></tr><tr><td class=\"\">ソフトウェアの設計・プログラミング製作費用（将来の収益獲得が確実）</td><td class=\"num\">￥6,000,000</td><td class=\"blank\">[ 空欄 A ]（無形固定資産）</td></tr><tr><td class=\"\">完成後の日常的なバグ修正・保守運用費用</td><td class=\"num\">￥800,000</td><td class=\"blank\">[ 空欄 B ]（費用）</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) （借方）ソフトウェア除却損 800,000 ／ （貸方）ソフトウェア 800,000",
       "(2) （借方）固定資産除却損 4,000,000 ／ （貸方）ソフトウェア 4,000,000",
@@ -7119,7 +7119,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "無形固定資産",
     "catClass": "badge-cat-rights",
     "title": "当期末貸借対照表に計上される【ソフトウェアの期末帳簿価額】の算定",
-    "text": "問6および問7の処理を経た後の、当期末貸借対照表に計上される【ソフトウェアの期末残高】として正しいものを選択しなさい。",
+    "text": "問6および問7の処理を経た後の、当期末貸借対照表に計上される【ソフトウェアの期末残高】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-laptop-code\"></i> 資料：ソフトウェア開発支出一覧</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>支出区分</th><th>支出金額</th><th>会計上の処理（資産または費用）</th></tr></thead><tbody><tr><td class=\"\">自社利用ソフトウェアの調査・研究開発段階の支出</td><td class=\"num\">￥1,500,000</td><td class=\"\">研究開発費（販管費）</td></tr><tr><td class=\"\">ソフトウェアの設計・プログラミング製作費用（将来の収益獲得が確実）</td><td class=\"num\">￥6,000,000</td><td class=\"blank\">[ 空欄 A ]（無形固定資産）</td></tr><tr><td class=\"\">完成後の日常的なバグ修正・保守運用費用</td><td class=\"num\">￥800,000</td><td class=\"blank\">[ 空欄 B ]（費用）</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥5,400,000",
       "(2) ￥6,000,000",
@@ -7161,7 +7161,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "有価証券",
     "catClass": "badge-cat-rights",
     "title": "決算整理後貸借対照表に計上される【投資有価証券の合計額】の算定",
-    "text": "問6の資料に基づき、決算整理後の貸借対照表の固定資産（投資その他の資産）に計上される【投資有価証券（満期保有目的債券 ＋ その他有価証券）】の帳簿価額として正しいものを選択しなさい。",
+    "text": "問6の資料に基づき、決算整理後の貸借対照表の固定資産（投資その他の資産）に計上される【投資有価証券（満期保有目的債券 ＋ その他有価証券）】の帳簿価額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-coins\"></i> 資料：有価証券台帳（決算抜粋）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>保有区分</th><th>銘柄・券種</th><th>取得原価</th><th>決算日における時価</th><th>決算整理仕訳での処理</th></tr></thead><tbody><tr><td class=\"\">売買目的有価証券</td><td class=\"\">甲社株式</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥1,150,000</td><td class=\"\">評価差益 ￥150,000 を有価証券評価益（営業外収益）に計上</td></tr><tr><td class=\"\">満期保有目的債券</td><td class=\"\">国債（額面￥1,000,000）</td><td class=\"num\">￥960,000</td><td class=\"num\">￥970,000</td><td class=\"blank\">償却原価法（定額法）により当期加算額 [ 空欄 A ] を計上</td></tr><tr><td class=\"\">その他有価証券</td><td class=\"\">乙社株式</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,400,000</td><td class=\"blank\">全部純資産直入法（税効果なし）により評価差額 [ 空欄 B ] を計上</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥3,370,000",
       "(2) ￥3,400,000",
@@ -7182,7 +7182,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "有価証券",
     "catClass": "badge-cat-rights",
     "title": "有価証券の評価および償却により当期の損益計算書に計上される営業外収益の合計額",
-    "text": "問6の資料に基づき、当期の損益計算書（P/L）の営業外収益に計上される金額（有価証券評価益 ＋ 償却原価法による有価証券利息）として正しいものを選択しなさい。",
+    "text": "問6の資料に基づき、当期の損益計算書（P/L）の営業外収益に計上される金額（有価証券評価益 ＋ 償却原価法による有価証券利息）として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-coins\"></i> 資料：有価証券台帳（決算抜粋）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>保有区分</th><th>銘柄・券種</th><th>取得原価</th><th>決算日における時価</th><th>決算整理仕訳での処理</th></tr></thead><tbody><tr><td class=\"\">売買目的有価証券</td><td class=\"\">甲社株式</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥1,150,000</td><td class=\"\">評価差益 ￥150,000 を有価証券評価益（営業外収益）に計上</td></tr><tr><td class=\"\">満期保有目的債券</td><td class=\"\">国債（額面￥1,000,000）</td><td class=\"num\">￥960,000</td><td class=\"num\">￥970,000</td><td class=\"blank\">償却原価法（定額法）により当期加算額 [ 空欄 A ] を計上</td></tr><tr><td class=\"\">その他有価証券</td><td class=\"\">乙社株式</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,400,000</td><td class=\"blank\">全部純資産直入法（税効果なし）により評価差額 [ 空欄 B ] を計上</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥160,000",
       "(2) ￥560,000",
@@ -7224,7 +7224,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "税効果会計",
     "catClass": "badge-cat-settlement",
     "title": "その他有価証券の時価評価と税効果会計による【純資産計上額】の算定",
-    "text": "問9と同一の資料に基づき、その他有価証券の時価評価に伴って貸借対照表の純資産の部に計上される【その他有価証券評価差額金】および負債の部に計上される【繰延税金負債】の組み合わせとして正しいものを選択しなさい。",
+    "text": "問9と同一の資料に基づき、その他有価証券の時価評価に伴って貸借対照表の純資産の部に計上される【その他有価証券評価差額金】および負債の部に計上される【繰延税金負債】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-table\"></i> 資料1：決算整理前残高試算表（令和X1年3月31日）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>借方残高</th><th>勘定科目</th><th>貸方残高</th></tr></thead><tbody><tr><td class=\"num\">￥1,200,000</td><td class=\"\">当座預金</td><td class=\"\"></td></tr><tr><td class=\"num\">￥4,800,000</td><td class=\"\">売掛金</td><td class=\"\"></td></tr><tr><td class=\"\"></td><td class=\"\">貸倒引当金</td><td class=\"num\">￥40,000</td></tr><tr><td class=\"num\">￥1,500,000</td><td class=\"\">繰越商品</td><td class=\"\"></td></tr><tr><td class=\"num\">￥2,000,000</td><td class=\"\">その他有価証券</td><td class=\"\"></td></tr><tr><td class=\"num\">￥10,000,000</td><td class=\"\">建　物</td><td class=\"\"></td></tr><tr><td class=\"\"></td><td class=\"\">建物減価償却累計額</td><td class=\"num\">￥3,600,000</td></tr><tr><td class=\"\"></td><td class=\"\">買掛金</td><td class=\"num\">￥3,200,000</td></tr><tr><td class=\"\"></td><td class=\"\">資本金</td><td class=\"num\">￥8,000,000</td></tr><tr><td class=\"\"></td><td class=\"\">繰越利益剰余金</td><td class=\"num\">￥1,160,000</td></tr><tr><td class=\"\"></td><td class=\"\">売　上</td><td class=\"num\">￥24,000,000</td></tr><tr><td class=\"num\">￥16,500,000</td><td class=\"\">仕　入</td><td class=\"\"></td></tr><tr><td class=\"num\">￥2,800,000</td><td class=\"\">給　料</td><td class=\"\"></td></tr><tr><td class=\"num\">￥800,000</td><td class=\"\">支払家賃</td><td class=\"\"></td></tr><tr><td class=\"num\">￥400,000</td><td class=\"\">水道光熱費</td><td class=\"\"></td></tr><tr><td class=\"num\">￥39,000,000</td><td class=\"\">合　計</td><td class=\"num\">￥39,000,000</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) その他有価証券評価差額金：￥210,000 ／ 繰延税金負債：￥90,000",
       "(2) その他有価証券評価差額金：￥300,000 ／ 繰延税金負債：￥0",
@@ -7245,7 +7245,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "貸借対照表",
     "catClass": "badge-cat-settlement",
     "title": "決算整理後貸借対照表（B/S）における【売掛金差引純額】および【建物の期末帳簿価額】",
-    "text": "問9と同一の資料に基づき、当期の貸借対照表（B/S）に計上される【売掛金の貸倒引当金控除後残高（差引純額）】および【建物の期末帳簿価額（取得原価 − 減価償却累計額）】の組み合わせとして正しいものを選択しなさい。",
+    "text": "問9と同一の資料に基づき、当期の貸借対照表（B/S）に計上される【売掛金の貸倒引当金控除後残高（差引純額）】および【建物の期末帳簿価額（取得原価 − 減価償却累計額）】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-table\"></i> 資料1：決算整理前残高試算表（令和X1年3月31日）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>借方残高</th><th>勘定科目</th><th>貸方残高</th></tr></thead><tbody><tr><td class=\"num\">￥1,200,000</td><td class=\"\">当座預金</td><td class=\"\"></td></tr><tr><td class=\"num\">￥4,800,000</td><td class=\"\">売掛金</td><td class=\"\"></td></tr><tr><td class=\"\"></td><td class=\"\">貸倒引当金</td><td class=\"num\">￥40,000</td></tr><tr><td class=\"num\">￥1,500,000</td><td class=\"\">繰越商品</td><td class=\"\"></td></tr><tr><td class=\"num\">￥2,000,000</td><td class=\"\">その他有価証券</td><td class=\"\"></td></tr><tr><td class=\"num\">￥10,000,000</td><td class=\"\">建　物</td><td class=\"\"></td></tr><tr><td class=\"\"></td><td class=\"\">建物減価償却累計額</td><td class=\"num\">￥3,600,000</td></tr><tr><td class=\"\"></td><td class=\"\">買掛金</td><td class=\"num\">￥3,200,000</td></tr><tr><td class=\"\"></td><td class=\"\">資本金</td><td class=\"num\">￥8,000,000</td></tr><tr><td class=\"\"></td><td class=\"\">繰越利益剰余金</td><td class=\"num\">￥1,160,000</td></tr><tr><td class=\"\"></td><td class=\"\">売　上</td><td class=\"num\">￥24,000,000</td></tr><tr><td class=\"num\">￥16,500,000</td><td class=\"\">仕　入</td><td class=\"\"></td></tr><tr><td class=\"num\">￥2,800,000</td><td class=\"\">給　料</td><td class=\"\"></td></tr><tr><td class=\"num\">￥800,000</td><td class=\"\">支払家賃</td><td class=\"\"></td></tr><tr><td class=\"num\">￥400,000</td><td class=\"\">水道光熱費</td><td class=\"\"></td></tr><tr><td class=\"num\">￥39,000,000</td><td class=\"\">合　計</td><td class=\"num\">￥39,000,000</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) 売掛金純額：￥4,704,000 ／ 建物帳簿価額：￥6,066,667",
       "(2) 売掛金純額：￥4,760,000 ／ 建物帳簿価額：￥6,066,667",
@@ -7287,7 +7287,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "貸借対照表",
     "catClass": "badge-cat-settlement",
     "title": "決算整理後貸借対照表における【資産の部合計】の算定",
-    "text": "問9と同一の資料に基づき、当期の貸借対照表（B/S）に計上される【資産の部合計】として正しいものを選択しなさい。",
+    "text": "問9と同一の資料に基づき、当期の貸借対照表（B/S）に計上される【資産の部合計】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-table\"></i> 資料1：決算整理前残高試算表</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>借方残高</th><th>勘定科目</th><th>貸方残高</th></tr></thead><tbody><tr><td class=\"num\">￥2,500,000</td><td class=\"\">普通預金</td><td class=\"\"></td></tr><tr><td class=\"num\">￥6,000,000</td><td class=\"\">売掛金</td><td class=\"\"></td></tr><tr><td class=\"\"></td><td class=\"\">貸倒引当金</td><td class=\"num\">￥60,000</td></tr><tr><td class=\"num\">￥2,000,000</td><td class=\"\">繰越商品</td><td class=\"\"></td></tr><tr><td class=\"num\">￥15,000,000</td><td class=\"\">建　物</td><td class=\"\"></td></tr><tr><td class=\"\"></td><td class=\"\">減価償却累計額</td><td class=\"num\">￥4,500,000</td></tr><tr><td class=\"\"></td><td class=\"\">買掛金</td><td class=\"num\">￥4,000,000</td></tr><tr><td class=\"\"></td><td class=\"\">短期借入金</td><td class=\"num\">￥2,000,000</td></tr><tr><td class=\"\"></td><td class=\"\">資本金</td><td class=\"num\">￥10,000,000</td></tr><tr><td class=\"\"></td><td class=\"\">繰越利益剰余金</td><td class=\"num\">￥1,940,000</td></tr><tr><td class=\"\"></td><td class=\"\">売　上</td><td class=\"num\">￥30,000,000</td></tr><tr><td class=\"num\">￥21,000,000</td><td class=\"\">仕　入</td><td class=\"\"></td></tr><tr><td class=\"num\">￥3,500,000</td><td class=\"\">給　料</td><td class=\"\"></td></tr><tr><td class=\"num\">￥1,500,000</td><td class=\"\">諸経費</td><td class=\"\"></td></tr><tr><td class=\"num\">￥1,000,000</td><td class=\"\">支払利息</td><td class=\"\"></td></tr><tr><td class=\"num\">￥52,500,000</td><td class=\"\">合　計</td><td class=\"num\">￥52,500,000</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥20,780,000",
       "(2) ￥20,900,000",
@@ -7308,7 +7308,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "貸借対照表",
     "catClass": "badge-cat-settlement",
     "title": "決算整理後貸借対照表における【純資産合計（期末繰越利益剰余金含む）】の算定",
-    "text": "問9と同一の資料に基づき、当期の貸借対照表に計上される【純資産合計（資本金 ＋ 期末繰越利益剰余金）】として正しいものを選択しなさい。",
+    "text": "問9と同一の資料に基づき、当期の貸借対照表に計上される【純資産合計（資本金 ＋ 期末繰越利益剰余金）】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-table\"></i> 資料1：決算整理前残高試算表</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>借方残高</th><th>勘定科目</th><th>貸方残高</th></tr></thead><tbody><tr><td class=\"num\">￥2,500,000</td><td class=\"\">普通預金</td><td class=\"\"></td></tr><tr><td class=\"num\">￥6,000,000</td><td class=\"\">売掛金</td><td class=\"\"></td></tr><tr><td class=\"\"></td><td class=\"\">貸倒引当金</td><td class=\"num\">￥60,000</td></tr><tr><td class=\"num\">￥2,000,000</td><td class=\"\">繰越商品</td><td class=\"\"></td></tr><tr><td class=\"num\">￥15,000,000</td><td class=\"\">建　物</td><td class=\"\"></td></tr><tr><td class=\"\"></td><td class=\"\">減価償却累計額</td><td class=\"num\">￥4,500,000</td></tr><tr><td class=\"\"></td><td class=\"\">買掛金</td><td class=\"num\">￥4,000,000</td></tr><tr><td class=\"\"></td><td class=\"\">短期借入金</td><td class=\"num\">￥2,000,000</td></tr><tr><td class=\"\"></td><td class=\"\">資本金</td><td class=\"num\">￥10,000,000</td></tr><tr><td class=\"\"></td><td class=\"\">繰越利益剰余金</td><td class=\"num\">￥1,940,000</td></tr><tr><td class=\"\"></td><td class=\"\">売　上</td><td class=\"num\">￥30,000,000</td></tr><tr><td class=\"num\">￥21,000,000</td><td class=\"\">仕　入</td><td class=\"\"></td></tr><tr><td class=\"num\">￥3,500,000</td><td class=\"\">給　料</td><td class=\"\"></td></tr><tr><td class=\"num\">￥1,500,000</td><td class=\"\">諸経費</td><td class=\"\"></td></tr><tr><td class=\"num\">￥1,000,000</td><td class=\"\">支払利息</td><td class=\"\"></td></tr><tr><td class=\"num\">￥52,500,000</td><td class=\"\">合　計</td><td class=\"num\">￥52,500,000</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥13,630,000",
       "(2) ￥13,530,000",
@@ -8278,7 +8278,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "原価差異分析",
     "catClass": "badge-cat-rights",
     "title": "直接材料費差異の分析（【価格差異】および【数量差異】の算定）",
-    "text": "問16と同一の資料に基づき、当期の直接材料費における【価格差異】および【数量差異】の組み合わせとして正しいものを選択しなさい。",
+    "text": "問16と同一の資料に基づき、当期の直接材料費における【価格差異】および【数量差異】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-id-card\"></i> 資料1：製品Aの標準原価カード（製品1個あたり）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素</th><th>標準消費量 / 単価</th><th>製品1個あたり標準原価</th></tr></thead><tbody><tr><td class=\"\">直接材料費</td><td class=\"\">3 kg × ￥500/kg</td><td class=\"num\">￥1,500</td></tr><tr><td class=\"\">直接労務費</td><td class=\"\">2 時間 × ￥1,200/時間</td><td class=\"num\">￥2,400</td></tr><tr><td class=\"\">製造間接費</td><td class=\"\">2 時間 × ￥800/時間</td><td class=\"num\">￥1,600</td></tr><tr><td class=\"\">合計</td><td class=\"\">−</td><td class=\"num\">￥5,500</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) 価格差異：￥62,000（不利差異・借方） ／ 数量差異：￥50,000（不利差異・借方）",
       "(2) 価格差異：￥60,000（不利差異・借方） ／ 数量差異：￥50,000（不利差異・借方）",
@@ -8299,7 +8299,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "原価差異分析",
     "catClass": "badge-cat-rights",
     "title": "直接労務費差異の分析（【賃率差異】および【作業時間差異】の算定）",
-    "text": "問16と同一の資料に基づき、当期の直接労務費における【賃率差異】および【作業時間差異】の組み合わせとして正しいものを選択しなさい。",
+    "text": "問16と同一の資料に基づき、当期の直接労務費における【賃率差異】および【作業時間差異】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-id-card\"></i> 資料1：製品Aの標準原価カード（製品1個あたり）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素</th><th>標準消費量 / 単価</th><th>製品1個あたり標準原価</th></tr></thead><tbody><tr><td class=\"\">直接材料費</td><td class=\"\">3 kg × ￥500/kg</td><td class=\"num\">￥1,500</td></tr><tr><td class=\"\">直接労務費</td><td class=\"\">2 時間 × ￥1,200/時間</td><td class=\"num\">￥2,400</td></tr><tr><td class=\"\">製造間接費</td><td class=\"\">2 時間 × ￥800/時間</td><td class=\"num\">￥1,600</td></tr><tr><td class=\"\">合計</td><td class=\"\">−</td><td class=\"num\">￥5,500</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) 賃率差異：￥97,500（不利差異・借方） ／ 時間差異：￥60,000（有利差異・貸方）",
       "(2) 賃率差異：￥100,000（不利差異・借方） ／ 時間差異：￥60,000（有利差異・貸方）",
@@ -8341,7 +8341,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "CVP分析",
     "catClass": "badge-cat-rights",
     "title": "CVP分析における【安全余裕率】の算定",
-    "text": "問16と同一の資料に基づき、当期の【安全余裕率】として正しいものを選択しなさい。",
+    "text": "問16と同一の資料に基づき、当期の【安全余裕率】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-line\"></i> 資料：変動損益計算書データ（実績）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>金額</th><th>売上高比率</th></tr></thead><tbody><tr><td class=\"\">売上高（1,000個）</td><td class=\"num\">￥10,000,000</td><td class=\"\">100%</td></tr><tr><td class=\"\">変動費（製造変動費＋販管変動費）</td><td class=\"num\">￥6,000,000</td><td class=\"\">60%</td></tr><tr><td class=\"\">貢献利益</td><td class=\"num\">￥4,000,000</td><td class=\"\">40%（貢献利益率）</td></tr><tr><td class=\"\">固定費（固定製造原価＋固定販管費）</td><td class=\"num\">￥2,400,000</td><td class=\"\">−</td></tr><tr><td class=\"\">営業利益</td><td class=\"num\">￥1,600,000</td><td class=\"\">−</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) 40％",
       "(2) 60％",
@@ -8362,7 +8362,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "CVP分析",
     "catClass": "badge-cat-rights",
     "title": "目標営業利益￥2,000,000を達成するために必要な【目標売上高】の算定",
-    "text": "問16と同一の資料に基づき、固定費や販売単価・変動費率が変わらないものとして、翌期に【営業利益 ￥2,000,000】を達成するために必要な目標売上高として正しいものを選択しなさい。",
+    "text": "問16と同一の資料に基づき、固定費や販売単価・変動費率が変わらないものとして、翌期に【営業利益 ￥2,000,000】を達成するために必要な目標売上高として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-line\"></i> 資料：変動損益計算書データ（実績）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>金額</th><th>売上高比率</th></tr></thead><tbody><tr><td class=\"\">売上高（1,000個）</td><td class=\"num\">￥10,000,000</td><td class=\"\">100%</td></tr><tr><td class=\"\">変動費（製造変動費＋販管変動費）</td><td class=\"num\">￥6,000,000</td><td class=\"\">60%</td></tr><tr><td class=\"\">貢献利益</td><td class=\"num\">￥4,000,000</td><td class=\"\">40%（貢献利益率）</td></tr><tr><td class=\"\">固定費（固定製造原価＋固定販管費）</td><td class=\"num\">￥2,400,000</td><td class=\"\">−</td></tr><tr><td class=\"\">営業利益</td><td class=\"num\">￥1,600,000</td><td class=\"\">−</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥11,000,000",
       "(2) ￥10,500,000",
@@ -8404,7 +8404,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "全部原価計算",
     "catClass": "badge-cat-rights",
     "title": "固定費調整による【全部原価計算の営業利益 [ 空欄 B ]】の算定",
-    "text": "問16と同一の資料に基づき、全部原価計算における【営業利益 [ 空欄 B ]】として正しいものを選択しなさい。なお、固定製造原価￥2,000,000のうち期末製品（200個）に配賦されて資産計上される金額は￥400,000（￥2,000,000 × 200個/1,000個）である。",
+    "text": "問16と同一の資料に基づき、全部原価計算における【営業利益 [ 空欄 B ]】として正しいものを選択しなさい。なお、固定製造原価￥2,000,000のうち期末製品（200個）に配賦されて資産計上される金額は￥400,000（￥2,000,000 × 200個/1,000個）である。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-scale-balanced\"></i> 資料：直接原価計算と全部原価計算の比較P/L</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>直接原価計算 P/L</th><th>全部原価計算 P/L</th></tr></thead><tbody><tr><td class=\"\">売上高（800個販売）</td><td class=\"num\">￥8,000,000</td><td class=\"num\">￥8,000,000</td></tr><tr><td class=\"\">変動売上原価（変動製造原価 @￥4,000）</td><td class=\"num\">￥3,200,000</td><td class=\"\">−</td></tr><tr><td class=\"\">変動販管費（@￥500）</td><td class=\"num\">￥400,000</td><td class=\"\">−</td></tr><tr><td class=\"\">貢献利益</td><td class=\"num\">￥4,400,000</td><td class=\"\">−</td></tr><tr><td class=\"\">固定費（固定製造原価￥2,000,000 ＋ 固定販管費￥1,000,000）</td><td class=\"num\">￥3,000,000</td><td class=\"\">−</td></tr><tr><td class=\"\">営業利益</td><td class=\"blank\">[ 空欄 A ]</td><td class=\"blank\">[ 空欄 B ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥1,800,000",
       "(2) ￥1,400,000",
@@ -8425,7 +8425,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "利益差異分析",
     "catClass": "badge-cat-rights",
     "title": "直接原価計算と全部原価計算の【営業利益差異】が生じる理由",
-    "text": "問16および問17において、全部原価計算の営業利益が直接原価計算の営業利益よりも￥400,000多くなる理由として適切な記述を選択しなさい。",
+    "text": "問16および問17において、全部原価計算の営業利益が直接原価計算の営業利益よりも￥400,000多くなる理由として適切な記述を選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-scale-balanced\"></i> 資料：直接原価計算と全部原価計算の比較P/L</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>直接原価計算 P/L</th><th>全部原価計算 P/L</th></tr></thead><tbody><tr><td class=\"\">売上高（800個販売）</td><td class=\"num\">￥8,000,000</td><td class=\"num\">￥8,000,000</td></tr><tr><td class=\"\">変動売上原価（変動製造原価 @￥4,000）</td><td class=\"num\">￥3,200,000</td><td class=\"\">−</td></tr><tr><td class=\"\">変動販管費（@￥500）</td><td class=\"num\">￥400,000</td><td class=\"\">−</td></tr><tr><td class=\"\">貢献利益</td><td class=\"num\">￥4,400,000</td><td class=\"\">−</td></tr><tr><td class=\"\">固定費（固定製造原価￥2,000,000 ＋ 固定販管費￥1,000,000）</td><td class=\"num\">￥3,000,000</td><td class=\"\">−</td></tr><tr><td class=\"\">営業利益</td><td class=\"blank\">[ 空欄 A ]</td><td class=\"blank\">[ 空欄 B ]</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) 当期の生産量が販売量を上回ったため、期末在庫に固定製造原価￥400,000が含まれて資産計上され、当期の費用（売上原価）から除外されたため。",
       "(2) 変動販管費が過小に計上されたため。",
@@ -8593,7 +8593,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "意思決定会計",
     "catClass": "badge-cat-rights",
     "title": "特別注文に伴い専用器具購入（固定費￥60,000）が発生する場合の判断",
-    "text": "問16において、この特別注文を製造するために専用の工具￥60,000（追加固定費）を購入する必要がある場合、特別注文を引き受けることによる最終的な営業利益の増減として正しいものを選択しなさい。",
+    "text": "問16において、この特別注文を製造するために専用の工具￥60,000（追加固定費）を購入する必要がある場合、特別注文を引き受けることによる最終的な営業利益の増減として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-handshake\"></i> 資料：特別注文の採算性検討データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>通常販売条件</th><th>特別注文の条件（300個）</th></tr></thead><tbody><tr><td class=\"\">販売単価</td><td class=\"num\">￥2,000 / 個</td><td class=\"num\">￥1,400 / 個（特別価格）</td></tr><tr><td class=\"\">変動製造原価</td><td class=\"num\">￥1,000 / 個</td><td class=\"num\">￥1,000 / 個</td></tr><tr><td class=\"\">特別梱包追加費用</td><td class=\"\">−</td><td class=\"num\">￥100 / 個（変動費）</td></tr><tr><td class=\"\">固定製造原価配賦額</td><td class=\"num\">￥400 / 個</td><td class=\"\">配賦不要（余剰能力で製造可能・固定費増加なし）</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥30,000 の利益増加（依然として引き受けるべきである）",
       "(2) ￥30,000 の損失（断るべきである）",
@@ -8614,7 +8614,7 @@ window.BOKI2_QUESTION_POOL = [
     "catName": "意思決定会計",
     "catClass": "badge-cat-rights",
     "title": "利益ゼロとなる特別注文の【最低受託単価】の算定",
-    "text": "問17（専用工具￥60,000発生）の前提において、損益がトントン（利益ゼロ）となる特別注文300個の【最低受託単価】として正しいものを選択しなさい。",
+    "text": "問17（専用工具￥60,000発生）の前提において、損益がトントン（利益ゼロ）となる特別注文300個の【最低受託単価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-handshake\"></i> 資料：特別注文の採算性検討データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>通常販売条件</th><th>特別注文の条件（300個）</th></tr></thead><tbody><tr><td class=\"\">販売単価</td><td class=\"num\">￥2,000 / 個</td><td class=\"num\">￥1,400 / 個（特別価格）</td></tr><tr><td class=\"\">変動製造原価</td><td class=\"num\">￥1,000 / 個</td><td class=\"num\">￥1,000 / 個</td></tr><tr><td class=\"\">特別梱包追加費用</td><td class=\"\">−</td><td class=\"num\">￥100 / 個（変動費）</td></tr><tr><td class=\"\">固定製造原価配賦額</td><td class=\"num\">￥400 / 個</td><td class=\"\">配賦不要（余剰能力で製造可能・固定費増加なし）</td></tr></tbody></table></div>\n</div>",
     "options": [
       "(1) ￥1,300 / 個",
       "(2) ￥1,200 / 個",
