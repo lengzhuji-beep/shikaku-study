@@ -608,13 +608,16 @@ document.addEventListener('DOMContentLoaded', () => {
 <head>
 <meta charset="UTF-8">
 <title>${examTitle} プリント（全${total}問） | Shikakus</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   @page {
     size: A4 portrait;
-    margin: 15mm 15mm 18mm 15mm;
+    margin: 12mm 12mm 15mm 12mm;
   }
   * {
     box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
   body {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -622,8 +625,100 @@ document.addEventListener('DOMContentLoaded', () => {
     background: #f7fafc;
     margin: 0;
     padding: 20px;
-    font-size: 10pt;
+    font-size: 9.5pt;
     line-height: 1.5;
+  }
+
+  /* 簿記 本試験資料テーブル・ボックス共通スタイル（印刷最適化） */
+  .boki-material-box {
+    background: #f8fafc !important;
+    border: 1.5px solid #718096 !important;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 10px 0 12px 0;
+    font-size: 9pt;
+    color: #1a202c;
+    page-break-inside: avoid;
+  }
+  .boki-material-title {
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #254337;
+    border-bottom: 2px solid #345d4d;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .boki-table-wrapper {
+    width: 100%;
+    margin: 8px 0;
+    border: 1px solid #718096;
+    border-radius: 4px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .boki-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+    background: #ffffff;
+    text-align: left;
+  }
+  .boki-table th, .boki-table td {
+    border: 1px solid #718096 !important;
+    padding: 5px 8px;
+  }
+  .boki-table th {
+    background: #edf2f7 !important;
+    font-weight: bold;
+    color: #2d3748;
+    text-align: center;
+  }
+  .boki-table td.num {
+    text-align: right;
+    font-family: Consolas, "Courier New", monospace;
+  }
+  .boki-table td.blank {
+    background: #fef08a !important;
+    font-weight: bold;
+    color: #744210;
+    text-align: center;
+    border: 1.5px dashed #b7791f !important;
+  }
+  .boki-sub-items {
+    margin: 6px 0;
+    padding-left: 18px;
+    line-height: 1.6;
+    font-size: 9pt;
+  }
+
+  /* T字勘定・帳簿スタイル */
+  .boki-t-account {
+    border: 1.5px solid #4a5568;
+    margin: 8px 0;
+    background: #fff;
+    page-break-inside: avoid;
+  }
+  .boki-t-title {
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1.5px solid #4a5568;
+    background: #edf2f7 !important;
+    padding: 3px;
+    font-size: 9pt;
+  }
+  .boki-t-body {
+    display: flex;
+  }
+  .boki-t-col {
+    flex: 1;
+    padding: 4px 6px;
+    font-size: 8.5pt;
+  }
+  .boki-t-col:first-child {
+    border-right: 1.5px solid #4a5568;
   }
   .no-print-bar {
     background: #2d3748;
