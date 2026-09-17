@@ -330,11 +330,8 @@ button:not(.hamburger-btn):not(.drawer-close-btn):not(.btn-auth-logout):not(.btn
 .result-item .bookmark { top: 15px; right: 15px; }
 .result-item.correct { background-color: #d4edda; border-color: #28a745; }
 .result-item.incorrect { background-color: #f8d7da; border-color: #dc3545; }
-.quit-quiz-btn { position: absolute; top: 20px; left: 20px; background: #6c757d; color: white; padding: 8px 15px; margin: 0; border-radius: 8px; text-decoration: none; font-size: 14px; z-index: 10; cursor: pointer; border: none; }
+.quit-quiz-btn { position: absolute; top: 20px; left: 20px; background: #6c757d; color: white; padding: 8px 15px; margin: 0; border-radius: 8px; text-decoration: none; font-size: 14px; z-index: 10; }
 .quit-quiz-btn:hover { background: #5a6268; color: white; }
-@media (max-width: 640px) {
-  .quit-quiz-btn { position: static !important; display: inline-flex !important; margin-bottom: 14px !important; }
-}
 .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; border-left: 5px solid; }
 .feedback.correct { background-color: #d4edda; border-color: #c3e6cb; }
 .feedback.incorrect { background-color: #f8d7da; border-color: #f5c6cb; }
@@ -1269,15 +1266,14 @@ button:not(.hamburger-btn):not(.drawer-close-btn):not(.btn-auth-logout):not(.btn
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  border: 1.5px solid #e2e8f0;
+  border: 1px solid #edf2f7;
   display: flex;
   flex-direction: column;
-  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  transition: transform 0.2s;
 }
 .article-card:hover {
-  transform: translateY(-4px);
-  border-color: #345d4d !important;
-  box-shadow: 0 10px 24px rgba(45, 55, 48, 0.12) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
 }
 .article-card-body {
   padding: 20px;
@@ -1850,3 +1846,65 @@ button:not(.hamburger-btn):not(.drawer-close-btn):not(.btn-auth-logout):not(.btn
   box-shadow: none !important;
   transform: none !important;
 }
+
+/* ========== 簿記実戦予想模試用 資料テーブル・勘定記入スタイル ========== */
+.boki-material-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+.boki-material-title {
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: #1e3a8a;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.boki-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 12px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+.boki-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: #ffffff;
+  text-align: left;
+}
+.boki-table th, .boki-table td {
+  border: 1px solid #e2e8f0;
+  padding: 8px 12px;
+}
+.boki-table th {
+  background: #f1f5f9;
+  font-weight: 600;
+  color: #334155;
+  text-align: center;
+}
+.boki-table td.num {
+  text-align: right;
+  font-family: Consolas, monospace;
+}
+.boki-table td.blank {
+  background: #fef08a;
+  font-weight: bold;
+  color: #854d0e;
+  text-align: center;
+}
+.boki-sub-items {
+  margin: 10px 0;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
