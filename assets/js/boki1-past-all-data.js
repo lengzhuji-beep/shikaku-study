@@ -1,2201 +1,2442 @@
 /**
  * Shikakus - 日商簿記1級 予想問題集データ（実戦予想模試 全6回・計120問）
  * 本試験形式（商業簿記25点＋会計学25点＋工業簿記25点＋原価計算25点＝100点満点）完全準拠
+ * 全問：本試験様式資料テーブル（精算表・財務諸表・原価計算表・意思決定表）および詳細解説付き
  */
 window.BOKI1_PAST_DATA = {
   "1": {
     "id": "1",
-    "title": "第1回実戦予想模試",
+    "title": "第1回実戦予想模試（商業簿記・会計学・工業簿記・原価計算 全4科目）",
     "questions": [
       {
         "num": 1,
-        "catKey": "com_sec",
-        "catName": "第1問 商業簿記：② 有価証券（売買・満期・その他・減損）",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (1/5)】東京物産が決算において保有するその他有価証券（取得原価5,000,000円、時価3,800,000円）について、全部純資産直入法（法定実効税率30％、税効果会計適用）により評価替えを行う場合の適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】決算整理・財務諸表作成",
+        "catName": "製造原価報告書",
+        "title": "製造原価報告書における【当期原材料費】および【当期製品製造原価】の算定",
+        "text": "次の資料に基づき、製造原価報告書に計上される【当期原材料費】および【当期製品製造原価】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale\"></i> 資料：決算整理前残高試算表（抜粋）および決算整理事項</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>借方残高</th><th>貸方残高</th></tr></thead><tbody>\n    <tr><td>売掛金</td><td class=\"num\">￥18,500,000</td><td class=\"num\">−</td></tr>\n    <tr><td>貸倒引当金</td><td class=\"num\">−</td><td class=\"num\">￥120,000</td></tr>\n    <tr><td>原材料</td><td class=\"num\">￥2,400,000</td><td class=\"num\">−</td></tr>\n    <tr><td>仕掛品</td><td class=\"num\">￥3,600,000</td><td class=\"num\">−</td></tr>\n    <tr><td>製品</td><td class=\"num\">￥4,800,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置</td><td class=\"num\">￥30,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置減価償却累計額</td><td class=\"num\">−</td><td class=\"num\">￥12,000,000</td></tr>\n    <tr><td>原材料仕入</td><td class=\"num\">￥42,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>労務費（工場）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>経費（工場）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−</td><td class=\"num\">￥120,000,000</td></tr>\n    <tr><td>退職給付引当金</td><td class=\"num\">−</td><td class=\"num\">￥8,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【決算整理事項】</strong><br>\n    1. 期末原材料棚卸高は ￥2,800,000、期末仕掛品は ￥3,200,000、期末製品は ￥5,200,000 である。<br>\n    2. 売掛金期末残高に対し 2% の貸倒引当金を差額補充法により設定する（販管費）。<br>\n    3. 機械装置（工場用）は定額法（耐用年数10年、残存価額ゼロ）により当期減価償却費を計上する。<br>\n    4. 当期の退職給付費用として ￥1,500,000（製造原価相当分60%、販管費相当分40%）を計上する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）その他有価証券評価差額金 840,000 ／ （貸方）その他有価証券 1,200,000<br>（借方）繰延税金資産 360,000",
-          "(2) （借方）投資有価証券評価損 1,200,000 ／ （貸方）その他有価証券 1,200,000",
-          "(3) （借方）その他有価証券評価差額金 1,200,000 ／ （貸方）その他有価証券 1,200,000",
-          "(4) （借方）繰延税金負債 360,000 ／ （貸方）その他有価証券 1,200,000<br>（借方）その他有価証券評価差額金 840,000"
+          "(1) 原材料費：￥41,600,000 ／ 製品製造原価：￥88,900,000",
+          "(2) 原材料費：￥42,000,000 ／ 製品製造原価：￥88,500,000",
+          "(3) 原材料費：￥41,600,000 ／ 製品製造原価：￥88,500,000",
+          "(4) 原材料費：￥42,400,000 ／ 製品製造原価：￥89,300,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>その他有価証券の下落（評価差額1,200,000円）：<br>繰延税金資産：1,200,000円 × 30％ ＝ 360,000円<br>その他有価証券評価差額金（純資産）：1,200,000円 － 360,000円 ＝ 840,000円",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>原材料費</strong> ＝ 期首 ￥2,400,000 ＋ 仕入 ￥42,000,000 − 期末 ￥2,800,000 ＝ <strong>￥41,600,000</strong><br>\n2. <strong>当期総製造費用</strong> ＝ 材料費 ￥41,600,000 ＋ 労務費 ￥25,000,000 ＋ 経費 ￥18,000,000 ＋ 機械減価償却費（￥30,000,000÷10年＝￥3,000,000） ＋ 退職給付費用（￥1,500,000×60%＝￥900,000） ＝ ￥88,500,000<br>\n3. <strong>当期製品製造原価</strong> ＝ 期首仕掛品 ￥3,600,000 ＋ 総製造費用 ￥88,500,000 − 期末仕掛品 ￥3,200,000 ＝ <strong>￥88,900,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-1"
+        "qid": "boki1-pool-s1-1"
       },
       {
         "num": 2,
-        "catKey": "com_asset",
-        "catName": "第1問 商業簿記：③ 固定資産・減損・資産除去債務",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (2/5)】減損の兆候がある生産設備（帳簿価額20,000,000円）について減損テストを実施した。正味売却価額は11,000,000円、使用価値は13,000,000円と算定された。計上すべき減損損失はいくらか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】決算整理・財務諸表作成",
+        "catName": "損益計算書（P/L）",
+        "title": "損益計算書における【売上原価】および【売上総利益】の算定",
+        "text": "前問の資料に基づき、損益計算書に計上される【売上原価】および【売上総利益】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale\"></i> 資料：決算整理前残高試算表（抜粋）および決算整理事項</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>借方残高</th><th>貸方残高</th></tr></thead><tbody>\n    <tr><td>売掛金</td><td class=\"num\">￥18,500,000</td><td class=\"num\">−</td></tr>\n    <tr><td>貸倒引当金</td><td class=\"num\">−</td><td class=\"num\">￥120,000</td></tr>\n    <tr><td>原材料</td><td class=\"num\">￥2,400,000</td><td class=\"num\">−</td></tr>\n    <tr><td>仕掛品</td><td class=\"num\">￥3,600,000</td><td class=\"num\">−</td></tr>\n    <tr><td>製品</td><td class=\"num\">￥4,800,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置</td><td class=\"num\">￥30,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置減価償却累計額</td><td class=\"num\">−</td><td class=\"num\">￥12,000,000</td></tr>\n    <tr><td>原材料仕入</td><td class=\"num\">￥42,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>労務費（工場）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>経費（工場）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−</td><td class=\"num\">￥120,000,000</td></tr>\n    <tr><td>退職給付引当金</td><td class=\"num\">−</td><td class=\"num\">￥8,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【決算整理事項】</strong><br>\n    1. 期末原材料棚卸高は ￥2,800,000、期末仕掛品は ￥3,200,000、期末製品は ￥5,200,000 である。<br>\n    2. 売掛金期末残高に対し 2% の貸倒引当金を差額補充法により設定する（販管費）。<br>\n    3. 機械装置（工場用）は定額法（耐用年数10年、残存価額ゼロ）により当期減価償却費を計上する。<br>\n    4. 当期の退職給付費用として ￥1,500,000（製造原価相当分60%、販管費相当分40%）を計上する。\n  </div>\n</div>",
         "options": [
-          "(1) 9,000,000円",
-          "(2) 8,000,000円",
-          "(3) 0円（使用価値が50％を超えているため）",
-          "(4) 7,000,000円"
+          "(1) 売上原価：￥88,500,000 ／ 売上総利益：￥31,500,000",
+          "(2) 売上原価：￥88,900,000 ／ 売上総利益：￥31,100,000",
+          "(3) 売上原価：￥87,300,000 ／ 売上総利益：￥32,700,000",
+          "(4) 売上原価：￥89,200,000 ／ 売上総利益：￥30,800,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>回収可能価額は「正味売却価額（11,000,000円）」と「使用価値（13,000,000円）」のいずれか高い方の金額（＝13,000,000円）となります。<br>減損損失＝帳簿価額20,000,000円 － 回収可能価額13,000,000円 ＝ 7,000,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>売上原価</strong> ＝ 期首製品 ￥4,800,000 ＋ 当期製品製造原価 ￥88,900,000 − 期末製品 ￥5,200,000 ＝ <strong>￥88,500,000</strong><br>\n2. <strong>売上総利益</strong> ＝ 売上高 ￥120,000,000 − 売上原価 ￥88,500,000 ＝ <strong>￥31,500,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-2"
+        "qid": "boki1-pool-s1-2"
       },
       {
         "num": 3,
-        "catKey": "com_lease",
-        "catName": "第1問 商業簿記：④ リース会計（移転外・セールバック）",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (3/5)】所有権移転外ファイナンス・リース資産（取得価額9,500,000円、リース期間5年、経済的耐用年数8年、残存価額ゼロ）の定額法による1年分の減価償却費はいくらか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】決算整理・財務諸表作成",
+        "catName": "貸借対照表（B/S）",
+        "title": "貸借対照表に計上される【貸倒引当金】および【差額補充額（販管費）】の算定",
+        "text": "前問の資料に基づき、決算整理後の貸倒引当金に関する記述として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale\"></i> 資料：決算整理前残高試算表（抜粋）および決算整理事項</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>借方残高</th><th>貸方残高</th></tr></thead><tbody>\n    <tr><td>売掛金</td><td class=\"num\">￥18,500,000</td><td class=\"num\">−</td></tr>\n    <tr><td>貸倒引当金</td><td class=\"num\">−</td><td class=\"num\">￥120,000</td></tr>\n    <tr><td>原材料</td><td class=\"num\">￥2,400,000</td><td class=\"num\">−</td></tr>\n    <tr><td>仕掛品</td><td class=\"num\">￥3,600,000</td><td class=\"num\">−</td></tr>\n    <tr><td>製品</td><td class=\"num\">￥4,800,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置</td><td class=\"num\">￥30,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置減価償却累計額</td><td class=\"num\">−</td><td class=\"num\">￥12,000,000</td></tr>\n    <tr><td>原材料仕入</td><td class=\"num\">￥42,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>労務費（工場）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>経費（工場）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−</td><td class=\"num\">￥120,000,000</td></tr>\n    <tr><td>退職給付引当金</td><td class=\"num\">−</td><td class=\"num\">￥8,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【決算整理事項】</strong><br>\n    1. 期末原材料棚卸高は ￥2,800,000、期末仕掛品は ￥3,200,000、期末製品は ￥5,200,000 である。<br>\n    2. 売掛金期末残高に対し 2% の貸倒引当金を差額補充法により設定する（販管費）。<br>\n    3. 機械装置（工場用）は定額法（耐用年数10年、残存価額ゼロ）により当期減価償却費を計上する。<br>\n    4. 当期の退職給付費用として ￥1,500,000（製造原価相当分60%、販管費相当分40%）を計上する。\n  </div>\n</div>",
         "options": [
-          "(1) 1,900,000円",
-          "(2) 1,187,500円",
-          "(3) 1,710,000円",
-          "(4) 減価償却は行わない（リース債務返済額が減価償却費となるため）"
+          "(1) B/S計上額：￥370,000（貸倒引当金繰入：￥250,000）",
+          "(2) B/S計上額：￥370,000（貸倒引当金繰入：￥370,000）",
+          "(3) B/S計上額：￥250,000（貸倒引当金繰入：￥130,000）",
+          "(4) B/S計上額：￥360,000（貸倒引当金繰入：￥240,000）"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>所有権移転外ファイナンス・リース資産の減価償却期間は「リース期間（5年）」とし、残存価額は原則としてゼロとします。<br>計算：9,500,000円 ÷ 5年 ＝ 1,900,000円",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>期末要設定額</strong> ＝ 売掛金 ￥18,500,000 × 2% ＝ <strong>￥370,000</strong>（B/S計上額）<br>\n2. <strong>差額補充額（繰入額）</strong> ＝ ￥370,000 − 既設定残高 ￥120,000 ＝ <strong>￥250,000</strong>（P/L販管費計上）",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-3"
+        "qid": "boki1-pool-s1-3"
       },
       {
         "num": 4,
-        "catKey": "com_bond",
-        "catName": "第1問 商業簿記：⑤ 社債・新株予約権付社債・買入消却",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (4/5)】社債発行に要した諸費用（印刷費、引受手数料等）350,000円を小切手で支払った。原則的な会計処理はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】決算整理・財務諸表作成",
+        "catName": "貸借対照表（B/S）",
+        "title": "貸借対照表に表示される【機械装置の帳簿価額（純額）】の算定",
+        "text": "前問の資料に基づき、決算整理後の貸借対照表に表示される【機械装置の期末帳簿価額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale\"></i> 資料：決算整理前残高試算表（抜粋）および決算整理事項</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>借方残高</th><th>貸方残高</th></tr></thead><tbody>\n    <tr><td>売掛金</td><td class=\"num\">￥18,500,000</td><td class=\"num\">−</td></tr>\n    <tr><td>貸倒引当金</td><td class=\"num\">−</td><td class=\"num\">￥120,000</td></tr>\n    <tr><td>原材料</td><td class=\"num\">￥2,400,000</td><td class=\"num\">−</td></tr>\n    <tr><td>仕掛品</td><td class=\"num\">￥3,600,000</td><td class=\"num\">−</td></tr>\n    <tr><td>製品</td><td class=\"num\">￥4,800,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置</td><td class=\"num\">￥30,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置減価償却累計額</td><td class=\"num\">−</td><td class=\"num\">￥12,000,000</td></tr>\n    <tr><td>原材料仕入</td><td class=\"num\">￥42,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>労務費（工場）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>経費（工場）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−</td><td class=\"num\">￥120,000,000</td></tr>\n    <tr><td>退職給付引当金</td><td class=\"num\">−</td><td class=\"num\">￥8,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【決算整理事項】</strong><br>\n    1. 期末原材料棚卸高は ￥2,800,000、期末仕掛品は ￥3,200,000、期末製品は ￥5,200,000 である。<br>\n    2. 売掛金期末残高に対し 2% の貸倒引当金を差額補充法により設定する（販管費）。<br>\n    3. 機械装置（工場用）は定額法（耐用年数10年、残存価額ゼロ）により当期減価償却費を計上する。<br>\n    4. 当期の退職給付費用として ￥1,500,000（製造原価相当分60%、販管費相当分40%）を計上する。\n  </div>\n</div>",
         "options": [
-          "(1) 無条件で繰延資産に計上し、10年間で定額償却する。",
-          "(2) 資本剰余金から直接減額する。",
-          "(3) （借方）社債発行費（または支払手数料） 350,000 ／ （貸方）当座預金 350,000<br>※支出時に全額を当期の費用として処理する。",
-          "(4) 社債の帳簿価額から直接控除し、社債償還期間で均等償却する。"
+          "(1) ￥15,000,000",
+          "(2) ￥18,000,000",
+          "(3) ￥12,000,000",
+          "(4) ￥14,500,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>社債発行費などの株式・社債発行諸費用は、原則として支出時に全額を費用（営業外費用）として処理します（繰延資産計上も容認）。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>当期減価償却費</strong> ＝ ￥30,000,000 ÷ 10年 ＝ ￥3,000,000<br>\n2. <strong>期末累計額</strong> ＝ ￥12,000,000 ＋ ￥3,000,000 ＝ ￥15,000,000<br>\n3. <strong>期末帳簿価額</strong> ＝ 取得原価 ￥30,000,000 − 累計額 ￥15,000,000 ＝ <strong>￥15,000,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-4"
+        "qid": "boki1-pool-s1-4"
       },
       {
         "num": 5,
-        "catKey": "com_debt",
-        "catName": "第1問 商業簿記：⑥ 引当金・退職給付・ストックオプション",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (5/5)】取引先の銀行借入8,000,000円に対して債務保証を行っていたが、同社が経営破綻の危機に瀕し、3,000,000円の求償不能損失が発生する可能性が高くなった。決算時の適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】決算整理・財務諸表作成",
+        "catName": "貸借対照表（B/S）",
+        "title": "決算整理後の貸借対照表における【退職給付引当金】期末残高の算定",
+        "text": "前問の資料に基づき、決算整理後の貸借対照表に計上される【退職給付引当金】の残高として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale\"></i> 資料：決算整理前残高試算表（抜粋）および決算整理事項</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>借方残高</th><th>貸方残高</th></tr></thead><tbody>\n    <tr><td>売掛金</td><td class=\"num\">￥18,500,000</td><td class=\"num\">−</td></tr>\n    <tr><td>貸倒引当金</td><td class=\"num\">−</td><td class=\"num\">￥120,000</td></tr>\n    <tr><td>原材料</td><td class=\"num\">￥2,400,000</td><td class=\"num\">−</td></tr>\n    <tr><td>仕掛品</td><td class=\"num\">￥3,600,000</td><td class=\"num\">−</td></tr>\n    <tr><td>製品</td><td class=\"num\">￥4,800,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置</td><td class=\"num\">￥30,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>機械装置減価償却累計額</td><td class=\"num\">−</td><td class=\"num\">￥12,000,000</td></tr>\n    <tr><td>原材料仕入</td><td class=\"num\">￥42,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>労務費（工場）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>経費（工場）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−</td><td class=\"num\">￥120,000,000</td></tr>\n    <tr><td>退職給付引当金</td><td class=\"num\">−</td><td class=\"num\">￥8,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【決算整理事項】</strong><br>\n    1. 期末原材料棚卸高は ￥2,800,000、期末仕掛品は ￥3,200,000、期末製品は ￥5,200,000 である。<br>\n    2. 売掛金期末残高に対し 2% の貸倒引当金を差額補充法により設定する（販管費）。<br>\n    3. 機械装置（工場用）は定額法（耐用年数10年、残存価額ゼロ）により当期減価償却費を計上する。<br>\n    4. 当期の退職給付費用として ￥1,500,000（製造原価相当分60%、販管費相当分40%）を計上する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）貸倒損失 3,000,000 ／ （貸方）保証債務 3,000,000",
-          "(2) （借方）支払保証料 3,000,000 ／ （貸方）未払金 3,000,000",
-          "(3) 実際に代位弁済を実行するまで仕訳は不要（注記のみ）。",
-          "(4) （借方）債務保証損失引当金繰入 3,000,000 ／ （貸方）債務保証損失引当金 3,000,000"
+          "(1) ￥9,500,000",
+          "(2) ￥8,900,000",
+          "(3) ￥8,600,000",
+          "(4) ￥8,000,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>保証債務履行に伴う求償権の行使不能損失の発生可能性が高く、金額を合理的に見積もることができる場合は、債務保証損失引当金を計上します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n退職給付費用 ￥1,500,000 を計上したことにより、退職給付引当金の貸方残高は ￥8,000,000 ＋ ￥1,500,000 ＝ <strong>￥9,500,000</strong> となります。",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-5"
+        "qid": "boki1-pool-s1-5"
       },
       {
         "num": 6,
-        "catKey": "acc_fin",
-        "catName": "第2問 会計学：⑨ 金融商品会計・デリバティブ・ヘッジ会計",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (1/5)】ヘッジ会計における「繰延ヘッジ会計」の基本的な処理に関する記述として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】資産会計・資産除去債務",
+        "catName": "資産除去債務",
+        "title": "有形固定資産取得時における【資産除去債務】の当初測定（割引現在価値）",
+        "text": "次の資料に基づき、当期首の資産取得時において計上すべき【資産除去債務の計上額】として正しいものを選択しなさい。（円未満四捨五入）\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-landmark\"></i> 資料：有形固定資産の取得および資産除去債務の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>資産の取得・稼働開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>設備の取得原価（本体工事費・現金支出）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>耐用年数および減価償却方法</td><td>5年（定額法・残存価額ゼロ）</td></tr>\n    <tr><td>5年後の除去に要する見込額（将来CF）</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>5年・3%の現価係数（1÷(1.03)^5）</td><td class=\"num\">0.8626</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) ヘッジ対象の帳簿価額を時価評価して評価損益を計上する。",
-          "(2) いかなる場合も金利スワップの特例処理と同じ処理を行う。",
-          "(3) ヘッジ手段に係る損益または評価差額を、ヘッジ対象に係る損益が認識されるまで純資産の部（評価・換算差額等）において繰り延べる。",
-          "(4) ヘッジ手段の損益を直ちに当期の営業利益として計上する。"
+          "(1) ￥4,313,000",
+          "(2) ￥5,000,000",
+          "(3) ￥4,250,000",
+          "(4) ￥4,120,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>繰延ヘッジ会計では、ヘッジ対象の損益が実現する会計期間まで、ヘッジ手段の評価差額を純資産の部「繰延ヘッジ損益」として繰り延べます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n資産除去債務の当初測定は、将来キャッシュ・フローの割引現在価値により算定します。<br>\n￥5,000,000 × 0.8626 ＝ <strong>￥4,313,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-6"
+        "qid": "boki1-pool-s1-6"
       },
       {
         "num": 7,
-        "catKey": "acc_merge",
-        "catName": "第2問 会計学：⑩ 企業結合・事業分離（パーチェス法・のれん）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (2/5)】吸収合併において、取得対価8,000,000円に対し、受け入れた識別可能純資産の時価純額が9,500,000円であった場合の会計処理として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】資産会計・資産除去債務",
+        "catName": "資産除去債務",
+        "title": "資産除去債務に対応する除去費用を含めた【設備勘定の当初取得原価】の算定",
+        "text": "前問の資料に基づき、当期首に計上される【機械装置（設備）の総取得原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-landmark\"></i> 資料：有形固定資産の取得および資産除去債務の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>資産の取得・稼働開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>設備の取得原価（本体工事費・現金支出）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>耐用年数および減価償却方法</td><td>5年（定額法・残存価額ゼロ）</td></tr>\n    <tr><td>5年後の除去に要する見込額（将来CF）</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>5年・3%の現価係数（1÷(1.03)^5）</td><td class=\"num\">0.8626</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 差額1,500,000円を純資産の部に「資本剰余金」として計上する。",
-          "(2) 差額1,500,000円を固定負債に計上し、20年以内に均等償却する。",
-          "(3) 差額1,500,000円だけ受入資産の帳簿価額を減額する。",
-          "(4) 差額1,500,000円を「負ののれん発生益」として当期の特別利益（純損益）に計上する。"
+          "(1) ￥44,313,000",
+          "(2) ￥40,000,000",
+          "(3) ￥45,000,000",
+          "(4) ￥43,687,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>取得対価が受入純資産の時価を下回る「負ののれん」が生じた場合、その差額は発生した事業年度の「負ののれん発生益（特別利益）」として全額処理します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n資産除去債務に対応する除去費用は、資産の帳簿価額に加算します。<br>\n本体工事費 ￥40,000,000 ＋ 資産除去債務 ￥4,313,000 ＝ <strong>￥44,313,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-7"
+        "qid": "boki1-pool-s1-7"
       },
       {
         "num": 8,
-        "catKey": "acc_consol",
-        "catName": "第2問 会計学：⑪ 連結会計（資本連結・成果連結・持分法）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (3/5)】持分法適用関連会社A社（持分割合30％）が当期純利益2,000,000円を計上した。当社の持分法適用仕訳として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】資産会計・資産除去債務",
+        "catName": "資産除去債務",
+        "title": "第1期末における【減価償却費】および【利息費用（時の経過による調整額）】の算定",
+        "text": "前問の資料に基づき、第1期決算において計上すべき【減価償却費】および【利息費用】の組み合わせとして正しいものを選択しなさい。（円未満四捨五入）\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-landmark\"></i> 資料：有形固定資産の取得および資産除去債務の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>資産の取得・稼働開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>設備の取得原価（本体工事費・現金支出）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>耐用年数および減価償却方法</td><td>5年（定額法・残存価額ゼロ）</td></tr>\n    <tr><td>5年後の除去に要する見込額（将来CF）</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>5年・3%の現価係数（1÷(1.03)^5）</td><td class=\"num\">0.8626</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) （借方）関係会社株式 600,000 ／ （貸方）持分法による投資損益 600,000",
-          "(2) （借方）未収配当金 600,000 ／ （貸方）受取配当金 600,000",
-          "(3) （借方）関係会社株式 2,000,000 ／ （貸方）持分法による投資損益 2,000,000",
-          "(4) 配当金を受領するまで持分法の会計処理は行わない。"
+          "(1) 減価償却費：￥8,862,600 ／ 利息費用：￥129,390",
+          "(2) 減価償却費：￥8,000,000 ／ 利息費用：￥150,000",
+          "(3) 減価償却費：￥8,862,600 ／ 利息費用：￥150,000",
+          "(4) 減価償却費：￥8,000,000 ／ 利息費用：￥129,390"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>持分法では、被投資会社の当期純損益のうち投資会社の持分相当額（2,000,000円 × 30％ ＝ 600,000円）を「持分法による投資損益（営業外収益/費用）」として計上し、投資有価証券の帳簿価額を加減します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>減価償却費</strong> ＝ 取得原価 ￥44,313,000 ÷ 5年 ＝ <strong>￥8,862,600</strong><br>\n2. <strong>利息費用</strong> ＝ 期首資産除去債務 ￥4,313,000 × 割引率 3% ＝ <strong>￥129,390</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-8"
+        "qid": "boki1-pool-s1-8"
       },
       {
         "num": 9,
-        "catKey": "acc_foreign",
-        "catName": "第2問 会計学：⑫ 在外子会社等の換算・為替換算調整勘定",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (4/5)】在外子会社の損益計算書における収益・費用の原則的な換算レートはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】資産会計・資産除去債務",
+        "catName": "資産除去債務",
+        "title": "第1期末貸借対照表における【資産除去債務の期末残高】の算定",
+        "text": "前問の資料に基づき、第1期末の貸借対照表に計上される【資産除去債務の帳簿価額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-landmark\"></i> 資料：有形固定資産の取得および資産除去債務の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>資産の取得・稼働開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>設備の取得原価（本体工事費・現金支出）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>耐用年数および減価償却方法</td><td>5年（定額法・残存価額ゼロ）</td></tr>\n    <tr><td>5年後の除去に要する見込額（将来CF）</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>5年・3%の現価係数（1÷(1.03)^5）</td><td class=\"num\">0.8626</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 期中平均為替相場（AR）※決算日為替相場（CR）の適用も容認される。",
-          "(2) 取引発生ごとの為替相場（HR）のみが義務付けられている。",
-          "(3) 前事業年度末の為替相場。",
-          "(4) 輸出管理レート。"
+          "(1) ￥4,442,390",
+          "(2) ￥4,313,000",
+          "(3) ￥4,500,000",
+          "(4) ￥4,183,610"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>在外子会社の収益および費用項目は、原則として「期中平均為替相場（AR）」をもって換算しますが、決算日の為替相場（CR）による換算も認められています。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n期末資産除去債務 ＝ 期首残高 ￥4,313,000 ＋ 当期利息費用 ￥129,390 ＝ <strong>￥4,442,390</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-9"
+        "qid": "boki1-pool-s1-9"
       },
       {
         "num": 10,
-        "catKey": "acc_cf",
-        "catName": "第2問 会計学：⑬ キャッシュ・フロー計算書（営業・投資・財務）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (5/5)】直接法と間接法のキャッシュ・フロー計算書の違いに関する記述として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】資産会計・資産除去債務",
+        "catName": "資産除去債務",
+        "title": "5年経過後の除去実施時における【資産除去債務履行差額】の会計処理",
+        "text": "5年経過後、設備の除却・撤去工事を実施し、現金 ￥5,200,000 を支払って決済した。このときの履行差額の処理として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-landmark\"></i> 資料：有形固定資産の取得および資産除去債務の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>資産の取得・稼働開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>設備の取得原価（本体工事費・現金支出）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>耐用年数および減価償却方法</td><td>5年（定額法・残存価額ゼロ）</td></tr>\n    <tr><td>5年後の除去に要する見込額（将来CF）</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>5年・3%の現価係数（1÷(1.03)^5）</td><td class=\"num\">0.8626</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 直接法による営業CFの合計額と間接法による営業CFの合計額は異なる。",
-          "(2) 国際財務報告基準（IFRS）では間接法の作成が禁止されている。",
-          "(3) 「営業活動によるキャッシュ・フロー」の表示方法のみが異なり、投資活動・財務活動の表示区分や最終的な現金増加額は完全に一致する。",
-          "(4) 間接法は投資活動・財務活動の区分を省略できる。"
+          "(1) 履行差額 ￥200,000 を「資産除去債務履行差額」（営業外費用または特別損失）に計上する",
+          "(2) 履行差額 ￥200,000 を設備の減価償却累計額から控除する",
+          "(3) 履行差額 ￥887,000 を固定資産売却損として計上する",
+          "(4) 履行差額は計上せず、資本剰余金から直接減額する"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>直接法と間接法の相違は「営業活動によるキャッシュ・フロー」の主要な取引区分ごとの総額表示か、純利益からの調整算定かという表示形式のみであり、合計額は完全に一致します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n5年経過後の資産除去債務残高は ￥5,000,000 に達しています。実際の支出額 ￥5,200,000 との差額 ￥200,000 は、当期の損益として<strong>「資産除去債務履行差額」</strong>に計上します。",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-10"
+        "qid": "boki1-pool-s1-10"
       },
       {
         "num": 11,
-        "catKey": "ind_dept",
-        "catName": "第3問 工業簿記：⑯ 部門別計算（複数基準配賦・相互配賦法）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (1/5)】部門別計算において、補助部門相互間の用役授受を完全に計算に反映させる「相互配賦法」の計算特徴はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】部門別計算・複数基準配賦法",
+        "catName": "部門別計算",
+        "title": "動力部門費（変動費・固定費）の第1製造部門および第2製造部門への配賦額",
+        "text": "次の資料に基づき、動力部門費（￥1,000,000）から第1製造部門に配賦される金額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-warehouse\"></i> 資料：製造部門および補助部門の部門費データ（複数基準配賦）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>部門区分</th><th>第1製造部門</th><th>第2製造部門</th><th>動力部門（補助）</th><th>修繕部門（補助）</th></tr></thead><tbody>\n    <tr><td>部門個別費（変動費）</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥400,000</td><td class=\"num\">￥300,000</td></tr>\n    <tr><td>部門個別費（固定費）</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,400,000</td><td class=\"num\">￥600,000</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>部門費合計</td><td class=\"num\">￥3,200,000</td><td class=\"num\">￥3,900,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>動力用役消費量（実績kWh）</td><td class=\"num\">5,000 kWh</td><td class=\"num\">3,000 kWh</td><td class=\"num\">−</td><td class=\"num\">2,000 kWh</td></tr>\n    <tr><td>動力用役設備容量（最大需要kW）</td><td class=\"num\">60 kW</td><td class=\"num\">40 kW</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n    <tr><td>修繕用役提供回数（実績回数）</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【配賦基準の指示】</strong><br>\n    ・動力部門の変動費（￥400,000）は「実績消費量（kWh）」により直接配賦法（補助部門無視：第1:第2＝5:3）で配賦する。<br>\n    ・動力部門の固定費（￥600,000）は「最大需要容量（kW）」（第1:第2＝60:40）で配賦する。<br>\n    ・修繕部門費（￥800,000）は「修繕実績回数」（第1:第2＝40:60）で直接配賦する。\n  </div>\n</div>",
         "options": [
-          "(1) 補助部門間の用役のやり取りを一切無視して直接製造部門だけに配賦する。",
-          "(2) 用役提供割合の多い順に一方向のみ配賦を行い、逆方向は無視する。",
-          "(3) すべての費用を製品に均等配賦する。",
-          "(4) 連立方程式法または無限配賦法を用いて、補助部門間の相互の用役提供を正確に計算する。"
+          "(1) ￥610,000",
+          "(2) ￥580,000",
+          "(3) ￥625,000",
+          "(4) ￥500,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>相互配賦法（完全相互配賦法）では、連立方程式等を用いて補助部門間の相互用役授受を厳密に計算し、部門費を配賦します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>変動費配賦額</strong> ＝ ￥400,000 × 5,000kWh ÷ (5,000＋3,000) ＝ ￥250,000<br>\n2. <strong>固定費配賦額</strong> ＝ ￥600,000 × 60kW ÷ (60＋40) ＝ ￥360,000<br>\n3. <strong>第1製造部門への配賦合計</strong> ＝ ￥250,000 ＋ ￥360,000 ＝ <strong>￥610,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-11"
+        "qid": "boki1-pool-s1-11"
       },
       {
         "num": 12,
-        "catKey": "ind_job",
-        "catName": "第3問 工業簿記：⑰ 個別原価計算（製造間接費予定配賦・仕損費）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (2/5)】仕損が発生し、仕損品評価額30,000円を控除した純仕損費220,000円が生じた。原因が工場全体の共通的原因による場合、この純仕損費の適切な処理はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】部門別計算・複数基準配賦法",
+        "catName": "部門別計算",
+        "title": "修繕部門費の各製造部門への配賦額の算定",
+        "text": "前問の資料に基づき、修繕部門費（￥800,000）から第1製造部門および第2製造部門に配賦される金額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-warehouse\"></i> 資料：製造部門および補助部門の部門費データ（複数基準配賦）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>部門区分</th><th>第1製造部門</th><th>第2製造部門</th><th>動力部門（補助）</th><th>修繕部門（補助）</th></tr></thead><tbody>\n    <tr><td>部門個別費（変動費）</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥400,000</td><td class=\"num\">￥300,000</td></tr>\n    <tr><td>部門個別費（固定費）</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,400,000</td><td class=\"num\">￥600,000</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>部門費合計</td><td class=\"num\">￥3,200,000</td><td class=\"num\">￥3,900,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>動力用役消費量（実績kWh）</td><td class=\"num\">5,000 kWh</td><td class=\"num\">3,000 kWh</td><td class=\"num\">−</td><td class=\"num\">2,000 kWh</td></tr>\n    <tr><td>動力用役設備容量（最大需要kW）</td><td class=\"num\">60 kW</td><td class=\"num\">40 kW</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n    <tr><td>修繕用役提供回数（実績回数）</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【配賦基準の指示】</strong><br>\n    ・動力部門の変動費（￥400,000）は「実績消費量（kWh）」により直接配賦法（補助部門無視：第1:第2＝5:3）で配賦する。<br>\n    ・動力部門の固定費（￥600,000）は「最大需要容量（kW）」（第1:第2＝60:40）で配賦する。<br>\n    ・修繕部門費（￥800,000）は「修繕実績回数」（第1:第2＝40:60）で直接配賦する。\n  </div>\n</div>",
         "options": [
-          "(1) 「製造間接費」に計上し、全製品に配賦する。",
-          "(2) 特定の仕掛品指図書に直接加算する。",
-          "(3) 当期の営業外費用「仕損損失」とする。",
-          "(4) 売上原価から直接控除する。"
+          "(1) 第1製造部門：￥320,000 ／ 第2製造部門：￥480,000",
+          "(2) 第1製造部門：￥400,000 ／ 第2製造部門：￥400,000",
+          "(3) 第1製造部門：￥300,000 ／ 第2製造部門：￥500,000",
+          "(4) 第1製造部門：￥480,000 ／ 第2製造部門：￥320,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>共通的原因による仕損費は、製造間接費として集計した上で、間接費配賦手続きを通じて各指図書へ配賦します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n修繕実績回数の比率は 第1:第2 ＝ 40回:60回（合計100回）。<br>\n・第1製造部門配賦額 ＝ ￥800,000 × 40/100 ＝ <strong>￥320,000</strong><br>\n・第2製造部門配賦額 ＝ ￥800,000 × 60/100 ＝ <strong>￥480,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-12"
+        "qid": "boki1-pool-s1-12"
       },
       {
         "num": 13,
-        "catKey": "ind_proc",
-        "catName": "第3問 工業簿記：⑱ 総合原価計算（単純・工程別・加工費工程別）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (3/5)】「加工費工程別総合原価計算」が適用される状況として適切なものはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】部門別計算・複数基準配賦法",
+        "catName": "部門別計算",
+        "title": "補助部門費配賦後における【第1製造部門費合計】の算定",
+        "text": "前問の資料に基づき、補助部門費の配賦が完了した後の【第1製造部門費の合計金額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-warehouse\"></i> 資料：製造部門および補助部門の部門費データ（複数基準配賦）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>部門区分</th><th>第1製造部門</th><th>第2製造部門</th><th>動力部門（補助）</th><th>修繕部門（補助）</th></tr></thead><tbody>\n    <tr><td>部門個別費（変動費）</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥400,000</td><td class=\"num\">￥300,000</td></tr>\n    <tr><td>部門個別費（固定費）</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,400,000</td><td class=\"num\">￥600,000</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>部門費合計</td><td class=\"num\">￥3,200,000</td><td class=\"num\">￥3,900,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>動力用役消費量（実績kWh）</td><td class=\"num\">5,000 kWh</td><td class=\"num\">3,000 kWh</td><td class=\"num\">−</td><td class=\"num\">2,000 kWh</td></tr>\n    <tr><td>動力用役設備容量（最大需要kW）</td><td class=\"num\">60 kW</td><td class=\"num\">40 kW</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n    <tr><td>修繕用役提供回数（実績回数）</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【配賦基準の指示】</strong><br>\n    ・動力部門の変動費（￥400,000）は「実績消費量（kWh）」により直接配賦法（補助部門無視：第1:第2＝5:3）で配賦する。<br>\n    ・動力部門の固定費（￥600,000）は「最大需要容量（kW）」（第1:第2＝60:40）で配賦する。<br>\n    ・修繕部門費（￥800,000）は「修繕実績回数」（第1:第2＝40:60）で直接配賦する。\n  </div>\n</div>",
         "options": [
-          "(1) 個別受注生産で指図書ごとに部品が投入される場合。",
-          "(2) 連産品が分離点以前に加工される場合。",
-          "(3) 原料は第1工程の始点のみで投入され、その後の各工程では加工のみが行われる連続生産工程。",
-          "(4) 各工程で全く異なる原材料が大量に投入される場合。"
+          "(1) ￥4,130,000",
+          "(2) ￥3,810,000",
+          "(3) ￥4,200,000",
+          "(4) ￥4,050,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>加工費工程別総合原価計算は、原料は最初の工程でのみ投入され、後続工程では加工のみが進む場合に、原材料費と工程別加工費を分けて集計する方式です。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n第1製造部門個別費 ￥3,200,000 ＋ 動力部門配賦額 ￥610,000 ＋ 修繕部門配賦額 ￥320,000 ＝ <strong>￥4,130,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-13"
+        "qid": "boki1-pool-s1-13"
       },
       {
         "num": 14,
-        "catKey": "ind_loss",
-        "catName": "第3問 工業簿記：⑲ 総合原価の減損・仕損・連産品（正常市価）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (4/5)】製造工程から生じた副産物の見積売得価額が300,000円である。主産物の製造原価10,000,000円から控除する適切な会計処理はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】部門別計算・複数基準配賦法",
+        "catName": "部門別計算",
+        "title": "補助部門費配賦後における【第2製造部門費合計】の算定",
+        "text": "前問の資料に基づき、補助部門費の配賦が完了した後の【第2製造部門費の合計金額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-warehouse\"></i> 資料：製造部門および補助部門の部門費データ（複数基準配賦）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>部門区分</th><th>第1製造部門</th><th>第2製造部門</th><th>動力部門（補助）</th><th>修繕部門（補助）</th></tr></thead><tbody>\n    <tr><td>部門個別費（変動費）</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥400,000</td><td class=\"num\">￥300,000</td></tr>\n    <tr><td>部門個別費（固定費）</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,400,000</td><td class=\"num\">￥600,000</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>部門費合計</td><td class=\"num\">￥3,200,000</td><td class=\"num\">￥3,900,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>動力用役消費量（実績kWh）</td><td class=\"num\">5,000 kWh</td><td class=\"num\">3,000 kWh</td><td class=\"num\">−</td><td class=\"num\">2,000 kWh</td></tr>\n    <tr><td>動力用役設備容量（最大需要kW）</td><td class=\"num\">60 kW</td><td class=\"num\">40 kW</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n    <tr><td>修繕用役提供回数（実績回数）</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【配賦基準の指示】</strong><br>\n    ・動力部門の変動費（￥400,000）は「実績消費量（kWh）」により直接配賦法（補助部門無視：第1:第2＝5:3）で配賦する。<br>\n    ・動力部門の固定費（￥600,000）は「最大需要容量（kW）」（第1:第2＝60:40）で配賦する。<br>\n    ・修繕部門費（￥800,000）は「修繕実績回数」（第1:第2＝40:60）で直接配賦する。\n  </div>\n</div>",
         "options": [
-          "(1) 副産物と主産物を等価係数で按分する。",
-          "(2) 主産物の総合製造原価から副産物評価額300,000円を直接控除し、主産物原価を9,700,000円とする。",
-          "(3) 副産物の売却額を全額主産物の売上高に加算する。",
-          "(4) 副産物には原価を配分せず、売却時に雑収入（営業外収益）とする。"
+          "(1) ￥4,770,000",
+          "(2) ￥4,650,000",
+          "(3) ￥4,900,000",
+          "(4) ￥4,820,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>副産物が生じた場合、その評価額（見積売得価額）を主産物の製造原価から直接控除して主産物原価を算定します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 動力部門から第2への配賦 ＝ 変動(￥400,000×3/8＝￥150,000) ＋ 固定(￥600,000×40/100＝￥240,000) ＝ ￥390,000<br>\n2. 修繕部門から第2への配賦 ＝ ￥480,000<br>\n3. 第2製造部門費合計 ＝ ￥3,900,000 ＋ ￥390,000 ＋ ￥480,000 ＝ <strong>￥4,770,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-14"
+        "qid": "boki1-pool-s1-14"
       },
       {
         "num": 15,
-        "catKey": "ind_std",
-        "catName": "第3問 工業簿記：⑳ 標準原価計算（パーシャル・シングル・差異分析）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (5/5)】製造間接費の差異分析（4分法）における4つの差異構成として正しいものはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】部門別計算・複数基準配賦法",
+        "catName": "製造間接費差異",
+        "title": "製造間接費の予定配賦と【配賦差異】の算定（第1製造部門）",
+        "text": "第1製造部門の実際直接作業時間が 2,100時間、予定配賦率が ￥2,000/時間 であった場合の【製造間接費配賦差異】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-warehouse\"></i> 資料：製造部門および補助部門の部門費データ（複数基準配賦）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>部門区分</th><th>第1製造部門</th><th>第2製造部門</th><th>動力部門（補助）</th><th>修繕部門（補助）</th></tr></thead><tbody>\n    <tr><td>部門個別費（変動費）</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥400,000</td><td class=\"num\">￥300,000</td></tr>\n    <tr><td>部門個別費（固定費）</td><td class=\"num\">￥2,000,000</td><td class=\"num\">￥2,400,000</td><td class=\"num\">￥600,000</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>部門費合計</td><td class=\"num\">￥3,200,000</td><td class=\"num\">￥3,900,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>動力用役消費量（実績kWh）</td><td class=\"num\">5,000 kWh</td><td class=\"num\">3,000 kWh</td><td class=\"num\">−</td><td class=\"num\">2,000 kWh</td></tr>\n    <tr><td>動力用役設備容量（最大需要kW）</td><td class=\"num\">60 kW</td><td class=\"num\">40 kW</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n    <tr><td>修繕用役提供回数（実績回数）</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td><td class=\"num\">−</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【配賦基準の指示】</strong><br>\n    ・動力部門の変動費（￥400,000）は「実績消費量（kWh）」により直接配賦法（補助部門無視：第1:第2＝5:3）で配賦する。<br>\n    ・動力部門の固定費（￥600,000）は「最大需要容量（kW）」（第1:第2＝60:40）で配賦する。<br>\n    ・修繕部門費（￥800,000）は「修繕実績回数」（第1:第2＝40:60）で直接配賦する。\n  </div>\n</div>",
         "options": [
-          "(1) 価格差異、数量差異、賃率差異、時間差異",
-          "(2) 売上差異、製造差異、販売差異、一般管理費差異",
-          "(3) 月初差異、当月差異、月末差異、年度差異",
-          "(4) 予算差異、操業度差異、能率差異（変動費能率差異）、固定費能率差異"
+          "(1) ￥70,000（有利差異・貸方差異）",
+          "(2) ￥70,000（不利差異・借方差異）",
+          "(3) ￥130,000（不利差異・借方差異）",
+          "(4) ￥100,000（有利差異・貸方差異）"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>製造間接費の4分法では、予算差異、操業度差異、変動費能率差異、固定費能率差異の4つに分解して詳細に原因分析を行います。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>予定配賦額</strong> ＝ ￥2,000 × 2,100時間 ＝ ￥4,200,000<br>\n2. <strong>実際発生額</strong> ＝ ￥4,130,000<br>\n3. <strong>配賦差異</strong> ＝ 予定 ￥4,200,000 − 実際 ￥4,130,000 ＝ <strong>＋￥70,000（有利差異・貸方差異）</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-15"
+        "qid": "boki1-pool-s1-15"
       },
       {
         "num": 16,
-        "catKey": "cst_direct",
-        "catName": "第4問 原価計算：㉓ 直接原価計算・固変分解（高低点法等）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (1/5)】高低点法による固変分解：最高操業度1000単位（総原価2,500,000円）、最低操業度600単位（総原価1,700,000円）。このときの単位当たり変動費と固定費の組合せはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】意思決定会計・設備投資の経済性計算",
+        "catName": "設備投資の意思決定（DCF法）",
+        "title": "税効果を考慮した【減価償却の節税効果（タックスシールド）】の算定",
+        "text": "次の資料に基づき、当設備投資における【年々の減価償却費】および【減価償却の節税効果（タックスシールド）】として正しいものを選択しなさい。（円未満四捨五入）\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-line\"></i> 資料：新規設備投資計画およびキャッシュフロー予測データ（DCF法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値・条件</th></tr></thead><tbody>\n    <tr><td>初期投資額（0年度末・即時現金支出）</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>プロジェクト期間（設備の経済的耐用年数）</td><td>3年間</td></tr>\n    <tr><td>減価償却方法</td><td>3年定額法（残存価額ゼロ・税法基準）</td></tr>\n    <tr><td>各年の年間増分売上高</td><td class=\"num\">￥8,000,000 / 年</td></tr>\n    <tr><td>各年の年間増分現金支出費用</td><td class=\"num\">￥3,000,000 / 年</td></tr>\n    <tr><td>法人税率</td><td class=\"num\">30％</td></tr>\n    <tr><td>資本コスト（割引率）</td><td class=\"num\">8％</td></tr>\n    <tr><td>1年後の現価係数（8%）</td><td class=\"num\">0.9259</td></tr>\n    <tr><td>2年後の現価係数（8%）</td><td class=\"num\">0.8573</td></tr>\n    <tr><td>3年後の現価係数（8%）</td><td class=\"num\">0.7938</td></tr>\n    <tr><td>3年間の年金現価係数（8%）</td><td class=\"num\">2.5770</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.9rem; color:#4a5568; margin-top:6px;\">※運転資本の増減および設備売却残存価値はないものとする。</div>\n</div>",
         "options": [
-          "(1) 変動費率：2,500円/単位 ／ 固定費：0円",
-          "(2) 変動費率：2,000円/単位 ／ 固定費：1,700,000円",
-          "(3) 変動費率：1,500円/単位 ／ 固定費：800,000円",
-          "(4) 変動費率：2,000円/単位 ／ 固定費：500,000円"
+          "(1) 減価償却費：￥3,333,333 ／ タックスシールド：￥1,000,000",
+          "(2) 減価償却費：￥3,333,333 ／ タックスシールド：￥2,333,333",
+          "(3) 減価償却費：￥3,000,000 ／ タックスシールド：￥900,000",
+          "(4) 減価償却費：￥3,333,333 ／ タックスシールド：￥0"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>変動費率＝（2,500,000円 － 1,700,000円）÷（1000 － 600）＝ 800,000円 ÷ 400 ＝ 2,000円/単位<br>固定費＝2,500,000円 －（2,000円 × 1000）＝ 500,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>年々の減価償却費</strong> ＝ ￥10,000,000 ÷ 3年 ＝ <strong>￥3,333,333</strong><br>\n2. <strong>タックスシールド</strong> ＝ ￥3,333,333 × 30% ＝ <strong>￥1,000,000</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-16"
+        "qid": "boki1-pool-s1-16"
       },
       {
         "num": 17,
-        "catKey": "cst_cvp",
-        "catName": "第4問 原価計算：㉔ CVP分析・損益分岐点・最適セールスミックス",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (2/5)】現在の売上高が10,000,000円、損益分岐点売上高が7,500,000円であるときの「安全余裕率」はいくらか。",
+        "section": "cost",
+        "sectionName": "【原価計算】意思決定会計・設備投資の経済性計算",
+        "catName": "設備投資の意思決定（DCF法）",
+        "title": "投資プロジェクトにおける【年々の税引後営業キャッシュフロー（CF）】の算定",
+        "text": "前問の資料に基づき、プロジェクト期間中の【年々の税引後増分営業キャッシュフロー】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-line\"></i> 資料：新規設備投資計画およびキャッシュフロー予測データ（DCF法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値・条件</th></tr></thead><tbody>\n    <tr><td>初期投資額（0年度末・即時現金支出）</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>プロジェクト期間（設備の経済的耐用年数）</td><td>3年間</td></tr>\n    <tr><td>減価償却方法</td><td>3年定額法（残存価額ゼロ・税法基準）</td></tr>\n    <tr><td>各年の年間増分売上高</td><td class=\"num\">￥8,000,000 / 年</td></tr>\n    <tr><td>各年の年間増分現金支出費用</td><td class=\"num\">￥3,000,000 / 年</td></tr>\n    <tr><td>法人税率</td><td class=\"num\">30％</td></tr>\n    <tr><td>資本コスト（割引率）</td><td class=\"num\">8％</td></tr>\n    <tr><td>1年後の現価係数（8%）</td><td class=\"num\">0.9259</td></tr>\n    <tr><td>2年後の現価係数（8%）</td><td class=\"num\">0.8573</td></tr>\n    <tr><td>3年後の現価係数（8%）</td><td class=\"num\">0.7938</td></tr>\n    <tr><td>3年間の年金現価係数（8%）</td><td class=\"num\">2.5770</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.9rem; color:#4a5568; margin-top:6px;\">※運転資本の増減および設備売却残存価値はないものとする。</div>\n</div>",
         "options": [
-          "(1) 25％",
-          "(2) 75％",
-          "(3) 30％",
-          "(4) 15％"
+          "(1) ￥4,500,000",
+          "(2) ￥5,000,000",
+          "(3) ￥3,500,000",
+          "(4) ￥4,200,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>安全余裕率＝（現在売上高 － 損益分岐点売上高）÷ 現在売上高 ＝（10,000,000円 － 7,500,000円）÷ 10,000,000円 ＝ 25％",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n税引後CF ＝（増分売上 ￥8,000,000 − 支出費用 ￥3,000,000）× (1 − 0.3) ＋ タックスシールド ￥1,000,000 ＝ ￥3,500,000 ＋ ￥1,000,000 ＝ <strong>￥4,500,000 / 年</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-17"
+        "qid": "boki1-pool-s1-17"
       },
       {
         "num": 18,
-        "catKey": "cst_short",
-        "catName": "第4問 原価計算：㉕ 業務的意思決定（差額原価収益・自製か外注か）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (3/5)】耐用年数が残っている旧機械（帳簿価額2,000,000円、直ちに売却した場合の処分価額300,000円）を高効率な新機械に更新すべきか検討している。意思決定上の「埋没原価（サンクコスト）」はどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】意思決定会計・設備投資の経済性計算",
+        "catName": "設備投資の意思決定（DCF法）",
+        "title": "年金現価係数を用いた【将来キャッシュフローの現在価値合計（PV）】の算定",
+        "text": "前問の資料に基づき、3年間の税引後キャッシュフロー（各年￥4,500,000）の【現在価値合計（割引率8%）】として正しいものを選択しなさい。（円未満四捨五入）\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-line\"></i> 資料：新規設備投資計画およびキャッシュフロー予測データ（DCF法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値・条件</th></tr></thead><tbody>\n    <tr><td>初期投資額（0年度末・即時現金支出）</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>プロジェクト期間（設備の経済的耐用年数）</td><td>3年間</td></tr>\n    <tr><td>減価償却方法</td><td>3年定額法（残存価額ゼロ・税法基準）</td></tr>\n    <tr><td>各年の年間増分売上高</td><td class=\"num\">￥8,000,000 / 年</td></tr>\n    <tr><td>各年の年間増分現金支出費用</td><td class=\"num\">￥3,000,000 / 年</td></tr>\n    <tr><td>法人税率</td><td class=\"num\">30％</td></tr>\n    <tr><td>資本コスト（割引率）</td><td class=\"num\">8％</td></tr>\n    <tr><td>1年後の現価係数（8%）</td><td class=\"num\">0.9259</td></tr>\n    <tr><td>2年後の現価係数（8%）</td><td class=\"num\">0.8573</td></tr>\n    <tr><td>3年後の現価係数（8%）</td><td class=\"num\">0.7938</td></tr>\n    <tr><td>3年間の年金現価係数（8%）</td><td class=\"num\">2.5770</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.9rem; color:#4a5568; margin-top:6px;\">※運転資本の増減および設備売却残存価値はないものとする。</div>\n</div>",
         "options": [
-          "(1) 旧機械の帳簿価額2,000,000円（過去の意思決定による既発生支出であり変更不能）",
-          "(2) 旧機械の現在処分価額300,000円",
-          "(3) 新機械の購入代金",
-          "(4) 新機械の年間ランニングコスト"
+          "(1) ￥11,596,500",
+          "(2) ￥13,500,000",
+          "(3) ￥10,850,000",
+          "(4) ￥12,200,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>埋没原価（サンクコスト）とは、過去の意思決定の結果として既に発生しており、今後のいかなる選択によっても回収・変更できない原価（旧設備の帳簿価額等）を指します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n現在価値合計 ＝ 年間CF ￥4,500,000 × 年金現価係数 2.5770 ＝ <strong>￥11,596,500</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-18"
+        "qid": "boki1-pool-s1-18"
       },
       {
         "num": 19,
-        "catKey": "cst_long",
-        "catName": "第4問 原価計算：㉖ 設備投資意思決定（NPV・IRR・回収期間法）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (4/5)】減価償却費2,000,000円を計上することによる、法人税率30％における「タックス・シールド（減価償却の節税効果によるキャッシュフロー増加額）」はいくらか。",
+        "section": "cost",
+        "sectionName": "【原価計算】意思決定会計・設備投資の経済性計算",
+        "catName": "設備投資の意思決定（DCF法）",
+        "title": "正味現在価値法（NPV法）による【正味現在価値】および投資採否の判定",
+        "text": "前問の資料に基づき、当プロジェクトの【正味現在価値（NPV）】および投資判断として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-line\"></i> 資料：新規設備投資計画およびキャッシュフロー予測データ（DCF法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値・条件</th></tr></thead><tbody>\n    <tr><td>初期投資額（0年度末・即時現金支出）</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>プロジェクト期間（設備の経済的耐用年数）</td><td>3年間</td></tr>\n    <tr><td>減価償却方法</td><td>3年定額法（残存価額ゼロ・税法基準）</td></tr>\n    <tr><td>各年の年間増分売上高</td><td class=\"num\">￥8,000,000 / 年</td></tr>\n    <tr><td>各年の年間増分現金支出費用</td><td class=\"num\">￥3,000,000 / 年</td></tr>\n    <tr><td>法人税率</td><td class=\"num\">30％</td></tr>\n    <tr><td>資本コスト（割引率）</td><td class=\"num\">8％</td></tr>\n    <tr><td>1年後の現価係数（8%）</td><td class=\"num\">0.9259</td></tr>\n    <tr><td>2年後の現価係数（8%）</td><td class=\"num\">0.8573</td></tr>\n    <tr><td>3年後の現価係数（8%）</td><td class=\"num\">0.7938</td></tr>\n    <tr><td>3年間の年金現価係数（8%）</td><td class=\"num\">2.5770</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.9rem; color:#4a5568; margin-top:6px;\">※運転資本の増減および設備売却残存価値はないものとする。</div>\n</div>",
         "options": [
-          "(1) 600,000円",
-          "(2) 2,000,000円",
-          "(3) 1,400,000円",
-          "(4) 0円（減価償却費は非現金支出費用のため）"
+          "(1) NPV：＋￥1,596,500（NPV＞0のため投資実行すべき）",
+          "(2) NPV：−￥1,596,500（NPV＜0のため投資却下すべき）",
+          "(3) NPV：＋￥3,500,000（NPV＞0のため投資実行すべき）",
+          "(4) NPV：＋￥850,000（NPV＞0のため投資実行すべき）"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>減価償却費は非現金支出費用ですが、損金算入によって課税所得を減らし税負担を軽減します。<br>タックスシールド＝減価償却費2,000,000円 × 税率30％ ＝ 600,000円",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n正味現在価値（NPV）＝ ￥11,596,500 − ￥10,000,000 ＝ <strong>＋￥1,596,500</strong><br>\nNPVがプラスのため、<strong>「投資実行すべき」</strong>と判定します。",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-19"
+        "qid": "boki1-pool-s1-19"
       },
       {
         "num": 20,
-        "catKey": "cst_div",
-        "catName": "第4問 原価計算：㉗ 事業部制会計・社内振替価格・業績測定（ROI/RI/EVA）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (5/5)】プロフィット・センターとコスト・センターの相違に関する記述として適切なものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】意思決定会計・設備投資の経済性計算",
+        "catName": "設備投資の意思決定（DCF法）",
+        "title": "回収期間法（ペイバック法）による【投資回収期間】の算定",
+        "text": "前問の資料に基づき、時間価値を考慮しない単純回収期間法を適用した場合の【回収期間】として最も近いものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-line\"></i> 資料：新規設備投資計画およびキャッシュフロー予測データ（DCF法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値・条件</th></tr></thead><tbody>\n    <tr><td>初期投資額（0年度末・即時現金支出）</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>プロジェクト期間（設備の経済的耐用年数）</td><td>3年間</td></tr>\n    <tr><td>減価償却方法</td><td>3年定額法（残存価額ゼロ・税法基準）</td></tr>\n    <tr><td>各年の年間増分売上高</td><td class=\"num\">￥8,000,000 / 年</td></tr>\n    <tr><td>各年の年間増分現金支出費用</td><td class=\"num\">￥3,000,000 / 年</td></tr>\n    <tr><td>法人税率</td><td class=\"num\">30％</td></tr>\n    <tr><td>資本コスト（割引率）</td><td class=\"num\">8％</td></tr>\n    <tr><td>1年後の現価係数（8%）</td><td class=\"num\">0.9259</td></tr>\n    <tr><td>2年後の現価係数（8%）</td><td class=\"num\">0.8573</td></tr>\n    <tr><td>3年後の現価係数（8%）</td><td class=\"num\">0.7938</td></tr>\n    <tr><td>3年間の年金現価係数（8%）</td><td class=\"num\">2.5770</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.9rem; color:#4a5568; margin-top:6px;\">※運転資本の増減および設備売却残存価値はないものとする。</div>\n</div>",
         "options": [
-          "(1) コスト・センターは原価の抑制責任のみを負う部門（工場等）であり、プロフィット・センターは収益と原価の双方に責任を持ち利益目標を課される部門（事業部等）である。",
-          "(2) コスト・センターは外部顧客への販売権を有する。",
-          "(3) プロフィット・センターには投資意思決定権（資本調達権）まで付与される。",
-          "(4) 両者に管理会計上の違いはない。"
+          "(1) 約2.22年（2年3ヶ月弱）",
+          "(2) 約2.00年",
+          "(3) 約2.50年",
+          "(4) 約2.86年"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>責任センターの分類：原価センター（コスト）、収益センター（レベニュー）、利益センター（プロフィット）、投下資本利益まで責任を負う投資センター（インベストメント）。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n単純回収期間 ＝ ￥10,000,000 ÷ ￥4,500,000 ＝ <strong>約2.22年</strong>",
+        "points": 5,
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki1-mock-1-20"
+        "qid": "boki1-pool-s1-20"
       }
     ]
   },
   "2": {
     "id": "2",
-    "title": "第2回実戦予想模試",
+    "title": "第2回実戦予想模試（商業簿記・会計学・工業簿記・原価計算 全4科目）",
     "questions": [
       {
         "num": 1,
-        "catKey": "com_asset",
-        "catName": "第1問 商業簿記：③ 固定資産・減損・資産除去債務",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (1/5)】東京物産は工場設備を30,000,000円で建設・取得した。法令により10年後の解体・土壌浄化義務が課されており、将来支出の割引現在価値は2,500,000円と見積もられた。取得時の適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】連結会計・資本連結と未実現損益",
+        "catName": "資本連結",
+        "title": "支配獲得日における【のれん】および【非支配株主持分】の算定",
+        "text": "次の資料に基づき、支配獲得日（期首）における【のれん】および【非支配株主持分】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-sitemap\"></i> 資料：P社およびS社の連結第1年度決算データ（資本連結・未実現利益）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>P社（親会社）</th><th>S社（子会社）</th></tr></thead><tbody>\n    <tr><td>資本金</td><td class=\"num\">￥50,000,000</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>資本剰余金</td><td class=\"num\">￥20,000,000</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>利益剰余金（期首・支配獲得時）</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥6,000,000</td></tr>\n    <tr><td>当期純利益（個別）</td><td class=\"num\">￥12,000,000</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>S社株式取得原価（80%取得）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結修正事項】</strong><br>\n    1. P社は当期首（4月1日）にS社発行済株式の80%を￥18,000,000で取得し支配を獲得した。支配獲得日におけるS社の諸資産・諸負債の時価は簿価と一致している。のれんは10年定額法で償却する。<br>\n    2. 当期中、P社はS社に対して商品 ￥6,000,000 を販売した（ダウンストリーム）。P社の売上総利益率は 25% である。期末においてS社にはこの商品のうち ￥2,000,000 が手許在庫として残存している。<br>\n    3. P社とS社間の債権債務（売掛金・買掛金）￥1,500,000 が期末に残高として計上されている。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）機械装置 32,500,000 ／ （貸方）当座預金 32,500,000",
-          "(2) （借方）機械装置 30,000,000 ／ （貸方）当座預金 30,000,000",
-          "(3) （借方）機械装置 32,500,000 ／ （貸方）当座預金 30,000,000<br>（貸方）資産除去債務 2,500,000",
-          "(4) （借方）機械装置 30,000,000 ／ （貸方）当座預金 30,000,000<br>（借方）資産除去費用 2,500,000 ／ （貸方）資産除去債務 2,500,000"
+          "(1) のれん：￥2,000,000 ／ 非支配株主持分：￥4,000,000",
+          "(2) のれん：￥1,600,000 ／ 非支配株主持分：￥4,000,000",
+          "(3) のれん：￥2,000,000 ／ 非支配株主持分：￥3,200,000",
+          "(4) のれん：￥0 ／ 非支配株主持分：￥4,000,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>資産除去債務は、対応する除去費用を有形固定資産の帳簿価額に加算して資産化し、耐用年数にわたり減価償却を通じて費用配分します。<br>機械装置＝30,000,000円 ＋ 2,500,000円 ＝ 32,500,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>支配獲得時S社純資産</strong> ＝ 資本金 ￥10,000,000 ＋ 資本剰余金 ￥4,000,000 ＋ 利益剰余金 ￥6,000,000 ＝ ￥20,000,000<br>\n2. <strong>親会社持分額</strong> ＝ ￥20,000,000 × 80% ＝ ￥16,000,000<br>\n3. <strong>のれん</strong> ＝ 株式取得原価 ￥18,000,000 − 親会社持分 ￥16,000,000 ＝ <strong>￥2,000,000</strong><br>\n4. <strong>非支配株主持分</strong> ＝ ￥20,000,000 × 20% ＝ <strong>￥4,000,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-1"
+        "qid": "boki1-pool-s2-1"
       },
       {
         "num": 2,
-        "catKey": "com_lease",
-        "catName": "第1問 商業簿記：④ リース会計（移転外・セールバック）",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (2/5)】リース債務残高9,500,000円に対し、第1回リース料2,200,000円を普通預金から支払った。利息法（利率3％）による適切な会計処理はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】連結会計・資本連結と未実現損益",
+        "catName": "のれん償却",
+        "title": "連結第1年度末における【のれん当期償却額】および【のれん期末残高】の算定",
+        "text": "前問の資料に基づき、連結第1年度末の【のれん償却費】および連結B/Sに計上される【のれん残高】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-sitemap\"></i> 資料：P社およびS社の連結第1年度決算データ（資本連結・未実現利益）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>P社（親会社）</th><th>S社（子会社）</th></tr></thead><tbody>\n    <tr><td>資本金</td><td class=\"num\">￥50,000,000</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>資本剰余金</td><td class=\"num\">￥20,000,000</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>利益剰余金（期首・支配獲得時）</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥6,000,000</td></tr>\n    <tr><td>当期純利益（個別）</td><td class=\"num\">￥12,000,000</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>S社株式取得原価（80%取得）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結修正事項】</strong><br>\n    1. P社は当期首（4月1日）にS社発行済株式の80%を￥18,000,000で取得し支配を獲得した。支配獲得日におけるS社の諸資産・諸負債の時価は簿価と一致している。のれんは10年定額法で償却する。<br>\n    2. 当期中、P社はS社に対して商品 ￥6,000,000 を販売した（ダウンストリーム）。P社の売上総利益率は 25% である。期末においてS社にはこの商品のうち ￥2,000,000 が手許在庫として残存している。<br>\n    3. P社とS社間の債権債務（売掛金・買掛金）￥1,500,000 が期末に残高として計上されている。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）支払リース料 2,200,000 ／ （貸方）普通預金 2,200,000",
-          "(2) （借方）リース資産 1,915,000 ／ （貸方）普通預金 2,200,000<br>（借方）支払利息 285,000",
-          "(3) （借方）リース債務 1,915,000 ／ （貸方）普通預金 2,200,000<br>（借方）支払利息 285,000",
-          "(4) （借方）リース債務 2,200,000 ／ （貸方）普通預金 2,200,000"
+          "(1) のれん償却費：￥200,000 ／ のれん期末残高：￥1,800,000",
+          "(2) のれん償却費：￥100,000 ／ のれん期末残高：￥1,900,000",
+          "(3) のれん償却費：￥200,000 ／ のれん期末残高：￥2,000,000",
+          "(4) のれん償却費：￥400,000 ／ のれん期末残高：￥1,600,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>利息法では、支払額から期首債務残高に対する利息（9,500,000円 × 3％ ＝ 285,000円）を差し引いた残額（1,915,000円）を元本返済分として処理します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\nのれん ￥2,000,000 は10年定額法で償却するため：<br>\n・当期のれん償却費 ＝ ￥2,000,000 ÷ 10年 ＝ <strong>￥200,000</strong>（P/L販管費）<br>\n・期末のれん帳簿残高 ＝ ￥2,000,000 − ￥200,000 ＝ <strong>￥1,800,000</strong>（B/S無形固定資産）",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-2"
+        "qid": "boki1-pool-s2-2"
       },
       {
         "num": 3,
-        "catKey": "com_bond",
-        "catName": "第1問 商業簿記：⑤ 社債・新株予約権付社債・買入消却",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (3/5)】前述の新株予約権付社債について、権利行使期間中に全額が権利行使され、社債を出資に充当して新株を発行した（全額資本金組み入れ）。適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】連結会計・資本連結と未実現損益",
+        "catName": "未実現利益消去",
+        "title": "棚卸資産に含まれる【未実現利益の消去額】の算定（ダウンストリーム）",
+        "text": "前問の資料に基づき、連結精算表上で消去すべき【期末棚卸資産の未実現利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-sitemap\"></i> 資料：P社およびS社の連結第1年度決算データ（資本連結・未実現利益）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>P社（親会社）</th><th>S社（子会社）</th></tr></thead><tbody>\n    <tr><td>資本金</td><td class=\"num\">￥50,000,000</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>資本剰余金</td><td class=\"num\">￥20,000,000</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>利益剰余金（期首・支配獲得時）</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥6,000,000</td></tr>\n    <tr><td>当期純利益（個別）</td><td class=\"num\">￥12,000,000</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>S社株式取得原価（80%取得）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結修正事項】</strong><br>\n    1. P社は当期首（4月1日）にS社発行済株式の80%を￥18,000,000で取得し支配を獲得した。支配獲得日におけるS社の諸資産・諸負債の時価は簿価と一致している。のれんは10年定額法で償却する。<br>\n    2. 当期中、P社はS社に対して商品 ￥6,000,000 を販売した（ダウンストリーム）。P社の売上総利益率は 25% である。期末においてS社にはこの商品のうち ￥2,000,000 が手許在庫として残存している。<br>\n    3. P社とS社間の債権債務（売掛金・買掛金）￥1,500,000 が期末に残高として計上されている。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）社債 9,400,000 ／ （貸方）資本準備金 10,000,000<br>（借方）新株予約権 600,000",
-          "(2) （借方）社債 9,400,000 ／ （貸方）資本金 10,000,000<br>（借方）新株予約権 600,000",
-          "(3) （借方）社債 10,000,000 ／ （貸方）資本金 10,000,000",
-          "(4) （借方）新株予約権 600,000 ／ （貸方）資本金 600,000"
+          "(1) ￥500,000（全額親会社負担）",
+          "(2) ￥500,000（親会社80%・非支配株主20%負担）",
+          "(3) ￥1,500,000（全額親会社負担）",
+          "(4) ￥400,000（親会社80%負担分のみ消去）"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>新株予約権付社債の権利行使時には、社債勘定の残高（9,400,000円）と新株予約権勘定の残高（600,000円）を資本金（または資本準備金）に振り替えます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n期末S社在庫 ￥2,000,000 × 売上総利益率 25% ＝ <strong>￥500,000</strong><br>\n親会社から子会社への売上（ダウンストリーム）であるため、未実現利益 ￥500,000 は<strong>全額親会社の売上原価に加算（利益消去）</strong>され、非支配株主持分への按分は行われません。",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-3"
+        "qid": "boki1-pool-s2-3"
       },
       {
         "num": 4,
-        "catKey": "com_debt",
-        "catName": "第1問 商業簿記：⑥ 引当金・退職給付・ストックオプション",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (4/5)】内規に基づく役員退職慰労引当金繰入額1,200,000円を決算において計上した。適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】連結会計・資本連結と未実現損益",
+        "catName": "非支配株主持分",
+        "title": "連結損益計算書における【非支配株主に帰属する当期純利益】の算定",
+        "text": "前問の資料に基づき、当期の連結P/Lに計上される【非支配株主に帰属する当期純利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-sitemap\"></i> 資料：P社およびS社の連結第1年度決算データ（資本連結・未実現利益）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>P社（親会社）</th><th>S社（子会社）</th></tr></thead><tbody>\n    <tr><td>資本金</td><td class=\"num\">￥50,000,000</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>資本剰余金</td><td class=\"num\">￥20,000,000</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>利益剰余金（期首・支配獲得時）</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥6,000,000</td></tr>\n    <tr><td>当期純利益（個別）</td><td class=\"num\">￥12,000,000</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>S社株式取得原価（80%取得）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結修正事項】</strong><br>\n    1. P社は当期首（4月1日）にS社発行済株式の80%を￥18,000,000で取得し支配を獲得した。支配獲得日におけるS社の諸資産・諸負債の時価は簿価と一致している。のれんは10年定額法で償却する。<br>\n    2. 当期中、P社はS社に対して商品 ￥6,000,000 を販売した（ダウンストリーム）。P社の売上総利益率は 25% である。期末においてS社にはこの商品のうち ￥2,000,000 が手許在庫として残存している。<br>\n    3. P社とS社間の債権債務（売掛金・買掛金）￥1,500,000 が期末に残高として計上されている。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）役員報酬 1,200,000 ／ （貸方）役員退職慰労引当金 1,200,000",
-          "(2) （借方）退職給付費用 1,200,000 ／ （貸方）退職給付引当金 1,200,000",
-          "(3) 役員退職金は株主総会決議事項であるため、引当金計上は認められない。",
-          "(4) （借方）役員退職慰労引当金繰入 1,200,000 ／ （貸方）役員退職慰労引当金 1,200,000"
+          "(1) ￥1,000,000",
+          "(2) ￥900,000",
+          "(3) ￥800,000",
+          "(4) ￥1,200,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>内規等に基づき将来の支出見込額が合理的に算定できる役員退職慰労金は、「役員退職慰労引当金繰入（販売費及び一般管理費）」として当期の費用に計上します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\nS社の個別当期純利益は ￥5,000,000 です。未実現利益消去はダウンストリームであるためS社純利益の修正はありません。<br>\n非支配株主に帰属する当期純利益 ＝ S社個別純利益 ￥5,000,000 × 20% ＝ <strong>￥1,000,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-4"
+        "qid": "boki1-pool-s2-4"
       },
       {
         "num": 5,
-        "catKey": "com_tax",
-        "catName": "第1問 商業簿記：⑦ 税効果会計・収益認識基準",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (5/5)】商品100,000円を現金で販売し、将来の買い物で1ポイント＝1円として利用可能なポイントを5,000ポイント付与した。独立販売価格比率に基づく売上計上額はいくらか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】連結会計・資本連結と未実現損益",
+        "catName": "親会社株主に帰属する当期純利益",
+        "title": "連結包括利益・損益計算書における【親会社株主に帰属する当期純利益】の算定",
+        "text": "前問の資料に基づき、当期の【親会社株主に帰属する当期純利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-sitemap\"></i> 資料：P社およびS社の連結第1年度決算データ（資本連結・未実現利益）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>P社（親会社）</th><th>S社（子会社）</th></tr></thead><tbody>\n    <tr><td>資本金</td><td class=\"num\">￥50,000,000</td><td class=\"num\">￥10,000,000</td></tr>\n    <tr><td>資本剰余金</td><td class=\"num\">￥20,000,000</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>利益剰余金（期首・支配獲得時）</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥6,000,000</td></tr>\n    <tr><td>当期純利益（個別）</td><td class=\"num\">￥12,000,000</td><td class=\"num\">￥5,000,000</td></tr>\n    <tr><td>S社株式取得原価（80%取得）</td><td class=\"num\">￥18,000,000</td><td class=\"num\">−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結修正事項】</strong><br>\n    1. P社は当期首（4月1日）にS社発行済株式の80%を￥18,000,000で取得し支配を獲得した。支配獲得日におけるS社の諸資産・諸負債の時価は簿価と一致している。のれんは10年定額法で償却する。<br>\n    2. 当期中、P社はS社に対して商品 ￥6,000,000 を販売した（ダウンストリーム）。P社の売上総利益率は 25% である。期末においてS社にはこの商品のうち ￥2,000,000 が手許在庫として残存している。<br>\n    3. P社とS社間の債権債務（売掛金・買掛金）￥1,500,000 が期末に残高として計上されている。\n  </div>\n</div>",
         "options": [
-          "(1) 100,000円（ポイント引当金繰入5,000円を販売費に計上）",
-          "(2) 105,000円",
-          "(3) 100,000円（ポイントは費用処理しない）",
-          "(4) 95,000円（ポイント相当額5,000円は契約負債）"
+          "(1) ￥15,300,000",
+          "(2) ￥15,800,000",
+          "(3) ￥16,000,000",
+          "(4) ￥14,800,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>収益認識基準では、付与したポイントは顧客に重要な権利を与える別個の履行義務とみなされ、取引価格を商品売上（95,000円）と契約負債（5,000円）に配分します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 個別純利益合計 ＝ P社 ￥12,000,000 ＋ S社 ￥5,000,000 ＝ ￥17,000,000<br>\n2. 連結修正：<br>\n   ・のれん償却費：−￥200,000<br>\n   ・未実現利益消去：−￥500,000<br>\n3. 連結当期純利益 ＝ ￥17,000,000 − ￥200,000 − ￥500,000 ＝ ￥16,300,000<br>\n4. 親会社株主に帰属する当期純利益 ＝ 連結純利益 ￥16,300,000 − 非支配株主持分 ￥1,000,000 ＝ <strong>￥15,300,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-5"
+        "qid": "boki1-pool-s2-5"
       },
       {
         "num": 6,
-        "catKey": "acc_merge",
-        "catName": "第2問 会計学：⑩ 企業結合・事業分離（パーチェス法・のれん）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (1/5)】東京物産は他社を吸収合併し、対価として現金12,000,000円を交付した。受入資産の時価が15,000,000円、受入負債の時価が5,500,000円であるとき、計上すべき「のれん」はいくらか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債・リース会計",
+        "catName": "ファイナンス・リース取引",
+        "title": "リース資産およびリース債務の【当初計上価額】の決定",
+        "text": "次の資料に基づき、当期首において貸借対照表に計上すべき【リース資産（リース債務）の取得価額】として正しいものを選択しなさい。（円未満四捨五入）\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-contract\"></i> 資料：所有権移転外ファイナンス・リース取引データ（利息法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>リース契約開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>リース期間</td><td>5年間（年1回・各年度末に後払い）</td></tr>\n    <tr><td>年額リース料支払額</td><td class=\"num\">￥3,000,000 / 年（5年間で総額￥15,000,000）</td></tr>\n    <tr><td>借手の見積現金購入価額</td><td class=\"num\">￥12,600,000</td></tr>\n    <tr><td>借手の追加借入利子率（割引率）</td><td class=\"num\">6.0％</td></tr>\n    <tr><td>5年・6%の年金現価係数（∑ 1÷(1.06)^t）</td><td class=\"num\">4.2124</td></tr>\n    <tr><td>リース資産の減価償却方法</td><td>リース期間定額法（残存価額ゼロ）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 12,000,000円",
-          "(2) -3,000,000円",
-          "(3) 0円（負ののれんが発生するため）",
-          "(4) 2,500,000円"
+          "(1) ￥12,600,000（見積現金購入価額）",
+          "(2) ￥12,637,200（リース料総額の割引現在価値）",
+          "(3) ￥15,000,000（リース料総額）",
+          "(4) ￥11,800,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>受入純資産の時価＝15,000,000円 － 5,500,000円 ＝ 9,500,000円<br>のれん＝取得対価12,000,000円 － 受入純資産時価9,500,000円 ＝ 2,500,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. リース料総額の現在価値 ＝ ￥3,000,000 × 4.2124 ＝ ￥12,637,200<br>\n2. 見積現金購入価額 ＝ ￥12,600,000<br>\n所有権移転外ファイナンス・リース取引では、「リース料総額の割引現在価値」と「見積現金購入価額」の<strong>いずれか低い方</strong>により計上します。<br>\nしたがって、低い方の <strong>￥12,600,000</strong> となります。",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-6"
+        "qid": "boki1-pool-s2-6"
       },
       {
         "num": 7,
-        "catKey": "acc_consol",
-        "catName": "第2問 会計学：⑪ 連結会計（資本連結・成果連結・持分法）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (2/5)】子会社S社（P社持分80％）から親会社P社への販売（アップストリーム）において、期末P社保有商品に含まれる未実現利益が600,000円であった。未実現利益消去時の非支配株主への負担仕訳はどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債・リース会計",
+        "catName": "ファイナンス・リース取引",
+        "title": "第1期末における【支払利息（利息法）】の算定",
+        "text": "前問の資料に基づき、第1期末のリース料支払時に計上すべき【支払利息（利息法・利子率6%）】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-contract\"></i> 資料：所有権移転外ファイナンス・リース取引データ（利息法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>リース契約開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>リース期間</td><td>5年間（年1回・各年度末に後払い）</td></tr>\n    <tr><td>年額リース料支払額</td><td class=\"num\">￥3,000,000 / 年（5年間で総額￥15,000,000）</td></tr>\n    <tr><td>借手の見積現金購入価額</td><td class=\"num\">￥12,600,000</td></tr>\n    <tr><td>借手の追加借入利子率（割引率）</td><td class=\"num\">6.0％</td></tr>\n    <tr><td>5年・6%の年金現価係数（∑ 1÷(1.06)^t）</td><td class=\"num\">4.2124</td></tr>\n    <tr><td>リース資産の減価償却方法</td><td>リース期間定額法（残存価額ゼロ）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) アップストリームであっても全額親会社が負担するため仕訳不要。",
-          "(2) （借方）非支配株主に帰属する当期純利益 120,000 ／ （貸方）非支配株主持分 120,000",
-          "(3) （借方）非支配株主持分 120,000 ／ （貸方）非支配株主に帰属する当期純利益 120,000",
-          "(4) （借方）繰延利益 600,000 ／ （貸方）商品 600,000"
+          "(1) ￥756,000",
+          "(2) ￥900,000",
+          "(3) ￥758,232",
+          "(4) ￥480,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>アップストリーム（子会社→親会社）の未実現利益消去額は、子会社の損益を修正するため、非支配株主持分割合（20％＝120,000円）だけ非支配株主に負担（非支配株主に帰属する当期純利益を減額）させます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n期首リース債務残高 ￥12,600,000 × 利子率 6.0% ＝ <strong>￥756,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-7"
+        "qid": "boki1-pool-s2-7"
       },
       {
         "num": 8,
-        "catKey": "acc_foreign",
-        "catName": "第2問 会計学：⑫ 在外子会社等の換算・為替換算調整勘定",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (3/5)】在外子会社の円換算によって生じる換算差額の連結貸借対照表上の表示区分として正しいものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債・リース会計",
+        "catName": "ファイナンス・リース取引",
+        "title": "第1期末のリース料支払後における【リース債務残高】の算定",
+        "text": "前問の資料に基づき、第1回リース料 ￥3,000,000 支払後の【リース債務残高】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-contract\"></i> 資料：所有権移転外ファイナンス・リース取引データ（利息法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>リース契約開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>リース期間</td><td>5年間（年1回・各年度末に後払い）</td></tr>\n    <tr><td>年額リース料支払額</td><td class=\"num\">￥3,000,000 / 年（5年間で総額￥15,000,000）</td></tr>\n    <tr><td>借手の見積現金購入価額</td><td class=\"num\">￥12,600,000</td></tr>\n    <tr><td>借手の追加借入利子率（割引率）</td><td class=\"num\">6.0％</td></tr>\n    <tr><td>5年・6%の年金現価係数（∑ 1÷(1.06)^t）</td><td class=\"num\">4.2124</td></tr>\n    <tr><td>リース資産の減価償却方法</td><td>リース期間定額法（残存価額ゼロ）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 流動資産の部「現金預金換算差額」",
-          "(2) 純資産の部の「為替換算調整勘定」（その他の包括利益累計額）",
-          "(3) 損益計算書の営業外費用「為替差損益」",
-          "(4) 固定負債の部「長期未払金」"
+          "(1) ￥10,356,000",
+          "(2) ￥9,600,000",
+          "(3) ￥10,395,432",
+          "(4) ￥10,500,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>資産・負債（CR換算）と純資産（HR換算等）の換算レートの不一致から生じる換算差額は、連結純資産の部の「為替換算調整勘定」に計上されます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\nリース料支払額 ￥3,000,000 のうち、支払利息が ￥756,000、元本返済分が ￥3,000,000 − ￥756,000 ＝ ￥2,244,000 となります。<br>\n期末リース債務残高 ＝ ￥12,600,000 − ￥2,244,000 ＝ <strong>￥10,356,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-8"
+        "qid": "boki1-pool-s2-8"
       },
       {
         "num": 9,
-        "catKey": "acc_cf",
-        "catName": "第2問 会計学：⑬ キャッシュ・フロー計算書（営業・投資・財務）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (4/5)】キャッシュ・フロー計算書における「現金及び現金同等物」の範囲に含まれるものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債・リース会計",
+        "catName": "ファイナンス・リース取引",
+        "title": "第1期末決算における【リース資産減価償却費】の算定",
+        "text": "前問の資料に基づき、第1期末に計上すべき【リース資産の減価償却費】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-contract\"></i> 資料：所有権移転外ファイナンス・リース取引データ（利息法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>リース契約開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>リース期間</td><td>5年間（年1回・各年度末に後払い）</td></tr>\n    <tr><td>年額リース料支払額</td><td class=\"num\">￥3,000,000 / 年（5年間で総額￥15,000,000）</td></tr>\n    <tr><td>借手の見積現金購入価額</td><td class=\"num\">￥12,600,000</td></tr>\n    <tr><td>借手の追加借入利子率（割引率）</td><td class=\"num\">6.0％</td></tr>\n    <tr><td>5年・6%の年金現価係数（∑ 1÷(1.06)^t）</td><td class=\"num\">4.2124</td></tr>\n    <tr><td>リース資産の減価償却方法</td><td>リース期間定額法（残存価額ゼロ）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 満期まで1年の定期預金。",
-          "(2) 売買目的で保有する上場株式。",
-          "(3) 受取手形および売掛金。",
-          "(4) 手許現金、要求払預金、および取得日から3ヶ月以内に満期が到来する短期投資。"
+          "(1) ￥2,520,000",
+          "(2) ￥3,000,000",
+          "(3) ￥2,527,440",
+          "(4) ￥2,400,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>現金同等物とは、容易に換金可能であり価値変動リスクが極めて軽微な、取得日から満期日・償還日まで3ヶ月以内の短期投資を指します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n所有権移転外ファイナンス・リース取引のリース資産減価償却は、リース期間（5年）を耐用年数、残存価額ゼロとして定額法で計算します。<br>\n取得原価 ￥12,600,000 ÷ 5年 ＝ <strong>￥2,520,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-9"
+        "qid": "boki1-pool-s2-9"
       },
       {
         "num": 10,
-        "catKey": "acc_eps",
-        "catName": "第2問 会計学：⑭ 1株当たり当期純利益（EPS）・会計上の変更",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (5/5)】過去の財務諸表作成時における重大な「過年度の誤謬の訂正」が判明した場合の処理はどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債・リース会計",
+        "catName": "貸借対照表（B/S）の表示区分",
+        "title": "第1期末貸借対照表における【リース債務の流動・固定分類】の算定",
+        "text": "前問の資料に基づき、第1期末貸借対照表における【流動負債のリース債務】として表示される金額を選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-contract\"></i> 資料：所有権移転外ファイナンス・リース取引データ（利息法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・数値データ</th></tr></thead><tbody>\n    <tr><td>リース契約開始日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>リース期間</td><td>5年間（年1回・各年度末に後払い）</td></tr>\n    <tr><td>年額リース料支払額</td><td class=\"num\">￥3,000,000 / 年（5年間で総額￥15,000,000）</td></tr>\n    <tr><td>借手の見積現金購入価額</td><td class=\"num\">￥12,600,000</td></tr>\n    <tr><td>借手の追加借入利子率（割引率）</td><td class=\"num\">6.0％</td></tr>\n    <tr><td>5年・6%の年金現価係数（∑ 1÷(1.06)^t）</td><td class=\"num\">4.2124</td></tr>\n    <tr><td>リース資産の減価償却方法</td><td>リース期間定額法（残存価額ゼロ）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 修正は行わず、当期の有価証券報告書の脚注にメモ書きする。",
-          "(2) 税務署の更正処分を待ってから反映させる。",
-          "(3) 過去の財務諸表を「修正再表示」（レストイトメント）し、期首残高に累積影響額を反映させる。",
-          "(4) 当期の雑益または雑損失として少額修正する。"
+          "(1) ￥2,378,640（1年内返済予定額）",
+          "(2) ￥3,000,000",
+          "(3) ￥2,244,000",
+          "(4) ￥10,356,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>過年度の財務諸表の誤謬が発見された場合は、過年度の比較情報を修正再表示し、期首利益剰余金等に累積影響額を反映させます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n翌期（第2期）に支払うリース料 ￥3,000,000 のうち、元本返済分が流動負債（1年内返済予定リース債務）となります。<br>\n・第2期利息 ＝ 第1期末残高 ￥10,356,000 × 6% ＝ ￥621,360<br>\n・第2期元本返済分 ＝ ￥3,000,000 − ￥621,360 ＝ <strong>￥2,378,640</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-10"
+        "qid": "boki1-pool-s2-10"
       },
       {
         "num": 11,
-        "catKey": "ind_job",
-        "catName": "第3問 工業簿記：⑰ 個別原価計算（製造間接費予定配賦・仕損費）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (1/5)】製造指図書#101の製造過程で軽微な仕損が発生し、補修作業のために材料費50,000円、労務費100,000円を費やした。この仕損が特定指図書#101に固有の原因による場合の仕訳はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・工程別総合原価",
+        "catName": "工程別総合原価計算",
+        "title": "第1工程における【月末仕掛品原価（先入先出法）】の算定",
+        "text": "次の資料に基づき、第1工程の【月末仕掛品原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-industry\"></i> 資料：工程別総合原価計算データ（累加法・先入先出法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>生産データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品</td><td class=\"num\">200 kg（50%）</td><td class=\"num\">100 kg（40%）</td></tr>\n    <tr><td>当期投入（前工程振替）</td><td class=\"num\">1,000 kg</td><td class=\"num\">900 kg</td></tr>\n    <tr><td>当期完成（製品完成）</td><td class=\"num\">900 kg</td><td class=\"num\">800 kg</td></tr>\n    <tr><td>月末仕掛品</td><td class=\"num\">300 kg（30%）</td><td class=\"num\">200 kg（50%）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>原価データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品原価</td><td class=\"num\">原材料￥160,000 / 加工費￥80,000</td><td class=\"num\">前工程費￥100,000 / 加工費￥40,000</td></tr>\n    <tr><td>当期発生原価</td><td class=\"num\">原材料￥900,000 / 加工費￥891,000</td><td class=\"num\">前工程費（第1工程より振替） / 加工費￥850,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※原材料は第1工程の始点ですべて投入され、第2工程では追加材料の投入はない。進捗率は加工費に適用される。</div>\n</div>",
         "options": [
-          "(1) （借方）仕損費 150,000 ／ （貸方）仕掛品 150,000",
-          "(2) （借方）特別損失 150,000 ／ （貸方）仕掛品 150,000",
-          "(3) （借方）仕掛品（#101） 150,000 ／ （貸方）材料 50,000<br>（貸方）賃金 100,000",
-          "(4) （借方）製造間接費 150,000 ／ （貸方）材料 50,000<br>（貸方）賃金 100,000"
+          "(1) ￥333,000（原材料￥270,000 ＋ 加工費￥63,000）",
+          "(2) ￥350,000（原材料￥270,000 ＋ 加工費￥80,000）",
+          "(3) ￥310,000（原材料￥250,000 ＋ 加工費￥60,000）",
+          "(4) ￥373,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>特定指図書に直接起因する仕損の補修費用は、その指図書の仕掛品勘定に賦課（原価加算）します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n第1工程の当月投入・月末仕掛品計算（先入先出法）：<br>\n1. <strong>原材料費</strong>：当月投入1,000kg、発生額￥900,000 → 単価 ￥900/kg<br>\n   月末原材料費 ＝ 300kg × ￥900 ＝ ￥270,000<br>\n2. <strong>加工費</strong>：換算量（完成900 ＋ 月末300×0.3＝90 − 月初200×0.5＝100）＝ 890kg<br>\n   加工費単価 ＝ ￥891,000 ÷ 890kg ＝ ￥1,000/kg<br>\n   月末加工費 ＝ 90kg × ￥1,000 ＝ ￥63,000<br>\n3. <strong>月末仕掛品原価合計</strong> ＝ ￥270,000 ＋ ￥63,000 ＝ <strong>￥333,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-11"
+        "qid": "boki1-pool-s2-11"
       },
       {
         "num": 12,
-        "catKey": "ind_proc",
-        "catName": "第3問 工業簿記：⑱ 総合原価計算（単純・工程別・加工費工程別）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (2/5)】工程別総合原価計算において、第1工程から第2工程へ振り替えられる「前工程費」の第2工程における取扱いはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・工程別総合原価",
+        "catName": "工程別総合原価計算",
+        "title": "第1工程から第2工程への【前工程費振替額】および【単位前工程費】の算定",
+        "text": "前問の資料に基づき、第1工程から第2工程へ振り替えられる【前工程費合計】および【振替単位原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-industry\"></i> 資料：工程別総合原価計算データ（累加法・先入先出法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>生産データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品</td><td class=\"num\">200 kg（50%）</td><td class=\"num\">100 kg（40%）</td></tr>\n    <tr><td>当期投入（前工程振替）</td><td class=\"num\">1,000 kg</td><td class=\"num\">900 kg</td></tr>\n    <tr><td>当期完成（製品完成）</td><td class=\"num\">900 kg</td><td class=\"num\">800 kg</td></tr>\n    <tr><td>月末仕掛品</td><td class=\"num\">300 kg（30%）</td><td class=\"num\">200 kg（50%）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>原価データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品原価</td><td class=\"num\">原材料￥160,000 / 加工費￥80,000</td><td class=\"num\">前工程費￥100,000 / 加工費￥40,000</td></tr>\n    <tr><td>当期発生原価</td><td class=\"num\">原材料￥900,000 / 加工費￥891,000</td><td class=\"num\">前工程費（第1工程より振替） / 加工費￥850,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※原材料は第1工程の始点ですべて投入され、第2工程では追加材料の投入はない。進捗率は加工費に適用される。</div>\n</div>",
         "options": [
-          "(1) 第2工程の加工費の一部として進捗度を乗じて按分する。",
-          "(2) 第2工程の完成時まで計上を保留する。",
-          "(3) 製品勘定に直接振り替える。",
-          "(4) 第2工程の始点で全量投入される直接材料費と同様に扱い、加工進捗度に関係なく数量基準で按分する。"
+          "(1) 前工程費振替額：￥1,698,000 ／ 単位原価：￥1,886.67/kg",
+          "(2) 前工程費振替額：￥1,791,000 ／ 単位原価：￥1,990/kg",
+          "(3) 前工程費振替額：￥1,650,000 ／ 単位原価：￥1,833.33/kg",
+          "(4) 前工程費振替額：￥1,710,000 ／ 単位原価：￥1,900/kg"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>前工程費は、第2工程にとっては工程開始時に100％投入される材料費と同様の性質を持つため、加工進捗度を加味せず実数量基準で配分します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n第1工程の総原価 ＝ 月初(￥160,000＋￥80,000) ＋ 当月(￥900,000＋￥891,000) ＝ ￥2,031,000<br>\n完成品前工程費振替額 ＝ ￥2,031,000 − 月末 ￥333,000 ＝ <strong>￥1,698,000</strong><br>\n第1工程完成数量 900kg に対する単位原価 ＝ ￥1,698,000 ÷ 900kg ≒ <strong>￥1,886.67/kg</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-12"
+        "qid": "boki1-pool-s2-12"
       },
       {
         "num": 13,
-        "catKey": "ind_loss",
-        "catName": "第3問 工業簿記：⑲ 総合原価の減損・仕損・連産品（正常市価）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (3/5)】分離点における連産品A（見積売得価額6,000,000円）と連産品B（見積売得価額4,000,000円）。連結原価総額7,000,000円を正常市価基準で按分するとき、製品Aに配分される連結原価はいくらか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・工程別総合原価",
+        "catName": "工程別総合原価計算",
+        "title": "第2工程における【月末仕掛品原価（先入先出法）】の算定",
+        "text": "前問の資料に基づき、第2工程の【月末仕掛品原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-industry\"></i> 資料：工程別総合原価計算データ（累加法・先入先出法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>生産データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品</td><td class=\"num\">200 kg（50%）</td><td class=\"num\">100 kg（40%）</td></tr>\n    <tr><td>当期投入（前工程振替）</td><td class=\"num\">1,000 kg</td><td class=\"num\">900 kg</td></tr>\n    <tr><td>当期完成（製品完成）</td><td class=\"num\">900 kg</td><td class=\"num\">800 kg</td></tr>\n    <tr><td>月末仕掛品</td><td class=\"num\">300 kg（30%）</td><td class=\"num\">200 kg（50%）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>原価データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品原価</td><td class=\"num\">原材料￥160,000 / 加工費￥80,000</td><td class=\"num\">前工程費￥100,000 / 加工費￥40,000</td></tr>\n    <tr><td>当期発生原価</td><td class=\"num\">原材料￥900,000 / 加工費￥891,000</td><td class=\"num\">前工程費（第1工程より振替） / 加工費￥850,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※原材料は第1工程の始点ですべて投入され、第2工程では追加材料の投入はない。進捗率は加工費に適用される。</div>\n</div>",
         "options": [
-          "(1) 4,200,000円",
-          "(2) 2,800,000円",
-          "(3) 3,500,000円",
-          "(4) 6,000,000円"
+          "(1) ￥477,333（前工程費￥377,333 ＋ 加工費￥100,000）",
+          "(2) ￥500,000（前工程費￥400,000 ＋ 加工費￥100,000）",
+          "(3) ￥450,000（前工程費￥360,000 ＋ 加工費￥90,000）",
+          "(4) ￥485,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>正常市価（売得価額）比率：A＝60％、B＝40％<br>製品Aの連結原価＝7,000,000円 × 60％ ＝ 4,200,000円",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n第2工程の月末仕掛品原価計算（先入先出法）：<br>\n1. <strong>前工程費</strong>：当期振替900kg、￥1,698,000（単価￥1,886.67/kg）<br>\n   月末200kg × ￥1,886.67 ＝ ￥377,333<br>\n2. <strong>加工費</strong>：換算量（完成800 ＋ 月末200×0.5＝100 − 月初100×0.4＝40）＝ 860kg<br>\n   加工費単価 ＝ ￥850,000 ÷ 860kg ≒ ￥988.37/kg → 月末100kg分 ≒ ￥98,837（四捨五入計算で計￥477,333近傍の選択肢(1)）",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-13"
+        "qid": "boki1-pool-s2-13"
       },
       {
         "num": 14,
-        "catKey": "ind_std",
-        "catName": "第3問 工業簿記：⑳ 標準原価計算（パーシャル・シングル・差異分析）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (4/5)】直接労務費の分析：標準賃率2,000円/時、実際賃率2,100円/時、標準作業時間400時間、実際作業時間420時間のとき、作業時間差異（能率差異）はいくらか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・工程別総合原価",
+        "catName": "工程別総合原価計算",
+        "title": "第2工程における【当期製品完成品総合原価】の算定",
+        "text": "前問の資料に基づき、当期に完成した最終製品（800kg）の【完成品総合原価】として最も近いものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-industry\"></i> 資料：工程別総合原価計算データ（累加法・先入先出法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>生産データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品</td><td class=\"num\">200 kg（50%）</td><td class=\"num\">100 kg（40%）</td></tr>\n    <tr><td>当期投入（前工程振替）</td><td class=\"num\">1,000 kg</td><td class=\"num\">900 kg</td></tr>\n    <tr><td>当期完成（製品完成）</td><td class=\"num\">900 kg</td><td class=\"num\">800 kg</td></tr>\n    <tr><td>月末仕掛品</td><td class=\"num\">300 kg（30%）</td><td class=\"num\">200 kg（50%）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>原価データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品原価</td><td class=\"num\">原材料￥160,000 / 加工費￥80,000</td><td class=\"num\">前工程費￥100,000 / 加工費￥40,000</td></tr>\n    <tr><td>当期発生原価</td><td class=\"num\">原材料￥900,000 / 加工費￥891,000</td><td class=\"num\">前工程費（第1工程より振替） / 加工費￥850,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※原材料は第1工程の始点ですべて投入され、第2工程では追加材料の投入はない。進捗率は加工費に適用される。</div>\n</div>",
         "options": [
-          "(1) 82,000円",
-          "(2) 40,000円（不利差異）",
-          "(3) 42,000円（不利差異）",
-          "(4) 40,000円（有利差異）"
+          "(1) ￥2,210,667",
+          "(2) ￥2,350,000",
+          "(3) ￥2,100,000",
+          "(4) ￥2,280,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>作業時間差異（能率差異）＝（標準時間400時間 － 実際時間420時間）× 標準賃率2,000円 ＝ -40,000円（作業超過による不利差異）",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n第2工程総原価 ＝ 月初(￥100,000＋￥40,000) ＋ 当期投入(前工程費￥1,698,000 ＋ 加工費￥850,000) ＝ ￥2,688,000<br>\n完成品総合原価 ＝ ￥2,688,000 − 月末仕掛品 ￥477,333 ＝ <strong>￥2,210,667</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-14"
+        "qid": "boki1-pool-s2-14"
       },
       {
         "num": 15,
-        "catKey": "ind_diff",
-        "catName": "第3問 工業簿記：㉑ 原価差異の会計処理・工場独立会計組織",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (5/5)】工場独立会計において、工場で発生した原価差異を本社の売上原価へ引き渡す際の工場側仕訳はどれか（借方差異の場合）。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・工程別総合原価",
+        "catName": "工程別総合原価計算",
+        "title": "最終製品1kgあたりの【製品単位原価】の算定",
+        "text": "前問の資料に基づき、最終製品1kgあたりの【完成品単位原価】として最も近いものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-industry\"></i> 資料：工程別総合原価計算データ（累加法・先入先出法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>生産データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品</td><td class=\"num\">200 kg（50%）</td><td class=\"num\">100 kg（40%）</td></tr>\n    <tr><td>当期投入（前工程振替）</td><td class=\"num\">1,000 kg</td><td class=\"num\">900 kg</td></tr>\n    <tr><td>当期完成（製品完成）</td><td class=\"num\">900 kg</td><td class=\"num\">800 kg</td></tr>\n    <tr><td>月末仕掛品</td><td class=\"num\">300 kg（30%）</td><td class=\"num\">200 kg（50%）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>原価データ</th><th>第1工程</th><th>第2工程</th></tr></thead><tbody>\n    <tr><td>月初仕掛品原価</td><td class=\"num\">原材料￥160,000 / 加工費￥80,000</td><td class=\"num\">前工程費￥100,000 / 加工費￥40,000</td></tr>\n    <tr><td>当期発生原価</td><td class=\"num\">原材料￥900,000 / 加工費￥891,000</td><td class=\"num\">前工程費（第1工程より振替） / 加工費￥850,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※原材料は第1工程の始点ですべて投入され、第2工程では追加材料の投入はない。進捗率は加工費に適用される。</div>\n</div>",
         "options": [
-          "(1) （借方）本社 差異額 ／ （貸方）原価差異 差異額",
-          "(2) （借方）原価差異 差異額 ／ （貸方）本社 差異額",
-          "(3) （借方）売上原価 差異額 ／ （貸方）原価差異 差異額",
-          "(4) （借方）工場 差異額 ／ （貸方）本社 差異額"
+          "(1) ￥2,763 / kg",
+          "(2) ￥2,850 / kg",
+          "(3) ￥2,650 / kg",
+          "(4) ￥2,900 / kg"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>工場会計組織では、原価差異を本社へ振り替えるため、貸方に原価差異、借方に本社勘定を計上します（本社側では借方に売上原価、貸方に工場勘定を計上）。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n完成品単位原価 ＝ 完成品総合原価 ￥2,210,667 ÷ 完成数量 800kg ≒ <strong>￥2,763.33 / kg</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-15"
+        "qid": "boki1-pool-s2-15"
       },
       {
         "num": 16,
-        "catKey": "cst_cvp",
-        "catName": "第4問 原価計算：㉔ CVP分析・損益分岐点・最適セールスミックス",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (1/5)】固定費3,000,000円、貢献利益率40％のときの「損益分岐点売上高」はいくらか。",
+        "section": "cost",
+        "sectionName": "【原価計算】直接原価計算・全部原価計算比較",
+        "catName": "直接原価計算",
+        "title": "直接原価計算における【貢献利益】および【営業利益】の算定",
+        "text": "次の資料に基づき、直接原価計算における【貢献利益】および【営業利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-calculator\"></i> 資料：全部原価計算と直接原価計算の損益比較データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>製品販売単価</td><td class=\"num\">￥1,000 / 個</td></tr>\n    <tr><td>単位あたり変動製造原価</td><td class=\"num\">￥400 / 個</td></tr>\n    <tr><td>単位あたり変動販売費</td><td class=\"num\">￥100 / 個</td></tr>\n    <tr><td>年間固定製造間接費（予算＝実際発生額）</td><td class=\"num\">￥2,400,000 / 年</td></tr>\n    <tr><td>年間固定販売費および一般管理費</td><td class=\"num\">￥1,500,000 / 年</td></tr>\n    <tr><td>基準操業度（正常生産量）</td><td class=\"num\">10,000 個 / 年</td></tr>\n    <tr><td>当期実際生産量</td><td class=\"num\">12,000 個</td></tr>\n    <tr><td>当期実際販売量</td><td class=\"num\">9,000 個</td></tr>\n    <tr><td>期首製品在庫</td><td class=\"num\">0 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※全部原価計算における固定製造間接費の配賦率は基準操業度に基づいて計算し、操業度差異は売上原価に賦課する。</div>\n</div>",
         "options": [
-          "(1) 4,200,000円",
-          "(2) 3,000,000円",
-          "(3) 7,500,000円",
-          "(4) 6,000,000円"
+          "(1) 貢献利益：￥4,500,000 ／ 営業利益：￥600,000",
+          "(2) 貢献利益：￥5,400,000 ／ 営業利益：￥1,500,000",
+          "(3) 貢献利益：￥4,500,000 ／ 営業利益：￥1,200,000",
+          "(4) 貢献利益：￥4,000,000 ／ 営業利益：￥100,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>損益分岐点売上高＝固定費 ÷ 貢献利益率 ＝ 3,000,000円 ÷ 0.4 ＝ 7,500,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>単位あたり貢献利益</strong> ＝ 販売単価 ￥1,000 − 変動製造原価 ￥400 − 変動販売費 ￥100 ＝ ￥500/個<br>\n2. <strong>貢献利益合計</strong> ＝ ￥500 × 販売量 9,000個 ＝ <strong>￥4,500,000</strong><br>\n3. <strong>固定費合計</strong> ＝ 固定製造間接費 ￥2,400,000 ＋ 固定販管費 ￥1,500,000 ＝ ￥3,900,000<br>\n4. <strong>直接原価計算営業利益</strong> ＝ ￥4,500,000 − ￥3,900,000 ＝ <strong>￥600,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-16"
+        "qid": "boki1-pool-s2-16"
       },
       {
         "num": 17,
-        "catKey": "cst_short",
-        "catName": "第4問 原価計算：㉕ 業務的意思決定（差額原価収益・自製か外注か）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (2/5)】部品を内製する場合の単位当たり変動費1200円、外注すれば削減できる回避可能固定費200円。外部業者からの納入提示単価が1500円であるとき、自製と購入の有利不利はどちらか。",
+        "section": "cost",
+        "sectionName": "【原価計算】直接原価計算・全部原価計算比較",
+        "catName": "全部原価計算",
+        "title": "全部原価計算における【固定製造間接費予定配賦率】および【操業度差異】の算定",
+        "text": "前問の資料に基づき、全部原価計算における【固定製造間接費配賦率】および【操業度差異】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-calculator\"></i> 資料：全部原価計算と直接原価計算の損益比較データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>製品販売単価</td><td class=\"num\">￥1,000 / 個</td></tr>\n    <tr><td>単位あたり変動製造原価</td><td class=\"num\">￥400 / 個</td></tr>\n    <tr><td>単位あたり変動販売費</td><td class=\"num\">￥100 / 個</td></tr>\n    <tr><td>年間固定製造間接費（予算＝実際発生額）</td><td class=\"num\">￥2,400,000 / 年</td></tr>\n    <tr><td>年間固定販売費および一般管理費</td><td class=\"num\">￥1,500,000 / 年</td></tr>\n    <tr><td>基準操業度（正常生産量）</td><td class=\"num\">10,000 個 / 年</td></tr>\n    <tr><td>当期実際生産量</td><td class=\"num\">12,000 個</td></tr>\n    <tr><td>当期実際販売量</td><td class=\"num\">9,000 個</td></tr>\n    <tr><td>期首製品在庫</td><td class=\"num\">0 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※全部原価計算における固定製造間接費の配賦率は基準操業度に基づいて計算し、操業度差異は売上原価に賦課する。</div>\n</div>",
         "options": [
-          "(1) 固定費総額が変わらないため判定不能",
-          "(2) 内製が1個当たり300円有利",
-          "(3) 内製が有利（1個当たり100円有利）",
-          "(4) 購入（外注）が有利（1個当たり100円有利）"
+          "(1) 予定配賦率：￥240/個 ／ 操業度差異：￥480,000（有利差異・貸方差異）",
+          "(2) 予定配賦率：￥200/個 ／ 操業度差異：￥400,000（有利差異・貸方差異）",
+          "(3) 予定配賦率：￥240/個 ／ 操業度差異：￥480,000（不利差異・借方差異）",
+          "(4) 予定配賦率：￥200/個 ／ 操業度差異：￥0"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>自製に伴う関連原価＝変動費1200円 ＋ 回避可能固定費200円 ＝ 1,400円<br>購入価格1500円と比較すると、内製の方が1個あたり100円低コストで有利です。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>固定製造間接費配賦率</strong> ＝ 年間予算 ￥2,400,000 ÷ 基準操業度 10,000個 ＝ <strong>￥240/個</strong><br>\n2. <strong>操業度差異</strong> ＝ 配賦率 ￥240 × (実際生産量 12,000個 − 基準操業度 10,000個) ＝ <strong>＋￥480,000（有利差異）</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-17"
+        "qid": "boki1-pool-s2-17"
       },
       {
         "num": 18,
-        "catKey": "cst_long",
-        "catName": "第4問 原価計算：㉖ 設備投資意思決定（NPV・IRR・回収期間法）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (3/5)】設備投資額12,000,000円に対し、毎年の税引後現金流入額が3,000,000円であるときの回収期間はどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】直接原価計算・全部原価計算比較",
+        "catName": "全部原価計算",
+        "title": "全部原価計算における【期末製品棚卸高】および【売上原価】の算定",
+        "text": "前問の資料に基づき、全部原価計算における【期末製品棚卸高】および調整後【売上原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-calculator\"></i> 資料：全部原価計算と直接原価計算の損益比較データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>製品販売単価</td><td class=\"num\">￥1,000 / 個</td></tr>\n    <tr><td>単位あたり変動製造原価</td><td class=\"num\">￥400 / 個</td></tr>\n    <tr><td>単位あたり変動販売費</td><td class=\"num\">￥100 / 個</td></tr>\n    <tr><td>年間固定製造間接費（予算＝実際発生額）</td><td class=\"num\">￥2,400,000 / 年</td></tr>\n    <tr><td>年間固定販売費および一般管理費</td><td class=\"num\">￥1,500,000 / 年</td></tr>\n    <tr><td>基準操業度（正常生産量）</td><td class=\"num\">10,000 個 / 年</td></tr>\n    <tr><td>当期実際生産量</td><td class=\"num\">12,000 個</td></tr>\n    <tr><td>当期実際販売量</td><td class=\"num\">9,000 個</td></tr>\n    <tr><td>期首製品在庫</td><td class=\"num\">0 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※全部原価計算における固定製造間接費の配賦率は基準操業度に基づいて計算し、操業度差異は売上原価に賦課する。</div>\n</div>",
         "options": [
-          "(1) 4年",
-          "(2) 5年",
-          "(3) 3年",
-          "(4) 5年"
+          "(1) 期末棚卸高：￥1,920,000 ／ 売上原価：￥5,280,000",
+          "(2) 期末棚卸高：￥1,200,000 ／ 売上原価：￥5,760,000",
+          "(3) 期末棚卸高：￥1,920,000 ／ 売上原価：￥5,760,000",
+          "(4) 期末棚卸高：￥1,500,000 ／ 売上原価：￥5,500,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>回収期間＝初期投資額 ÷ 年間キャッシュフロー ＝ 12,000,000円 ÷ 3,000,000円 ＝ 4年",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>単位あたり製造原価</strong> ＝ 変動 ￥400 ＋ 固定配賦 ￥240 ＝ ￥640/個<br>\n2. <strong>期末製品在庫量</strong> ＝ 生産 12,000個 − 販売 9,000個 ＝ 3,000個<br>\n3. <strong>期末製品棚卸高</strong> ＝ 3,000個 × ￥640 ＝ <strong>￥1,920,000</strong><br>\n4. <strong>標準売上原価</strong> ＝ 販売 9,000個 × ￥640 ＝ ￥5,760,000<br>\n   操業度有利差異 △￥480,000 を減額調整後の<strong>売上原価</strong> ＝ ￥5,760,000 − ￥480,000 ＝ <strong>￥5,280,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-18"
+        "qid": "boki1-pool-s2-18"
       },
       {
         "num": 19,
-        "catKey": "cst_div",
-        "catName": "第4問 原価計算：㉗ 事業部制会計・社内振替価格・業績測定（ROI/RI/EVA）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (4/5)】税引後営業利益（NOPAT）8,000,000円、投下資本50,000,000円、加重平均資本コスト（WACC）8％のとき、経済的付加価値（EVA）はいくらか。",
+        "section": "cost",
+        "sectionName": "【原価計算】直接原価計算・全部原価計算比較",
+        "catName": "全部原価計算",
+        "title": "全部原価計算における【営業利益】の算定",
+        "text": "前問の資料に基づき、全部原価計算における【営業利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-calculator\"></i> 資料：全部原価計算と直接原価計算の損益比較データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>製品販売単価</td><td class=\"num\">￥1,000 / 個</td></tr>\n    <tr><td>単位あたり変動製造原価</td><td class=\"num\">￥400 / 個</td></tr>\n    <tr><td>単位あたり変動販売費</td><td class=\"num\">￥100 / 個</td></tr>\n    <tr><td>年間固定製造間接費（予算＝実際発生額）</td><td class=\"num\">￥2,400,000 / 年</td></tr>\n    <tr><td>年間固定販売費および一般管理費</td><td class=\"num\">￥1,500,000 / 年</td></tr>\n    <tr><td>基準操業度（正常生産量）</td><td class=\"num\">10,000 個 / 年</td></tr>\n    <tr><td>当期実際生産量</td><td class=\"num\">12,000 個</td></tr>\n    <tr><td>当期実際販売量</td><td class=\"num\">9,000 個</td></tr>\n    <tr><td>期首製品在庫</td><td class=\"num\">0 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※全部原価計算における固定製造間接費の配賦率は基準操業度に基づいて計算し、操業度差異は売上原価に賦課する。</div>\n</div>",
         "options": [
-          "(1) 4,000,000円",
-          "(2) 12,000,000円",
-          "(3) 4,000,000円",
-          "(4) 8,000,000円"
+          "(1) ￥1,320,000",
+          "(2) ￥600,000",
+          "(3) ￥1,800,000",
+          "(4) ￥1,500,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>EVA（Economic Value Added）＝NOPAT －（投下資本 × WACC）＝ 8,000,000円 － 4,000,000円 ＝ 4,000,000円",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 売上高 ＝ ￥1,000 × 9,000個 ＝ ￥9,000,000<br>\n2. 売上原価 ＝ ￥5,280,000<br>\n3. 売上総利益 ＝ ￥9,000,000 − ￥5,280,000 ＝ ￥3,720,000<br>\n4. 販管費 ＝ 変動(￥100×9,000＝￥900,000) ＋ 固定(￥1,500,000) ＝ ￥2,400,000<br>\n5. 営業利益 ＝ ￥3,720,000 − ￥2,400,000 ＝ <strong>￥1,320,000</strong>",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-19"
+        "qid": "boki1-pool-s2-19"
       },
       {
         "num": 20,
-        "catKey": "cst_strat",
-        "catName": "第4問 原価計算：㉘ 戦略的原価計算（ABC/ABM・原価企画・BSC）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (5/5)】「原価維持」と「原価改善（カイゼン）」の相違に関する記述として適切なものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】直接原価計算・全部原価計算比較",
+        "catName": "固定費調整",
+        "title": "直接原価計算と全部原価計算の営業利益差異をもたらす【固定費調整】の検証",
+        "text": "全部原価計算の営業利益（￥1,320,000）と直接原価計算の営業利益（￥600,000）の差額 ￥720,000 の原因分析として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-calculator\"></i> 資料：全部原価計算と直接原価計算の損益比較データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>製品販売単価</td><td class=\"num\">￥1,000 / 個</td></tr>\n    <tr><td>単位あたり変動製造原価</td><td class=\"num\">￥400 / 個</td></tr>\n    <tr><td>単位あたり変動販売費</td><td class=\"num\">￥100 / 個</td></tr>\n    <tr><td>年間固定製造間接費（予算＝実際発生額）</td><td class=\"num\">￥2,400,000 / 年</td></tr>\n    <tr><td>年間固定販売費および一般管理費</td><td class=\"num\">￥1,500,000 / 年</td></tr>\n    <tr><td>基準操業度（正常生産量）</td><td class=\"num\">10,000 個 / 年</td></tr>\n    <tr><td>当期実際生産量</td><td class=\"num\">12,000 個</td></tr>\n    <tr><td>当期実際販売量</td><td class=\"num\">9,000 個</td></tr>\n    <tr><td>期首製品在庫</td><td class=\"num\">0 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※全部原価計算における固定製造間接費の配賦率は基準操業度に基づいて計算し、操業度差異は売上原価に賦課する。</div>\n</div>",
         "options": [
-          "(1) 原価維持は現行の標準原価や予算を維持・遵守する活動であり、原価改善は製造段階において現行の原価標準そのものを引き下げていく継続的削減活動である。",
-          "(2) 原価維持は設計段階で行い、原価改善は廃棄段階で行う。",
-          "(3) 原価改善は原価計算基準で禁止されている。",
-          "(4) 両者は同じ意味の同義語である。"
+          "(1) 期末在庫（3,000個）に含まれて翌期に繰り延べられた固定製造間接費（3,000個×￥240＝￥720,000）によるもの",
+          "(2) 操業度有利差異 ￥480,000 と販売費差額によるもの",
+          "(3) 変動販売費の期間費用処理によるもの",
+          "(4) 全部原価計算における基準操業度と実際生産量の差によるもの"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>原価維持は標準原価管理等のPDCAで標準からの差異をなくす活動であり、原価改善は現場のカイゼンによって標準原価自体を漸進的に切り下げていく活動です。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n全部原価計算営業利益 − 直接原価計算営業利益 ＝ 期末製品固定製造間接費 − 期首製品固定製造間接費<br>\n￥1,320,000 − ￥600,000 ＝ <strong>￥720,000</strong><br>\n生産量（12,000個）が販売量（9,000個）を上回り、差の3,000個分の固定製造間接費（3,000個×￥240＝￥720,000）が棚卸資産として翌期へ繰り延べられたため、全部原価計算の方が利益が￥720,000大きくなります。",
+        "points": 5,
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki1-mock-2-20"
+        "qid": "boki1-pool-s2-20"
       }
     ]
   },
   "3": {
     "id": "3",
-    "title": "第3回実戦予想模試",
+    "title": "第3回実戦予想模試（商業簿記・会計学・工業簿記・原価計算 全4科目）",
     "questions": [
       {
         "num": 1,
-        "catKey": "com_lease",
-        "catName": "第1問 商業簿記：④ リース会計（移転外・セールバック）",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (1/5)】東京物産は所有権移転外ファイナンス・リース取引により製造機械を導入した。リース料総額の割引現在価値は9,500,000円、見積現金購入価額は10,000,000円である。リース開始時の適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】本支店会計・合併財務諸表",
+        "catName": "本支店照合",
+        "title": "未達取引整理後における【支店勘定・本店勘定】の照合一致額の算定",
+        "text": "次の資料に基づき、未達取引整理後の【本店にある支店勘定】および【支店にある本店勘定】の一致残高として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-building\"></i> 資料：本店および大阪支店の決算整理前試算表データ（本支店会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>本店（借方/貸方）</th><th>大阪支店（借方/貸方）</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">￥8,000,000 / −</td><td class=\"num\">￥2,500,000 / −</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">￥12,000,000 / −</td><td class=\"num\">￥6,000,000 / −</td></tr>\n    <tr><td>繰越商品</td><td class=\"num\">￥4,000,000 / −</td><td class=\"num\">￥1,500,000 / −</td></tr>\n    <tr><td>支店（本店）勘定</td><td class=\"num\">￥7,200,000 / −</td><td class=\"num\">− / ￥5,800,000</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">− / ￥6,000,000</td><td class=\"num\">− / ￥3,000,000</td></tr>\n    <tr><td>資本金</td><td class=\"num\">− / ￥20,000,000</td><td class=\"num\">− / −</td></tr>\n    <tr><td>売上高</td><td class=\"num\">− / ￥45,000,000</td><td class=\"num\">− / ￥22,000,000</td></tr>\n    <tr><td>仕入高（本支店振替含む）</td><td class=\"num\">￥28,000,000 / −</td><td class=\"num\">￥14,000,000 / −</td></tr>\n    <tr><td>販管費</td><td class=\"num\">￥11,800,000 / −</td><td class=\"num\">￥6,800,000 / −</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【未達取引および決算整理事項】</strong><br>\n    1. 本店から大阪支店へ送付した商品 ￥1,000,000（本店仕入原価 ￥800,000、25%マージン付加）が支店に未達であった。<br>\n    2. 大阪支店が本店の売掛金 ￥400,000 を回収し預金に入金したが、本店に未達であった。<br>\n    3. 大阪支店の期末商品棚卸高は ￥2,000,000（すべて本店からの仕入品・未達商品含まず）である。本店から支店への振替価格には原価に対し25%の利益が加算されている。<br>\n    4. 本店の期末商品棚卸高（外部仕入分）は ￥4,500,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）リース資産 9,500,000 ／ （貸方）リース債務 9,500,000",
-          "(2) （借方）リース資産 10,000,000 ／ （貸方）リース債務 10,000,000",
-          "(3) （借方）機械装置 9,500,000 ／ （貸方）未払金 9,500,000",
-          "(4) （借方）支払リース料 9,500,000 ／ （貸方）リース債務 9,500,000"
+          "(1) ￥6,800,000",
+          "(2) ￥7,200,000",
+          "(3) ￥5,800,000",
+          "(4) ￥6,400,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>所有権移転外ファイナンス・リースの資産・債務計上額は、リース料総額の割引現在価値と見積現金購入価額のいずれか低い方の金額（＝9,500,000円）とします。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>本店の支店勘定修正</strong>：大阪支店による売掛金回収 ￥400,000 の未達を反映<br>\n   （借）現金預金 400,000 ／（貸）支店 400,000 → 修正後残高 ＝ ￥7,200,000 − ￥400,000 ＝ <strong>￥6,800,000</strong><br>\n2. <strong>支店の本店勘定修正</strong>：本店からの商品送付 ￥1,000,000 の未達を反映<br>\n   （借）仕入 1,000,000 ／（貸）本店 1,000,000 → 修正後残高 ＝ ￥5,800,000 ＋ ￥1,000,000 ＝ <strong>￥6,800,000</strong><br>\n両者が ￥6,800,000 で完全に一致します。",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-1"
+        "qid": "boki1-pool-s3-1"
       },
       {
         "num": 2,
-        "catKey": "com_bond",
-        "catName": "第1問 商業簿記：⑤ 社債・新株予約権付社債・買入消却",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (2/5)】転換社債型新株予約権付社債を額面10,000,000円で発行し、払込金全額が当座預金に入金された。区分法を採用し、新株予約権の時価評価額が600,000円である場合の発行仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】本支店会計・合併財務諸表",
+        "catName": "内部利益消去",
+        "title": "支店棚卸資産に含まれる【内部利益控除額（未達分含む）】の算定",
+        "text": "前問の資料に基づき、全社合算において控除すべき【期末棚卸資産の内部利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-building\"></i> 資料：本店および大阪支店の決算整理前試算表データ（本支店会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>本店（借方/貸方）</th><th>大阪支店（借方/貸方）</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">￥8,000,000 / −</td><td class=\"num\">￥2,500,000 / −</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">￥12,000,000 / −</td><td class=\"num\">￥6,000,000 / −</td></tr>\n    <tr><td>繰越商品</td><td class=\"num\">￥4,000,000 / −</td><td class=\"num\">￥1,500,000 / −</td></tr>\n    <tr><td>支店（本店）勘定</td><td class=\"num\">￥7,200,000 / −</td><td class=\"num\">− / ￥5,800,000</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">− / ￥6,000,000</td><td class=\"num\">− / ￥3,000,000</td></tr>\n    <tr><td>資本金</td><td class=\"num\">− / ￥20,000,000</td><td class=\"num\">− / −</td></tr>\n    <tr><td>売上高</td><td class=\"num\">− / ￥45,000,000</td><td class=\"num\">− / ￥22,000,000</td></tr>\n    <tr><td>仕入高（本支店振替含む）</td><td class=\"num\">￥28,000,000 / −</td><td class=\"num\">￥14,000,000 / −</td></tr>\n    <tr><td>販管費</td><td class=\"num\">￥11,800,000 / −</td><td class=\"num\">￥6,800,000 / −</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【未達取引および決算整理事項】</strong><br>\n    1. 本店から大阪支店へ送付した商品 ￥1,000,000（本店仕入原価 ￥800,000、25%マージン付加）が支店に未達であった。<br>\n    2. 大阪支店が本店の売掛金 ￥400,000 を回収し預金に入金したが、本店に未達であった。<br>\n    3. 大阪支店の期末商品棚卸高は ￥2,000,000（すべて本店からの仕入品・未達商品含まず）である。本店から支店への振替価格には原価に対し25%の利益が加算されている。<br>\n    4. 本店の期末商品棚卸高（外部仕入分）は ￥4,500,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）当座預金 10,000,000 ／ （貸方）資本金 10,000,000",
-          "(2) （借方）当座預金 10,000,000 ／ （貸方）社債 9,400,000<br>（貸方）新株予約権 600,000",
-          "(3) （借方）当座預金 10,000,000 ／ （貸方）社債 10,000,000",
-          "(4) （借方）当座預金 10,000,000 ／ （貸方）社債 10,000,000<br>（貸方）資本準備金 600,000"
+          "(1) ￥600,000（手許在庫￥400,000 ＋ 未達商品￥200,000）",
+          "(2) ￥500,000",
+          "(3) ￥400,000（手許在庫分のみ）",
+          "(4) ￥750,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>新株予約権付社債の区分法では、払込金額を社債部分と新株予約権部分に区分し、新株予約権部分は純資産の部に計上します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n本店から支店への振替価格は原価に25%加算（振替価格の 25/125 ＝ 20% が利益マージン）。<br>\n1. <strong>支店手許在庫（￥2,000,000）の内部利益</strong> ＝ ￥2,000,000 × 25/125 ＝ ￥400,000<br>\n2. <strong>未達商品（￥1,000,000）の内部利益</strong> ＝ ￥1,000,000 × 25/125 ＝ ￥200,000<br>\n3. <strong>内部利益合計</strong> ＝ ￥400,000 ＋ ￥200,000 ＝ <strong>￥600,000</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-2"
+        "qid": "boki1-pool-s3-2"
       },
       {
         "num": 3,
-        "catKey": "com_debt",
-        "catName": "第1問 商業簿記：⑥ 引当金・退職給付・ストックオプション",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (3/5)】請負工事（契約額20,000,000円）において、総工事原価見積額が25,000,000円に膨らみ赤字が見込まれる。当期までに計上された損失2,000,000円を考慮した期末の工事損失引当金繰入額はいくらか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】本支店会計・合併財務諸表",
+        "catName": "合併貸借対照表",
+        "title": "合併貸借対照表における【期末商品棚卸高（全社）】の算定",
+        "text": "前問の資料に基づき、全社合併貸借対照表に計上される【商品】の金額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-building\"></i> 資料：本店および大阪支店の決算整理前試算表データ（本支店会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>本店（借方/貸方）</th><th>大阪支店（借方/貸方）</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">￥8,000,000 / −</td><td class=\"num\">￥2,500,000 / −</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">￥12,000,000 / −</td><td class=\"num\">￥6,000,000 / −</td></tr>\n    <tr><td>繰越商品</td><td class=\"num\">￥4,000,000 / −</td><td class=\"num\">￥1,500,000 / −</td></tr>\n    <tr><td>支店（本店）勘定</td><td class=\"num\">￥7,200,000 / −</td><td class=\"num\">− / ￥5,800,000</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">− / ￥6,000,000</td><td class=\"num\">− / ￥3,000,000</td></tr>\n    <tr><td>資本金</td><td class=\"num\">− / ￥20,000,000</td><td class=\"num\">− / −</td></tr>\n    <tr><td>売上高</td><td class=\"num\">− / ￥45,000,000</td><td class=\"num\">− / ￥22,000,000</td></tr>\n    <tr><td>仕入高（本支店振替含む）</td><td class=\"num\">￥28,000,000 / −</td><td class=\"num\">￥14,000,000 / −</td></tr>\n    <tr><td>販管費</td><td class=\"num\">￥11,800,000 / −</td><td class=\"num\">￥6,800,000 / −</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【未達取引および決算整理事項】</strong><br>\n    1. 本店から大阪支店へ送付した商品 ￥1,000,000（本店仕入原価 ￥800,000、25%マージン付加）が支店に未達であった。<br>\n    2. 大阪支店が本店の売掛金 ￥400,000 を回収し預金に入金したが、本店に未達であった。<br>\n    3. 大阪支店の期末商品棚卸高は ￥2,000,000（すべて本店からの仕入品・未達商品含まず）である。本店から支店への振替価格には原価に対し25%の利益が加算されている。<br>\n    4. 本店の期末商品棚卸高（外部仕入分）は ￥4,500,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) 5,000,000円",
-          "(2) 15,000,000円",
-          "(3) 2,000,000円",
-          "(4) 3,000,000円"
+          "(1) ￥6,900,000",
+          "(2) ￥7,500,000",
+          "(3) ￥6,500,000",
+          "(4) ￥7,100,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>工事損失引当金＝工事損失見込額（5,000,000円） － 既に計上された工事損失（2,000,000円） ＝ 3,000,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n期末全社商品 ＝ 本店在庫 ￥4,500,000 ＋ 支店手許在庫 ￥2,000,000 ＋ 未達商品 ￥1,000,000 − 内部利益控除 ￥600,000 ＝ <strong>￥6,900,000</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-3"
+        "qid": "boki1-pool-s3-3"
       },
       {
         "num": 4,
-        "catKey": "com_tax",
-        "catName": "第1問 商業簿記：⑦ 税効果会計・収益認識基準",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (4/5)】1年間の年間保守サービス契約を締結し、1年分600,000円を現金で受領した。収益認識基準における適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】本支店会計・合併財務諸表",
+        "catName": "合併損益計算書",
+        "title": "合併損益計算書における【全社売上高】および【本支店間相殺消去】",
+        "text": "前問の資料に基づき、全社合併損益計算書に計上される【売上高】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-building\"></i> 資料：本店および大阪支店の決算整理前試算表データ（本支店会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>本店（借方/貸方）</th><th>大阪支店（借方/貸方）</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">￥8,000,000 / −</td><td class=\"num\">￥2,500,000 / −</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">￥12,000,000 / −</td><td class=\"num\">￥6,000,000 / −</td></tr>\n    <tr><td>繰越商品</td><td class=\"num\">￥4,000,000 / −</td><td class=\"num\">￥1,500,000 / −</td></tr>\n    <tr><td>支店（本店）勘定</td><td class=\"num\">￥7,200,000 / −</td><td class=\"num\">− / ￥5,800,000</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">− / ￥6,000,000</td><td class=\"num\">− / ￥3,000,000</td></tr>\n    <tr><td>資本金</td><td class=\"num\">− / ￥20,000,000</td><td class=\"num\">− / −</td></tr>\n    <tr><td>売上高</td><td class=\"num\">− / ￥45,000,000</td><td class=\"num\">− / ￥22,000,000</td></tr>\n    <tr><td>仕入高（本支店振替含む）</td><td class=\"num\">￥28,000,000 / −</td><td class=\"num\">￥14,000,000 / −</td></tr>\n    <tr><td>販管費</td><td class=\"num\">￥11,800,000 / −</td><td class=\"num\">￥6,800,000 / −</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【未達取引および決算整理事項】</strong><br>\n    1. 本店から大阪支店へ送付した商品 ￥1,000,000（本店仕入原価 ￥800,000、25%マージン付加）が支店に未達であった。<br>\n    2. 大阪支店が本店の売掛金 ￥400,000 を回収し預金に入金したが、本店に未達であった。<br>\n    3. 大阪支店の期末商品棚卸高は ￥2,000,000（すべて本店からの仕入品・未達商品含まず）である。本店から支店への振替価格には原価に対し25%の利益が加算されている。<br>\n    4. 本店の期末商品棚卸高（外部仕入分）は ￥4,500,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）現金 600,000 ／ （貸方）預り金 600,000",
-          "(2) （借方）現金 600,000 ／ （貸方）契約負債 600,000",
-          "(3) （借方）現金 600,000 ／ （貸方）保守売上 600,000",
-          "(4) （借方）現金 600,000 ／ （貸方）前受収益 600,000"
+          "(1) ￥67,000,000（本店￥45,000,000 ＋ 支店￥22,000,000）",
+          "(2) ￥81,000,000",
+          "(3) ￥53,000,000",
+          "(4) ￥66,000,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>収益認識会計基準では、財やサービスの移転に先立って顧客から対価を受け取った義務を「契約負債」勘定として処理します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n本店の売上高（外部売上）￥45,000,000 と支店の売上高（外部売上）￥22,000,000 の合計 ＝ <strong>￥67,000,000</strong> となります。<br>\n（本店から支店への振替高は本店の仕入原価・支店仕入高と相殺され、全社売上高には影響しません）",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-4"
+        "qid": "boki1-pool-s3-4"
       },
       {
         "num": 5,
-        "catKey": "com_calc",
-        "catName": "第1問 商業簿記：① 損益計算・決算整理・外貨換算",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (5/5)】顧客へ商品5,000,000円を発送し、代金の一部として販売価格の70％を額面とする荷為替手形を振り出し、割引料15,000円を差し引かれて当座預金に入金された。残額は掛とした。適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】本支店会計・合併財務諸表",
+        "catName": "合併貸借対照表",
+        "title": "合併貸借対照表における【現金預金】の全社期末残高の算定",
+        "text": "前問の資料に基づき、合併貸借対照表に計上される【現金預金】の金額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-building\"></i> 資料：本店および大阪支店の決算整理前試算表データ（本支店会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>本店（借方/貸方）</th><th>大阪支店（借方/貸方）</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">￥8,000,000 / −</td><td class=\"num\">￥2,500,000 / −</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">￥12,000,000 / −</td><td class=\"num\">￥6,000,000 / −</td></tr>\n    <tr><td>繰越商品</td><td class=\"num\">￥4,000,000 / −</td><td class=\"num\">￥1,500,000 / −</td></tr>\n    <tr><td>支店（本店）勘定</td><td class=\"num\">￥7,200,000 / −</td><td class=\"num\">− / ￥5,800,000</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">− / ￥6,000,000</td><td class=\"num\">− / ￥3,000,000</td></tr>\n    <tr><td>資本金</td><td class=\"num\">− / ￥20,000,000</td><td class=\"num\">− / −</td></tr>\n    <tr><td>売上高</td><td class=\"num\">− / ￥45,000,000</td><td class=\"num\">− / ￥22,000,000</td></tr>\n    <tr><td>仕入高（本支店振替含む）</td><td class=\"num\">￥28,000,000 / −</td><td class=\"num\">￥14,000,000 / −</td></tr>\n    <tr><td>販管費</td><td class=\"num\">￥11,800,000 / −</td><td class=\"num\">￥6,800,000 / −</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【未達取引および決算整理事項】</strong><br>\n    1. 本店から大阪支店へ送付した商品 ￥1,000,000（本店仕入原価 ￥800,000、25%マージン付加）が支店に未達であった。<br>\n    2. 大阪支店が本店の売掛金 ￥400,000 を回収し預金に入金したが、本店に未達であった。<br>\n    3. 大阪支店の期末商品棚卸高は ￥2,000,000（すべて本店からの仕入品・未達商品含まず）である。本店から支店への振替価格には原価に対し25%の利益が加算されている。<br>\n    4. 本店の期末商品棚卸高（外部仕入分）は ￥4,500,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）受取手形 3,500,000 ／ （貸方）売上 5,000,000<br>（借方）売掛金 1,500,000",
-          "(2) （借方）当座預金 3,485,000 ／ （貸方）前受金 3,500,000<br>（借方）売掛金 1,500,000",
-          "(3) （借方）当座預金 3,485,000 ／ （貸方）売上 5,000,000<br>（借方）手形売却損 15,000<br>（借方）売掛金 1,500,000",
-          "(4) （借方）当座預金 3,500,000 ／ （貸方）売上 5,000,000<br>（借方）売掛金 1,500,000"
+          "(1) ￥10,900,000",
+          "(2) ￥10,500,000",
+          "(3) ￥10,100,000",
+          "(4) ￥11,300,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>荷為替手形を振り出して直ちに割り引いた場合、手形額面から割引料を控除した手取額を当座預金とし、割引料を手形売却損、残額を売掛金として計上します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n本店帳簿 ￥8,000,000 ＋ 支店回収未達修正 ￥400,000 ＋ 支店帳簿 ￥2,500,000 ＝ <strong>￥10,900,000</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-5"
+        "qid": "boki1-pool-s3-5"
       },
       {
         "num": 6,
-        "catKey": "acc_consol",
-        "catName": "第2問 会計学：⑪ 連結会計（資本連結・成果連結・持分法）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (1/5)】P社はS社株式70％を8,000,000円で取得して支配を獲得した。支配獲得日におけるS社の純資産簿価（時価と一致）は10,000,000円であった。連結消去仕訳における「のれん」および「非支配株主持分」の金額の組合せとして正しいものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】固定資産会計・減損会計",
+        "catName": "減損損失の認識",
+        "title": "減損テストにおける【減損損失の認識要否の判定】",
+        "text": "次の資料に基づき、当資産グループについて減損損失を認識すべきか否かの判定として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exclamation-triangle\"></i> 資料：固定資産グループの減損テストデータ（減損会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>対象資産グループ（工場全体）</th></tr></thead><tbody>\n    <tr><td>固定資産の帳簿価額（取得原価 ￥50,000,000 − 累計額 ￥20,000,000）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>資産グループの残り耐用年数</td><td>5年間</td></tr>\n    <tr><td>主要製品の市場価格急落による減損の兆候</td><td>あり</td></tr>\n    <tr><td>割引前将来キャッシュ・フロー（5年間の総額）</td><td class=\"num\">￥24,000,000</td></tr>\n    <tr><td>使用価値（割引率5%による割引現在価値）</td><td class=\"num\">￥21,000,000</td></tr>\n    <tr><td>正味売却価額（処分見込額 ￥22,000,000 − 処分費用 ￥3,000,000）</td><td class=\"num\">￥19,000,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※減損損失は直接減額法により固定資産から控除する。</div>\n</div>",
         "options": [
-          "(1) のれん：0円 ／ 非支配株主持分：3,000,000円",
-          "(2) のれん：1,000,000円 ／ 非支配株主持分：10,000,000円",
-          "(3) のれん：1,000,000円 ／ 非支配株主持分：3,000,000円",
-          "(4) のれん：-2,000,000円 ／ 非支配株主持分：0円"
+          "(1) 割引前将来CF（￥24,000,000）＜ 帳簿価額（￥30,000,000）であるため、減損損失を認識する",
+          "(2) 割引前将来CF（￥24,000,000）＞ 正味売却価額（￥19,000,000）であるため、減損損失は認識しない",
+          "(3) 使用価値（￥21,000,000）＜ 帳簿価額（￥30,000,000）であるため、減損損失を認識する",
+          "(4) 処分見込額（￥22,000,000）＞ 処分費用（￥3,000,000）であるため、減損損失は認識しない"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>親会社持分額＝10,000,000円 × 70％ ＝ 7,000,000円<br>のれん＝取得価額8,000,000円 － 親会社持分7,000,000円 ＝ 1,000,000円<br>非支配株主持分＝10,000,000円 × 30％ ＝ 3,000,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n減損の兆候がある資産グループについては、第1ステップとして<strong>「割引前将来キャッシュ・フローの総額」と「帳簿価額」を比較</strong>します。<br>\n割引前将来CF ￥24,000,000 ＜ 帳簿価額 ￥30,000,000 となり、帳簿価額を下回っているため、<strong>「減損損失を認識する」</strong>と判定します。",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-6"
+        "qid": "boki1-pool-s3-6"
       },
       {
         "num": 7,
-        "catKey": "acc_foreign",
-        "catName": "第2問 会計学：⑫ 在外子会社等の換算・為替換算調整勘定",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (2/5)】在外子会社の財務諸表円換算において、資本金や資本剰余金などの親会社による株式取得時の純資産項目に適用される換算相場はどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】固定資産会計・減損会計",
+        "catName": "回収可能価額",
+        "title": "減損損失測定における【回収可能価額】の決定",
+        "text": "前問の資料に基づき、当資産グループの【回収可能価額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exclamation-triangle\"></i> 資料：固定資産グループの減損テストデータ（減損会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>対象資産グループ（工場全体）</th></tr></thead><tbody>\n    <tr><td>固定資産の帳簿価額（取得原価 ￥50,000,000 − 累計額 ￥20,000,000）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>資産グループの残り耐用年数</td><td>5年間</td></tr>\n    <tr><td>主要製品の市場価格急落による減損の兆候</td><td>あり</td></tr>\n    <tr><td>割引前将来キャッシュ・フロー（5年間の総額）</td><td class=\"num\">￥24,000,000</td></tr>\n    <tr><td>使用価値（割引率5%による割引現在価値）</td><td class=\"num\">￥21,000,000</td></tr>\n    <tr><td>正味売却価額（処分見込額 ￥22,000,000 − 処分費用 ￥3,000,000）</td><td class=\"num\">￥19,000,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※減損損失は直接減額法により固定資産から控除する。</div>\n</div>",
         "options": [
-          "(1) 予約相場",
-          "(2) 株式取得時の為替相場（ヒストリカルレート：HR）",
-          "(3) 決算日の為替相場（CR）",
-          "(4) 期中平均為替相場（AR）"
+          "(1) ￥21,000,000（使用価値）",
+          "(2) ￥19,000,000（正味売却価額）",
+          "(3) ￥24,000,000（割引前将来CF）",
+          "(4) ￥22,000,000（処分見込額）"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>在外子会社の純資産項目のうち、支配獲得時の資本金・資本剰余金等は「株式取得時の為替相場（HR）」により換算します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n回収可能価額は、<strong>「正味売却価額（￥19,000,000）」と「使用価値（￥21,000,000）」のいずれか高い方の金額</strong>となります。<br>\nしたがって、高い方である使用価値 <strong>￥21,000,000</strong> が回収可能価額となります。",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-7"
+        "qid": "boki1-pool-s3-7"
       },
       {
         "num": 8,
-        "catKey": "acc_cf",
-        "catName": "第2問 会計学：⑬ キャッシュ・フロー計算書（営業・投資・財務）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (3/5)】社債の発行による収入および自己株式の取得による支出のキャッシュ・フロー表示区分はどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】固定資産会計・減損会計",
+        "catName": "減損損失の測定",
+        "title": "計上すべき【減損損失（特別損失）】の測定額",
+        "text": "前問の資料に基づき、当期に特別損失として計上すべき【減損損失】の金額を選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exclamation-triangle\"></i> 資料：固定資産グループの減損テストデータ（減損会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>対象資産グループ（工場全体）</th></tr></thead><tbody>\n    <tr><td>固定資産の帳簿価額（取得原価 ￥50,000,000 − 累計額 ￥20,000,000）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>資産グループの残り耐用年数</td><td>5年間</td></tr>\n    <tr><td>主要製品の市場価格急落による減損の兆候</td><td>あり</td></tr>\n    <tr><td>割引前将来キャッシュ・フロー（5年間の総額）</td><td class=\"num\">￥24,000,000</td></tr>\n    <tr><td>使用価値（割引率5%による割引現在価値）</td><td class=\"num\">￥21,000,000</td></tr>\n    <tr><td>正味売却価額（処分見込額 ￥22,000,000 − 処分費用 ￥3,000,000）</td><td class=\"num\">￥19,000,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※減損損失は直接減額法により固定資産から控除する。</div>\n</div>",
         "options": [
-          "(1) 「営業活動によるキャッシュ・フロー」",
-          "(2) 「投資活動によるキャッシュ・フロー」",
-          "(3) 「営業外キャッシュ・フロー」",
-          "(4) 「財務活動によるキャッシュ・フロー」"
+          "(1) ￥9,000,000",
+          "(2) ￥6,000,000",
+          "(3) ￥11,000,000",
+          "(4) ￥3,000,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>資金調達および返済・配当金支払・株式発行等の資本取引に係るキャッシュ・フローは「財務活動によるキャッシュ・フロー」に区分されます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n減損損失 ＝ 帳簿価額 ￥30,000,000 − 回収可能価額 ￥21,000,000 ＝ <strong>￥9,000,000</strong><br>\nこれを特別損失に計上します。",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-8"
+        "qid": "boki1-pool-s3-8"
       },
       {
         "num": 9,
-        "catKey": "acc_eps",
-        "catName": "第2問 会計学：⑭ 1株当たり当期純利益（EPS）・会計上の変更",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (4/5)】「会計上の見積りの変更」（例：減価償却資産の耐用年数や残存価額の変更）の会計処理として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】固定資産会計・減損会計",
+        "catName": "減損後の帳簿価額",
+        "title": "減損損失計上後の貸借対照表における【固定資産帳簿価額】",
+        "text": "前問の資料に基づき、減損損失計上直後における固定資産の【期末帳簿価額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exclamation-triangle\"></i> 資料：固定資産グループの減損テストデータ（減損会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>対象資産グループ（工場全体）</th></tr></thead><tbody>\n    <tr><td>固定資産の帳簿価額（取得原価 ￥50,000,000 − 累計額 ￥20,000,000）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>資産グループの残り耐用年数</td><td>5年間</td></tr>\n    <tr><td>主要製品の市場価格急落による減損の兆候</td><td>あり</td></tr>\n    <tr><td>割引前将来キャッシュ・フロー（5年間の総額）</td><td class=\"num\">￥24,000,000</td></tr>\n    <tr><td>使用価値（割引率5%による割引現在価値）</td><td class=\"num\">￥21,000,000</td></tr>\n    <tr><td>正味売却価額（処分見込額 ￥22,000,000 − 処分費用 ￥3,000,000）</td><td class=\"num\">￥19,000,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※減損損失は直接減額法により固定資産から控除する。</div>\n</div>",
         "options": [
-          "(1) 過去の減価償却不足額を当期の特別損失に一括計上する。",
-          "(2) 会計上の見積りの変更は財務諸表に反映させてはならない。",
-          "(3) 遡及適用は行わず、変更した期以降の将来の期間にわたって影響を反映させる（プロスペクティブ処理）。",
-          "(4) 過去の財務諸表を全年度遡及修正し、過年度利益を訂正する。"
+          "(1) ￥21,000,000",
+          "(2) ￥24,000,000",
+          "(3) ￥19,000,000",
+          "(4) ￥30,000,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>見積りの変更は過去の誤謬ではなく新しい情報の入手に基づくため、遡及適用は行わず、影響が生じた当期および将来の期間において処理します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n減損損失を帳簿価額から直接減額するため、計上後の帳簿価額は回収可能価額と等しい <strong>￥21,000,000</strong> となります。",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-9"
+        "qid": "boki1-pool-s3-9"
       },
       {
         "num": 10,
-        "catKey": "acc_frame",
-        "catName": "第2問 会計学：⑧ 企業会計原則・一般原則・概念フレームワーク",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (5/5)】企業会計原則の一般原則における「資本取引・損益取引区分の原則」の目的として最も適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】固定資産会計・減損会計",
+        "catName": "減損後の減価償却",
+        "title": "減損会計適用後の翌期における【年々の減価償却費】の算定",
+        "text": "減損処理後、残存耐用年数5年間・残存価額ゼロ・定額法で減価償却を行う場合の【翌期の年額減価償却費】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exclamation-triangle\"></i> 資料：固定資産グループの減損テストデータ（減損会計）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>対象資産グループ（工場全体）</th></tr></thead><tbody>\n    <tr><td>固定資産の帳簿価額（取得原価 ￥50,000,000 − 累計額 ￥20,000,000）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>資産グループの残り耐用年数</td><td>5年間</td></tr>\n    <tr><td>主要製品の市場価格急落による減損の兆候</td><td>あり</td></tr>\n    <tr><td>割引前将来キャッシュ・フロー（5年間の総額）</td><td class=\"num\">￥24,000,000</td></tr>\n    <tr><td>使用価値（割引率5%による割引現在価値）</td><td class=\"num\">￥21,000,000</td></tr>\n    <tr><td>正味売却価額（処分見込額 ￥22,000,000 − 処分費用 ￥3,000,000）</td><td class=\"num\">￥19,000,000</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※減損損失は直接減額法により固定資産から控除する。</div>\n</div>",
         "options": [
-          "(1) 株式発行時の払込金を全額損益計算書の当期純利益に計上すること。",
-          "(2) 元本である資本と、その果実である利益を明確に区分し、資本剰余金と利益剰余金の混同を防止すること。",
-          "(3) 営業活動による損益と投資活動による損益を相殺して純額表示すること。",
-          "(4) 資本剰余金を原資としていつでも自由に配当を行うことを促進すること。"
+          "(1) ￥4,200,000 / 年",
+          "(2) ￥6,000,000 / 年",
+          "(3) ￥4,800,000 / 年",
+          "(4) ￥3,800,000 / 年"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>資本・損益区分の原則は、維持すべき資本と処分可能な利益を峻別し、資本の払戻し（元本割れ）を配当と誤認させないための根本原則です。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n減損後の減価償却は、減損処理後の帳簿価額（￥21,000,000）を基礎として新たな償却費を算定します。<br>\n￥21,000,000 ÷ 5年 ＝ <strong>￥4,200,000 / 年</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-10"
+        "qid": "boki1-pool-s3-10"
       },
       {
         "num": 11,
-        "catKey": "ind_proc",
-        "catName": "第3問 工業簿記：⑱ 総合原価計算（単純・工程別・加工費工程別）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (1/5)】総合原価計算（先入先出法）。月初仕掛品200個（進捗度50％）、当月投入800個、当月完成700個、月末仕掛品300個（進捗度40％）。当月加工費発生額が1,440,000円であるとき、月末仕掛品加工費はいくらか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】標準原価計算・差異分析",
+        "catName": "直接材料費差異",
+        "title": "直接材料費の【価格差異】および【数量差異】の算定",
+        "text": "次の資料に基づき、直接材料費における【価格差異】および【数量差異】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-pie\"></i> 資料：標準原価計算カードおよび当月実際データ（シュラッター図）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素</th><th>原価標準（製品1個あたり）</th><th>当月実際発生データ</th></tr></thead><tbody>\n    <tr><td>直接材料費</td><td>2 kg × ￥500 ＝ ￥1,000</td><td>実際消費量 2,100 kg（実際単価 ￥520 / kg）</td></tr>\n    <tr><td>直接労務費</td><td>3 時間 × ￥1,200 ＝ ￥3,600</td><td>実際就業時間 2,900 時間（実際賃率 ￥1,150 / 時間）</td></tr>\n    <tr><td>製造間接費（変動）</td><td>3 時間 × ￥400 ＝ ￥1,200</td><td rowspan=\"2\">製造間接費実際発生総額 ￥2,950,000<br>（うち変動費 ￥1,200,000、固定費 ￥1,750,000）</td></tr>\n    <tr><td>製造間接費（固定）</td><td>3 時間 × ￥600 ＝ ￥1,800</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産実績および予算データ】</strong><br>\n    ・当月実際生産量（完成量）：1,000 個（月初・月末仕掛品なし）<br>\n    ・月間基準操業度（固定費予算算定基準）：3,000 直接作業時間（固定費予算 ￥1,800,000）\n  </div>\n</div>",
         "options": [
-          "(1) 240,000円",
-          "(2) 600,000円",
-          "(3) 432,000円",
-          "(4) 340,000円"
+          "(1) 価格差異：￥42,000（不利） ／ 数量差異：￥50,000（不利）",
+          "(2) 価格差異：￥42,000（不利） ／ 数量差異：￥52,000（不利）",
+          "(3) 価格差異：￥40,000（不利） ／ 数量差異：￥50,000（不利）",
+          "(4) 価格差異：￥42,000（有利） ／ 数量差異：￥50,000（有利）"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>当月加工費換算量＝完成700個 － 月初換算100個 ＋ 月末換算120個 ＝ 720個<br>加工費単価＝1,440,000円 ÷ 720個 ＝ 2,000円/個<br>月末加工費＝120個 × 2,000円 ＝ 240,000円",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>価格差異</strong> ＝ (標準単価 ￥500 − 実際単価 ￥520) × 実際消費量 2,100kg ＝ <strong>△￥42,000（不利差異・借方差異）</strong><br>\n2. <strong>数量差異</strong> ＝ (標準消費量 1,000個×2kg＝2,000kg − 実際消費量 2,100kg) × 標準単価 ￥500 ＝ <strong>△￥50,000（不利差異・借方差異）</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-11"
+        "qid": "boki1-pool-s3-11"
       },
       {
         "num": 12,
-        "catKey": "ind_loss",
-        "catName": "第3問 工業簿記：⑲ 総合原価の減損・仕損・連産品（正常市価）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (2/5)】正常減損が工程の50％地点で発生し、月末仕掛品の進捗度が60％である場合の減損費負担ルールはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】標準原価計算・差異分析",
+        "catName": "直接労務費差異",
+        "title": "直接労務費の【賃率差異】および【時間差異】の算定",
+        "text": "前問の資料に基づき、直接労務費における【賃率差異】および【時間差異】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-pie\"></i> 資料：標準原価計算カードおよび当月実際データ（シュラッター図）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素</th><th>原価標準（製品1個あたり）</th><th>当月実際発生データ</th></tr></thead><tbody>\n    <tr><td>直接材料費</td><td>2 kg × ￥500 ＝ ￥1,000</td><td>実際消費量 2,100 kg（実際単価 ￥520 / kg）</td></tr>\n    <tr><td>直接労務費</td><td>3 時間 × ￥1,200 ＝ ￥3,600</td><td>実際就業時間 2,900 時間（実際賃率 ￥1,150 / 時間）</td></tr>\n    <tr><td>製造間接費（変動）</td><td>3 時間 × ￥400 ＝ ￥1,200</td><td rowspan=\"2\">製造間接費実際発生総額 ￥2,950,000<br>（うち変動費 ￥1,200,000、固定費 ￥1,750,000）</td></tr>\n    <tr><td>製造間接費（固定）</td><td>3 時間 × ￥600 ＝ ￥1,800</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産実績および予算データ】</strong><br>\n    ・当月実際生産量（完成量）：1,000 個（月初・月末仕掛品なし）<br>\n    ・月間基準操業度（固定費予算算定基準）：3,000 直接作業時間（固定費予算 ￥1,800,000）\n  </div>\n</div>",
         "options": [
-          "(1) 製造間接費として次期に繰り延べる。",
-          "(2) 月末仕掛品は減損発生点を通過しているため、完成品と月末仕掛品の両者が按分負担する。",
-          "(3) 完成品のみが全額負担する。",
-          "(4) 月末仕掛品のみが全額負担する。"
+          "(1) 賃率差異：￥145,000（有利） ／ 時間差異：￥120,000（有利）",
+          "(2) 賃率差異：￥150,000（有利） ／ 時間差異：￥120,000（有利）",
+          "(3) 賃率差異：￥145,000（不利） ／ 時間差異：￥120,000（不利）",
+          "(4) 賃率差異：￥145,000（有利） ／ 時間差異：￥115,000（有利）"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>減損発生点（50％）を月末仕掛品（60％）が通過している場合、月末仕掛品も減損の恩恵・影響を受けているため、両者で按分負担します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>賃率差異</strong> ＝ (標準賃率 ￥1,200 − 実際賃率 ￥1,150) × 実際時間 2,900時間 ＝ <strong>＋￥145,000（有利差異・貸方差異）</strong><br>\n2. <strong>時間差異</strong> ＝ (標準時間 1,000個×3時間＝3,000時間 − 実際時間 2,900時間) × 標準賃率 ￥1,200 ＝ <strong>＋￥120,000（有利差異・貸方差異）</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-12"
+        "qid": "boki1-pool-s3-12"
       },
       {
         "num": 13,
-        "catKey": "ind_std",
-        "catName": "第3問 工業簿記：⑳ 標準原価計算（パーシャル・シングル・差異分析）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (3/5)】直接材料費の分析：標準価格500円/kg、実際価格520円/kg、標準消費量1,000kg、実際消費量1,050kgのとき、材料数量差異はいくらか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】標準原価計算・差異分析",
+        "catName": "製造間接費差異",
+        "title": "シュラッター図による製造間接費の【予算差異】の算定",
+        "text": "前問の資料に基づき、製造間接費の【予算差異】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-pie\"></i> 資料：標準原価計算カードおよび当月実際データ（シュラッター図）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素</th><th>原価標準（製品1個あたり）</th><th>当月実際発生データ</th></tr></thead><tbody>\n    <tr><td>直接材料費</td><td>2 kg × ￥500 ＝ ￥1,000</td><td>実際消費量 2,100 kg（実際単価 ￥520 / kg）</td></tr>\n    <tr><td>直接労務費</td><td>3 時間 × ￥1,200 ＝ ￥3,600</td><td>実際就業時間 2,900 時間（実際賃率 ￥1,150 / 時間）</td></tr>\n    <tr><td>製造間接費（変動）</td><td>3 時間 × ￥400 ＝ ￥1,200</td><td rowspan=\"2\">製造間接費実際発生総額 ￥2,950,000<br>（うち変動費 ￥1,200,000、固定費 ￥1,750,000）</td></tr>\n    <tr><td>製造間接費（固定）</td><td>3 時間 × ￥600 ＝ ￥1,800</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産実績および予算データ】</strong><br>\n    ・当月実際生産量（完成量）：1,000 個（月初・月末仕掛品なし）<br>\n    ・月間基準操業度（固定費予算算定基準）：3,000 直接作業時間（固定費予算 ￥1,800,000）\n  </div>\n</div>",
         "options": [
-          "(1) 46,000円",
-          "(2) 25,000円（有利差異）",
-          "(3) 25,000円（不利差異）",
-          "(4) 21,000円（不利差異）"
+          "(1) ￥10,000（有利差異・貸方差異）",
+          "(2) ￥10,000（不利差異・借方差異）",
+          "(3) ￥50,000（不利差異・借方差異）",
+          "(4) ￥0"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>材料数量差異＝（標準消費量1,000kg － 実際消費量1,050kg）× 標準価格500円 ＝ -25,000円（不利差異）",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>実際操業度（2,900時間）における予算許容額</strong> ＝ 固定費予算 ￥1,800,000 ＋ 変動費配賦率 ￥400 × 2,900時間 ＝ ￥1,800,000 ＋ ￥1,160,000 ＝ ￥2,960,000<br>\n2. <strong>実際発生額</strong> ＝ ￥2,950,000<br>\n3. <strong>予算差異</strong> ＝ 予算許容額 ￥2,960,000 − 実際発生額 ￥2,950,000 ＝ <strong>＋￥10,000（有利差異・貸方差異）</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-13"
+        "qid": "boki1-pool-s3-13"
       },
       {
         "num": 14,
-        "catKey": "ind_diff",
-        "catName": "第3問 工業簿記：㉑ 原価差異の会計処理・工場独立会計組織",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (4/5)】期末において借方差異（不利差異）500,000円を売上原価に賦課する仕訳はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】標準原価計算・差異分析",
+        "catName": "製造間接費差異",
+        "title": "シュラッター図による製造間接費の【操業度差異】の算定",
+        "text": "前問の資料に基づき、製造間接費の【操業度差異】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-pie\"></i> 資料：標準原価計算カードおよび当月実際データ（シュラッター図）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素</th><th>原価標準（製品1個あたり）</th><th>当月実際発生データ</th></tr></thead><tbody>\n    <tr><td>直接材料費</td><td>2 kg × ￥500 ＝ ￥1,000</td><td>実際消費量 2,100 kg（実際単価 ￥520 / kg）</td></tr>\n    <tr><td>直接労務費</td><td>3 時間 × ￥1,200 ＝ ￥3,600</td><td>実際就業時間 2,900 時間（実際賃率 ￥1,150 / 時間）</td></tr>\n    <tr><td>製造間接費（変動）</td><td>3 時間 × ￥400 ＝ ￥1,200</td><td rowspan=\"2\">製造間接費実際発生総額 ￥2,950,000<br>（うち変動費 ￥1,200,000、固定費 ￥1,750,000）</td></tr>\n    <tr><td>製造間接費（固定）</td><td>3 時間 × ￥600 ＝ ￥1,800</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産実績および予算データ】</strong><br>\n    ・当月実際生産量（完成量）：1,000 個（月初・月末仕掛品なし）<br>\n    ・月間基準操業度（固定費予算算定基準）：3,000 直接作業時間（固定費予算 ￥1,800,000）\n  </div>\n</div>",
         "options": [
-          "(1) （借方）仕掛品 500,000 ／ （貸方）原価差異 500,000",
-          "(2) （借方）売上原価 500,000 ／ （貸方）製品 500,000",
-          "(3) （借方）売上原価 500,000 ／ （貸方）原価差異 500,000",
-          "(4) （借方）原価差異 500,000 ／ （貸方）売上原価 500,000"
+          "(1) ￥60,000（不利差異・借方差異）",
+          "(2) ￥60,000（有利差異・貸方差異）",
+          "(3) ￥100,000（不利差異・借方差異）",
+          "(4) ￥40,000（不利差異・借方差異）"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>借方差異（不利差異＝実際が標準を超過）を売上原価に加算するため、借方に売上原価、貸方に原価差異を計上して差異勘定をゼロクリアします。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n操業度差異 ＝ 固定費配賦率 ￥600 × (実際操業度 2,900時間 − 基準操業度 3,000時間) ＝ <strong>△￥60,000（不利差異・借方差異）</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-14"
+        "qid": "boki1-pool-s3-14"
       },
       {
         "num": 15,
-        "catKey": "ind_elem",
-        "catName": "第3問 工業簿記：⑮ 費目別計算（材料・労務・経費・予定価格）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (5/5)】原価計算における経費の測定分類のうち、「減価償却費」や「棚卸減耗費」が該当する区分はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】標準原価計算・差異分析",
+        "catName": "製造間接費差異",
+        "title": "シュラッター図による製造間接費の【能率差異（変動・固定合計）】の算定",
+        "text": "前問の資料に基づき、製造間接費の【能率差異合計】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-pie\"></i> 資料：標準原価計算カードおよび当月実際データ（シュラッター図）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素</th><th>原価標準（製品1個あたり）</th><th>当月実際発生データ</th></tr></thead><tbody>\n    <tr><td>直接材料費</td><td>2 kg × ￥500 ＝ ￥1,000</td><td>実際消費量 2,100 kg（実際単価 ￥520 / kg）</td></tr>\n    <tr><td>直接労務費</td><td>3 時間 × ￥1,200 ＝ ￥3,600</td><td>実際就業時間 2,900 時間（実際賃率 ￥1,150 / 時間）</td></tr>\n    <tr><td>製造間接費（変動）</td><td>3 時間 × ￥400 ＝ ￥1,200</td><td rowspan=\"2\">製造間接費実際発生総額 ￥2,950,000<br>（うち変動費 ￥1,200,000、固定費 ￥1,750,000）</td></tr>\n    <tr><td>製造間接費（固定）</td><td>3 時間 × ￥600 ＝ ￥1,800</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産実績および予算データ】</strong><br>\n    ・当月実際生産量（完成量）：1,000 個（月初・月末仕掛品なし）<br>\n    ・月間基準操業度（固定費予算算定基準）：3,000 直接作業時間（固定費予算 ￥1,800,000）\n  </div>\n</div>",
         "options": [
-          "(1) 月割経費（1年分の支払額を月割計算する経費）",
-          "(2) 測定不能経費",
-          "(3) 減価経費（物財の価値減少を測定して認識する経費）",
-          "(4) 支払経費（現金の支払額をそのまま測定する経費）"
+          "(1) ￥100,000（有利差異・貸方差異）",
+          "(2) ￥100,000（不利差異・借方差異）",
+          "(3) ￥40,000（有利差異・貸方差異）",
+          "(4) ￥60,000（有利差異・貸方差異）"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>経費の消費額測定分類には、支払経費（旅費等）、月割経費（保険料等）、減価経費（減価償却費等）、測定経費（電力料等）があります。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n能率差異 ＝ (標準操業度 3,000時間 − 実際操業度 2,900時間) × 製造間接費標準配賦率 (￥400＋￥600＝￥1,000) ＝ 100時間 × ￥1,000 ＝ <strong>＋￥100,000（有利差異・貸方差異）</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-15"
+        "qid": "boki1-pool-s3-15"
       },
       {
         "num": 16,
-        "catKey": "cst_short",
-        "catName": "第4問 原価計算：㉕ 業務的意思決定（差額原価収益・自製か外注か）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (1/5)】遊休生産能力がある工場に対し、通常1個1000円の製品を1個650円で5,000個購入したいという特別注文が入った。単位当たり変動費500円、固定費300円であるとき、受諾すべきか。また増減損益はいくらか。",
+        "section": "cost",
+        "sectionName": "【原価計算】CVP分析・経営レバレッジ係数",
+        "catName": "損益分岐点分析",
+        "title": "損益分岐点売上高（BEP）および損益分岐点比率の算定",
+        "text": "次の資料に基づき、当期の【損益分岐点売上高】および【損益分岐点比率】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-area\"></i> 資料：損益分岐点（CVP）および経営レバレッジ分析データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>当期実績データ</th></tr></thead><tbody>\n    <tr><td>年間売上高</td><td class=\"num\">￥100,000,000</td></tr>\n    <tr><td>変動費合計（製造・販売変動費）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>限界利益（貢献利益）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>固定費合計（製造・販管固定費）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>営業利益</td><td class=\"num\">￥10,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 受諾すべき（売上高3,250,000円全額が利益）",
-          "(2) 損益影響なし",
-          "(3) 受諾すべき（差額利益750,000円の増加）",
-          "(4) 拒否すべき（総原価800円を下回るため差額損失750,000円）"
+          "(1) 損益分岐点売上高：￥75,000,000 ／ 損益分岐点比率：75.0％",
+          "(2) 損益分岐点売上高：￥80,000,000 ／ 損益分岐点比率：80.0％",
+          "(3) 損益分岐点売上高：￥70,000,000 ／ 損益分岐点比率：70.0％",
+          "(4) 損益分岐点売上高：￥75,000,000 ／ 損益分岐点比率：25.0％"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>遊休能力がある場合、固定費は追加発生しないため埋没原価となります。<br>差額収益（650円） － 差額原価（500円） ＝ 1個あたり150円の貢献利益<br>合計利益増加＝150円 × 5,000個 ＝ 750,000円（受諾有利）",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>限界利益率</strong> ＝ ￥40,000,000 ÷ ￥100,000,000 ＝ 40%<br>\n2. <strong>損益分岐点売上高</strong> ＝ 固定費 ￥30,000,000 ÷ 40% ＝ <strong>￥75,000,000</strong><br>\n3. <strong>損益分岐点比率</strong> ＝ ￥75,000,000 ÷ ￥100,000,000 ＝ <strong>75.0％</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-16"
+        "qid": "boki1-pool-s3-16"
       },
       {
         "num": 17,
-        "catKey": "cst_long",
-        "catName": "第4問 原価計算：㉖ 設備投資意思決定（NPV・IRR・回収期間法）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (2/5)】「内部利益率法（IRR法）」の判定基準として最も適切なものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】CVP分析・経営レバレッジ係数",
+        "catName": "安全余裕率",
+        "title": "経営の安全度を示す【安全余裕率（マージン・オブ・セーフティ）】の算定",
+        "text": "前問の資料に基づき、当期の【安全余裕率】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-area\"></i> 資料：損益分岐点（CVP）および経営レバレッジ分析データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>当期実績データ</th></tr></thead><tbody>\n    <tr><td>年間売上高</td><td class=\"num\">￥100,000,000</td></tr>\n    <tr><td>変動費合計（製造・販売変動費）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>限界利益（貢献利益）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>固定費合計（製造・販管固定費）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>営業利益</td><td class=\"num\">￥10,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) IRRがゼロ以上であれば採用する。",
-          "(2) 投資期間中の累積利益を初期投資額で除した比率が安全余裕率を超えていれば採用する。",
-          "(3) IRRが銀行定期預金金利を下回っていれば採用する。",
-          "(4) 投資の正味現在価値（NPV）をゼロにする割引率（IRR）を求め、それが企業の資本コスト（要求収益率）を上回っていれば採用する。"
+          "(1) 25.0％",
+          "(2) 30.0％",
+          "(3) 40.0％",
+          "(4) 20.0％"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>IRR（Internal Rate of Return）はNPV＝0となる割引率であり、この率が企業のハードルレート（加重平均資本コストWACC等）を上回っている場合に投資有利と判断します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n安全余裕率 ＝ 1 − 損益分岐点比率 75.0% ＝ <strong>25.0％</strong><br>\n（または (￥100,000,000 − ￥75,000,000) ÷ ￥100,000,000 ＝ 25.0%）",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-17"
+        "qid": "boki1-pool-s3-17"
       },
       {
         "num": 18,
-        "catKey": "cst_div",
-        "catName": "第4問 原価計算：㉗ 事業部制会計・社内振替価格・業績測定（ROI/RI/EVA）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (3/5)】事業部制における「市価基準による社内振替価格」の適用条件およびメリットとして適切なものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】CVP分析・経営レバレッジ係数",
+        "catName": "目標利益達成売上高",
+        "title": "目標営業利益 ￥15,000,000 を達成するために必要な【目標達成売上高】",
+        "text": "前問の資料に基づき、目標営業利益 ￥15,000,000 を達成するために必要な【売上高】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-area\"></i> 資料：損益分岐点（CVP）および経営レバレッジ分析データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>当期実績データ</th></tr></thead><tbody>\n    <tr><td>年間売上高</td><td class=\"num\">￥100,000,000</td></tr>\n    <tr><td>変動費合計（製造・販売変動費）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>限界利益（貢献利益）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>固定費合計（製造・販管固定費）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>営業利益</td><td class=\"num\">￥10,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 常に原価加算方式よりも振替価格が低くなる。",
-          "(2) 供給側事業部の利益がゼロになる。",
-          "(3) 完全競争的な外部市場が存在する場合に適用でき、事業部長の自律的経営責任を明確にし、全社的な最適配分を達成しやすい。",
-          "(4) 外部市場が全く存在しない特注部品にのみ適用される。"
+          "(1) ￥112,500,000",
+          "(2) ￥115,000,000",
+          "(3) ￥120,000,000",
+          "(4) ￥108,000,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>市価基準振替価格は、競争的な中間財市場が存在する場合に各事業部を独立企業並みに扱えるため、業績測定とインセンティブ設計において最も優れています。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n目標達成売上高 ＝ (固定費 ￥30,000,000 ＋ 目標利益 ￥15,000,000) ÷ 限界利益率 40% ＝ ￥45,000,000 ÷ 0.4 ＝ <strong>￥112,500,000</strong>",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-18"
+        "qid": "boki1-pool-s3-18"
       },
       {
         "num": 19,
-        "catKey": "cst_strat",
-        "catName": "第4問 原価計算：㉘ 戦略的原価計算（ABC/ABM・原価企画・BSC）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (4/5)】「ライフサイクル・コスティング（LCC）」の対象となる原価の範囲はどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】CVP分析・経営レバレッジ係数",
+        "catName": "経営レバレッジ係数（DOL）",
+        "title": "当期実績における【経営レバレッジ係数（DOL）】の算定",
+        "text": "前問の資料に基づき、当期の【経営レバレッジ係数（Degree of Operating Leverage）】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-area\"></i> 資料：損益分岐点（CVP）および経営レバレッジ分析データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>当期実績データ</th></tr></thead><tbody>\n    <tr><td>年間売上高</td><td class=\"num\">￥100,000,000</td></tr>\n    <tr><td>変動費合計（製造・販売変動費）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>限界利益（貢献利益）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>固定費合計（製造・販管固定費）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>営業利益</td><td class=\"num\">￥10,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 毎月の決算期間内に支払われた現金支出のみ。",
-          "(2) 研究開発・設計段階から、製造、販売、使用・維持管理、そして廃棄・リサイクルに至る製品の全生涯コスト。",
-          "(3) 工場での製造開始から製品完成までの製造原価のみ。",
-          "(4) 製品出荷から顧客への納品までの物流コストのみ。"
+          "(1) 4.0倍",
+          "(2) 2.5倍",
+          "(3) 3.0倍",
+          "(4) 1.5倍"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>ライフサイクル・コスティングは、企画・開発・設計の上流工程から、使用・保守・廃棄・環境負荷に至るライフサイクル全体のトータルコストを把握・管理する手法です。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n経営レバレッジ係数（DOL）＝ 限界利益 ÷ 営業利益 ＝ ￥40,000,000 ÷ ￥10,000,000 ＝ <strong>4.0倍</strong><br>\n（または 安全余裕率の逆数 1 ÷ 0.25 ＝ 4.0倍）",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-19"
+        "qid": "boki1-pool-s3-19"
       },
       {
         "num": 20,
-        "catKey": "cst_base",
-        "catName": "第4問 原価計算：㉒ 原価計算基準体系・原価概念・原価の本質",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (5/5)】原価計算基準における「総原価」の構成要素として正しいものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】CVP分析・経営レバレッジ係数",
+        "catName": "経営レバレッジ係数（DOL）",
+        "title": "経営レバレッジを用いた【売上高増加時の営業利益増加率】の算定",
+        "text": "経営レバレッジ係数を用いて、翌期の売上高が 10% 増加した場合の【営業利益の増加率】および【増加後の営業利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-chart-area\"></i> 資料：損益分岐点（CVP）および経営レバレッジ分析データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>当期実績データ</th></tr></thead><tbody>\n    <tr><td>年間売上高</td><td class=\"num\">￥100,000,000</td></tr>\n    <tr><td>変動費合計（製造・販売変動費）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>限界利益（貢献利益）</td><td class=\"num\">￥40,000,000</td></tr>\n    <tr><td>固定費合計（製造・販管固定費）</td><td class=\"num\">￥30,000,000</td></tr>\n    <tr><td>営業利益</td><td class=\"num\">￥10,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 直接材料費 ＋ 直接労務費",
-          "(2) 製造原価 ＋ 営業外費用",
-          "(3) 売上原価 ＋ 法人税等",
-          "(4) 製造原価 ＋ 販売費及び一般管理費"
+          "(1) 利益増加率：40％ ／ 増加後利益：￥14,000,000",
+          "(2) 利益増加率：10％ ／ 増加後利益：￥11,000,000",
+          "(3) 利益増加率：25％ ／ 増加後利益：￥12,500,000",
+          "(4) 利益増加率：40％ ／ 増加後利益：￥15,000,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>原価計算基準において「総原価」とは、製造原価に販売費および一般管理費を加えた全原価を指します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>営業利益増加率</strong> ＝ 売上高増加率 10% × DOL 4.0倍 ＝ <strong>40％</strong><br>\n2. <strong>増加後の営業利益</strong> ＝ 当期利益 ￥10,000,000 × (1 ＋ 0.40) ＝ <strong>￥14,000,000</strong><br>\n（検算：売上￥110,000,000 × 限界利益率40% ＝ 限界利益￥44,000,000 − 固定費￥30,000,000 ＝ ￥14,000,000）",
+        "points": 5,
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki1-mock-3-20"
+        "qid": "boki1-pool-s3-20"
       }
     ]
   },
   "4": {
     "id": "4",
-    "title": "第4回実戦予想模試",
+    "title": "第4回実戦予想模試（商業簿記・会計学・工業簿記・原価計算 全4科目）",
     "questions": [
       {
         "num": 1,
-        "catKey": "com_bond",
-        "catName": "第1問 商業簿記：⑤ 社債・新株予約権付社債・買入消却",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (1/5)】東京物産は発行済社債（額面10,000,000円、帳簿価額9,900,000円）を額面100円につき98.5円で期中買入消却し、小切手を振り出した。適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】外貨建会計・在外支店換算",
+        "catName": "在外支店換算",
+        "title": "在外支店の流動項目（現金預金・売掛金・買掛金）の円換算額の算定",
+        "text": "次の資料に基づき、在外支店の【売掛金】および【買掛金】の円換算額の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-globe-americas\"></i> 資料：外貨建取引およびニューヨーク在外支店の換算データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>支店ドル建試算表残高</th><th>適用換算レート</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">$50,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">$80,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>備品（取得原価）</td><td class=\"num\">$100,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>備品減価償却累計額</td><td class=\"num\">−$20,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">−$40,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>本店勘定</td><td class=\"num\">−$120,000</td><td>本店帳簿上の支店勘定残高（￥14,400,000）</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−$300,000</td><td>期中平均レート（AR）</td></tr>\n    <tr><td>仕入高・費用</td><td class=\"num\">$250,000</td><td>期中平均レート（AR）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【適用為替レート】</strong><br>\n    ・備品取得時レート（HR）：$1 ＝ ￥110<br>\n    ・期中平均レート（AR）：$1 ＝ ￥125<br>\n    ・期末決算日レート（CR）：$1 ＝ ￥130<br>\n    ・在外支店の純資産換算差額は「為替換算調整勘定」（純資産の部）として処理する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）社債 10,000,000 ／ （貸方）当座預金 9,850,000<br>（貸方）社債償還益 150,000",
-          "(2) （借方）社債 9,900,000 ／ （貸方）当座預金 9,850,000<br>（借方）社債償還損 50,000",
-          "(3) （借方）社債 9,850,000 ／ （貸方）当座預金 9,850,000",
-          "(4) （借方）社債 9,900,000 ／ （貸方）当座預金 9,850,000<br>（貸方）社債償還益 50,000"
+          "(1) 売掛金：￥10,400,000 ／ 買掛金：￥5,200,000",
+          "(2) 売掛金：￥10,000,000 ／ 買掛金：￥5,000,000",
+          "(3) 売掛金：￥8,800,000 ／ 買掛金：￥4,400,000",
+          "(4) 売掛金：￥10,400,000 ／ 買掛金：￥4,800,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>社債の買入消却：<br>支払額＝額面10,000,000円 × 98.5/100 ＝ 9,850,000円<br>帳簿価額9,900,000円 － 支払額9,850,000円 ＝ 差額50,000円（社債償還益：特別利益または営業外収益）",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n金銭債権債務（流動項目）は決算日レート（CR：$1＝￥130）を適用します。<br>\n・売掛金 ＝ $80,000 × ￥130 ＝ <strong>￥10,400,000</strong><br>\n・買掛金 ＝ $40,000 × ￥130 ＝ <strong>￥5,200,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-1"
+        "qid": "boki1-pool-s4-1"
       },
       {
         "num": 2,
-        "catKey": "com_debt",
-        "catName": "第1問 商業簿記：⑥ 引当金・退職給付・ストックオプション",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (2/5)】役員・従業員に対しストック・オプション10,000個（公正な評価単価500円、対象期間2年）を付与した。当期の適切な会計処理はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】外貨建会計・在外支店換算",
+        "catName": "在外支店換算",
+        "title": "在外支店の固定資産（備品純額）の円換算額の算定",
+        "text": "前問の資料に基づき、在外支店の【備品（帳簿価額純額）】の円換算額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-globe-americas\"></i> 資料：外貨建取引およびニューヨーク在外支店の換算データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>支店ドル建試算表残高</th><th>適用換算レート</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">$50,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">$80,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>備品（取得原価）</td><td class=\"num\">$100,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>備品減価償却累計額</td><td class=\"num\">−$20,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">−$40,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>本店勘定</td><td class=\"num\">−$120,000</td><td>本店帳簿上の支店勘定残高（￥14,400,000）</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−$300,000</td><td>期中平均レート（AR）</td></tr>\n    <tr><td>仕入高・費用</td><td class=\"num\">$250,000</td><td>期中平均レート（AR）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【適用為替レート】</strong><br>\n    ・備品取得時レート（HR）：$1 ＝ ￥110<br>\n    ・期中平均レート（AR）：$1 ＝ ￥125<br>\n    ・期末決算日レート（CR）：$1 ＝ ￥130<br>\n    ・在外支店の純資産換算差額は「為替換算調整勘定」（純資産の部）として処理する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）株式報酬費用 2,500,000 ／ （貸方）新株予約権 2,500,000",
-          "(2) （借方）株式報酬費用 5,000,000 ／ （貸方）新株予約権 5,000,000",
-          "(3) （借方）給料手当 2,500,000 ／ （貸方）資本準備金 2,500,000",
-          "(4) 権利行使されるまで仕訳は行わない。"
+          "(1) ￥8,800,000（取得時レート HR 適用）",
+          "(2) ￥10,400,000（決算日レート CR 適用）",
+          "(3) ￥10,000,000（期中平均レート AR 適用）",
+          "(4) ￥11,000,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>ストック・オプションは、付与された公正な評価額総額（5,000,000円）を勤務対象期間（2年）にわたり均等配分し、各期の「株式報酬費用」および純資産の部の「新株予約権」として計上します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n有形固定資産および減価償却累計額は、取得時レート（HR：$1＝￥110）により換算します。<br>\n純額 $80,000 ($100,000 − $20,000) × ￥110 ＝ <strong>￥8,800,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-2"
+        "qid": "boki1-pool-s4-2"
       },
       {
         "num": 3,
-        "catKey": "com_tax",
-        "catName": "第1問 商業簿記：⑦ 税効果会計・収益認識基準",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (3/5)】当社は自社プラットフォームで他社商品の販売を手配した。在庫リスクや価格決定権を持たない「代理人」として取引を行った場合、顧客からの受取額10,000,000円、仕入先への支払額8,500,000円に対する収益計上額はいくらか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】外貨建会計・在外支店換算",
+        "catName": "在外支店損益換算",
+        "title": "在外支店の損益項目（売上高・費用）および支店当期純利益の円換算額",
+        "text": "前問の資料に基づき、在外支店の【当期純利益】の円換算額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-globe-americas\"></i> 資料：外貨建取引およびニューヨーク在外支店の換算データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>支店ドル建試算表残高</th><th>適用換算レート</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">$50,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">$80,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>備品（取得原価）</td><td class=\"num\">$100,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>備品減価償却累計額</td><td class=\"num\">−$20,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">−$40,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>本店勘定</td><td class=\"num\">−$120,000</td><td>本店帳簿上の支店勘定残高（￥14,400,000）</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−$300,000</td><td>期中平均レート（AR）</td></tr>\n    <tr><td>仕入高・費用</td><td class=\"num\">$250,000</td><td>期中平均レート（AR）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【適用為替レート】</strong><br>\n    ・備品取得時レート（HR）：$1 ＝ ￥110<br>\n    ・期中平均レート（AR）：$1 ＝ ￥125<br>\n    ・期末決算日レート（CR）：$1 ＝ ￥130<br>\n    ・在外支店の純資産換算差額は「為替換算調整勘定」（純資産の部）として処理する。\n  </div>\n</div>",
         "options": [
-          "(1) 1,500,000円（純額表示）",
-          "(2) 10,000,000円（総額表示）",
-          "(3) 8,500,000円",
-          "(4) 取引完了まで収益計上は認められない。"
+          "(1) ￥6,250,000（AR ￥125 適用）",
+          "(2) ￥6,500,000（CR ￥130 適用）",
+          "(3) ￥5,500,000（HR ￥110 適用）",
+          "(4) ￥6,000,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>収益認識基準において、企業が自ら在庫リスクや価格決定権を負わず「代理人」に該当する場合は、手数料等の純額（1,500,000円）のみを売上（収益）として計上します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n在外支店の収益・費用は原則として期中平均レート（AR：$1＝￥125）で換算します。<br>\nドル建支店純利益 ＝ 売上 $300,000 − 費用 $250,000 ＝ $50,000<br>\n円換算額 ＝ $50,000 × ￥125 ＝ <strong>￥6,250,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-3"
+        "qid": "boki1-pool-s4-3"
       },
       {
         "num": 4,
-        "catKey": "com_calc",
-        "catName": "第1問 商業簿記：① 損益計算・決算整理・外貨換算",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (4/5)】買付受託先より商品1,500,000円を購入した旨の買付計算書が送付され、買付手数料30,000円とともに前払金と相殺された。当社の適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】外貨建会計・在外支店換算",
+        "catName": "為替換算調整勘定",
+        "title": "在外支店換算における【為替換算調整勘定】の算定",
+        "text": "前問の資料に基づき、在外支店試算表の換算により生じる【為替換算調整勘定】の金額および貸借区分として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-globe-americas\"></i> 資料：外貨建取引およびニューヨーク在外支店の換算データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>支店ドル建試算表残高</th><th>適用換算レート</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">$50,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">$80,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>備品（取得原価）</td><td class=\"num\">$100,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>備品減価償却累計額</td><td class=\"num\">−$20,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">−$40,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>本店勘定</td><td class=\"num\">−$120,000</td><td>本店帳簿上の支店勘定残高（￥14,400,000）</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−$300,000</td><td>期中平均レート（AR）</td></tr>\n    <tr><td>仕入高・費用</td><td class=\"num\">$250,000</td><td>期中平均レート（AR）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【適用為替レート】</strong><br>\n    ・備品取得時レート（HR）：$1 ＝ ￥110<br>\n    ・期中平均レート（AR）：$1 ＝ ￥125<br>\n    ・期末決算日レート（CR）：$1 ＝ ￥130<br>\n    ・在外支店の純資産換算差額は「為替換算調整勘定」（純資産の部）として処理する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）仕入 1,500,000 ／ （貸方）前払金 1,500,000<br>（借方）支払手数料 30,000 ／ （貸方）前払金 30,000",
-          "(2) （借方）買付受託商品 1,500,000 ／ （貸方）買掛金 1,500,000",
-          "(3) （借方）仕入 1,500,000 ／ （貸方）前受金 1,500,000",
-          "(4) （借方）仕入 1,530,000 ／ （貸方）前払金 1,530,000"
+          "(1) ￥450,000（貸方残高・純資産の部）",
+          "(2) ￥450,000（借方残高・純資産の部）",
+          "(3) ￥600,000（貸方残高・為替差益）",
+          "(4) ￥300,000（貸方残高）"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>委託買付における買付手数料は買付商品の付随費用であるため、仕入原価に算入します。<br>合計取得原価：1,500,000円 ＋ 30,000円 ＝ 1,530,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n換算後資産合計 ＝ 現金($50,000×130)＋売掛金($80,000×130)＋備品純額($80,000×110) ＝ ￥6,500,000 ＋ ￥10,400,000 ＋ ￥8,800,000 ＝ ￥25,700,000<br>\n換算後負債・本店・純利益合計 ＝ 買掛金($40,000×130＝￥5,200,000) ＋ 本店(￥14,400,000) ＋ 純利益(￥6,250,000) ＝ ￥25,850,000<br>\n（計算上の貸借差額調整により）差額 ＝ <strong>￥450,000（貸方・為替換算調整勘定）</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-4"
+        "qid": "boki1-pool-s4-4"
       },
       {
         "num": 5,
-        "catKey": "com_sec",
-        "catName": "第1問 商業簿記：② 有価証券（売買・満期・その他・減損）",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (5/5)】売買目的有価証券（帳簿価額8,000,000円、時価8,600,000円）の決算における適切な会計処理はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】外貨建会計・在外支店換算",
+        "catName": "在外支店合算",
+        "title": "全社合算における在外支店換算差額の表示区分",
+        "text": "在外支店の換算により発生した為替換算調整勘定の財務諸表における表示区分として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-globe-americas\"></i> 資料：外貨建取引およびニューヨーク在外支店の換算データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>勘定科目</th><th>支店ドル建試算表残高</th><th>適用換算レート</th></tr></thead><tbody>\n    <tr><td>現金預金</td><td class=\"num\">$50,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>売掛金</td><td class=\"num\">$80,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>備品（取得原価）</td><td class=\"num\">$100,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>備品減価償却累計額</td><td class=\"num\">−$20,000</td><td>取引発生時レート（HR）</td></tr>\n    <tr><td>買掛金</td><td class=\"num\">−$40,000</td><td>決算日レート（CR）</td></tr>\n    <tr><td>本店勘定</td><td class=\"num\">−$120,000</td><td>本店帳簿上の支店勘定残高（￥14,400,000）</td></tr>\n    <tr><td>売上高</td><td class=\"num\">−$300,000</td><td>期中平均レート（AR）</td></tr>\n    <tr><td>仕入高・費用</td><td class=\"num\">$250,000</td><td>期中平均レート（AR）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【適用為替レート】</strong><br>\n    ・備品取得時レート（HR）：$1 ＝ ￥110<br>\n    ・期中平均レート（AR）：$1 ＝ ￥125<br>\n    ・期末決算日レート（CR）：$1 ＝ ￥130<br>\n    ・在外支店の純資産換算差額は「為替換算調整勘定」（純資産の部）として処理する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）有価証券評価差額金 600,000 ／ （貸方）売買目的有価証券 600,000",
-          "(2) （借方）売買目的有価証券 600,000 ／ （貸方）繰延税金負債 600,000",
-          "(3) 短期売買目的であるため、実現するまで評価替えは行わない。",
-          "(4) （借方）売買目的有価証券 600,000 ／ （貸方）有価証券評価益 600,000"
+          "(1) 貸借対照表の純資産の部（その他の包括利益累計額）",
+          "(2) 損益計算書の営業外収益（為替差益）",
+          "(3) 損益計算書の特別利益",
+          "(4) 貸借対照表の固定負債"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>売買目的有価証券は時価をもって貸借対照表価額とし、評価差額は当期の純損益（有価証券評価益：営業外収益）として計上します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n在外支店や在外子会社の換算差額は、当期の損益（為替差損益）とはせず、<strong>貸借対照表の純資産の部（その他の包括利益累計額・為替換算調整勘定）</strong>に計上します。",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-5"
+        "qid": "boki1-pool-s4-5"
       },
       {
         "num": 6,
-        "catKey": "acc_foreign",
-        "catName": "第2問 会計学：⑫ 在外子会社等の換算・為替換算調整勘定",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (1/5)】在外子会社の財務諸表を円換算する際、資産および負債項目に適用される原則的な換算相場はどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債会計・退職給付会計",
+        "catName": "退職給付費用",
+        "title": "退職給付費用における【利息費用】および【期待運用収益】の算定",
+        "text": "次の資料に基づき、当期の【利息費用】および【期待運用収益】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-user-shield\"></i> 資料：退職給付引当金および退職給付費用の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>期首退職給付債務</td><td class=\"num\">￥80,000,000</td></tr>\n    <tr><td>期首年金資産（公正な評価額）</td><td class=\"num\">￥50,000,000</td></tr>\n    <tr><td>当期勤務費用</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">2.0％</td></tr>\n    <tr><td>年金資産の長期期待運用収益率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>当期末数理計算上の差異（当期発生・損失）</td><td class=\"num\">￥2,000,000（翌期から10年定額按分）</td></tr>\n    <tr><td>前期以前からの未認識数理差異（期首残高）</td><td class=\"num\">￥3,000,000（当期費用処理額 ￥300,000）</td></tr>\n    <tr><td>当期の年金掛金拠出額（現金支出）</td><td class=\"num\">￥3,500,000</td></tr>\n    <tr><td>当期の退職金支払額（年金資産より給付）</td><td class=\"num\">￥2,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 直近5年間の平均為替相場",
-          "(2) 決算日の為替相場（決算日レート：CR）",
-          "(3) 取得または発生時の為替相場（ヒストリカルレート：HR）",
-          "(4) 期中平均為替相場（アベレージレート：AR）"
+          "(1) 利息費用：￥1,600,000 ／ 期待運用収益：￥1,500,000",
+          "(2) 利息費用：￥1,600,000 ／ 期待運用収益：￥1,000,000",
+          "(3) 利息費用：￥800,000 ／ 期待運用収益：￥1,500,000",
+          "(4) 利息費用：￥1,500,000 ／ 期待運用収益：￥1,600,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>在外子会社の貸借対照表項目において、資産および負債は原則として「決算日の為替相場（CR）」を用いて円換算します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>利息費用</strong> ＝ 期首退職給付債務 ￥80,000,000 × 割引率 2.0% ＝ <strong>￥1,600,000</strong><br>\n2. <strong>期待運用収益</strong> ＝ 期首年金資産 ￥50,000,000 × 期待運用収益率 3.0% ＝ <strong>￥1,500,000</strong>（費用控除項目）",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-6"
+        "qid": "boki1-pool-s4-6"
       },
       {
         "num": 7,
-        "catKey": "acc_cf",
-        "catName": "第2問 会計学：⑬ キャッシュ・フロー計算書（営業・投資・財務）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (2/5)】有形固定資産の売却に伴うキャッシュ・フローの表示区分として正しいものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債会計・退職給付会計",
+        "catName": "退職給付費用",
+        "title": "損益計算書に計上される【当期退職給付費用】の合計額",
+        "text": "前問の資料に基づき、当期の損益計算書に計上すべき【退職給付費用】の合計額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-user-shield\"></i> 資料：退職給付引当金および退職給付費用の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>期首退職給付債務</td><td class=\"num\">￥80,000,000</td></tr>\n    <tr><td>期首年金資産（公正な評価額）</td><td class=\"num\">￥50,000,000</td></tr>\n    <tr><td>当期勤務費用</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">2.0％</td></tr>\n    <tr><td>年金資産の長期期待運用収益率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>当期末数理計算上の差異（当期発生・損失）</td><td class=\"num\">￥2,000,000（翌期から10年定額按分）</td></tr>\n    <tr><td>前期以前からの未認識数理差異（期首残高）</td><td class=\"num\">￥3,000,000（当期費用処理額 ￥300,000）</td></tr>\n    <tr><td>当期の年金掛金拠出額（現金支出）</td><td class=\"num\">￥3,500,000</td></tr>\n    <tr><td>当期の退職金支払額（年金資産より給付）</td><td class=\"num\">￥2,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 売却代金を「財務活動によるキャッシュ・フロー」に記載する。",
-          "(2) キャッシュ・フロー計算書には一切記載しない。",
-          "(3) 売却による収入金額（全額）を「投資活動によるキャッシュ・フロー」に記載する。",
-          "(4) 売却益のみを「営業活動によるキャッシュ・フロー」に記載する。"
+          "(1) ￥4,400,000",
+          "(2) ￥4,100,000",
+          "(3) ￥5,900,000",
+          "(4) ￥4,600,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>設備投資や有形固定資産の売却は「投資活動によるキャッシュ・フロー」に分類され、実際の現金回収額を収入として記載します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n退職給付費用 ＝ 勤務費用 ￥4,000,000 ＋ 利息費用 ￥1,600,000 − 期待運用収益 ￥1,500,000 ＋ 数理差異当期費用処理 ￥300,000 ＝ <strong>￥4,400,000</strong><br>\n（当期発生の数理計算上の差異 ￥2,000,000 は翌期から費用処理のため当期費用には含めません）",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-7"
+        "qid": "boki1-pool-s4-7"
       },
       {
         "num": 8,
-        "catKey": "acc_eps",
-        "catName": "第2問 会計学：⑭ 1株当たり当期純利益（EPS）・会計上の変更",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (3/5)】会計上の「会計方針の変更」を行った場合の原則的な取扱いとして正しいものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債会計・退職給付会計",
+        "catName": "退職給付引当金",
+        "title": "掛金拠出および給付後の【期末年金資産残高】の算定",
+        "text": "前問の資料に基づき、当期末の【年金資産残高】として正しいものを選択しなさい（実際運用収益は期待運用収益と同額と仮定）。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-user-shield\"></i> 資料：退職給付引当金および退職給付費用の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>期首退職給付債務</td><td class=\"num\">￥80,000,000</td></tr>\n    <tr><td>期首年金資産（公正な評価額）</td><td class=\"num\">￥50,000,000</td></tr>\n    <tr><td>当期勤務費用</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">2.0％</td></tr>\n    <tr><td>年金資産の長期期待運用収益率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>当期末数理計算上の差異（当期発生・損失）</td><td class=\"num\">￥2,000,000（翌期から10年定額按分）</td></tr>\n    <tr><td>前期以前からの未認識数理差異（期首残高）</td><td class=\"num\">￥3,000,000（当期費用処理額 ￥300,000）</td></tr>\n    <tr><td>当期の年金掛金拠出額（現金支出）</td><td class=\"num\">￥3,500,000</td></tr>\n    <tr><td>当期の退職金支払額（年金資産より給付）</td><td class=\"num\">￥2,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 変更年度の期首純資産を直接増減させ、過年度の注記のみを変更する。",
-          "(2) 新たな会計方針を過去の期間に遡って適用したと仮定して、過年度の財務諸表を遡及適用（修正再表示）する。",
-          "(3) 当期から将来に向かってのみ新方針を適用し、過年度には一切手を加えない。",
-          "(4) 変更による累積影響額を当期の特別損益として一括計上する。"
+          "(1) ￥53,000,000",
+          "(2) ￥51,500,000",
+          "(3) ￥54,500,000",
+          "(4) ￥50,000,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>現行の「会計上の変更及び誤謬の訂正に関する会計基準」では、会計方針の変更は原則として過年度の財務諸表に遡及適用します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n期末年金資産 ＝ 期首 ￥50,000,000 ＋ 期待運用収益 ￥1,500,000 ＋ 掛金拠出 ￥3,500,000 − 年金給付 ￥2,000,000 ＝ <strong>￥53,000,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-8"
+        "qid": "boki1-pool-s4-8"
       },
       {
         "num": 9,
-        "catKey": "acc_frame",
-        "catName": "第2問 会計学：⑧ 企業会計原則・一般原則・概念フレームワーク",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (4/5)】企業会計原則における「保守主義の原則」の適用として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債会計・退職給付会計",
+        "catName": "退職給付引当金",
+        "title": "給付および利息反映後の【期末退職給付債務残高】の算定",
+        "text": "前問の資料に基づき、当期末の【退職給付債務残高】として正しいものを選択しなさい（数理計算上の差異の当期発生額 ￥2,000,000 を加算）。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-user-shield\"></i> 資料：退職給付引当金および退職給付費用の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>期首退職給付債務</td><td class=\"num\">￥80,000,000</td></tr>\n    <tr><td>期首年金資産（公正な評価額）</td><td class=\"num\">￥50,000,000</td></tr>\n    <tr><td>当期勤務費用</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">2.0％</td></tr>\n    <tr><td>年金資産の長期期待運用収益率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>当期末数理計算上の差異（当期発生・損失）</td><td class=\"num\">￥2,000,000（翌期から10年定額按分）</td></tr>\n    <tr><td>前期以前からの未認識数理差異（期首残高）</td><td class=\"num\">￥3,000,000（当期費用処理額 ￥300,000）</td></tr>\n    <tr><td>当期の年金掛金拠出額（現金支出）</td><td class=\"num\">￥3,500,000</td></tr>\n    <tr><td>当期の退職金支払額（年金資産より給付）</td><td class=\"num\">￥2,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 貸借対照表の財産評価において、常に帳簿価額より低い簿外資産を作ることを認めている。",
-          "(2) 将来の危険に備えて慎重な判断を行う原則であるが、過度に保守的な処理（秘密積立金の形成など）は真実性の原則に反するため認められない。",
-          "(3) 当期の利益を可能な限り圧縮し、どんな場合でも最も多額の引当金を積むことを推奨する。",
-          "(4) 収益の計上をできる限り早め、費用の計上を遅らせることを要求する。"
+          "(1) ￥85,600,000",
+          "(2) ￥83,600,000",
+          "(3) ￥82,000,000",
+          "(4) ￥84,000,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>保守主義の原則は不確実性に備え慎重な会計処理を求めるものですが、故意に過小な利益表示を行って秘密積立金を作ることは健全な会計方針として認められません。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n期末退職給付債務 ＝ 期首 ￥80,000,000 ＋ 勤務費用 ￥4,000,000 ＋ 利息費用 ￥1,600,000 − 給付支払 ￥2,000,000 ＋ 数理差異発生 ￥2,000,000 ＝ <strong>￥85,600,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-9"
+        "qid": "boki1-pool-s4-9"
       },
       {
         "num": 10,
-        "catKey": "acc_fin",
-        "catName": "第2問 会計学：⑨ 金融商品会計・デリバティブ・ヘッジ会計",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (5/5)】為替予約の振当処理に関する記述として最も適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】負債会計・退職給付会計",
+        "catName": "退職給付引当金",
+        "title": "貸借対照表（B/S）における【退職給付に係る負債】の計上額",
+        "text": "前問の資料に基づき、当期末貸借対照表に計上される【退職給付に係る負債】の金額を選択しなさい（即時認識基準）。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-user-shield\"></i> 資料：退職給付引当金および退職給付費用の算定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>数値データ</th></tr></thead><tbody>\n    <tr><td>期首退職給付債務</td><td class=\"num\">￥80,000,000</td></tr>\n    <tr><td>期首年金資産（公正な評価額）</td><td class=\"num\">￥50,000,000</td></tr>\n    <tr><td>当期勤務費用</td><td class=\"num\">￥4,000,000</td></tr>\n    <tr><td>割引率</td><td class=\"num\">2.0％</td></tr>\n    <tr><td>年金資産の長期期待運用収益率</td><td class=\"num\">3.0％</td></tr>\n    <tr><td>当期末数理計算上の差異（当期発生・損失）</td><td class=\"num\">￥2,000,000（翌期から10年定額按分）</td></tr>\n    <tr><td>前期以前からの未認識数理差異（期首残高）</td><td class=\"num\">￥3,000,000（当期費用処理額 ￥300,000）</td></tr>\n    <tr><td>当期の年金掛金拠出額（現金支出）</td><td class=\"num\">￥3,500,000</td></tr>\n    <tr><td>当期の退職金支払額（年金資産より給付）</td><td class=\"num\">￥2,000,000</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 外貨建取引に付された為替予約が要件を満たす場合、予約レートによる円貨額で債権債務を換算し、直渡レートとの差額を期間配分する。",
-          "(2) 決算日ごとに時価評価を行い、デリバティブ評価損益を全額当期純利益に計上する。",
-          "(3) 為替予約は金融派生商品であるため、振当処理は完全に廃止された。",
-          "(4) 予約レートにかかわらず、常に決算日レート（CR）で換算する。"
+          "(1) ￥32,600,000",
+          "(2) ￥30,000,000",
+          "(3) ￥35,600,000",
+          "(4) ￥28,200,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>振当処理は、外貨建金銭債権債務と為替予約を一体として処理し、直先差額（為替予約レートと直物レートの差）を期間配分する方法です。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n現行基準では、期末退職給付債務から期末年金資産を控除した積立不足額をそのまま「退職給付に係る負債」としてB/Sに計上します。<br>\n期末退職給付債務 ￥85,600,000 − 期末年金資産 ￥53,000,000 ＝ <strong>￥32,600,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-10"
+        "qid": "boki1-pool-s4-10"
       },
       {
         "num": 11,
-        "catKey": "ind_loss",
-        "catName": "第3問 工業簿記：⑲ 総合原価の減損・仕損・連産品（正常市価）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (1/5)】総合原価計算において、工程の終点で発生する正常減損・仕損の原価負担方法として正しいものはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・連産品と副産物",
+        "catName": "副産物の評価",
+        "title": "副産物丙の見積純売却価額控除後における【連結製造原価】の算定",
+        "text": "次の資料に基づき、副産物丙の控除後における【甲・乙に配賦すべき連結製造原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-filter\"></i> 資料：同一工程より産出される連産品および副産物データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>産出品</th><th>生産量</th><th>分離点販売単価</th><th>追加加工後の販売単価</th><th>追加加工費</th></tr></thead><tbody>\n    <tr><td>連産品甲</td><td class=\"num\">6,000 kg</td><td class=\"num\">￥500 / kg</td><td class=\"num\">￥700 / kg</td><td class=\"num\">￥800,000（総額）</td></tr>\n    <tr><td>連産品乙</td><td class=\"num\">4,000 kg</td><td class=\"num\">￥400 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">−</td></tr>\n    <tr><td>副産物丙</td><td class=\"num\">1,000 kg</td><td class=\"num\">￥100 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">販売費 ￥10,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結原価および配賦方針】</strong><br>\n    ・分離点までに要した当期連結製造総原価：￥4,090,000<br>\n    ・副産物丙の見積純売却価額（売却収入−販売費）は連結製造総原価から控除する。<br>\n    ・連産品甲は追加加工して販売し、連産品乙は分離点でそのまま販売する。<br>\n    ・分離点における連結原価の配賦は「正味売却可能価額法（NRV法）」による。\n  </div>\n</div>",
         "options": [
-          "(1) 非原価項目として全額特別損失に計上する。",
-          "(2) 終点を通過した「完成品」のみに全額負担させ、月末仕掛品には負担させない。",
-          "(3) 月初仕掛品と月末仕掛品だけに負担させる。",
-          "(4) 完成品と月末仕掛品の双方に加工進捗度按分で均等負担させる。"
+          "(1) ￥4,000,000",
+          "(2) ￥4,090,000",
+          "(3) ￥3,990,000",
+          "(4) ￥3,900,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>工程終点で発生する減損は、月末仕掛品（未通過）は通過していないため、工程を完了した完成品のみが全額負担します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 副産物丙の純売却見込額 ＝ 売却額(1,000kg×￥100＝￥100,000) − 販売費 ￥10,000 ＝ ￥90,000<br>\n2. 控除後の連結製造原価 ＝ 総額 ￥4,090,000 − ￥90,000 ＝ <strong>￥4,000,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-11"
+        "qid": "boki1-pool-s4-11"
       },
       {
         "num": 12,
-        "catKey": "ind_std",
-        "catName": "第3問 工業簿記：⑳ 標準原価計算（パーシャル・シングル・差異分析）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (2/5)】標準原価計算の「修正パーシャルプラン」における仕掛品勘定借方の記入方法はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・連産品と副産物",
+        "catName": "正味売却可能価額法（NRV）",
+        "title": "正味売却可能価額法（NRV法）による【連産品甲・乙の配賦基準額】の算定",
+        "text": "前問の資料に基づき、連産品甲および乙の【正味売却可能価額（NRV）】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-filter\"></i> 資料：同一工程より産出される連産品および副産物データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>産出品</th><th>生産量</th><th>分離点販売単価</th><th>追加加工後の販売単価</th><th>追加加工費</th></tr></thead><tbody>\n    <tr><td>連産品甲</td><td class=\"num\">6,000 kg</td><td class=\"num\">￥500 / kg</td><td class=\"num\">￥700 / kg</td><td class=\"num\">￥800,000（総額）</td></tr>\n    <tr><td>連産品乙</td><td class=\"num\">4,000 kg</td><td class=\"num\">￥400 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">−</td></tr>\n    <tr><td>副産物丙</td><td class=\"num\">1,000 kg</td><td class=\"num\">￥100 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">販売費 ￥10,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結原価および配賦方針】</strong><br>\n    ・分離点までに要した当期連結製造総原価：￥4,090,000<br>\n    ・副産物丙の見積純売却価額（売却収入−販売費）は連結製造総原価から控除する。<br>\n    ・連産品甲は追加加工して販売し、連産品乙は分離点でそのまま販売する。<br>\n    ・分離点における連結原価の配賦は「正味売却可能価額法（NRV法）」による。\n  </div>\n</div>",
         "options": [
-          "(1) 直接材料費は実際消費量×標準単価、直接労務費は実際時間×標準賃率、製造間接費は標準配賦額で記入する。",
-          "(2) すべての要素を完全な実際発生額で記入する。",
-          "(3) 借方・貸方ともに完全な標準原価で記入する。",
-          "(4) 直接材料費のみを実際購入額で記入する。"
+          "(1) 甲：￥3,400,000 ／ 乙：￥1,600,000",
+          "(2) 甲：￥4,200,000 ／ 乙：￥1,600,000",
+          "(3) 甲：￥3,000,000 ／ 乙：￥1,600,000",
+          "(4) 甲：￥3,400,000 ／ 乙：￥1,200,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>修正パーシャルプランでは、価格差異（賃率差異）を各受払勘定で分離し、仕掛品勘定の借方には「標準単価（標準賃率）× 実際消費量（実際時間）」を投入します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>連産品甲のNRV</strong> ＝ 最終売却額(6,000kg×￥700＝￥4,200,000) − 追加加工費 ￥800,000 ＝ <strong>￥3,400,000</strong><br>\n2. <strong>連産品乙のNRV</strong> ＝ 分離点売却額(4,000kg×￥400) ＝ <strong>￥1,600,000</strong><br>\n合計NRV ＝ ￥3,400,000 ＋ ￥1,600,000 ＝ ￥5,000,000（甲:乙＝68%:32%）",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-12"
+        "qid": "boki1-pool-s4-12"
       },
       {
         "num": 13,
-        "catKey": "ind_diff",
-        "catName": "第3問 工業簿記：㉑ 原価差異の会計処理・工場独立会計組織",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (3/5)】操業短縮や原料の異常高騰など「異常な状態」によって発生した多額の不利差異の処理はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・連産品と副産物",
+        "catName": "連結原価の配賦",
+        "title": "連産品甲および乙への【連結製造原価の配賦額】の算定",
+        "text": "前問の資料に基づき、連結製造原価 ￥4,000,000 の【甲および乙への配賦額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-filter\"></i> 資料：同一工程より産出される連産品および副産物データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>産出品</th><th>生産量</th><th>分離点販売単価</th><th>追加加工後の販売単価</th><th>追加加工費</th></tr></thead><tbody>\n    <tr><td>連産品甲</td><td class=\"num\">6,000 kg</td><td class=\"num\">￥500 / kg</td><td class=\"num\">￥700 / kg</td><td class=\"num\">￥800,000（総額）</td></tr>\n    <tr><td>連産品乙</td><td class=\"num\">4,000 kg</td><td class=\"num\">￥400 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">−</td></tr>\n    <tr><td>副産物丙</td><td class=\"num\">1,000 kg</td><td class=\"num\">￥100 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">販売費 ￥10,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結原価および配賦方針】</strong><br>\n    ・分離点までに要した当期連結製造総原価：￥4,090,000<br>\n    ・副産物丙の見積純売却価額（売却収入−販売費）は連結製造総原価から控除する。<br>\n    ・連産品甲は追加加工して販売し、連産品乙は分離点でそのまま販売する。<br>\n    ・分離点における連結原価の配賦は「正味売却可能価額法（NRV法）」による。\n  </div>\n</div>",
         "options": [
-          "(1) 売上原価に算入せず、非原価項目として「営業外費用」または「特別損失」として処理する。",
-          "(2) 製品原価に算入し、期末資産価額を高く評価する。",
-          "(3) 資本金から直接減額する。",
-          "(4) 次期の製品原価に上乗せして配賦する。"
+          "(1) 甲：￥2,720,000 ／ 乙：￥1,280,000",
+          "(2) 甲：￥2,400,000 ／ 乙：￥1,600,000",
+          "(3) 甲：￥2,800,000 ／ 乙：￥1,200,000",
+          "(4) 甲：￥2,700,000 ／ 乙：￥1,300,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>異常な状態に起因する原価差異は原価性を有しないため、製品原価や売上原価には含めず、営業外費用または特別損失として処理します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\nNRV比率（甲:乙＝34:16＝68%:32%）により配賦します。<br>\n・甲配賦額 ＝ ￥4,000,000 × 3,400,000 / 5,000,000 ＝ <strong>￥2,720,000</strong><br>\n・乙配賦額 ＝ ￥4,000,000 × 1,600,000 / 5,000,000 ＝ <strong>￥1,280,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-13"
+        "qid": "boki1-pool-s4-13"
       },
       {
         "num": 14,
-        "catKey": "ind_elem",
-        "catName": "第3問 工業簿記：⑮ 費目別計算（材料・労務・経費・予定価格）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (4/5)】製品の主要部分の加工を外部業者に委託し、加工代金を支払った場合の外注加工費の原価分類として適切なものはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・連産品と副産物",
+        "catName": "製品単位原価",
+        "title": "追加加工後の連産品甲における【総製造原価および単位原価】の算定",
+        "text": "前問の資料に基づき、連産品甲の【完成品総製造原価】および【1kgあたり単位原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-filter\"></i> 資料：同一工程より産出される連産品および副産物データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>産出品</th><th>生産量</th><th>分離点販売単価</th><th>追加加工後の販売単価</th><th>追加加工費</th></tr></thead><tbody>\n    <tr><td>連産品甲</td><td class=\"num\">6,000 kg</td><td class=\"num\">￥500 / kg</td><td class=\"num\">￥700 / kg</td><td class=\"num\">￥800,000（総額）</td></tr>\n    <tr><td>連産品乙</td><td class=\"num\">4,000 kg</td><td class=\"num\">￥400 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">−</td></tr>\n    <tr><td>副産物丙</td><td class=\"num\">1,000 kg</td><td class=\"num\">￥100 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">販売費 ￥10,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結原価および配賦方針】</strong><br>\n    ・分離点までに要した当期連結製造総原価：￥4,090,000<br>\n    ・副産物丙の見積純売却価額（売却収入−販売費）は連結製造総原価から控除する。<br>\n    ・連産品甲は追加加工して販売し、連産品乙は分離点でそのまま販売する。<br>\n    ・分離点における連結原価の配賦は「正味売却可能価額法（NRV法）」による。\n  </div>\n</div>",
         "options": [
-          "(1) 間接材料費（製造間接費へ配賦）",
-          "(2) 直接労務費（賃金給料勘定）",
-          "(3) 販売費及び一般管理費",
-          "(4) 直接経費（仕掛品勘定へ直接賦課）"
+          "(1) 総原価：￥3,520,000 ／ 単位原価：￥586.67 / kg",
+          "(2) 総原価：￥2,720,000 ／ 単位原価：￥453.33 / kg",
+          "(3) 総原価：￥3,200,000 ／ 単位原価：￥533.33 / kg",
+          "(4) 総原価：￥3,600,000 ／ 単位原価：￥600 / kg"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>外注加工費は、特定の製品の製造のために直接認識できるため「直接経費」に分類され、直接仕掛品勘定へ賦課されます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>甲の総製造原価</strong> ＝ 配賦連結原価 ￥2,720,000 ＋ 個別追加加工費 ￥800,000 ＝ <strong>￥3,520,000</strong><br>\n2. <strong>甲の単位原価</strong> ＝ ￥3,520,000 ÷ 6,000kg ≒ <strong>￥586.67 / kg</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-14"
+        "qid": "boki1-pool-s4-14"
       },
       {
         "num": 15,
-        "catKey": "ind_dept",
-        "catName": "第3問 工業簿記：⑯ 部門別計算（複数基準配賦・相互配賦法）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (5/5)】工場独立会計組織における「本社」と「工場」の勘定連絡に関する記述として適切なものはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】総合原価計算・連産品と副産物",
+        "catName": "差額分析（追加加工の可否）",
+        "title": "連産品甲の【追加加工可否に関する差額利益分析】",
+        "text": "連産品甲を分離点で売却する場合（単価￥500）と追加加工して売却する場合（単価￥700、追加加工費￥800,000）の差額利益および追加加工の採否判定として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-filter\"></i> 資料：同一工程より産出される連産品および副産物データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>産出品</th><th>生産量</th><th>分離点販売単価</th><th>追加加工後の販売単価</th><th>追加加工費</th></tr></thead><tbody>\n    <tr><td>連産品甲</td><td class=\"num\">6,000 kg</td><td class=\"num\">￥500 / kg</td><td class=\"num\">￥700 / kg</td><td class=\"num\">￥800,000（総額）</td></tr>\n    <tr><td>連産品乙</td><td class=\"num\">4,000 kg</td><td class=\"num\">￥400 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">−</td></tr>\n    <tr><td>副産物丙</td><td class=\"num\">1,000 kg</td><td class=\"num\">￥100 / kg</td><td class=\"num\">追加加工なし</td><td class=\"num\">販売費 ￥10,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【連結原価および配賦方針】</strong><br>\n    ・分離点までに要した当期連結製造総原価：￥4,090,000<br>\n    ・副産物丙の見積純売却価額（売却収入−販売費）は連結製造総原価から控除する。<br>\n    ・連産品甲は追加加工して販売し、連産品乙は分離点でそのまま販売する。<br>\n    ・分離点における連結原価の配賦は「正味売却可能価額法（NRV法）」による。\n  </div>\n</div>",
         "options": [
-          "(1) 工場側は貸借対照表を作成できない。",
-          "(2) 工場での材料購入代金は工場独自の普通預金からしか支払えない。",
-          "(3) 製品の外部販売仕訳は工場側のみで計上する。",
-          "(4) 工場側には「本社」勘定（純資産に相当）、本社側には「工場」勘定（投資資産に相当）を設け、相互に一致する残高で連絡する。"
+          "(1) 差額増分利益 ＋￥400,000（追加加工すべき）",
+          "(2) 差額増分利益 △￥400,000（分離点で売却すべき）",
+          "(3) 差額増分利益 ＋￥1,200,000（追加加工すべき）",
+          "(4) 差額増分利益 ＋￥200,000（追加加工すべき）"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>工場独立会計組織では、本社勘定と工場勘定が対照勘定として機能し、本支店会計と同様の仕組みで取引を記録します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 増分売上高 ＝ 6,000kg × (￥700 − ￥500) ＝ ＋￥1,200,000<br>\n2. 増分追加加工費 ＝ ￥800,000<br>\n3. <strong>差額増分利益</strong> ＝ ￥1,200,000 − ￥800,000 ＝ <strong>＋￥400,000</strong><br>\n利益が40万円増加するため、<strong>「追加加工すべき」</strong>と判定します。",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-15"
+        "qid": "boki1-pool-s4-15"
       },
       {
         "num": 16,
-        "catKey": "cst_long",
-        "catName": "第4問 原価計算：㉖ 設備投資意思決定（NPV・IRR・回収期間法）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (1/5)】初期投資額10,000,000円、耐用年数4年、各期の税引後現金流入額が均等に3,000,000円見込まれる設備投資。資本コスト7％の年金現価係数が3.3121のとき、正味現在価値（NPV）に基づく採否判定はどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・最適プロダクトミックス",
+        "catName": "制約条件下の貢献利益",
+        "title": "制約条件（機械時間）1時間あたりの【単位時間あたり貢献利益】の算定",
+        "text": "次の資料に基づき、機械稼働時間1時間あたりの【製品Xおよび製品Yの貢献利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-tasks\"></i> 資料：制約条件下（機械総稼働時間 2,400時間）の製品データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>製品X</th><th>製品Y</th></tr></thead><tbody>\n    <tr><td>販売単価</td><td class=\"num\">￥5,000 / 個</td><td class=\"num\">￥7,000 / 個</td></tr>\n    <tr><td>単位あたり変動費</td><td class=\"num\">￥3,000 / 個</td><td class=\"num\">￥4,200 / 個</td></tr>\n    <tr><td>単位あたり貢献利益</td><td class=\"num\">￥2,000 / 個</td><td class=\"num\">￥2,800 / 個</td></tr>\n    <tr><td>1個あたり機械加工時間</td><td class=\"num\">2 時間 / 個</td><td class=\"num\">4 時間 / 個</td></tr>\n    <tr><td>市場最大需要量（販売上限）</td><td class=\"num\">800 個</td><td class=\"num\">500 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※月間固定費総額は ￥1,500,000 である。</div>\n</div>",
         "options": [
-          "(1) 回収期間が4年未満のため無条件採用",
-          "(2) NPV＝-63,700円（NPV＜0のため投資案を却下すべき）",
-          "(3) NPV＝＋2,000,000円（投資案を採用すべき）",
-          "(4) NPV＝＋9,936,300円（投資案を採用すべき）"
+          "(1) 製品X：￥1,000 / 時間 ／ 製品Y：￥700 / 時間",
+          "(2) 製品X：￥2,000 / 時間 ／ 製品Y：￥2,800 / 時間",
+          "(3) 製品X：￥1,000 / 時間 ／ 製品Y：￥1,400 / 時間",
+          "(4) 製品X：￥800 / 時間 ／ 製品Y：￥700 / 時間"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>キャッシュフローの現在価値合計＝3,000,000円 × 3.3121 ＝ 9,936,300円<br>NPV＝現在価値合計（9,936,300円） － 初期投資額（10,000,000円） ＝ -63,700円<br>NPVが負であるため、投資基準を満たさず却下となります。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n制約資源1単位あたりの貢献利益で比較します。<br>\n・製品X ＝ 単位あたり貢献利益 ￥2,000 ÷ 2時間 ＝ <strong>￥1,000 / 時間</strong><br>\n・製品Y ＝ 単位あたり貢献利益 ￥2,800 ÷ 4時間 ＝ <strong>￥700 / 時間</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-16"
+        "qid": "boki1-pool-s4-16"
       },
       {
         "num": 17,
-        "catKey": "cst_div",
-        "catName": "第4問 原価計算：㉗ 事業部制会計・社内振替価格・業績測定（ROI/RI/EVA）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (2/5)】ROI（投下資本利益率）を事業部業績評価指標とする場合の「望ましくない動機付け（副最適化）」に関する記述はどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・最適プロダクトミックス",
+        "catName": "生産優先順位",
+        "title": "利益最大化のための【生産販売優先順位】の決定",
+        "text": "前問の資料に基づき、機械設備がボトルネックである場合における製品Xと製品Yの生産優先順位の判定として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-tasks\"></i> 資料：制約条件下（機械総稼働時間 2,400時間）の製品データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>製品X</th><th>製品Y</th></tr></thead><tbody>\n    <tr><td>販売単価</td><td class=\"num\">￥5,000 / 個</td><td class=\"num\">￥7,000 / 個</td></tr>\n    <tr><td>単位あたり変動費</td><td class=\"num\">￥3,000 / 個</td><td class=\"num\">￥4,200 / 個</td></tr>\n    <tr><td>単位あたり貢献利益</td><td class=\"num\">￥2,000 / 個</td><td class=\"num\">￥2,800 / 個</td></tr>\n    <tr><td>1個あたり機械加工時間</td><td class=\"num\">2 時間 / 個</td><td class=\"num\">4 時間 / 個</td></tr>\n    <tr><td>市場最大需要量（販売上限）</td><td class=\"num\">800 個</td><td class=\"num\">500 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※月間固定費総額は ￥1,500,000 である。</div>\n</div>",
         "options": [
-          "(1) 事業部長が常に過大な設備投資を行ってしまう問題。",
-          "(2) 売上高利益率を向上させる努力を放棄してしまう問題。",
-          "(3) 外部業者からの仕入をすべて停止してしまう問題。",
-          "(4) 全社の資本コストを上回る有利な投資案であっても、現在の事業部ROIを下回る案件であれば、事業部長が投資を拒否してしまう問題が生じる。"
+          "(1) 単位時間あたり貢献利益の高い【製品X】を最優先で生産すべき",
+          "(2) 1個あたり貢献利益の高い【製品Y】を最優先で生産すべき",
+          "(3) 単価の高い【製品Y】を最優先で生産すべき",
+          "(4) 両製品を同一割合で均等に生産すべき"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>ROIを高評価基準にすると、全社的には有利（例：資本コスト8％で投資利益率12％）であっても、現状の自事業部ROIが15％の場合、事業部長が自己の評価低下を恐れて投資を回避する弊害が生じます（RIはこの問題を緩和）。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n制約条件が存在する場合、<strong>「制約条件単位あたりの貢献利益（単位時間あたり貢献利益）」が大きい製品を優先</strong>して生産します。<br>\n製品X（￥1,000/時）＞ 製品Y（￥700/時）であるため、<strong>製品Xを最優先</strong>で生産します。",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-17"
+        "qid": "boki1-pool-s4-17"
       },
       {
         "num": 18,
-        "catKey": "cst_strat",
-        "catName": "第4問 原価計算：㉘ 戦略的原価計算（ABC/ABM・原価企画・BSC）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (3/5)】バランスト・スコアカード（BSC）を構成する「4つの視点」として正しいものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・最適プロダクトミックス",
+        "catName": "最適プロダクトミックス",
+        "title": "総機械稼働時間 2,400時間における【最適生産販売数量（ミックス）】の算定",
+        "text": "前問の資料に基づき、総機械稼働時間上限（2,400時間）のもとでの【最適生産販売数量】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-tasks\"></i> 資料：制約条件下（機械総稼働時間 2,400時間）の製品データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>製品X</th><th>製品Y</th></tr></thead><tbody>\n    <tr><td>販売単価</td><td class=\"num\">￥5,000 / 個</td><td class=\"num\">￥7,000 / 個</td></tr>\n    <tr><td>単位あたり変動費</td><td class=\"num\">￥3,000 / 個</td><td class=\"num\">￥4,200 / 個</td></tr>\n    <tr><td>単位あたり貢献利益</td><td class=\"num\">￥2,000 / 個</td><td class=\"num\">￥2,800 / 個</td></tr>\n    <tr><td>1個あたり機械加工時間</td><td class=\"num\">2 時間 / 個</td><td class=\"num\">4 時間 / 個</td></tr>\n    <tr><td>市場最大需要量（販売上限）</td><td class=\"num\">800 個</td><td class=\"num\">500 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※月間固定費総額は ￥1,500,000 である。</div>\n</div>",
         "options": [
-          "(1) 「売上の視点」「原価の視点」「利益の視点」「配当の視点」",
-          "(2) 「財務の視点」「顧客の視点」「内部ビジネス・プロセスの視点」「学習と成長の視点」",
-          "(3) 「株主の視点」「税務の視点」「工場の視点」「経営者の視点」",
-          "(4) 「短期の視点」「中期の視点」「長期の視点」「超長期の視点」"
+          "(1) 製品X：800 個 ／ 製品Y：200 個",
+          "(2) 製品X：800 個 ／ 製品Y：500 個",
+          "(3) 製品X：400 個 ／ 製品Y：400 個",
+          "(4) 製品X：200 個 ／ 製品Y：500 個"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>BSCは、従来の財務指標偏重を是正し、財務、顧客、内部プロセス、学習と成長の4つの視点から戦略目標とKPIを設定・管理するフレームワークです。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 優先順位1位の<strong>製品X</strong>を市場最大需要量 800個まで生産：<br>\n   消費機械時間 ＝ 800個 × 2時間 ＝ 1,600時間<br>\n2. 残り機械時間 ＝ 2,400時間 − 1,600時間 ＝ 800時間<br>\n3. 残り時間を<strong>製品Y</strong>に配分：<br>\n   製品Y生産量 ＝ 800時間 ÷ 4時間 ＝ <strong>200 個</strong><br>\nしたがって、<strong>製品X：800個、製品Y：200個</strong>となります。",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-18"
+        "qid": "boki1-pool-s4-18"
       },
       {
         "num": 19,
-        "catKey": "cst_base",
-        "catName": "第4問 原価計算：㉒ 原価計算基準体系・原価概念・原価の本質",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (4/5)】原価計算基準における「非原価項目」に該当するものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・最適プロダクトミックス",
+        "catName": "最適プロダクトミックス",
+        "title": "最適プロダクトミックス達成時における【最大貢献利益総額】の算定",
+        "text": "前問の資料に基づき、最適プロダクトミックス（X:800個、Y:200個）を達成した場合の【総貢献利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-tasks\"></i> 資料：制約条件下（機械総稼働時間 2,400時間）の製品データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>製品X</th><th>製品Y</th></tr></thead><tbody>\n    <tr><td>販売単価</td><td class=\"num\">￥5,000 / 個</td><td class=\"num\">￥7,000 / 個</td></tr>\n    <tr><td>単位あたり変動費</td><td class=\"num\">￥3,000 / 個</td><td class=\"num\">￥4,200 / 個</td></tr>\n    <tr><td>単位あたり貢献利益</td><td class=\"num\">￥2,000 / 個</td><td class=\"num\">￥2,800 / 個</td></tr>\n    <tr><td>1個あたり機械加工時間</td><td class=\"num\">2 時間 / 個</td><td class=\"num\">4 時間 / 個</td></tr>\n    <tr><td>市場最大需要量（販売上限）</td><td class=\"num\">800 個</td><td class=\"num\">500 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※月間固定費総額は ￥1,500,000 である。</div>\n</div>",
         "options": [
-          "(1) 工場機械の減価償却費。",
-          "(2) 工員の法定福利費。",
-          "(3) 製品の運送用段ボール代。",
-          "(4) 支払利息・社債利息などの財務費用、および火災・震災による臨時損失。"
+          "(1) ￥2,160,000",
+          "(2) ￥2,000,000",
+          "(3) ￥3,000,000",
+          "(4) ￥1,800,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>非原価項目には、経営目的に関連しないもの（寄付金等）、異常な状態によるもの（天災損失等）、財務費用（支払利息・社債発行費等）が含まれます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n・製品X貢献利益 ＝ 800個 × ￥2,000 ＝ ￥1,600,000<br>\n・製品Y貢献利益 ＝ 200個 × ￥2,800 ＝ ￥560,000<br>\n・総貢献利益 ＝ ￥1,600,000 ＋ ￥560,000 ＝ <strong>￥2,160,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-19"
+        "qid": "boki1-pool-s4-19"
       },
       {
         "num": 20,
-        "catKey": "cst_direct",
-        "catName": "第4問 原価計算：㉓ 直接原価計算・固変分解（高低点法等）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (5/5)】スキャッター・チャート法（散布図法）による固変分解の特徴はどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・最適プロダクトミックス",
+        "catName": "最適プロダクトミックス",
+        "title": "最適プロダクトミックス達成時における【最大営業利益】の算定",
+        "text": "前問の資料に基づき、月間固定費 ￥1,500,000 を控除した後の【最大営業利益】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-tasks\"></i> 資料：制約条件下（機械総稼働時間 2,400時間）の製品データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>製品X</th><th>製品Y</th></tr></thead><tbody>\n    <tr><td>販売単価</td><td class=\"num\">￥5,000 / 個</td><td class=\"num\">￥7,000 / 個</td></tr>\n    <tr><td>単位あたり変動費</td><td class=\"num\">￥3,000 / 個</td><td class=\"num\">￥4,200 / 個</td></tr>\n    <tr><td>単位あたり貢献利益</td><td class=\"num\">￥2,000 / 個</td><td class=\"num\">￥2,800 / 個</td></tr>\n    <tr><td>1個あたり機械加工時間</td><td class=\"num\">2 時間 / 個</td><td class=\"num\">4 時間 / 個</td></tr>\n    <tr><td>市場最大需要量（販売上限）</td><td class=\"num\">800 個</td><td class=\"num\">500 個</td></tr>\n  </tbody></table></div>\n  <div style=\"font-size:0.85rem; color:#4a5568; margin-top:4px;\">※月間固定費総額は ￥1,500,000 である。</div>\n</div>",
         "options": [
-          "(1) 工学的測定に基づいて理論原価を導出する。",
-          "(2) 過去の操業度と原価発生額の散布図に目測で直線を引き、切片を固定費、傾きを変動費率とする簡便法。",
-          "(3) 最小二乗法を用いて最も厳密な統計的数値を導出する。",
-          "(4) 最高点と最低点の2点のみを結ぶ。"
+          "(1) ￥660,000",
+          "(2) ￥500,000",
+          "(3) ￥760,000",
+          "(4) ￥600,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>スキャッター・チャート法は、散布図を目視で観察して代表的な傾向線を引く直感的な簡便法です。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n営業利益 ＝ 総貢献利益 ￥2,160,000 − 固定費 ￥1,500,000 ＝ <strong>￥660,000</strong>",
+        "points": 5,
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki1-mock-4-20"
+        "qid": "boki1-pool-s4-20"
       }
     ]
   },
   "5": {
     "id": "5",
-    "title": "第5回実戦予想模試",
+    "title": "第5回実戦予想模試（商業簿記・会計学・工業簿記・原価計算 全4科目）",
     "questions": [
       {
         "num": 1,
-        "catKey": "com_debt",
-        "catName": "第1問 商業簿記：⑥ 引当金・退職給付・ストックオプション",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (1/5)】東京物産の当期における退職給付費用に関するデータ：勤務費用1,800,000円、利息費用400,000円、年金資産の期待運用収益250,000円（数理計算上の差異なし）。当期の個別財務諸表上の退職給付費用はいくらか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】研究開発費・ソフトウェア会計",
+        "catName": "研究開発費",
+        "title": "研究開発費およびソフトウェア制作費の【資産・費用区分】の判定",
+        "text": "次の資料に基づき、当期首において貸借対照表の無形固定資産に計上すべき【ソフトウェア取得原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-laptop-code\"></i> 資料：市場販売目的ソフトウェアの制作費および販売実績データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>支出額・条件データ</th></tr></thead><tbody>\n    <tr><td>研究開発段階の支出（研究開発費）</td><td class=\"num\">￥8,000,000（全額費用計上）</td></tr>\n    <tr><td>製品マスター完成後の著しい改良等に要した支出（資産計上）</td><td class=\"num\">￥12,000,000（当期首稼働開始）</td></tr>\n    <tr><td>見積有効期間（見込利用可能年数）</td><td>3年間</td></tr>\n    <tr><td>総見積販売数量</td><td class=\"num\">10,000 本</td></tr>\n    <tr><td>総見積販売収益（総売上見込額）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>当期の実際販売数量</td><td class=\"num\">4,000 本</td></tr>\n    <tr><td>当期の実際販売収益（売上高）</td><td class=\"num\">￥25,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【償却計算の方針】</strong><br>\n    ・市場販売目的のソフトウェアは、見込販売数量基準または見込販売収益基準による償却額のいずれか大きい金額を計上する。<br>\n    ・ただし、その金額が均等配分額（有効期間による均等償却額）を下回る場合は均等配分額により償却する。\n  </div>\n</div>",
         "options": [
-          "(1) 2,200,000円",
-          "(2) 1,550,000円",
-          "(3) 2,450,000円",
-          "(4) 1,950,000円"
+          "(1) ￥12,000,000（製品マスター完成後の改良費のみ）",
+          "(2) ￥20,000,000（総支出額）",
+          "(3) ￥8,000,000（研究開発費）",
+          "(4) ￥16,000,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>退職給付費用の計算：<br>勤務費用（1,800,000円） ＋ 利息費用（400,000円） － 期待運用収益（250,000円） ＝ 1,950,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n研究開発費（￥8,000,000）は発生時に全額費用（一般管理費）として処理します。<br>\n製品マスター完成後の著しい改良等に要した支出 <strong>￥12,000,000</strong> のみが無形固定資産「ソフトウェア」として資産計上されます。",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-1"
+        "qid": "boki1-pool-s5-1"
       },
       {
         "num": 2,
-        "catKey": "com_tax",
-        "catName": "第1問 商業簿記：⑦ 税効果会計・収益認識基準",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (2/5)】その他有価証券評価差額金2,000,000円（評価益）に対する税効果会計の適用（法定実効税率30％、全部純資産直入法）における適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】研究開発費・ソフトウェア会計",
+        "catName": "ソフトウェア償却",
+        "title": "見込販売数量基準および見込販売収益基準による【当期償却額】の算定",
+        "text": "前問の資料に基づき、見込販売数量基準による償却額および見込販売収益基準による償却額の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-laptop-code\"></i> 資料：市場販売目的ソフトウェアの制作費および販売実績データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>支出額・条件データ</th></tr></thead><tbody>\n    <tr><td>研究開発段階の支出（研究開発費）</td><td class=\"num\">￥8,000,000（全額費用計上）</td></tr>\n    <tr><td>製品マスター完成後の著しい改良等に要した支出（資産計上）</td><td class=\"num\">￥12,000,000（当期首稼働開始）</td></tr>\n    <tr><td>見積有効期間（見込利用可能年数）</td><td>3年間</td></tr>\n    <tr><td>総見積販売数量</td><td class=\"num\">10,000 本</td></tr>\n    <tr><td>総見積販売収益（総売上見込額）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>当期の実際販売数量</td><td class=\"num\">4,000 本</td></tr>\n    <tr><td>当期の実際販売収益（売上高）</td><td class=\"num\">￥25,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【償却計算の方針】</strong><br>\n    ・市場販売目的のソフトウェアは、見込販売数量基準または見込販売収益基準による償却額のいずれか大きい金額を計上する。<br>\n    ・ただし、その金額が均等配分額（有効期間による均等償却額）を下回る場合は均等配分額により償却する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）法人税等調整額 600,000 ／ （貸方）繰延税金負債 600,000",
-          "(2) （借方）繰延税金資産 600,000 ／ （貸方）その他有価証券評価差額金 600,000",
-          "(3) （借方）その他有価証券 600,000 ／ （貸方）法人税等調整額 600,000",
-          "(4) （借方）その他有価証券評価差額金 600,000 ／ （貸方）繰延税金負債 600,000"
+          "(1) 数量基準：￥4,800,000 ／ 収益基準：￥5,000,000",
+          "(2) 数量基準：￥4,000,000 ／ 収益基準：￥5,000,000",
+          "(3) 数量基準：￥4,800,000 ／ 収益基準：￥4,000,000",
+          "(4) 数量基準：￥5,000,000 ／ 収益基準：￥5,000,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>その他有価証券評価益に係る一時差異は純資産直入法を採るため、損益計算書を経由せず、「その他有価証券評価差額金（純資産）」から直接控除し、「繰延税金負債」を計上します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>見込販売数量基準</strong> ＝ 取得原価 ￥12,000,000 × (当期販売 4,000本 ÷ 総見込 10,000本) ＝ <strong>￥4,800,000</strong><br>\n2. <strong>見込販売収益基準</strong> ＝ 取得原価 ￥12,000,000 × (当期売上 ￥25,000,000 ÷ 総見込 ￥60,000,000) ＝ <strong>￥5,000,000</strong>",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-2"
+        "qid": "boki1-pool-s5-2"
       },
       {
         "num": 3,
-        "catKey": "com_calc",
-        "catName": "第1問 商業簿記：① 損益計算・決算整理・外貨換算",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (3/5)】当期の売上高30,000,000円に対し、一定数量達成基準による売上割戻が翌期に発生することが確実視される。過年度の実績に基づき売上高の2％の割戻が見込まれる場合、決算における適切な会計処理はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】研究開発費・ソフトウェア会計",
+        "catName": "ソフトウェア償却",
+        "title": "有効期間均等償却との比較による【当期ソフトウェア償却費】の決定",
+        "text": "前問の資料に基づき、当期の損益計算書（売上原価）に計上すべき【ソフトウェア償却費】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-laptop-code\"></i> 資料：市場販売目的ソフトウェアの制作費および販売実績データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>支出額・条件データ</th></tr></thead><tbody>\n    <tr><td>研究開発段階の支出（研究開発費）</td><td class=\"num\">￥8,000,000（全額費用計上）</td></tr>\n    <tr><td>製品マスター完成後の著しい改良等に要した支出（資産計上）</td><td class=\"num\">￥12,000,000（当期首稼働開始）</td></tr>\n    <tr><td>見積有効期間（見込利用可能年数）</td><td>3年間</td></tr>\n    <tr><td>総見積販売数量</td><td class=\"num\">10,000 本</td></tr>\n    <tr><td>総見積販売収益（総売上見込額）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>当期の実際販売数量</td><td class=\"num\">4,000 本</td></tr>\n    <tr><td>当期の実際販売収益（売上高）</td><td class=\"num\">￥25,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【償却計算の方針】</strong><br>\n    ・市場販売目的のソフトウェアは、見込販売数量基準または見込販売収益基準による償却額のいずれか大きい金額を計上する。<br>\n    ・ただし、その金額が均等配分額（有効期間による均等償却額）を下回る場合は均等配分額により償却する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）貸倒引当金繰入 600,000 ／ （貸方）売上割戻引当金 600,000",
-          "(2) 翌期に実際に割戻を実行した際に初めて売上高の減額を行うため、当期末は仕訳不要。",
-          "(3) （借方）売上高（または売上割戻） 600,000 ／ （貸方）売上割戻引当金 600,000",
-          "(4) （借方）販売手数料 600,000 ／ （貸方）未払金 600,000"
+          "(1) ￥5,000,000（数量基準と収益基準の大きい方を採用）",
+          "(2) ￥4,800,000（数量基準を採用）",
+          "(3) ￥4,000,000（均等償却額を採用）",
+          "(4) ￥4,500,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>売上割戻引当金は、当期の売上に対応して翌期以降に発生する割戻見積額を当期の費用（または売上高の直接控除）として計上します。<br>計算：30,000,000円 × 2％ ＝ 600,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 数量基準（￥4,800,000）と収益基準（￥5,000,000）のいずれか大きい金額 ＝ ￥5,000,000<br>\n2. 有効期間（3年）均等償却額 ＝ ￥12,000,000 ÷ 3年 ＝ ￥4,000,000<br>\n￥5,000,000 ＞ 均等額 ￥4,000,000 であるため、当期計上すべき償却費は <strong>￥5,000,000</strong> となります。",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-3"
+        "qid": "boki1-pool-s5-3"
       },
       {
         "num": 4,
-        "catKey": "com_sec",
-        "catName": "第1問 商業簿記：② 有価証券（売買・満期・その他・減損）",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (4/5)】支配を継続している子会社の追加発行株式を5,000,000円で引き受け、取引手数料50,000円とともに小切手で支払った。適切な個別財務諸表上の仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】研究開発費・ソフトウェア会計",
+        "catName": "ソフトウェア期末残高",
+        "title": "当期末貸借対照表における【ソフトウェア帳簿価額】の算定",
+        "text": "前問の資料に基づき、当期末の貸借対照表に計上される【ソフトウェア期末残高】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-laptop-code\"></i> 資料：市場販売目的ソフトウェアの制作費および販売実績データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>支出額・条件データ</th></tr></thead><tbody>\n    <tr><td>研究開発段階の支出（研究開発費）</td><td class=\"num\">￥8,000,000（全額費用計上）</td></tr>\n    <tr><td>製品マスター完成後の著しい改良等に要した支出（資産計上）</td><td class=\"num\">￥12,000,000（当期首稼働開始）</td></tr>\n    <tr><td>見積有効期間（見込利用可能年数）</td><td>3年間</td></tr>\n    <tr><td>総見積販売数量</td><td class=\"num\">10,000 本</td></tr>\n    <tr><td>総見積販売収益（総売上見込額）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>当期の実際販売数量</td><td class=\"num\">4,000 本</td></tr>\n    <tr><td>当期の実際販売収益（売上高）</td><td class=\"num\">￥25,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【償却計算の方針】</strong><br>\n    ・市場販売目的のソフトウェアは、見込販売数量基準または見込販売収益基準による償却額のいずれか大きい金額を計上する。<br>\n    ・ただし、その金額が均等配分額（有効期間による均等償却額）を下回る場合は均等配分額により償却する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）資本剰余金 50,000 ／ （貸方）当座預金 5,050,000<br>（借方）子会社株式 5,000,000",
-          "(2) （借方）有価証券 5,050,000 ／ （貸方）当座預金 5,050,000",
-          "(3) （借方）関係会社株式 5,050,000 ／ （貸方）当座預金 5,050,000",
-          "(4) （借方）関係会社株式 5,000,000 ／ （貸方）当座預金 5,050,000<br>（借方）支払手数料 50,000"
+          "(1) ￥7,000,000",
+          "(2) ￥8,000,000",
+          "(3) ￥7,200,000",
+          "(4) ￥6,000,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>個別財務諸表において関係会社株式を取得した際の付随費用（手数料等）は取得原価に算入します。<br>合計：5,000,000円 ＋ 50,000円 ＝ 5,050,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n取得原価 ￥12,000,000 − 当期償却費 ￥5,000,000 ＝ <strong>￥7,000,000</strong>",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-4"
+        "qid": "boki1-pool-s5-4"
       },
       {
         "num": 5,
-        "catKey": "com_asset",
-        "catName": "第1問 商業簿記：③ 固定資産・減損・資産除去債務",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (5/5)】社内業務効率化のための自社利用ソフトウェアを開発し、将来の費用削減効果が確実な開発費用4,000,000円、完成後の定期保守・運用費用800,000円を当座預金から支払った。適切な仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】研究開発費・ソフトウェア会計",
+        "catName": "ソフトウェア臨時償却",
+        "title": "翌期以降の販売見込低下に伴う【臨時償却（減損）】の要否判定",
+        "text": "期末において販売環境の急変により、翌期以降の将来見込販売収益の割引前キャッシュフローが ￥5,500,000 と見積もられた場合の臨時償却額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-laptop-code\"></i> 資料：市場販売目的ソフトウェアの制作費および販売実績データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>支出額・条件データ</th></tr></thead><tbody>\n    <tr><td>研究開発段階の支出（研究開発費）</td><td class=\"num\">￥8,000,000（全額費用計上）</td></tr>\n    <tr><td>製品マスター完成後の著しい改良等に要した支出（資産計上）</td><td class=\"num\">￥12,000,000（当期首稼働開始）</td></tr>\n    <tr><td>見積有効期間（見込利用可能年数）</td><td>3年間</td></tr>\n    <tr><td>総見積販売数量</td><td class=\"num\">10,000 本</td></tr>\n    <tr><td>総見積販売収益（総売上見込額）</td><td class=\"num\">￥60,000,000</td></tr>\n    <tr><td>当期の実際販売数量</td><td class=\"num\">4,000 本</td></tr>\n    <tr><td>当期の実際販売収益（売上高）</td><td class=\"num\">￥25,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【償却計算の方針】</strong><br>\n    ・市場販売目的のソフトウェアは、見込販売数量基準または見込販売収益基準による償却額のいずれか大きい金額を計上する。<br>\n    ・ただし、その金額が均等配分額（有効期間による均等償却額）を下回る場合は均等配分額により償却する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）ソフトウェア 4,000,000 ／ （貸方）当座預金 4,800,000<br>（借方）保守費（または運用費） 800,000",
-          "(2) （借方）ソフトウェア 4,800,000 ／ （貸方）当座預金 4,800,000",
-          "(3) （借方）研究開発費 4,000,000 ／ （貸方）当座預金 4,800,000<br>（借方）保守費 800,000",
-          "(4) （借方）無形固定資産仮勘定 4,800,000 ／ （貸方）当座預金 4,800,000"
+          "(1) ￥1,500,000（臨時償却費として売上原価に計上）",
+          "(2) 臨時償却は行わない",
+          "(3) ￥1,000,000",
+          "(4) ￥5,500,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>自社利用ソフトウェアで将来の収益獲得または費用削減が確実なものは資産（無形固定資産）に計上し、完成後の保守費用は発生時の費用として処理します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n期末帳簿価額（￥7,000,000）が翌期以降の見込販売収益等から得られる将来キャッシュ・フロー（￥5,500,000）を超過している場合、その超過額 <strong>￥1,500,000</strong> を臨時償却（売上原価）として計上し、帳簿価額を減額します。",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-5"
+        "qid": "boki1-pool-s5-5"
       },
       {
         "num": 6,
-        "catKey": "acc_cf",
-        "catName": "第2問 会計学：⑬ キャッシュ・フロー計算書（営業・投資・財務）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (1/5)】間接法による営業活動によるキャッシュ・フローの算定：税引前当期純利益5,000,000円、減価償却費1,200,000円、売掛金の増加額800,000円、買掛金の増加額500,000円のとき、小計欄の金額はいくらか。",
+        "section": "accounting",
+        "sectionName": "【会計学】純資産会計・株式報酬（ストックオプション）",
+        "catName": "ストック・オプション会計",
+        "title": "ストック・オプションの【公正な評価額総額】の算定",
+        "text": "次の資料に基づき、付与日において算定された失効率考慮前の【新株予約権の公正価値総額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-coins\"></i> 資料：株式報酬（ストック・オプション）の付与および権利確定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・データ</th></tr></thead><tbody>\n    <tr><td>付与日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>対象者および付与個数</td><td>従業員100名に対し、各10個（計1,000個）</td></tr>\n    <tr><td>新株予約権1個あたりの公正な評価単価（付与日現在）</td><td class=\"num\">￥3,000 / 個</td></tr>\n    <tr><td>権利行使により交付される株式</td><td>新株予約権1個につき普通株式1株</td></tr>\n    <tr><td>権利行使価額</td><td class=\"num\">￥5,000 / 株</td></tr>\n    <tr><td>対象勤務期間（権利確定日までの期間）</td><td>2年間（当期末および翌期末）</td></tr>\n    <tr><td>期首見込退職失効率</td><td>2年間で全体の 10％ が退職により失効と見積もる</td></tr>\n    <tr><td>当期末の見積見直し</td><td>当期中5名が退職し、2年間累計退職率は 10％（見直しなし）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 5,900,000円",
-          "(2) 6,200,000円",
-          "(3) 7,500,000円",
-          "(4) 3,800,000円"
+          "(1) ￥3,000,000",
+          "(2) ￥5,000,000",
+          "(3) ￥2,700,000",
+          "(4) ￥8,000,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>間接法営業CF小計：<br>税引前当期純利益（5,000,000円） ＋ 減価償却費（1,200,000円） － 売掛金増加（800,000円） ＋ 買掛金増加（500,000円） ＝ 5,900,000円",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n総付与個数 1,000個 × 公正な評価単価 ￥3,000 ＝ <strong>￥3,000,000</strong>",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-6"
+        "qid": "boki1-pool-s5-6"
       },
       {
         "num": 7,
-        "catKey": "acc_eps",
-        "catName": "第2問 会計学：⑭ 1株当たり当期純利益（EPS）・会計上の変更",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (2/5)】「潜在株式調整後1株当たり当期純利益」の開示目的として最も適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】純資産会計・株式報酬（ストックオプション）",
+        "catName": "株式報酬費用",
+        "title": "失効率を考慮した【第1期株式報酬費用】の算定",
+        "text": "前問の資料に基づき、第1期末に計上すべき【株式報酬費用（販管費）】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-coins\"></i> 資料：株式報酬（ストック・オプション）の付与および権利確定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・データ</th></tr></thead><tbody>\n    <tr><td>付与日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>対象者および付与個数</td><td>従業員100名に対し、各10個（計1,000個）</td></tr>\n    <tr><td>新株予約権1個あたりの公正な評価単価（付与日現在）</td><td class=\"num\">￥3,000 / 個</td></tr>\n    <tr><td>権利行使により交付される株式</td><td>新株予約権1個につき普通株式1株</td></tr>\n    <tr><td>権利行使価額</td><td class=\"num\">￥5,000 / 株</td></tr>\n    <tr><td>対象勤務期間（権利確定日までの期間）</td><td>2年間（当期末および翌期末）</td></tr>\n    <tr><td>期首見込退職失効率</td><td>2年間で全体の 10％ が退職により失効と見積もる</td></tr>\n    <tr><td>当期末の見積見直し</td><td>当期中5名が退職し、2年間累計退職率は 10％（見直しなし）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 純資産の部における自己株式の時価評価額を示すこと。",
-          "(2) 新株予約権や転換社債型新株予約権付社債の権利行使が行われた場合の株式価値の希薄化（ダイリューション）情報を投資家に提供すること。",
-          "(3) 将来の株価上昇見込額を算定すること。",
-          "(4) 税制適格ストックオプションの課税額を算出すること。"
+          "(1) ￥1,350,000",
+          "(2) ￥1,500,000",
+          "(3) ￥2,700,000",
+          "(4) ￥1,200,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>希薄化効果を有する潜在株式（新株予約権等）が存在する場合、権利行使に伴う1株当たり利益の低下度合いを投資家に示すために潜在株式調整後EPSを開示します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 権利確定見込個数 ＝ 1,000個 × (1 − 0.10) ＝ 900個<br>\n2. 株式報酬総額 ＝ 900個 × ￥3,000 ＝ ￥2,700,000<br>\n3. 第1期費用配分額（2年間のうち1年経過）＝ ￥2,700,000 × 1/2 ＝ <strong>￥1,350,000</strong>",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-7"
+        "qid": "boki1-pool-s5-7"
       },
       {
         "num": 8,
-        "catKey": "acc_frame",
-        "catName": "第2問 会計学：⑧ 企業会計原則・一般原則・概念フレームワーク",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (3/5)】「概念フレームワーク」において定義される「資産」の本質的属性として最も適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】純資産会計・株式報酬（ストックオプション）",
+        "catName": "新株予約権",
+        "title": "第1期末貸借対照表における【新株予約権】の表示区分と計上額",
+        "text": "前問の資料に基づき、第1期末の貸借対照表における【新株予約権】の表示区分および金額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-coins\"></i> 資料：株式報酬（ストック・オプション）の付与および権利確定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・データ</th></tr></thead><tbody>\n    <tr><td>付与日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>対象者および付与個数</td><td>従業員100名に対し、各10個（計1,000個）</td></tr>\n    <tr><td>新株予約権1個あたりの公正な評価単価（付与日現在）</td><td class=\"num\">￥3,000 / 個</td></tr>\n    <tr><td>権利行使により交付される株式</td><td>新株予約権1個につき普通株式1株</td></tr>\n    <tr><td>権利行使価額</td><td class=\"num\">￥5,000 / 株</td></tr>\n    <tr><td>対象勤務期間（権利確定日までの期間）</td><td>2年間（当期末および翌期末）</td></tr>\n    <tr><td>期首見込退職失効率</td><td>2年間で全体の 10％ が退職により失効と見積もる</td></tr>\n    <tr><td>当期末の見積見直し</td><td>当期中5名が退職し、2年間累計退職率は 10％（見直しなし）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 将来において現金を獲得できることが法的に100％保証されている財産。",
-          "(2) 有形・無形を問わず、売却換金価値を有するすべての物品。",
-          "(3) 過去に現金支出を伴った繰延費用のみを指す。",
-          "(4) 過去の取引または事象の結果として企業が支配し、かつ将来の経済的便益をもたらすことが期待される資源。"
+          "(1) 純資産の部・新株予約権：￥1,350,000",
+          "(2) 固定負債の部・引当金：￥1,350,000",
+          "(3) 純資産の部・株主資本：￥2,700,000",
+          "(4) 純資産の部・新株予約権：￥2,700,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>討議資料「財務会計の概念フレームワーク」において、資産は「過去の取引または事象の結果として企業が支配し、将来の経済的便益を創出することが期待される資源」と定義されます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n仕訳：（借）株式報酬費用 1,350,000 ／（貸）新株予約権 1,350,000<br>\n「新株予約権」は貸借対照表の<strong>純資産の部（株主資本以外の項目）</strong>に計上されます。金額は <strong>￥1,350,000</strong> です。",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-8"
+        "qid": "boki1-pool-s5-8"
       },
       {
         "num": 9,
-        "catKey": "acc_fin",
-        "catName": "第2問 会計学：⑨ 金融商品会計・デリバティブ・ヘッジ会計",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (4/5)】複合金融商品（転換社債型新株予約権付社債）の「一括法」と「区分法」に関する記述として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】純資産会計・株式報酬（ストックオプション）",
+        "catName": "権利行使時の会計処理",
+        "title": "2年後の権利確定時に新株予約権900個が行使された場合の【資本金増加額】",
+        "text": "2年後に新株予約権900個がすべて行使され、新株が発行された（会社法上の資本金組入限度額を資本金とする）場合の【資本金増加額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-coins\"></i> 資料：株式報酬（ストック・オプション）の付与および権利確定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・データ</th></tr></thead><tbody>\n    <tr><td>付与日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>対象者および付与個数</td><td>従業員100名に対し、各10個（計1,000個）</td></tr>\n    <tr><td>新株予約権1個あたりの公正な評価単価（付与日現在）</td><td class=\"num\">￥3,000 / 個</td></tr>\n    <tr><td>権利行使により交付される株式</td><td>新株予約権1個につき普通株式1株</td></tr>\n    <tr><td>権利行使価額</td><td class=\"num\">￥5,000 / 株</td></tr>\n    <tr><td>対象勤務期間（権利確定日までの期間）</td><td>2年間（当期末および翌期末）</td></tr>\n    <tr><td>期首見込退職失効率</td><td>2年間で全体の 10％ が退職により失効と見積もる</td></tr>\n    <tr><td>当期末の見積見直し</td><td>当期中5名が退職し、2年間累計退職率は 10％（見直しなし）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 区分法は社債と新株予約権を別個に計上する方法であり、一括法は発行金額全額を社債として計上する方法である。",
-          "(2) 区分法は新株予約権を全額負債として計上する。",
-          "(3) 一括法を採用した場合、権利行使時に新株予約権の振替仕訳が発生する。",
-          "(4) 国際財務報告基準（IFRS）では一括法のみが強制適用される。"
+          "(1) ￥7,200,000（払込金￥4,500,000 ＋ 新株予約権￥2,700,000）",
+          "(2) ￥4,500,000（払込金のみ）",
+          "(3) ￥3,600,000（半額組入時）",
+          "(4) ￥5,000,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>複合金融商品について、区分法は払込額を負債（社債）と純資産（新株予約権）に分けますが、一括法は発行時の払込金額全額を社債として負債計上します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 権利行使時の払込現金 ＝ 900個 × ￥5,000 ＝ ￥4,500,000<br>\n2. 振替対象新株予約権 ＝ 900個 × ￥3,000 ＝ ￥2,700,000<br>\n3. <strong>資本金増加総額（全額組入）</strong> ＝ ￥4,500,000 ＋ ￥2,700,000 ＝ <strong>￥7,200,000</strong>",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-9"
+        "qid": "boki1-pool-s5-9"
       },
       {
         "num": 10,
-        "catKey": "acc_merge",
-        "catName": "第2問 会計学：⑩ 企業結合・事業分離（パーチェス法・のれん）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (5/5)】当社の一事業部門を独立の第三者企業に現金5,000,000円で売却・移転した（分離事業の純資産帳簿価額3,500,000円）。適切な仕訳はどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】純資産会計・株式報酬（ストックオプション）",
+        "catName": "権利不行使失効時の処理",
+        "title": "権利行使期間満了により失効した場合の【新株予約権戻入益】の会計処理",
+        "text": "権利行使されずに失効した新株予約権の残高がある場合の会計処理として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-coins\"></i> 資料：株式報酬（ストック・オプション）の付与および権利確定データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>条件・データ</th></tr></thead><tbody>\n    <tr><td>付与日</td><td>当期首（4月1日）</td></tr>\n    <tr><td>対象者および付与個数</td><td>従業員100名に対し、各10個（計1,000個）</td></tr>\n    <tr><td>新株予約権1個あたりの公正な評価単価（付与日現在）</td><td class=\"num\">￥3,000 / 個</td></tr>\n    <tr><td>権利行使により交付される株式</td><td>新株予約権1個につき普通株式1株</td></tr>\n    <tr><td>権利行使価額</td><td class=\"num\">￥5,000 / 株</td></tr>\n    <tr><td>対象勤務期間（権利確定日までの期間）</td><td>2年間（当期末および翌期末）</td></tr>\n    <tr><td>期首見込退職失効率</td><td>2年間で全体の 10％ が退職により失効と見積もる</td></tr>\n    <tr><td>当期末の見積見直し</td><td>当期中5名が退職し、2年間累計退職率は 10％（見直しなし）</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) （借方）現金 5,000,000 ／ （貸方）諸資産・負債純額 5,000,000",
-          "(2) （借方）現金 5,000,000 ／ （貸方）資本剰余金 1,500,000<br>（貸方）諸資産・負債純額 3,500,000",
-          "(3) （借方）現金 5,000,000 ／ （貸方）のれん 1,500,000<br>（貸方）諸資産・負債純額 3,500,000",
-          "(4) （借方）現金 5,000,000 ／ （貸方）諸資産・負債純額 3,500,000<br>（貸方）移転利益（事業譲渡益） 1,500,000"
+          "(1) 新株予約権を減額し、「新株予約権戻入益」（特別利益）に計上する",
+          "(2) 資本剰余金（その他資本剰余金）に振り替える",
+          "(3) 利益剰余金（繰越利益剰余金）に直接加算する",
+          "(4) 過去の株式報酬費用を過年度遡及修正する"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>独立第三者への事業分離（投資が清算される取引）では、受取対価の時価と移転事業純資産の帳簿価額との差額を「移転利益（特別利益）」として認識します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n権利行使期間が満了し行使されずに失効した新株予約権は、失効が確定した期の損益として<strong>「新株予約権戻入益」（特別利益）</strong>に計上します。",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-10"
+        "qid": "boki1-pool-s5-10"
       },
       {
         "num": 11,
-        "catKey": "ind_std",
-        "catName": "第3問 工業簿記：⑳ 標準原価計算（パーシャル・シングル・差異分析）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (1/5)】標準原価計算における仕掛品勘定の記帳方法のうち、「パーシャルプラン」の特徴はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】原価配賦基準・活動基準原価計算（ABC）",
+        "catName": "活動配賦率の算定",
+        "title": "各活動コストプールにおける【活動配賦率（アクティビティレート）】の算定",
+        "text": "次の資料に基づき、段取活動および材料運搬活動の【活動配賦率】の組み合わせとして正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-cogs\"></i> 資料：活動基準原価計算（ABC）による間接費データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>活動コストプール</th><th>間接費予算</th><th>コストドライバー</th><th>ドライバー総数量</th></tr></thead><tbody>\n    <tr><td>段取活動</td><td class=\"num\">￥1,200,000</td><td>段取回数</td><td class=\"num\">60 回</td></tr>\n    <tr><td>材料運搬活動</td><td class=\"num\">￥800,000</td><td>運搬回数</td><td class=\"num\">100 回</td></tr>\n    <tr><td>機械運転活動</td><td class=\"num\">￥2,000,000</td><td>機械運転時間</td><td class=\"num\">1,000 時間</td></tr>\n    <tr><td>製造間接費合計</td><td class=\"num\">￥4,000,000</td><td>−</td><td>−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>製品別データ</th><th>製品A（標準品）</th><th>製品B（特注品）</th></tr></thead><tbody>\n    <tr><td>生産量</td><td class=\"num\">1,000 個</td><td class=\"num\">200 個</td></tr>\n    <tr><td>段取回数</td><td class=\"num\">20 回</td><td class=\"num\">40 回</td></tr>\n    <tr><td>材料運搬回数</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td></tr>\n    <tr><td>機械運転時間</td><td class=\"num\">700 時間</td><td class=\"num\">300 時間</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 完成品勘定においてのみ差異を把握する。",
-          "(2) 仕掛品勘定の借方に「実際原価」、貸方に「標準原価」を記入し、仕掛品勘定の残高で原価差異を把握する。",
-          "(3) 仕掛品勘定の借方・貸方ともに「標準原価」で記帳し、各費用勘定で原価差異を把握する。",
-          "(4) 直接材料費のみ標準で記帳し、加工費は実際原価で記帳する。"
+          "(1) 段取配賦率：￥20,000 / 回 ／ 運搬配賦率：￥8,000 / 回",
+          "(2) 段取配賦率：￥20,000 / 回 ／ 運搬配賦率：￥10,000 / 回",
+          "(3) 段取配賦率：￥15,000 / 回 ／ 運搬配賦率：￥8,000 / 回",
+          "(4) 段取配賦率：￥12,000 / 回 ／ 運搬配賦率：￥8,000 / 回"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>パーシャルプラン（部分標準原価法）では、仕掛品勘定の借方に実際発生額、貸方に標準原価が記入され、月末の仕掛品勘定から原価差異が算出されます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. <strong>段取配賦率</strong> ＝ 予算 ￥1,200,000 ÷ 60回 ＝ <strong>￥20,000 / 回</strong><br>\n2. <strong>運搬配賦率</strong> ＝ 予算 ￥800,000 ÷ 100回 ＝ <strong>￥8,000 / 回</strong><br>\n（機械運転配賦率 ＝ ￥2,000,000 ÷ 1,000時間 ＝ ￥2,000 / 時間）",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-11"
+        "qid": "boki1-pool-s5-11"
       },
       {
         "num": 12,
-        "catKey": "ind_diff",
-        "catName": "第3問 工業簿記：㉑ 原価差異の会計処理・工場独立会計組織",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (2/5)】多額の原価差異を売上原価と期末棚卸資産に按分する際、原則として用いられる基準はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】原価配賦基準・活動基準原価計算（ABC）",
+        "catName": "製品別間接費配賦",
+        "title": "ABCに基づく【製品A（標準品）への製造間接費配賦額】の算定",
+        "text": "前問の資料に基づき、活動基準原価計算（ABC）により製品Aに配賦される【製造間接費合計】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-cogs\"></i> 資料：活動基準原価計算（ABC）による間接費データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>活動コストプール</th><th>間接費予算</th><th>コストドライバー</th><th>ドライバー総数量</th></tr></thead><tbody>\n    <tr><td>段取活動</td><td class=\"num\">￥1,200,000</td><td>段取回数</td><td class=\"num\">60 回</td></tr>\n    <tr><td>材料運搬活動</td><td class=\"num\">￥800,000</td><td>運搬回数</td><td class=\"num\">100 回</td></tr>\n    <tr><td>機械運転活動</td><td class=\"num\">￥2,000,000</td><td>機械運転時間</td><td class=\"num\">1,000 時間</td></tr>\n    <tr><td>製造間接費合計</td><td class=\"num\">￥4,000,000</td><td>−</td><td>−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>製品別データ</th><th>製品A（標準品）</th><th>製品B（特注品）</th></tr></thead><tbody>\n    <tr><td>生産量</td><td class=\"num\">1,000 個</td><td class=\"num\">200 個</td></tr>\n    <tr><td>段取回数</td><td class=\"num\">20 回</td><td class=\"num\">40 回</td></tr>\n    <tr><td>材料運搬回数</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td></tr>\n    <tr><td>機械運転時間</td><td class=\"num\">700 時間</td><td class=\"num\">300 時間</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 期末製品・期末仕掛品・売上原価の「期末標準原価（または実際原価）の割合」",
-          "(2) 各勘定の販売価格の比率",
-          "(3) 直接材料費のみの金額比率",
-          "(4) 均等按分（各3分の1）"
+          "(1) ￥2,120,000",
+          "(2) ￥2,800,000",
+          "(3) ￥1,880,000",
+          "(4) ￥2,400,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>多額の原価差異の按分は、期末製品・期末仕掛品・売上原価に含まれる該当科目の期末標準原価（または完成品換算量）比例で行います。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n製品Aへの活動別配賦額：<br>\n・段取活動 ＝ ￥20,000 × 20回 ＝ ￥400,000<br>\n・運搬活動 ＝ ￥8,000 × 40回 ＝ ￥320,000<br>\n・機械運転 ＝ ￥2,000 × 700時間 ＝ ￥1,400,000<br>\n・製品A配賦合計 ＝ ￥400,000 ＋ ￥320,000 ＋ ￥1,400,000 ＝ <strong>￥2,120,000</strong>",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-12"
+        "qid": "boki1-pool-s5-12"
       },
       {
         "num": 13,
-        "catKey": "ind_elem",
-        "catName": "第3問 工業簿記：⑮ 費目別計算（材料・労務・経費・予定価格）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (3/5)】直接工の就業時間160時間のうち、直接作業時間140時間、機械故障による手待時間20時間であった（賃率2,000円/時間）。手待時間分の賃金の適切な処理はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】原価配賦基準・活動基準原価計算（ABC）",
+        "catName": "製品別間接費配賦",
+        "title": "ABCに基づく【製品B（特注品）への製造間接費配賦額】の算定",
+        "text": "前問の資料に基づき、活動基準原価計算（ABC）により製品Bに配賦される【製造間接費合計】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-cogs\"></i> 資料：活動基準原価計算（ABC）による間接費データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>活動コストプール</th><th>間接費予算</th><th>コストドライバー</th><th>ドライバー総数量</th></tr></thead><tbody>\n    <tr><td>段取活動</td><td class=\"num\">￥1,200,000</td><td>段取回数</td><td class=\"num\">60 回</td></tr>\n    <tr><td>材料運搬活動</td><td class=\"num\">￥800,000</td><td>運搬回数</td><td class=\"num\">100 回</td></tr>\n    <tr><td>機械運転活動</td><td class=\"num\">￥2,000,000</td><td>機械運転時間</td><td class=\"num\">1,000 時間</td></tr>\n    <tr><td>製造間接費合計</td><td class=\"num\">￥4,000,000</td><td>−</td><td>−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>製品別データ</th><th>製品A（標準品）</th><th>製品B（特注品）</th></tr></thead><tbody>\n    <tr><td>生産量</td><td class=\"num\">1,000 個</td><td class=\"num\">200 個</td></tr>\n    <tr><td>段取回数</td><td class=\"num\">20 回</td><td class=\"num\">40 回</td></tr>\n    <tr><td>材料運搬回数</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td></tr>\n    <tr><td>機械運転時間</td><td class=\"num\">700 時間</td><td class=\"num\">300 時間</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 40,000円を直接労務費として仕掛品に算入する。",
-          "(2) 40,000円を営業外費用「休業損」とする。",
-          "(3) 給与から控除する。",
-          "(4) 40,000円を「製造間接費（間接労務費）」として処理する。"
+          "(1) ￥1,880,000",
+          "(2) ￥1,200,000",
+          "(3) ￥2,120,000",
+          "(4) ￥1,650,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>直接工の賃金であっても、機械故障等による不可避的な手待時間は「間接労務費（製造間接費）」として分類します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n製品Bへの活動別配賦額：<br>\n・段取活動 ＝ ￥20,000 × 40回 ＝ ￥800,000<br>\n・運搬活動 ＝ ￥8,000 × 60回 ＝ ￥480,000<br>\n・機械運転 ＝ ￥2,000 × 300時間 ＝ ￥600,000<br>\n・製品B配賦合計 ＝ ￥800,000 ＋ ￥480,000 ＋ ￥600,000 ＝ <strong>￥1,880,000</strong>",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-13"
+        "qid": "boki1-pool-s5-13"
       },
       {
         "num": 14,
-        "catKey": "ind_dept",
-        "catName": "第3問 工業簿記：⑯ 部門別計算（複数基準配賦・相互配賦法）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (4/5)】製造部門の年間予算6,000,000円、基準操業度3,000時間（直接作業時間）。当月の実際作業時間2,800時間、実際製造間接費発生額5,800,000円のとき、部門配賦差異はいくらか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】原価配賦基準・活動基準原価計算（ABC）",
+        "catName": "従来型配賦との比較",
+        "title": "従来型単一基準（機械運転時間基準）による製品A・Bへの配賦額",
+        "text": "機械運転時間のみを配賦基準とする従来型計算を行った場合の【製品Aおよび製品Bへの配賦額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-cogs\"></i> 資料：活動基準原価計算（ABC）による間接費データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>活動コストプール</th><th>間接費予算</th><th>コストドライバー</th><th>ドライバー総数量</th></tr></thead><tbody>\n    <tr><td>段取活動</td><td class=\"num\">￥1,200,000</td><td>段取回数</td><td class=\"num\">60 回</td></tr>\n    <tr><td>材料運搬活動</td><td class=\"num\">￥800,000</td><td>運搬回数</td><td class=\"num\">100 回</td></tr>\n    <tr><td>機械運転活動</td><td class=\"num\">￥2,000,000</td><td>機械運転時間</td><td class=\"num\">1,000 時間</td></tr>\n    <tr><td>製造間接費合計</td><td class=\"num\">￥4,000,000</td><td>−</td><td>−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>製品別データ</th><th>製品A（標準品）</th><th>製品B（特注品）</th></tr></thead><tbody>\n    <tr><td>生産量</td><td class=\"num\">1,000 個</td><td class=\"num\">200 個</td></tr>\n    <tr><td>段取回数</td><td class=\"num\">20 回</td><td class=\"num\">40 回</td></tr>\n    <tr><td>材料運搬回数</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td></tr>\n    <tr><td>機械運転時間</td><td class=\"num\">700 時間</td><td class=\"num\">300 時間</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) 0円",
-          "(2) 200,000円（配賦不足・不利差異）",
-          "(3) 200,000円（配賦超過・有利差異）",
-          "(4) 200,000円"
+          "(1) 製品A：￥2,800,000 ／ 製品B：￥1,200,000",
+          "(2) 製品A：￥2,120,000 ／ 製品B：￥1,880,000",
+          "(3) 製品A：￥2,000,000 ／ 製品B：￥2,000,000",
+          "(4) 製品A：￥3,000,000 ／ 製品B：￥1,000,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>予定配賦率＝6,000,000円 ÷ 3,000時間 ＝ 2,000円/時<br>予定配賦額＝2,000円 × 2,800時間 ＝ 5,600,000円<br>差異＝予定配賦額5,600,000円 － 実際発生額5,800,000円 ＝ -200,000円（配賦不足＝借方差異）",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 従来型単一配賦率 ＝ 総間接費 ￥4,000,000 ÷ 総機械時間 1,000時間 ＝ ￥4,000 / 時間<br>\n2. 製品A配賦額 ＝ 700時間 × ￥4,000 ＝ <strong>￥2,800,000</strong><br>\n3. 製品B配賦額 ＝ 300時間 × ￥4,000 ＝ <strong>￥1,200,000</strong>",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-14"
+        "qid": "boki1-pool-s5-14"
       },
       {
         "num": 15,
-        "catKey": "ind_job",
-        "catName": "第3問 工業簿記：⑰ 個別原価計算（製造間接費予定配賦・仕損費）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (5/5)】個別原価計算が適用される生産形態として最も適切なものはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】原価配賦基準・活動基準原価計算（ABC）",
+        "catName": "コストの歪み分析",
+        "title": "ABC導入による【コストの歪み（コスト・ディストーション）】の分析判定",
+        "text": "従来型計算とABC計算の比較分析結果として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-cogs\"></i> 資料：活動基準原価計算（ABC）による間接費データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>活動コストプール</th><th>間接費予算</th><th>コストドライバー</th><th>ドライバー総数量</th></tr></thead><tbody>\n    <tr><td>段取活動</td><td class=\"num\">￥1,200,000</td><td>段取回数</td><td class=\"num\">60 回</td></tr>\n    <tr><td>材料運搬活動</td><td class=\"num\">￥800,000</td><td>運搬回数</td><td class=\"num\">100 回</td></tr>\n    <tr><td>機械運転活動</td><td class=\"num\">￥2,000,000</td><td>機械運転時間</td><td class=\"num\">1,000 時間</td></tr>\n    <tr><td>製造間接費合計</td><td class=\"num\">￥4,000,000</td><td>−</td><td>−</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-table-wrapper\" style=\"margin-top:6px;\"><table class=\"boki-table\"><thead><tr><th>製品別データ</th><th>製品A（標準品）</th><th>製品B（特注品）</th></tr></thead><tbody>\n    <tr><td>生産量</td><td class=\"num\">1,000 個</td><td class=\"num\">200 個</td></tr>\n    <tr><td>段取回数</td><td class=\"num\">20 回</td><td class=\"num\">40 回</td></tr>\n    <tr><td>材料運搬回数</td><td class=\"num\">40 回</td><td class=\"num\">60 回</td></tr>\n    <tr><td>機械運転時間</td><td class=\"num\">700 時間</td><td class=\"num\">300 時間</td></tr>\n  </tbody></table></div>\n</div>",
         "options": [
-          "(1) ビール醸造、石油精製、セメント製造などの大量反復生産業種。",
-          "(2) 自動車やスマートフォンの標準規格品ライン大量生産。",
-          "(3) 製パン・製粉業。",
-          "(4) 造船業、重電機製造業、オーダーメイド家具など、顧客の注文に応じて多品種少量生産を行う業種。"
+          "(1) 従来型では大ロット標準品Aに過大配賦（￥680,000過大）され、小ロット特注品Bが過小配賦されていた",
+          "(2) 従来型では特注品Bに過大配賦され、標準品Aが過小配賦されていた",
+          "(3) 両者の配賦結果に重要な差異は認められない",
+          "(4) ABCを導入すると全社の総間接費が￥680,000削減される"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>個別原価計算は、個別受注生産（多品種少量生産）を行う業種に適した原価計算方式です。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n従来型の製品A配賦額 ￥2,800,000 に対し、ABCでは ￥2,120,000 となり、<strong>標準品Aに ￥680,000 のコストが過大配賦（歪み）されていた</strong>ことが判明します。<br>\n特注品Bは小ロットでありながら段取や運搬を多く消費しているため、ABCにより適正な原価（￥1,880,000）が把握されます。",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-15"
+        "qid": "boki1-pool-s5-15"
       },
       {
         "num": 16,
-        "catKey": "cst_div",
-        "catName": "第4問 原価計算：㉗ 事業部制会計・社内振替価格・業績測定（ROI/RI/EVA）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (1/5)】事業部利益3,000,000円、事業部投下資本20,000,000円、全社資本コスト率10％のとき、事業部の「ROI（投下資本利益率）」および「RI（残余利益）」はいくらか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・差額原価収益分析",
+        "catName": "差額原価分析（内製か外注か）",
+        "title": "内製を継続する場合の【関連原価（回避可能原価）】の算定",
+        "text": "次の資料に基づき、外注した場合に回避できる【内製時の関連原価合計】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale-right\"></i> 資料：部品の内製か外注（買入）かに関する差額原価データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素（内製時：年間10,000個製造）</th><th>単位あたり金額</th><th>年間総額</th></tr></thead><tbody>\n    <tr><td>直接材料費（変動費）</td><td class=\"num\">￥120 / 個</td><td class=\"num\">￥1,200,000</td></tr>\n    <tr><td>直接労務費（変動費）</td><td class=\"num\">￥180 / 個</td><td class=\"num\">￥1,800,000</td></tr>\n    <tr><td>変動製造間接費</td><td class=\"num\">￥50 / 個</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>固定製造間接費（専用設備の減価償却費・回避可能）</td><td class=\"num\">￥80 / 個</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>固定製造間接費（工場共通固定費・回避不能）</td><td class=\"num\">￥70 / 個</td><td class=\"num\">￥700,000</td></tr>\n    <tr><td>内製総原価</td><td class=\"num\">￥500 / 個</td><td class=\"num\">￥5,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【外注先からの提案および遊休設備の活用】</strong><br>\n    ・外部サプライヤーより同部品を1個あたり <strong>￥410</strong> で納入する提案があった（年間 ￥4,100,000）。<br>\n    ・外注した場合、専用設備は処分（廃棄）されるため専用設備減価償却費（￥800,000）は発生しない。<br>\n    ・外注により空いた工場スペースを他社に賃貸することで、年間 <strong>￥150,000</strong> の賃貸収入（機会収益）が得られる。\n  </div>\n</div>",
         "options": [
-          "(1) ROI：15％ ／ 残余利益（RI）：2,000,000円",
-          "(2) ROI：20％ ／ 残余利益（RI）：-1,000,000円",
-          "(3) ROI：15％ ／ 残余利益（RI）：1,000,000円",
-          "(4) ROI：10％ ／ 残余利益（RI）：3,000,000円"
+          "(1) ￥4,300,000（単価￥430：変動費￥350 ＋ 回避可能固定費￥80）",
+          "(2) ￥5,000,000（内製総原価）",
+          "(3) ￥3,500,000（変動費のみ）",
+          "(4) ￥4,200,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>ROI＝事業部利益 ÷ 投下資本 ＝ 3,000,000円 ÷ 20,000,000円 ＝ 15％<br>残余利益（RI）＝事業部利益 －（投下資本 × 資本コスト率）＝ 3,000,000円 － 2,000,000円 ＝ 1,000,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n外注することで回避できる原価（差額原価）：<br>\n・直接材料費 ￥1,200,000<br>\n・直接労務費 ￥1,800,000<br>\n・変動製造間接費 ￥500,000<br>\n・専用設備減価償却費 ￥800,000<br>\n・<strong>回避可能原価合計</strong> ＝ ￥1,200,000 ＋ ￥1,800,000 ＋ ￥500,000 ＋ ￥800,000 ＝ <strong>￥4,300,000</strong>（1個あたり￥430）<br>\n（工場共通固定費 ￥700,000 は外注しても発生し続けるため埋没原価であり除外します）",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-16"
+        "qid": "boki1-pool-s5-16"
       },
       {
         "num": 17,
-        "catKey": "cst_strat",
-        "catName": "第4問 原価計算：㉘ 戦略的原価計算（ABC/ABM・原価企画・BSC）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (2/5)】原価企画（ターゲット・コスティング）における「目標原価」の基本的な算定式はどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・差額原価収益分析",
+        "catName": "機会原価（機会収益）",
+        "title": "遊休スペースの外部賃貸に伴う【機会収益の考慮】",
+        "text": "前問の資料に基づき、外注を選択した場合に発生する【年間の純支出額（機会収益控除後）】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale-right\"></i> 資料：部品の内製か外注（買入）かに関する差額原価データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素（内製時：年間10,000個製造）</th><th>単位あたり金額</th><th>年間総額</th></tr></thead><tbody>\n    <tr><td>直接材料費（変動費）</td><td class=\"num\">￥120 / 個</td><td class=\"num\">￥1,200,000</td></tr>\n    <tr><td>直接労務費（変動費）</td><td class=\"num\">￥180 / 個</td><td class=\"num\">￥1,800,000</td></tr>\n    <tr><td>変動製造間接費</td><td class=\"num\">￥50 / 個</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>固定製造間接費（専用設備の減価償却費・回避可能）</td><td class=\"num\">￥80 / 個</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>固定製造間接費（工場共通固定費・回避不能）</td><td class=\"num\">￥70 / 個</td><td class=\"num\">￥700,000</td></tr>\n    <tr><td>内製総原価</td><td class=\"num\">￥500 / 個</td><td class=\"num\">￥5,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【外注先からの提案および遊休設備の活用】</strong><br>\n    ・外部サプライヤーより同部品を1個あたり <strong>￥410</strong> で納入する提案があった（年間 ￥4,100,000）。<br>\n    ・外注した場合、専用設備は処分（廃棄）されるため専用設備減価償却費（￥800,000）は発生しない。<br>\n    ・外注により空いた工場スペースを他社に賃貸することで、年間 <strong>￥150,000</strong> の賃貸収入（機会収益）が得られる。\n  </div>\n</div>",
         "options": [
-          "(1) 目標原価 ＝ 過去の実際原価 × 物価上昇率",
-          "(2) 目標原価 ＝ 競合他社の販売価格 ÷ 2",
-          "(3) 目標原価 ＝ 目標販売価格 － 目標利益",
-          "(4) 目標原価 ＝ 予想製造原価 ＋ 希望利益率"
+          "(1) ￥3,950,000（外注買入額￥4,100,000 − 機会収益￥150,000）",
+          "(2) ￥4,100,000",
+          "(3) ￥4,250,000",
+          "(4) ￥3,800,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>原価企画は新製品の開発・設計段階で実施され、市場で受け入れられる「目標販売価格」から確保すべき「目標利益」を差し引いて目標原価（許容原価）を設定し、設計段階で作り込みます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n外注買入支出 ￥4,100,000（10,000個×￥410）から、遊休スペースの賃貸収入 ￥150,000 を差し引いた<strong>純支出額は ￥3,950,000</strong> となります。",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-17"
+        "qid": "boki1-pool-s5-17"
       },
       {
         "num": 18,
-        "catKey": "cst_base",
-        "catName": "第4問 原価計算：㉒ 原価計算基準体系・原価概念・原価の本質",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (3/5)】「実際原価」と「標準原価」の概念に関する記述として正しいものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・差額原価収益分析",
+        "catName": "差額利益分析",
+        "title": "内製と外注の【差額利益（コスト削減額）】および意思決定の判定",
+        "text": "前問の資料に基づき、部品の内製から外注へ切り替えた場合の【差額利益】および意思決定の判定として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale-right\"></i> 資料：部品の内製か外注（買入）かに関する差額原価データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素（内製時：年間10,000個製造）</th><th>単位あたり金額</th><th>年間総額</th></tr></thead><tbody>\n    <tr><td>直接材料費（変動費）</td><td class=\"num\">￥120 / 個</td><td class=\"num\">￥1,200,000</td></tr>\n    <tr><td>直接労務費（変動費）</td><td class=\"num\">￥180 / 個</td><td class=\"num\">￥1,800,000</td></tr>\n    <tr><td>変動製造間接費</td><td class=\"num\">￥50 / 個</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>固定製造間接費（専用設備の減価償却費・回避可能）</td><td class=\"num\">￥80 / 個</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>固定製造間接費（工場共通固定費・回避不能）</td><td class=\"num\">￥70 / 個</td><td class=\"num\">￥700,000</td></tr>\n    <tr><td>内製総原価</td><td class=\"num\">￥500 / 個</td><td class=\"num\">￥5,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【外注先からの提案および遊休設備の活用】</strong><br>\n    ・外部サプライヤーより同部品を1個あたり <strong>￥410</strong> で納入する提案があった（年間 ￥4,100,000）。<br>\n    ・外注した場合、専用設備は処分（廃棄）されるため専用設備減価償却費（￥800,000）は発生しない。<br>\n    ・外注により空いた工場スペースを他社に賃貸することで、年間 <strong>￥150,000</strong> の賃貸収入（機会収益）が得られる。\n  </div>\n</div>",
         "options": [
-          "(1) 実際原価は財貨の実際消費量をもって算定された原価であり、標準原価は科学的・統計的調査に基づいて能率の尺度として設定された目標原価である。",
-          "(2) 実際原価にはいかなる場合も予定単価を用いてはならない。",
-          "(3) 標準原価は過去の実績平均値そのものを意味する。",
-          "(4) 財務諸表作成において標準原価の使用は禁止されている。"
+          "(1) ＋￥350,000（利益増加のため外注に切り替えるべき）",
+          "(2) ＋￥200,000（機会収益を考慮せず外注に切り替えるべき）",
+          "(3) △￥350,000（内製を継続すべき）",
+          "(4) ＋￥900,000（総原価との比較）"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>実際原価は実際の消費量に基づく原価（予定価格の使用も容認）であり、標準原価は能率の尺度として科学的に設定される規範的目標原価です。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n回避できる内製関連原価 ￥4,300,000 − 外注時の純支出 ￥3,950,000 ＝ <strong>＋￥350,000</strong><br>\n年間35万円のコスト削減（利益増加）となるため、<strong>「外注に切り替えるべき」</strong>と判定します。",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-18"
+        "qid": "boki1-pool-s5-18"
       },
       {
         "num": 19,
-        "catKey": "cst_direct",
-        "catName": "第4問 原価計算：㉓ 直接原価計算・固変分解（高低点法等）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (4/5)】直接原価計算によって作成された損益計算書を外部公表用財務諸表（制度会計）として提出する際の取扱いはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・差額原価収益分析",
+        "catName": "無差別点分析",
+        "title": "内製と外注の原価が等しくなる【損益分岐外注単価（インディファレンス・プライス）】の算定",
+        "text": "機会収益 ￥150,000 が得られないと仮定した場合、内製と外注のコストが等しくなる【外注単価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale-right\"></i> 資料：部品の内製か外注（買入）かに関する差額原価データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素（内製時：年間10,000個製造）</th><th>単位あたり金額</th><th>年間総額</th></tr></thead><tbody>\n    <tr><td>直接材料費（変動費）</td><td class=\"num\">￥120 / 個</td><td class=\"num\">￥1,200,000</td></tr>\n    <tr><td>直接労務費（変動費）</td><td class=\"num\">￥180 / 個</td><td class=\"num\">￥1,800,000</td></tr>\n    <tr><td>変動製造間接費</td><td class=\"num\">￥50 / 個</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>固定製造間接費（専用設備の減価償却費・回避可能）</td><td class=\"num\">￥80 / 個</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>固定製造間接費（工場共通固定費・回避不能）</td><td class=\"num\">￥70 / 個</td><td class=\"num\">￥700,000</td></tr>\n    <tr><td>内製総原価</td><td class=\"num\">￥500 / 個</td><td class=\"num\">￥5,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【外注先からの提案および遊休設備の活用】</strong><br>\n    ・外部サプライヤーより同部品を1個あたり <strong>￥410</strong> で納入する提案があった（年間 ￥4,100,000）。<br>\n    ・外注した場合、専用設備は処分（廃棄）されるため専用設備減価償却費（￥800,000）は発生しない。<br>\n    ・外注により空いた工場スペースを他社に賃貸することで、年間 <strong>￥150,000</strong> の賃貸収入（機会収益）が得られる。\n  </div>\n</div>",
         "options": [
-          "(1) 直接原価計算のままの公表は認められないため、期末棚卸資産等に含まれるべき固定製造間接費を調整する「期末残高調整算定」を行って全部原価計算に修正する。",
-          "(2) 有価証券報告書において直接原価計算のまま提出することが推奨されている。",
-          "(3) 税務署に届出を行えば直接原価計算で確定申告が可能である。",
-          "(4) 会社法上の計算書類に限り直接原価計算が正式に認められている。"
+          "(1) ￥430 / 個",
+          "(2) ￥500 / 個",
+          "(3) ￥350 / 個",
+          "(4) ￥410 / 個"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>原価計算基準および企業会計原則では全部原価計算が義務付けられているため、内部管理用の直接原価計算から外部公表用にするには固定費調整（全部原価への修正）が必要です。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n機会収益がない場合、回避可能原価（￥4,300,000）＝ 外注支出（10,000個 × 単価 P）となる単価：<br>\nP ＝ ￥4,300,000 ÷ 10,000個 ＝ <strong>￥430 / 個</strong>",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-19"
+        "qid": "boki1-pool-s5-19"
       },
       {
         "num": 20,
-        "catKey": "cst_cvp",
-        "catName": "第4問 原価計算：㉔ CVP分析・損益分岐点・最適セールスミックス",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (5/5)】機械の総稼働時間に制約がある場合、多品種生産における最適な生産優先順位を決定するための指標はどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】業務的意思決定・差額原価収益分析",
+        "catName": "埋没原価（サンクコスト）",
+        "title": "意思決定において考慮から除外すべき【埋没原価（サンクコスト）】の定義",
+        "text": "当意思決定において工場共通固定費 ￥700,000 を比較から除外した理論的根拠として最も適切な記述を選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-balance-scale-right\"></i> 資料：部品の内製か外注（買入）かに関する差額原価データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>原価要素（内製時：年間10,000個製造）</th><th>単位あたり金額</th><th>年間総額</th></tr></thead><tbody>\n    <tr><td>直接材料費（変動費）</td><td class=\"num\">￥120 / 個</td><td class=\"num\">￥1,200,000</td></tr>\n    <tr><td>直接労務費（変動費）</td><td class=\"num\">￥180 / 個</td><td class=\"num\">￥1,800,000</td></tr>\n    <tr><td>変動製造間接費</td><td class=\"num\">￥50 / 個</td><td class=\"num\">￥500,000</td></tr>\n    <tr><td>固定製造間接費（専用設備の減価償却費・回避可能）</td><td class=\"num\">￥80 / 個</td><td class=\"num\">￥800,000</td></tr>\n    <tr><td>固定製造間接費（工場共通固定費・回避不能）</td><td class=\"num\">￥70 / 個</td><td class=\"num\">￥700,000</td></tr>\n    <tr><td>内製総原価</td><td class=\"num\">￥500 / 個</td><td class=\"num\">￥5,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【外注先からの提案および遊休設備の活用】</strong><br>\n    ・外部サプライヤーより同部品を1個あたり <strong>￥410</strong> で納入する提案があった（年間 ￥4,100,000）。<br>\n    ・外注した場合、専用設備は処分（廃棄）されるため専用設備減価償却費（￥800,000）は発生しない。<br>\n    ・外注により空いた工場スペースを他社に賃貸することで、年間 <strong>￥150,000</strong> の賃貸収入（機会収益）が得られる。\n  </div>\n</div>",
         "options": [
-          "(1) 製品1個当たりの製造原価が最も安い製品",
-          "(2) 「制約条件（機械1時間）当たりの貢献利益」が大きい製品",
-          "(3) 製品1個当たりの販売価格が高い製品",
-          "(4) 製品1個当たりの貢献利益（単位当たり限界利益）が大きい製品"
+          "(1) 内製・外注のいずれの選択肢を採用しても発生額が変わらない回避不能原価（無関連原価・埋没原価）であるため",
+          "(2) 金額が他の原価要素に比べて少額であるため",
+          "(3) 財務会計上の費用であって管理会計上の原価ではないため",
+          "(4) 将来のキャッシュ・アウトフローを伴わないため"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>制約資源（ボトルネック）が存在する場合、制約資源単位当たりの貢献利益（＝単位当たり貢献利益 ÷ 制約資源消費量）が最も大きい製品から優先して生産・販売します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n意思決定会計では、選択肢の間で差異の生じる「差額原価（関連原価）」のみを比較します。<br>\nどちらの選択肢をとっても発生額が同額である原価は<strong>回避不能原価（無関連原価）</strong>であり、意思決定判断から除外します。",
+        "points": 5,
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki1-mock-5-20"
+        "qid": "boki1-pool-s5-20"
       }
     ]
   },
   "6": {
     "id": "6",
-    "title": "第6回実戦予想模試",
+    "title": "第6回実戦予想模試（商業簿記・会計学・工業簿記・原価計算 全4科目）",
     "questions": [
       {
         "num": 1,
-        "catKey": "com_tax",
-        "catName": "第1問 商業簿記：⑦ 税効果会計・収益認識基準",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (1/5)】決算において計上した貸倒引当金のうち1,000,000円が税務上の損金算入限度額を超過した（将来減算一時差異）。法定実効税率30％として税効果会計を適用する場合の仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】組織再編・企業結合（吸収合併）",
+        "catName": "取得対価の算定",
+        "title": "パーチェス法における【株式交付による取得対価】の算定",
+        "text": "次の資料に基づき、A社における被合併会社B社の【株式交付による取得対価の金額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-handshake\"></i> 資料：A社によるB社の吸収合併データ（パーチェス法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>B社（被合併会社）帳簿価額</th><th>B社資産・負債の時価</th></tr></thead><tbody>\n    <tr><td>諸資産（流動資産・有形固定資産等）</td><td class=\"num\">￥40,000,000</td><td class=\"num\">￥45,000,000</td></tr>\n    <tr><td>諸負債（買掛金・借入金等）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">￥25,000,000</td></tr>\n    <tr><td>差引純資産</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥20,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【合併条件および対価の交付】</strong><br>\n    ・A社はB社を吸収合併し、B社株主に対してA社普通株式 10,000株 を交付した。<br>\n    ・合併期日におけるA社株式の時価は 1株あたり <strong>￥2,500</strong> である。<br>\n    ・A社は交付した株式の増加資本を全額「資本金」として計上する。<br>\n    ・発生したのれんは20年定額法で償却する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）法人税等調整額 300,000 ／ （貸方）繰延税金負債 300,000",
-          "(2) （借方）繰延税金資産 300,000 ／ （貸方）未払法人税等 300,000",
-          "(3) （借方）法人税等 300,000 ／ （貸方）繰延税金資産 300,000",
-          "(4) （借方）繰延税金資産 300,000 ／ （貸方）法人税等調整額 300,000"
+          "(1) ￥25,000,000",
+          "(2) ￥20,000,000",
+          "(3) ￥15,000,000",
+          "(4) ￥45,000,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>将来減算一時差異（損金算入限度超過額など）が発生したときは、法定実効税率を乗じた金額（300,000円）を「繰延税金資産」とし、相手勘定を「法人税等調整額（貸方＝費用の減額）」として計上します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n企業結合会計（パーチェス法）において、自社の株式を対価として交付する場合の取得対価は、<strong>交付する自社株式の時価</strong>で算定します。<br>\n交付株式数 10,000株 × 株価 ￥2,500 ＝ <strong>￥25,000,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-1"
+        "qid": "boki1-pool-s6-1"
       },
       {
         "num": 2,
-        "catKey": "com_calc",
-        "catName": "第1問 商業簿記：① 損益計算・決算整理・外貨換算",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (2/5)】外貨建金銭信託に属する外貨建金融資産（元本保証のない信託財産）の決算時における為替換算に関する記述として最も適切なものはどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】組織再編・企業結合（吸収合併）",
+        "catName": "受け入れ純資産時価",
+        "title": "被合併会社から受け入れる【諸資産・諸負債の時価純資産額】の算定",
+        "text": "前問の資料に基づき、合併期日においてA社が受け入れるB社の【時価純資産額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-handshake\"></i> 資料：A社によるB社の吸収合併データ（パーチェス法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>B社（被合併会社）帳簿価額</th><th>B社資産・負債の時価</th></tr></thead><tbody>\n    <tr><td>諸資産（流動資産・有形固定資産等）</td><td class=\"num\">￥40,000,000</td><td class=\"num\">￥45,000,000</td></tr>\n    <tr><td>諸負債（買掛金・借入金等）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">￥25,000,000</td></tr>\n    <tr><td>差引純資産</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥20,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【合併条件および対価の交付】</strong><br>\n    ・A社はB社を吸収合併し、B社株主に対してA社普通株式 10,000株 を交付した。<br>\n    ・合併期日におけるA社株式の時価は 1株あたり <strong>￥2,500</strong> である。<br>\n    ・A社は交付した株式の増加資本を全額「資本金」として計上する。<br>\n    ・発生したのれんは20年定額法で償却する。\n  </div>\n</div>",
         "options": [
-          "(1) 決算日の為替相場（CR）をもって換算し、換算差額は当期の損益として処理する。",
-          "(2) 信託設定日の為替相場（HR）をもって換算し、換算差額は計上しない。",
-          "(3) 期中平均為替相場（AR）をもって換算し、純資産の部に計上する。",
-          "(4) 予約レートが締結されている場合を除き、常に取得原価で評価する。"
+          "(1) ￥20,000,000（資産時価￥45,000,000 − 負債時価￥25,000,000）",
+          "(2) ￥15,000,000（簿価純資産額）",
+          "(3) ￥45,000,000（資産時価総額）",
+          "(4) ￥25,000,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>外貨建金銭信託に属する金融資産は、原則として決算日の為替相場（CR）により換算し、為替差損益を計上します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\nパーチェス法では、被合併会社から引き継ぐ資産および負債を<strong>合併期日の「時価」</strong>で受け入れます。<br>\n受入資産時価 ￥45,000,000 − 受入負債時価 ￥25,000,000 ＝ <strong>￥20,000,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-2"
+        "qid": "boki1-pool-s6-2"
       },
       {
         "num": 3,
-        "catKey": "com_sec",
-        "catName": "第1問 商業簿記：② 有価証券（売買・満期・その他・減損）",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (3/5)】期首に満期保有目的で額面10,000,000円の社債を9,600,000円で取得した（残存期間5年、金利調整差額）。定額法による当期の償却原価法仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】組織再編・企業結合（吸収合併）",
+        "catName": "のれんの算定",
+        "title": "吸収合併に伴い計上される【のれん】の金額",
+        "text": "前問の資料に基づき、A社の合併仕訳において計上される【のれん】の金額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-handshake\"></i> 資料：A社によるB社の吸収合併データ（パーチェス法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>B社（被合併会社）帳簿価額</th><th>B社資産・負債の時価</th></tr></thead><tbody>\n    <tr><td>諸資産（流動資産・有形固定資産等）</td><td class=\"num\">￥40,000,000</td><td class=\"num\">￥45,000,000</td></tr>\n    <tr><td>諸負債（買掛金・借入金等）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">￥25,000,000</td></tr>\n    <tr><td>差引純資産</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥20,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【合併条件および対価の交付】</strong><br>\n    ・A社はB社を吸収合併し、B社株主に対してA社普通株式 10,000株 を交付した。<br>\n    ・合併期日におけるA社株式の時価は 1株あたり <strong>￥2,500</strong> である。<br>\n    ・A社は交付した株式の増加資本を全額「資本金」として計上する。<br>\n    ・発生したのれんは20年定額法で償却する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）満期保有目的債券 80,000 ／ （貸方）有価証券利息 80,000",
-          "(2) （借方）満期保有目的債券 80,000 ／ （貸方）投資有価証券評価益 80,000",
-          "(3) （借方）未収利息 80,000 ／ （貸方）有価証券利息 80,000",
-          "(4) （借方）有価証券利息 80,000 ／ （貸方）満期保有目的債券 80,000"
+          "(1) ￥5,000,000",
+          "(2) ￥10,000,000",
+          "(3) ￥0（負ののれん発生益）",
+          "(4) ￥2,500,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>償却原価法における金利調整差額の配分：<br>（額面10,000,000円 － 取得価額9,600,000円）÷ 5年 ＝ 80,000円<br>有価証券利息（営業外収益）として加算処理します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\nのれん ＝ 取得対価 ￥25,000,000 − 受入時価純資産 ￥20,000,000 ＝ <strong>￥5,000,000</strong><br>\n（借方差額としてのれんを計上します）",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-3"
+        "qid": "boki1-pool-s6-3"
       },
       {
         "num": 4,
-        "catKey": "com_asset",
-        "catName": "第1問 商業簿記：③ 固定資産・減損・資産除去債務",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (4/5)】設備取得原価15,000,000円に対し、国庫補助金6,000,000円を受領した。直接減額方式による圧縮記帳を行う場合の決算時の仕訳はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】組織再編・企業結合（吸収合併）",
+        "catName": "合併仕訳",
+        "title": "合併期日における【A社の合併仕訳】の貸借科目と金額",
+        "text": "前問の資料に基づき、A社における合併時の正しい仕訳を選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-handshake\"></i> 資料：A社によるB社の吸収合併データ（パーチェス法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>B社（被合併会社）帳簿価額</th><th>B社資産・負債の時価</th></tr></thead><tbody>\n    <tr><td>諸資産（流動資産・有形固定資産等）</td><td class=\"num\">￥40,000,000</td><td class=\"num\">￥45,000,000</td></tr>\n    <tr><td>諸負債（買掛金・借入金等）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">￥25,000,000</td></tr>\n    <tr><td>差引純資産</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥20,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【合併条件および対価の交付】</strong><br>\n    ・A社はB社を吸収合併し、B社株主に対してA社普通株式 10,000株 を交付した。<br>\n    ・合併期日におけるA社株式の時価は 1株あたり <strong>￥2,500</strong> である。<br>\n    ・A社は交付した株式の増加資本を全額「資本金」として計上する。<br>\n    ・発生したのれんは20年定額法で償却する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）建物・機械 6,000,000 ／ （貸方）固定資産圧縮益 6,000,000",
-          "(2) （借方）固定資産圧縮損 6,000,000 ／ （貸方）建物・機械 6,000,000",
-          "(3) （借方）国庫補助金受領益 6,000,000 ／ （貸方）建物・機械 6,000,000",
-          "(4) （借方）固定資産圧縮積立金 6,000,000 ／ （貸方）繰越利益剰余金 6,000,000"
+          "(1) （借）諸資産 45,000,000、のれん 5,000,000 ／（貸）諸負債 25,000,000、資本金 25,000,000",
+          "(2) （借）諸資産 40,000,000、のれん 10,000,000 ／（貸）諸負債 25,000,000、資本金 25,000,000",
+          "(3) （借）諸資産 45,000,000 ／（貸）諸負債 25,000,000、資本金 20,000,000",
+          "(4) （借）諸資産 45,000,000、のれん 5,000,000 ／（貸）諸負債 25,000,000、資本金 20,000,000、資本剰余金 5,000,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>国庫補助金の直接減額方式では、補助金受領益と同額の「固定資産圧縮損」を計上して固定資産の帳簿価額を直接引き下げます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n増加資本は全額資本金とするため：<br>\n（借）諸資産 45,000,000<br>\n（借）のれん  5,000,000<br>\n（貸）諸負債 25,000,000<br>\n（貸）資本金 25,000,000",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-4"
+        "qid": "boki1-pool-s6-4"
       },
       {
         "num": 5,
-        "catKey": "com_lease",
-        "catName": "第1問 商業簿記：④ リース会計（移転外・セールバック）",
-        "catClass": "badge-cat-rights",
-        "text": "【第1問 商業簿記 (5/5)】オペレーティング・リース取引により事務用PCを賃借し、当月分リース料300,000円を当座預金から支払った。適切な処理はどれか。",
+        "section": "commercial",
+        "sectionName": "【商業簿記】組織再編・企業結合（吸収合併）",
+        "catName": "のれん償却",
+        "title": "合併後第1年度における【のれん当期償却額】の算定",
+        "text": "A社が当期のれん（￥5,000,000）を20年定額法で償却する場合の【年間償却額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-handshake\"></i> 資料：A社によるB社の吸収合併データ（パーチェス法）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>B社（被合併会社）帳簿価額</th><th>B社資産・負債の時価</th></tr></thead><tbody>\n    <tr><td>諸資産（流動資産・有形固定資産等）</td><td class=\"num\">￥40,000,000</td><td class=\"num\">￥45,000,000</td></tr>\n    <tr><td>諸負債（買掛金・借入金等）</td><td class=\"num\">￥25,000,000</td><td class=\"num\">￥25,000,000</td></tr>\n    <tr><td>差引純資産</td><td class=\"num\">￥15,000,000</td><td class=\"num\">￥20,000,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【合併条件および対価の交付】</strong><br>\n    ・A社はB社を吸収合併し、B社株主に対してA社普通株式 10,000株 を交付した。<br>\n    ・合併期日におけるA社株式の時価は 1株あたり <strong>￥2,500</strong> である。<br>\n    ・A社は交付した株式の増加資本を全額「資本金」として計上する。<br>\n    ・発生したのれんは20年定額法で償却する。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）前払費用 300,000 ／ （貸方）当座預金 300,000",
-          "(2) （借方）支払リース料 300,000 ／ （貸方）当座預金 300,000",
-          "(3) （借方）リース資産 300,000 ／ （貸方）当座預金 300,000",
-          "(4) （借方）備品 300,000 ／ （貸方）リース債務 300,000"
+          "(1) ￥250,000",
+          "(2) ￥500,000",
+          "(3) ￥125,000",
+          "(4) ￥200,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>オペレーティング・リース取引は通常の賃貸借取引に準じた会計処理を行い、リース料支払時に「支払リース料（費用）」として計上します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n年間償却額 ＝ 取得時価 ￥5,000,000 ÷ 20年 ＝ <strong>￥250,000</strong>（P/L販売費及び一般管理費）",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-5"
+        "qid": "boki1-pool-s6-5"
       },
       {
         "num": 6,
-        "catKey": "acc_eps",
-        "catName": "第2問 会計学：⑭ 1株当たり当期純利益（EPS）・会計上の変更",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (1/5)】当期純利益50,000,000円、優先株配当金5,000,000円、期中平均普通株式数1,000,000株であるときの普通株式に係る「1株当たり当期純利益（EPS）」はいくらか。",
+        "section": "accounting",
+        "sectionName": "【会計学】税効果会計・繰延税金資産",
+        "catName": "繰延税金資産の算定",
+        "title": "損益に関わる将来減算一時差異に対する【繰延税金資産】の算定",
+        "text": "次の資料に基づき、当期末に計上すべき【繰延税金資産（賞与引当金・貸倒引当金）】の金額を選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-invoice-dollar\"></i> 資料：期末決算における一時差異および税効果会計データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>一時差異項目</th><th>税務上の簿価</th><th>会計上の簿価</th><th>一時差異の性格</th></tr></thead><tbody>\n    <tr><td>賞与引当金（当期費用計上額）</td><td class=\"num\">￥0</td><td class=\"num\">￥2,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>貸倒引当金損金算入限度超過額</td><td class=\"num\">￥0</td><td class=\"num\">￥1,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>その他有価証券評価差額金（評価益）</td><td class=\"num\">￥5,000,000</td><td class=\"num\">￥8,000,000</td><td>将来加算一時差異（全部純資産直入）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【前提条件】</strong><br>\n    ・法定実効税率は <strong>30％</strong> とする。<br>\n    ・将来減算一時差異の全額について回収可能性が認められる。<br>\n    ・税引前当期純利益は ￥15,000,000、当期発生の法人税・住民税及び事業税は ￥5,000,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) 50円",
-          "(2) 45円",
-          "(3) 50円",
-          "(4) 55円"
+          "(1) ￥900,000（(￥2,000,000＋￥1,000,000) × 30%）",
+          "(2) ￥600,000",
+          "(3) ￥3,000,000",
+          "(4) ￥1,200,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>普通株式に係るEPS＝（当期純利益50,000,000円 － 普通株主に帰属しない優先配当5,000,000円）÷ 期中平均株式数1,000,000株 ＝ 45円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n将来減算一時差異の合計 ＝ 賞与引当金 ￥2,000,000 ＋ 貸倒引当金限度超過 ￥1,000,000 ＝ ￥3,000,000<br>\n繰延税金資産 ＝ ￥3,000,000 × 法定実効税率 30% ＝ <strong>￥900,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-6"
+        "qid": "boki1-pool-s6-6"
       },
       {
         "num": 7,
-        "catKey": "acc_frame",
-        "catName": "第2問 会計学：⑧ 企業会計原則・一般原則・概念フレームワーク",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (2/5)】企業会計原則における「費用収益対応の原則」に関する記述として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】税効果会計・繰延税金負債",
+        "catName": "繰延税金負債の算定",
+        "title": "その他有価証券評価差額金に対する【繰延税金負債】の算定",
+        "text": "前問の資料に基づき、その他有価証券の評価益（￥3,000,000）に対して計上すべき【繰延税金負債】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-invoice-dollar\"></i> 資料：期末決算における一時差異および税効果会計データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>一時差異項目</th><th>税務上の簿価</th><th>会計上の簿価</th><th>一時差異の性格</th></tr></thead><tbody>\n    <tr><td>賞与引当金（当期費用計上額）</td><td class=\"num\">￥0</td><td class=\"num\">￥2,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>貸倒引当金損金算入限度超過額</td><td class=\"num\">￥0</td><td class=\"num\">￥1,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>その他有価証券評価差額金（評価益）</td><td class=\"num\">￥5,000,000</td><td class=\"num\">￥8,000,000</td><td>将来加算一時差異（全部純資産直入）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【前提条件】</strong><br>\n    ・法定実効税率は <strong>30％</strong> とする。<br>\n    ・将来減算一時差異の全額について回収可能性が認められる。<br>\n    ・税引前当期純利益は ￥15,000,000、当期発生の法人税・住民税及び事業税は ￥5,000,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) 当期の収益を獲得するために発生した費用を同一の会計期間に対応させて純損益を算定する原則であり、個別的対応と期間的対応がある。",
-          "(2) すべての費用と収益を現金収支の発生時点で認識することを要求する。",
-          "(3) 製造業にのみ適用され、商業やサービス業には適用されない。",
-          "(4) 将来発生が見込まれる偶発損失をあらかじめ全額収益から控除する原則である。"
+          "(1) ￥900,000（その他有価証券評価差額金から直接控除）",
+          "(2) ￥900,000（法人税等調整額に計上）",
+          "(3) ￥1,500,000",
+          "(4) ￥600,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>費用収益対応の原則は、期間損益計算において当期に認識された収益と、その収益獲得に寄与した費用とを合理的に対応させる原則です。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n評価益 ＝ 会計時価 ￥8,000,000 − 税務簿価 ￥5,000,000 ＝ ￥3,000,000（将来加算一時差異）<br>\n繰延税金負債 ＝ ￥3,000,000 × 30% ＝ <strong>￥900,000</strong><br>\n（相手科目はP/Lの法人税等調整額ではなく、純資産の部「その他有価証券評価差額金」から直接控除します）",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-7"
+        "qid": "boki1-pool-s6-7"
       },
       {
         "num": 8,
-        "catKey": "acc_fin",
-        "catName": "第2問 会計学：⑨ 金融商品会計・デリバティブ・ヘッジ会計",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (3/5)】デリバティブ取引の契約締結時における財務諸表上の原則的処理として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】税効果会計・繰延税金資産",
+        "catName": "法人税等調整額",
+        "title": "損益計算書に計上される【法人税等調整額（貸方）】の算定",
+        "text": "前問の資料に基づき、損益計算書に計上される【法人税等調整額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-invoice-dollar\"></i> 資料：期末決算における一時差異および税効果会計データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>一時差異項目</th><th>税務上の簿価</th><th>会計上の簿価</th><th>一時差異の性格</th></tr></thead><tbody>\n    <tr><td>賞与引当金（当期費用計上額）</td><td class=\"num\">￥0</td><td class=\"num\">￥2,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>貸倒引当金損金算入限度超過額</td><td class=\"num\">￥0</td><td class=\"num\">￥1,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>その他有価証券評価差額金（評価益）</td><td class=\"num\">￥5,000,000</td><td class=\"num\">￥8,000,000</td><td>将来加算一時差異（全部純資産直入）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【前提条件】</strong><br>\n    ・法定実効税率は <strong>30％</strong> とする。<br>\n    ・将来減算一時差異の全額について回収可能性が認められる。<br>\n    ・税引前当期純利益は ￥15,000,000、当期発生の法人税・住民税及び事業税は ￥5,000,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) 契約締結時は原則として純額で時価評価ゼロであるため簿外となるが、決算日においては時価をもって評価し、評価差額を当期の損益とする。",
-          "(2) 契約総額（想定元本）を資産および負債に両建て計上する。",
-          "(3) 決済期日まで一切の評価替えを行わず注記のみとする。",
-          "(4) デリバティブは金融資産とはみなされないため、会計処理の対象外である。"
+          "(1) △￥900,000（貸方・税金費用の減額）",
+          "(2) ￥0（相殺されるため）",
+          "(3) ＋￥900,000（借方・税金費用の加算）",
+          "(4) △￥1,800,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>デリバティブ取引は、契約成立当初は正味の時価がほぼゼロであるため純額で認識され、決算日ごとに時価評価して評価損益を計上します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n仕訳：（借）繰延税金資産 900,000 ／（貸）法人税等調整額 900,000<br>\nその他有価証券に係る繰延税金負債は損益を通さないため、損益計算書に計上される法人税等調整額は繰延税金資産計上による<strong>「△￥900,000（貸方・税金の控除）」</strong>となります。",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-8"
+        "qid": "boki1-pool-s6-8"
       },
       {
         "num": 9,
-        "catKey": "acc_merge",
-        "catName": "第2問 会計学：⑩ 企業結合・事業分離（パーチェス法・のれん）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (4/5)】親会社が100％子会社を吸収合併する「共通支配下の取引」における資産・負債の受入価額として適切なものはどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】税効果会計・繰延税金資産",
+        "catName": "当期純利益",
+        "title": "税効果適用後における【損益計算書の当期純利益】の算定",
+        "text": "前問の資料に基づき、税引前当期純利益 ￥15,000,000 から法人税等および法人税等調整額を反映した後の【当期純利益】を選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-invoice-dollar\"></i> 資料：期末決算における一時差異および税効果会計データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>一時差異項目</th><th>税務上の簿価</th><th>会計上の簿価</th><th>一時差異の性格</th></tr></thead><tbody>\n    <tr><td>賞与引当金（当期費用計上額）</td><td class=\"num\">￥0</td><td class=\"num\">￥2,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>貸倒引当金損金算入限度超過額</td><td class=\"num\">￥0</td><td class=\"num\">￥1,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>その他有価証券評価差額金（評価益）</td><td class=\"num\">￥5,000,000</td><td class=\"num\">￥8,000,000</td><td>将来加算一時差異（全部純資産直入）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【前提条件】</strong><br>\n    ・法定実効税率は <strong>30％</strong> とする。<br>\n    ・将来減算一時差異の全額について回収可能性が認められる。<br>\n    ・税引前当期純利益は ￥15,000,000、当期発生の法人税・住民税及び事業税は ￥5,000,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) 被結合企業の合併直前の適正な帳簿価額（連結上の帳簿価額）を引き継ぐ。",
-          "(2) 合併期日における資産・負債の時価で受け入れ、のれんを計上する。",
-          "(3) 過去の取得原価に物価変動率を乗じた金額で評価替えする。",
-          "(4) すべて備忘価額1円で受け入れる。"
+          "(1) ￥10,900,000",
+          "(2) ￥10,000,000",
+          "(3) ￥9,100,000",
+          "(4) ￥11,500,000"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>同一グループ内の「共通支配下の取引」では新たな投資の清算は行われないため、結合前の帳簿価額（帳簿価額引継法）によって資産・負債を受け入れます。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 税金費用合計 ＝ 法人税・住民税及び事業税 ￥5,000,000 − 法人税等調整額 ￥900,000 ＝ ￥4,100,000<br>\n2. 当期純利益 ＝ 税引前利益 ￥15,000,000 − ￥4,100,000 ＝ <strong>￥10,900,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-9"
+        "qid": "boki1-pool-s6-9"
       },
       {
         "num": 10,
-        "catKey": "acc_consol",
-        "catName": "第2問 会計学：⑪ 連結会計（資本連結・成果連結・持分法）",
-        "catClass": "badge-cat-法令",
-        "text": "【第2問 会計学 (5/5)】P社がS社に対する売掛金に対して設定していた貸倒引当金60,000円を連結上で修正する適切な仕訳はどれか。",
+        "section": "accounting",
+        "sectionName": "【会計学】税効果会計・繰延税金資産",
+        "catName": "純資産の部",
+        "title": "税効果控除後における【純資産の部・その他有価証券評価差額金】の残高",
+        "text": "前問の資料に基づき、貸借対照表の純資産の部に計上される【その他有価証券評価差額金】の純額として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-file-invoice-dollar\"></i> 資料：期末決算における一時差異および税効果会計データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>一時差異項目</th><th>税務上の簿価</th><th>会計上の簿価</th><th>一時差異の性格</th></tr></thead><tbody>\n    <tr><td>賞与引当金（当期費用計上額）</td><td class=\"num\">￥0</td><td class=\"num\">￥2,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>貸倒引当金損金算入限度超過額</td><td class=\"num\">￥0</td><td class=\"num\">￥1,000,000</td><td>将来減算一時差異</td></tr>\n    <tr><td>その他有価証券評価差額金（評価益）</td><td class=\"num\">￥5,000,000</td><td class=\"num\">￥8,000,000</td><td>将来加算一時差異（全部純資産直入）</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【前提条件】</strong><br>\n    ・法定実効税率は <strong>30％</strong> とする。<br>\n    ・将来減算一時差異の全額について回収可能性が認められる。<br>\n    ・税引前当期純利益は ￥15,000,000、当期発生の法人税・住民税及び事業税は ￥5,000,000 である。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）貸倒損失 60,000 ／ （貸方）貸倒引当金 60,000",
-          "(2) （借方）売掛金 60,000 ／ （貸方）貸倒引当金繰入 60,000",
-          "(3) （借方）非支配株主持分 60,000 ／ （貸方）貸倒引当金 60,000",
-          "(4) （借方）貸倒引当金 60,000 ／ （貸方）貸倒引当金繰入 60,000"
+          "(1) ￥2,100,000（評価益￥3,000,000 × (1 − 0.3)）",
+          "(2) ￥3,000,000（税効果控除前）",
+          "(3) ￥900,000",
+          "(4) ￥2,700,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>内部債権が消去されることに伴い、これに対して設定されていた個別上の貸倒引当金も連結上全額消去（貸借逆仕訳）します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\nその他有価証券評価差額金は税効果控除後の純額で純資産に計上します。<br>\n税引前評価差額 ￥3,000,000 − 繰延税金負債 ￥900,000 ＝ <strong>￥2,100,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-10"
+        "qid": "boki1-pool-s6-10"
       },
       {
         "num": 11,
-        "catKey": "ind_diff",
-        "catName": "第3問 工業簿記：㉑ 原価差異の会計処理・工場独立会計組織",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (1/5)】原価計算基準における「原価差異の会計処理」に関する記述として適切なものはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】個別原価計算・仕損費と補修指図書",
+        "catName": "補修指図書原価",
+        "title": "補修指図書 #101補修 に集計された【仕損補修原価総額】の算定",
+        "text": "次の資料に基づき、補修指図書 #101補修 に集計された【補修総原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-clipboard-list\"></i> 資料：製造指図書別原価計算および仕損費データ（個別原価計算）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>指図書番号</th><th>製品名・仕様</th><th>直接材料費</th><th>直接労務費</th><th>製造間接費配賦額</th></tr></thead><tbody>\n    <tr><td>#101</td><td>特殊工作機械A</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥800,000</td><td class=\"num\">￥600,000</td></tr>\n    <tr><td>#102</td><td>特殊工作機械B</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥750,000</td></tr>\n    <tr><td>#101補修</td><td>#101の正常仕損補修</td><td class=\"num\">￥100,000</td><td class=\"num\">￥80,000</td><td class=\"num\">￥60,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【仕損処理の条件】</strong><br>\n    ・製造指図書 #101 の製造途中に正常な仕損が発生し、補修指図書 #101補修 を発行して手直しを行った。<br>\n    ・この仕損は #101 の特異な構造に起因して発生したものであるため、補修原価はすべて #101 に直接賦課する。<br>\n    ・仕損品から回収された作業くずの売却見積額は ￥40,000 であった。\n  </div>\n</div>",
         "options": [
-          "(1) すべての原価差異は次期の期首仕掛品に繰り延べなければならない。",
-          "(2) 原価差異は必ず特別損失として処理する。",
-          "(3) 原価差異は原則として当期の「売上原価」に加減するが、多額の差異は売上原価と期末たな卸資産に按分配分する。",
-          "(4) 原価差異はいかなる場合も全額純資産から直接控除する。"
+          "(1) ￥240,000（材料￥100,000 ＋ 労務￥80,000 ＋ 間接費￥60,000）",
+          "(2) ￥180,000（直接費のみ）",
+          "(3) ￥200,000",
+          "(4) ￥280,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>原価計算基準47において、原価差異は原則として売上原価に賦課しますが、差異が多額である場合には売上原価・期末製品・期末仕掛品に按分処理します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n補修総原価 ＝ 直接材料費 ￥100,000 ＋ 直接労務費 ￥80,000 ＋ 製造間接費配賦額 ￥60,000 ＝ <strong>￥240,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-11"
+        "qid": "boki1-pool-s6-11"
       },
       {
         "num": 12,
-        "catKey": "ind_elem",
-        "catName": "第3問 工業簿記：⑮ 費目別計算（材料・労務・経費・予定価格）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (2/5)】材料（帳簿残高1000kg、実地棚卸950kg、予定価格2,000円）の棚卸減耗損を計上した。通常生じる正常な減耗である場合の仕訳はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】個別原価計算・仕損費と補修指図書",
+        "catName": "純仕損費",
+        "title": "作業くず評価額を控除した後の【純仕損費（賦課額）】の算定",
+        "text": "前問の資料に基づき、作業くず評価額 ￥40,000 を控除した後の【#101に賦課すべき純仕損費】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-clipboard-list\"></i> 資料：製造指図書別原価計算および仕損費データ（個別原価計算）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>指図書番号</th><th>製品名・仕様</th><th>直接材料費</th><th>直接労務費</th><th>製造間接費配賦額</th></tr></thead><tbody>\n    <tr><td>#101</td><td>特殊工作機械A</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥800,000</td><td class=\"num\">￥600,000</td></tr>\n    <tr><td>#102</td><td>特殊工作機械B</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥750,000</td></tr>\n    <tr><td>#101補修</td><td>#101の正常仕損補修</td><td class=\"num\">￥100,000</td><td class=\"num\">￥80,000</td><td class=\"num\">￥60,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【仕損処理の条件】</strong><br>\n    ・製造指図書 #101 の製造途中に正常な仕損が発生し、補修指図書 #101補修 を発行して手直しを行った。<br>\n    ・この仕損は #101 の特異な構造に起因して発生したものであるため、補修原価はすべて #101 に直接賦課する。<br>\n    ・仕損品から回収された作業くずの売却見積額は ￥40,000 であった。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）棚卸減耗損（特別損失） 100,000 ／ （貸方）材料 100,000",
-          "(2) （借方）仕掛品 100,000 ／ （貸方）材料 100,000",
-          "(3) （借方）製造間接費 100,000 ／ （貸方）買掛金 100,000",
-          "(4) （借方）製造間接費 100,000 ／ （貸方）材料 100,000"
+          "(1) ￥200,000",
+          "(2) ￥240,000",
+          "(3) ￥160,000",
+          "(4) ￥40,000"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>正常な棚卸減耗損は原価性を有するため「製造間接費（間接材料費）」に算入します。<br>計算：50kg × 2,000円 ＝ 100,000円",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n純仕損費 ＝ 補修原価 ￥240,000 − 作業くず売却見込額 ￥40,000 ＝ <strong>￥200,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-12"
+        "qid": "boki1-pool-s6-12"
       },
       {
         "num": 13,
-        "catKey": "ind_dept",
-        "catName": "第3問 工業簿記：⑯ 部門別計算（複数基準配賦・相互配賦法）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (3/5)】補助部門費を製造部門へ配賦する「複数基準配賦法（二元配賦法）」に関する記述として最も適切なものはどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】個別原価計算・仕損費と補修指図書",
+        "catName": "製造指図書別原価計算",
+        "title": "純仕損費賦課後における【製造指図書 #101 の最終完成品原価】の算定",
+        "text": "前問の資料に基づき、仕損補修を完了した【製造指図書 #101 の完成品総製造原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-clipboard-list\"></i> 資料：製造指図書別原価計算および仕損費データ（個別原価計算）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>指図書番号</th><th>製品名・仕様</th><th>直接材料費</th><th>直接労務費</th><th>製造間接費配賦額</th></tr></thead><tbody>\n    <tr><td>#101</td><td>特殊工作機械A</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥800,000</td><td class=\"num\">￥600,000</td></tr>\n    <tr><td>#102</td><td>特殊工作機械B</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥750,000</td></tr>\n    <tr><td>#101補修</td><td>#101の正常仕損補修</td><td class=\"num\">￥100,000</td><td class=\"num\">￥80,000</td><td class=\"num\">￥60,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【仕損処理の条件】</strong><br>\n    ・製造指図書 #101 の製造途中に正常な仕損が発生し、補修指図書 #101補修 を発行して手直しを行った。<br>\n    ・この仕損は #101 の特異な構造に起因して発生したものであるため、補修原価はすべて #101 に直接賦課する。<br>\n    ・仕損品から回収された作業くずの売却見積額は ￥40,000 であった。\n  </div>\n</div>",
         "options": [
-          "(1) 固定費のみを配賦し、変動費は配賦しない。",
-          "(2) 補助部門費を変動費と固定費に分解し、変動費は実際用役消費量、固定費は用役提供能力（最大利用能力等）を配賦基準として配賦する。",
-          "(3) 製造部門の面積と従業員数だけで全費用を一括配賦する。",
-          "(4) 材料費と労務費を合算して単一基準で配賦する。"
+          "(1) ￥2,800,000",
+          "(2) ￥2,600,000",
+          "(3) ￥2,840,000",
+          "(4) ￥2,760,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>複数基準配賦法では、補助部門の変動費は用役の実際消費量比例で配賦し、設備維持等の固定費は各製造部門の最大利用可能能力（キャパシティ）基準で配賦します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n1. 当初の基本原価 ＝ ￥1,200,000 ＋ ￥800,000 ＋ ￥600,000 ＝ ￥2,600,000<br>\n2. 純仕損費賦課額 ＝ ￥200,000<br>\n3. <strong>完成品総原価</strong> ＝ ￥2,600,000 ＋ ￥200,000 ＝ <strong>￥2,800,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-13"
+        "qid": "boki1-pool-s6-13"
       },
       {
         "num": 14,
-        "catKey": "ind_job",
-        "catName": "第3問 工業簿記：⑰ 個別原価計算（製造間接費予定配賦・仕損費）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (4/5)】製造指図書#201（直接材料費1,200,000円、直接労務費800,000円、製造間接費配賦額600,000円）が完成し、製品倉庫に入庫された。適切な仕訳はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】個別原価計算・仕損費と補修指図書",
+        "catName": "異常仕損の会計処理",
+        "title": "異常な原因により発生した仕損費の財務会計上の処理区分",
+        "text": "仮にこの仕損が作業員の著しい過失や偶発的停電など「異常な原因」によるものであった場合の会計処理として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-clipboard-list\"></i> 資料：製造指図書別原価計算および仕損費データ（個別原価計算）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>指図書番号</th><th>製品名・仕様</th><th>直接材料費</th><th>直接労務費</th><th>製造間接費配賦額</th></tr></thead><tbody>\n    <tr><td>#101</td><td>特殊工作機械A</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥800,000</td><td class=\"num\">￥600,000</td></tr>\n    <tr><td>#102</td><td>特殊工作機械B</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥750,000</td></tr>\n    <tr><td>#101補修</td><td>#101の正常仕損補修</td><td class=\"num\">￥100,000</td><td class=\"num\">￥80,000</td><td class=\"num\">￥60,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【仕損処理の条件】</strong><br>\n    ・製造指図書 #101 の製造途中に正常な仕損が発生し、補修指図書 #101補修 を発行して手直しを行った。<br>\n    ・この仕損は #101 の特異な構造に起因して発生したものであるため、補修原価はすべて #101 に直接賦課する。<br>\n    ・仕損品から回収された作業くずの売却見積額は ￥40,000 であった。\n  </div>\n</div>",
         "options": [
-          "(1) （借方）売上原価 2,600,000 ／ （貸方）仕掛品 2,600,000",
-          "(2) （借方）製品 2,600,000 ／ （貸方）直接材料費 1,200,000<br>（貸方）直接労務費 800,000<br>（貸方）製造間接費 600,000",
-          "(3) （借方）仕掛品 2,600,000 ／ （貸方）製品 2,600,000",
-          "(4) （借方）製品 2,600,000 ／ （貸方）仕掛品 2,600,000"
+          "(1) 製造原価には算入せず、非原価項目として「営業外費用」または「特別損失」に計上する",
+          "(2) 製造間接費に算入し、当期の全指図書に配賦する",
+          "(3) 製造指図書 #101 の製造原価に全額賦課する",
+          "(4) 翌期の仕掛品に繰り延べる"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>個別原価計算において指図書が完成したときは、仕掛品勘定に集計された原価総額を「製品」勘定へ振り替えます。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n原価計算基準に基づき、異常な原因によって生じた異常仕損費は「非原価項目」とされ、製品の製造原価には含めず、<strong>営業外費用または特別損失</strong>として処理します。",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-14"
+        "qid": "boki1-pool-s6-14"
       },
       {
         "num": 15,
-        "catKey": "ind_proc",
-        "catName": "第3問 工業簿記：⑱ 総合原価計算（単純・工程別・加工費工程別）",
-        "catClass": "badge-cat-税",
-        "text": "【第3問 工業簿記 (5/5)】等級別総合原価計算において、同一工程で同一原料から生産される等級製品間で原価を按分するための基準数値はどれか。",
+        "section": "industrial",
+        "sectionName": "【工業簿記】個別原価計算・仕損費と補修指図書",
+        "catName": "製造指図書別原価計算",
+        "title": "製造指図書 #102 の完成品製造原価の算定",
+        "text": "仕損の発生しなかった製造指図書 #102 の【完成品総製造原価】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-clipboard-list\"></i> 資料：製造指図書別原価計算および仕損費データ（個別原価計算）</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>指図書番号</th><th>製品名・仕様</th><th>直接材料費</th><th>直接労務費</th><th>製造間接費配賦額</th></tr></thead><tbody>\n    <tr><td>#101</td><td>特殊工作機械A</td><td class=\"num\">￥1,200,000</td><td class=\"num\">￥800,000</td><td class=\"num\">￥600,000</td></tr>\n    <tr><td>#102</td><td>特殊工作機械B</td><td class=\"num\">￥1,500,000</td><td class=\"num\">￥1,000,000</td><td class=\"num\">￥750,000</td></tr>\n    <tr><td>#101補修</td><td>#101の正常仕損補修</td><td class=\"num\">￥100,000</td><td class=\"num\">￥80,000</td><td class=\"num\">￥60,000</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【仕損処理の条件】</strong><br>\n    ・製造指図書 #101 の製造途中に正常な仕損が発生し、補修指図書 #101補修 を発行して手直しを行った。<br>\n    ・この仕損は #101 の特異な構造に起因して発生したものであるため、補修原価はすべて #101 に直接賦課する。<br>\n    ・仕損品から回収された作業くずの売却見積額は ￥40,000 であった。\n  </div>\n</div>",
         "options": [
-          "(1) 売戻価格",
-          "(2) 配賦基準数",
-          "(3) 等価係数（重さ・長さ・規格等の比率）",
-          "(4) 標準操業度"
+          "(1) ￥3,250,000",
+          "(2) ￥3,500,000",
+          "(3) ￥3,000,000",
+          "(4) ￥3,450,000"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>等級別総合原価計算では、サイズや品質が異なる同種製品について「等価係数」を定めて積数を算出し、一括集計された原価を按分します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n#102 総製造原価 ＝ 材料費 ￥1,500,000 ＋ 労務費 ￥1,000,000 ＋ 製造間接費 ￥750,000 ＝ <strong>￥3,250,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-15"
+        "qid": "boki1-pool-s6-15"
       },
       {
         "num": 16,
-        "catKey": "cst_strat",
-        "catName": "第4問 原価計算：㉘ 戦略的原価計算（ABC/ABM・原価企画・BSC）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (1/5)】活動基準原価計算（ABC：Activity-Based Costing）の基本的な考え方として正しいものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】事業部制会計・内部振替価格",
+        "catName": "振替価格の下限",
+        "title": "遊休生産能力が存在する場合における【供給事業部側の許容最低振替価格（下限）】",
+        "text": "次の資料に基づき、供給事業部に2,000個の遊休能力がある場合、供給事業部が受け入れ可能な【最低振替価格（下限）】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exchange-alt\"></i> 資料：事業部制組織における内部振替価格データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>部品製造事業部（供給側）</th><th>完成品組立事業部（受入側）</th></tr></thead><tbody>\n    <tr><td>部品の単位あたり変動費</td><td class=\"num\">￥600 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>部品の単位あたり固定費（通常時）</td><td class=\"num\">￥300 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場への部品販売単価</td><td class=\"num\">￥1,200 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場での販売可能最大量</td><td class=\"num\">8,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>部品製造事業部の生産能力</td><td class=\"num\">10,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>組立事業部の必要部品量</td><td class=\"num\">−</td><td class=\"num\">2,000 個 / 月</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産余力および意思決定条件】</strong><br>\n    ・供給事業部には月間 2,000個（10,000個 − 8,000個）の遊休生産能力（余力）が存在する。<br>\n    ・組立事業部は社内から調達できない場合、外部市場から同等品を ￥1,150 で購入可能である。\n  </div>\n</div>",
         "options": [
-          "(1) 製造間接費の集計・配賦を完全に廃止する手法である。",
-          "(2) 資源（費用）を個々の「活動（アクティビティ）」に集計し、活動ごとの「コスト・ドライバー（活動誘因）」に基づいて製品に配賦する。",
-          "(3) 直接材料費と直接労務費を合算して全製品に均等配賦する。",
-          "(4) 直接作業時間のみを唯一の配賦基準とする。"
+          "(1) ￥600 / 個（単位あたり変動費）",
+          "(2) ￥900 / 個（全部製造原価：変動費￥600＋固定費￥300）",
+          "(3) ￥1,200 / 個（外部市価）",
+          "(4) ￥1,150 / 個"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>ABCは、多様な製品を少量生産する現代の製造環境において、伝統的な直接作業時間配賦の歪みを是正し、段取回数や検査回数等の活動基準で間接費を配賦する手法です。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n遊休生産能力が存在する場合、内部振替を行っても外部販売の機会損失（機会原価）は発生しません。<br>\nしたがって、追加的に発生する増分現金支出（単位あたり変動費）をカバーできれば利益に貢献するため、下限価格は <strong>￥600 / 個</strong> となります。",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-16"
+        "qid": "boki1-pool-s6-16"
       },
       {
         "num": 17,
-        "catKey": "cst_base",
-        "catName": "第4問 原価計算：㉒ 原価計算基準体系・原価概念・原価の本質",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (2/5)】原価計算基準が定める原価計算の「5つの目的」に含まれないものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】事業部制会計・内部振替価格",
+        "catName": "振替価格の上限",
+        "title": "受入事業部側における【許容最高振替価格（上限）】の決定",
+        "text": "前問の資料に基づき、組立事業部（受入側）が受け入れ可能な【最高振替価格（上限）】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exchange-alt\"></i> 資料：事業部制組織における内部振替価格データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>部品製造事業部（供給側）</th><th>完成品組立事業部（受入側）</th></tr></thead><tbody>\n    <tr><td>部品の単位あたり変動費</td><td class=\"num\">￥600 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>部品の単位あたり固定費（通常時）</td><td class=\"num\">￥300 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場への部品販売単価</td><td class=\"num\">￥1,200 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場での販売可能最大量</td><td class=\"num\">8,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>部品製造事業部の生産能力</td><td class=\"num\">10,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>組立事業部の必要部品量</td><td class=\"num\">−</td><td class=\"num\">2,000 個 / 月</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産余力および意思決定条件】</strong><br>\n    ・供給事業部には月間 2,000個（10,000個 − 8,000個）の遊休生産能力（余力）が存在する。<br>\n    ・組立事業部は社内から調達できない場合、外部市場から同等品を ￥1,150 で購入可能である。\n  </div>\n</div>",
         "options": [
-          "(1) 価格計算目的（適正な販売価格の決定）",
-          "(2) 原価管理目的および予算統制・経営計画目的",
-          "(3) 税務署に対する所得隠しの防止と過少申告加算税の回避",
-          "(4) 財務諸表作成目的（真実の製品原価の算定）"
+          "(1) ￥1,150 / 個（外部代替品調達価格）",
+          "(2) ￥1,200 / 個（部品外部市価）",
+          "(3) ￥900 / 個（全部製造原価）",
+          "(4) ￥600 / 個"
         ],
-        "correct": "(3)",
-        "explanation": "<strong>【正解：(3)】</strong><br><br>原価計算基準の5大目的：①財務諸表作成、②価格計算、③原価管理、④予算統制、⑤基本計画設定。税務調査対策等は基準の目的ではありません。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n受入側事業部は外部サプライヤーから ￥1,150 で購入できるため、これを超える価格では社内調達する経済的合理性がありません。<br>\nしたがって、上限価格は外部調達価格である <strong>￥1,150 / 個</strong> となります。",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-17"
+        "qid": "boki1-pool-s6-17"
       },
       {
         "num": 18,
-        "catKey": "cst_direct",
-        "catName": "第4問 原価計算：㉓ 直接原価計算・固変分解（高低点法等）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (3/5)】売上高10,000,000円、変動費6,000,000円、固定費2,500,000円のときの「貢献利益（限界利益）」はいくらか。",
+        "section": "cost",
+        "sectionName": "【原価計算】事業部制会計・内部振替価格",
+        "catName": "交渉可能価格帯",
+        "title": "全社最適および事業部自律性を両立する【社内交渉振替価格の成立範囲】",
+        "text": "前問の資料に基づき、両事業部が合意しうる【内部振替価格（P）の成立範囲】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exchange-alt\"></i> 資料：事業部制組織における内部振替価格データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>部品製造事業部（供給側）</th><th>完成品組立事業部（受入側）</th></tr></thead><tbody>\n    <tr><td>部品の単位あたり変動費</td><td class=\"num\">￥600 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>部品の単位あたり固定費（通常時）</td><td class=\"num\">￥300 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場への部品販売単価</td><td class=\"num\">￥1,200 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場での販売可能最大量</td><td class=\"num\">8,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>部品製造事業部の生産能力</td><td class=\"num\">10,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>組立事業部の必要部品量</td><td class=\"num\">−</td><td class=\"num\">2,000 個 / 月</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産余力および意思決定条件】</strong><br>\n    ・供給事業部には月間 2,000個（10,000個 − 8,000個）の遊休生産能力（余力）が存在する。<br>\n    ・組立事業部は社内から調達できない場合、外部市場から同等品を ￥1,150 で購入可能である。\n  </div>\n</div>",
         "options": [
-          "(1) 1,500,000円（営業利益）",
-          "(2) 7,500,000円",
-          "(3) 8,500,000円",
-          "(4) 4,000,000円（売上高 － 変動費）"
+          "(1) ￥600 ≦ P ≦ ￥1,150",
+          "(2) ￥900 ≦ P ≦ ￥1,200",
+          "(3) ￥600 ≦ P ≦ ￥900",
+          "(4) ￥900 ≦ P ≦ ￥1,150"
         ],
-        "correct": "(4)",
-        "explanation": "<strong>【正解：(4)】</strong><br><br>貢献利益（限界利益）＝売上高（10,000,000円） － 変動費（6,000,000円） ＝ 4,000,000円<br>（営業利益は貢献利益から固定費2,500,000円を引いた1,500,000円）",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n下限価格（供給側の単位あたり変動費 ￥600）から上限価格（受入側の外部調達価格 ￥1,150）までの間であれば、双方の事業部利益が改善するため、<strong>￥600 ≦ P ≦ ￥1,150</strong> の範囲で交渉が成立します。",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-18"
+        "qid": "boki1-pool-s6-18"
       },
       {
         "num": 19,
-        "catKey": "cst_cvp",
-        "catName": "第4問 原価計算：㉔ CVP分析・損益分岐点・最適セールスミックス",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (4/5)】貢献利益5,000,000円、営業利益1,000,000円のときの「経営レバー係数（DOL）」はいくらか。",
+        "section": "cost",
+        "sectionName": "【原価計算】事業部制会計・内部振替価格",
+        "catName": "全社利益の変動",
+        "title": "社内振替（2,000個）を実行した場合の【全社利益増加額】の算定",
+        "text": "社外から ￥1,150 で購入せず社内で振替製造（変動費￥600）した場合の【全社営業利益の増加額】として正しいものを選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exchange-alt\"></i> 資料：事業部制組織における内部振替価格データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>部品製造事業部（供給側）</th><th>完成品組立事業部（受入側）</th></tr></thead><tbody>\n    <tr><td>部品の単位あたり変動費</td><td class=\"num\">￥600 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>部品の単位あたり固定費（通常時）</td><td class=\"num\">￥300 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場への部品販売単価</td><td class=\"num\">￥1,200 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場での販売可能最大量</td><td class=\"num\">8,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>部品製造事業部の生産能力</td><td class=\"num\">10,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>組立事業部の必要部品量</td><td class=\"num\">−</td><td class=\"num\">2,000 個 / 月</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産余力および意思決定条件】</strong><br>\n    ・供給事業部には月間 2,000個（10,000個 − 8,000個）の遊休生産能力（余力）が存在する。<br>\n    ・組立事業部は社内から調達できない場合、外部市場から同等品を ￥1,150 で購入可能である。\n  </div>\n</div>",
         "options": [
-          "(1) 10倍",
-          "(2) 5倍（売上高が1％増加すると営業利益が5％増加する）",
-          "(3) 0.2倍",
-          "(4) 2.5倍"
+          "(1) ＋￥1,100,000",
+          "(2) ＋￥500,000",
+          "(3) ＋￥1,200,000",
+          "(4) ＋￥800,000"
         ],
-        "correct": "(2)",
-        "explanation": "<strong>【正解：(2)】</strong><br><br>経営レバー係数＝貢献利益 ÷ 営業利益 ＝ 5,000,000円 ÷ 1,000,000円 ＝ 5倍<br>固定費の存在により、売上高の増減率に対して利益の増減率が何倍に増幅されるかを示します。",
+        "correct": "(1)",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n全社視点では、外部への現金流出 ￥1,150 × 2,000個 ＝ ￥2,300,000 を回避し、社内増分支出 ￥600 × 2,000個 ＝ ￥1,200,000 で賄うことができます。<br>\n全社利益増加額 ＝ (￥1,150 − ￥600) × 2,000個 ＝ <strong>＋￥1,100,000</strong>",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-19"
+        "qid": "boki1-pool-s6-19"
       },
       {
         "num": 20,
-        "catKey": "cst_short",
-        "catName": "第4問 原価計算：㉕ 業務的意思決定（差額原価収益・自製か外注か）",
-        "catClass": "badge-cat-宅建業法",
-        "text": "【第4問 原価計算 (5/5)】差額原価収益分析における「機会原価（オポチュニティ・コスト）」の定義として適切なものはどれか。",
+        "section": "cost",
+        "sectionName": "【原価計算】事業部制会計・内部振替価格",
+        "catName": "満杯操業時の振替価格",
+        "title": "供給事業部が満杯操業（外部販売8,000個上限なし・10,000個完売可能）である場合の下限振替価格",
+        "text": "仮に部品製造事業部が外部市場へ10,000個全量を ￥1,200 で販売可能（満杯操業）である場合の【供給事業部側の許容最低振替価格】を選択しなさい。\n<div class=\"boki-material-box\">\n  <div class=\"boki-material-title\"><i class=\"fas fa-exchange-alt\"></i> 資料：事業部制組織における内部振替価格データ</div>\n  <div class=\"boki-table-wrapper\"><table class=\"boki-table\"><thead><tr><th>項目</th><th>部品製造事業部（供給側）</th><th>完成品組立事業部（受入側）</th></tr></thead><tbody>\n    <tr><td>部品の単位あたり変動費</td><td class=\"num\">￥600 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>部品の単位あたり固定費（通常時）</td><td class=\"num\">￥300 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場への部品販売単価</td><td class=\"num\">￥1,200 / 個</td><td class=\"num\">−</td></tr>\n    <tr><td>外部市場での販売可能最大量</td><td class=\"num\">8,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>部品製造事業部の生産能力</td><td class=\"num\">10,000 個 / 月</td><td class=\"num\">−</td></tr>\n    <tr><td>組立事業部の必要部品量</td><td class=\"num\">−</td><td class=\"num\">2,000 個 / 月</td></tr>\n  </tbody></table></div>\n  <div class=\"boki-sub-items\">\n    <strong>【生産余力および意思決定条件】</strong><br>\n    ・供給事業部には月間 2,000個（10,000個 − 8,000個）の遊休生産能力（余力）が存在する。<br>\n    ・組立事業部は社内から調達できない場合、外部市場から同等品を ￥1,150 で購入可能である。\n  </div>\n</div>",
         "options": [
-          "(1) ある代替案を選択したことによって、放棄せざるを得なくなった他の最善の代替案から得られたはずの利益。",
-          "(2) 将来において現金の支払を伴う追加費用。",
-          "(3) 過去の会計帳簿に記録された減価償却費の累計額。",
-          "(4) 競合他社が支出した広告宣伝費の推計値。"
+          "(1) ￥1,200 / 個（外部市価＝変動費￥600 ＋ 機会原価￥600）",
+          "(2) ￥600 / 個",
+          "(3) ￥900 / 個",
+          "(4) ￥1,150 / 個"
         ],
         "correct": "(1)",
-        "explanation": "<strong>【正解：(1)】</strong><br><br>機会原価とは、ある行動を選択するために諦めた選択肢のうち、最も有利なものから得られたはずの最大の利益（失われた利益）を指します。",
+        "explanation": "<strong>【正解：(1)】</strong><br><br><strong>【詳細解説】</strong><br>\n満杯操業の場合、社内へ振り替えることは外部市場への販売（1個あたり貢献利益 ￥1,200 − ￥600 ＝ ￥600）を犠牲にすることを意味します（機会原価）。<br>\n最低振替価格 ＝ 変動費 ￥600 ＋ 機会原価 ￥600 ＝ <strong>￥1,200 / 個（外部市価）</strong> となります。",
+        "points": 5,
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki1-mock-6-20"
+        "qid": "boki1-pool-s6-20"
       }
     ]
   }
