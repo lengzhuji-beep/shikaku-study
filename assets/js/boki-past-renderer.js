@@ -183,112 +183,181 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 問題レンダリング
-  function renderQuestions() {
+  let currentExamIndex = 0;
+
+  // 1問ずつ表示する問題レンダリング
+  function renderCurrentExamQuestion() {
     container.innerHTML = '';
     const total = sessionQuestions.length;
-    updateProgress(0, total);
 
-    sessionQuestions.forEach((item, index) => {
-      const qNum = index + 1;
-      const qId = getItemQid(item);
-      const isBookmarked = isItemBookmarked(item, qId);
+    if (currentExamIndex >= total) {
+      renderResultSummary();
+      return;
+    }
 
-      const card = document.createElement('div');
-      card.className = 'quiz-card';
-      card.setAttribute('data-qid', qId);
+    const index = currentExamIndex;
+    const item = sessionQuestions[index];
+    const qNum = index + 1;
+    const qId = getItemQid(item);
+    const isBookmarked = isItemBookmarked(item, qId);
 
-      let optionsHtml = '';
-      (item.options || []).forEach(opt => {
-        const valMatch = opt.match(/^\((\d+)\)/);
-        const val = valMatch ? `(${valMatch[1]})` : opt;
-        optionsHtml += `<div class="quiz-option" data-value="${val}">${opt}</div>`;
-      });
+    updateProgress(Object.keys(userAnswers).length, total);
 
-      const sectionBadge = item.sectionName ? `<span class="shikaku-card-badge" style="background:#e6fffa; color:#234e52; border:1px solid #b2f5ea; font-weight:600;"><i class="fas fa-layer-group"></i> ${item.sectionName}</span>` : '';
-      const pointsBadge = (typeof item.points === 'number') ? `<span class="shikaku-card-badge" style="background:#fefcbf; color:#744210; border:1px solid #faf089; font-weight:bold;"><i class="fas fa-star"></i> 配点 ${item.points}点</span>` : '';
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+    card.setAttribute('data-qid', qId);
 
-      card.innerHTML = `
-        <div class="quiz-header-row" style="margin-bottom:12px; display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;">
-          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-            <span class="quiz-num-badge">第 ${qNum} 問 / 全 ${total} 問</span>
-            ${sectionBadge}
-            <span class="shikaku-card-badge ${item.catClass || 'badge-cat-basic'}">${item.catName || '簿記'}</span>
-            ${pointsBadge}
-          </div>
-          <button type="button" class="bookmark-toggle-btn ${isBookmarked ? 'is-bookmarked' : ''}">
-            <i class="${isBookmarked ? 'fas' : 'far'} fa-star"></i> ${isBookmarked ? 'ブックマーク中' : 'ブックマーク'}
+    let optionsHtml = '';
+    (item.options || []).forEach(opt => {
+      const valMatch = opt.match(/^\((\d+)\)/);
+      const val = valMatch ? `(${valMatch[1]})` : opt;
+      optionsHtml += `<div class="quiz-option" data-value="${val}">${opt}</div>`;
+    });
+
+    const sectionBadge = item.sectionName ? `<span class="shikaku-card-badge" style="background:#e6fffa; color:#234e52; border:1px solid #b2f5ea; font-weight:600;"><i class="fas fa-layer-group"></i> ${item.sectionName}</span>` : '';
+    const pointsBadge = (typeof item.points === 'number') ? `<span class="shikaku-card-badge" style="background:#fefcbf; color:#744210; border:1px solid #faf089; font-weight:bold;"><i class="fas fa-star"></i> 配点 ${item.points}点</span>` : '';
+
+    card.innerHTML = `
+      <div class="quiz-header-row" style="margin-bottom:12px; display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="quiz-num-badge">第 ${qNum} 問 / 全 ${total} 問</span>
+          ${sectionBadge}
+          <span class="shikaku-card-badge ${item.catClass || 'badge-cat-basic'}">${item.catName || '簿記'}</span>
+          ${pointsBadge}
+        </div>
+        <button type="button" class="bookmark-toggle-btn ${isBookmarked ? 'is-bookmarked' : ''}">
+          <i class="${isBookmarked ? 'fas' : 'far'} fa-star"></i> ${isBookmarked ? 'ブックマーク中' : 'ブックマーク'}
+        </button>
+      </div>
+
+      <div class="quiz-question-text" style="font-size:1.05rem; line-height:1.75; color:#2d3748; margin-bottom:16px;">${item.text}</div>
+      <div class="quiz-options">${optionsHtml}</div>
+
+      <div class="quiz-explanation-area" style="display:${userAnswers[qId] ? 'block' : 'none'};">
+        <div class="quiz-result-title" style="margin-top:14px;"></div>
+        <div class="quiz-explanation-body" style="padding:16px; background:#f7fafc; border:1px solid #e2e8f0; border-radius:8px; margin-top:10px; font-size:0.95rem; line-height:1.7; color:#2d3748;">
+          ${item.explanation}
+        </div>
+        <div class="next-question-bar" style="margin-top:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          ${index > 0 ? `
+            <button type="button" class="btn prev-question-btn" style="background:#edf2f7; color:#4a5568; border:1px solid #cbd5e0; padding:10px 20px; border-radius:8px; font-weight:bold; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+              <i class="fas fa-arrow-left"></i> 前の問題に戻る
+            </button>
+          ` : '<div></div>'}
+          <button type="button" class="btn next-question-btn" style="background:#2e7d32; color:white; padding:12px 28px; border-radius:8px; font-weight:bold; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 10px rgba(46,125,50,0.25);">
+            ${index + 1 === total ? '採点結果を見る <i class="fas fa-check-circle"></i>' : `次の問題へ進む（第 ${index + 2} 問） <i class="fas fa-arrow-right"></i>`}
           </button>
         </div>
+      </div>
+    `;
 
-        <div class="quiz-question-text" style="font-size:1.05rem; line-height:1.75; color:#2d3748; margin-bottom:16px;">${item.text}</div>
-        <div class="quiz-options">${optionsHtml}</div>
+    container.appendChild(card);
 
-        <div class="quiz-explanation-area" style="display:none;">
-          <div class="quiz-result-title" style="margin-top:14px;"></div>
-          <div class="quiz-explanation-body" style="padding:16px; background:#f7fafc; border:1px solid #e2e8f0; border-radius:8px; margin-top:10px; font-size:0.95rem; line-height:1.7; color:#2d3748;">
-            ${item.explanation}
-          </div>
-        </div>
-      `;
+    let answered = !!userAnswers[qId];
+    const optEls = card.querySelectorAll('.quiz-option');
+    const expArea = card.querySelector('.quiz-explanation-area');
+    const resTitle = card.querySelector('.quiz-result-title');
+    const nextBtn = card.querySelector('.next-question-btn');
+    const prevBtn = card.querySelector('.prev-question-btn');
 
-      container.appendChild(card);
+    // すでに回答済みの問題に戻った場合の復元
+    if (answered) {
+      const savedAns = userAnswers[qId];
+      const isCorrect = (savedAns === item.correct);
+      optEls.forEach(o => {
+        o.classList.add('locked');
+        if (o.getAttribute('data-value') === item.correct) {
+          o.classList.add('correct-choice');
+        } else if (o.getAttribute('data-value') === savedAns) {
+          o.classList.add('wrong-choice');
+        }
+      });
+      if (isCorrect) {
+        const ptStr = (typeof item.points === 'number') ? `（+${item.points}点 獲得）` : '';
+        resTitle.innerHTML = `<span style="color:#2f855a; font-weight:bold; font-size:1.15rem;"><i class="fas fa-check-circle"></i> 正解！ ${ptStr}</span>`;
+      } else {
+        resTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${item.correct}）</span>`;
+      }
+    }
 
-      let answered = false;
-      const optEls = card.querySelectorAll('.quiz-option');
-      const expArea = card.querySelector('.quiz-explanation-area');
-      const resTitle = card.querySelector('.quiz-result-title');
+    optEls.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (answered) return;
+        answered = true;
 
-      optEls.forEach(opt => {
-        opt.addEventListener('click', () => {
-          if (answered) return;
-          answered = true;
+        const selectedVal = opt.getAttribute('data-value');
+        userAnswers[qId] = selectedVal;
 
-          const selectedVal = opt.getAttribute('data-value');
-          userAnswers[qId] = selectedVal;
-
-          const isCorrect = (selectedVal === item.correct);
-          optEls.forEach(o => {
-            o.classList.add('locked');
-            if (o.getAttribute('data-value') === item.correct) {
-              o.classList.add('correct-choice');
-            }
-          });
-
-          if (isCorrect) {
-            opt.classList.add('correct-choice');
-            const ptStr = (typeof item.points === 'number') ? `（+${item.points}点 獲得）` : '';
-            resTitle.innerHTML = `<span style="color:#2f855a; font-weight:bold; font-size:1.15rem;"><i class="fas fa-check-circle"></i> 正解！ ${ptStr}</span>`;
-          } else {
-            opt.classList.add('wrong-choice');
-            resTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${item.correct}）</span>`;
-          }
-
-          expArea.style.display = 'block';
-          updateProgress(Object.keys(userAnswers).length, total);
-
-          if (Object.keys(userAnswers).length === total) {
-            renderResultSummary();
+        const isCorrect = (selectedVal === item.correct);
+        optEls.forEach(o => {
+          o.classList.add('locked');
+          if (o.getAttribute('data-value') === item.correct) {
+            o.classList.add('correct-choice');
           }
         });
-      });
 
-      const bmBtn = card.querySelector('.bookmark-toggle-btn');
-      bmBtn.addEventListener('click', () => {
-        bookmarks = getStoredBookmarks();
-        const currentStatus = isItemBookmarked(item, qId);
-        if (currentStatus) {
-          bookmarks = bookmarks.filter(id => id !== qId);
-          bmBtn.classList.remove('is-bookmarked');
-          bmBtn.innerHTML = '<i class="far fa-star"></i> ブックマーク';
+        if (isCorrect) {
+          opt.classList.add('correct-choice');
+          const ptStr = (typeof item.points === 'number') ? `（+${item.points}点 獲得）` : '';
+          resTitle.innerHTML = `<span style="color:#2f855a; font-weight:bold; font-size:1.15rem;"><i class="fas fa-check-circle"></i> 正解！ ${ptStr}</span>`;
         } else {
-          bookmarks.push(qId);
-          bmBtn.classList.add('is-bookmarked');
-          bmBtn.innerHTML = '<i class="fas fa-star"></i> ブックマーク中';
+          opt.classList.add('wrong-choice');
+          resTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${item.correct}）</span>`;
         }
-        saveStoredBookmarks(bookmarks);
+
+        expArea.style.display = 'block';
+        updateProgress(Object.keys(userAnswers).length, total);
+
+        // 次へ進むボタンにスクロール
+        setTimeout(() => {
+          if (nextBtn) {
+            nextBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }, 150);
       });
     });
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        currentExamIndex++;
+        if (currentExamIndex >= total) {
+          renderResultSummary();
+        } else {
+          renderCurrentExamQuestion();
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentExamIndex--;
+        renderCurrentExamQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    const bmBtn = card.querySelector('.bookmark-toggle-btn');
+    bmBtn.addEventListener('click', () => {
+      bookmarks = getStoredBookmarks();
+      const currentStatus = isItemBookmarked(item, qId);
+      if (currentStatus) {
+        bookmarks = bookmarks.filter(id => id !== qId);
+        bmBtn.classList.remove('is-bookmarked');
+        bmBtn.innerHTML = '<i class="far fa-star"></i> ブックマーク';
+      } else {
+        bookmarks.push(qId);
+        bmBtn.classList.add('is-bookmarked');
+        bmBtn.innerHTML = '<i class="fas fa-star"></i> ブックマーク中';
+      }
+      saveStoredBookmarks(bookmarks);
+    });
+  }
+
+  function renderQuestions() {
+    currentExamIndex = 0;
+    userAnswers = {};
+    renderCurrentExamQuestion();
   }
 
   // 演習終了後の結果サマリー
