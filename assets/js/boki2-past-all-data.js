@@ -1,6 +1,6 @@
 /**
- * Shikakus - 日商簿記2級 予想問題集データ（実戦予想模試 全6回・計108問）
- * 本試験形式（第1問〜第5問：商業簿記60点＋工業簿記40点）完全準拠
+ * Shikakus - 日商簿記2級 予想問題集データ（実戦予想模試 全6回・全108問）
+ * 本試験形式（第1問〜第5問：商業簿記60点＋工業簿記40点・100点満点）完全準拠
  */
 window.BOKI2_PAST_DATA = {
   "1": {
@@ -22,7 +22,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>クレジット販売では、販売時に決済手数料（240,000円 × 3％ ＝ 7,200円）を「支払手数料（販管費）」として計上し、残額を「クレジット売掛金」とします。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-1"
+        "qid": "boki2-mock-1-1",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 2,
@@ -40,7 +42,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>その他有価証券（投資有価証券）の売却による差益は「投資有価証券売却益（特別利益）」に計上します。代金未収分は「未収入金」勘定を用います。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-2"
+        "qid": "boki2-mock-1-2",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 3,
@@ -58,7 +62,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>確定した保険金請求権を「未収入金」に計上し、火災未決算を消去します。保険金が帳簿残高を上回る差額500,000円は「保険差益（特別利益）」として貸方に計上します。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-3"
+        "qid": "boki2-mock-1-3",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 4,
@@ -76,7 +82,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>会社法規定：払込金額の1/2を超えない額を「資本準備金」として計上できます。<br>資本金：2,000,000円 ÷ 2 ＝ 1,000,000円、資本準備金：1,000,000円",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-4"
+        "qid": "boki2-mock-1-4",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 5,
@@ -94,7 +102,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>サービスの提供進捗（履行義務の充足）に伴い、契約負債を取り崩して「役務収益（または売上）」へ振り替えます。<br>当月分：120,000円 ÷ 12か月 ＝ 10,000円",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-5"
+        "qid": "boki2-mock-1-5",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 6,
@@ -112,7 +122,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>連結グループ内部の取引高は企業集団内部の移動に過ぎないため、親会社の売上高と子会社の売上原価（仕入）を全額相殺消去します。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-6"
+        "qid": "boki2-mock-1-6",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 7,
@@ -130,7 +142,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>企業集団内部における債権（売掛金）と債務（買掛金）は連結貸借対照表上で相殺消去します。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-7"
+        "qid": "boki2-mock-1-7",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 8,
@@ -148,7 +162,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>社債の購入時に支払った端数利息は、取得原価には含めず「有価証券利息（費用の発生＝収益のマイナス）」として処理します。<br>計算式：1,000,000円 × 3.65％ × 60日 ÷ 365日 ＝ 6,000円",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-8"
+        "qid": "boki2-mock-1-8",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 6
       },
       {
         "num": 9,
@@ -166,7 +182,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>将来の周期的な大規模修繕に備えるため、当期帰属額を「修繕引当金繰入（製造原価または販管費）」として費用計上し、貸方に「修繕引当金（負債）」を計上します。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-9"
+        "qid": "boki2-mock-1-9",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 10,
@@ -184,7 +202,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>親会社が受け取った配当金（140,000円）を消去し、非支配株主に支払った配当金（60,000円）は非支配株主持分の減少として借方に記入します。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-10"
+        "qid": "boki2-mock-1-10",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 11,
@@ -202,7 +222,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>自己株式の処分差損は「その他資本剰余金」から減額（借方に記入）します。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-11"
+        "qid": "boki2-mock-1-11",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 6
       },
       {
         "num": 12,
@@ -220,7 +242,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>予定計上額：400時間 × @1,500円 ＝ 600,000円<br>実際発生額：620,000円<br>実際が予定を20,000円上回るため、不利差異（借方差異）が発生します。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-12"
+        "qid": "boki2-mock-1-12",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 13,
@@ -238,7 +262,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>外注加工費は製品に直接賦課できる「直接経費」であるため、直ちに「仕掛品」勘定の借方に計上します。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-13"
+        "qid": "boki2-mock-1-13",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 14,
@@ -256,7 +282,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>本社側では買掛金の発生を計上し、相手勘定を「工場（資産相当）」として借方に記入します。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-14"
+        "qid": "boki2-mock-1-14",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 15,
@@ -274,7 +302,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>製品が完成したときは、工場内部で仕掛品から製品へと振り替えます。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-15"
+        "qid": "boki2-mock-1-15",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 16,
@@ -292,7 +322,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>月初仕掛品が優先して完成品になると仮定し、当月投入分の単価で月末仕掛品を計算する方法を「先入先出法（FIFO）」と呼びます。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-16"
+        "qid": "boki2-mock-1-16",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 17,
@@ -310,7 +342,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>仕掛品勘定の借方に実際原価、貸方に標準原価を記入し、仕掛品勘定の差額から原価差異を取り出す方法を「パーシャル・プラン」と呼びます。",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-17"
+        "qid": "boki2-mock-1-17",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 18,
@@ -328,7 +362,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>安全率 ＝（実際売上高 20,000,000円 － 損益分岐点売上高 15,000,000円）÷ 実際売上高 20,000,000円 × 100 ＝ 25％<br>（売上高が25％ダウンしても赤字にならないことを意味します）",
         "sessionId": "1",
         "sessionName": "第1回実戦予想模試",
-        "qid": "boki2-mock-1-18"
+        "qid": "boki2-mock-1-18",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       }
     ]
   },
@@ -351,7 +387,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>決済時の円換算額（3,480,000円）と帳簿価額（3,360,000円）の差額（120,000円）は円安による利益となるため、「為替差益（営業外収益）」として貸方に計上します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-1"
+        "qid": "boki2-mock-2-1",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 2,
@@ -369,7 +407,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>評価差額100,000円のうち、将来の税負担に対応する部分（100,000円 × 30％ ＝ 30,000円）を「繰延税金負債」に計上し、税効果控除後の差額（70,000円）を「その他有価証券評価差額金」として純資産に計上します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-2"
+        "qid": "boki2-mock-2-2",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 3,
@@ -387,7 +427,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>新製品・新技術の探求を目的とする研究開発費は、発生時に全額「研究開発費（一般管理費）」として費用処理します（資産計上は認められません）。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-3"
+        "qid": "boki2-mock-2-3",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 4,
@@ -405,7 +447,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>将来減算一時差異が解消したときは、繰延税金資産を取り崩し、借方に「法人税等調整額（費用の加算）」を計上します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-4"
+        "qid": "boki2-mock-2-4",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 5,
@@ -423,7 +467,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>自社ポイントを付与した場合、取引対価を商品の売上とポイント（契約負債）に配分します。<br>売上：100,000円 － 5,000円 ＝ 95,000円、契約負債：5,000円",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-5"
+        "qid": "boki2-mock-2-5",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 6,
@@ -441,7 +487,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>子会社の資本（5,000,000円）と親会社の投資額（8,800,000円）を相殺消去し、差額（3,800,000円）を「のれん（資産）」として計上します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-6"
+        "qid": "boki2-mock-2-6",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 7,
@@ -459,7 +507,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>S社純資産合計 ＝ 8,000,000円<br>非支配株主持分 ＝ 8,000,000円 × 20％ ＝ 1,600,000円（貸方）<br>親会社持分額 ＝ 8,000,000円 × 80％ ＝ 6,400,000円<br>のれん ＝ 投資額7,000,000円 － 持分額6,400,000円 ＝ 600,000円（借方）",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-7"
+        "qid": "boki2-mock-2-7",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 8,
@@ -477,7 +527,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>満期保有目的の債券を取得したときは、実際の買入価額で「満期保有目的債券（投資その他の資産）」勘定の借方に記帳します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-8"
+        "qid": "boki2-mock-2-8",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 6
       },
       {
         "num": 9,
@@ -495,7 +547,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>役員退職慰労金の内規に基づく見積当期負担額は、「役員退職慰労引当金繰入（販管費）」として借方に、貸方に「役員退職慰労引当金（固定負債）」を計上します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-9"
+        "qid": "boki2-mock-2-9",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 10,
@@ -513,7 +567,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>期末商品に含まれる内部未実現利益（300,000円 × 20％ ＝ 60,000円）を消去するため、借方に「売上原価」、貸方に「商品」を計上します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-10"
+        "qid": "boki2-mock-2-10",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 11,
@@ -531,7 +587,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>事業年度の中途で納付した中間納付額は、「仮払法人税等（流動資産）」として処理します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-11"
+        "qid": "boki2-mock-2-11",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 6
       },
       {
         "num": 12,
@@ -549,7 +607,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>正常な材料棚卸減耗損は原価性を有するため、「製造間接費（間接材料費）」として製造原価に算入します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-12"
+        "qid": "boki2-mock-2-12",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 13,
@@ -567,7 +627,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>買入部品費は特定の製品にそのまま組み込まれるため「直接材料費」として「仕掛品」勘定へ直課します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-13"
+        "qid": "boki2-mock-2-13",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 14,
@@ -585,7 +647,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>各部門で明確に発生した部門個別費は、各製造部門費勘定の借方へ直接賦課します。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-14"
+        "qid": "boki2-mock-2-14",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 15,
@@ -603,7 +667,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>第1製造部門への配賦額 ＝ 修繕部門費（240,000円）× 60％ ＝ 144,000円",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-15"
+        "qid": "boki2-mock-2-15",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 16,
@@ -621,7 +687,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>加工進捗度（製造作業が何％まで完了したか）を仕掛品数量に乗じることで、完成品何個分の加工に相当するかを表すのが「加工換算量」です。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-16"
+        "qid": "boki2-mock-2-16",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 17,
@@ -639,7 +707,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>標準原価計算の主たる目的は「原価管理」「迅速な計算」「予算管理」であり、税金を意図的に減らすことではありません。",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-17"
+        "qid": "boki2-mock-2-17",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 18,
@@ -657,7 +727,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>営業レバレッジ係数 ＝ 貢献利益（2,000,000円）÷ 営業利益（500,000円）＝ 4.0倍<br>（売上高の増加率に対して営業利益が何倍の比率で増加するかを示します）",
         "sessionId": "2",
         "sessionName": "第2回実戦予想模試",
-        "qid": "boki2-mock-2-18"
+        "qid": "boki2-mock-2-18",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       }
     ]
   },
@@ -680,7 +752,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>売掛金を電子記録債権に振り替える取引です。借方に「電子記録債権（資産の増加）」、貸方に「売掛金（資産の減少）」を計上します。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-1"
+        "qid": "boki2-mock-3-1",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 2,
@@ -698,7 +772,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>満期保有目的の債券を取得したときは、実際の買入価額で「満期保有目的債券（投資その他の資産）」勘定の借方に記帳します。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-2"
+        "qid": "boki2-mock-3-2",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 3,
@@ -716,7 +792,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>無形固定資産であるソフトウェアの償却は直接法（ソフトウェア勘定から直接控除）で行い、費用勘定は「ソフトウェア償却（無形固定資産償却費）」を用います。<br>計算式：3,000,000円 ÷ 5年 ＝ 600,000円",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-3"
+        "qid": "boki2-mock-3-3",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 4,
@@ -734,7 +812,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>自己株式の処分対価と帳簿価額の差益は、損益ではなく「その他資本剰余金（純資産の増加）」として貸方に計上します。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-4"
+        "qid": "boki2-mock-3-4",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 5,
@@ -752,7 +832,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>企業が「代理人」に該当する場合、顧客から受け取る総額ではなく、自社が受け取る手数料純額（50,000円）のみを「売上」として計上します。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-5"
+        "qid": "boki2-mock-3-5",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 6,
@@ -770,7 +852,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>連結グループ内部の取引高は企業集団内部の移動に過ぎないため、親会社の売上高と子会社の売上原価（仕入）を全額相殺消去します。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-6"
+        "qid": "boki2-mock-3-6",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 7,
@@ -788,7 +872,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>企業集団内部における債権（売掛金）と債務（買掛金）は連結貸借対照表上で相殺消去します。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-7"
+        "qid": "boki2-mock-3-7",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 8,
@@ -806,7 +892,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>社債の購入時に支払った端数利息は、取得原価には含めず「有価証券利息（費用の発生＝収益のマイナス）」として処理します。<br>計算式：1,000,000円 × 3.65％ × 60日 ÷ 365日 ＝ 6,000円",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-8"
+        "qid": "boki2-mock-3-8",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 6
       },
       {
         "num": 9,
@@ -824,7 +912,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>債務保証を引き受けた場合、信用リスクに対応する公正価値（保証料相当額 50,000円）で借方に「保証債務見返」、貸方に「保証債務（負債）」を計上します。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-9"
+        "qid": "boki2-mock-3-9",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 10,
@@ -842,7 +932,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>子会社の資本（5,000,000円）と親会社の投資額（9,800,000円）を相殺消去し、差額（4,800,000円）を「のれん（資産）」として計上します。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-10"
+        "qid": "boki2-mock-3-10",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 11,
@@ -860,7 +952,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>新株発行に伴う諸費用は「株式交付費（営業外費用または繰延資産）」として借方に計上します（原則は営業外費用）。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-11"
+        "qid": "boki2-mock-3-11",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 6
       },
       {
         "num": 12,
@@ -878,7 +972,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>賃金の支払時は総額を「賃金（または賃金手当）」の借方に計上し、控除額を「預り金」、支払額を「当座預金」とします。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-12"
+        "qid": "boki2-mock-3-12",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 13,
@@ -896,7 +992,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>直接工の直接作業分（直接労務費）は「仕掛品」へ、間接作業時間分（間接労務費）は「製造間接費」へ振り替えます。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-13"
+        "qid": "boki2-mock-3-13",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 14,
@@ -914,7 +1012,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>各製造部門に集計された部門費を仕掛品勘定へ振り替えます。<br>仕訳：（借方）仕掛品 900,000 ／ （貸方）第1製造部門費 500,000 / 第2製造部門費 400,000",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-14"
+        "qid": "boki2-mock-3-14",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 15,
@@ -932,7 +1032,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>工場側では材料を受け取り、相手勘定を「本社（負債相当）」として貸方に記入します。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-15"
+        "qid": "boki2-mock-3-15",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 16,
@@ -950,7 +1052,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>異種の製品を組別に並行して連続生産する場合は「組別総合原価計算」を用います。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-16"
+        "qid": "boki2-mock-3-16",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 17,
@@ -968,7 +1072,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>変動費能率差異 ＝（実際時間530h － 標準時間500h）× 変動費率@400円 ＝ ＋12,000円（不利差異）",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-17"
+        "qid": "boki2-mock-3-17",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 18,
@@ -986,7 +1092,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>全部原価計算では固定製造間接費の一部が期末製品在庫の資産原価に含まれて翌期へ繰り延べられるため、当期の売上原価（費用）が小さくなり、営業利益が直接原価計算より大きくなります。",
         "sessionId": "3",
         "sessionName": "第3回実戦予想模試",
-        "qid": "boki2-mock-3-18"
+        "qid": "boki2-mock-3-18",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       }
     ]
   },
@@ -1009,7 +1117,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>不渡手形が発生した場合、手形額面と償還請求費用等の諸費用（3,000円）を合算した金額（1,703,000円）を「不渡手形（資産）」として計上します。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-1"
+        "qid": "boki2-mock-4-1",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 2,
@@ -1027,7 +1137,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>配当金領収証は通貨代用証券として直ちに「現金（借方）」に計上し、貸方に「受取配当金（営業外収益）」を計上します。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-2"
+        "qid": "boki2-mock-4-2",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 3,
@@ -1045,7 +1157,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>ファイナンス・リース取引（利子込み法）の開始時は、見積現金購入価額により借方に「リース資産」、貸方に「リース債務」を計上します。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-3"
+        "qid": "boki2-mock-4-3",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 4,
@@ -1063,7 +1177,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>新株発行に伴う諸費用は「株式交付費（営業外費用または繰延資産）」として借方に計上します（原則は営業外費用）。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-4"
+        "qid": "boki2-mock-4-4",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 5,
@@ -1081,7 +1197,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>財・サービスを移転して履行義務を充足したものの、無条件の請求権（売掛金）がまだ発生していない場合は、「契約資産（流動資産）」を計上します。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-5"
+        "qid": "boki2-mock-4-5",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 6,
@@ -1099,7 +1217,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>子会社の資本（5,000,000円）と親会社の投資額（9,800,000円）を相殺消去し、差額（4,800,000円）を「のれん（資産）」として計上します。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-6"
+        "qid": "boki2-mock-4-6",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 7,
@@ -1117,7 +1237,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>S社純資産合計 ＝ 8,000,000円<br>非支配株主持分 ＝ 8,000,000円 × 20％ ＝ 1,600,000円（貸方）<br>親会社持分額 ＝ 8,000,000円 × 80％ ＝ 6,400,000円<br>のれん ＝ 投資額7,000,000円 － 持分額6,400,000円 ＝ 600,000円（借方）",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-7"
+        "qid": "boki2-mock-4-7",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 8,
@@ -1135,7 +1257,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>満期保有目的の債券を取得したときは、実際の買入価額で「満期保有目的債券（投資その他の資産）」勘定の借方に記帳します。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-8"
+        "qid": "boki2-mock-4-8",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 6
       },
       {
         "num": 9,
@@ -1153,7 +1277,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>前期以前の債権が貸倒れた場合、まず貸倒引当金残高（350,000円）を取り崩し、不足額（150,000円）は当期の「貸倒損失（費用）」として処理します。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-9"
+        "qid": "boki2-mock-4-9",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 10,
@@ -1171,7 +1297,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>子会社の当期純利益のうち非支配株主に帰属する部分（2,650,000円 × 30％ ＝ 795,000円）を連結損益から控除し、非支配株主持分を増加させます。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-10"
+        "qid": "boki2-mock-4-10",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 11,
@@ -1189,7 +1317,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>自己株式の処分対価と帳簿価額の差益は、損益ではなく「その他資本剰余金（純資産の増加）」として貸方に計上します。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-11"
+        "qid": "boki2-mock-4-11",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 6
       },
       {
         "num": 12,
@@ -1207,7 +1337,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>工場の減価償却費や電力料は「間接経費」としてすべて「製造間接費」勘定に集計します。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-12"
+        "qid": "boki2-mock-4-12",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 13,
@@ -1225,7 +1357,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>当月消費高 ＝ 当月支払高（100,000円）＋ 前月末前払高（20,000円）－ 当月末前払高（30,000円）＝ 90,000円",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-13"
+        "qid": "boki2-mock-4-13",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 14,
@@ -1243,7 +1377,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>工場側では売上利益を認識せず、出荷した製品の製造原価（1,000,000円）で「本社」へ振り替えます。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-14"
+        "qid": "boki2-mock-4-14",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 15,
@@ -1261,7 +1397,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>建物の減価償却費や火災保険料は建物の使用規模に比例するため、「各部門の占有床面積」を配賦基準とするのが最も合理的です。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-15"
+        "qid": "boki2-mock-4-15",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 16,
@@ -1279,7 +1417,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>総合原価計算によって完成した製品原価は、「仕掛品」から「製品」勘定へ振り替えます。",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-16"
+        "qid": "boki2-mock-4-16",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 17,
@@ -1297,7 +1437,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>価格差異 ＝（実際単価@520円 － 標準単価@500円）× 実際消費量1,050kg ＝ ＋21,000円（不利）<br>数量差異 ＝（実際消費量1,050kg － 標準消費量1,000kg）× 標準単価@500円 ＝ ＋25,000円（不利）",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-17"
+        "qid": "boki2-mock-4-17",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 18,
@@ -1315,7 +1457,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>1個あたり貢献利益 ＝ 販売単価（2,000円）－ 単位あたり変動費（1,200円）＝ 800円<br>損益分岐点販売数量 ＝ 固定費（4,880,000円）÷ 1個あたり貢献利益（800円）＝ 6,100個",
         "sessionId": "4",
         "sessionName": "第4回実戦予想模試",
-        "qid": "boki2-mock-4-18"
+        "qid": "boki2-mock-4-18",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       }
     ]
   },
@@ -1338,7 +1482,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>買掛金の決済にあたり、発生時（1ドル＝150円）より円高（1ドル＝142円）となったため、支払額が減少し344,000円の「為替差益（営業外収益）」が生じます。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-1"
+        "qid": "boki2-mock-5-1",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 2,
@@ -1356,7 +1502,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>子会社株式の取得原価には、買入対価に買入手数料等の付随費用（50,000円）を加算して「子会社株式」勘定で計上します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-2"
+        "qid": "boki2-mock-5-2",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 3,
@@ -1374,7 +1522,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>固定資産の価値を高めたり耐用年数を延長させる支出（資本的支出）は「建物（資産の増加）」とし、通常の維持管理・原状回復の支出（収益的支出）は「修繕費（費用）」として処理します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-3"
+        "qid": "boki2-mock-5-3",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 4,
@@ -1392,7 +1542,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>事業年度の中途で納付した中間納付額は、「仮払法人税等（流動資産）」として処理します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-4"
+        "qid": "boki2-mock-5-4",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 5,
@@ -1410,7 +1562,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>返金負債の計上に伴い、将来顧客から回収すると見込まれる商品の原価相当額（50,000円 × 70％ ＝ 35,000円）を「返品資産（流動資産）」として計上し、売上原価から減額します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-5"
+        "qid": "boki2-mock-5-5",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 6,
@@ -1428,7 +1582,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>連結グループ内部の取引高は企業集団内部の移動に過ぎないため、親会社の売上高と子会社の売上原価（仕入）を全額相殺消去します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-6"
+        "qid": "boki2-mock-5-6",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 7,
@@ -1446,7 +1602,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>企業集団内部における債権（売掛金）と債務（買掛金）は連結貸借対照表上で相殺消去します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-7"
+        "qid": "boki2-mock-5-7",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 8,
@@ -1464,7 +1622,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>社債の購入時に支払った端数利息は、取得原価には含めず「有価証券利息（費用の発生＝収益のマイナス）」として処理します。<br>計算式：1,000,000円 × 3.65％ × 60日 ÷ 365日 ＝ 6,000円",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-8"
+        "qid": "boki2-mock-5-8",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 6
       },
       {
         "num": 9,
@@ -1482,7 +1642,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>当期に帰属する賞与見積額は、「賞与引当金繰入（販売費及び一般管理費）」として費用計上し、貸方に「賞与引当金（流動負債）」を計上します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-9"
+        "qid": "boki2-mock-5-9",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 10,
@@ -1500,7 +1662,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>企業集団内部における債権（売掛金）と債務（買掛金）は連結貸借対照表上で相殺消去します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-10"
+        "qid": "boki2-mock-5-10",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 11,
@@ -1518,7 +1682,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>将来減算一時差異が解消したときは、繰延税金資産を取り崩し、借方に「法人税等調整額（費用の加算）」を計上します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-11"
+        "qid": "boki2-mock-5-11",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 6
       },
       {
         "num": 12,
@@ -1536,7 +1702,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>直接材料費は「仕掛品」勘定へ直課し、間接材料費は「製造間接費」勘定へ配賦集計します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-12"
+        "qid": "boki2-mock-5-12",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 13,
@@ -1554,7 +1722,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>予定消費額：500kg × @1,000円 ＝ 500,000円<br>実際額：500kg × @1,050円 ＝ 525,000円<br>実際額が予定額を25,000円上回っているため、不利差異（借方差異）が発生します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-13"
+        "qid": "boki2-mock-5-13",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 14,
@@ -1572,7 +1742,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>補助部門相互間のやり取りを無視して製造部門にのみ配賦する簡易な方法を「直接配賦法」と呼びます。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-14"
+        "qid": "boki2-mock-5-14",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 15,
@@ -1590,7 +1762,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>第1次配賦で補助部門間の用役のやり取りを計算し、第2次配賦で製造部門へ集計する方法を「相互配賦法」と呼びます。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-15"
+        "qid": "boki2-mock-5-15",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 16,
@@ -1608,7 +1782,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>減損が月末仕掛品の通過点より前に発生している場合、完成品と月末仕掛品の両方がその減損地点を通過しているため、「両者負担」となります。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-16"
+        "qid": "boki2-mock-5-16",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 17,
@@ -1626,7 +1802,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>不利差異（借方残高）は原価の増加要因であるため、借方に「売上原価」、貸方に「直接材料費差異」を記入します。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-17"
+        "qid": "boki2-mock-5-17",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 18,
@@ -1644,7 +1822,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>余剰能力があり固定費が増加しない場合、特別価格（@800円）が変動費（@600円）を上回っていれば、差額貢献利益（@200円 × 1,000個 ＝ 200,000円）だけ営業利益が増加するため受託すべきです。",
         "sessionId": "5",
         "sessionName": "第5回実戦予想模試",
-        "qid": "boki2-mock-5-18"
+        "qid": "boki2-mock-5-18",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       }
     ]
   },
@@ -1667,7 +1847,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>電子記録債権を譲渡して買掛金を決済したため、借方に「買掛金（負債の減少）」、貸方に「電子記録債権（資産の減少）」を計上します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-1"
+        "qid": "boki2-mock-6-1",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 2,
@@ -1685,7 +1867,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>額面と取得原価の差額（金利調整差額 100,000円）を満期までの5年間で均等配分（定額法）します。<br>当期加算額：100,000円 ÷ 5年 ＝ 20,000円<br>相手勘定は「有価証券利息」となります。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-2"
+        "qid": "boki2-mock-6-2",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 3,
@@ -1703,7 +1887,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>買収・合併にあたり、受入純資産額（10,000,000円）を超えて支払った対価（34,000,000円）との差額（24,000,000円）は「のれん（無形固定資産）」として借方に計上します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-3"
+        "qid": "boki2-mock-6-3",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 4,
@@ -1721,7 +1907,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>自己株式の処分差損は「その他資本剰余金」から減額（借方に記入）します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-4"
+        "qid": "boki2-mock-6-4",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 5,
@@ -1739,7 +1927,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>サービス提供契約の履行のために直接要した原価は、「役務原価（売上原価）」勘定で処理します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-5"
+        "qid": "boki2-mock-6-5",
+        "sectionName": "【第1問】商業簿記 仕訳問題",
+        "points": 4
       },
       {
         "num": 6,
@@ -1757,7 +1947,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>子会社の資本（5,000,000円）と親会社の投資額（10,800,000円）を相殺消去し、差額（5,800,000円）を「のれん（資産）」として計上します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-6"
+        "qid": "boki2-mock-6-6",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 7,
@@ -1775,7 +1967,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>S社純資産合計 ＝ 8,000,000円<br>非支配株主持分 ＝ 8,000,000円 × 20％ ＝ 1,600,000円（貸方）<br>親会社持分額 ＝ 8,000,000円 × 80％ ＝ 6,400,000円<br>のれん ＝ 投資額7,000,000円 － 持分額6,400,000円 ＝ 600,000円（借方）",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-7"
+        "qid": "boki2-mock-6-7",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 7
       },
       {
         "num": 8,
@@ -1793,7 +1987,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>満期保有目的の債券を取得したときは、実際の買入価額で「満期保有目的債券（投資その他の資産）」勘定の借方に記帳します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-8"
+        "qid": "boki2-mock-6-8",
+        "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+        "points": 6
       },
       {
         "num": 9,
@@ -1811,7 +2007,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>失効した商品券は商品の引渡義務が消滅するため、「商品券（負債）」を減額し、「商品券益（特別利益または営業外収益）」として貸方に計上します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-9"
+        "qid": "boki2-mock-6-9",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 10,
@@ -1829,7 +2027,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>支店期末商品に含まれる未実現内部利益は、本店側で「繰延内部利益繰入（売上原価の加算）」として計上し、貸方に「繰延内部利益（資産の控除科目）」を計上します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-10"
+        "qid": "boki2-mock-6-10",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 7
       },
       {
         "num": 11,
@@ -1847,7 +2047,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>会社法規定：払込金額の1/2を超えない額を「資本準備金」として計上できます。<br>資本金：2,000,000円 ÷ 2 ＝ 1,000,000円、資本準備金：1,000,000円",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-11"
+        "qid": "boki2-mock-6-11",
+        "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+        "points": 6
       },
       {
         "num": 12,
@@ -1865,7 +2067,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>予定計上額：400時間 × @1,500円 ＝ 600,000円<br>実際発生額：620,000円<br>実際が予定を20,000円上回るため、不利差異（借方差異）が発生します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-12"
+        "qid": "boki2-mock-6-12",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 13,
@@ -1883,7 +2087,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(2)】</strong><br><br>外注加工費は製品に直接賦課できる「直接経費」であるため、直ちに「仕掛品」勘定の借方に計上します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-13"
+        "qid": "boki2-mock-6-13",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 14,
@@ -1901,7 +2107,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>本社側では買掛金の発生を計上し、相手勘定を「工場（資産相当）」として借方に記入します。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-14"
+        "qid": "boki2-mock-6-14",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 15,
@@ -1919,7 +2127,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>製品が完成したときは、工場内部で仕掛品から製品へと振り替えます。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-15"
+        "qid": "boki2-mock-6-15",
+        "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+        "points": 7
       },
       {
         "num": 16,
@@ -1937,7 +2147,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(3)】</strong><br><br>月初仕掛品が優先して完成品になると仮定し、当月投入分の単価で月末仕掛品を計算する方法を「先入先出法（FIFO）」と呼びます。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-16"
+        "qid": "boki2-mock-6-16",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 17,
@@ -1955,7 +2167,9 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(4)】</strong><br><br>仕掛品勘定の借方に実際原価、貸方に標準原価を記入し、仕掛品勘定の差額から原価差異を取り出す方法を「パーシャル・プラン」と呼びます。",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-17"
+        "qid": "boki2-mock-6-17",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       },
       {
         "num": 18,
@@ -1973,11 +2187,14 @@ window.BOKI2_PAST_DATA = {
         "explanation": "<strong>【正解：(1)】</strong><br><br>安全率 ＝（実際売上高 20,000,000円 － 損益分岐点売上高 15,000,000円）÷ 実際売上高 20,000,000円 × 100 ＝ 25％<br>（売上高が25％ダウンしても赤字にならないことを意味します）",
         "sessionId": "6",
         "sessionName": "第6回実戦予想模試",
-        "qid": "boki2-mock-6-18"
+        "qid": "boki2-mock-6-18",
+        "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+        "points": 4
       }
     ]
   }
 };
+
 window.BOKI2_PAST_QUESTIONS = [
   {
     "num": 1,
@@ -1995,7 +2212,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>クレジット販売では、販売時に決済手数料（240,000円 × 3％ ＝ 7,200円）を「支払手数料（販管費）」として計上し、残額を「クレジット売掛金」とします。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-1"
+    "qid": "boki2-mock-1-1",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 2,
@@ -2013,7 +2232,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>その他有価証券（投資有価証券）の売却による差益は「投資有価証券売却益（特別利益）」に計上します。代金未収分は「未収入金」勘定を用います。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-2"
+    "qid": "boki2-mock-1-2",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 3,
@@ -2031,7 +2252,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>確定した保険金請求権を「未収入金」に計上し、火災未決算を消去します。保険金が帳簿残高を上回る差額500,000円は「保険差益（特別利益）」として貸方に計上します。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-3"
+    "qid": "boki2-mock-1-3",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 4,
@@ -2049,7 +2272,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>会社法規定：払込金額の1/2を超えない額を「資本準備金」として計上できます。<br>資本金：2,000,000円 ÷ 2 ＝ 1,000,000円、資本準備金：1,000,000円",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-4"
+    "qid": "boki2-mock-1-4",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 5,
@@ -2067,7 +2292,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>サービスの提供進捗（履行義務の充足）に伴い、契約負債を取り崩して「役務収益（または売上）」へ振り替えます。<br>当月分：120,000円 ÷ 12か月 ＝ 10,000円",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-5"
+    "qid": "boki2-mock-1-5",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 6,
@@ -2085,7 +2312,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>連結グループ内部の取引高は企業集団内部の移動に過ぎないため、親会社の売上高と子会社の売上原価（仕入）を全額相殺消去します。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-6"
+    "qid": "boki2-mock-1-6",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 7,
@@ -2103,7 +2332,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>企業集団内部における債権（売掛金）と債務（買掛金）は連結貸借対照表上で相殺消去します。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-7"
+    "qid": "boki2-mock-1-7",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 8,
@@ -2121,7 +2352,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>社債の購入時に支払った端数利息は、取得原価には含めず「有価証券利息（費用の発生＝収益のマイナス）」として処理します。<br>計算式：1,000,000円 × 3.65％ × 60日 ÷ 365日 ＝ 6,000円",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-8"
+    "qid": "boki2-mock-1-8",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 6
   },
   {
     "num": 9,
@@ -2139,7 +2372,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>将来の周期的な大規模修繕に備えるため、当期帰属額を「修繕引当金繰入（製造原価または販管費）」として費用計上し、貸方に「修繕引当金（負債）」を計上します。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-9"
+    "qid": "boki2-mock-1-9",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 10,
@@ -2157,7 +2392,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>親会社が受け取った配当金（140,000円）を消去し、非支配株主に支払った配当金（60,000円）は非支配株主持分の減少として借方に記入します。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-10"
+    "qid": "boki2-mock-1-10",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 11,
@@ -2175,7 +2412,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>自己株式の処分差損は「その他資本剰余金」から減額（借方に記入）します。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-11"
+    "qid": "boki2-mock-1-11",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 6
   },
   {
     "num": 12,
@@ -2193,7 +2432,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>予定計上額：400時間 × @1,500円 ＝ 600,000円<br>実際発生額：620,000円<br>実際が予定を20,000円上回るため、不利差異（借方差異）が発生します。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-12"
+    "qid": "boki2-mock-1-12",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 13,
@@ -2211,7 +2452,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>外注加工費は製品に直接賦課できる「直接経費」であるため、直ちに「仕掛品」勘定の借方に計上します。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-13"
+    "qid": "boki2-mock-1-13",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 14,
@@ -2229,7 +2472,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>本社側では買掛金の発生を計上し、相手勘定を「工場（資産相当）」として借方に記入します。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-14"
+    "qid": "boki2-mock-1-14",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 15,
@@ -2247,7 +2492,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>製品が完成したときは、工場内部で仕掛品から製品へと振り替えます。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-15"
+    "qid": "boki2-mock-1-15",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 16,
@@ -2265,7 +2512,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>月初仕掛品が優先して完成品になると仮定し、当月投入分の単価で月末仕掛品を計算する方法を「先入先出法（FIFO）」と呼びます。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-16"
+    "qid": "boki2-mock-1-16",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 17,
@@ -2283,7 +2532,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>仕掛品勘定の借方に実際原価、貸方に標準原価を記入し、仕掛品勘定の差額から原価差異を取り出す方法を「パーシャル・プラン」と呼びます。",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-17"
+    "qid": "boki2-mock-1-17",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 18,
@@ -2301,7 +2552,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>安全率 ＝（実際売上高 20,000,000円 － 損益分岐点売上高 15,000,000円）÷ 実際売上高 20,000,000円 × 100 ＝ 25％<br>（売上高が25％ダウンしても赤字にならないことを意味します）",
     "sessionId": "1",
     "sessionName": "第1回実戦予想模試",
-    "qid": "boki2-mock-1-18"
+    "qid": "boki2-mock-1-18",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 1,
@@ -2319,7 +2572,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>決済時の円換算額（3,480,000円）と帳簿価額（3,360,000円）の差額（120,000円）は円安による利益となるため、「為替差益（営業外収益）」として貸方に計上します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-1"
+    "qid": "boki2-mock-2-1",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 2,
@@ -2337,7 +2592,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>評価差額100,000円のうち、将来の税負担に対応する部分（100,000円 × 30％ ＝ 30,000円）を「繰延税金負債」に計上し、税効果控除後の差額（70,000円）を「その他有価証券評価差額金」として純資産に計上します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-2"
+    "qid": "boki2-mock-2-2",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 3,
@@ -2355,7 +2612,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>新製品・新技術の探求を目的とする研究開発費は、発生時に全額「研究開発費（一般管理費）」として費用処理します（資産計上は認められません）。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-3"
+    "qid": "boki2-mock-2-3",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 4,
@@ -2373,7 +2632,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>将来減算一時差異が解消したときは、繰延税金資産を取り崩し、借方に「法人税等調整額（費用の加算）」を計上します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-4"
+    "qid": "boki2-mock-2-4",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 5,
@@ -2391,7 +2652,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>自社ポイントを付与した場合、取引対価を商品の売上とポイント（契約負債）に配分します。<br>売上：100,000円 － 5,000円 ＝ 95,000円、契約負債：5,000円",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-5"
+    "qid": "boki2-mock-2-5",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 6,
@@ -2409,7 +2672,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>子会社の資本（5,000,000円）と親会社の投資額（8,800,000円）を相殺消去し、差額（3,800,000円）を「のれん（資産）」として計上します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-6"
+    "qid": "boki2-mock-2-6",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 7,
@@ -2427,7 +2692,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>S社純資産合計 ＝ 8,000,000円<br>非支配株主持分 ＝ 8,000,000円 × 20％ ＝ 1,600,000円（貸方）<br>親会社持分額 ＝ 8,000,000円 × 80％ ＝ 6,400,000円<br>のれん ＝ 投資額7,000,000円 － 持分額6,400,000円 ＝ 600,000円（借方）",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-7"
+    "qid": "boki2-mock-2-7",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 8,
@@ -2445,7 +2712,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>満期保有目的の債券を取得したときは、実際の買入価額で「満期保有目的債券（投資その他の資産）」勘定の借方に記帳します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-8"
+    "qid": "boki2-mock-2-8",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 6
   },
   {
     "num": 9,
@@ -2463,7 +2732,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>役員退職慰労金の内規に基づく見積当期負担額は、「役員退職慰労引当金繰入（販管費）」として借方に、貸方に「役員退職慰労引当金（固定負債）」を計上します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-9"
+    "qid": "boki2-mock-2-9",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 10,
@@ -2481,7 +2752,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>期末商品に含まれる内部未実現利益（300,000円 × 20％ ＝ 60,000円）を消去するため、借方に「売上原価」、貸方に「商品」を計上します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-10"
+    "qid": "boki2-mock-2-10",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 11,
@@ -2499,7 +2772,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>事業年度の中途で納付した中間納付額は、「仮払法人税等（流動資産）」として処理します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-11"
+    "qid": "boki2-mock-2-11",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 6
   },
   {
     "num": 12,
@@ -2517,7 +2792,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>正常な材料棚卸減耗損は原価性を有するため、「製造間接費（間接材料費）」として製造原価に算入します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-12"
+    "qid": "boki2-mock-2-12",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 13,
@@ -2535,7 +2812,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>買入部品費は特定の製品にそのまま組み込まれるため「直接材料費」として「仕掛品」勘定へ直課します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-13"
+    "qid": "boki2-mock-2-13",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 14,
@@ -2553,7 +2832,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>各部門で明確に発生した部門個別費は、各製造部門費勘定の借方へ直接賦課します。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-14"
+    "qid": "boki2-mock-2-14",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 15,
@@ -2571,7 +2852,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>第1製造部門への配賦額 ＝ 修繕部門費（240,000円）× 60％ ＝ 144,000円",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-15"
+    "qid": "boki2-mock-2-15",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 16,
@@ -2589,7 +2872,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>加工進捗度（製造作業が何％まで完了したか）を仕掛品数量に乗じることで、完成品何個分の加工に相当するかを表すのが「加工換算量」です。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-16"
+    "qid": "boki2-mock-2-16",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 17,
@@ -2607,7 +2892,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>標準原価計算の主たる目的は「原価管理」「迅速な計算」「予算管理」であり、税金を意図的に減らすことではありません。",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-17"
+    "qid": "boki2-mock-2-17",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 18,
@@ -2625,7 +2912,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>営業レバレッジ係数 ＝ 貢献利益（2,000,000円）÷ 営業利益（500,000円）＝ 4.0倍<br>（売上高の増加率に対して営業利益が何倍の比率で増加するかを示します）",
     "sessionId": "2",
     "sessionName": "第2回実戦予想模試",
-    "qid": "boki2-mock-2-18"
+    "qid": "boki2-mock-2-18",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 1,
@@ -2643,7 +2932,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>売掛金を電子記録債権に振り替える取引です。借方に「電子記録債権（資産の増加）」、貸方に「売掛金（資産の減少）」を計上します。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-1"
+    "qid": "boki2-mock-3-1",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 2,
@@ -2661,7 +2952,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>満期保有目的の債券を取得したときは、実際の買入価額で「満期保有目的債券（投資その他の資産）」勘定の借方に記帳します。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-2"
+    "qid": "boki2-mock-3-2",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 3,
@@ -2679,7 +2972,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>無形固定資産であるソフトウェアの償却は直接法（ソフトウェア勘定から直接控除）で行い、費用勘定は「ソフトウェア償却（無形固定資産償却費）」を用います。<br>計算式：3,000,000円 ÷ 5年 ＝ 600,000円",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-3"
+    "qid": "boki2-mock-3-3",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 4,
@@ -2697,7 +2992,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>自己株式の処分対価と帳簿価額の差益は、損益ではなく「その他資本剰余金（純資産の増加）」として貸方に計上します。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-4"
+    "qid": "boki2-mock-3-4",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 5,
@@ -2715,7 +3012,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>企業が「代理人」に該当する場合、顧客から受け取る総額ではなく、自社が受け取る手数料純額（50,000円）のみを「売上」として計上します。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-5"
+    "qid": "boki2-mock-3-5",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 6,
@@ -2733,7 +3032,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>連結グループ内部の取引高は企業集団内部の移動に過ぎないため、親会社の売上高と子会社の売上原価（仕入）を全額相殺消去します。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-6"
+    "qid": "boki2-mock-3-6",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 7,
@@ -2751,7 +3052,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>企業集団内部における債権（売掛金）と債務（買掛金）は連結貸借対照表上で相殺消去します。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-7"
+    "qid": "boki2-mock-3-7",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 8,
@@ -2769,7 +3072,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>社債の購入時に支払った端数利息は、取得原価には含めず「有価証券利息（費用の発生＝収益のマイナス）」として処理します。<br>計算式：1,000,000円 × 3.65％ × 60日 ÷ 365日 ＝ 6,000円",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-8"
+    "qid": "boki2-mock-3-8",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 6
   },
   {
     "num": 9,
@@ -2787,7 +3092,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>債務保証を引き受けた場合、信用リスクに対応する公正価値（保証料相当額 50,000円）で借方に「保証債務見返」、貸方に「保証債務（負債）」を計上します。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-9"
+    "qid": "boki2-mock-3-9",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 10,
@@ -2805,7 +3112,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>子会社の資本（5,000,000円）と親会社の投資額（9,800,000円）を相殺消去し、差額（4,800,000円）を「のれん（資産）」として計上します。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-10"
+    "qid": "boki2-mock-3-10",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 11,
@@ -2823,7 +3132,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>新株発行に伴う諸費用は「株式交付費（営業外費用または繰延資産）」として借方に計上します（原則は営業外費用）。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-11"
+    "qid": "boki2-mock-3-11",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 6
   },
   {
     "num": 12,
@@ -2841,7 +3152,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>賃金の支払時は総額を「賃金（または賃金手当）」の借方に計上し、控除額を「預り金」、支払額を「当座預金」とします。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-12"
+    "qid": "boki2-mock-3-12",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 13,
@@ -2859,7 +3172,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>直接工の直接作業分（直接労務費）は「仕掛品」へ、間接作業時間分（間接労務費）は「製造間接費」へ振り替えます。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-13"
+    "qid": "boki2-mock-3-13",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 14,
@@ -2877,7 +3192,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>各製造部門に集計された部門費を仕掛品勘定へ振り替えます。<br>仕訳：（借方）仕掛品 900,000 ／ （貸方）第1製造部門費 500,000 / 第2製造部門費 400,000",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-14"
+    "qid": "boki2-mock-3-14",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 15,
@@ -2895,7 +3212,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>工場側では材料を受け取り、相手勘定を「本社（負債相当）」として貸方に記入します。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-15"
+    "qid": "boki2-mock-3-15",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 16,
@@ -2913,7 +3232,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>異種の製品を組別に並行して連続生産する場合は「組別総合原価計算」を用います。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-16"
+    "qid": "boki2-mock-3-16",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 17,
@@ -2931,7 +3252,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>変動費能率差異 ＝（実際時間530h － 標準時間500h）× 変動費率@400円 ＝ ＋12,000円（不利差異）",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-17"
+    "qid": "boki2-mock-3-17",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 18,
@@ -2949,7 +3272,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>全部原価計算では固定製造間接費の一部が期末製品在庫の資産原価に含まれて翌期へ繰り延べられるため、当期の売上原価（費用）が小さくなり、営業利益が直接原価計算より大きくなります。",
     "sessionId": "3",
     "sessionName": "第3回実戦予想模試",
-    "qid": "boki2-mock-3-18"
+    "qid": "boki2-mock-3-18",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 1,
@@ -2967,7 +3292,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>不渡手形が発生した場合、手形額面と償還請求費用等の諸費用（3,000円）を合算した金額（1,703,000円）を「不渡手形（資産）」として計上します。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-1"
+    "qid": "boki2-mock-4-1",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 2,
@@ -2985,7 +3312,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>配当金領収証は通貨代用証券として直ちに「現金（借方）」に計上し、貸方に「受取配当金（営業外収益）」を計上します。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-2"
+    "qid": "boki2-mock-4-2",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 3,
@@ -3003,7 +3332,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>ファイナンス・リース取引（利子込み法）の開始時は、見積現金購入価額により借方に「リース資産」、貸方に「リース債務」を計上します。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-3"
+    "qid": "boki2-mock-4-3",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 4,
@@ -3021,7 +3352,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>新株発行に伴う諸費用は「株式交付費（営業外費用または繰延資産）」として借方に計上します（原則は営業外費用）。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-4"
+    "qid": "boki2-mock-4-4",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 5,
@@ -3039,7 +3372,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>財・サービスを移転して履行義務を充足したものの、無条件の請求権（売掛金）がまだ発生していない場合は、「契約資産（流動資産）」を計上します。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-5"
+    "qid": "boki2-mock-4-5",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 6,
@@ -3057,7 +3392,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>子会社の資本（5,000,000円）と親会社の投資額（9,800,000円）を相殺消去し、差額（4,800,000円）を「のれん（資産）」として計上します。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-6"
+    "qid": "boki2-mock-4-6",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 7,
@@ -3075,7 +3412,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>S社純資産合計 ＝ 8,000,000円<br>非支配株主持分 ＝ 8,000,000円 × 20％ ＝ 1,600,000円（貸方）<br>親会社持分額 ＝ 8,000,000円 × 80％ ＝ 6,400,000円<br>のれん ＝ 投資額7,000,000円 － 持分額6,400,000円 ＝ 600,000円（借方）",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-7"
+    "qid": "boki2-mock-4-7",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 8,
@@ -3093,7 +3432,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>満期保有目的の債券を取得したときは、実際の買入価額で「満期保有目的債券（投資その他の資産）」勘定の借方に記帳します。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-8"
+    "qid": "boki2-mock-4-8",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 6
   },
   {
     "num": 9,
@@ -3111,7 +3452,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>前期以前の債権が貸倒れた場合、まず貸倒引当金残高（350,000円）を取り崩し、不足額（150,000円）は当期の「貸倒損失（費用）」として処理します。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-9"
+    "qid": "boki2-mock-4-9",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 10,
@@ -3129,7 +3472,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>子会社の当期純利益のうち非支配株主に帰属する部分（2,650,000円 × 30％ ＝ 795,000円）を連結損益から控除し、非支配株主持分を増加させます。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-10"
+    "qid": "boki2-mock-4-10",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 11,
@@ -3147,7 +3492,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>自己株式の処分対価と帳簿価額の差益は、損益ではなく「その他資本剰余金（純資産の増加）」として貸方に計上します。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-11"
+    "qid": "boki2-mock-4-11",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 6
   },
   {
     "num": 12,
@@ -3165,7 +3512,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>工場の減価償却費や電力料は「間接経費」としてすべて「製造間接費」勘定に集計します。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-12"
+    "qid": "boki2-mock-4-12",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 13,
@@ -3183,7 +3532,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>当月消費高 ＝ 当月支払高（100,000円）＋ 前月末前払高（20,000円）－ 当月末前払高（30,000円）＝ 90,000円",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-13"
+    "qid": "boki2-mock-4-13",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 14,
@@ -3201,7 +3552,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>工場側では売上利益を認識せず、出荷した製品の製造原価（1,000,000円）で「本社」へ振り替えます。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-14"
+    "qid": "boki2-mock-4-14",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 15,
@@ -3219,7 +3572,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>建物の減価償却費や火災保険料は建物の使用規模に比例するため、「各部門の占有床面積」を配賦基準とするのが最も合理的です。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-15"
+    "qid": "boki2-mock-4-15",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 16,
@@ -3237,7 +3592,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>総合原価計算によって完成した製品原価は、「仕掛品」から「製品」勘定へ振り替えます。",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-16"
+    "qid": "boki2-mock-4-16",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 17,
@@ -3255,7 +3612,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>価格差異 ＝（実際単価@520円 － 標準単価@500円）× 実際消費量1,050kg ＝ ＋21,000円（不利）<br>数量差異 ＝（実際消費量1,050kg － 標準消費量1,000kg）× 標準単価@500円 ＝ ＋25,000円（不利）",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-17"
+    "qid": "boki2-mock-4-17",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 18,
@@ -3273,7 +3632,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>1個あたり貢献利益 ＝ 販売単価（2,000円）－ 単位あたり変動費（1,200円）＝ 800円<br>損益分岐点販売数量 ＝ 固定費（4,880,000円）÷ 1個あたり貢献利益（800円）＝ 6,100個",
     "sessionId": "4",
     "sessionName": "第4回実戦予想模試",
-    "qid": "boki2-mock-4-18"
+    "qid": "boki2-mock-4-18",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 1,
@@ -3291,7 +3652,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>買掛金の決済にあたり、発生時（1ドル＝150円）より円高（1ドル＝142円）となったため、支払額が減少し344,000円の「為替差益（営業外収益）」が生じます。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-1"
+    "qid": "boki2-mock-5-1",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 2,
@@ -3309,7 +3672,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>子会社株式の取得原価には、買入対価に買入手数料等の付随費用（50,000円）を加算して「子会社株式」勘定で計上します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-2"
+    "qid": "boki2-mock-5-2",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 3,
@@ -3327,7 +3692,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>固定資産の価値を高めたり耐用年数を延長させる支出（資本的支出）は「建物（資産の増加）」とし、通常の維持管理・原状回復の支出（収益的支出）は「修繕費（費用）」として処理します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-3"
+    "qid": "boki2-mock-5-3",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 4,
@@ -3345,7 +3712,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>事業年度の中途で納付した中間納付額は、「仮払法人税等（流動資産）」として処理します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-4"
+    "qid": "boki2-mock-5-4",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 5,
@@ -3363,7 +3732,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>返金負債の計上に伴い、将来顧客から回収すると見込まれる商品の原価相当額（50,000円 × 70％ ＝ 35,000円）を「返品資産（流動資産）」として計上し、売上原価から減額します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-5"
+    "qid": "boki2-mock-5-5",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 6,
@@ -3381,7 +3752,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>連結グループ内部の取引高は企業集団内部の移動に過ぎないため、親会社の売上高と子会社の売上原価（仕入）を全額相殺消去します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-6"
+    "qid": "boki2-mock-5-6",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 7,
@@ -3399,7 +3772,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>企業集団内部における債権（売掛金）と債務（買掛金）は連結貸借対照表上で相殺消去します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-7"
+    "qid": "boki2-mock-5-7",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 8,
@@ -3417,7 +3792,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>社債の購入時に支払った端数利息は、取得原価には含めず「有価証券利息（費用の発生＝収益のマイナス）」として処理します。<br>計算式：1,000,000円 × 3.65％ × 60日 ÷ 365日 ＝ 6,000円",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-8"
+    "qid": "boki2-mock-5-8",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 6
   },
   {
     "num": 9,
@@ -3435,7 +3812,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>当期に帰属する賞与見積額は、「賞与引当金繰入（販売費及び一般管理費）」として費用計上し、貸方に「賞与引当金（流動負債）」を計上します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-9"
+    "qid": "boki2-mock-5-9",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 10,
@@ -3453,7 +3832,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>企業集団内部における債権（売掛金）と債務（買掛金）は連結貸借対照表上で相殺消去します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-10"
+    "qid": "boki2-mock-5-10",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 11,
@@ -3471,7 +3852,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>将来減算一時差異が解消したときは、繰延税金資産を取り崩し、借方に「法人税等調整額（費用の加算）」を計上します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-11"
+    "qid": "boki2-mock-5-11",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 6
   },
   {
     "num": 12,
@@ -3489,7 +3872,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>直接材料費は「仕掛品」勘定へ直課し、間接材料費は「製造間接費」勘定へ配賦集計します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-12"
+    "qid": "boki2-mock-5-12",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 13,
@@ -3507,7 +3892,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>予定消費額：500kg × @1,000円 ＝ 500,000円<br>実際額：500kg × @1,050円 ＝ 525,000円<br>実際額が予定額を25,000円上回っているため、不利差異（借方差異）が発生します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-13"
+    "qid": "boki2-mock-5-13",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 14,
@@ -3525,7 +3912,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>補助部門相互間のやり取りを無視して製造部門にのみ配賦する簡易な方法を「直接配賦法」と呼びます。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-14"
+    "qid": "boki2-mock-5-14",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 15,
@@ -3543,7 +3932,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>第1次配賦で補助部門間の用役のやり取りを計算し、第2次配賦で製造部門へ集計する方法を「相互配賦法」と呼びます。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-15"
+    "qid": "boki2-mock-5-15",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 16,
@@ -3561,7 +3952,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>減損が月末仕掛品の通過点より前に発生している場合、完成品と月末仕掛品の両方がその減損地点を通過しているため、「両者負担」となります。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-16"
+    "qid": "boki2-mock-5-16",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 17,
@@ -3579,7 +3972,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>不利差異（借方残高）は原価の増加要因であるため、借方に「売上原価」、貸方に「直接材料費差異」を記入します。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-17"
+    "qid": "boki2-mock-5-17",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 18,
@@ -3597,7 +3992,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>余剰能力があり固定費が増加しない場合、特別価格（@800円）が変動費（@600円）を上回っていれば、差額貢献利益（@200円 × 1,000個 ＝ 200,000円）だけ営業利益が増加するため受託すべきです。",
     "sessionId": "5",
     "sessionName": "第5回実戦予想模試",
-    "qid": "boki2-mock-5-18"
+    "qid": "boki2-mock-5-18",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 1,
@@ -3615,7 +4012,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>電子記録債権を譲渡して買掛金を決済したため、借方に「買掛金（負債の減少）」、貸方に「電子記録債権（資産の減少）」を計上します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-1"
+    "qid": "boki2-mock-6-1",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 2,
@@ -3633,7 +4032,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>額面と取得原価の差額（金利調整差額 100,000円）を満期までの5年間で均等配分（定額法）します。<br>当期加算額：100,000円 ÷ 5年 ＝ 20,000円<br>相手勘定は「有価証券利息」となります。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-2"
+    "qid": "boki2-mock-6-2",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 3,
@@ -3651,7 +4052,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>買収・合併にあたり、受入純資産額（10,000,000円）を超えて支払った対価（34,000,000円）との差額（24,000,000円）は「のれん（無形固定資産）」として借方に計上します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-3"
+    "qid": "boki2-mock-6-3",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 4,
@@ -3669,7 +4072,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>自己株式の処分差損は「その他資本剰余金」から減額（借方に記入）します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-4"
+    "qid": "boki2-mock-6-4",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 5,
@@ -3687,7 +4092,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>サービス提供契約の履行のために直接要した原価は、「役務原価（売上原価）」勘定で処理します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-5"
+    "qid": "boki2-mock-6-5",
+    "sectionName": "【第1問】商業簿記 仕訳問題",
+    "points": 4
   },
   {
     "num": 6,
@@ -3705,7 +4112,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>子会社の資本（5,000,000円）と親会社の投資額（10,800,000円）を相殺消去し、差額（5,800,000円）を「のれん（資産）」として計上します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-6"
+    "qid": "boki2-mock-6-6",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 7,
@@ -3723,7 +4132,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>S社純資産合計 ＝ 8,000,000円<br>非支配株主持分 ＝ 8,000,000円 × 20％ ＝ 1,600,000円（貸方）<br>親会社持分額 ＝ 8,000,000円 × 80％ ＝ 6,400,000円<br>のれん ＝ 投資額7,000,000円 － 持分額6,400,000円 ＝ 600,000円（借方）",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-7"
+    "qid": "boki2-mock-6-7",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 7
   },
   {
     "num": 8,
@@ -3741,7 +4152,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>満期保有目的の債券を取得したときは、実際の買入価額で「満期保有目的債券（投資その他の資産）」勘定の借方に記帳します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-8"
+    "qid": "boki2-mock-6-8",
+    "sectionName": "【第2問】商業簿記 個別論点・連結会計",
+    "points": 6
   },
   {
     "num": 9,
@@ -3759,7 +4172,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>失効した商品券は商品の引渡義務が消滅するため、「商品券（負債）」を減額し、「商品券益（特別利益または営業外収益）」として貸方に計上します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-9"
+    "qid": "boki2-mock-6-9",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 10,
@@ -3777,7 +4192,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>支店期末商品に含まれる未実現内部利益は、本店側で「繰延内部利益繰入（売上原価の加算）」として計上し、貸方に「繰延内部利益（資産の控除科目）」を計上します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-10"
+    "qid": "boki2-mock-6-10",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 7
   },
   {
     "num": 11,
@@ -3795,7 +4212,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>会社法規定：払込金額の1/2を超えない額を「資本準備金」として計上できます。<br>資本金：2,000,000円 ÷ 2 ＝ 1,000,000円、資本準備金：1,000,000円",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-11"
+    "qid": "boki2-mock-6-11",
+    "sectionName": "【第3問】商業簿記 決算整理・財務諸表",
+    "points": 6
   },
   {
     "num": 12,
@@ -3813,7 +4232,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>予定計上額：400時間 × @1,500円 ＝ 600,000円<br>実際発生額：620,000円<br>実際が予定を20,000円上回るため、不利差異（借方差異）が発生します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-12"
+    "qid": "boki2-mock-6-12",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 13,
@@ -3831,7 +4252,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(2)】</strong><br><br>外注加工費は製品に直接賦課できる「直接経費」であるため、直ちに「仕掛品」勘定の借方に計上します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-13"
+    "qid": "boki2-mock-6-13",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 14,
@@ -3849,7 +4272,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>本社側では買掛金の発生を計上し、相手勘定を「工場（資産相当）」として借方に記入します。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-14"
+    "qid": "boki2-mock-6-14",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 15,
@@ -3867,7 +4292,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>製品が完成したときは、工場内部で仕掛品から製品へと振り替えます。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-15"
+    "qid": "boki2-mock-6-15",
+    "sectionName": "【第4問】工業簿記 費目別・部門別・仕訳",
+    "points": 7
   },
   {
     "num": 16,
@@ -3885,7 +4312,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(3)】</strong><br><br>月初仕掛品が優先して完成品になると仮定し、当月投入分の単価で月末仕掛品を計算する方法を「先入先出法（FIFO）」と呼びます。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-16"
+    "qid": "boki2-mock-6-16",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 17,
@@ -3903,7 +4332,9 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(4)】</strong><br><br>仕掛品勘定の借方に実際原価、貸方に標準原価を記入し、仕掛品勘定の差額から原価差異を取り出す方法を「パーシャル・プラン」と呼びます。",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-17"
+    "qid": "boki2-mock-6-17",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   },
   {
     "num": 18,
@@ -3921,6 +4352,8 @@ window.BOKI2_PAST_QUESTIONS = [
     "explanation": "<strong>【正解：(1)】</strong><br><br>安全率 ＝（実際売上高 20,000,000円 － 損益分岐点売上高 15,000,000円）÷ 実際売上高 20,000,000円 × 100 ＝ 25％<br>（売上高が25％ダウンしても赤字にならないことを意味します）",
     "sessionId": "6",
     "sessionName": "第6回実戦予想模試",
-    "qid": "boki2-mock-6-18"
+    "qid": "boki2-mock-6-18",
+    "sectionName": "【第5問】原価計算総合（標準・直接・CVP）",
+    "points": 4
   }
 ];
