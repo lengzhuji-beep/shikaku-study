@@ -15,7 +15,14 @@
   let userAnswers = {}; // { qId: selectedOption }
   let practiceUserAnswers = {}; // 1問1答モード用の一時解答
   let bookmarkedQids = new Set();
-  let examMode = 'practice'; // 'practice' (1問1答・ウィザード形式) or 'exam' (実戦テスト・タイマー付き)
+  let examMode = 'practice'; // 'practice' (1問1答) or 'exam' (本番テスト)
+  let isExamStarted = false; // 本番テストモードで開始されたか
+  let isPracticeStarted = false; // 1問1答モードで開始されたか
+
+  // タブ（'mock' or 'bookmark'）
+  let currentActiveTab = 'mock';
+  let bmCurrentIndex = 0;
+  let bmUserAnswers = {};
 
   // 1問1答モード用インデックス
   let practiceCurrentIndex = 0;
@@ -34,8 +41,57 @@
 
   function init() {
     loadBookmarks();
+    setupTopTabEvents();
     setupSessionSelector();
     loadSession('mock-01');
+  }
+
+  function setupTopTabEvents() {
+    const tabMock = document.getElementById('tabMockExam');
+    const tabBm = document.getElementById('tabBookmark');
+    const selectorCard = document.getElementById('toeicSessionSelector');
+    const quizContainer = document.getElementById('toeicQuizContainer');
+    const bmContainer = document.getElementById('toeicBookmarkContainer');
+
+    if (!tabMock || !tabBm) return;
+
+    tabMock.addEventListener('click', () => {
+      if (currentActiveTab === 'mock') return;
+      currentActiveTab = 'mock';
+      tabMock.classList.add('active');
+      tabBm.classList.remove('active');
+
+      if (selectorCard) selectorCard.style.display = 'block';
+      if (quizContainer) quizContainer.style.display = 'block';
+      if (bmContainer) bmContainer.style.display = 'none';
+      renderMainView();
+    });
+
+    tabBm.addEventListener('click', () => {
+      if (currentActiveTab === 'bookmark') return;
+
+      // 本番テスト実施中なら確認
+      if (examMode === 'exam' && isExamStarted) {
+        if (!confirm('本番テストを中断してブックマーク復習へ移動しますか？（現在の回答データは破棄されます）')) {
+          return;
+        }
+        stopTimer();
+        isExamStarted = false;
+        userAnswers = {};
+      }
+
+      currentActiveTab = 'bookmark';
+      tabBm.classList.add('active');
+      tabMock.classList.remove('active');
+
+      if (selectorCard) selectorCard.style.display = 'none';
+      if (quizContainer) quizContainer.style.display = 'none';
+      if (bmContainer) bmContainer.style.display = 'block';
+
+      bmCurrentIndex = 0;
+      bmUserAnswers = {};
+      renderBookmarkSection();
+    });
   }
 
   function loadBookmarks() {
@@ -92,6 +148,8 @@
     userAnswers = {};
     practiceUserAnswers = {};
     practiceCurrentIndex = 0;
+    isExamStarted = false;
+    isPracticeStarted = false;
     timeRemaining = customDurationMinutes * 60;
     stopTimer();
 
@@ -102,12 +160,15 @@
     const container = document.getElementById('toeicQuizContainer');
     if (!container) return;
 
+    const isPracticing = (examMode === 'practice' && (isPracticeStarted || Object.keys(practiceUserAnswers).length > 0));
+    const isExamRunning = (examMode === 'exam' && isExamStarted);
+
     container.innerHTML = `
       <!-- コントロールバー（モード切替・タイマー設定・印刷） -->
       <div class="toeic-control-bar" style="background:#fff; border:1px solid #e7dfd5; border-radius:18px; padding:18px 24px; margin-bottom:24px; box-shadow:0 4px 16px rgba(45,55,48,0.04);">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
           
-          <!-- 左側: 模試タイトル & モード切替タブ -->
+          <!-- 左側: 模試タイトル & モード切替タブ & 中断ボタン -->
           <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
             <span style="font-weight:800; color:#1a231f; font-size:1.05rem;">
               <i class="fas fa-graduation-cap" style="color:#345d4d;"></i> ${currentSession.title}
@@ -122,29 +183,30 @@
                 <i class="fas fa-stopwatch"></i> 本番テストモード
               </button>
             </div>
+
+            <!-- 中断ボタン（進行中のみ表示） -->
+            ${isExamRunning ? `
+              <button type="button" id="btnAbortExam" style="background:#fff5f5; color:#c53030; border:1.5px solid #feb2b2; padding:6px 14px; border-radius:9999px; font-size:0.82rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:5px; transition:all 0.2s;">
+                <i class="fas fa-stop-circle"></i> 試験を中断する
+              </button>
+            ` : ''}
+            ${isPracticing ? `
+              <button type="button" id="btnAbortPractice" style="background:#f8fafc; color:#718096; border:1px solid #cbd5e0; padding:6px 14px; border-radius:9999px; font-size:0.82rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:5px; transition:all 0.2s;">
+                <i class="fas fa-undo"></i> 演習を中断する
+              </button>
+            ` : ''}
           </div>
 
           <!-- 右側: タイマー & 印刷ボタン -->
           <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <!-- タイマーエリア（本番モード時） -->
-            <div id="toeicTimerArea" style="display:${examMode === 'exam' ? 'flex' : 'none'}; align-items:center; gap:10px; background:#eef5f1; border:1px solid #c6e0d3; padding:6px 14px; border-radius:12px;">
-              <div style="display:flex; align-items:center; gap:6px;">
-                <label for="timerDurationSelect" style="font-size:0.82rem; font-weight:700; color:#345d4d;">制限時間:</label>
-                <select id="timerDurationSelect" style="font-size:0.85rem; font-weight:700; color:#345d4d; background:#fff; border:1px solid #c6e0d3; border-radius:6px; padding:3px 8px; cursor:pointer;">
-                  <option value="20" ${customDurationMinutes === 20 ? 'selected' : ''}>20分（短縮）</option>
-                  <option value="30" ${customDurationMinutes === 30 ? 'selected' : ''}>30分（スピード）</option>
-                  <option value="37" ${customDurationMinutes === 37 ? 'selected' : ''}>37分（標準）</option>
-                  <option value="45" ${customDurationMinutes === 45 ? 'selected' : ''}>45分（じっくり）</option>
-                  <option value="60" ${customDurationMinutes === 60 ? 'selected' : ''}>60分（余裕）</option>
-                </select>
-              </div>
-
-              <div style="color:#2f855a; font-weight:800; font-size:1.15rem; font-family:monospace; display:flex; align-items:center; gap:6px; padding-left:8px; border-left:1px solid #c6e0d3;">
-                <i class="fas fa-clock"></i> <span id="timerDisplay">${String(customDurationMinutes).padStart(2, '0')}:00</span>
+            <!-- タイマーエリア（本番モード開始後のみ表示） -->
+            <div id="toeicTimerArea" style="display:${isExamRunning ? 'flex' : 'none'}; align-items:center; gap:10px; background:#eef5f1; border:1px solid #c6e0d3; padding:6px 14px; border-radius:12px;">
+              <div style="color:#2f855a; font-weight:800; font-size:1.15rem; font-family:monospace; display:flex; align-items:center; gap:6px;">
+                <i class="fas fa-clock"></i> <span id="timerDisplay">${formatSeconds(timeRemaining)}</span>
               </div>
 
               <button type="button" id="btnTimerPause" style="padding:4px 10px; font-size:0.8rem; background:#fff; color:#345d4d; border:1px solid #c6e0d3; border-radius:6px; cursor:pointer; font-weight:600;">
-                <i class="fas fa-pause"></i> 一時停止
+                <i class="fas ${isTimerRunning ? 'fa-pause' : 'fa-play'}"></i> ${isTimerRunning ? '一時停止' : '再開'}
               </button>
             </div>
 
@@ -156,8 +218,8 @@
 
         </div>
 
-        <!-- 進捗プログレスバー -->
-        <div style="margin-top:16px; padding-top:14px; border-top:1px solid #e7dfd5;">
+        <!-- 進捗プログレスバー（本番モード開始前は非表示） -->
+        <div id="toeicProgressBarContainer" style="display:${(examMode === 'exam' && !isExamStarted) ? 'none' : 'block'}; margin-top:16px; padding-top:14px; border-top:1px solid #e7dfd5;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
             <span id="toeicProgressText" style="font-size:0.88rem; font-weight:700; color:#345d4d;">進捗: 読み込み中...</span>
             <span id="toeicAnsweredMeta" style="font-size:0.82rem; color:#718096;">全50問</span>
@@ -183,21 +245,36 @@
     if (examMode === 'practice') {
       renderPracticeView();
     } else {
-      renderExamView();
-      startTimer();
+      if (!isExamStarted) {
+        renderExamStartScreen();
+      } else {
+        renderExamView();
+      }
     }
   }
 
   function setupControlBarEvents() {
     const btnPractice = document.getElementById('btnModePractice');
     const btnExam = document.getElementById('btnModeExam');
-    const timerSelect = document.getElementById('timerDurationSelect');
     const btnPause = document.getElementById('btnTimerPause');
     const btnPrint = document.getElementById('btnPrintToeic');
+    const btnAbortExam = document.getElementById('btnAbortExam');
+    const btnAbortPractice = document.getElementById('btnAbortPractice');
 
     if (btnPractice) {
       btnPractice.addEventListener('click', () => {
         if (examMode === 'practice') return;
+
+        // 本番テスト進行中なら確認
+        if (examMode === 'exam' && isExamStarted) {
+          if (!confirm('現在、本番テストの計測中です。中断して1問1答モードへ切り替えますか？\n（現在の回答データは破棄されます）')) {
+            return;
+          }
+          isExamStarted = false;
+          stopTimer();
+          userAnswers = {};
+        }
+
         examMode = 'practice';
         stopTimer();
         renderMainView();
@@ -207,18 +284,46 @@
     if (btnExam) {
       btnExam.addEventListener('click', () => {
         if (examMode === 'exam') return;
+
+        // 1問1答進行中なら確認
+        const isPracticing = (isPracticeStarted || Object.keys(practiceUserAnswers).length > 0);
+        if (isPracticing) {
+          if (!confirm('現在の1問1答演習を中断して本番テストモードへ切り替えますか？\n（演習中の回答データはリセットされます）')) {
+            return;
+          }
+          practiceUserAnswers = {};
+          practiceCurrentIndex = 0;
+          isPracticeStarted = false;
+        }
+
         examMode = 'exam';
-        userAnswers = {};
+        isExamStarted = false; // 開始前画面からスタート
+        stopTimer();
         renderMainView();
       });
     }
 
-    if (timerSelect) {
-      timerSelect.addEventListener('change', (e) => {
-        customDurationMinutes = parseInt(e.target.value, 10) || 37;
-        timeRemaining = customDurationMinutes * 60;
-        updateTimerDisplay();
-        startTimer();
+    // 中断ボタン（本番テスト用）
+    if (btnAbortExam) {
+      btnAbortExam.addEventListener('click', () => {
+        if (confirm('本番テストを中断しますか？\n現在の回答データは破棄されます。')) {
+          isExamStarted = false;
+          stopTimer();
+          userAnswers = {};
+          renderMainView();
+        }
+      });
+    }
+
+    // 中断ボタン（1問1答用）
+    if (btnAbortPractice) {
+      btnAbortPractice.addEventListener('click', () => {
+        if (confirm('1問1答演習を中断して最初の問題に戻りますか？')) {
+          practiceUserAnswers = {};
+          practiceCurrentIndex = 0;
+          isPracticeStarted = false;
+          renderMainView();
+        }
       });
     }
 
@@ -237,6 +342,66 @@
     if (btnPrint) {
       btnPrint.addEventListener('click', () => {
         window.print();
+      });
+    }
+  }
+
+  // 本番テストモード 開始前ガイダンス画面
+  function renderExamStartScreen() {
+    const content = document.getElementById('toeicMainContent');
+    if (!content) return;
+
+    content.innerHTML = `
+      <div class="exam-start-card" style="background:#fff; border:1px solid #e7dfd5; border-radius:22px; padding:38px 32px; text-align:center; box-shadow:0 4px 20px rgba(45,55,48,0.05); max-width:720px; margin:20px auto 40px;">
+        <div style="display:inline-flex; align-items:center; justify-content:center; width:68px; height:68px; border-radius:50%; background:#eef5f1; color:#345d4d; font-size:1.9rem; margin-bottom:18px;">
+          <i class="fas fa-stopwatch"></i>
+        </div>
+        <h2 style="font-size:1.45rem; font-weight:800; color:#1a231f; margin-bottom:12px;">
+          本番テストモード（ハーフ模試 全50問）
+        </h2>
+        <p style="color:#4a5568; font-size:0.98rem; line-height:1.75; margin-bottom:26px;">
+          Part 5（短文穴埋め）・Part 6（長文穴埋め）・Part 7（読解問題）の全50問を通しで解答します。<br>
+          制限時間内に全問を解き終えるタイムマネジメント力を鍛えることができます。<br>
+          <span style="font-size:0.88rem; color:#718096;">※テスト中は途中で正解や解説は表示されません。採点完了後に全問の詳しい解説を確認できます。</span>
+        </p>
+
+        <!-- 制限時間の選択ボックス -->
+        <div style="background:#f8fafc; border:1.5px solid #e2e8f0; border-radius:14px; padding:20px 24px; margin-bottom:30px; display:inline-block; text-align:left;">
+          <div style="font-weight:700; color:#345d4d; font-size:0.95rem; margin-bottom:8px;">
+            <i class="fas fa-clock"></i> 制限時間を設定してください：
+          </div>
+          <select id="startScreenTimerSelect" style="padding:10px 18px; border:1.5px solid #cbd5e0; border-radius:10px; font-size:1rem; font-weight:700; color:#1a231f; background:#fff; cursor:pointer; width:100%;">
+            <option value="20" ${customDurationMinutes === 20 ? 'selected' : ''}>20分 （速解トレーニング）</option>
+            <option value="30" ${customDurationMinutes === 30 ? 'selected' : ''}>30分 （目標スコア高め）</option>
+            <option value="37" ${customDurationMinutes === 37 ? 'selected' : ''}>37分 （本番標準ペース）</option>
+            <option value="45" ${customDurationMinutes === 45 ? 'selected' : ''}>45分 （じっくり演習）</option>
+            <option value="60" ${customDurationMinutes === 60 ? 'selected' : ''}>60分 （余裕をもった設定）</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="button" id="btnStartRealExam" style="background:#345d4d; color:#fff; border:none; padding:16px 52px; border-radius:9999px; font-size:1.18rem; font-weight:800; cursor:pointer; box-shadow:0 6px 20px rgba(52,93,77,0.3); transition:transform 0.15s, box-shadow 0.15s; display:inline-flex; align-items:center; gap:10px;">
+            <i class="fas fa-play-circle" style="font-size:1.3rem;"></i> 試験を開始する
+          </button>
+        </div>
+      </div>
+    `;
+
+    const timerSel = document.getElementById('startScreenTimerSelect');
+    if (timerSel) {
+      timerSel.addEventListener('change', (e) => {
+        customDurationMinutes = parseInt(e.target.value, 10) || 37;
+      });
+    }
+
+    const startBtn = document.getElementById('btnStartRealExam');
+    if (startBtn) {
+      startBtn.addEventListener('click', () => {
+        isExamStarted = true;
+        timeRemaining = customDurationMinutes * 60;
+        startTimer();
+        renderMainView();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
   }
@@ -342,8 +507,8 @@
           }).join('')}
         </div>
 
-        <!-- 解説エリア -->
-        <div id="practiceExpArea" style="display:${isAnswered ? 'block' : 'none'}; margin-top:20px; padding:22px; border-radius:14px; background:${existingAnswer === q.answer ? '#f0fff4' : '#fff5f5'}; border-left:5px solid ${existingAnswer === q.answer ? '#2f855a' : '#c53030'};">
+        <!-- 解説エリア（四方均一な美しい枠線） -->
+        <div id="practiceExpArea" style="display:${isAnswered ? 'block' : 'none'}; margin-top:20px; padding:22px; border-radius:14px; background:${existingAnswer === q.answer ? '#f0fff4' : '#fff5f5'}; border:1.5px solid ${existingAnswer === q.answer ? '#9ae6b4' : '#feb2b2'};">
           <div style="font-size:1.15rem; font-weight:800; color:${existingAnswer === q.answer ? '#2f855a' : '#c53030'}; margin-bottom:12px;">
             <i class="fas ${existingAnswer === q.answer ? 'fa-check-circle' : 'fa-times-circle'}"></i> 
             ${existingAnswer === q.answer ? '正解！' : '不正解...'} 
@@ -388,6 +553,7 @@
       optEl.addEventListener('click', () => {
         if (practiceUserAnswers[q.id]) return; // 回答済なら変更不可
 
+        isPracticeStarted = true;
         const chosenVal = optEl.getAttribute('data-value');
         practiceUserAnswers[q.id] = chosenVal;
 
@@ -929,8 +1095,8 @@
             }).join('')}
           </div>
 
-          <!-- 詳細解説エリア -->
-          <div style="margin-top:16px; padding:20px; border-radius:14px; background:${isCorrect ? '#f0fff4' : '#fff5f5'}; border-left:5px solid ${isCorrect ? '#2f855a' : '#c53030'};">
+          <!-- 詳細解説エリア（四方均一な美しい枠線） -->
+          <div style="margin-top:16px; padding:20px; border-radius:14px; background:${isCorrect ? '#f0fff4' : '#fff5f5'}; border:1.5px solid ${isCorrect ? '#9ae6b4' : '#feb2b2'};">
             <div style="font-size:1.05rem; font-weight:800; color:${isCorrect ? '#2f855a' : '#c53030'}; margin-bottom:12px;">
               <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
               ${isCorrect ? '正解！' : '不正解...'} 
@@ -1003,6 +1169,13 @@
   }
 
   // タイマー
+  function formatSeconds(sec) {
+    const s = Math.max(0, sec);
+    const mins = Math.floor(s / 60);
+    const secs = s % 60;
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
   function startTimer() {
     stopTimer();
     isTimerRunning = true;
@@ -1028,9 +1201,311 @@
   function updateTimerDisplay() {
     const el = document.getElementById('timerDisplay');
     if (!el) return;
-    const mins = Math.floor(timeRemaining / 60);
-    const secs = timeRemaining % 60;
-    el.innerText = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    el.innerText = formatSeconds(timeRemaining);
+  }
+
+  // ========================================================
+  // 4. ブックマーク復習専用セクション
+  // ========================================================
+  function renderBookmarkSection() {
+    const container = document.getElementById('toeicBookmarkContainer');
+    if (!container) return;
+
+    // 全セッションから全問題を収集
+    let allPoolQuestions = [];
+    MOCK_SESSIONS.forEach(s => {
+      const dataObj = window[s.dataVar];
+      if (dataObj && dataObj.questions) {
+        allPoolQuestions = allPoolQuestions.concat(dataObj.questions);
+      }
+    });
+
+    // ブックマークされている問題のみ抽出
+    const bmQuestions = allPoolQuestions.filter(q => bookmarkedQids.has(q.id));
+    const total = bmQuestions.length;
+
+    // ブックマーク0件のとき
+    if (total === 0) {
+      container.innerHTML = `
+        <div class="card" style="text-align:center; padding:48px 24px; background:#fffaf0; border:1.5px solid #feebc8; border-radius:20px; margin:20px auto 40px; max-width:760px; box-shadow:0 4px 16px rgba(0,0,0,0.02);">
+          <div style="display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; border-radius:50%; background:#fefcbf; color:#d69e2e; font-size:1.8rem; margin-bottom:16px;">
+            <i class="far fa-star"></i>
+          </div>
+          <h3 style="font-size:1.3rem; font-weight:800; color:#744210; margin-bottom:10px;">ブックマークされた問題がありません</h3>
+          <p style="color:#975a16; font-size:0.96rem; line-height:1.75; margin-bottom:24px;">
+            模擬試験の問題の右上にある「☆ ブックマーク」ボタンを押すと、ここに保存されていつでも苦手な問題だけを集中的に復習できます。
+          </p>
+          <button type="button" id="btnBackToMockFromEmpty" style="background:#345d4d; color:#fff; border:none; padding:12px 32px; border-radius:9999px; font-weight:800; font-size:0.95rem; cursor:pointer;">
+            <i class="fas fa-arrow-left"></i> 模擬試験演習へ戻る
+          </button>
+        </div>
+      `;
+
+      const backBtn = document.getElementById('btnBackToMockFromEmpty');
+      if (backBtn) {
+        backBtn.addEventListener('click', () => {
+          document.getElementById('tabMockExam').click();
+        });
+      }
+      return;
+    }
+
+    // インデックスの境界チェック
+    if (bmCurrentIndex >= total) {
+      bmCurrentIndex = total - 1;
+    }
+    if (bmCurrentIndex < 0) {
+      bmCurrentIndex = 0;
+    }
+
+    const q = bmQuestions[bmCurrentIndex];
+    const existingAnswer = bmUserAnswers[q.id];
+    const isAnswered = !!existingAnswer;
+    const answeredCount = Object.keys(bmUserAnswers).length;
+    const isCorrect = (existingAnswer === q.answer);
+
+    // パッセージHTML
+    let passageHtml = '';
+    if ((q.part === 6 || q.part === 7) && q.passageHtml) {
+      passageHtml = `
+        <div class="toeic-passage-card" style="background:#f8fafc; border:1px solid #e7dfd5; border-radius:16px; padding:22px 26px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:2px solid #cbd5e0; padding-bottom:8px;">
+            <span style="font-size:0.95rem; font-weight:800; color:#345d4d;">
+              <i class="fas fa-file-alt"></i> ${q.passageTitle || `Part ${q.part} Passage`}
+            </span>
+            <span style="font-size:0.8rem; background:#eef5f1; color:#345d4d; padding:3px 10px; border-radius:6px; font-weight:800;">
+              Part ${q.part}
+            </span>
+          </div>
+          <div class="toeic-passage-body" style="line-height:1.75; font-size:0.98rem; color:#2d3748; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+            ${q.passageHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    container.innerHTML = `
+      <!-- ブックマークヘッダー & プログレス -->
+      <div style="background:#fff; border:1px solid #e7dfd5; border-radius:18px; padding:18px 24px; margin-bottom:24px; box-shadow:0 4px 16px rgba(45,55,48,0.04);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+          <div>
+            <span style="font-size:1.1rem; font-weight:800; color:#1a231f;">
+              <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマーク復習（全 ${total} 問）
+            </span>
+            <span style="font-size:0.85rem; color:#718096; margin-left:10px;">
+              第 ${bmCurrentIndex + 1} 問 / 全 ${total} 問
+            </span>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:0.85rem; font-weight:700; color:#345d4d;">
+              回答済: ${answeredCount} / ${total} 問
+            </span>
+            <button type="button" id="btnExitBookmark" style="background:#edf2f7; color:#4a5568; border:1px solid #cbd5e0; padding:6px 14px; border-radius:9999px; font-size:0.82rem; font-weight:700; cursor:pointer;">
+              <i class="fas fa-arrow-left"></i> 模試一覧へ
+            </button>
+          </div>
+        </div>
+
+        <div style="background:#e2e8f0; height:8px; border-radius:9999px; overflow:hidden;">
+          <div style="background:#d69e2e; width:${Math.round(((bmCurrentIndex + 1) / total) * 100)}%; height:100%; border-radius:9999px; transition:width 0.25s ease;"></div>
+        </div>
+      </div>
+
+      ${passageHtml}
+
+      <!-- 設問カード -->
+      <div class="quiz-card" style="background:#fff; border:1px solid #e7dfd5; border-radius:18px; padding:26px 28px; box-shadow:0 4px 16px rgba(45,55,48,0.04); margin-bottom:30px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="background:#fefcbf; color:#744210; font-weight:800; font-size:0.95rem; padding:4px 14px; border-radius:8px;">
+              復習 Q${q.qNumber}
+            </span>
+            <span style="font-size:0.85rem; color:#6b7770; background:#f0ece6; padding:3px 10px; border-radius:6px; font-weight:600;">
+              Part ${q.part} ｜ ${q.category || 'Reading'}
+            </span>
+          </div>
+
+          <!-- 解除ボタン -->
+          <button type="button" id="btnRemoveBmItem" style="background:#fff5f5; border:1px solid #feb2b2; color:#c53030; padding:5px 12px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:5px;">
+            <i class="fas fa-trash-alt"></i> ブックマーク解除
+          </button>
+        </div>
+
+        <!-- 設問文 -->
+        <div style="font-size:1.15rem; font-weight:700; color:#1a231f; line-height:1.65; margin-bottom:20px;">
+          ${q.question}
+        </div>
+
+        <!-- 選択肢リスト -->
+        <div class="quiz-options-list" style="display:grid; grid-template-columns:1fr; gap:12px; margin-bottom:20px;">
+          ${q.options.map(opt => {
+            const isSelected = (existingAnswer === opt.label);
+            const isOptCorrect = (opt.label === q.answer);
+            let optStyle = "display:flex; align-items:center; padding:14px 20px; border:1.5px solid #e2e8f0; border-radius:12px; cursor:pointer; background:#fff; transition:all 0.15s;";
+            let labelBadge = `<span style="font-weight:800; color:#4a5568; width:40px; font-size:1rem;">${opt.label}</span>`;
+
+            if (isAnswered) {
+              optStyle += " cursor:default;";
+              if (isOptCorrect) {
+                optStyle = "display:flex; align-items:center; padding:14px 20px; border:2px solid #2f855a; border-radius:12px; cursor:default; background:#f0fff4;";
+                labelBadge = `<span style="font-weight:800; color:#2f855a; width:40px; font-size:1rem;"><i class="fas fa-check-circle"></i> ${opt.label}</span>`;
+              } else if (isSelected && !isOptCorrect) {
+                optStyle = "display:flex; align-items:center; padding:14px 20px; border:2px solid #c53030; border-radius:12px; cursor:default; background:#fff5f5;";
+                labelBadge = `<span style="font-weight:800; color:#c53030; width:40px; font-size:1rem;"><i class="fas fa-times-circle"></i> ${opt.label}</span>`;
+              }
+            }
+
+            return `
+              <div class="bm-opt ${isAnswered ? 'locked' : ''}" data-value="${opt.label}" style="${optStyle}">
+                ${labelBadge}
+                <span style="color:#2d3748; font-size:1.02rem; font-weight:500;">${opt.text}</span>
+              </div>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- 解説エリア（四方均一ボーダー） -->
+        <div style="display:${isAnswered ? 'block' : 'none'}; margin-top:20px; padding:22px; border-radius:14px; background:${isCorrect ? '#f0fff4' : '#fff5f5'}; border:1.5px solid ${isCorrect ? '#9ae6b4' : '#feb2b2'};">
+          <div style="font-size:1.15rem; font-weight:800; color:${isCorrect ? '#2f855a' : '#c53030'}; margin-bottom:12px;">
+            <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i> 
+            ${isCorrect ? '正解！' : '不正解...'} 
+            <span style="font-size:0.95rem; font-weight:700; color:#4a5568; margin-left:8px;">[正解: ${q.answer}]</span>
+          </div>
+
+          <div style="margin-bottom:14px; font-size:0.96rem; color:#2d3748; line-height:1.75;">
+            <strong style="color:#1a231f;">【解答の根拠・ポイント】</strong><br>
+            ${q.explanation}
+          </div>
+
+          <div style="margin-bottom:14px; padding:10px 14px; background:#fff; border-radius:8px; border:1px solid #e7dfd5;">
+            <strong style="color:#345d4d; font-size:0.9rem;">【日本語訳】</strong><br>
+            <span style="font-size:0.92rem; color:#4a5568; line-height:1.7;">${q.translation}</span>
+          </div>
+
+          ${q.vocabulary && q.vocabulary.length > 0 ? `
+            <div style="padding:10px 14px; background:#fff; border:1px solid #e7dfd5; border-radius:8px;">
+              <strong style="color:#345d4d; font-size:0.9rem;"><i class="fas fa-spell-check"></i> 重要ボキャブラリー・表現：</strong>
+              <ul style="margin:6px 0 0 18px; padding:0; font-size:0.9rem; color:#4a5568; line-height:1.65;">
+                ${q.vocabulary.map(v => `<li><strong>${v.word}</strong>: ${v.meaning}</li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+        </div>
+
+        <!-- ナビゲーションボタン -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:28px; padding-top:20px; border-top:1px solid #e7dfd5;">
+          <button type="button" id="btnBmPrev" style="background:#f0ece6; color:#4a5568; border:none; padding:10px 20px; border-radius:9999px; font-weight:700; font-size:0.92rem; cursor:${bmCurrentIndex === 0 ? 'not-allowed' : 'pointer'}; opacity:${bmCurrentIndex === 0 ? '0.5' : '1'};">
+            <i class="fas fa-arrow-left"></i> 前の問題へ
+          </button>
+
+          <button type="button" id="btnBmNext" style="background:#345d4d; color:#fff; border:none; padding:12px 28px; border-radius:9999px; font-weight:800; font-size:0.96rem; cursor:pointer; box-shadow:0 4px 12px rgba(52,93,77,0.25);">
+            ${bmCurrentIndex === total - 1 ? '復習を終了する <i class="fas fa-check-circle"></i>' : '次の問題へ <i class="fas fa-arrow-right"></i>'}
+          </button>
+        </div>
+      </div>
+    `;
+
+    // 選択肢イベント
+    container.querySelectorAll('.bm-opt').forEach(optEl => {
+      optEl.addEventListener('click', () => {
+        if (bmUserAnswers[q.id]) return;
+        const val = optEl.getAttribute('data-value');
+        bmUserAnswers[q.id] = val;
+        renderBookmarkSection();
+      });
+    });
+
+    // 解除ボタン
+    const removeBtn = document.getElementById('btnRemoveBmItem');
+    if (removeBtn) {
+      removeBtn.addEventListener('click', () => {
+        bookmarkedQids.delete(q.id);
+        saveBookmarks();
+        renderBookmarkSection();
+      });
+    }
+
+    // 戻るボタン
+    const exitBtn = document.getElementById('btnExitBookmark');
+    if (exitBtn) {
+      exitBtn.addEventListener('click', () => {
+        document.getElementById('tabMockExam').click();
+      });
+    }
+
+    // 前へ
+    const prevBtn = document.getElementById('btnBmPrev');
+    if (prevBtn && bmCurrentIndex > 0) {
+      prevBtn.addEventListener('click', () => {
+        bmCurrentIndex--;
+        renderBookmarkSection();
+        window.scrollTo({ top: container.offsetTop - 80, behavior: 'smooth' });
+      });
+    }
+
+    // 次へ
+    const nextBtn = document.getElementById('btnBmNext');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (bmCurrentIndex < total - 1) {
+          bmCurrentIndex++;
+          renderBookmarkSection();
+          window.scrollTo({ top: container.offsetTop - 80, behavior: 'smooth' });
+        } else {
+          // 復習完了画面
+          renderBookmarkCompleteScreen(bmQuestions);
+        }
+      });
+    }
+  }
+
+  function renderBookmarkCompleteScreen(bmQuestions) {
+    const container = document.getElementById('toeicBookmarkContainer');
+    if (!container) return;
+
+    let correctCount = 0;
+    bmQuestions.forEach(q => {
+      if (bmUserAnswers[q.id] === q.answer) correctCount++;
+    });
+    const total = bmQuestions.length;
+
+    container.innerHTML = `
+      <div class="card" style="text-align:center; padding:45px 30px; background:#fff; border:2px solid #345d4d; border-radius:22px; max-width:720px; margin:20px auto 40px; box-shadow:0 12px 32px rgba(52,93,77,0.1);">
+        <div style="display:inline-flex; align-items:center; justify-content:center; width:70px; height:70px; border-radius:50%; background:#eef5f1; color:#345d4d; font-size:2rem; margin-bottom:16px;">
+          <i class="fas fa-award"></i>
+        </div>
+        <h2 style="font-size:1.6rem; font-weight:800; color:#1a231f; margin-bottom:10px;">ブックマーク復習完了！</h2>
+        <p style="font-size:1.1rem; color:#4a5568; margin-bottom:24px;">
+          結果: <strong style="color:#1a231f;">${correctCount} / ${total} 問正解</strong>（正答率: ${Math.round((correctCount / total) * 100)}%）
+        </p>
+
+        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+          <button type="button" id="btnRestartBm" style="background:#345d4d; color:#fff; border:none; padding:12px 30px; border-radius:9999px; font-weight:800; font-size:0.95rem; cursor:pointer; box-shadow:0 4px 12px rgba(52,93,77,0.25);">
+            <i class="fas fa-redo"></i> もう一度復習する
+          </button>
+          <button type="button" id="btnReturnToMock" style="background:#f0ece6; color:#4a5568; border:none; padding:12px 30px; border-radius:9999px; font-weight:700; font-size:0.95rem; cursor:pointer;">
+            <i class="fas fa-arrow-left"></i> 模擬試験演習へ戻る
+          </button>
+        </div>
+      </div>
+    `;
+
+    const restartBtn = document.getElementById('btnRestartBm');
+    if (restartBtn) {
+      restartBtn.addEventListener('click', () => {
+        bmCurrentIndex = 0;
+        bmUserAnswers = {};
+        renderBookmarkSection();
+      });
+    }
+
+    const returnBtn = document.getElementById('btnReturnToMock');
+    if (returnBtn) {
+      returnBtn.addEventListener('click', () => {
+        document.getElementById('tabMockExam').click();
+      });
+    }
   }
 
   // 初期化実行

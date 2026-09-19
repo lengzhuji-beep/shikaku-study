@@ -51,8 +51,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1>TOEIC® L&R 実戦想定ハーフ模試</h1>
     <p>Part 5・6・7の全50問を37分で解く本番レベルのリーディング実戦模試演習</p>
   </div>
+
+  <!-- タブ切り替え（模擬試験演習 / ブックマーク復習） -->
+  <div class="mode-switch-container" id="toeicModeSwitchContainer" style="margin-bottom: 24px;">
+    <button type="button" class="mode-switch-btn active" id="tabMockExam" data-tab="mock">
+      <i class="fas fa-file-signature"></i> 模擬試験演習
+    </button>
+    <button type="button" class="mode-switch-btn" id="tabBookmark" data-tab="bookmark">
+      <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマークした問題だけ復習
+    </button>
+  </div>
+
   <!-- 試験実施回セレクターUI -->
-  <div class="session-selector-card">
+  <div class="session-selector-card" id="toeicSessionSelector">
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
       <h2 style="margin:0; font-size:1.25rem;"><i class="fas fa-calendar-check" style="color:#345d4d;"></i> 模擬試験を選択</h2>
       <span style="font-size:0.85rem; color:#718096;">解きたい模試をクリックすると問題が切り替わります</span>
@@ -67,6 +78,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- ハーフ模試受講エリア -->
   <div id="toeicQuizContainer"></div>
+
+  <!-- ブックマーク復習専用エリア -->
+  <div id="toeicBookmarkContainer" style="display:none;"></div>
 
 </div>
 
