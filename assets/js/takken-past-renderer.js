@@ -200,9 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="quiz-explanation-area" style="display:none;">
           <div class="quiz-result-title"></div>
-          <div class="quiz-explanation-body" style="padding:15px; background:#f7fafc; border-radius:6px; margin:15px 0;">
-            <strong>【解答・解説】</strong><br>${item.explanation}
-          </div>
+          <div class="quiz-explanation-body" style="padding:15px; background:#f7fafc; border-radius:6px; margin:15px 0;"></div>
           <div class="next-question-bar" style="margin-top:20px; text-align:right;">
             <button type="button" class="next-question-btn" id="nextTakkenQuestionBtn" style="padding:12px 28px; font-size:1.05rem; font-weight:bold; background:#345d4d; color:white; border:none; border-radius:9999px; cursor:pointer; box-shadow:0 4px 12px rgba(52,93,77,0.22); transition:0.2s;">
               ${qNum < total ? '次の問題へ <i class="fas fa-arrow-right"></i>' : '結果を見る <i class="fas fa-check-circle"></i>'}
@@ -265,6 +263,12 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             opt.classList.add('wrong-choice');
             resultTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${correctVal}）</span>`;
+            expArea.classList.add('is-wrong');
+          }
+
+          const expBody = card.querySelector('.quiz-explanation-body');
+          if (expBody) {
+            expBody.innerHTML = `<strong>【解答・解説】</strong><br>${item.explanation}`;
           }
 
           expArea.style.display = 'block';
@@ -434,9 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="quiz-explanation-area" style="display:none;">
             <div class="quiz-result-title"></div>
-            <div class="quiz-explanation-body" style="padding:15px; background:#f7fafc; border-radius:6px; margin:15px 0;">
-              <strong>【解答・解説】</strong><br>${item.explanation}
-            </div>
+            <div class="quiz-explanation-body" style="padding:15px; background:#f7fafc; border-radius:6px; margin:15px 0;"></div>
           </div>
         `;
 
@@ -484,6 +486,11 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
               opt.classList.add('wrong-choice');
               resultTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${correctVal}）</span>`;
+            }
+
+            const expBody = card.querySelector('.quiz-explanation-body');
+            if (expBody) {
+              expBody.innerHTML = `<strong>【解答・解説】</strong><br>${item.explanation}`;
             }
 
             expArea.style.display = 'block';
