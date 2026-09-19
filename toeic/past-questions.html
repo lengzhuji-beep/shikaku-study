@@ -48,19 +48,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
 
   <div class="hero-header">
-    <h1>TOEIC® L&R 過去問・想定模試</h1>
-    <p>公開テスト実施回を選択して、本番さながらの演習に挑戦しましょう</p>
-  </div>
-
-  <div class="mode-switch-container">
-    <button type="button" class="mode-switch-btn active" data-mode="all">
-      <i class="fas fa-list"></i> すべての問題（過去問演習）
-    </button>
-    <button type="button" class="mode-switch-btn" data-mode="bookmark">
-      <i class="fas fa-star"></i> ブックマークした問題だけ復習
-    </button>
-  </div>
-
+    <h1>TOEIC® L&R 実戦想定ハーフ模試</h1>
+    <p>Part 5・6・7の全50問を37分で解く本番レベルのリーディング実戦模試演習</p>
   </div>
 <!-- 試験実施回セレクターUI -->
   <div class="session-selector-card">
@@ -96,74 +85,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- 問題リスト -->
-  <div class="quiz-card" data-session="320" data-qid="toeic-q-320-01" data-answer="(A)">
-    <div class="quiz-header-row">
-      <span class="quiz-num-badge" style="background:#ebf8ff; color:#345d4d;"><i class="fas fa-tag"></i> 第320回 公開テスト想定問題（Part 5）</span>
-      <button type="button" class="bookmark-toggle-btn" title="ブックマークに追加/解除">
-        <i class="far fa-star"></i> ブックマーク
-      </button>
-    </div>
-    <div class="quiz-question-text">【問 1】<br>Mr. Tanaka will be leading the customer satisfaction initiative _______ the next two months.</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-value="(A)">(A) for</div>
-      <div class="quiz-option" data-value="(B)">(B) since</div>
-      <div class="quiz-option" data-value="(C)">(C) between</div>
-      <div class="quiz-option" data-value="(D)">(D) toward</div>
-    </div>
-    <button type="button" class="quiz-answer-btn" disabled><i class="fas fa-check"></i> 解答する</button>
-    <div class="quiz-explanation-area">
-      <div class="quiz-result-title"></div>
-      <p><strong>【正解・解説】</strong><br>「the next two months（今後2か月間）」という継続する期間を表すため、期間を導く前置詞 (A) for が正解です。(B) since は起点を表します。</p>
-    </div>
-  </div>
+  <!-- ハーフ模試受講エリア -->
+  <div id="toeicQuizContainer"></div>
 
-  <div class="quiz-card" data-session="319" data-qid="toeic-q-319-01" data-answer="(B)">
-    <div class="quiz-header-row">
-      <span class="quiz-num-badge" style="background:#ebf8ff; color:#345d4d;"><i class="fas fa-tag"></i> 第319回 公開テスト想定問題（Part 5）</span>
-      <button type="button" class="bookmark-toggle-btn" title="ブックマークに追加/解除">
-        <i class="far fa-star"></i> ブックマーク
-      </button>
-    </div>
-    <div class="quiz-question-text">【問 1】<br>The newly appointed director delivered an _______ speech that motivated the entire department.</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-value="(A)">(A) inspire</div>
-      <div class="quiz-option" data-value="(B)">(B) inspiring</div>
-      <div class="quiz-option" data-value="(C)">(C) inspiration</div>
-      <div class="quiz-option" data-value="(D)">(D) inspiredly</div>
-    </div>
-    <button type="button" class="quiz-answer-btn" disabled><i class="fas fa-check"></i> 解答する</button>
-    <div class="quiz-explanation-area">
-      <div class="quiz-result-title"></div>
-      <p><strong>【正解・解説】</strong><br>名詞 "speech" を修飾する適切な形容詞を選ぶ問題です。「人を奮い立たせるような、熱意あふれるスピーチ」という意味になる現在分詞 (B) inspiring が正解です。</p>
-    </div>
-  </div>
-
-  <div class="quiz-card" data-session="318" data-qid="toeic-q-318-01" data-answer="(C)">
-    <div class="quiz-header-row">
-      <span class="quiz-num-badge" style="background:#ebf8ff; color:#345d4d;"><i class="fas fa-tag"></i> 第318回 公開テスト想定問題（Part 5）</span>
-      <button type="button" class="bookmark-toggle-btn" title="ブックマークに追加/解除">
-        <i class="far fa-star"></i> ブックマーク
-      </button>
-    </div>
-    <div class="quiz-question-text">【問 1】<br>Although sales dropped slightly in July, the company expects _______ revenues by the fourth quarter.</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-value="(A)">(A) recover</div>
-      <div class="quiz-option" data-value="(B)">(B) recovery</div>
-      <div class="quiz-option" data-value="(C)">(C) recovered</div>
-      <div class="quiz-option" data-value="(D)">(D) to recover</div>
-    </div>
-    <button type="button" class="quiz-answer-btn" disabled><i class="fas fa-check"></i> 解答する</button>
-    <div class="quiz-explanation-area">
-      <div class="quiz-result-title"></div>
-      <p><strong>【正解・解説】</strong><br>動詞 expect は「expect to do（〜することを期待・予想する）」の形を取るか、目的語の名詞を修飾する分詞を取ります。ここでは「収益を回復させることを見込んでいる」という意味で (D) to recover もしくは形容詞的用法となります。</p>
-    </div>
-  </div>
-
-  <div class="card" style="background:#f8fafc; text-align:center; padding:30px; margin-top:30px;">
-    <h3>公開テスト過去問アーカイブ順次更新中</h3>
-    <p>過去問や本番直前模試を随時追加していきます。</p>
-  </div>
 </div>
 
 <footer class="site-footer">
@@ -197,8 +121,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<script src="../assets/js/common-quiz.js"></script>
+  <script src="../assets/js/data/toeic-mock-data-01.js"></script>
+  <script src="../assets/js/toeic-mock-renderer.js"></script>
+  <script src="../assets/js/common-quiz.js"></script>
   <script src="../assets/js/study-tracker.js"></script>
+  <script src="../assets/js/mobile-nav.js"></script>
 </body>
 </html>
 
