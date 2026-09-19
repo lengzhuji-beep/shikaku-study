@@ -26,6 +26,9 @@
   let timeRemaining = 37 * 60;
   let isTimerRunning = false;
 
+  // 採点後のフィルター（'all', 'wrong', 'correct'）
+  let reviewFilter = 'all';
+
   // ローカルストレージキー
   const BM_STORAGE_KEY = 'shikakus_toeic_bookmarks';
 
@@ -169,7 +172,10 @@
       <div id="toeicMainContent"></div>
 
       <!-- リザルト画面エリア -->
-      <div id="toeicResultArea" style="display:none; margin-bottom:60px;"></div>
+      <div id="toeicResultArea" style="display:none; margin-bottom:40px;"></div>
+
+      <!-- 採点後の全問題・解説復習エリア -->
+      <div id="toeicReviewContainer" style="display:none; margin-bottom:60px;"></div>
     `;
 
     setupControlBarEvents();
@@ -469,7 +475,7 @@
 
       // 設問カード（本番テスト用）
       html += `
-        <div class="quiz-card toeic-exam-q-card" id="examCard-${q.id}" data-qid="${q.id}" style="background:#fff; border:1px solid #e7dfd5; border-radius:18px; padding:24px 28px; margin-bottom:20px; box-shadow:0 4px 16px rgba(45,55,48,0.03);">
+        <div class="quiz-card toeic-exam-q-card" id="examCard-${q.id}" data-qid="${q.id}" style="background:#fff; border:1px solid #e7dfd5; border-radius:18px; padding:24px 28px; margin-bottom:20px; box-shadow:0 4px 16px rgba(45,55,48,0.03); transition:border-color 0.2s, box-shadow 0.2s;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
             <div style="display:flex; align-items:center; gap:10px;">
               <span style="background:#eef5f1; color:#345d4d; font-weight:800; font-size:0.95rem; padding:4px 12px; border-radius:8px;">
@@ -484,6 +490,11 @@
               <i class="${isBookmarked ? 'fas fa-star' : 'far fa-star'}"></i>
               <span>${isBookmarked ? '保存中' : 'ブックマーク'}</span>
             </button>
+          </div>
+
+          <!-- 未回答警告メッセージ領域 -->
+          <div class="unanswered-warning-msg" style="display:none; color:#c53030; background:#fff5f5; border:1px solid #feb2b2; padding:6px 12px; border-radius:8px; font-size:0.88rem; font-weight:700; margin-bottom:12px;">
+            <i class="fas fa-exclamation-circle"></i> この設問は未回答です。選択肢を選んでください。
           </div>
 
           <div style="font-size:1.1rem; font-weight:700; color:#1a231f; line-height:1.65; margin-bottom:18px;">
@@ -530,18 +541,51 @@
     setupExamBookmarkEvents();
     updateExamProgressUI();
 
-    // 採点ボタンイベント
+    // 採点ボタンイベント（未回答がある場合はconfirmではなく赤枠表示＆自動スクロール）
     const submitBtn = document.getElementById('btnSubmitExam');
     if (submitBtn) {
       submitBtn.addEventListener('click', () => {
-        const total = currentQuestions.length;
-        const answeredCount = Object.keys(userAnswers).length;
-        if (answeredCount < total) {
-          const ok = confirm(`まだ未回答の問題が ${total - answeredCount} 問あります。このまま採点しますか？`);
-          if (!ok) return;
+        const unansweredQuestions = currentQuestions.filter(q => !userAnswers[q.id]);
+        
+        if (unansweredQuestions.length > 0) {
+          // 未回答がある場合: confirmは出さず、赤枠強調して最初の未回答問題へ自動スクロール
+          highlightUnansweredQuestionsAndScroll(unansweredQuestions);
+          return;
         }
+
         submitExamAndShowResult();
       });
+    }
+  }
+
+  // 未回答問題の枠線を赤くし、最初の未回答問題まで自動スクロールする
+  function highlightUnansweredQuestionsAndScroll(unansweredQuestions) {
+    // 全問の赤枠をリセット
+    document.querySelectorAll('.toeic-exam-q-card').forEach(card => {
+      card.style.border = '1px solid #e7dfd5';
+      card.style.boxShadow = '0 4px 16px rgba(45,55,48,0.03)';
+      const msg = card.querySelector('.unanswered-warning-msg');
+      if (msg) msg.style.display = 'none';
+    });
+
+    // 未回答の問題カードを赤枠強調
+    unansweredQuestions.forEach(q => {
+      const card = document.getElementById(`examCard-${q.id}`);
+      if (card) {
+        card.style.border = '2.5px solid #e53e3e';
+        card.style.boxShadow = '0 0 0 4px rgba(229, 62, 62, 0.15)';
+        const msg = card.querySelector('.unanswered-warning-msg');
+        if (msg) msg.style.display = 'block';
+      }
+    });
+
+    // 最初の未回答カードへスクロール
+    const firstUnanswered = unansweredQuestions[0];
+    const targetCard = document.getElementById(`examCard-${firstUnanswered.id}`);
+    if (targetCard) {
+      const yOffset = -120;
+      const y = targetCard.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   }
 
@@ -557,6 +601,12 @@
 
         const card = document.getElementById(`examCard-${qid}`);
         if (!card) return;
+
+        // もし赤枠警告が表示されていたら解除する
+        card.style.border = '1px solid #e7dfd5';
+        card.style.boxShadow = '0 4px 16px rgba(45,55,48,0.03)';
+        const warningMsg = card.querySelector('.unanswered-warning-msg');
+        if (warningMsg) warningMsg.style.display = 'none';
 
         // カード内の選択肢の見た目を更新（一目で選択中が分かるように）
         card.querySelectorAll('.exam-opt').forEach(o => {
@@ -640,11 +690,16 @@
   }
 
   // ========================================================
-  // 3. 採点・リザルト画面
+  // 3. 採点・リザルト画面 & 全問解答・解説の完全展開
   // ========================================================
   function showFinalResults(answersObj) {
     const resultArea = document.getElementById('toeicResultArea');
-    if (!resultArea) return;
+    const reviewContainer = document.getElementById('toeicReviewContainer');
+    const mainContent = document.getElementById('toeicMainContent');
+    if (!resultArea || !reviewContainer) return;
+
+    // メインコンテンツ（回答用UI）を非表示にしてリザルト＆解説一覧を表示
+    if (mainContent) mainContent.style.display = 'none';
 
     let correctCount = 0;
     const partStats = {
@@ -718,9 +773,12 @@
           </div>
         </div>
 
-        <!-- 再挑戦ボタン -->
+        <!-- アクションボタン -->
         <div style="display:flex; justify-content:center; gap:16px; margin-top:28px; flex-wrap:wrap;">
-          <button type="button" id="btnRestartMock" style="background:#345d4d; color:#fff; border:none; padding:12px 32px; border-radius:9999px; font-weight:800; font-size:1rem; cursor:pointer; box-shadow:0 4px 12px rgba(52,93,77,0.25);">
+          <button type="button" id="btnScrollToReview" style="background:#345d4d; color:#fff; border:none; padding:12px 32px; border-radius:9999px; font-weight:800; font-size:1rem; cursor:pointer; box-shadow:0 4px 12px rgba(52,93,77,0.25);">
+            <i class="fas fa-book-reader"></i> 各問題の解答と解説を確認する
+          </button>
+          <button type="button" id="btnRestartMock" style="background:#f0ece6; color:#1a231f; border:none; padding:12px 28px; border-radius:9999px; font-weight:700; font-size:0.96rem; cursor:pointer;">
             <i class="fas fa-redo"></i> もう一度挑戦する
           </button>
         </div>
@@ -728,16 +786,220 @@
     `;
 
     resultArea.style.display = 'block';
+
+    // 採点後の全問題・解説リストを描画
+    renderReviewSection(answersObj);
+
+    // スムーズスクロール
     const y = resultArea.getBoundingClientRect().top + window.pageYOffset - 80;
     window.scrollTo({ top: y, behavior: 'smooth' });
 
+    // スクロールボタン
+    const scrollBtn = document.getElementById('btnScrollToReview');
+    if (scrollBtn) {
+      scrollBtn.addEventListener('click', () => {
+        const reviewEl = document.getElementById('toeicReviewContainer');
+        if (reviewEl) {
+          const rY = reviewEl.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top: rY, behavior: 'smooth' });
+        }
+      });
+    }
+
+    // もう一度挑戦ボタン
     const restartBtn = document.getElementById('btnRestartMock');
     if (restartBtn) {
       restartBtn.addEventListener('click', () => {
         resultArea.style.display = 'none';
+        reviewContainer.style.display = 'none';
+        if (mainContent) mainContent.style.display = 'block';
         loadSession(currentSession.id);
       });
     }
+  }
+
+  // 採点後の全問題・解説リストの描画
+  function renderReviewSection(answersObj) {
+    const reviewContainer = document.getElementById('toeicReviewContainer');
+    if (!reviewContainer) return;
+
+    let currentPassageId = null;
+    let questionsHtml = '';
+
+    currentQuestions.forEach((q) => {
+      const userVal = answersObj[q.id] || '（未回答）';
+      const isCorrect = (userVal === q.answer);
+
+      // フィルター判定
+      if (reviewFilter === 'wrong' && isCorrect) return;
+      if (reviewFilter === 'correct' && !isCorrect) return;
+
+      // パッセージ（Part 6 / Part 7）
+      const hasPassage = (q.part === 6 || q.part === 7) && q.passageHtml;
+      const isNewPassage = hasPassage && (q.passageId !== currentPassageId);
+
+      if (isNewPassage) {
+        currentPassageId = q.passageId;
+        questionsHtml += `
+          <div class="toeic-passage-container" style="background:#f8fafc; border:1px solid #e7dfd5; border-radius:18px; padding:24px 28px; margin-top:36px; margin-bottom:20px; box-shadow:0 3px 12px rgba(45,55,48,0.03);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:2px solid #cbd5e0; padding-bottom:8px;">
+              <span style="font-size:0.98rem; font-weight:800; color:#345d4d;">
+                <i class="fas fa-file-alt"></i> ${q.passageTitle || `Part ${q.part} Passage`}
+              </span>
+              <span style="font-size:0.82rem; background:#eef5f1; color:#345d4d; padding:4px 12px; border-radius:6px; font-weight:800;">
+                Part ${q.part}
+              </span>
+            </div>
+            <div class="toeic-passage-content" style="line-height:1.75; font-size:0.98rem; color:#2d3748; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+              ${q.passageHtml}
+            </div>
+          </div>
+        `;
+      }
+
+      // 解説カード
+      questionsHtml += `
+        <div class="quiz-card toeic-review-card" style="background:#fff; border:2px solid ${isCorrect ? '#c6e0d3' : '#feb2b2'}; border-radius:18px; padding:26px 28px; margin-bottom:22px; box-shadow:0 4px 16px rgba(45,55,48,0.04);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="background:#eef5f1; color:#345d4d; font-weight:800; font-size:0.95rem; padding:4px 12px; border-radius:8px;">
+                Q${q.qNumber}
+              </span>
+              <span style="font-size:0.85rem; color:#6b7770; background:#f0ece6; padding:3px 10px; border-radius:6px; font-weight:600;">
+                Part ${q.part} ｜ ${q.category || 'Reading'}
+              </span>
+            </div>
+
+            <!-- 正誤ステータスバッジ -->
+            <div>
+              ${isCorrect ? `
+                <span style="background:#f0fff4; color:#2f855a; border:1px solid #9ae6b4; padding:5px 14px; border-radius:9999px; font-weight:800; font-size:0.9rem; display:inline-flex; align-items:center; gap:6px;">
+                  <i class="fas fa-check-circle"></i> 正解
+                </span>
+              ` : `
+                <span style="background:#fff5f5; color:#c53030; border:1px solid #feb2b2; padding:5px 14px; border-radius:9999px; font-weight:800; font-size:0.9rem; display:inline-flex; align-items:center; gap:6px;">
+                  <i class="fas fa-times-circle"></i> 不正解
+                </span>
+              `}
+            </div>
+          </div>
+
+          <!-- 設問文 -->
+          <div style="font-size:1.1rem; font-weight:700; color:#1a231f; line-height:1.65; margin-bottom:18px;">
+            ${q.question}
+          </div>
+
+          <!-- 選択肢一覧（正解は緑、ユーザーの誤答は赤、他は通常） -->
+          <div style="display:grid; grid-template-columns:1fr; gap:10px; margin-bottom:18px;">
+            ${q.options.map(opt => {
+              const isThisAnswer = (opt.label === q.answer);
+              const isThisUserChoice = (opt.label === userVal);
+
+              let optBorder = '#e2e8f0';
+              let optBg = '#fff';
+              let badgeBg = '#f0ece6';
+              let badgeColor = '#4a5568';
+              let iconHtml = '';
+
+              if (isThisAnswer) {
+                optBorder = '#2f855a';
+                optBg = '#f0fff4';
+                badgeBg = '#2f855a';
+                badgeColor = '#fff';
+                iconHtml = '<span style="color:#2f855a; font-weight:800; font-size:0.88rem;"><i class="fas fa-check-circle"></i> 正解</span>';
+              } else if (isThisUserChoice && !isCorrect) {
+                optBorder = '#c53030';
+                optBg = '#fff5f5';
+                badgeBg = '#c53030';
+                badgeColor = '#fff';
+                iconHtml = '<span style="color:#c53030; font-weight:800; font-size:0.88rem;"><i class="fas fa-times-circle"></i> あなたの回答</span>';
+              }
+
+              return `
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 18px; border:2px solid ${optBorder}; border-radius:12px; background:${optBg};">
+                  <div style="display:flex; align-items:center;">
+                    <span style="display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:8px; font-weight:800; font-size:0.92rem; margin-right:12px; background:${badgeBg}; color:${badgeColor};">
+                      ${opt.label.replace(/[()]/g, '')}
+                    </span>
+                    <span style="color:#2d3748; font-size:1rem; font-weight:${isThisAnswer || isThisUserChoice ? '700' : '500'};">${opt.text}</span>
+                  </div>
+                  <div>${iconHtml}</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+
+          <!-- 詳細解説エリア -->
+          <div style="margin-top:16px; padding:20px; border-radius:14px; background:${isCorrect ? '#f0fff4' : '#fff5f5'}; border-left:5px solid ${isCorrect ? '#2f855a' : '#c53030'};">
+            <div style="font-size:1.05rem; font-weight:800; color:${isCorrect ? '#2f855a' : '#c53030'}; margin-bottom:12px;">
+              <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+              ${isCorrect ? '正解！' : '不正解...'} 
+              <span style="font-size:0.95rem; font-weight:700; color:#4a5568; margin-left:8px;">[正解: ${q.answer} ｜ あなたの回答: ${userVal}]</span>
+            </div>
+
+            <div style="margin-bottom:14px; font-size:0.96rem; color:#2d3748; line-height:1.75;">
+              <strong style="color:#1a231f;">【解答の根拠・ポイント】</strong><br>
+              ${q.explanation}
+            </div>
+
+            <div style="margin-bottom:14px; padding:10px 14px; background:#fff; border-radius:8px; border:1px solid #e7dfd5;">
+              <strong style="color:#345d4d; font-size:0.9rem;">【日本語訳】</strong><br>
+              <span style="font-size:0.92rem; color:#4a5568; line-height:1.7;">${q.translation}</span>
+            </div>
+
+            ${q.vocabulary && q.vocabulary.length > 0 ? `
+              <div style="padding:10px 14px; background:#fff; border:1px solid #e7dfd5; border-radius:8px;">
+                <strong style="color:#345d4d; font-size:0.9rem;"><i class="fas fa-spell-check"></i> 重要ボキャブラリー・表現：</strong>
+                <ul style="margin:6px 0 0 18px; padding:0; font-size:0.9rem; color:#4a5568; line-height:1.65;">
+                  ${q.vocabulary.map(v => `<li><strong>${v.word}</strong>: ${v.meaning}</li>`).join('')}
+                </ul>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    });
+
+    reviewContainer.innerHTML = `
+      <div style="border-top:2px dashed #cbd5e0; padding-top:36px; margin-top:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+          <div>
+            <h3 style="margin:0; font-size:1.45rem; font-weight:800; color:#1a231f;">
+              <i class="fas fa-book-reader" style="color:#345d4d;"></i> 各問題の解答と詳しい解説
+            </h3>
+            <span style="font-size:0.88rem; color:#718096;">全問の正誤、解法のポイント、全文和訳、重要語彙を確認できます</span>
+          </div>
+
+          <!-- 絞り込みフィルタータブ -->
+          <div style="display:inline-flex; background:#f0ece6; padding:4px; border-radius:9999px; border:1px solid #e7dfd5;">
+            <button type="button" class="review-filter-btn" data-filter="all" style="border:none; padding:6px 16px; border-radius:9999px; font-size:0.85rem; font-weight:700; cursor:pointer; ${reviewFilter === 'all' ? 'background:#345d4d; color:#fff;' : 'background:transparent; color:#4a5568;'}">
+              全50問表示
+            </button>
+            <button type="button" class="review-filter-btn" data-filter="wrong" style="border:none; padding:6px 16px; border-radius:9999px; font-size:0.85rem; font-weight:700; cursor:pointer; ${reviewFilter === 'wrong' ? 'background:#c53030; color:#fff;' : 'background:transparent; color:#4a5568;'}">
+              間違えた問題のみ
+            </button>
+            <button type="button" class="review-filter-btn" data-filter="correct" style="border:none; padding:6px 16px; border-radius:9999px; font-size:0.85rem; font-weight:700; cursor:pointer; ${reviewFilter === 'correct' ? 'background:#2f855a; color:#fff;' : 'background:transparent; color:#4a5568;'}">
+              正解した問題のみ
+            </button>
+          </div>
+        </div>
+
+        <!-- 各問題カードリスト -->
+        <div>
+          ${questionsHtml}
+        </div>
+      </div>
+    `;
+
+    reviewContainer.style.display = 'block';
+
+    // フィルターボタンイベント
+    reviewContainer.querySelectorAll('.review-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        reviewFilter = btn.getAttribute('data-filter');
+        renderReviewSection(answersObj);
+      });
+    });
   }
 
   // タイマー
