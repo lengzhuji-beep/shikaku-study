@@ -1,5 +1,5 @@
 /**
- * 資格対策ドットコム - 共通クイズ・問題回答＆ブックマーク＆進捗管理スクリプト
+ * Shikakus - 共通クイズ・問題回答＆ブックマーク＆進捗管理スクリプト
  */
 document.addEventListener('DOMContentLoaded', () => {
   const quizCards = document.querySelectorAll('.quiz-card');

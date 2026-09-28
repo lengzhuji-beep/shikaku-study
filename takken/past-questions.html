@@ -10,8 +10,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>宅地建物取引士 (宅建士) 過去問演習 | 令和7年〜平成23年 年度別本試験演習 | Shikakus</title>
-<meta name="description" content="宅地建物取引士 (宅建士)の年度別・本試験過去問演習。令和7年度から平成23年度までの計17回分・850問を収録。1問1答形式で即時解説と合否判定に対応。">
+<title>【完全無料】宅建 過去問演習（全17回・850問・本試験形式解説付き）｜シカクス</title>
+<meta name="description" content="【完全無料】宅地建物取引士（宅建士）の年度別・本試験過去問演習。令和7年度から平成23年度までの計17回分・850問を収録。1問1答形式で即時解説と合否判定に対応。">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -52,11 +55,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>令和7年度〜平成23年度（全17回・850問）の本試験問題に1問1答形式で挑戦しましょう</p>
   </div>
 
-  <div class="mode-switch-container">
-    <button type="button" class="mode-switch-btn active" data-mode="all">
-      <i class="fas fa-list"></i> すべての問題（過去問演習）
+  <div class="mode-switch-container" id="takkenModeSwitchContainer" style="margin-bottom: 24px;">
+    <button type="button" class="mode-switch-btn active" id="tabMainExam" data-mode="all">
+      <i class="fas fa-file-signature"></i> 過去問演習
     </button>
-    <button type="button" class="mode-switch-btn" data-mode="bookmark">
+    <button type="button" class="mode-switch-btn" id="tabBookmark" data-mode="bookmark">
       <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマークした問題だけ復習
     </button>
   </div>
@@ -138,32 +141,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
     </div>
 
-    <!-- 過去問アクションボタン -->
-    <div style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-      <button type="button" id="startPastExamBtn" class="btn" style="background:#345d4d; color:white; padding:12px 28px; font-size:1.05rem; font-weight:bold; border-radius:8px; border:none; cursor:pointer; box-shadow:0 4px 6px rgba(49,130,206,0.25); display:inline-flex; align-items:center; gap:8px; transition:0.2s;">
-        <i class="fas fa-play-circle"></i> この実施回を開始する
-      </button>
-      <button type="button" id="printPastExamBtn" class="btn" style="background:#38a169; color:white; padding:12px 28px; font-size:1.05rem; font-weight:bold; border-radius:8px; border:none; cursor:pointer; box-shadow:0 4px 6px rgba(56,161,105,0.25); display:inline-flex; align-items:center; gap:8px; transition:0.2s;">
-        <i class="fas fa-print"></i> この実施回をプリントアウトする
-      </button>
-    </div>
   </div>
 
-  <!-- 進捗バー -->
-  <div class="progress-card" style="display:none;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:10px;">
-      <span id="progressText" style="font-size:0.95rem; color:#4a5568;">進捗: 読み込み中...</span>
-      <button type="button" id="backToSessionsBtn" class="btn" style="background:#edf2f7; color:#4a5568; border:1px solid #cbd5e0; padding:6px 14px; border-radius:6px; font-size:0.85rem; font-weight:bold; cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:0.2s;">
-        <i class="fas fa-arrow-left"></i> 実施回一覧に戻る
-      </button>
-    </div>
-    <div class="progress-bar-bg">
-      <div id="progressFill" class="progress-bar-fill"></div>
-    </div>
-  </div>
-
-  <!-- 過去問題動的挿入コンテナ -->
+  <!-- 過去問受講エリア（コントロールバー・問題・リザルトを動的挿入） -->
   <div id="pastQuestionsContainer"></div>
+
+  <!-- ブックマーク復習専用エリア -->
+  <div id="takkenBookmarkContainer" style="display:none;"></div>
 
 </div>
 
@@ -190,7 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <ul>
         <li><a href="../contact.html">お問い合わせ</a></li>
         <li><a href="../profile.html">運営者プロフィール</a></li>
-        <li><a href="../privacy.html">プライバシーポリシー・免責事項</a></li>
+        <li><a href="../../privacy.html">プライバシーポリシー・免責事項</a></li>
       </ul>
     </div>
   </div>
@@ -199,9 +183,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<script src="../assets/js/takken-past-all-data.js"></script>
-<script src="../assets/js/takken-past-renderer.js"></script>
+<script src="../assets/js/takken-past-all-data.js?v=20260919_v10"></script>
+<script src="../assets/js/takken-past-renderer.js?v=20260919_v10"></script>
   <script src="../assets/js/study-tracker.js"></script>
+  <script src="../assets/js/mobile-nav.js"></script>
 </body>
 </html>
 
