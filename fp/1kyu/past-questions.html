@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<meta name="robots" content="noindex, follow">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -10,6 +11,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>FP1級（ファイナンシャル・プランニング技能士1級） 過去問演習 | 過去5年分・試験実施回別選択 | Shikakus</title>
 <meta name="description" content="FP1級（ファイナンシャル・プランニング技能士1級）の本試験過去問題。過去5年分（年3回・全15回）の試験実施回から選択して、本番形式の演習と詳しい解答・解説で合格力を高めます。">
 <link rel="icon" href="../../favicon.png" type="image/png">
@@ -55,10 +59,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <div class="mode-switch-container">
-    <button type="button" class="mode-switch-btn active" data-mode="all">
+    <button type="button" class="mode-switch-btn active" id="tabMainExam" data-mode="all">
       <i class="fas fa-list"></i> すべての問題（過去問演習）
     </button>
-    <button type="button" class="mode-switch-btn" data-mode="bookmark">
+    <button type="button" class="mode-switch-btn" id="tabBookmark" data-mode="bookmark">
       <i class="fas fa-star"></i> ブックマークした問題だけ復習
     </button>
   </div>
@@ -132,35 +136,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="session-meta">全50問 ｜ 合格ライン: 30問以上</span>
       </button>
     </div>
-
-    <!-- 過去問アクションボタン -->
-    <div style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-      <button type="button" id="startPastExamBtn" class="btn" style="background:#345d4d; color:white; padding:12px 28px; font-size:1.05rem; font-weight:bold; border-radius:8px; border:none; cursor:pointer; box-shadow:0 4px 6px rgba(49,130,206,0.25); display:inline-flex; align-items:center; gap:8px; transition:0.2s;">
-        <i class="fas fa-play-circle"></i> この実施回を開始する
-      </button>
-      <button type="button" id="printPastExamBtn" class="btn" style="background:#38a169; color:white; padding:12px 28px; font-size:1.05rem; font-weight:bold; border-radius:8px; border:none; cursor:pointer; box-shadow:0 4px 6px rgba(56,161,105,0.25); display:inline-flex; align-items:center; gap:8px; transition:0.2s;">
-        <i class="fas fa-print"></i> この実施回をプリントアウトする
-      </button>
-    </div>
-  </div>
-
-
-
-  <!-- 進捗バー -->
-  <div class="progress-card" style="display:none;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:10px;">
-      <span id="progressText" style="font-size:0.95rem; color:#4a5568;">進捗: 読み込み中...</span>
-      <button type="button" id="backToSessionsBtn" class="btn" style="background:#edf2f7; color:#4a5568; border:1px solid #cbd5e0; padding:6px 14px; border-radius:6px; font-size:0.85rem; font-weight:bold; cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:0.2s;">
-        <i class="fas fa-arrow-left"></i> 実施回一覧に戻る
-      </button>
-    </div>
-    <div class="progress-bar-bg">
-      <div id="progressFill" class="progress-bar-fill"></div>
-    </div>
   </div>
 
   <!-- 過去問題動的挿入コンテナ -->
   <div id="pastQuestionsContainer"></div>
+  <!-- ブックマーク一覧表示用コンテナ -->
+  <div id="fpBookmarkContainer" style="display:none;"></div>
 
 </div>
 
@@ -185,6 +166,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <ul>
         <li><a href="../../contact.html">お問い合わせ</a></li>
         <li><a href="../../profile.html">運営者プロフィール</a></li>
+        <li><a href="../../../privacy.html">プライバシーポリシー・免責事項</a></li>
       </ul>
     </div>
   </div>
@@ -194,9 +176,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <!-- 過去5年分（全15回・750問）データ & レンダラー -->
-<script src="../../assets/js/fp1-past-all-data.js"></script>
-<script src="../../assets/js/fp1-past-renderer.js?v=4"></script>
+<script src="../../assets/js/fp1-past-all-data.js?v=20260919_v1"></script>
+<script src="../../assets/js/fp1-past-renderer.js?v=20260919_v1"></script>
   <script src="../../assets/js/study-tracker.js"></script>
+  <script src="../../assets/js/mobile-nav.js"></script>
 </body>
 </html>
 

@@ -35,6 +35,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="assets/css/kakutoku.css?v=20260915_m2">
   <style>
     .hamburger-btn {
@@ -179,76 +180,78 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 1.3;
     }
 
-    /* 単一ボタンスタイル */
-    .course-action-single {
+    /* 統一されたカード下部ボタングループ */
+    .course-card-actions {
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: auto;
+      padding-top: 1.25rem;
+      border-top: 1px dashed #e2ede5;
     }
-    .course-btn-primary {
-      display: inline-flex;
-      align-items: center;
+    .action-btn-primary-group {
+      display: flex;
       gap: 0.5rem;
-      padding: 0.75rem 1.6rem;
-      background: #345d4d;
-      color: #ffffff !important;
-      border: 1px solid #345d4d;
-      border-radius: 9999px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(52, 93, 77, 0.18);
+      flex-wrap: wrap;
+      align-items: center;
     }
-    .course-btn-primary:hover {
-      background: #254337;
-      border-color: #254337;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(52, 93, 77, 0.28);
+    .action-btn-secondary-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    /* 複数級ボタングループ（FP・簿記）：FP対策トップと同じ緑色ピルボタンに統一 */
-    .grade-buttons-container {
-      background: #faf7f2;
-      border: 1px solid #e7dfd5;
-      border-radius: 16px;
-      padding: 1rem 1.25rem;
-    }
-    .grade-buttons-label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #4b5851;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .grade-buttons-grid {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .grade-pill-btn {
+    /* 強調ボタン：試験対策へ（他のボタンより少し強調） */
+    .btn-exam-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
-      padding: 0.6rem 1.25rem;
+      gap: 0.35rem;
+      padding: 0.56rem 0.88rem;
       background: #345d4d !important;
       color: #ffffff !important;
       border: 1px solid #345d4d !important;
       border-radius: 9999px !important;
-      font-size: 0.88rem;
-      font-weight: 700;
+      font-size: 0.86rem;
+      font-weight: 800;
+      white-space: nowrap;
       text-decoration: none;
       transition: all 0.2s ease;
-      box-shadow: 0 3px 8px rgba(52, 93, 77, 0.18);
+      box-shadow: 0 4px 12px rgba(52, 93, 77, 0.22);
     }
-    .grade-pill-btn:hover {
-      background: #254337 !important;
-      border-color: #254337 !important;
+    .btn-exam-primary:hover {
+      background: #234236 !important;
+      border-color: #234236 !important;
       transform: translateY(-2px);
-      box-shadow: 0 5px 12px rgba(52, 93, 77, 0.28);
+      box-shadow: 0 6px 16px rgba(52, 93, 77, 0.32);
+      color: #ffffff !important;
+    }
+
+    /* サブボタン：試験概要、コラム、頻出重要用語集 */
+    .btn-sub-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.85rem;
+      background: #ffffff !important;
+      color: #2e4d3f !important;
+      border: 1.5px solid #bcd1c4 !important;
+      border-radius: 9999px !important;
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+    .btn-sub-action:hover {
+      background: #f0f7f3 !important;
+      border-color: #345d4d !important;
+      color: #1e3a2b !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(52, 93, 77, 0.12);
     }
 
     /* 使い方セクション */
@@ -514,6 +517,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="#voices" class="nav-link">合格者の声</a>
         <a href="contact.html" class="nav-link">お問い合わせ</a>
         <a href="profile.html" class="nav-link">サイト制作者のプロフィール</a>
+          <a href="../privacy.html" style="color: inherit; text-decoration: none;">プライバシーポリシー・免責事項</a>
       </nav>
 
       <div class="header-actions">
@@ -624,12 +628,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
           </div>
-          <div class="course-action-single">
-            <a href="toeic/index.html" class="course-btn-primary">TOEIC対策トップへ →</a>
+          <div class="course-card-actions">
+            <div class="action-btn-primary-group">
+              <a href="toeic/index.html" class="btn-exam-primary">試験対策へ <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="action-btn-secondary-group">
+              <a href="toeic/overview.html" class="btn-sub-action"><i class="fas fa-clipboard-list"></i> 試験概要</a>
+              <a href="toeic/articles.html" class="btn-sub-action"><i class="fas fa-book-open"></i> コラム</a>
+              <a href="toeic/glossary.html" class="btn-sub-action"><i class="fas fa-bookmark"></i> 頻出重要用語集</a>
+            </div>
           </div>
         </div>
 
-        <!-- 2. FP（ファイナンシャル・プランナー）★各級ボタンを緑色に統一 -->
+        <!-- 2. FP（ファイナンシャル・プランナー） -->
         <div class="course-card" id="course-card-fp">
           <div>
             <div class="course-top">
@@ -661,19 +672,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
           </div>
-          <!-- 各級のボタン配置（② すべてフォレストグリーン色） -->
-          <div class="grade-buttons-container">
-            <div class="grade-buttons-label"><span>🎯</span> 級を選んで学習を始める：</div>
-            <div class="grade-buttons-grid">
-              <a href="fp/3kyu/index.html" class="grade-pill-btn">FP3級</a>
-              <a href="fp/2kyu/index.html" class="grade-pill-btn">FP2級</a>
-              <a href="fp/1kyu/index.html" class="grade-pill-btn">FP1級</a>
-              <a href="fp/index.html" class="grade-pill-btn">FP対策トップ →</a>
+          <div class="course-card-actions">
+            <div class="action-btn-primary-group">
+              <a href="fp/3kyu/index.html" class="btn-exam-primary">FP3級 試験対策へ</a>
+              <a href="fp/2kyu/index.html" class="btn-exam-primary">FP2級 試験対策へ</a>
+              <a href="fp/1kyu/index.html" class="btn-exam-primary">FP1級 試験対策へ</a>
+            </div>
+            <div class="action-btn-secondary-group">
+              <a href="fp/overview.html" class="btn-sub-action"><i class="fas fa-clipboard-list"></i> 試験概要</a>
+              <a href="fp/articles.html" class="btn-sub-action"><i class="fas fa-book-open"></i> コラム</a>
+              <a href="fp/glossary.html" class="btn-sub-action"><i class="fas fa-bookmark"></i> 頻出重要用語集</a>
             </div>
           </div>
         </div>
 
-        <!-- 3. 日商簿記検定 ★各級ボタンを緑色に統一 -->
+        <!-- 3. 日商簿記検定 -->
         <div class="course-card" id="course-card-boki">
           <div>
             <div class="course-top">
@@ -705,14 +718,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
           </div>
-          <!-- 各級のボタン配置（② すべてフォレストグリーン色） -->
-          <div class="grade-buttons-container">
-            <div class="grade-buttons-label"><span>🎯</span> 級を選んで学習を始める：</div>
-            <div class="grade-buttons-grid">
-              <a href="boki/3kyu/index.html" class="grade-pill-btn">簿記3級</a>
-              <a href="boki/2kyu/index.html" class="grade-pill-btn">簿記2級</a>
-              <a href="boki/1kyu/index.html" class="grade-pill-btn">簿記1級</a>
-              <a href="boki/index.html" class="grade-pill-btn">簿記対策トップ →</a>
+          <div class="course-card-actions">
+            <div class="action-btn-primary-group">
+              <a href="boki/3kyu/index.html" class="btn-exam-primary">簿記3級 試験対策へ</a>
+              <a href="boki/2kyu/index.html" class="btn-exam-primary">簿記2級 試験対策へ</a>
+              <a href="boki/1kyu/index.html" class="btn-exam-primary">簿記1級 試験対策へ</a>
+            </div>
+            <div class="action-btn-secondary-group">
+              <a href="boki/overview.html" class="btn-sub-action"><i class="fas fa-clipboard-list"></i> 試験概要</a>
+              <a href="boki/articles.html" class="btn-sub-action"><i class="fas fa-book-open"></i> コラム</a>
+              <a href="boki/glossary.html" class="btn-sub-action"><i class="fas fa-bookmark"></i> 頻出重要用語集</a>
             </div>
           </div>
         </div>
@@ -749,8 +764,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
           </div>
-          <div class="course-action-single">
-            <a href="it-passport/index.html" class="course-btn-primary">ITパスポート対策へ →</a>
+          <div class="course-card-actions">
+            <div class="action-btn-primary-group">
+              <a href="it-passport/index.html" class="btn-exam-primary">試験対策へ <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="action-btn-secondary-group">
+              <a href="it-passport/overview.html" class="btn-sub-action"><i class="fas fa-clipboard-list"></i> 試験概要</a>
+              <a href="it-passport/articles.html" class="btn-sub-action"><i class="fas fa-book-open"></i> コラム</a>
+              <a href="it-passport/glossary.html" class="btn-sub-action"><i class="fas fa-bookmark"></i> 頻出重要用語集</a>
+            </div>
           </div>
         </div>
 
@@ -786,8 +808,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
           </div>
-          <div class="course-action-single">
-            <a href="takken/index.html" class="course-btn-primary">宅建対策へ →</a>
+          <div class="course-card-actions">
+            <div class="action-btn-primary-group">
+              <a href="takken/index.html" class="btn-exam-primary">試験対策へ <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="action-btn-secondary-group">
+              <a href="takken/overview.html" class="btn-sub-action"><i class="fas fa-clipboard-list"></i> 試験概要</a>
+              <a href="takken/articles.html" class="btn-sub-action"><i class="fas fa-book-open"></i> コラム</a>
+              <a href="takken/glossary.html" class="btn-sub-action"><i class="fas fa-bookmark"></i> 頻出重要用語集</a>
+            </div>
           </div>
         </div>
       </div>

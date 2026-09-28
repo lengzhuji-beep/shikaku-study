@@ -5,9 +5,18 @@
 (function () {
   'use strict';
 
-  // 登録されている模試データリスト
+  // 登録されている模試データリスト（第1回〜第10回）
   const MOCK_SESSIONS = [
-    { id: 'mock-01', title: '第1回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ Part5〜7完全網羅', dataVar: 'TOEIC_MOCK_DATA_01' }
+    { id: 'mock-01', title: '第1回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ Part5〜7完全網羅', dataVar: 'TOEIC_MOCK_DATA_01' },
+    { id: 'mock-02', title: '第2回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ IT・サプライチェーン', dataVar: 'TOEIC_MOCK_DATA_02' },
+    { id: 'mock-03', title: '第3回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ 新規事業・観光宿泊', dataVar: 'TOEIC_MOCK_DATA_03' },
+    { id: 'mock-04', title: '第4回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ 国際カンファレンス・出張', dataVar: 'TOEIC_MOCK_DATA_04' },
+    { id: 'mock-05', title: '第5回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ ESGサステナビリティ・研修', dataVar: 'TOEIC_MOCK_DATA_05' },
+    { id: 'mock-06', title: '第6回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ EC物流・サポートチャット', dataVar: 'TOEIC_MOCK_DATA_06' },
+    { id: 'mock-07', title: '第7回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ 組織改編・グローバル採用', dataVar: 'TOEIC_MOCK_DATA_07' },
+    { id: 'mock-08', title: '第8回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ 不動産契約・オフィス移転', dataVar: 'TOEIC_MOCK_DATA_08' },
+    { id: 'mock-09', title: '第9回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ デジタルマーケティング', dataVar: 'TOEIC_MOCK_DATA_09' },
+    { id: 'mock-10', title: '第10回 想定ハーフ模試', meta: '全50問 ｜ 基準時間: 37分 ｜ 人事福利厚生・社内表彰', dataVar: 'TOEIC_MOCK_DATA_10' }
   ];
 
   let currentSession = null;
@@ -130,6 +139,10 @@
         btn.classList.add('active');
         const sid = btn.getAttribute('data-session');
         loadSession(sid);
+        const quizContainer = document.getElementById('toeicQuizContainer');
+        if (quizContainer) {
+          quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
     });
   }
@@ -200,14 +213,14 @@
             ` : ''}
           </div>
 
-          <!-- 右側: タイマーエリア（本番モード開始後のみ表示） -->
+          <!-- 右側: タイマーエリア（本番モード開始後のみ表示：スクロール追従 fixed） -->
           <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <div id="toeicTimerArea" style="display:${isExamRunning ? 'flex' : 'none'}; align-items:center; gap:10px; background:#eef5f1; border:1px solid #c6e0d3; padding:6px 14px; border-radius:12px;">
-              <div style="color:#2f855a; font-weight:800; font-size:1.15rem; font-family:monospace; display:flex; align-items:center; gap:6px;">
-                <i class="fas fa-clock"></i> <span id="timerDisplay">${formatSeconds(timeRemaining)}</span>
+            <div id="toeicTimerArea" style="display:${isExamRunning ? 'flex' : 'none'}; align-items:center; gap:12px; background:#eef5f1; border:1px solid #c6e0d3; padding:6px 14px; border-radius:12px; box-shadow:0 4px 16px rgba(45,55,48,0.14); position:fixed; top:76px; right:24px; z-index:9999; max-width:calc(100vw - 32px);">
+              <div style="color:#286b50; font-weight:800; font-size:1.25rem; font-family:monospace; display:flex; align-items:center; gap:8px;">
+                <i class="fas fa-clock" style="color:#286b50; font-size:1.15rem;"></i> <span id="timerDisplay">${formatSeconds(timeRemaining)}</span>
               </div>
 
-              <button type="button" id="btnTimerPause" style="padding:4px 10px; font-size:0.8rem; background:#fff; color:#345d4d; border:1px solid #c6e0d3; border-radius:6px; cursor:pointer; font-weight:600;">
+              <button type="button" id="btnTimerPause" style="padding:4px 12px; font-size:0.85rem; background:#ffffff; color:#286b50; border:1px solid #cbd5e0; border-radius:6px; cursor:pointer; font-weight:700; display:inline-flex; align-items:center; gap:5px; box-shadow:0 1px 3px rgba(0,0,0,0.05); transition:all 0.2s;">
                 <i class="fas ${isTimerRunning ? 'fa-pause' : 'fa-play'}"></i> ${isTimerRunning ? '一時停止' : '再開'}
               </button>
             </div>
@@ -338,7 +351,7 @@
 
     if (btnPrint) {
       btnPrint.addEventListener('click', () => {
-        window.print();
+        openToeicPrintWindow(currentQuestions, currentSession ? currentSession.title : 'TOEIC® L&R 実戦想定ハーフ模試');
       });
     }
   }
@@ -465,8 +478,8 @@
             </span>
           </div>
 
-          <button type="button" class="bookmark-btn" id="practiceBookmarkBtn" style="background:none; border:none; cursor:pointer; color:${isBookmarked ? '#d69e2e' : '#a0aec0'}; font-size:0.92rem; font-weight:700; display:flex; align-items:center; gap:5px;">
-            <i class="${isBookmarked ? 'fas fa-star' : 'far fa-star'}"></i>
+          <button type="button" class="bookmark-toggle-btn ${isBookmarked ? 'is-bookmarked active' : ''}" id="practiceBookmarkBtn" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:0.88rem; border-radius:9999px; padding:5px 16px; ${isBookmarked ? 'background:#fef9c3 !important; color:#b45309 !important; border:1px solid #facc15 !important;' : 'background:#ffffff !important; color:#64748b !important; border:1px solid #d5e2ed !important;'}">
+            <i class="${isBookmarked ? 'fas fa-star' : 'far fa-star'}" style="color:${isBookmarked ? '#d97706 !important' : '#94a3b8 !important'}; font-size:0.95rem;"></i>
             <span>${isBookmarked ? '保存中' : 'ブックマーク'}</span>
           </button>
         </div>
@@ -649,8 +662,8 @@
               </span>
             </div>
 
-            <button type="button" class="exam-bookmark-btn" data-qid="${q.id}" style="background:none; border:none; cursor:pointer; color:${isBookmarked ? '#d69e2e' : '#a0aec0'}; font-size:0.9rem; font-weight:700; display:flex; align-items:center; gap:4px;">
-              <i class="${isBookmarked ? 'fas fa-star' : 'far fa-star'}"></i>
+            <button type="button" class="bookmark-toggle-btn exam-bookmark-btn ${isBookmarked ? 'is-bookmarked active' : ''}" data-qid="${q.id}" style="cursor:pointer; display:inline-flex; align-items:center; gap:5px; font-weight:700; font-size:0.88rem; border-radius:9999px; padding:4px 14px; ${isBookmarked ? 'background:#fef9c3 !important; color:#b45309 !important; border:1px solid #facc15 !important;' : 'background:#ffffff !important; color:#64748b !important; border:1px solid #d5e2ed !important;'}">
+              <i class="${isBookmarked ? 'fas fa-star' : 'far fa-star'}" style="color:${isBookmarked ? '#d97706 !important' : '#94a3b8 !important'}; font-size:0.92rem;"></i>
               <span>${isBookmarked ? '保存中' : 'ブックマーク'}</span>
             </button>
           </div>
@@ -820,12 +833,18 @@
         const qid = btn.getAttribute('data-qid');
         if (bookmarkedQids.has(qid)) {
           bookmarkedQids.delete(qid);
-          btn.style.color = '#a0aec0';
-          btn.innerHTML = '<i class="far fa-star"></i> <span>ブックマーク</span>';
+          btn.className = 'bookmark-toggle-btn exam-bookmark-btn';
+          btn.style.setProperty('background', '#ffffff', 'important');
+          btn.style.setProperty('color', '#64748b', 'important');
+          btn.style.setProperty('border', '1px solid #d5e2ed', 'important');
+          btn.innerHTML = '<i class="far fa-star" style="color:#94a3b8 !important; font-size:0.92rem;"></i> <span>ブックマーク</span>';
         } else {
           bookmarkedQids.add(qid);
-          btn.style.color = '#d69e2e';
-          btn.innerHTML = '<i class="fas fa-star"></i> <span>保存中</span>';
+          btn.className = 'bookmark-toggle-btn exam-bookmark-btn is-bookmarked active';
+          btn.style.setProperty('background', '#fef9c3', 'important');
+          btn.style.setProperty('color', '#b45309', 'important');
+          btn.style.setProperty('border', '1px solid #facc15', 'important');
+          btn.innerHTML = '<i class="fas fa-star" style="color:#d97706 !important; font-size:0.92rem;"></i> <span>保存中</span>';
         }
         saveBookmarks();
       });
@@ -1380,9 +1399,6 @@
           <button type="button" id="btnClearAllBm" style="background:#fff5f5; color:#c53030; border:1px solid #feb2b2; padding:7px 16px; border-radius:9999px; font-size:0.85rem; font-weight:700; cursor:pointer; transition:all 0.2s;">
             <i class="fas fa-trash-alt"></i> すべて解除
           </button>
-          <button type="button" id="btnBackToExamTab" style="background:#345d4d; color:#fff; border:none; padding:8px 22px; border-radius:9999px; font-size:0.88rem; font-weight:800; cursor:pointer; box-shadow:0 4px 12px rgba(52,93,77,0.25);">
-            <i class="fas fa-arrow-left"></i> 予想問題演習へ戻る
-          </button>
         </div>
       </div>
 
@@ -1426,14 +1442,425 @@
         }
       });
     }
+  }
 
-    // 戻るボタン
-    const backBtn = document.getElementById('btnBackToExamTab');
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        document.getElementById('tabMockExam').click();
-      });
+  // ========================================================
+  // 5. 模試プリント印刷ウィンドウ生成（4タブ：すべて・問題・解答・解説 完全連動）
+  // ========================================================
+  function openToeicPrintWindow(questions, customTitle) {
+    if (!questions || questions.length === 0) {
+      alert('印刷対象の問題がありません。');
+      return;
     }
+
+    const printWin = window.open('', '_blank');
+    if (!printWin) {
+      alert('ポップアップがブロックされました。ブラウザの設定でポップアップを許可してください。');
+      return;
+    }
+
+    const examTitle = customTitle || 'TOEIC® L&R 実戦想定ハーフ模試';
+    const total = questions.length;
+
+    let aRows = '';
+    let qHtml = '';
+    let expHtml = '';
+
+    // 正解一覧表
+    questions.forEach((q) => {
+      aRows += `
+        <tr>
+          <td style="text-align:center; font-weight:bold; width:15%;">Q${q.qNumber}</td>
+          <td style="width:20%;">Part ${q.part}</td>
+          <td>${q.category || 'Reading'}</td>
+          <td style="text-align:center; font-weight:bold; color:#2e7d32; font-size:1.05rem; width:15%;">(${q.answer})</td>
+        </tr>
+      `;
+    });
+
+    // 問題編（パッセージ対応）
+    let currentPassageId = null;
+    questions.forEach((q) => {
+      const hasPassage = (q.part === 6 || q.part === 7) && q.passageHtml;
+      const isNewPassage = hasPassage && (q.passageId !== currentPassageId);
+
+      if (isNewPassage) {
+        currentPassageId = q.passageId;
+        qHtml += `
+          <div class="print-passage-box">
+            <div class="print-passage-title">
+              ${q.passageTitle || `Part ${q.part} Passage`}
+            </div>
+            <div class="print-passage-body">
+              ${q.passageHtml}
+            </div>
+          </div>
+        `;
+      } else if (!hasPassage) {
+        currentPassageId = null;
+      }
+
+      const optsHtml = (q.options || []).map(opt => `
+        <div style="margin-bottom:5px; font-size:0.92rem;">
+          <strong style="margin-right:8px; color:#254337;">(${opt.label})</strong> ${opt.text}
+        </div>
+      `).join('');
+
+      qHtml += `
+        <div class="print-q-item">
+          <div class="print-q-top">
+            <span class="print-q-num">【Q${q.qNumber}】 [Part ${q.part} ｜ ${q.category || 'Reading'}]</span>
+            <span class="print-q-ansbox">解答欄：[ &nbsp;&nbsp;&nbsp;&nbsp; ]</span>
+          </div>
+          <div class="print-q-body">${q.question}</div>
+          <div class="print-q-options">${optsHtml}</div>
+        </div>
+      `;
+    });
+
+    // 解説編
+    questions.forEach((q) => {
+      expHtml += `
+        <div class="print-exp-item">
+          <div class="print-exp-header">Q${q.qNumber}: 正解 (${q.answer}) <span>[Part ${q.part} ｜ ${q.category || 'Reading'}]</span></div>
+          <div class="print-exp-body">
+            <p style="margin: 0 0 8px;"><strong>【解答の根拠・ポイント】</strong><br>${q.explanation}</p>
+            <p style="margin: 0 0 8px;"><strong>【日本語訳】</strong><br>${q.translation}</p>
+            ${q.vocabulary && q.vocabulary.length > 0 ? `
+              <p style="margin: 0;"><strong>【重要ボキャブラリー】</strong><br>
+              ${q.vocabulary.map(v => `${v.word}: ${v.meaning}`).join(' ／ ')}
+              </p>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    });
+
+    printWin.document.write(`
+      <!DOCTYPE html>
+      <html lang="ja">
+      <head>
+        <meta charset="UTF-8">
+        <title>${examTitle} - 印刷用プレビュー | Shikakus</title>
+        <style>
+          * { box-sizing: border-box; }
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8fafc;
+            color: #1a202c;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+
+          .print-control-bar {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 2px solid #345d4d;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            z-index: 1000;
+          }
+          .print-title-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+          .print-main-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #2d3748;
+          }
+
+          .print-tabs {
+            display: inline-flex;
+            background: #edf2f7;
+            padding: 4px;
+            border-radius: 30px;
+          }
+          .print-tab-btn {
+            border: none;
+            background: transparent;
+            color: #4a5568;
+            font-size: 0.88rem;
+            font-weight: bold;
+            padding: 6px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+          }
+          .print-tab-btn.active {
+            background: #2e7d32;
+            color: white;
+            box-shadow: 0 2px 6px rgba(46,125,50,0.3);
+          }
+
+          .print-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          .btn-exec-print {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 6px;
+            font-size: 0.92rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(46,125,50,0.25);
+          }
+          .btn-close-print {
+            background: #edf2f7;
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+          .print-container {
+            max-width: 820px;
+            margin: 24px auto 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+          }
+
+          .section-header {
+            text-align: center;
+            border-bottom: 2px solid #345d4d;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+          }
+          .section-header h1 {
+            font-size: 1.3rem;
+            margin: 0 0 6px;
+            color: #1a202c;
+          }
+          .section-header .meta {
+            font-size: 0.85rem;
+            color: #718096;
+          }
+
+          .print-passage-box {
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            background: #f8fafc;
+            padding: 14px 18px;
+            margin: 20px 0 16px;
+            page-break-inside: avoid;
+          }
+          .print-passage-title {
+            font-weight: bold;
+            color: #345d4d;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 4px;
+            font-size: 0.95rem;
+          }
+          .print-passage-body {
+            font-size: 0.92rem;
+            line-height: 1.7;
+          }
+
+          .print-q-item {
+            margin-bottom: 22px;
+            page-break-inside: avoid;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 16px;
+          }
+          .print-q-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+          }
+          .print-q-num {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #2d3748;
+          }
+          .print-q-ansbox {
+            font-size: 0.85rem;
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+            padding: 2px 10px;
+            border-radius: 4px;
+            background: #f7fafc;
+          }
+          .print-q-body {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 10px;
+            color: #2d3748;
+          }
+          .print-q-options {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+          }
+
+          .answer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+          }
+          .answer-table th, .answer-table td {
+            border: 1px solid #cbd5e0;
+            padding: 8px 12px;
+            font-size: 0.88rem;
+          }
+          .answer-table th {
+            background: #edf4f0;
+            color: #254337;
+            font-weight: bold;
+          }
+
+          .print-exp-item {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 14px;
+          }
+          .print-exp-header {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #2e7d32;
+            margin-bottom: 6px;
+          }
+          .print-exp-body {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: #4a5568;
+            background: #f7fafc;
+            padding: 10px 14px;
+            border-left: 3px solid #345d4d;
+            border-radius: 0 6px 6px 0;
+          }
+
+          /* タブ切り替え制御（画面・印刷両対応） */
+          body[data-print-mode="questions"] .print-section-answers,
+          body[data-print-mode="questions"] .print-section-explanations {
+            display: none !important;
+          }
+          body[data-print-mode="answers"] .print-section-questions,
+          body[data-print-mode="answers"] .print-section-explanations {
+            display: none !important;
+          }
+          body[data-print-mode="explanations"] .print-section-questions,
+          body[data-print-mode="explanations"] .print-section-answers {
+            display: none !important;
+          }
+
+          @media print {
+            .print-control-bar { display: none !important; }
+            body { background: white; }
+            .print-container {
+              max-width: 100%;
+              margin: 0;
+              padding: 0;
+              border: none;
+              box-shadow: none;
+            }
+            .page-break-before {
+              page-break-before: always;
+            }
+          }
+        </style>
+      </head>
+      <body data-print-mode="all">
+        <div class="print-control-bar">
+          <div class="print-title-area">
+            <span class="print-main-title">${examTitle}</span>
+          </div>
+
+          <div class="print-tabs">
+            <button type="button" class="print-tab-btn active" data-target-mode="all">すべて</button>
+            <button type="button" class="print-tab-btn" data-target-mode="questions">問題</button>
+            <button type="button" class="print-tab-btn" data-target-mode="answers">解答</button>
+            <button type="button" class="print-tab-btn" data-target-mode="explanations">解説</button>
+          </div>
+
+          <div class="print-actions">
+            <button type="button" class="btn-exec-print" onclick="window.print()">印刷する</button>
+            <button type="button" class="btn-close-print" onclick="window.close()">閉じる</button>
+          </div>
+        </div>
+
+        <div class="print-container">
+          <!-- 問題セクション -->
+          <div class="print-section-questions">
+            <div class="section-header">
+              <h1>${examTitle} - 問題用紙</h1>
+              <div class="meta">全${total}問 ｜ Shikakus 過去問プリント</div>
+            </div>
+            <div>
+              ${qHtml}
+            </div>
+          </div>
+
+          <!-- 解答一覧テーブルセクション -->
+          <div class="print-section-answers page-break-before">
+            <div class="section-header">
+              <h1>${examTitle} - 正解一覧表</h1>
+              <div class="meta">全${total}問 ｜ Shikakus 過去問プリント</div>
+            </div>
+            <div>
+              <table class="answer-table">
+                <thead>
+                  <tr>
+                    <th style="width:15%;">設問番号</th>
+                    <th style="width:20%;">パート</th>
+                    <th>問題タイプ</th>
+                    <th style="width:15%;">正解</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${aRows}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 解説セクション -->
+          <div class="print-section-explanations page-break-before">
+            <div class="section-header">
+              <h1>${examTitle} - 正解・解答解説</h1>
+              <div class="meta">全${total}問 ｜ Shikakus 過去問プリント</div>
+            </div>
+            <div>
+              ${expHtml}
+            </div>
+          </div>
+        </div>
+
+        <script>
+          document.querySelectorAll('.print-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              document.querySelectorAll('.print-tab-btn').forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              const mode = btn.getAttribute('data-target-mode');
+              document.body.setAttribute('data-print-mode', mode);
+            });
+          });
+        </script>
+      </body>
+      </html>
+    `);
+    printWin.document.close();
   }
 
   // 初期化実行

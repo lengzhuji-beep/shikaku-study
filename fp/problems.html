@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<meta name="robots" content="noindex, follow">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -10,12 +11,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FP (ファイナンシャル・プランナー) 練習問題 | トレーニング＆ブックマーク復習 | Shikakus</title>
+<title>FP (ファイナンシャル・プランナー) 練習問題 | トレーニング＆ブックマーク復習 | 資格対策ドットコム</title>
 <meta name="description" content="FP (ファイナンシャル・プランナー)の練習問題。トレーニングで重要論点を反復し、苦手な問題はブックマークして集中的に復習できます。">
 <link rel="icon" href="../favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/kakutoku.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1605984058031593"
      crossorigin="anonymous"></script>
 </head>
@@ -25,20 +25,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-  <!-- ヘッダー（資格ページ共通：トップのみ） -->
-    <!-- ヘッダー（資格ページ共通：右側トップへ戻るのみ） -->
-  <header class="kakutoku-header">
-    <div class="header-inner">
-      <a href="../index.html" class="logo-link">
-        <div class="logo-mark">S</div>
-        <span class="logo-text">Shikakus</span>
-      </a>
-
-      <div class="header-actions">
-        <a href="../index.html" class="btn-pill btn-pill-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">トップへ戻る</a>
-      </div>
-    </div>
-  </header>
+<header class="header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニュー">
+  <label for="nav-toggle" class="nav-toggle-label" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </label>
+  <nav class="header-nav" id="primary-nav">
+    <a href="../index.html"><i class="fas fa-home"></i> トップ</a>
+    <a href="../toeic/index.html"><i class="fas fa-language"></i> TOEIC</a>
+    <a href="../fp/index.html" class="active"><i class="fas fa-coins"></i> FP</a>
+    <a href="../takken/index.html"><i class="fas fa-building"></i> 宅建</a>
+    <a href="../it-passport/index.html"><i class="fas fa-laptop-code"></i> ITパスポート</a>
+    <a href="../boki/index.html"><i class="fas fa-calculator"></i> 簿記</a>
+    <a href="../contact.html"><i class="fas fa-envelope"></i> お問い合わせ</a>
+    <a href="../profile.html"><i class="fas fa-user-circle"></i> 私のプロフィール</a>
+  </nav>
+  <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+</header>
 
 
 <div class="container">
@@ -158,7 +161,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-col">
-      <h4>Shikakus</h4>
+      <h4>資格対策ドットコム</h4>
       <p style="font-size:0.88rem; color:#a0aec0; margin-top:5px;">
         TOEIC・FP・宅建・ITパスポート・簿記など、人気の主要資格の練習問題・過去問・コラム・用語集をすべて無料で提供する総合学習プラットフォームです。
       </p>
@@ -178,16 +181,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <ul>
         <li><a href="../contact.html">お問い合わせ</a></li>
         <li><a href="../profile.html">運営者プロフィール</a></li>
+        <li><a href="../../privacy.html">プライバシーポリシー・免責事項</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Shikakus All Rights Reserved.</p>
+    <p>&copy; 2026 資格対策ドットコム All Rights Reserved.</p>
   </div>
 </footer>
 
 <script src="../assets/js/common-quiz.js"></script>
-  <script src="../assets/js/study-tracker.js"></script>
+  <script src="../../assets/js/mobile-nav.js"></script>
 </body>
 </html>
 

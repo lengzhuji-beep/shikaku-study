@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<meta name="robots" content="noindex, follow">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -120,7 +121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const isExternal = article.noteUrl.startsWith('http');
         const linkTarget = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
         articlesHtml += `
-          <a href="${article.noteUrl}" ${linkTarget} class="article-card">
+          <a href="#" ${linkTarget} class="article-card">
             <img src="${article.imageUrl}" alt="${article.title}">
             <div class="article-card-content">
               <h3>${article.title}</h3>

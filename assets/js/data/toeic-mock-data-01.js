@@ -19,18 +19,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "closely"
-        },
-        {
-          "label": "(C)",
           "text": "closeness"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "closing"
+        },
+        {
+          "label": "(D)",
+          "text": "closely"
         }
       ],
-      "answer": "(B)",
+      "answer": "(D)",
       "explanation": "空欄には動詞 worked を修飾する副詞が必要です。選択肢の中で副詞は (B) closely（密接に、入念に）のみです。「work closely with 〜（〜と密接に連携して働く）」はTOEIC最頻出のコロケーションです。<br>(A) close は形容詞または動詞、(C) closeness は名詞（親密さ）、(D) closing は動詞の分詞または名詞（閉鎖）。",
       "translation": "【全文訳】ヴァンスさんは、クライアントのすべての仕様要件が満たされていることを確実にするため、製品設計チームと密接に連携して業務に取り組みました。",
       "vocabulary": [
@@ -53,11 +53,11 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "Because of"
+          "text": "Although"
         },
         {
           "label": "(B)",
-          "text": "Although"
+          "text": "Because of"
         },
         {
           "label": "(C)",
@@ -68,7 +68,7 @@ window.TOEIC_MOCK_DATA_01 = {
           "text": "In order to"
         }
       ],
-      "answer": "(A)",
+      "answer": "(B)",
       "explanation": "空欄の後ろには「inclement weather conditions（悪天候）」という名詞句が続いています。名詞句を伴って原因・理由を表すことができる前置詞句は (A) Because of（〜のために）です。<br>(B) Although と (C) Whereas は後ろに「主語＋動詞」の節を導く接続詞、(D) In order to は後ろに「動詞の原形」を導く不定詞句のため不適切です。",
       "translation": "【全文訳】荒天のため、屋外で予定されていた年次社内懇親会はグランドボールルーム（大宴会場）へと場所が変更されました。",
       "vocabulary": [
@@ -99,18 +99,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "were processed"
-        },
-        {
-          "label": "(C)",
           "text": "processing"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "have processed"
+        },
+        {
+          "label": "(D)",
+          "text": "were processed"
         }
       ],
-      "answer": "(B)",
+      "answer": "(D)",
       "explanation": "文末に明確な過去を示す語「yesterday」があるため、動詞は過去形である必要があります。また主語「All international shipments（すべての国際貨物）」は物流部門によって「処理される」側なので、受動態「were processed」が正解です。<br>(A) は現在形、(C) は分詞で本動詞がない、(D) は現在完了形の能動態のため不可。",
       "translation": "【全文訳】すべての国際貨物は、毎日の締め切り時間前に、当社の物流部門によって昨日処理されました。",
       "vocabulary": [
@@ -137,22 +137,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "postpone"
-        },
-        {
-          "label": "(B)",
           "text": "celebrate"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "manufacture"
+        },
+        {
+          "label": "(C)",
+          "text": "postpone"
         },
         {
           "label": "(D)",
           "text": "admire"
         }
       ],
-      "answer": "(A)",
+      "answer": "(C)",
       "explanation": "文脈「追加の安全試験が完了するまで（until additional safety trials are completed）、新型電動SUVの公式発売を〜することを決定した」に最も適した動詞を選びます。「発売を延期する」という意味になる (A) postpone（延期する）が正解です。<br>(B) 祝う、(C) 製造する、(D) 賞賛する は文脈に合いません。",
       "translation": "【全文訳】執行委員会は、追加の安全性試験が完了するまで、新型電動SUVの公式発売を延期することを決定しました。",
       "vocabulary": [
@@ -183,18 +183,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "them"
+          "text": "their"
         },
         {
           "label": "(C)",
-          "text": "their"
+          "text": "them"
         },
         {
           "label": "(D)",
           "text": "theirs"
         }
       ],
-      "answer": "(C)",
+      "answer": "(B)",
       "explanation": "名詞句「quarterly budget proposal（四半期予算案）」を前から修飾して「彼らの／各部門長の」という意味を作る所有格代名詞が必要です。したがって (C) their が正解です。<br>(A) they は主格、(B) them は目的格、(D) theirs は所有代名詞（彼らのもの）。",
       "translation": "【全文訳】各部門長は、金曜日までに財務部長宛てにそれぞれの四半期予算案を提出するよう求められています。",
       "vocabulary": [
@@ -221,22 +221,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "extensive"
-        },
-        {
-          "label": "(B)",
           "text": "extensively"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "extension"
+        },
+        {
+          "label": "(C)",
+          "text": "extensive"
         },
         {
           "label": "(D)",
           "text": "extend"
         }
       ],
-      "answer": "(A)",
+      "answer": "(C)",
       "explanation": "冠詞「an」と名詞「training curriculum」の間に入る形容詞が求められています。正解は (A) extensive（広範囲の、綿密な）です。<br>(B) extensively は副詞、(C) extension は名詞（延長・拡張）、(D) extend は動詞（延長する）。",
       "translation": "【全文訳】バーテックス・イノベーションズ社は、新しく採用されたソフトウェア開発者のために、充実した広範囲な研修カリキュラムを提供しています。",
       "vocabulary": [
@@ -305,22 +305,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "responsible"
-        },
-        {
-          "label": "(B)",
           "text": "capable"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "reliable"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "suitable"
+        },
+        {
+          "label": "(D)",
+          "text": "responsible"
         }
       ],
-      "answer": "(A)",
+      "answer": "(D)",
       "explanation": "前置詞 for と呼応して「〜を担当している、〜に対して責任がある」という意味を作る形容詞は (A) responsible（be responsible for 〜）です。<br>(B) capable は of を伴う（be capable of 〜）、(C) reliable は通常前置詞なしで用いるか on/upon を伴う（rely on）、(D) suitable は「be suitable for」で「〜に適している」という意味になりますが、「業務を担当している」という人物の役職責任には responsible が最も自然です。",
       "translation": "【全文訳】エルナンデス氏は、主として顧客とのコミュニケーションおよび海外物流の管理を担当しています。",
       "vocabulary": [
@@ -385,11 +385,11 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "satisfaction"
+          "text": "satisfied"
         },
         {
           "label": "(B)",
-          "text": "satisfied"
+          "text": "satisfaction"
         },
         {
           "label": "(C)",
@@ -400,7 +400,7 @@ window.TOEIC_MOCK_DATA_01 = {
           "text": "satisfactorily"
         }
       ],
-      "answer": "(A)",
+      "answer": "(B)",
       "explanation": "文の主語となる名詞句「Client _______」を完成させるため、名詞が必要です。「Client satisfaction（顧客満足度）」という複合名詞を作る (A) satisfaction が正解です。<br>(B) satisfied は形容詞/過去分詞、(C) satisfy は動詞、(D) satisfactorily は副詞。",
       "translation": "【全文訳】顧客満足は、わが社の企業理念と長期的な成長における揺るぎない基盤であり続けています。",
       "vocabulary": [
@@ -423,22 +423,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "both"
-        },
-        {
-          "label": "(B)",
           "text": "either"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "neither"
+        },
+        {
+          "label": "(C)",
+          "text": "both"
         },
         {
           "label": "(D)",
           "text": "whether"
         }
       ],
-      "answer": "(A)",
+      "answer": "(C)",
       "explanation": "後ろにある接続詞「and」に注目します。「both A and B（AとBの双方）」という相関接続詞のパターンより、(A) both が正解です。<br>(B) either は or（either A or B）、(C) neither は nor（neither A nor B）、(D) whether は or（whether A or B）と連動します。",
       "translation": "【全文訳】そのリーダーシップ研修会では、戦略的思考と部門横断的なコラボレーションの双方に焦点を当てます。",
       "vocabulary": [
@@ -507,22 +507,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "compliance"
-        },
-        {
-          "label": "(B)",
           "text": "compliant"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "comply"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "compliantly"
+        },
+        {
+          "label": "(D)",
+          "text": "compliance"
         }
       ],
-      "answer": "(A)",
+      "answer": "(D)",
       "explanation": "「in compliance with 〜（〜に準拠して、〜に従って）」というTOEIC定番の重要成句です。前置詞 in と with の間に入る名詞として (A) compliance が正解です。<br>(B) compliant は形容詞、(C) comply は動詞、(D) compliantly は副詞。",
       "translation": "【全文訳】環境規制を順守し、当社の製造施設は排出ゼロの太陽光発電へと移行しました。",
       "vocabulary": [
@@ -587,22 +587,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "significantly"
-        },
-        {
-          "label": "(B)",
           "text": "sparingly"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "narrowly"
+        },
+        {
+          "label": "(C)",
+          "text": "significantly"
         },
         {
           "label": "(D)",
           "text": "reluctantly"
         }
       ],
-      "answer": "(A)",
+      "answer": "(C)",
       "explanation": "動詞 increase（増加する）を自然に強調・修飾する副詞を選びます。「著しく、大幅に増加する」という意味の (A) significantly が正解です。<br>(B) 控えめに・節約して、(C) かろうじて・狭く、(D) 嫌々ながら。",
       "translation": "【全文訳】コンテンツカタログの拡充により、アナリストたちは今後1年間で加入者数が大幅に増加すると予測しています。",
       "vocabulary": [
@@ -673,11 +673,11 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "Therefore"
+          "text": "However"
         },
         {
           "label": "(B)",
-          "text": "However"
+          "text": "Therefore"
         },
         {
           "label": "(C)",
@@ -688,7 +688,7 @@ window.TOEIC_MOCK_DATA_01 = {
           "text": "Similarly"
         }
       ],
-      "answer": "(A)",
+      "answer": "(B)",
       "explanation": "前文「社内ネットワークと共有ドライブへのアクセスが完全に利用不能になる」という理由・原因を受け、「したがって（Therefore）、金曜日に退社する前に必要なファイルをローカルに保存しておくことが強く推奨される」という論理的な結果を導く接続副詞 (A) Therefore が正解です。<br>(B) However は逆接、(C) Otherwise は「さもなければ」、(D) Similarly は「同様に」。",
       "translation": "【全文訳】117: したがって、従業員の皆様は金曜日に退社する前に、重要なすべての文書をご自身のノートパソコンのローカルフォルダに保存しておくことを強くお勧めします。",
       "vocabulary": [
@@ -755,22 +755,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "as"
-        },
-        {
-          "label": "(B)",
           "text": "despite"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "during"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "between"
+        },
+        {
+          "label": "(D)",
+          "text": "as"
         }
       ],
-      "answer": "(A)",
+      "answer": "(D)",
       "explanation": "空欄の後ろに「we work to upgrade...」というSVの節が続いているため、接続詞が必要です。(A) as は「〜する中で、〜の最中に」という意味の接続詞として機能します。<br>(B) despite, (C) during, (D) between はいずれも前置詞であり、後ろに直接SVの節をとることはできません。",
       "translation": "【全文訳】119: デジタル作業環境の改善に取り組む間、皆様のご理解とご協力に感謝申し上げます。",
       "vocabulary": [
@@ -792,22 +792,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "temporarily"
-        },
-        {
-          "label": "(B)",
           "text": "temporary"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "temporariness"
+        },
+        {
+          "label": "(C)",
+          "text": "temporarily"
         },
         {
           "label": "(D)",
           "text": "temporal"
         }
       ],
-      "answer": "(A)",
+      "answer": "(C)",
       "explanation": "受動態「will be _______ closed（一時的に閉鎖される）」において、過去分詞 closed を修飾する副詞 (A) temporarily（一時的に）が正解です。<br>(B) temporary は形容詞、(C) temporariness は名詞、(D) temporal は形容詞（現世の、時間の）。",
       "translation": "【全文訳】120: これらの改修工事を安全に進めるため、当店は11月3日（月）より一時的に休業いたします。",
       "vocabulary": [
@@ -837,22 +837,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "complete"
-        },
-        {
-          "label": "(B)",
           "text": "hesitate"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "postpone"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "terminate"
+        },
+        {
+          "label": "(D)",
+          "text": "complete"
         }
       ],
-      "answer": "(A)",
+      "answer": "(D)",
       "explanation": "文脈「4週間以内にすべての改装工事を〜する計画です（within four weeks）」に合致するのは「完了させる」を意味する (A) complete です。<br>(B) hesitate（ためらう）、(C) postpone（延期する）、(D) terminate（打ち切る・終了させる）は文脈に合いません。",
       "translation": "【全文訳】121: すべての改装工事は4週間以内に完了する予定です。",
       "vocabulary": [
@@ -878,22 +878,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "Fortunately, our online ordering system will remain fully functional throughout the closure."
-        },
-        {
-          "label": "(B)",
           "text": "The café menu has received several prestigious culinary accolades."
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "Construction permits have not yet been granted by city officials."
+        },
+        {
+          "label": "(C)",
+          "text": "Fortunately, our online ordering system will remain fully functional throughout the closure."
         },
         {
           "label": "(D)",
           "text": "All returned merchandise must be accompanied by the original sales receipt."
         }
       ],
-      "answer": "(A)",
+      "answer": "(C)",
       "explanation": "空欄の直後の文「You may continue to browse our full inventory on our website（当社のウェブサイトで引き続き全在庫を閲覧・購入いただけます）」と内容がぴったり繋がる文を選びます。(A)「幸いなことに、休業期間中もオンライン注文システムは通常通りご利用いただけます」が最も自然です。<br>(B) カフェメニューの受賞歴、(C) 工事許可未取得、(D) 返品時のレシート持参はいずれも前後の文脈に合いません。",
       "translation": "【全文訳】122: [文挿入] 幸いなことに、休業期間中もオンライン注文サービスは完全に稼働し続けます。",
       "vocabulary": [
@@ -919,22 +919,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "your"
-        },
-        {
-          "label": "(B)",
           "text": "yours"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "yourself"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "you"
+        },
+        {
+          "label": "(D)",
+          "text": "your"
         }
       ],
-      "answer": "(A)",
+      "answer": "(D)",
       "explanation": "名詞句「loyal support（変わらぬご愛顧・温かいご支援）」を修飾する所有格代名詞 (A) your が正解です。「Thank you for your loyal support.」は感謝の定型ビジネス表現です。<br>(B) yours は所有代名詞、(C) yourself は再帰代名詞、(D) you は主格または目的格。",
       "translation": "【全文訳】123: お客様の変わらぬ温かいご愛顧に心より感謝申し上げます。",
       "vocabulary": [
@@ -1005,18 +1005,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "Provide a revised cost quote"
-        },
-        {
-          "label": "(C)",
           "text": "Refund the initial deposit"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "Introduce an external equipment vendor"
+        },
+        {
+          "label": "(D)",
+          "text": "Provide a revised cost quote"
         }
       ],
-      "answer": "(B)",
+      "answer": "(D)",
       "explanation": "メール最終段落「Please send us an updated price estimate reflecting these adjustments by Thursday so that our finance committee can process the deposit.（これらの変更を反映した最新の見積書を木曜日までにお送りください）」と述べられています。「an updated price estimate」を言い換えた (B)「改訂された費用見積もり（a revised cost quote）を提供すること」が正解です。",
       "translation": "【設問訳】エヴァンスさんはサトウ氏に対し、木曜日までに何をするよう依頼していますか？<br>(A) 会議用バッジを届けること<br>(B) 改訂された見積書を提示すること<br>(C) 当初の頭金を返金すること<br>(D) 外部の機器業者を紹介すること",
       "vocabulary": [
@@ -1042,11 +1042,11 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "Any worker currently undergoing probationary training"
+          "text": "Full-time employees with at least six months of tenure"
         },
         {
           "label": "(B)",
-          "text": "Full-time employees with at least six months of tenure"
+          "text": "Any worker currently undergoing probationary training"
         },
         {
           "label": "(C)",
@@ -1057,7 +1057,7 @@ window.TOEIC_MOCK_DATA_01 = {
           "text": "Only department heads and senior directors"
         }
       ],
-      "answer": "(B)",
+      "answer": "(A)",
       "explanation": "第1段落「full-time staff members who have completed at least six months of continuous service are eligible to work remotely up to two days per week（少なくとも6か月間の継続勤務を終えた正社員が、週に最大2日まで在宅勤務を行う資格を得る）」と明記されています。したがって (B)「在籍期間が6か月以上の正社員」が正解です。",
       "translation": "【設問訳】社内告知によると、どのような人が在宅勤務制度の対象資格を満たしますか？<br>(A) 現在試用研修期間中であるすべての従業員<br>(B) 勤続期間が6か月以上の正社員<br>(C) 季節性の物流プロジェクトに従事する契約社員<br>(D) 部門長およびシニアディレクターのみ",
       "vocabulary": [
@@ -1091,18 +1091,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "September 15"
+          "text": "September 22"
         },
         {
           "label": "(C)",
-          "text": "September 22"
+          "text": "September 15"
         },
         {
           "label": "(D)",
           "text": "October 1"
         }
       ],
-      "answer": "(B)",
+      "answer": "(C)",
       "explanation": "第2段落第1文「To participate, eligible employees must submit a Remote Work Application form to their direct supervisor by September 15.（参加を希望する有資格の従業員は、9月15日までに直属の上司へ在宅勤務申請書を提出しなければならない）」と述べられています。したがって (B) September 15 が正解です。<br>※9月22日は上司の承認期限、10月1日は制度の開始日。",
       "translation": "【設問訳】申請者は、申請書をいつまでに提出しなければなりませんか？<br>(A) 9月1日<br>(B) 9月15日<br>(C) 9月22日<br>(D) 10月1日",
       "vocabulary": [
@@ -1132,18 +1132,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "During peak operational business periods"
-        },
-        {
-          "label": "(C)",
           "text": "Whenever international clients visit the city"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "If the company experiences network server downtime"
+        },
+        {
+          "label": "(D)",
+          "text": "During peak operational business periods"
         }
       ],
-      "answer": "(B)",
+      "answer": "(D)",
       "explanation": "最終段落の最後の文「Department managers retain the discretion to require on-site attendance during peak operational periods.（部門長は、業務繁忙期には出社を義務付ける裁量権を保持する）」と明記されています。したがって (B)「業務繁忙期中（During peak operational business periods）」が正解です。",
       "translation": "【設問訳】承認されたスケジュールに関わらず、従業員が出社を義務付けられる可能性があるのはどのようなときですか？<br>(A) オフィスの改装工事が行われているとき<br>(B) 業務繁忙期中<br>(C) 海外のクライアントが街を訪問するときはいつでも<br>(D) 会社のネットワークサーバーが停止した場合",
       "vocabulary": [
@@ -1177,18 +1177,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "The opening of a new research facility in Europe"
+          "text": "The commercial launch of an organic pesticide"
         },
         {
           "label": "(C)",
-          "text": "The commercial launch of an organic pesticide"
+          "text": "The opening of a new research facility in Europe"
         },
         {
           "label": "(D)",
           "text": "The retirement of a biotechnology executive"
         }
       ],
-      "answer": "(B)",
+      "answer": "(C)",
       "explanation": "見出しおよび第1段落「Aurora Biotech... announced today that it will establish a 25,000-square-meter research and development center in Munich, Germany（ドイツ・ミュンヘンに2万5千平米の研究開発拠点を新設することを発表した）」と述べられており、(B)「欧州における新しい研究施設の開設」が正解です。",
       "translation": "【設問訳】このプレスリリースの主な主題は何ですか？<br>(A) 農業関連の競合企業の買収<br>(B) 欧州における新しい研究施設の開設<br>(C) 有機農薬の市販開始<br>(D) バイオテクノロジー企業の役員の引退",
       "vocabulary": [
@@ -1226,15 +1226,15 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(C)",
-          "text": "It has a flourishing biotech sector and nearby academic institutions."
+          "text": "Aurora Biotech’s international corporate headquarters is based there."
         },
         {
           "label": "(D)",
-          "text": "Aurora Biotech’s international corporate headquarters is based there."
+          "text": "It has a flourishing biotech sector and nearby academic institutions."
         }
       ],
-      "answer": "(C)",
-      "explanation": "第2段落の文末「Munich's thriving biotechnology ecosystem and its proximity to top European research universities（ミュンヘンの繁栄するバイオテクノロジー生態系と、一流の欧州研究大学群への近接性）」と述べられています。「thriving」を「flourishing（繁栄している）」に、「research universities」を「academic institutions（学術研究機関）」に言い換えた (C) が正解です。",
+      "answer": "(D)",
+      "explanation": "第2段落の文末「Munich's thriving biotechnology ecosystem and its proximity to top European research universities（ミュンヘンの繁栄するバイオテクノロジー生態系と、一流の欧州研究大学群への近接性）」と述べられています。「thriving」を「flourishing（繁栄している）」に、「research universities」を「academic institutions（学術研究機関）」に言い換えた (D)が正解です。",
       "translation": "【設問訳】なぜ新しい拠点の設置場所としてミュンヘンが選ばれたのですか？<br>(A) 多額の政府免税措置が提供されているため<br>(B) 商業不動産価格がドイツ国内で最も低いため<br>(C) 繁栄するバイオテクノロジー分野と近隣の学術機関があるため<br>(D) オーロラ・バイオテック社の国際本社がそこにあるため",
       "vocabulary": [
         {
@@ -1259,22 +1259,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "obtained"
-        },
-        {
-          "label": "(B)",
           "text": "fastened"
         },
         {
-          "label": "(C)",
+          "label": "(B)",
           "text": "protected"
+        },
+        {
+          "label": "(C)",
+          "text": "obtained"
         },
         {
           "label": "(D)",
           "text": "assured"
         }
       ],
-      "answer": "(A)",
+      "answer": "(C)",
       "explanation": "文脈「the company recently secured €45 million in private venture funding（同社は最近、民間ベンチャー投資で4,500万ユーロを確保／獲得した）」における secure は「（努力して資金や契約などを）手に入れる、獲得する、確保する」という意味です。したがって (A) obtained（獲得した）が最も近い意味です。<br>(B) fastened（固定した）、(C) protected（保護した）、(D) assured（安心させた・保証した）。",
       "translation": "【設問訳】第3段落にある単語 \"secured\" に最も近い意味のものはどれですか？<br>(A) obtained（手に入れた、獲得した）<br>(B) fastened（締め付けた、固定した）<br>(C) protected（保護した）<br>(D) assured（確信させた）",
       "vocabulary": [
@@ -1300,22 +1300,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "In April"
+          "text": "In July"
         },
         {
           "label": "(B)",
-          "text": "In June"
+          "text": "In April"
         },
         {
           "label": "(C)",
-          "text": "In July"
+          "text": "In June"
         },
         {
           "label": "(D)",
           "text": "Next spring"
         }
       ],
-      "answer": "(C)",
+      "answer": "(A)",
       "explanation": "最終文「Job openings will be posted on Aurora Biotech’s careers portal beginning in June, with initial interviews scheduled throughout July and August.（求人募集は6月から採用ポータルに掲載され、一次面接は7月および8月を通じて実施される予定である）」より、面接が始まる時期は (C) In July（7月）です。<br>※6月は求人掲載の開始月。",
       "translation": "【設問訳】応募希望者の採用面接はいつ開始される見込みですか？<br>(A) 4月<br>(B) 6月<br>(C) 7月<br>(D) 来春",
       "vocabulary": [
@@ -1382,11 +1382,11 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "She is already present at the exhibition hall."
+          "text": "She will take responsibility for resolving the inquiry."
         },
         {
           "label": "(B)",
-          "text": "She will take responsibility for resolving the inquiry."
+          "text": "She is already present at the exhibition hall."
         },
         {
           "label": "(C)",
@@ -1397,7 +1397,7 @@ window.TOEIC_MOCK_DATA_01 = {
           "text": "She is about to board a transit bus to the depot."
         }
       ],
-      "answer": "(B)",
+      "answer": "(A)",
       "explanation": "マヤ・パテルは「I'm on it. Let me call Swift Freight Couriers immediately to check where the remaining crate is.（私が対応します。残りの木箱がどこにあるか、すぐに配送業者に電話して確認します）」と続けています。「I'm on it.」は日常・ビジネスで「私が引き受けます／すぐ取り掛かります」を意味する定番の決まり文句です。したがって (B)「彼女がその問い合わせ・問題解決の責任を引き受けること」が正解です。",
       "translation": "【設問訳】午前10時14分にパテルさんが「I'm on it」と書いた際、彼女が最も意図していることは何ですか？<br>(A) すでに展示会場に到着しているということ<br>(B) 彼女がその件の対応・解決の責任を引き受けるということ<br>(C) 6台のタブレットで十分であると同意していること<br>(D) 営業所に向かう交通バスに乗り込むところであること",
       "vocabulary": [
@@ -1427,18 +1427,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "A crate was mistakenly left behind at a shipping depot."
-        },
-        {
-          "label": "(C)",
           "text": "The delivery address provided was inaccurate."
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "The tablet stands were out of stock at the warehouse."
+        },
+        {
+          "label": "(D)",
+          "text": "A crate was mistakenly left behind at a shipping depot."
         }
       ],
-      "answer": "(B)",
+      "answer": "(D)",
       "explanation": "10:22 A.M. のマヤの発言「The dispatch manager admitted that the second crate was left on the loading dock at their transit depot by mistake.（配車マネージャーは、2つ目の木箱が配送中継拠点の荷積み場に手違いで置き去りにされていたことを認めた）」より、(B)「木箱が配送拠点に誤って置き忘れられていたため」が正解です。",
       "translation": "【設問訳】パテルさんによると、なぜ2回目の配送が遅延したのですか？<br>(A) 運転手が市内での激しい渋滞に巻き込まれたため<br>(B) 木箱が中継拠点の倉庫に手違いで取り残されたため<br>(C) 記載された配達先住所が不正確だったため<br>(D) 倉庫でタブレットスタンドが在庫切れだったため",
       "vocabulary": [
@@ -1464,11 +1464,11 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "Contact Ms. Lindqvist to request temporary equipment"
+          "text": "Install electrical cables around Booth 42"
         },
         {
           "label": "(B)",
-          "text": "Install electrical cables around Booth 42"
+          "text": "Contact Ms. Lindqvist to request temporary equipment"
         },
         {
           "label": "(C)",
@@ -1479,7 +1479,7 @@ window.TOEIC_MOCK_DATA_01 = {
           "text": "Cancel the courier service from Swift Freight"
         }
       ],
-      "answer": "(A)",
+      "answer": "(B)",
       "explanation": "10:27 A.M. のエレナの発言「Good idea, Liam. I know the hall director, Ms. Lindqvist. I'll walk over right now and ask if they have spare stands we can use...（いい考えね、リアム。ホール責任者のリンドクヴィストさんを知っているから、使える予備スタンドがあるか今すぐ歩いて聞きに行ってくるわ）」より、(A)「リンドクヴィスト氏に連絡して一時的な機材の貸出を依頼すること」が正解です。",
       "translation": "【設問訳】ロストヴァさんは次に何をすると申し出ていますか？<br>(A) 一時的な備品の貸出を依頼するためリンドクヴィスト氏に掛け合うこと<br>(B) ブース42周辺に電気ケーブルを配線すること<br>(C) 到着する来場者にVIPバッジを発行すること<br>(D) スウィフト・フレイト社からのバイク便手配を取り消すこと",
       "vocabulary": [
@@ -1583,11 +1583,11 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "Her company's project deadline was advanced."
+          "text": "Her firm hired additional personnel."
         },
         {
           "label": "(B)",
-          "text": "Her firm hired additional personnel."
+          "text": "Her company's project deadline was advanced."
         },
         {
           "label": "(C)",
@@ -1598,7 +1598,7 @@ window.TOEIC_MOCK_DATA_01 = {
           "text": "A competitor offered a more favorable discount."
         }
       ],
-      "answer": "(B)",
+      "answer": "(A)",
       "explanation": "メール第2段落「because we recently brought on two additional drafters, we need to increase the order of Ergonomic Motorized Standing Desks...（最近2名の製図技術者を新たに採用したため、昇降式デスクの注文数を増やす必要があります）」より、(B)「彼女の会社が人員を追加雇用したため」が正解です。",
       "translation": "【設問訳】ベッカーさんはなぜ当初の見積もりの変更を求めているのですか？<br>(A) 自社プロジェクトの締め切りが前倒しになったため<br>(B) 会社が追加の人員を採用したため<br>(C) 当初の家具モデルが生産中止になったため<br>(D) 競合他社がより有利な割引を提示したため",
       "vocabulary": [
@@ -1665,11 +1665,11 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "Nothing"
+          "text": "$75.00"
         },
         {
           "label": "(B)",
-          "text": "$75.00"
+          "text": "Nothing"
         },
         {
           "label": "(C)",
@@ -1680,7 +1680,7 @@ window.TOEIC_MOCK_DATA_01 = {
           "text": "$300.00"
         }
       ],
-      "answer": "(B)",
+      "answer": "(A)",
       "explanation": "見積書（文書1）のリース期間は「Rental Term: 6 Months (June 1 – November 30)」となっており、6か月間です。また規約（Terms）には「Standard monthly delivery fee is $150. However, customers signing a lease of six months or longer receive a 50% discount on delivery and installation.（標準配送料は$150だが、6か月以上のリース契約を結ぶ顧客は配送・設置費用が50%割引となる）」と記載されています。$150の50%割引なので、$75.00 となります。正解は (B) です。",
       "translation": "【設問訳】ヘリオス建築設計事務所は、配送・設置費用としていくら支払うことになりますか？<br>(A) 無料（0ドル）<br>(B) $75.00<br>(C) $150.00<br>(D) $300.00",
       "vocabulary": [
@@ -1710,18 +1710,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "Ability to speak Spanish or Mandarin"
-        },
-        {
-          "label": "(C)",
           "text": "Proficiency with Tableau visualization software"
         },
         {
-          "label": "(D)",
+          "label": "(C)",
           "text": "At least five years of data modeling experience"
+        },
+        {
+          "label": "(D)",
+          "text": "Ability to speak Spanish or Mandarin"
         }
       ],
-      "answer": "(B)",
+      "answer": "(D)",
       "explanation": "求人広告（文書1）の条件欄に「Fluency in English; working proficiency in Spanish or Mandarin is advantageous.（英語が流暢であること。スペイン語または中国語の実務能力があれば有利／歓迎される）」と記載されています。「advantageous（有利である）」は必須ではないが歓迎される条件を指すため、(B)「スペイン語または中国語を話す能力」が正解です。",
       "translation": "【設問訳】その役職において、厳格な必須条件ではないものの有利・有益と記載されているスキルはどれですか？<br>(A) 物流またはデータ分析の学位<br>(B) スペイン語または中国語を話す能力<br>(C) Tableau可視化ソフトウェアの習熟度<br>(D) 最低5年間のデータモデリング経験",
       "vocabulary": [
@@ -1751,18 +1751,18 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "Designing a dashboard that decreased delivery delays"
+          "text": "Authoring an acclaimed industry logistics textbook"
         },
         {
           "label": "(C)",
-          "text": "Authoring an acclaimed industry logistics textbook"
+          "text": "Designing a dashboard that decreased delivery delays"
         },
         {
           "label": "(D)",
           "text": "Training more than 50 junior database administrators"
         }
       ],
-      "answer": "(B)",
+      "answer": "(C)",
       "explanation": "カバーレター（文書2）第2段落「engineered a predictive inventory and shipping dashboard utilizing SQL and Tableau that reduced shipping delays by 18%（SQLとTableauを活用した予測型の在庫・出荷ダッシュボードを構築し、配送遅延を18%削減した）」と述べられています。したがって (B)「配送遅延を削減したダッシュボードを設計したこと」が正解です。",
       "translation": "【設問訳】グティエレス氏は現在の勤務先でのどのような実績を強調していますか？<br>(A) シカゴに新しい流通拠点を新設したこと<br>(B) 配達遅延を減少させたダッシュボードを設計したこと<br>(C) 高く評価された業界の物流教科書を執筆したこと<br>(D) 50名以上の後輩データベース管理者を研修したこと",
       "vocabulary": [
@@ -1829,22 +1829,22 @@ window.TOEIC_MOCK_DATA_01 = {
       "options": [
         {
           "label": "(A)",
-          "text": "His university diploma and passport copy"
+          "text": "His résumé and professional references"
         },
         {
           "label": "(B)",
-          "text": "A writing sample and letters of recommendation"
+          "text": "His university diploma and passport copy"
         },
         {
           "label": "(C)",
-          "text": "His résumé and professional references"
+          "text": "A writing sample and letters of recommendation"
         },
         {
           "label": "(D)",
           "text": "A portfolio of software coding scripts"
         }
       ],
-      "answer": "(C)",
+      "answer": "(A)",
       "explanation": "カバーレター（文書2）の最終段落「Attached are my résumé and references as requested.（指定通り履歴書と照会先リストを添付いたします）」と明記されています。したがって (C)「履歴書と専門家の照会先」が正解です。",
       "translation": "【設問訳】グティエレス氏は手紙に何を同封（添付）しましたか？<br>(A) 大学の卒業証書とパスポートのコピー<br>(B) 執筆サンプルと推薦状<br>(C) 彼の履歴書と照会先情報<br>(D) ソフトウェアのコーディング実績ポートフォリオ",
       "vocabulary": [
@@ -1997,14 +1997,14 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(C)",
-          "text": "The presentation room was inadequately sized for the crowd."
+          "text": "The session started nearly thirty minutes behind schedule."
         },
         {
           "label": "(D)",
-          "text": "The session started nearly thirty minutes behind schedule."
+          "text": "The presentation room was inadequately sized for the crowd."
         }
       ],
-      "answer": "(C)",
+      "answer": "(D)",
       "explanation": "文書3（フィードバック）の第2段落後半「However, Birch Hall was far too small for the crowd—many of us had to stand at the back for over an hour.（しかし、バーチホールは聴衆に対してあまりにも狭すぎました。私たちの多くが後方で1時間以上立ちっぱなしにならざるを得ませんでした）」と述べています。したがって (C)「プレゼンテーション会場が聴衆に対して不十分な広さだったこと」が正解です。",
       "translation": "【設問訳】クーパー氏は午後の体験に関してどのような不満を述べていますか？<br>(A) 登壇者が聴衆からの質疑応答の時間を取らなかった<br>(B) 音響マイクシステムが故障した<br>(C) プレゼン会場が聴衆に対して狭すぎた<br>(D) セッションが予定より30分近く遅れて始まった",
       "vocabulary": [
@@ -2034,19 +2034,19 @@ window.TOEIC_MOCK_DATA_01 = {
         },
         {
           "label": "(B)",
-          "text": "Biodegradable shopping bag materials"
+          "text": "AI-driven customer personalization strategies"
         },
         {
           "label": "(C)",
-          "text": "AI-driven customer personalization strategies"
+          "text": "Biodegradable shopping bag materials"
         },
         {
           "label": "(D)",
           "text": "Cross-border warehouse robotics"
         }
       ],
-      "answer": "(C)",
-      "explanation": "文書3（フィードバック）でクーパー氏は「The live case studies detailing automated email engagement algorithms were the highlight of my day!（自動化されたEメールエンゲージメントのアルゴリズムを詳述したライブ事例紹介が、今日のハイライトでした！）」と高く評価しています。文書3と文書2を照合すると、このセッションは Session B「AI-Driven Personalization Strategies（AI主導のパーソナライゼーション戦略）」です。したがって (C) が正解です。",
+      "answer": "(B)",
+      "explanation": "文書3（フィードバック）でクーパー氏は「The live case studies detailing automated email engagement algorithms were the highlight of my day!（自動化されたEメールエンゲージメントのアルゴリズムを詳述したライブ事例紹介が、今日のハイライトでした！）」と高く評価しています。文書3と文書2を照合すると、このセッションは Session B「AI-Driven Personalization Strategies（AI主導のパーソナライゼーション戦略）」です。したがって (B)が正解です。",
       "translation": "【設問訳】クーパー氏が最も価値があると評価したプレゼンテーションで扱われていたトピックは何ですか？<br>(A) キャッシュレス決済のセキュリティ仕組み<br>(B) 生分解性レジ袋の素材<br>(C) AI主導の顧客パーソナライゼーション戦略<br>(D) 国境を越えた倉庫ロボット技術",
       "vocabulary": [
         {

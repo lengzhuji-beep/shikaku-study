@@ -1,5 +1,5 @@
 /**
- * Shikakus - 宅地建物取引士 (宅建士) 分野・問題数選択＆1問ずつ集中ランダム出題スクリプト
+ * 資格対策ドットコム - 宅地建物取引士 (宅建士) 分野・問題数選択＆1問ずつ集中ランダム出題スクリプト
  */
 document.addEventListener('DOMContentLoaded', () => {
   const wizardSection = document.getElementById('wizardSection');
@@ -159,10 +159,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const headerNote = document.createElement('div');
     headerNote.className = 'card';
-    headerNote.style.cssText = 'padding:15px 20px; margin-bottom:20px; background:#edf4f0; border:1px solid #c6e6d4; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;';
+    headerNote.style.cssText = 'padding:15px 20px; margin-bottom:20px; background:#ebf8ff; border:1px solid #bee3f8; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;';
     headerNote.innerHTML = `
       <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#254337; font-weight:bold; font-size:1.05rem;">
+        <span style="color:#2b6cb0; font-weight:bold; font-size:1.05rem;">
           <i class="fas fa-star" style="color:#d69e2e;"></i> ブックマーク保存中の問題: ${bookmarkedQuestions.length} 問
         </span>
         <span style="font-size:0.85rem; color:#4a5568;">（星マークで解除）</span>
@@ -215,7 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="quiz-explanation-area" style="display:none;">
           <div class="quiz-result-title"></div>
-          <div class="quiz-explanation-body" style="padding:15px; background:#f7fafc; border-radius:6px; margin:15px 0;"></div>
+          <div class="quiz-explanation-body" style="padding:15px; background:#f7fafc; border-radius:6px; margin:15px 0;">
+            <strong>【解答・解説】</strong><br>${item.explanation}
+          </div>
         </div>
       `;
 
@@ -261,11 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             opt.classList.add('wrong-choice');
             resultTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${correctVal}）</span>`;
-          }
-
-          const expBody = card.querySelector('.quiz-explanation-body');
-          if (expBody) {
-            expBody.innerHTML = `<strong>【解答・解説】</strong><br>${item.explanation}`;
           }
 
           expArea.style.display = 'block';
@@ -403,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.innerHTML = `
       <div class="quiz-header-row">
         <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-          <span class="quiz-num-badge" style="font-size:0.95rem; padding:5px 12px; background:#edf4f0; color:#254337;">
+          <span class="quiz-num-badge" style="font-size:0.95rem; padding:5px 12px; background:#ebf8ff; color:#2b6cb0;">
             第 ${qNum} 問 / 全 ${total} 問
           </span>
           <span class="shikaku-card-badge ${item.badgeClass || 'badge-cat-rights'}" style="font-size:0.85rem;">
@@ -427,9 +424,11 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       <div class="quiz-explanation-area" style="display:none;">
         <div class="quiz-result-title"></div>
-        <div class="quiz-explanation-body" style="padding:15px; background:#f7fafc; border-radius:6px; margin:15px 0;"></div>
+        <div class="quiz-explanation-body" style="padding:15px; background:#f7fafc; border-radius:6px; margin:15px 0;">
+          <strong>【解答・解説】</strong><br>${item.explanation}
+        </div>
         <div class="next-question-bar" style="margin-top:20px; text-align:right;">
-          <button type="button" class="next-question-btn" id="nextQuizBtn" style="padding:12px 28px; font-size:1.05rem; font-weight:bold; background:#345d4d; color:white; border:none; border-radius:9999px; cursor:pointer; box-shadow:0 4px 12px rgba(52,93,77,0.22); transition:0.2s;">
+          <button type="button" class="next-question-btn" id="nextQuizBtn" style="padding:12px 28px; font-size:1.05rem; font-weight:bold; background:#3182ce; color:white; border:none; border-radius:6px; cursor:pointer; box-shadow:0 4px 6px rgba(49,130,206,0.25); transition:0.2s;">
             ${qNum < total ? '次の問題へ <i class="fas fa-arrow-right"></i>' : '結果を見る <i class="fas fa-check-circle"></i>'}
           </button>
         </div>
@@ -488,11 +487,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           opt.classList.add('wrong-choice');
           resultTitle.innerHTML = `<span style="color:#c53030; font-weight:bold; font-size:1.15rem;"><i class="fas fa-times-circle"></i> 不正解... （正解：${correctVal}）</span>`;
-        }
-
-        const expBody = card.querySelector('.quiz-explanation-body');
-        if (expBody) {
-          expBody.innerHTML = `<strong>【解答・解説】</strong><br>${item.explanation}`;
         }
 
         expArea.style.display = 'block';
@@ -624,7 +618,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr>
         <td style="text-align:center; font-weight:bold; width:18%;">問 ${idx + 1}</td>
         <td>${q.fieldName || '宅建'} ${q.subCategory ? `(${q.subCategory})` : ''}</td>
-        <td style="text-align:center; font-weight:bold; color:#254337; font-size:1.1rem; width:22%;">${q.answer}</td>
+        <td style="text-align:center; font-weight:bold; color:#2b6cb0; font-size:1.1rem; width:22%;">${q.answer}</td>
       </tr>
     `).join('');
 
@@ -678,7 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>${examTitle} プリント（全${total}問） | Shikakus</title>
+<title>${examTitle} プリント（全${total}問） | 資格対策ドットコム</title>
 <style>
   @page {
     size: A4 portrait;
@@ -730,7 +724,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 0 10px rgba(0,0,0,0.08);
   }
   .print-header {
-    border-bottom: 2px solid #254337;
+    border-bottom: 2px solid #2b6cb0;
     padding-bottom: 8px;
     margin-bottom: 20px;
     display: flex;
@@ -740,7 +734,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .print-title {
     font-size: 16pt;
     font-weight: bold;
-    color: #254337;
+    color: #2b6cb0;
   }
   .print-subtitle {
     font-size: 9pt;
@@ -786,7 +780,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .print-q-num {
     font-size: 11pt;
     font-weight: bold;
-    color: #254337;
+    color: #2b6cb0;
   }
   .print-q-cat {
     font-size: 8.5pt;
@@ -842,7 +836,7 @@ document.addEventListener('DOMContentLoaded', () => {
     font-size: 13pt;
     font-weight: bold;
     color: #2d3748;
-    border-left: 4px solid #254337;
+    border-left: 4px solid #2b6cb0;
     padding-left: 8px;
     margin: 20px 0 12px 0;
   }
@@ -857,8 +851,8 @@ document.addEventListener('DOMContentLoaded', () => {
     padding: 6px 10px;
   }
   .print-ans-table th {
-    background: #edf4f0;
-    color: #254337;
+    background: #ebf8ff;
+    color: #2b6cb0;
     text-align: center;
   }
   .print-expl-item {
@@ -915,7 +909,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="print-page-container">
     <div class="print-header">
       <div class="print-title">${examTitle} 【問題編】</div>
-      <div class="print-subtitle">Shikakus</div>
+      <div class="print-subtitle">資格対策ドットコム</div>
     </div>
     <div class="print-meta-box">
       <div>実施日：${new Date().toLocaleDateString('ja-JP')} ｜ 出題数：全 ${total} 問</div>
@@ -936,7 +930,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="print-page-container">
     <div class="print-header">
       <div class="print-title">${examTitle} 【解答・解説編】</div>
-      <div class="print-subtitle">Shikakus ｜ 正解と詳細解説一覧</div>
+      <div class="print-subtitle">資格対策ドットコム ｜ 正解と詳細解説一覧</div>
     </div>
 
     <div class="print-section-title">■ 正解一覧</div>
