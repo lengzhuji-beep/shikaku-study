@@ -45,16 +45,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* ヒーローセクション */
     .hero-container {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3.5rem;
-      align-items: center;
-      padding: 3.5rem 0 4.5rem;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: flex-start;
+      padding: 2.5rem 0 4rem;
+      max-width: 1140px !important;
     }
     @media (max-width: 960px) {
       .hero-container {
         grid-template-columns: 1fr;
         padding: 2rem 0 3rem;
         gap: 2.5rem;
+      }
+    }
+    .hero-title {
+      font-size: 2.45rem !important;
+      line-height: 1.35 !important;
+      letter-spacing: -0.01em !important;
+      margin-bottom: 20px !important;
+    }
+    @media (min-width: 961px) {
+      .hero-title-line {
+        display: inline-block;
+        white-space: nowrap;
+      }
+      /* 右側画像を下にずらして、タイトルが完全に2行で右側に綺麗に収まるように配置 */
+      .hero-visual {
+        margin-top: 85px !important;
+        max-width: 400px !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.55rem !important;
+        line-height: 1.35 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+      .hero-title-line {
+        display: inline !important;
+        white-space: normal !important;
       }
     }
     /* ヒーロー内 クイック無料演習リンク */
@@ -588,7 +618,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span>⚡</span> 登録不要・全問完全無料で解き放題！
           </div>
           <h1 class="hero-title">
-            スキマ時間で一発合格へ。<br>本試験過去問・演習がすべて無料。
+            <span class="hero-title-line">スキマ時間で一発合格へ。</span><br>
+            <span class="hero-title-line">本試験過去問・演習がすべて無料。</span>
           </h1>
           <p class="hero-subtitle">
             日商簿記・FP技能士・宅建・ITパスポート・TOEIC®の実戦過去問＆一問一答を全問無料公開。PC・スマホ対応で、ログインなし・今すぐ1問から解き始められます。
