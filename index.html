@@ -43,19 +43,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* ヒーローセクション */
+    .hero-section {
+      padding: 2rem 0 0.75rem !important;
+      width: 100% !important;
+    }
     .hero-container {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 2.5rem;
       align-items: flex-start;
-      padding: 2.5rem 0 4rem;
+      padding: 0.5rem 0 1rem;
       max-width: 1140px !important;
     }
     @media (max-width: 960px) {
+      .hero-section {
+        padding: 1.5rem 0 0.5rem !important;
+      }
       .hero-container {
         grid-template-columns: 1fr;
-        padding: 2rem 0 3rem;
-        gap: 2.5rem;
+        padding: 0 0 1.5rem;
+        gap: 2rem;
       }
     }
     .hero-title {
@@ -136,11 +143,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #ffffff !important;
     }
     .courses-section {
-      padding: 5rem 0 6rem;
+      padding: 1.5rem 0 5rem;
     }
     .section-header {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.25rem;
     }
     .section-title {
       font-size: 2.25rem;
